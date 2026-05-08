@@ -107,13 +107,13 @@ class EmailTemplateArgs:
 @pulumi.input_type
 class _EmailTemplateState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplate resources.
 
@@ -144,19 +144,19 @@ class _EmailTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The body of the Email. Its format has to be a well-formed HTML document.
 
@@ -165,67 +165,67 @@ class _EmailTemplateState:
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Email Template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject of the Email.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the Email Template.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -235,11 +235,11 @@ class EmailTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management Email Template.
@@ -378,11 +378,11 @@ class EmailTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,13 +419,13 @@ class EmailTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subject: Optional[pulumi.Input[_builtins.str]] = None,
-            template_name: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailTemplate':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailTemplate':
         """
         Get an existing EmailTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

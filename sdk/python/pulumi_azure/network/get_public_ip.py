@@ -339,8 +339,8 @@ def get_public_ip(name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_public_ip_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_public_ip_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPResult]:
     """
     Use this data source to access information about an existing Public IP Address.

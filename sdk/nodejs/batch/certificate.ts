@@ -197,39 +197,39 @@ export interface CertificateState {
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded contents of the certificate.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The generated name of the certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The public key of the certificate.
      */
-    publicData?: pulumi.Input<string>;
+    publicData?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The thumbprint of the certificate. Changing this forces a new resource to be created.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
     /**
      * The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
      */
-    thumbprintAlgorithm?: pulumi.Input<string>;
+    thumbprintAlgorithm?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface CertificateArgs {
     /**
      * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */

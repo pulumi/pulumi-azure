@@ -237,81 +237,81 @@ export interface KeyVaultState {
      *
      * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[] | undefined>;
     /**
      * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[] | undefined>;
     /**
      * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      */
-    enableRbacAuthorization?: pulumi.Input<boolean>;
+    enableRbacAuthorization?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
-    enabledForDeployment?: pulumi.Input<boolean>;
+    enabledForDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      */
-    enabledForDiskEncryption?: pulumi.Input<boolean>;
+    enabledForDiskEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      */
-    enabledForTemplateDeployment?: pulumi.Input<boolean>;
+    enabledForTemplateDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below.
      */
-    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls | undefined>;
     /**
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault? 
      *
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      *
      * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
-    rbacAuthorizationEnabled?: pulumi.Input<boolean>;
+    rbacAuthorizationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Key Vault, used for performing operations on keys and secrets.
      */
-    vaultUri?: pulumi.Input<string>;
+    vaultUri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -323,55 +323,55 @@ export interface KeyVaultArgs {
      *
      * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[] | undefined>;
     /**
      * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[] | undefined>;
     /**
      * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      */
-    enableRbacAuthorization?: pulumi.Input<boolean>;
+    enableRbacAuthorization?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
-    enabledForDeployment?: pulumi.Input<boolean>;
+    enabledForDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      */
-    enabledForDiskEncryption?: pulumi.Input<boolean>;
+    enabledForDiskEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      */
-    enabledForTemplateDeployment?: pulumi.Input<boolean>;
+    enabledForTemplateDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below.
      */
-    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls | undefined>;
     /**
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault? 
      *
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      *
      * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
-    rbacAuthorizationEnabled?: pulumi.Input<boolean>;
+    rbacAuthorizationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -385,11 +385,11 @@ export interface KeyVaultArgs {
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */

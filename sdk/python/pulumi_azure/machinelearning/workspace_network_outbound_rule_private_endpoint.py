@@ -22,8 +22,8 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
                  service_resource_id: pulumi.Input[_builtins.str],
                  sub_resource_target: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkspaceNetworkOutboundRulePrivateEndpoint resource.
 
@@ -97,37 +97,37 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkEnabled")
-    def spark_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def spark_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spark_enabled")
 
     @spark_enabled.setter
-    def spark_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def spark_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "spark_enabled", value)
 
 
 @pulumi.input_type
 class _WorkspaceNetworkOutboundRulePrivateEndpointState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_resource_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_resource_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceNetworkOutboundRulePrivateEndpoint resources.
 
@@ -159,19 +159,19 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceResourceId")
-    def service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 
@@ -180,24 +180,24 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
         return pulumi.get(self, "service_resource_id")
 
     @service_resource_id.setter
-    def service_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkEnabled")
-    def spark_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def spark_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spark_enabled")
 
     @spark_enabled.setter
-    def spark_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def spark_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "spark_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="subResourceTarget")
-    def sub_resource_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_resource_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
 
@@ -211,19 +211,19 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
         return pulumi.get(self, "sub_resource_target")
 
     @sub_resource_target.setter
-    def sub_resource_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_resource_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_resource_target", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -233,11 +233,11 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_resource_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_resource_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Machine Learning Workspace Network Outbound Rule Private Endpoint.
@@ -421,11 +421,11 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_resource_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_resource_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,11 +456,11 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            sub_resource_target: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceNetworkOutboundRulePrivateEndpoint':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spark_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sub_resource_target: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceNetworkOutboundRulePrivateEndpoint':
         """
         Get an existing WorkspaceNetworkOutboundRulePrivateEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

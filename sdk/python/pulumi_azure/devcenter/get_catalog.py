@@ -132,8 +132,8 @@ def get_catalog(dev_center_id: Optional[_builtins.str] = None,
         dev_center_id=pulumi.get(__ret__, 'dev_center_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_catalog_output(dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_catalog_output(dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Use this data source to access information about an existing Dev Center Catalog.

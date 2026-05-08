@@ -30,21 +30,21 @@ class ReplicatedVMArgs:
                  target_recovery_fabric_id: pulumi.Input[_builtins.str],
                  target_recovery_protection_container_id: pulumi.Input[_builtins.str],
                  target_resource_group_id: pulumi.Input[_builtins.str],
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicatedVM resource.
 
@@ -223,212 +223,212 @@ class ReplicatedVMArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]:
+    def managed_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]:
         """
         One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_disks")
 
     @managed_disks.setter
-    def managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]):
+    def managed_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]):
         pulumi.set(self, "managed_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="multiVmGroupName")
-    def multi_vm_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_vm_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         """
         return pulumi.get(self, "multi_vm_group_name")
 
     @multi_vm_group_name.setter
-    def multi_vm_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_vm_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_vm_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` block as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of availability set that the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_availability_set_id")
 
     @target_availability_set_id.setter
-    def target_availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetBootDiagnosticStorageAccountId")
-    def target_boot_diagnostic_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_boot_diagnostic_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
         """
         return pulumi.get(self, "target_boot_diagnostic_storage_account_id")
 
     @target_boot_diagnostic_storage_account_id.setter
-    def target_boot_diagnostic_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_boot_diagnostic_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_boot_diagnostic_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCapacityReservationGroupId")
-    def target_capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Capacity reservation group where the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_capacity_reservation_group_id")
 
     @target_capacity_reservation_group_id.setter
-    def target_capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEdgeZone")
-    def target_edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_edge_zone")
 
     @target_edge_zone.setter
-    def target_edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetProximityPlacementGroupId")
-    def target_proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of Proximity Placement Group the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_proximity_placement_group_id")
 
     @target_proximity_placement_group_id.setter
-    def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVirtualMachineScaleSetId")
-    def target_virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
         """
         return pulumi.get(self, "target_virtual_machine_scale_set_id")
 
     @target_virtual_machine_scale_set_id.setter
-    def target_virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_virtual_machine_scale_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVirtualMachineSize")
-    def target_virtual_machine_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_virtual_machine_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the size the Virtual Machine should have.
         """
         return pulumi.get(self, "target_virtual_machine_size")
 
     @target_virtual_machine_size.setter
-    def target_virtual_machine_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_virtual_machine_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_virtual_machine_size", value)
 
     @_builtins.property
     @pulumi.getter(name="targetZone")
-    def target_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_zone")
 
     @target_zone.setter
-    def target_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network to use when a test failover is done.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="unmanagedDisks")
-    def unmanaged_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]:
+    def unmanaged_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]:
         """
         One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "unmanaged_disks")
 
     @unmanaged_disks.setter
-    def unmanaged_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]):
+    def unmanaged_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]):
         pulumi.set(self, "unmanaged_disks", value)
 
 
 @pulumi.input_type
 class _ReplicatedVMState:
     def __init__(__self__, *,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_protection_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_protection_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
         """
         Input properties used for looking up and filtering ReplicatedVM resources.
 
@@ -508,290 +508,290 @@ class _ReplicatedVMState:
 
     @_builtins.property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]:
+    def managed_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]:
         """
         One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_disks")
 
     @managed_disks.setter
-    def managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]):
+    def managed_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]):
         pulumi.set(self, "managed_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="multiVmGroupName")
-    def multi_vm_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_vm_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         """
         return pulumi.get(self, "multi_vm_group_name")
 
     @multi_vm_group_name.setter
-    def multi_vm_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_vm_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_vm_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` block as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryReplicationPolicyId")
-    def recovery_replication_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_replication_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @recovery_replication_policy_id.setter
-    def recovery_replication_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_replication_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRecoveryFabricName")
-    def source_recovery_fabric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_recovery_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
     @source_recovery_fabric_name.setter
-    def source_recovery_fabric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_recovery_fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_recovery_fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRecoveryProtectionContainerName")
-    def source_recovery_protection_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_recovery_protection_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the protection container to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_protection_container_name")
 
     @source_recovery_protection_container_name.setter
-    def source_recovery_protection_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_recovery_protection_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_recovery_protection_container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the VM to replicate Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_vm_id")
 
     @source_vm_id.setter
-    def source_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_vm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of availability set that the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_availability_set_id")
 
     @target_availability_set_id.setter
-    def target_availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetBootDiagnosticStorageAccountId")
-    def target_boot_diagnostic_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_boot_diagnostic_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
         """
         return pulumi.get(self, "target_boot_diagnostic_storage_account_id")
 
     @target_boot_diagnostic_storage_account_id.setter
-    def target_boot_diagnostic_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_boot_diagnostic_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_boot_diagnostic_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCapacityReservationGroupId")
-    def target_capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Capacity reservation group where the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_capacity_reservation_group_id")
 
     @target_capacity_reservation_group_id.setter
-    def target_capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEdgeZone")
-    def target_edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_edge_zone")
 
     @target_edge_zone.setter
-    def target_edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetProximityPlacementGroupId")
-    def target_proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of Proximity Placement Group the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_proximity_placement_group_id")
 
     @target_proximity_placement_group_id.setter
-    def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRecoveryFabricId")
-    def target_recovery_fabric_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_recovery_fabric_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_fabric_id")
 
     @target_recovery_fabric_id.setter
-    def target_recovery_fabric_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_recovery_fabric_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_recovery_fabric_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRecoveryProtectionContainerId")
-    def target_recovery_protection_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_recovery_protection_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_protection_container_id")
 
     @target_recovery_protection_container_id.setter
-    def target_recovery_protection_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_recovery_protection_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_recovery_protection_container_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceGroupId")
-    def target_resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_group_id")
 
     @target_resource_group_id.setter
-    def target_resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVirtualMachineScaleSetId")
-    def target_virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
         """
         return pulumi.get(self, "target_virtual_machine_scale_set_id")
 
     @target_virtual_machine_scale_set_id.setter
-    def target_virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_virtual_machine_scale_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVirtualMachineSize")
-    def target_virtual_machine_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_virtual_machine_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the size the Virtual Machine should have.
         """
         return pulumi.get(self, "target_virtual_machine_size")
 
     @target_virtual_machine_size.setter
-    def target_virtual_machine_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_virtual_machine_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_virtual_machine_size", value)
 
     @_builtins.property
     @pulumi.getter(name="targetZone")
-    def target_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_zone")
 
     @target_zone.setter
-    def target_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network to use when a test failover is done.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="unmanagedDisks")
-    def unmanaged_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]:
+    def unmanaged_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]:
         """
         One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "unmanaged_disks")
 
     @unmanaged_disks.setter
-    def unmanaged_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]):
+    def unmanaged_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]]):
         pulumi.set(self, "unmanaged_disks", value)
 
 
@@ -801,30 +801,30 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_protection_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_protection_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
@@ -923,8 +923,8 @@ class ReplicatedVM(pulumi.CustomResource):
             name="policy",
             resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+            recovery_point_retention_in_minutes=int(24 * 60),
+            application_consistent_snapshot_frequency_in_minutes=int(4 * 60))
         container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
             name="container-mapping",
             resource_group_name=secondary.name,
@@ -1138,8 +1138,8 @@ class ReplicatedVM(pulumi.CustomResource):
             name="policy",
             resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+            recovery_point_retention_in_minutes=int(24 * 60),
+            application_consistent_snapshot_frequency_in_minutes=int(4 * 60))
         container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
             name="container-mapping",
             resource_group_name=secondary.name,
@@ -1238,30 +1238,30 @@ class ReplicatedVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_protection_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_protection_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1323,30 +1323,30 @@ class ReplicatedVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
-            multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
-            recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_recovery_protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_recovery_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_recovery_protection_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
-            target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None) -> 'ReplicatedVM':
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+            multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+            recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_protection_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+            target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None) -> 'ReplicatedVM':
         """
         Get an existing ReplicatedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

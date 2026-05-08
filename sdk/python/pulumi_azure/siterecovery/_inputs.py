@@ -56,19 +56,19 @@ __all__ = [
 ]
 
 class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
-    authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
     > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
     """
-    automation_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    automation_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 
     > **Note:** `automation_account_id` is required when `enabled` is specified.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 
@@ -78,9 +78,9 @@ class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
 @pulumi.input_type
 class ProtectionContainerMappingAutomaticUpdateArgs:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] authentication_type: The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
                
@@ -101,7 +101,7 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
@@ -110,12 +110,12 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="automationAccountId")
-    def automation_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 
@@ -124,12 +124,12 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         return pulumi.get(self, "automation_account_id")
 
     @automation_account_id.setter
-    def automation_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 
@@ -138,7 +138,7 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -163,11 +163,11 @@ class ReplicatedVMManagedDiskArgsDict(TypedDict):
     """
     Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
     """
-    target_disk_encryption: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict']]
+    target_disk_encryption: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]]
     """
     A `target_disk_encryption` block as defined below.
     """
-    target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
@@ -182,8 +182,8 @@ class ReplicatedVMManagedDiskArgs:
                  target_disk_type: pulumi.Input[_builtins.str],
                  target_replica_disk_type: pulumi.Input[_builtins.str],
                  target_resource_group_id: pulumi.Input[_builtins.str],
-                 target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
-                 target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_disk_encryption: pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
+                 target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] disk_id: Id of disk that should be replicated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
@@ -267,19 +267,19 @@ class ReplicatedVMManagedDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetDiskEncryption")
-    def target_disk_encryption(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]:
+    def target_disk_encryption(self) -> pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]:
         """
         A `target_disk_encryption` block as defined below.
         """
         return pulumi.get(self, "target_disk_encryption")
 
     @target_disk_encryption.setter
-    def target_disk_encryption(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]):
+    def target_disk_encryption(self, value: pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]):
         pulumi.set(self, "target_disk_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDiskEncryptionSetId")
-    def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
@@ -288,7 +288,7 @@ class ReplicatedVMManagedDiskArgs:
         return pulumi.get(self, "target_disk_encryption_set_id")
 
     @target_disk_encryption_set_id.setter
-    def target_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_disk_encryption_set_id", value)
 
 
@@ -297,7 +297,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict(TypedDict):
     """
     A `disk_encryption_key` block as defined below.
     """
-    key_encryption_key: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict']]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]]
     """
     A `key_encryption_key` block as defined below.
     """
@@ -306,7 +306,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict(TypedDict):
 class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
     def __init__(__self__, *,
                  disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
-                 key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None):
+                 key_encryption_key: pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None):
         """
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
@@ -329,14 +329,14 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]:
         """
         A `key_encryption_key` block as defined below.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
 
@@ -435,35 +435,35 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
 
 
 class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
-    failover_test_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    failover_test_public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the public IP object to use when a test failover is done.
     """
-    failover_test_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    failover_test_static_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Static IP to assign when a test failover is done.
     """
-    failover_test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    failover_test_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subnet to use when a test failover is done.
     """
-    recovery_load_balancer_backend_address_pool_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    recovery_load_balancer_backend_address_pool_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
     """
-    recovery_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    recovery_public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the public IP object to use when a failover is done.
     """
-    source_network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    source_network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required if the network_interface block is specified) Id source network interface.
     """
-    target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    target_static_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Static IP to assign when a failover is done.
     """
-    target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subnet to use when a failover is done.
     """
@@ -471,14 +471,14 @@ class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicatedVMNetworkInterfaceArgs:
     def __init__(__self__, *,
-                 failover_test_public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 failover_test_static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 failover_test_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recovery_public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subnet_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 failover_test_public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 failover_test_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 failover_test_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_load_balancer_backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recovery_public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subnet_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] failover_test_public_ip_address_id: Id of the public IP object to use when a test failover is done.
         :param pulumi.Input[_builtins.str] failover_test_static_ip: Static IP to assign when a test failover is done.
@@ -508,98 +508,98 @@ class ReplicatedVMNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverTestPublicIpAddressId")
-    def failover_test_public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover_test_public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the public IP object to use when a test failover is done.
         """
         return pulumi.get(self, "failover_test_public_ip_address_id")
 
     @failover_test_public_ip_address_id.setter
-    def failover_test_public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover_test_public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover_test_public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverTestStaticIp")
-    def failover_test_static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover_test_static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP to assign when a test failover is done.
         """
         return pulumi.get(self, "failover_test_static_ip")
 
     @failover_test_static_ip.setter
-    def failover_test_static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover_test_static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover_test_static_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverTestSubnetName")
-    def failover_test_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover_test_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subnet to use when a test failover is done.
         """
         return pulumi.get(self, "failover_test_subnet_name")
 
     @failover_test_subnet_name.setter
-    def failover_test_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover_test_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover_test_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryLoadBalancerBackendAddressPoolIds")
-    def recovery_load_balancer_backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def recovery_load_balancer_backend_address_pool_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
         """
         return pulumi.get(self, "recovery_load_balancer_backend_address_pool_ids")
 
     @recovery_load_balancer_backend_address_pool_ids.setter
-    def recovery_load_balancer_backend_address_pool_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def recovery_load_balancer_backend_address_pool_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recovery_load_balancer_backend_address_pool_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPublicIpAddressId")
-    def recovery_public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the public IP object to use when a failover is done.
         """
         return pulumi.get(self, "recovery_public_ip_address_id")
 
     @recovery_public_ip_address_id.setter
-    def recovery_public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceNetworkInterfaceId")
-    def source_network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required if the network_interface block is specified) Id source network interface.
         """
         return pulumi.get(self, "source_network_interface_id")
 
     @source_network_interface_id.setter
-    def source_network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetStaticIp")
-    def target_static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP to assign when a failover is done.
         """
         return pulumi.get(self, "target_static_ip")
 
     @target_static_ip.setter
-    def target_static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_static_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubnetName")
-    def target_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subnet to use when a failover is done.
         """
         return pulumi.get(self, "target_subnet_name")
 
     @target_subnet_name.setter
-    def target_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_subnet_name", value)
 
 
@@ -670,21 +670,21 @@ class ReplicatedVMUnmanagedDiskArgs:
 
 
 class ReplicationRecoveryPlanAzureToAzureSettingsArgsDict(TypedDict):
-    primary_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
+    primary_edge_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
     """
-    primary_zone: NotRequired[pulumi.Input[_builtins.str]]
+    primary_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
     """
-    recovery_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
+    recovery_edge_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
     > **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
     """
-    recovery_zone: NotRequired[pulumi.Input[_builtins.str]]
+    recovery_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
@@ -694,10 +694,10 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
     def __init__(__self__, *,
-                 primary_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] primary_edge_zone: The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
         :param pulumi.Input[_builtins.str] primary_zone: The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
@@ -719,31 +719,31 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryEdgeZone")
-    def primary_edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
         """
         return pulumi.get(self, "primary_edge_zone")
 
     @primary_edge_zone.setter
-    def primary_edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryZone")
-    def primary_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
         """
         return pulumi.get(self, "primary_zone")
 
     @primary_zone.setter
-    def primary_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryEdgeZone")
-    def recovery_edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
@@ -752,12 +752,12 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
         return pulumi.get(self, "recovery_edge_zone")
 
     @recovery_edge_zone.setter
-    def recovery_edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryZone")
-    def recovery_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
@@ -766,20 +766,20 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
         return pulumi.get(self, "recovery_zone")
 
     @recovery_zone.setter
-    def recovery_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_zone", value)
 
 
 class ReplicationRecoveryPlanBootRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict']]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict']]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """
-    replicated_protected_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    replicated_protected_items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more protected VM IDs.
     """
@@ -787,9 +787,9 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationRecoveryPlanBootRecoveryGroupArgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
-                 replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 post_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
+                 pre_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
+                 replicated_protected_items: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
@@ -804,38 +804,38 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="replicatedProtectedItems")
-    def replicated_protected_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replicated_protected_items(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more protected VM IDs.
         """
         return pulumi.get(self, "replicated_protected_items")
 
     @replicated_protected_items.setter
-    def replicated_protected_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replicated_protected_items(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replicated_protected_items", value)
 
 
@@ -856,25 +856,25 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -888,10 +888,10 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -973,7 +973,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -982,12 +982,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -996,12 +996,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -1010,12 +1010,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -1024,7 +1024,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
@@ -1045,25 +1045,25 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -1077,10 +1077,10 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -1162,7 +1162,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -1171,12 +1171,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -1185,12 +1185,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -1199,12 +1199,12 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -1213,16 +1213,16 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
 class ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict']]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict']]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """
@@ -1230,8 +1230,8 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None):
+                 post_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
+                 pre_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
@@ -1243,26 +1243,26 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
 
@@ -1283,25 +1283,25 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -1315,10 +1315,10 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -1400,7 +1400,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -1409,12 +1409,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -1423,12 +1423,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -1437,12 +1437,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -1451,7 +1451,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
@@ -1472,25 +1472,25 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -1504,10 +1504,10 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -1589,7 +1589,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -1598,12 +1598,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -1612,12 +1612,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -1626,12 +1626,12 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -1640,16 +1640,16 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
 class ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict']]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict']]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """
@@ -1657,8 +1657,8 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None):
+                 post_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
+                 pre_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
@@ -1670,26 +1670,26 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
 
@@ -1710,25 +1710,25 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -1742,10 +1742,10 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -1827,7 +1827,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -1836,12 +1836,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -1850,12 +1850,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -1864,12 +1864,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -1878,7 +1878,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
@@ -1899,25 +1899,25 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict(TypedDict):
     """
     Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     """
-    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    fabric_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
     > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
     """
-    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    manual_action_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions of manual action.
 
     > **Note:** This property is required when `type` is set to `ManualActionDetails`.
     """
-    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    runbook_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of runbook.
 
     > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
     """
-    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    script_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path of action script.
 
@@ -1931,10 +1931,10 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 fabric_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_action_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 fabric_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_action_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
@@ -2016,7 +2016,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="fabricLocation")
-    def fabric_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fabric_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
@@ -2025,12 +2025,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         return pulumi.get(self, "fabric_location")
 
     @fabric_location.setter
-    def fabric_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fabric_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fabric_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manualActionInstruction")
-    def manual_action_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_action_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions of manual action.
 
@@ -2039,12 +2039,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         return pulumi.get(self, "manual_action_instruction")
 
     @manual_action_instruction.setter
-    def manual_action_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_action_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_action_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookId")
-    def runbook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of runbook.
 
@@ -2053,12 +2053,12 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         return pulumi.get(self, "runbook_id")
 
     @runbook_id.setter
-    def runbook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptPath")
-    def script_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path of action script.
 
@@ -2067,7 +2067,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         return pulumi.get(self, "script_path")
 
     @script_path.setter
-    def script_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_path", value)
 
 
@@ -2080,11 +2080,11 @@ class VmwareReplicatedVmManagedDiskArgsDict(TypedDict):
     """
     The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
     """
-    log_storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    log_storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the storage account that should be used for logging during replication.
     """
-    target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
     """
@@ -2094,8 +2094,8 @@ class VmwareReplicatedVmManagedDiskArgs:
     def __init__(__self__, *,
                  disk_id: pulumi.Input[_builtins.str],
                  target_disk_type: pulumi.Input[_builtins.str],
-                 log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] disk_id: The ID of the disk to be replicated.
         :param pulumi.Input[_builtins.str] target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
@@ -2135,26 +2135,26 @@ class VmwareReplicatedVmManagedDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="logStorageAccountId")
-    def log_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the storage account that should be used for logging during replication.
         """
         return pulumi.get(self, "log_storage_account_id")
 
     @log_storage_account_id.setter
-    def log_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDiskEncryptionSetId")
-    def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
 
     @target_disk_encryption_set_id.setter
-    def target_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_disk_encryption_set_id", value)
 
 
@@ -2167,15 +2167,15 @@ class VmwareReplicatedVmNetworkInterfaceArgsDict(TypedDict):
     """
     Mac address of the network interface of source VM.
     """
-    target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    target_static_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Static IP to assign when a failover is done.
     """
-    target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subnet to use when a failover is done.
     """
-    test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    test_subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subnet to use when a test failover is done.
     """
@@ -2185,9 +2185,9 @@ class VmwareReplicatedVmNetworkInterfaceArgs:
     def __init__(__self__, *,
                  is_primary: pulumi.Input[_builtins.bool],
                  source_mac_address: pulumi.Input[_builtins.str],
-                 target_static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_subnet_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_subnet_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_primary: Whether this `network_interface` is primary for the replicated VM.
         :param pulumi.Input[_builtins.str] source_mac_address: Mac address of the network interface of source VM.
@@ -2230,38 +2230,38 @@ class VmwareReplicatedVmNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetStaticIp")
-    def target_static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP to assign when a failover is done.
         """
         return pulumi.get(self, "target_static_ip")
 
     @target_static_ip.setter
-    def target_static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_static_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubnetName")
-    def target_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subnet to use when a failover is done.
         """
         return pulumi.get(self, "target_subnet_name")
 
     @target_subnet_name.setter
-    def target_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="testSubnetName")
-    def test_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subnet to use when a test failover is done.
         """
         return pulumi.get(self, "test_subnet_name")
 
     @test_subnet_name.setter
-    def test_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_subnet_name", value)
 
 

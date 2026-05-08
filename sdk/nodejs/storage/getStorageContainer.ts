@@ -147,7 +147,7 @@ export interface GetStorageContainerOutputArgs {
     /**
      * A mapping of MetaData for this Container.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Container.
      */
@@ -157,9 +157,9 @@ export interface GetStorageContainerOutputArgs {
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }

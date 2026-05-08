@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                     .build()).result().length().applyValue(_length -> StdFunctions.split(SplitArgs.builder()
  *                     .separator("/")
  *                     .text(builtin.id())
- *                     .build()).result()[_length.applyValue(___convert -> ___convert - 1)]))
+ *                     .build()).result()[_length - 1]))
  *                 .build())
  *             .build());
  * 

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ApiManagementId = exampleService.Id,
     ///         Name = "example-policy-fragment",
     ///         Format = "xml",
-    ///         Value = Std.Index.File.Invoke(new()
+    ///         Value = Std.File.Invoke(new()
     ///         {
     ///             Input = "policy-fragment-1.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -199,23 +199,23 @@ export interface FlexibleServerFirewallRuleState {
      *
      * > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      */
-    endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Start IP Address associated with this Firewall Rule.
      */
-    startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -231,7 +231,7 @@ export interface FlexibleServerFirewallRuleArgs {
     /**
      * Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
      */

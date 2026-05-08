@@ -133,23 +133,23 @@ export interface ClusterState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface ClusterArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
      */
@@ -175,5 +175,5 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

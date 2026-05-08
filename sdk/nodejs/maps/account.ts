@@ -184,53 +184,53 @@ export interface AccountState {
     /**
      * A `cors` block as defined below
      */
-    cors?: pulumi.Input<inputs.maps.AccountCors>;
+    cors?: pulumi.Input<inputs.maps.AccountCors | undefined>;
     /**
      * One or more `dataStore` blocks as defined below.
      */
-    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[]>;
+    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.maps.AccountIdentity>;
+    identity?: pulumi.Input<inputs.maps.AccountIdentity | undefined>;
     /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary key used to authenticate and authorize access to the Maps REST APIs.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary key used to authenticate and authorize access to the Maps REST APIs.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      *
      * > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A unique identifier for the Maps Account.
      */
-    xMsClientId?: pulumi.Input<string>;
+    xMsClientId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -240,27 +240,27 @@ export interface AccountArgs {
     /**
      * A `cors` block as defined below
      */
-    cors?: pulumi.Input<inputs.maps.AccountCors>;
+    cors?: pulumi.Input<inputs.maps.AccountCors | undefined>;
     /**
      * One or more `dataStore` blocks as defined below.
      */
-    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[]>;
+    dataStores?: pulumi.Input<pulumi.Input<inputs.maps.AccountDataStore>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.maps.AccountIdentity>;
+    identity?: pulumi.Input<inputs.maps.AccountIdentity | undefined>;
     /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
      */
@@ -274,5 +274,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -23,13 +23,13 @@ class PartnerNamespaceArgs:
     def __init__(__self__, *,
                  partner_registration_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerNamespace resource.
 
@@ -86,102 +86,102 @@ class PartnerNamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicRoutingMode")
-    def partner_topic_routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_topic_routing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partner topic routing mode. Possible values are `ChannelNameHeader` and `SourceEventAttribute`. Defaults to `ChannelNameHeader`. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "partner_topic_routing_mode")
 
     @partner_topic_routing_mode.setter
-    def partner_topic_routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_topic_routing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_topic_routing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Event Grid Partner Namespace.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PartnerNamespaceState:
     def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PartnerNamespace resources.
 
@@ -219,122 +219,122 @@ class _PartnerNamespaceState:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint for the Event Grid Partner Namespace.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationId")
-    def partner_registration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the Event Grid Partner Registration that this namespace is associated with. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "partner_registration_id")
 
     @partner_registration_id.setter
-    def partner_registration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicRoutingMode")
-    def partner_topic_routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_topic_routing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partner topic routing mode. Possible values are `ChannelNameHeader` and `SourceEventAttribute`. Defaults to `ChannelNameHeader`. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "partner_topic_routing_mode")
 
     @partner_topic_routing_mode.setter
-    def partner_topic_routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_topic_routing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_topic_routing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Event Grid Partner Namespace should exist. Changing this forces a new Event Grid Partner Namespace to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Event Grid Partner Namespace.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -344,15 +344,15 @@ class PartnerNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Event Grid Partner Namespace.
@@ -463,15 +463,15 @@ class PartnerNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,16 +505,16 @@ class PartnerNamespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partner_registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            partner_topic_routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PartnerNamespace':
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PartnerNamespace':
         """
         Get an existing PartnerNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

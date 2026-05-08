@@ -84,7 +84,7 @@ class CertifiateCertificateArgsDict(TypedDict):
     """
     The base64-encoded certificate contents.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password associated with the certificate.
 
@@ -114,7 +114,7 @@ class CertifiateCertificateArgsDict(TypedDict):
 class CertifiateCertificateArgs:
     def __init__(__self__, *,
                  contents: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] contents: The base64-encoded certificate contents.
         :param pulumi.Input[_builtins.str] password: The password associated with the certificate.
@@ -158,7 +158,7 @@ class CertifiateCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the certificate.
 
@@ -186,32 +186,32 @@ class CertifiateCertificateArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
 class CertifiateCertificateAttributeArgsDict(TypedDict):
-    created: NotRequired[pulumi.Input[_builtins.str]]
+    created: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The create time of the Key Vault Certificate.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the Key Vault Certificate is enabled.
     """
-    expires: NotRequired[pulumi.Input[_builtins.str]]
+    expires: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The expires time of the Key Vault Certificate.
     """
-    not_before: NotRequired[pulumi.Input[_builtins.str]]
+    not_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The not before valid time of the Key Vault Certificate.
     """
-    recovery_level: NotRequired[pulumi.Input[_builtins.str]]
+    recovery_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deletion recovery level of the Key Vault Certificate.
     """
-    updated: NotRequired[pulumi.Input[_builtins.str]]
+    updated: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The recent update time of the Key Vault Certificate.
     """
@@ -219,12 +219,12 @@ class CertifiateCertificateAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class CertifiateCertificateAttributeArgs:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created: The create time of the Key Vault Certificate.
         :param pulumi.Input[_builtins.bool] enabled: whether the Key Vault Certificate is enabled.
@@ -248,74 +248,74 @@ class CertifiateCertificateAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The create time of the Key Vault Certificate.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the Key Vault Certificate is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expires time of the Key Vault Certificate.
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The not before valid time of the Key Vault Certificate.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryLevel")
-    def recovery_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deletion recovery level of the Key Vault Certificate.
         """
         return pulumi.get(self, "recovery_level")
 
     @recovery_level.setter
-    def recovery_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recent update time of the Key Vault Certificate.
         """
         return pulumi.get(self, "updated")
 
     @updated.setter
-    def updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated", value)
 
 
@@ -332,11 +332,11 @@ class CertifiateCertificatePolicyArgsDict(TypedDict):
     """
     A `secret_properties` block as defined below.
     """
-    lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgsDict']]]]
+    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]]
     """
     A `lifetime_action` block as defined below.
     """
-    x509_certificate_properties: NotRequired[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgsDict']]
+    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]]
     """
     A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
     """
@@ -347,8 +347,8 @@ class CertifiateCertificatePolicyArgs:
                  issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'],
                  key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'],
                  secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
-                 x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None):
+                 lifetime_actions: pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
+                 x509_certificate_properties: pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None):
         """
         :param pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
         :param pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
@@ -402,26 +402,26 @@ class CertifiateCertificatePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="x509CertificateProperties")
-    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]:
+    def x509_certificate_properties(self) -> pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]:
         """
         A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         return pulumi.get(self, "x509_certificate_properties")
 
     @x509_certificate_properties.setter
-    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]):
+    def x509_certificate_properties(self, value: pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]):
         pulumi.set(self, "x509_certificate_properties", value)
 
 
@@ -466,11 +466,11 @@ class CertifiateCertificatePolicyKeyPropertiesArgsDict(TypedDict):
     """
     Is the key reusable?
     """
-    curve: NotRequired[pulumi.Input[_builtins.str]]
+    curve: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
     """
-    key_size: NotRequired[pulumi.Input[_builtins.int]]
+    key_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
     """
@@ -481,8 +481,8 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
                  exportable: pulumi.Input[_builtins.bool],
                  key_type: pulumi.Input[_builtins.str],
                  reuse_key: pulumi.Input[_builtins.bool],
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] exportable: Is this certificate exportable?
         :param pulumi.Input[_builtins.str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
@@ -536,26 +536,26 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
 
@@ -635,11 +635,11 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
 
 
 class CertifiateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
-    days_before_expiry: NotRequired[pulumi.Input[_builtins.int]]
+    days_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
     """
-    lifetime_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    lifetime_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
     """
@@ -647,8 +647,8 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
     def __init__(__self__, *,
-                 days_before_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 days_before_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime_percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         :param pulumi.Input[_builtins.int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
@@ -660,26 +660,26 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_before_expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
     @days_before_expiry.setter
-    def days_before_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_before_expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_before_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
     @lifetime_percentage.setter
-    def lifetime_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime_percentage", value)
 
 
@@ -724,11 +724,11 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
     """
     The Certificates Validity Period in Months.
     """
-    extended_key_usages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    extended_key_usages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Extended/Enhanced Key Usages.
     """
-    subject_alternative_names: NotRequired[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]]
     """
     A `subject_alternative_names` block as defined below.
     """
@@ -739,8 +739,8 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
                  key_usages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subject: pulumi.Input[_builtins.str],
                  validity_in_months: pulumi.Input[_builtins.int],
-                 extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
+                 extended_key_usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_alternative_names: pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         :param pulumi.Input[_builtins.str] subject: The Certificate's Subject.
@@ -794,39 +794,39 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extended_key_usages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Extended/Enhanced Key Usages.
         """
         return pulumi.get(self, "extended_key_usages")
 
     @extended_key_usages.setter
-    def extended_key_usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extended_key_usages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_key_usages", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
+    def subject_alternative_names(self) -> pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
         A `subject_alternative_names` block as defined below.
         """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
+    def subject_alternative_names(self, value: pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
         pulumi.set(self, "subject_alternative_names", value)
 
 
 class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict(TypedDict):
-    dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of alternative DNS names (FQDNs) identified by the Certificate.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of email addresses identified by this Certificate.
     """
-    upns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    upns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Principal Names identified by the Certificate.
     """
@@ -834,9 +834,9 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 @pulumi.input_type
 class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
-                 dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 upns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 upns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: A list of email addresses identified by this Certificate.
@@ -851,38 +851,38 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
     @_builtins.property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate.
         """
         return pulumi.get(self, "dns_names")
 
     @dns_names.setter
-    def dns_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email addresses identified by this Certificate.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def upns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Principal Names identified by the Certificate.
         """
         return pulumi.get(self, "upns")
 
     @upns.setter
-    def upns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def upns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "upns", value)
 
 
@@ -891,7 +891,7 @@ class CertificateCertificateArgsDict(TypedDict):
     """
     The base64-encoded certificate contents.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password associated with the certificate.
 
@@ -921,7 +921,7 @@ class CertificateCertificateArgsDict(TypedDict):
 class CertificateCertificateArgs:
     def __init__(__self__, *,
                  contents: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] contents: The base64-encoded certificate contents.
         :param pulumi.Input[_builtins.str] password: The password associated with the certificate.
@@ -965,7 +965,7 @@ class CertificateCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the certificate.
 
@@ -993,32 +993,32 @@ class CertificateCertificateArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
 class CertificateCertificateAttributeArgsDict(TypedDict):
-    created: NotRequired[pulumi.Input[_builtins.str]]
+    created: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The create time of the Key Vault Certificate.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     whether the Key Vault Certificate is enabled.
     """
-    expires: NotRequired[pulumi.Input[_builtins.str]]
+    expires: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The expires time of the Key Vault Certificate.
     """
-    not_before: NotRequired[pulumi.Input[_builtins.str]]
+    not_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The not before valid time of the Key Vault Certificate.
     """
-    recovery_level: NotRequired[pulumi.Input[_builtins.str]]
+    recovery_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deletion recovery level of the Key Vault Certificate.
     """
-    updated: NotRequired[pulumi.Input[_builtins.str]]
+    updated: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The recent update time of the Key Vault Certificate.
     """
@@ -1026,12 +1026,12 @@ class CertificateCertificateAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateCertificateAttributeArgs:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created: The create time of the Key Vault Certificate.
         :param pulumi.Input[_builtins.bool] enabled: whether the Key Vault Certificate is enabled.
@@ -1055,74 +1055,74 @@ class CertificateCertificateAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The create time of the Key Vault Certificate.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the Key Vault Certificate is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expires time of the Key Vault Certificate.
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The not before valid time of the Key Vault Certificate.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryLevel")
-    def recovery_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deletion recovery level of the Key Vault Certificate.
         """
         return pulumi.get(self, "recovery_level")
 
     @recovery_level.setter
-    def recovery_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recent update time of the Key Vault Certificate.
         """
         return pulumi.get(self, "updated")
 
     @updated.setter
-    def updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated", value)
 
 
@@ -1139,11 +1139,11 @@ class CertificateCertificatePolicyArgsDict(TypedDict):
     """
     A `secret_properties` block as defined below.
     """
-    lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgsDict']]]]
+    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]]
     """
     A `lifetime_action` block as defined below.
     """
-    x509_certificate_properties: NotRequired[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgsDict']]
+    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgs']]]
     """
     A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
     """
@@ -1154,8 +1154,8 @@ class CertificateCertificatePolicyArgs:
                  issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'],
                  key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'],
                  secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
-                 x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None):
+                 lifetime_actions: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
+                 x509_certificate_properties: pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None):
         """
         :param pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
         :param pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
@@ -1209,26 +1209,26 @@ class CertificateCertificatePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="x509CertificateProperties")
-    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']]:
+    def x509_certificate_properties(self) -> pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgs']]:
         """
         A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         return pulumi.get(self, "x509_certificate_properties")
 
     @x509_certificate_properties.setter
-    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']]):
+    def x509_certificate_properties(self, value: pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgs']]):
         pulumi.set(self, "x509_certificate_properties", value)
 
 
@@ -1273,11 +1273,11 @@ class CertificateCertificatePolicyKeyPropertiesArgsDict(TypedDict):
     """
     Is the key reusable?
     """
-    curve: NotRequired[pulumi.Input[_builtins.str]]
+    curve: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
     """
-    key_size: NotRequired[pulumi.Input[_builtins.int]]
+    key_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
     """
@@ -1288,8 +1288,8 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
                  exportable: pulumi.Input[_builtins.bool],
                  key_type: pulumi.Input[_builtins.str],
                  reuse_key: pulumi.Input[_builtins.bool],
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] exportable: Is this certificate exportable?
         :param pulumi.Input[_builtins.str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
@@ -1343,26 +1343,26 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
 
@@ -1442,11 +1442,11 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
 
 
 class CertificateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
-    days_before_expiry: NotRequired[pulumi.Input[_builtins.int]]
+    days_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
     """
-    lifetime_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    lifetime_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
     """
@@ -1454,8 +1454,8 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateCertificatePolicyLifetimeActionTriggerArgs:
     def __init__(__self__, *,
-                 days_before_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 days_before_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime_percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         :param pulumi.Input[_builtins.int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
@@ -1467,26 +1467,26 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_before_expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
     @days_before_expiry.setter
-    def days_before_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_before_expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_before_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
     @lifetime_percentage.setter
-    def lifetime_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime_percentage", value)
 
 
@@ -1531,11 +1531,11 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
     """
     The Certificates Validity Period in Months.
     """
-    extended_key_usages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    extended_key_usages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Extended/Enhanced Key Usages.
     """
-    subject_alternative_names: NotRequired[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]]
     """
     A `subject_alternative_names` block as defined below.
     """
@@ -1546,8 +1546,8 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
                  key_usages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subject: pulumi.Input[_builtins.str],
                  validity_in_months: pulumi.Input[_builtins.int],
-                 extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
+                 extended_key_usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_alternative_names: pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         :param pulumi.Input[_builtins.str] subject: The Certificate's Subject.
@@ -1601,39 +1601,39 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extended_key_usages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Extended/Enhanced Key Usages.
         """
         return pulumi.get(self, "extended_key_usages")
 
     @extended_key_usages.setter
-    def extended_key_usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extended_key_usages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_key_usages", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
+    def subject_alternative_names(self) -> pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
         A `subject_alternative_names` block as defined below.
         """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
+    def subject_alternative_names(self, value: pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
         pulumi.set(self, "subject_alternative_names", value)
 
 
 class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict(TypedDict):
-    dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of alternative DNS names (FQDNs) identified by the Certificate.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of email addresses identified by this Certificate.
     """
-    upns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    upns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Principal Names identified by the Certificate.
     """
@@ -1641,9 +1641,9 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 @pulumi.input_type
 class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
-                 dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 upns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 upns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: A list of email addresses identified by this Certificate.
@@ -1658,38 +1658,38 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
     @_builtins.property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate.
         """
         return pulumi.get(self, "dns_names")
 
     @dns_names.setter
-    def dns_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email addresses identified by this Certificate.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def upns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Principal Names identified by the Certificate.
         """
         return pulumi.get(self, "upns")
 
     @upns.setter
-    def upns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def upns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "upns", value)
 
 
@@ -1698,11 +1698,11 @@ class CertificateContactsContactArgsDict(TypedDict):
     """
     E-mail address of the contact.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the contact.
     """
-    phone: NotRequired[pulumi.Input[_builtins.str]]
+    phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone number of the contact.
     """
@@ -1711,8 +1711,8 @@ class CertificateContactsContactArgsDict(TypedDict):
 class CertificateContactsContactArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email: E-mail address of the contact.
         :param pulumi.Input[_builtins.str] name: Name of the contact.
@@ -1738,26 +1738,26 @@ class CertificateContactsContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the contact.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone number of the contact.
         """
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
 
@@ -1766,15 +1766,15 @@ class CertificateIssuerAdminArgsDict(TypedDict):
     """
     E-mail address of the admin.
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name of the admin.
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last name of the admin.
     """
-    phone: NotRequired[pulumi.Input[_builtins.str]]
+    phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone number of the admin.
     """
@@ -1783,9 +1783,9 @@ class CertificateIssuerAdminArgsDict(TypedDict):
 class CertificateIssuerAdminArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[_builtins.str],
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None):
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email_address: E-mail address of the admin.
         :param pulumi.Input[_builtins.str] first_name: First name of the admin.
@@ -1814,51 +1814,51 @@ class CertificateIssuerAdminArgs:
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name of the admin.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name of the admin.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone number of the admin.
         """
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
 
 class KeyRotationPolicyArgsDict(TypedDict):
-    automatic: NotRequired[pulumi.Input['KeyRotationPolicyAutomaticArgsDict']]
+    automatic: NotRequired[pulumi.Input[Optional['KeyRotationPolicyAutomaticArgs']]]
     """
     An `automatic` block as defined below.
     """
-    expire_after: NotRequired[pulumi.Input[_builtins.str]]
+    expire_after: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
     """
-    notify_before_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    notify_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
     """
@@ -1866,9 +1866,9 @@ class KeyRotationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class KeyRotationPolicyArgs:
     def __init__(__self__, *,
-                 automatic: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']] = None,
-                 expire_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic: pulumi.Input[Optional['KeyRotationPolicyAutomaticArgs']] = None,
+                 expire_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_before_expiry: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['KeyRotationPolicyAutomaticArgs'] automatic: An `automatic` block as defined below.
         :param pulumi.Input[_builtins.str] expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
@@ -1883,47 +1883,47 @@ class KeyRotationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']]:
+    def automatic(self) -> pulumi.Input[Optional['KeyRotationPolicyAutomaticArgs']]:
         """
         An `automatic` block as defined below.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']]):
+    def automatic(self, value: pulumi.Input[Optional['KeyRotationPolicyAutomaticArgs']]):
         pulumi.set(self, "automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="expireAfter")
-    def expire_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expire_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "expire_after")
 
     @expire_after.setter
-    def expire_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expire_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expire_after", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyBeforeExpiry")
-    def notify_before_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notify_before_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "notify_before_expiry")
 
     @notify_before_expiry.setter
-    def notify_before_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notify_before_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notify_before_expiry", value)
 
 
 class KeyRotationPolicyAutomaticArgsDict(TypedDict):
-    time_after_creation: NotRequired[pulumi.Input[_builtins.str]]
+    time_after_creation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
     """
-    time_before_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    time_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
     """
@@ -1931,8 +1931,8 @@ class KeyRotationPolicyAutomaticArgsDict(TypedDict):
 @pulumi.input_type
 class KeyRotationPolicyAutomaticArgs:
     def __init__(__self__, *,
-                 time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] time_after_creation: Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[_builtins.str] time_before_expiry: Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
@@ -1944,26 +1944,26 @@ class KeyRotationPolicyAutomaticArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeAfterCreation")
-    def time_after_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_after_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "time_after_creation")
 
     @time_after_creation.setter
-    def time_after_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_after_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_after_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBeforeExpiry")
-    def time_before_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_before_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "time_before_expiry")
 
     @time_before_expiry.setter
-    def time_before_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_before_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_before_expiry", value)
 
 
@@ -1976,23 +1976,23 @@ class KeyVaultAccessPolicyArgsDict(TypedDict):
     """
     The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of an Application in Azure Active Directory.
     """
-    certificate_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    certificate_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
     """
-    key_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    key_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
     """
-    secret_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    secret_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
     """
-    storage_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    storage_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
     """
@@ -2002,11 +2002,11 @@ class KeyVaultAccessPolicyArgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param pulumi.Input[_builtins.str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
@@ -2055,79 +2055,79 @@ class KeyVaultAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of an Application in Azure Active Directory.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         """
         return pulumi.get(self, "certificate_permissions")
 
     @certificate_permissions.setter
-    def certificate_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         """
         return pulumi.get(self, "key_permissions")
 
     @key_permissions.setter
-    def key_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secret_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
     @secret_permissions.setter
-    def secret_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secret_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secret_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         return pulumi.get(self, "storage_permissions")
 
     @storage_permissions.setter
-    def storage_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_permissions", value)
 
 
 class KeyVaultContactArgsDict(TypedDict):
     email: pulumi.Input[_builtins.str]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
     """
-    phone: NotRequired[pulumi.Input[_builtins.str]]
+    phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KeyVaultContactArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
@@ -2148,23 +2148,23 @@ class KeyVaultContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
 
@@ -2177,11 +2177,11 @@ class KeyVaultNetworkAclsArgsDict(TypedDict):
     """
     The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
     """
-    virtual_network_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    virtual_network_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more Subnet IDs which should be able to access this Key Vault.
     """
@@ -2191,8 +2191,8 @@ class KeyVaultNetworkAclsArgs:
     def __init__(__self__, *,
                  bypass: pulumi.Input[_builtins.str],
                  default_action: pulumi.Input[_builtins.str],
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
         :param pulumi.Input[_builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
@@ -2232,26 +2232,26 @@ class KeyVaultNetworkAclsArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_network_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Subnet IDs which should be able to access this Key Vault.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
     @virtual_network_subnet_ids.setter
-    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_network_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
@@ -2303,19 +2303,19 @@ class ManagedHardwareSecurityModuleNetworkAclsArgs:
 
 
 class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict(TypedDict):
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
     """
-    data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
     """
-    not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
     """
-    not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
     """
@@ -2323,10 +2323,10 @@ class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_actions: Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
@@ -2344,50 +2344,50 @@ class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
         """
         return pulumi.get(self, "data_actions")
 
     @data_actions.setter
-    def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         """
         return pulumi.get(self, "not_actions")
 
     @not_actions.setter
-    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
         """
         return pulumi.get(self, "not_data_actions")
 
     @not_data_actions.setter
-    def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_data_actions", value)
 
 

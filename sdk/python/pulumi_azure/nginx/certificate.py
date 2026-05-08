@@ -23,7 +23,7 @@ class CertificateArgs:
                  key_vault_secret_id: pulumi.Input[_builtins.str],
                  key_virtual_path: pulumi.Input[_builtins.str],
                  nginx_deployment_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -90,25 +90,25 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 certificate_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -131,62 +131,62 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter(name="certificateVirtualPath")
-    def certificate_virtual_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_virtual_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the path to the certificate file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
     @certificate_virtual_path.setter
-    def certificate_virtual_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_virtual_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_virtual_path", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the ID of the Key Vault Secret for this certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVirtualPath")
-    def key_virtual_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_virtual_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the path to the key file of this certificate.
         """
         return pulumi.get(self, "key_virtual_path")
 
     @key_virtual_path.setter
-    def key_virtual_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_virtual_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_virtual_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nginxDeploymentId")
-    def nginx_deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nginx_deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "nginx_deployment_id")
 
     @nginx_deployment_id.setter
-    def nginx_deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nginx_deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nginx_deployment_id", value)
 
 
@@ -196,11 +196,11 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Certificate for an NGINX Deployment.
@@ -445,11 +445,11 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,11 +482,11 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_virtual_path: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Certificate':
+            certificate_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

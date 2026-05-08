@@ -21,9 +21,9 @@ class RestorePointCollectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_virtual_machine_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
 
@@ -68,49 +68,49 @@ class RestorePointCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RestorePointCollectionState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestorePointCollection resources.
 
@@ -133,62 +133,62 @@ class _RestorePointCollectionState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVirtualMachineId")
-    def source_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
     @source_virtual_machine_id.setter
-    def source_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -198,11 +198,11 @@ class RestorePointCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Virtual Machine Restore Point Collection.
@@ -385,11 +385,11 @@ class RestorePointCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,11 +420,11 @@ class RestorePointCollection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RestorePointCollection':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RestorePointCollection':
         """
         Get an existing RestorePointCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

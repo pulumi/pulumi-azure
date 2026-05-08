@@ -23,12 +23,12 @@ class RegistryWebhookArgs:
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_uri: pulumi.Input[_builtins.str],
-                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RegistryWebhook resource.
 
@@ -110,90 +110,90 @@ class RegistryWebhookArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Custom headers that will be added to the webhook notifications request.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RegistryWebhookState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RegistryWebhook resources.
 
@@ -231,122 +231,122 @@ class _RegistryWebhookState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Custom headers that will be added to the webhook notifications request.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
-    def registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceUri")
-    def service_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the service URI for the Webhook to post notifications.
         """
         return pulumi.get(self, "service_uri")
 
     @service_uri.setter
-    def service_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -356,16 +356,16 @@ class RegistryWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Container Registry Webhook.
@@ -497,16 +497,16 @@ class RegistryWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -546,16 +546,16 @@ class RegistryWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            service_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RegistryWebhook':
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            service_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RegistryWebhook':
         """
         Get an existing RegistryWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

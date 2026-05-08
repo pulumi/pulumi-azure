@@ -23,7 +23,7 @@ class FrontdoorSecurityPolicyArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[_builtins.str],
                  security_policies: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorSecurityPolicy resource.
 
@@ -62,23 +62,23 @@ class FrontdoorSecurityPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FrontdoorSecurityPolicyState:
     def __init__(__self__, *,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None):
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policies: pulumi.Input[Optional['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None):
         """
         Input properties used for looking up and filtering FrontdoorSecurityPolicy resources.
 
@@ -95,38 +95,38 @@ class _FrontdoorSecurityPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorProfileId")
-    def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
     @cdn_frontdoor_profile_id.setter
-    def cdn_frontdoor_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicies")
-    def security_policies(self) -> Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']]:
+    def security_policies(self) -> pulumi.Input[Optional['FrontdoorSecurityPolicySecurityPoliciesArgs']]:
         """
         An `security_policies` block as defined below.
         """
         return pulumi.get(self, "security_policies")
 
     @security_policies.setter
-    def security_policies(self, value: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']]):
+    def security_policies(self, value: pulumi.Input[Optional['FrontdoorSecurityPolicySecurityPoliciesArgs']]):
         pulumi.set(self, "security_policies", value)
 
 
@@ -136,9 +136,9 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Security Policy.
@@ -341,9 +341,9 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -370,9 +370,9 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None) -> 'FrontdoorSecurityPolicy':
+            cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None) -> 'FrontdoorSecurityPolicy':
         """
         Get an existing FrontdoorSecurityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

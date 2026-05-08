@@ -124,11 +124,11 @@ export interface ApiTagState {
     /**
      * The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,5 +142,5 @@ export interface ApiTagArgs {
     /**
      * The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

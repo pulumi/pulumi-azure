@@ -192,49 +192,49 @@ export interface AuthorizationRuleState {
     /**
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
      * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * The name to use for this Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
      */
-    notificationHubName?: pulumi.Input<string>;
+    notificationHubName?: pulumi.Input<string | undefined>;
     /**
      * The Primary Access Key associated with this Authorization Rule.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Primary Connetion String associated with this Authorization Rule.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Access Key associated with this Authorization Rule.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Connetion String associated with this Authorization Rule.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -244,17 +244,17 @@ export interface AuthorizationRuleArgs {
     /**
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
      * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * The name to use for this Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
      */
@@ -270,5 +270,5 @@ export interface AuthorizationRuleArgs {
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }

@@ -191,56 +191,56 @@ export interface AccountState {
     /**
      * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    dscPrimaryAccessKey?: pulumi.Input<string>;
+    dscPrimaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    dscSecondaryAccessKey?: pulumi.Input<string>;
+    dscSecondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The DSC Server Endpoint associated with this Automation Account.
      */
-    dscServerEndpoint?: pulumi.Input<string>;
+    dscServerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below.
      */
-    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
+    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[] | undefined>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
      */
-    hybridServiceUrl?: pulumi.Input<string>;
+    hybridServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    identity?: pulumi.Input<inputs.automation.AccountIdentity | undefined>;
     /**
      * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.automation.AccountPrivateEndpointConnection>[]>;
+    name?: pulumi.Input<string | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.automation.AccountPrivateEndpointConnection>[] | undefined>;
     /**
      * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the account. Possible values are `Basic` and `Free`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -250,27 +250,27 @@ export interface AccountArgs {
     /**
      * An `encryption` block as defined below.
      */
-    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
+    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    identity?: pulumi.Input<inputs.automation.AccountIdentity | undefined>;
     /**
      * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
      */
@@ -282,5 +282,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

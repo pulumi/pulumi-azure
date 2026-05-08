@@ -22,8 +22,8 @@ class RegistryCacheRuleArgs:
                  container_registry_id: pulumi.Input[_builtins.str],
                  source_repo: pulumi.Input[_builtins.str],
                  target_repo: pulumi.Input[_builtins.str],
-                 credential_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryCacheRule resource.
 
@@ -79,37 +79,37 @@ class RegistryCacheRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialSetId")
-    def credential_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the Credential Store which is associated with the Cache Rule.
         """
         return pulumi.get(self, "credential_set_id")
 
     @credential_set_id.setter
-    def credential_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_set_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RegistryCacheRuleState:
     def __init__(__self__, *,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repo: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repo: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryCacheRule resources.
 
@@ -132,62 +132,62 @@ class _RegistryCacheRuleState:
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryId")
-    def container_registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_registry_id")
 
     @container_registry_id.setter
-    def container_registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_id", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialSetId")
-    def credential_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the Credential Store which is associated with the Cache Rule.
         """
         return pulumi.get(self, "credential_set_id")
 
     @credential_set_id.setter
-    def credential_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_set_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRepo")
-    def source_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source repository path. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_repo")
 
     @source_repo.setter
-    def source_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_repo", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRepo")
-    def target_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_repo")
 
     @target_repo.setter
-    def target_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_repo", value)
 
 
@@ -197,11 +197,11 @@ class RegistryCacheRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repo: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Container Registry Cache Rule.
@@ -320,11 +320,11 @@ class RegistryCacheRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repo: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,11 +355,11 @@ class RegistryCacheRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-            credential_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-            target_repo: Optional[pulumi.Input[_builtins.str]] = None) -> 'RegistryCacheRule':
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+            target_repo: pulumi.Input[Optional[_builtins.str]] = None) -> 'RegistryCacheRule':
         """
         Get an existing RegistryCacheRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

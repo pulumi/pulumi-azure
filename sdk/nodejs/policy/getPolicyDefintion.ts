@@ -127,13 +127,13 @@ export interface GetPolicyDefintionOutputArgs {
      *
      * > **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Only retrieve Policy Definitions from this Management Group.
      */
-    managementGroupName?: pulumi.Input<string>;
+    managementGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Policy Definition. Conflicts with `displayName`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

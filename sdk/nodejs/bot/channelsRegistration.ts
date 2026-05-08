@@ -231,81 +231,81 @@ export interface ChannelsRegistrationState {
      *
      * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
-    cmkKeyVaultUrl?: pulumi.Input<string>;
+    cmkKeyVaultUrl?: pulumi.Input<string | undefined>;
     /**
      * The description of the Bot Channels Registration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
-    developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Bot Channels Registration.
      */
-    developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights Key to associate with the Bot Channels Registration.
      */
-    developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Bot Channels Registration endpoint.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    microsoftAppId?: pulumi.Input<string>;
+    microsoftAppId?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    microsoftAppTenantId?: pulumi.Input<string>;
+    microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string>;
+    microsoftAppType?: pulumi.Input<string | undefined>;
     /**
      * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    microsoftAppUserAssignedIdentityId?: pulumi.Input<string>;
+    microsoftAppUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the Bot Channels Registration in an isolated network?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
      */
-    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    streamingEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -319,39 +319,39 @@ export interface ChannelsRegistrationArgs {
      *
      * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
-    cmkKeyVaultUrl?: pulumi.Input<string>;
+    cmkKeyVaultUrl?: pulumi.Input<string | undefined>;
     /**
      * The description of the Bot Channels Registration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
-    developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Bot Channels Registration.
      */
-    developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights Key to associate with the Bot Channels Registration.
      */
-    developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Bot Channels Registration endpoint.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
@@ -359,25 +359,25 @@ export interface ChannelsRegistrationArgs {
     /**
      * The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    microsoftAppTenantId?: pulumi.Input<string>;
+    microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string>;
+    microsoftAppType?: pulumi.Input<string | undefined>;
     /**
      * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    microsoftAppUserAssignedIdentityId?: pulumi.Input<string>;
+    microsoftAppUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the Bot Channels Registration in an isolated network?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
@@ -389,9 +389,9 @@ export interface ChannelsRegistrationArgs {
     /**
      * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
      */
-    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    streamingEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

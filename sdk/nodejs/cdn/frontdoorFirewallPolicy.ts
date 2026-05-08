@@ -332,27 +332,27 @@ export interface FrontdoorFirewallPolicyState {
      *
      * > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
      */
-    captchaCookieExpirationInMinutes?: pulumi.Input<number>;
+    captchaCookieExpirationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    customBlockResponseBody?: pulumi.Input<string>;
+    customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    customBlockResponseStatusCode?: pulumi.Input<number>;
+    customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[] | undefined>;
     /**
      * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      */
-    frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
+    frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
      *
@@ -360,49 +360,49 @@ export interface FrontdoorFirewallPolicyState {
      *
      * > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
      */
-    jsChallengeCookieExpirationInMinutes?: pulumi.Input<number>;
+    jsChallengeCookieExpirationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * A `logScrubbing` block as defined below.
      *
      * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
-    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing>;
+    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
+    managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[] | undefined>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Should policy managed rules inspect the request body content? Defaults to `true`.
      *
      * > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
-    requestBodyCheckEnabled?: pulumi.Input<boolean>;
+    requestBodyCheckEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Front Door Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -416,23 +416,23 @@ export interface FrontdoorFirewallPolicyArgs {
      *
      * > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
      */
-    captchaCookieExpirationInMinutes?: pulumi.Input<number>;
+    captchaCookieExpirationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    customBlockResponseBody?: pulumi.Input<string>;
+    customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    customBlockResponseStatusCode?: pulumi.Input<number>;
+    customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[] | undefined>;
     /**
      * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
      *
@@ -440,17 +440,17 @@ export interface FrontdoorFirewallPolicyArgs {
      *
      * > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
      */
-    jsChallengeCookieExpirationInMinutes?: pulumi.Input<number>;
+    jsChallengeCookieExpirationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * A `logScrubbing` block as defined below.
      *
      * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
-    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing>;
+    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
+    managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[] | undefined>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
@@ -458,17 +458,17 @@ export interface FrontdoorFirewallPolicyArgs {
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Should policy managed rules inspect the request body content? Defaults to `true`.
      *
      * > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
-    requestBodyCheckEnabled?: pulumi.Input<boolean>;
+    requestBodyCheckEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -482,5 +482,5 @@ export interface FrontdoorFirewallPolicyArgs {
     /**
      * A mapping of tags to assign to the Front Door Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

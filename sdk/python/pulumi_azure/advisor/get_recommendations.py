@@ -122,8 +122,8 @@ def get_recommendations(filter_by_categories: Optional[Sequence[_builtins.str]] 
         filter_by_resource_groups=pulumi.get(__ret__, 'filter_by_resource_groups'),
         id=pulumi.get(__ret__, 'id'),
         recommendations=pulumi.get(__ret__, 'recommendations'))
-def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                               filter_by_resource_groups: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_recommendations_output(filter_by_categories: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               filter_by_resource_groups: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecommendationsResult]:
     """
     Use this data source to access information about an existing Advisor Recommendations.

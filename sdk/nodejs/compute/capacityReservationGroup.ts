@@ -129,23 +129,23 @@ export interface CapacityReservationGroupState {
     /**
      * The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -155,11 +155,11 @@ export interface CapacityReservationGroupArgs {
     /**
      * The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created.
      */
@@ -167,9 +167,9 @@ export interface CapacityReservationGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

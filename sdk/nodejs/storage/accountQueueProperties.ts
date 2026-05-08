@@ -159,25 +159,25 @@ export interface AccountQueuePropertiesState {
     /**
      * A `corsRule` block as defined above.
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountQueuePropertiesCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountQueuePropertiesCorsRule>[] | undefined>;
     /**
      * A `hourMetrics` block as defined below.
      *
      * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
-    hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics>;
+    hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics | undefined>;
     /**
      * A `logging` block as defined below.
      */
-    logging?: pulumi.Input<inputs.storage.AccountQueuePropertiesLogging>;
+    logging?: pulumi.Input<inputs.storage.AccountQueuePropertiesLogging | undefined>;
     /**
      * A `minuteMetrics` block as defined below.
      */
-    minuteMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesMinuteMetrics>;
+    minuteMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesMinuteMetrics | undefined>;
     /**
      * The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,21 +187,21 @@ export interface AccountQueuePropertiesArgs {
     /**
      * A `corsRule` block as defined above.
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountQueuePropertiesCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountQueuePropertiesCorsRule>[] | undefined>;
     /**
      * A `hourMetrics` block as defined below.
      *
      * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
-    hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics>;
+    hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics | undefined>;
     /**
      * A `logging` block as defined below.
      */
-    logging?: pulumi.Input<inputs.storage.AccountQueuePropertiesLogging>;
+    logging?: pulumi.Input<inputs.storage.AccountQueuePropertiesLogging | undefined>;
     /**
      * A `minuteMetrics` block as defined below.
      */
-    minuteMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesMinuteMetrics>;
+    minuteMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesMinuteMetrics | undefined>;
     /**
      * The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
      */

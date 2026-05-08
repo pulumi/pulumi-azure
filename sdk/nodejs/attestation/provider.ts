@@ -173,51 +173,51 @@ export interface ProviderState {
     /**
      * The URI of the Attestation Service.
      */
-    attestationUri?: pulumi.Input<string>;
+    attestationUri?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    openEnclavePolicyBase64?: pulumi.Input<string>;
+    openEnclavePolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
      * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
-    policySigningCertificateData?: pulumi.Input<string>;
+    policySigningCertificateData?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      *
      * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
-    sevSnpPolicyBase64?: pulumi.Input<string>;
+    sevSnpPolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    sgxEnclavePolicyBase64?: pulumi.Input<string>;
+    sgxEnclavePolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    tpmPolicyBase64?: pulumi.Input<string>;
+    tpmPolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * Trust model used for the Attestation Service.
      */
-    trustModel?: pulumi.Input<string>;
+    trustModel?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,21 +227,21 @@ export interface ProviderArgs {
     /**
      * The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    openEnclavePolicyBase64?: pulumi.Input<string>;
+    openEnclavePolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
      * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
-    policySigningCertificateData?: pulumi.Input<string>;
+    policySigningCertificateData?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
      */
@@ -251,17 +251,17 @@ export interface ProviderArgs {
      *
      * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
-    sevSnpPolicyBase64?: pulumi.Input<string>;
+    sevSnpPolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    sgxEnclavePolicyBase64?: pulumi.Input<string>;
+    sgxEnclavePolicyBase64?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    tpmPolicyBase64?: pulumi.Input<string>;
+    tpmPolicyBase64?: pulumi.Input<string | undefined>;
 }

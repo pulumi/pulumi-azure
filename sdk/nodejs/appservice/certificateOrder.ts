@@ -212,81 +212,81 @@ export interface CertificateOrderState {
     /**
      * Reasons why App Service Certificate is not renewable at the current moment.
      */
-    appServiceCertificateNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[]>;
+    appServiceCertificateNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
-    autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean | undefined>;
     /**
      * State of the Key Vault secret. A `certificates` block as defined below.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.appservice.CertificateOrderCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.appservice.CertificateOrderCertificate>[] | undefined>;
     /**
      * Last CSR that was created for this order.
      */
-    csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string | undefined>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
      *
      * > **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      */
-    distinguishedName?: pulumi.Input<string>;
+    distinguishedName?: pulumi.Input<string | undefined>;
     /**
      * Domain verification token.
      */
-    domainVerificationToken?: pulumi.Input<string>;
+    domainVerificationToken?: pulumi.Input<string | undefined>;
     /**
      * Certificate expiration time.
      */
-    expirationTime?: pulumi.Input<string>;
+    expirationTime?: pulumi.Input<string | undefined>;
     /**
      * Certificate thumbprint intermediate certificate.
      */
-    intermediateThumbprint?: pulumi.Input<string>;
+    intermediateThumbprint?: pulumi.Input<string | undefined>;
     /**
      * Whether the private key is external or not.
      */
-    isPrivateKeyExternal?: pulumi.Input<boolean>;
+    isPrivateKeyExternal?: pulumi.Input<boolean | undefined>;
     /**
      * Certificate key size. Defaults to `2048`.
      */
-    keySize?: pulumi.Input<number>;
+    keySize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
-    productType?: pulumi.Input<string>;
+    productType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Certificate thumbprint for root certificate.
      */
-    rootThumbprint?: pulumi.Input<string>;
+    rootThumbprint?: pulumi.Input<string | undefined>;
     /**
      * Certificate thumbprint for signed certificate.
      */
-    signedCertificateThumbprint?: pulumi.Input<string>;
+    signedCertificateThumbprint?: pulumi.Input<string | undefined>;
     /**
      * Current order status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
-    validityInYears?: pulumi.Input<number>;
+    validityInYears?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -296,33 +296,33 @@ export interface CertificateOrderArgs {
     /**
      * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
-    autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean | undefined>;
     /**
      * Last CSR that was created for this order.
      */
-    csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string | undefined>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
      *
      * > **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      */
-    distinguishedName?: pulumi.Input<string>;
+    distinguishedName?: pulumi.Input<string | undefined>;
     /**
      * Certificate key size. Defaults to `2048`.
      */
-    keySize?: pulumi.Input<number>;
+    keySize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
-    productType?: pulumi.Input<string>;
+    productType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
@@ -330,9 +330,9 @@ export interface CertificateOrderArgs {
     /**
      * (Optional) A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
-    validityInYears?: pulumi.Input<number>;
+    validityInYears?: pulumi.Input<number | undefined>;
 }

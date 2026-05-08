@@ -126,15 +126,15 @@ export interface FlexibleServerBackupState {
     /**
      * The Time (ISO8601 format) at which the backup was completed.
      */
-    completedTime?: pulumi.Input<string>;
+    completedTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface FlexibleServerBackupArgs {
     /**
      * Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */

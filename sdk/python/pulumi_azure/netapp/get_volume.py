@@ -378,11 +378,11 @@ def get_volume(account_name: Optional[_builtins.str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         volume_path=pulumi.get(__ret__, 'volume_path'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      security_style: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_volume_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      security_style: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Uses this data source to access information about an existing NetApp Volume.

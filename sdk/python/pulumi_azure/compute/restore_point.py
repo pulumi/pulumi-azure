@@ -20,9 +20,9 @@ __all__ = ['RestorePointArgs', 'RestorePoint']
 class RestorePointArgs:
     def __init__(__self__, *,
                  virtual_machine_restore_point_collection_id: pulumi.Input[_builtins.str],
-                 crash_consistency_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_disks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
 
@@ -53,48 +53,48 @@ class RestorePointArgs:
 
     @_builtins.property
     @pulumi.getter(name="crashConsistencyModeEnabled")
-    def crash_consistency_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crash_consistency_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "crash_consistency_mode_enabled")
 
     @crash_consistency_mode_enabled.setter
-    def crash_consistency_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crash_consistency_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crash_consistency_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedDisks")
-    def excluded_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "excluded_disks")
 
     @excluded_disks.setter
-    def excluded_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RestorePointState:
     def __init__(__self__, *,
-                 crash_consistency_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_disks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_restore_point_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_restore_point_collection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RestorePoint resources.
 
@@ -114,50 +114,50 @@ class _RestorePointState:
 
     @_builtins.property
     @pulumi.getter(name="crashConsistencyModeEnabled")
-    def crash_consistency_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crash_consistency_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "crash_consistency_mode_enabled")
 
     @crash_consistency_mode_enabled.setter
-    def crash_consistency_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crash_consistency_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crash_consistency_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedDisks")
-    def excluded_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "excluded_disks")
 
     @excluded_disks.setter
-    def excluded_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineRestorePointCollectionId")
-    def virtual_machine_restore_point_collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_restore_point_collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_restore_point_collection_id")
 
     @virtual_machine_restore_point_collection_id.setter
-    def virtual_machine_restore_point_collection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_restore_point_collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_restore_point_collection_id", value)
 
 
@@ -167,10 +167,10 @@ class RestorePoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 crash_consistency_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_disks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_restore_point_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_restore_point_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Machine Restore Point.
@@ -358,10 +358,10 @@ class RestorePoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 crash_consistency_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_disks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_restore_point_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_restore_point_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -387,10 +387,10 @@ class RestorePoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            crash_consistency_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            excluded_disks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_restore_point_collection_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RestorePoint':
+            crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_restore_point_collection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RestorePoint':
         """
         Get an existing RestorePoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

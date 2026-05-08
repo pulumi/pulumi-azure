@@ -24,9 +24,9 @@ class BackupPolicyMysqlFlexibleServerArgs:
                  backup_repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  default_retention_rule: pulumi.Input['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs'],
                  vault_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicyMysqlFlexibleServer resource.
 
@@ -85,50 +85,50 @@ class BackupPolicyMysqlFlexibleServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy for the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
 class _BackupPolicyMysqlFlexibleServerState:
     def __init__(__self__, *,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_retention_rule: pulumi.Input[Optional['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyMysqlFlexibleServer resources.
 
@@ -154,74 +154,74 @@ class _BackupPolicyMysqlFlexibleServerState:
 
     @_builtins.property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
-    def backup_repeating_time_intervals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_repeating_time_intervals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backup_repeating_time_intervals")
 
     @backup_repeating_time_intervals.setter
-    def backup_repeating_time_intervals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_repeating_time_intervals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_repeating_time_intervals", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRetentionRule")
-    def default_retention_rule(self) -> Optional[pulumi.Input['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']]:
+    def default_retention_rule(self) -> pulumi.Input[Optional['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']]:
         """
         A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_retention_rule")
 
     @default_retention_rule.setter
-    def default_retention_rule(self, value: Optional[pulumi.Input['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']]):
+    def default_retention_rule(self, value: pulumi.Input[Optional['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs']]):
         pulumi.set(self, "default_retention_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy for the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyMysqlFlexibleServerRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Vault where the Backup Policy MySQL Flexible Server should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vault_id")
 
     @vault_id.setter
-    def vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_id", value)
 
 
@@ -231,12 +231,12 @@ class BackupPolicyMysqlFlexibleServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backup Policy to back up MySQL Flexible Server.
@@ -450,12 +450,12 @@ class BackupPolicyMysqlFlexibleServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -487,12 +487,12 @@ class BackupPolicyMysqlFlexibleServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupPolicyMysqlFlexibleServer':
+            backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyMysqlFlexibleServerRetentionRuleArgs', 'BackupPolicyMysqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyMysqlFlexibleServer':
         """
         Get an existing BackupPolicyMysqlFlexibleServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,14 +20,14 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_signing_certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 sev_snp_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sgx_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -77,43 +77,43 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openEnclavePolicyBase64")
-    def open_enclave_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_enclave_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "open_enclave_policy_base64")
 
     @open_enclave_policy_base64.setter
-    def open_enclave_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_enclave_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_enclave_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="policySigningCertificateData")
-    def policy_signing_certificate_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_signing_certificate_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 
@@ -122,12 +122,12 @@ class ProviderArgs:
         return pulumi.get(self, "policy_signing_certificate_data")
 
     @policy_signing_certificate_data.setter
-    def policy_signing_certificate_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_signing_certificate_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_signing_certificate_data", value)
 
     @_builtins.property
     @pulumi.getter(name="sevSnpPolicyBase64")
-    def sev_snp_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sev_snp_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 
@@ -136,60 +136,60 @@ class ProviderArgs:
         return pulumi.get(self, "sev_snp_policy_base64")
 
     @sev_snp_policy_base64.setter
-    def sev_snp_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sev_snp_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sev_snp_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="sgxEnclavePolicyBase64")
-    def sgx_enclave_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sgx_enclave_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "sgx_enclave_policy_base64")
 
     @sgx_enclave_policy_base64.setter
-    def sgx_enclave_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sgx_enclave_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sgx_enclave_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Attestation Provider.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tpmPolicyBase64")
-    def tpm_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpm_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "tpm_policy_base64")
 
     @tpm_policy_base64.setter
-    def tpm_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpm_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpm_policy_base64", value)
 
 
 @pulumi.input_type
 class _ProviderState:
     def __init__(__self__, *,
-                 attestation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_signing_certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sev_snp_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sgx_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_model: Optional[pulumi.Input[_builtins.str]] = None):
+                 attestation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_model: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Provider resources.
 
@@ -234,55 +234,55 @@ class _ProviderState:
 
     @_builtins.property
     @pulumi.getter(name="attestationUri")
-    def attestation_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attestation_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Attestation Service.
         """
         return pulumi.get(self, "attestation_uri")
 
     @attestation_uri.setter
-    def attestation_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attestation_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attestation_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openEnclavePolicyBase64")
-    def open_enclave_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_enclave_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "open_enclave_policy_base64")
 
     @open_enclave_policy_base64.setter
-    def open_enclave_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_enclave_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_enclave_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="policySigningCertificateData")
-    def policy_signing_certificate_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_signing_certificate_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 
@@ -291,24 +291,24 @@ class _ProviderState:
         return pulumi.get(self, "policy_signing_certificate_data")
 
     @policy_signing_certificate_data.setter
-    def policy_signing_certificate_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_signing_certificate_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_signing_certificate_data", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sevSnpPolicyBase64")
-    def sev_snp_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sev_snp_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 
@@ -317,55 +317,55 @@ class _ProviderState:
         return pulumi.get(self, "sev_snp_policy_base64")
 
     @sev_snp_policy_base64.setter
-    def sev_snp_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sev_snp_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sev_snp_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="sgxEnclavePolicyBase64")
-    def sgx_enclave_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sgx_enclave_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "sgx_enclave_policy_base64")
 
     @sgx_enclave_policy_base64.setter
-    def sgx_enclave_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sgx_enclave_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sgx_enclave_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Attestation Provider.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tpmPolicyBase64")
-    def tpm_policy_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpm_policy_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "tpm_policy_base64")
 
     @tpm_policy_base64.setter
-    def tpm_policy_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpm_policy_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpm_policy_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="trustModel")
-    def trust_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trust model used for the Attestation Service.
         """
         return pulumi.get(self, "trust_model")
 
     @trust_model.setter
-    def trust_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_model", value)
 
 
@@ -375,15 +375,15 @@ class Provider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_signing_certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sev_snp_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sgx_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Attestation Provider.
@@ -494,15 +494,15 @@ class Provider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_signing_certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sev_snp_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sgx_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,17 +535,17 @@ class Provider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attestation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            open_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_signing_certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sev_snp_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            sgx_enclave_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_model: Optional[pulumi.Input[_builtins.str]] = None) -> 'Provider':
+            attestation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_model: pulumi.Input[Optional[_builtins.str]] = None) -> 'Provider':
         """
         Get an existing Provider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

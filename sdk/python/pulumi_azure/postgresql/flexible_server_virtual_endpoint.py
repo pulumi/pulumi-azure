@@ -22,7 +22,7 @@ class FlexibleServerVirtualEndpointArgs:
                  replica_server_id: pulumi.Input[_builtins.str],
                  source_server_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerVirtualEndpoint resource.
 
@@ -79,24 +79,24 @@ class FlexibleServerVirtualEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FlexibleServerVirtualEndpointState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerVirtualEndpoint resources.
 
@@ -118,19 +118,19 @@ class _FlexibleServerVirtualEndpointState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaServerId")
-    def replica_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replica_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
 
@@ -139,31 +139,31 @@ class _FlexibleServerVirtualEndpointState:
         return pulumi.get(self, "replica_server_id")
 
     @replica_server_id.setter
-    def replica_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replica_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replica_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerId")
-    def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
     @source_server_id.setter
-    def source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -173,10 +173,10 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows you to create a Virtual Endpoint associated with a Postgres Flexible Replica.
@@ -328,10 +328,10 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,10 +361,10 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            replica_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlexibleServerVirtualEndpoint':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            replica_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlexibleServerVirtualEndpoint':
         """
         Get an existing FlexibleServerVirtualEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

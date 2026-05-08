@@ -25,10 +25,10 @@ class UserArgs:
                  last_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
-                 confirmation: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 confirmation: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -134,43 +134,43 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def confirmation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "confirmation")
 
     @confirmation.setter
-    def confirmation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A note about this user.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with this user.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
 
@@ -179,23 +179,23 @@ class UserArgs:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 confirmation: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 confirmation: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -235,103 +235,103 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def confirmation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "confirmation")
 
     @confirmation.setter
-    def confirmation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address associated with this user.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first name for this user.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last name for this user.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A note about this user.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with this user.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
 
@@ -340,19 +340,19 @@ class _UserState:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -362,16 +362,16 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 confirmation: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 confirmation: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management User.
@@ -499,16 +499,16 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 confirmation: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 confirmation: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,16 +552,16 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            confirmation: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            first_name: Optional[pulumi.Input[_builtins.str]] = None,
-            last_name: Optional[pulumi.Input[_builtins.str]] = None,
-            note: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            confirmation: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            note: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -144,8 +144,8 @@ def get_workspace_table(name: Optional[_builtins.str] = None,
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         total_retention_in_days=pulumi.get(__ret__, 'total_retention_in_days'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceTableResult]:
     """
     Use this data source to access information about an existing Log Analytics Workspace Table.

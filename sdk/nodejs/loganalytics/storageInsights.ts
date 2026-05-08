@@ -168,31 +168,31 @@ export interface StorageInsightsState {
     /**
      * The names of the blob containers that the workspace should read.
      */
-    blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    blobContainerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account used by this Log Analytics Storage Insights.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The storage access key to be used to connect to the storage account.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The names of the Azure tables that the workspace should read.
      */
-    tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,11 +202,11 @@ export interface StorageInsightsArgs {
     /**
      * The names of the blob containers that the workspace should read.
      */
-    blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    blobContainerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
@@ -222,7 +222,7 @@ export interface StorageInsightsArgs {
     /**
      * The names of the Azure tables that the workspace should read.
      */
-    tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */

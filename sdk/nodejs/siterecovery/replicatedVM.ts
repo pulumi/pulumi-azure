@@ -436,99 +436,99 @@ export interface ReplicatedVMState {
     /**
      * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
+    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[] | undefined>;
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      */
-    multiVmGroupName?: pulumi.Input<string>;
+    multiVmGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` block as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[] | undefined>;
     /**
      * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
      */
-    recoveryReplicationPolicyId?: pulumi.Input<string>;
+    recoveryReplicationPolicyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      */
-    sourceRecoveryFabricName?: pulumi.Input<string>;
+    sourceRecoveryFabricName?: pulumi.Input<string | undefined>;
     /**
      * Name of the protection container to use. Changing this forces a new resource to be created.
      */
-    sourceRecoveryProtectionContainerName?: pulumi.Input<string>;
+    sourceRecoveryProtectionContainerName?: pulumi.Input<string | undefined>;
     /**
      * Id of the VM to replicate Changing this forces a new resource to be created.
      */
-    sourceVmId?: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string | undefined>;
     /**
      * Id of availability set that the new VM should belong to when a failover is done.
      */
-    targetAvailabilitySetId?: pulumi.Input<string>;
+    targetAvailabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
      */
-    targetBootDiagnosticStorageAccountId?: pulumi.Input<string>;
+    targetBootDiagnosticStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
      */
-    targetCapacityReservationGroupId?: pulumi.Input<string>;
+    targetCapacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    targetEdgeZone?: pulumi.Input<string>;
+    targetEdgeZone?: pulumi.Input<string | undefined>;
     /**
      * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      */
-    targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Id of Proximity Placement Group the new VM should belong to when a failover is done.
      */
-    targetProximityPlacementGroupId?: pulumi.Input<string>;
+    targetProximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
-    targetRecoveryFabricId?: pulumi.Input<string>;
+    targetRecoveryFabricId?: pulumi.Input<string | undefined>;
     /**
      * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      */
-    targetRecoveryProtectionContainerId?: pulumi.Input<string>;
+    targetRecoveryProtectionContainerId?: pulumi.Input<string | undefined>;
     /**
      * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      */
-    targetResourceGroupId?: pulumi.Input<string>;
+    targetResourceGroupId?: pulumi.Input<string | undefined>;
     /**
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      */
-    targetVirtualMachineScaleSetId?: pulumi.Input<string>;
+    targetVirtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the size the Virtual Machine should have.
      */
-    targetVirtualMachineSize?: pulumi.Input<string>;
+    targetVirtualMachineSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
-    targetZone?: pulumi.Input<string>;
+    targetZone?: pulumi.Input<string | undefined>;
     /**
      * Network to use when a test failover is done.
      */
-    testNetworkId?: pulumi.Input<string>;
+    testNetworkId?: pulumi.Input<string | undefined>;
     /**
      * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[]>;
+    unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[] | undefined>;
 }
 
 /**
@@ -538,19 +538,19 @@ export interface ReplicatedVMArgs {
     /**
      * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
+    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[] | undefined>;
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      */
-    multiVmGroupName?: pulumi.Input<string>;
+    multiVmGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` block as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[] | undefined>;
     /**
      * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
      */
@@ -578,27 +578,27 @@ export interface ReplicatedVMArgs {
     /**
      * Id of availability set that the new VM should belong to when a failover is done.
      */
-    targetAvailabilitySetId?: pulumi.Input<string>;
+    targetAvailabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
      */
-    targetBootDiagnosticStorageAccountId?: pulumi.Input<string>;
+    targetBootDiagnosticStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
      */
-    targetCapacityReservationGroupId?: pulumi.Input<string>;
+    targetCapacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    targetEdgeZone?: pulumi.Input<string>;
+    targetEdgeZone?: pulumi.Input<string | undefined>;
     /**
      * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      */
-    targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Id of Proximity Placement Group the new VM should belong to when a failover is done.
      */
-    targetProximityPlacementGroupId?: pulumi.Input<string>;
+    targetProximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
@@ -614,21 +614,21 @@ export interface ReplicatedVMArgs {
     /**
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      */
-    targetVirtualMachineScaleSetId?: pulumi.Input<string>;
+    targetVirtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the size the Virtual Machine should have.
      */
-    targetVirtualMachineSize?: pulumi.Input<string>;
+    targetVirtualMachineSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
-    targetZone?: pulumi.Input<string>;
+    targetZone?: pulumi.Input<string | undefined>;
     /**
      * Network to use when a test failover is done.
      */
-    testNetworkId?: pulumi.Input<string>;
+    testNetworkId?: pulumi.Input<string | undefined>;
     /**
      * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[]>;
+    unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[] | undefined>;
 }

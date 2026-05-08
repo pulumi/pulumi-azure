@@ -155,23 +155,23 @@ export interface IntegrationRuntimeSelfHostedState {
     /**
      * The primary integration runtime authentication key.
      */
-    authorizationKeyPrimary?: pulumi.Input<string>;
+    authorizationKeyPrimary?: pulumi.Input<string | undefined>;
     /**
      * The secondary integration runtime authentication key.
      */
-    authorizationKeySecondary?: pulumi.Input<string>;
+    authorizationKeySecondary?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,11 +181,11 @@ export interface IntegrationRuntimeSelfHostedArgs {
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */

@@ -266,51 +266,51 @@ export interface FirewallPolicyState {
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    customBlockResponseBody?: pulumi.Input<string>;
+    customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    customBlockResponseStatusCode?: pulumi.Input<number>;
+    customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyCustomRule>[] | undefined>;
     /**
      * Is the policy a enabled state or disabled state. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
      */
-    frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
+    frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where this Front Door Firewall Policy exists.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[]>;
+    managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[] | undefined>;
     /**
      * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -320,35 +320,35 @@ export interface FirewallPolicyArgs {
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    customBlockResponseBody?: pulumi.Input<string>;
+    customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    customBlockResponseStatusCode?: pulumi.Input<number>;
+    customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyCustomRule>[] | undefined>;
     /**
      * Is the policy a enabled state or disabled state. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[]>;
+    managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[] | undefined>;
     /**
      * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -356,5 +356,5 @@ export interface FirewallPolicyArgs {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

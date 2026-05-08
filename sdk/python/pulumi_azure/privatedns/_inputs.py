@@ -46,11 +46,11 @@ class LinkServiceNatIpConfigurationArgsDict(TypedDict):
 
     > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a Private Static IP Address for this IP Configuration.
     """
-    private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
     """
@@ -61,8 +61,8 @@ class LinkServiceNatIpConfigurationArgs:
                  name: pulumi.Input[_builtins.str],
                  primary: pulumi.Input[_builtins.bool],
                  subnet_id: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for the NAT IP Configuration.
         :param pulumi.Input[_builtins.bool] primary: Is this is the Primary IP Configuration?
@@ -120,26 +120,26 @@ class LinkServiceNatIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Private Static IP Address for this IP Configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressVersion")
-    def private_ip_address_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
         """
         return pulumi.get(self, "private_ip_address_version")
 
     @private_ip_address_version.setter
-    def private_ip_address_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_version", value)
 
 
@@ -195,7 +195,7 @@ class ResolverForwardingRuleTargetDnsServerArgsDict(TypedDict):
     """
     DNS server IP address.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     DNS server port.
     """
@@ -204,7 +204,7 @@ class ResolverForwardingRuleTargetDnsServerArgsDict(TypedDict):
 class ResolverForwardingRuleTargetDnsServerArgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[_builtins.str],
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_address: DNS server IP address.
         :param pulumi.Input[_builtins.int] port: DNS server port.
@@ -227,14 +227,14 @@ class ResolverForwardingRuleTargetDnsServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         DNS server port.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
@@ -243,11 +243,11 @@ class ResolverInboundEndpointIpConfigurationsArgsDict(TypedDict):
     """
     The subnet ID of the IP configuration. Changing this forces a new resource to be created.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private IP address of the IP configuration. Changing this forces a new resource to be created.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
     """
@@ -256,8 +256,8 @@ class ResolverInboundEndpointIpConfigurationsArgsDict(TypedDict):
 class ResolverInboundEndpointIpConfigurationsArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The subnet ID of the IP configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_ip_address: Private IP address of the IP configuration. Changing this forces a new resource to be created.
@@ -283,26 +283,26 @@ class ResolverInboundEndpointIpConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private IP address of the IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
 
@@ -424,39 +424,39 @@ class ZoneSoaRecordArgsDict(TypedDict):
     """
     The email contact for the SOA record.
     """
-    expire_time: NotRequired[pulumi.Input[_builtins.int]]
+    expire_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expire time for the SOA record. Defaults to `2419200`.
     """
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified domain name of the Record Set.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the authoritative name server for the SOA record.
     """
-    minimum_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
     """
-    refresh_time: NotRequired[pulumi.Input[_builtins.int]]
+    refresh_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The refresh time for the SOA record. Defaults to `3600`.
     """
-    retry_time: NotRequired[pulumi.Input[_builtins.int]]
+    retry_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The retry time for the SOA record. Defaults to `300`.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.int]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The serial number for the SOA record.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A mapping of tags to assign to the Record Set.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Time To Live of the SOA Record in seconds. Defaults to `3600`.
     """
@@ -465,15 +465,15 @@ class ZoneSoaRecordArgsDict(TypedDict):
 class ZoneSoaRecordArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 expire_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 expire_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] email: The email contact for the SOA record.
         :param pulumi.Input[_builtins.int] expire_time: The expire time for the SOA record. Defaults to `2419200`.
@@ -520,110 +520,110 @@ class ZoneSoaRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expire_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expire time for the SOA record. Defaults to `2419200`.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expire_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expire_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the Record Set.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the authoritative name server for the SOA record.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The refresh time for the SOA record. Defaults to `3600`.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_time", value)
 
     @_builtins.property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retry time for the SOA record. Defaults to `300`.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The serial number for the SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Record Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 

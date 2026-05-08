@@ -140,15 +140,15 @@ export interface ApiOperationTagState {
     /**
      * The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
      */
-    apiOperationId?: pulumi.Input<string>;
+    apiOperationId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API Management API Operation Tag.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,5 +166,5 @@ export interface ApiOperationTagArgs {
     /**
      * The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

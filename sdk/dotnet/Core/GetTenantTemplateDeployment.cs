@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Core
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Core
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Core
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getTenantTemplateDeploymentResult =&gt; getTenantTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),

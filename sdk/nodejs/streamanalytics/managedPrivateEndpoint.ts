@@ -155,23 +155,23 @@ export interface ManagedPrivateEndpointState {
     /**
      * The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Managed Private Endpoint should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Cluster where the Managed Private Endpoint should be created. Changing this forces a new resource to be created.
      */
-    streamAnalyticsClusterName?: pulumi.Input<string>;
+    streamAnalyticsClusterName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub resource name which the Stream Analytics Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    subresourceName?: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Stream Analytics Private endpoint should be connected to. Changing this forces a new resource to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,7 +181,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Managed Private Endpoint should exist. Changing this forces a new resource to be created.
      */

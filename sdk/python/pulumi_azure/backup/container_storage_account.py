@@ -77,9 +77,9 @@ class ContainerStorageAccountArgs:
 @pulumi.input_type
 class _ContainerStorageAccountState:
     def __init__(__self__, *,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerStorageAccount resources.
 
@@ -98,31 +98,31 @@ class _ContainerStorageAccountState:
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 
@@ -131,7 +131,7 @@ class _ContainerStorageAccountState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -141,9 +141,9 @@ class ContainerStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
@@ -254,9 +254,9 @@ class ContainerStorageAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,9 +285,9 @@ class ContainerStorageAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ContainerStorageAccount':
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContainerStorageAccount':
         """
         Get an existing ContainerStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

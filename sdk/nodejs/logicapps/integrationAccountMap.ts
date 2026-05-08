@@ -155,27 +155,27 @@ export interface IntegrationAccountMapState {
     /**
      * The content of the Logic App Integration Account Map.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      */
-    mapType?: pulumi.Input<string>;
+    mapType?: pulumi.Input<string | undefined>;
     /**
      * The metadata of the Logic App Integration Account Map.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,11 +197,11 @@ export interface IntegrationAccountMapArgs {
     /**
      * The metadata of the Logic App Integration Account Map.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
      */

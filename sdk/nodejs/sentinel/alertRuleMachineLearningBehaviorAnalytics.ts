@@ -133,19 +133,19 @@ export interface AlertRuleMachineLearningBehaviorAnalyticsState {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this SentinelMachine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface AlertRuleMachineLearningBehaviorAnalyticsArgs {
     /**
      * Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      */
@@ -167,5 +167,5 @@ export interface AlertRuleMachineLearningBehaviorAnalyticsArgs {
     /**
      * The name which should be used for this SentinelMachine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -181,8 +181,8 @@ def get_account(name: Optional[_builtins.str] = None,
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Automation Account.

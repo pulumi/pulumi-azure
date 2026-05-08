@@ -208,9 +208,9 @@ def get_certificate_data(key_vault_id: Optional[_builtins.str] = None,
         pem=pulumi.get(__ret__, 'pem'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                name: Optional[pulumi.Input[_builtins.str]] = None,
-                                version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_certificate_data_output(key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                name: pulumi.Input[Optional[_builtins.str]] = None,
+                                version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateDataResult]:
     """
     Use this data source to access data stored in an existing Key Vault Certificate.

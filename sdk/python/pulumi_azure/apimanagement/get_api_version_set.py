@@ -181,9 +181,9 @@ def get_api_version_set(api_management_name: Optional[_builtins.str] = None,
         version_header_name=pulumi.get(__ret__, 'version_header_name'),
         version_query_name=pulumi.get(__ret__, 'version_query_name'),
         versioning_scheme=pulumi.get(__ret__, 'versioning_scheme'))
-def get_api_version_set_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_version_set_output(api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
     Uses this data source to access information about an API Version Set within an API Management Service.

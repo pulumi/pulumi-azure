@@ -138,27 +138,27 @@ export interface StorageDefenderState {
     /**
      * The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
      */
-    malwareScanningOnUploadCapGbPerMonth?: pulumi.Input<number>;
+    malwareScanningOnUploadCapGbPerMonth?: pulumi.Input<number | undefined>;
     /**
      * Whether On Upload malware scanning should be enabled. Defaults to `false`.
      */
-    malwareScanningOnUploadEnabled?: pulumi.Input<boolean>;
+    malwareScanningOnUploadEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
      */
-    overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean>;
+    overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
      */
-    scanResultsEventGridTopicId?: pulumi.Input<string>;
+    scanResultsEventGridTopicId?: pulumi.Input<string | undefined>;
     /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
-    sensitiveDataDiscoveryEnabled?: pulumi.Input<boolean>;
+    sensitiveDataDiscoveryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,23 +168,23 @@ export interface StorageDefenderArgs {
     /**
      * The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
      */
-    malwareScanningOnUploadCapGbPerMonth?: pulumi.Input<number>;
+    malwareScanningOnUploadCapGbPerMonth?: pulumi.Input<number | undefined>;
     /**
      * Whether On Upload malware scanning should be enabled. Defaults to `false`.
      */
-    malwareScanningOnUploadEnabled?: pulumi.Input<boolean>;
+    malwareScanningOnUploadEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
      */
-    overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean>;
+    overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
      */
-    scanResultsEventGridTopicId?: pulumi.Input<string>;
+    scanResultsEventGridTopicId?: pulumi.Input<string | undefined>;
     /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
-    sensitiveDataDiscoveryEnabled?: pulumi.Input<boolean>;
+    sensitiveDataDiscoveryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
      */

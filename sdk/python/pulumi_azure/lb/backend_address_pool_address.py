@@ -22,10 +22,10 @@ __all__ = ['BackendAddressPoolAddressArgs', 'BackendAddressPoolAddress']
 class BackendAddressPoolAddressArgs:
     def __init__(__self__, *,
                  backend_address_pool_id: pulumi.Input[_builtins.str],
-                 backend_address_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendAddressPoolAddress resource.
 
@@ -61,7 +61,7 @@ class BackendAddressPoolAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressIpConfigurationId")
-    def backend_address_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
 
@@ -70,55 +70,55 @@ class BackendAddressPoolAddressArgs:
         return pulumi.get(self, "backend_address_ip_configuration_id")
 
     @backend_address_ip_configuration_id.setter
-    def backend_address_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP Address which should be allocated to this Backend Address Pool.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 @pulumi.input_type
 class _BackendAddressPoolAddressState:
     def __init__(__self__, *,
-                 backend_address_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_nat_rule_port_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_nat_rule_port_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPoolAddress resources.
 
@@ -146,7 +146,7 @@ class _BackendAddressPoolAddressState:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressIpConfigurationId")
-    def backend_address_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
 
@@ -155,67 +155,67 @@ class _BackendAddressPoolAddressState:
         return pulumi.get(self, "backend_address_ip_configuration_id")
 
     @backend_address_ip_configuration_id.setter
-    def backend_address_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRulePortMappings")
-    def inbound_nat_rule_port_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]]:
+    def inbound_nat_rule_port_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]]:
         """
         A list of `inbound_nat_rule_port_mapping` block as defined below.
         """
         return pulumi.get(self, "inbound_nat_rule_port_mappings")
 
     @inbound_nat_rule_port_mappings.setter
-    def inbound_nat_rule_port_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]]):
+    def inbound_nat_rule_port_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]]):
         pulumi.set(self, "inbound_nat_rule_port_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP Address which should be allocated to this Backend Address Pool.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -225,11 +225,11 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backend Address within a Backend Address Pool.
@@ -362,11 +362,11 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,12 +394,12 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_address_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            inbound_nat_rule_port_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackendAddressPoolAddress':
+            backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_nat_rule_port_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackendAddressPoolAddress':
         """
         Get an existing BackendAddressPoolAddress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

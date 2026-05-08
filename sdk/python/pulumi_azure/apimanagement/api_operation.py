@@ -28,10 +28,10 @@ class ApiOperationArgs:
                  operation_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  url_template: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional['ApiOperationRequestArgs']] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None):
         """
         The set of arguments for constructing a ApiOperation resource.
 
@@ -149,67 +149,67 @@ class ApiOperationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this API Operation, which may include HTML formatting tags.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input['ApiOperationRequestArgs']]:
+    def request(self) -> pulumi.Input[Optional['ApiOperationRequestArgs']]:
         """
         A `request` block as defined below.
         """
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input['ApiOperationRequestArgs']]):
+    def request(self, value: pulumi.Input[Optional['ApiOperationRequestArgs']]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter
-    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]:
+    def responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]:
         """
         One or more `response` blocks as defined below.
         """
         return pulumi.get(self, "responses")
 
     @responses.setter
-    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]):
+    def responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]):
         pulumi.set(self, "responses", value)
 
     @_builtins.property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]:
+    def template_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]:
         """
         One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         """
         return pulumi.get(self, "template_parameters")
 
     @template_parameters.setter
-    def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
+    def template_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
         pulumi.set(self, "template_parameters", value)
 
 
 @pulumi.input_type
 class _ApiOperationState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
-                 url_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional['ApiOperationRequestArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
+                 url_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiOperation resources.
 
@@ -250,134 +250,134 @@ class _ApiOperationState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_name")
 
     @api_name.setter
-    def api_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this API Operation, which may include HTML formatting tags.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Display Name for this API Management Operation.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter(name="operationId")
-    def operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for this API Operation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "operation_id")
 
     @operation_id.setter
-    def operation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input['ApiOperationRequestArgs']]:
+    def request(self) -> pulumi.Input[Optional['ApiOperationRequestArgs']]:
         """
         A `request` block as defined below.
         """
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input['ApiOperationRequestArgs']]):
+    def request(self, value: pulumi.Input[Optional['ApiOperationRequestArgs']]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]:
+    def responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]:
         """
         One or more `response` blocks as defined below.
         """
         return pulumi.get(self, "responses")
 
     @responses.setter
-    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]):
+    def responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]):
         pulumi.set(self, "responses", value)
 
     @_builtins.property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]:
+    def template_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]:
         """
         One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         """
         return pulumi.get(self, "template_parameters")
 
     @template_parameters.setter
-    def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
+    def template_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
         pulumi.set(self, "template_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="urlTemplate")
-    def url_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         return pulumi.get(self, "url_template")
 
     @url_template.setter
-    def url_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_template", value)
 
 
@@ -387,17 +387,17 @@ class ApiOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
-                 url_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+                 url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Operation within an API Management Service.
@@ -530,17 +530,17 @@ class ApiOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
-                 url_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+                 url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -585,17 +585,17 @@ class ApiOperation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            api_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            method: Optional[pulumi.Input[_builtins.str]] = None,
-            operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            request: Optional[pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-            template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
-            url_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiOperation':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
+            template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+            url_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiOperation':
         """
         Get an existing ApiOperation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

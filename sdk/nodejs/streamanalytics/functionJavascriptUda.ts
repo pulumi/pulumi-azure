@@ -162,23 +162,23 @@ export interface FunctionJavascriptUdaState {
     /**
      * One or more `input` blocks as defined below.
      */
-    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavascriptUdaInput>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavascriptUdaInput>[] | undefined>;
     /**
      * The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `output` block as defined below.
      */
-    output?: pulumi.Input<inputs.streamanalytics.FunctionJavascriptUdaOutput>;
+    output?: pulumi.Input<inputs.streamanalytics.FunctionJavascriptUdaOutput | undefined>;
     /**
      * The JavaScript of this UDA Function.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobId?: pulumi.Input<string>;
+    streamAnalyticsJobId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface FunctionJavascriptUdaArgs {
     /**
      * The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `output` block as defined below.
      */

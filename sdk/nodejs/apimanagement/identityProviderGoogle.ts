@@ -143,19 +143,19 @@ export interface IdentityProviderGoogleState {
     /**
      * The Name of the API Management Service where this Google Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * Client Id for Google Sign-in.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * Client secret for Google Sign-in.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**

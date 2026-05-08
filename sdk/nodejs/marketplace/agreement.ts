@@ -122,20 +122,20 @@ export class Agreement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Agreement resources.
  */
 export interface AgreementState {
-    licenseTextLink?: pulumi.Input<string>;
+    licenseTextLink?: pulumi.Input<string | undefined>;
     /**
      * The Offer of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    offer?: pulumi.Input<string>;
+    offer?: pulumi.Input<string | undefined>;
     /**
      * The Plan of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<string>;
-    privacyPolicyLink?: pulumi.Input<string>;
+    plan?: pulumi.Input<string | undefined>;
+    privacyPolicyLink?: pulumi.Input<string | undefined>;
     /**
      * The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string | undefined>;
 }
 
 /**

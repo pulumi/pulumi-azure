@@ -251,48 +251,48 @@ export interface CustomDatasetState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `linkedService` block as defined below.
      */
-    linkedService?: pulumi.Input<inputs.datafactory.CustomDatasetLinkedService>;
+    linkedService?: pulumi.Input<inputs.datafactory.CustomDatasetLinkedService | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A JSON object that contains the schema of the Data Factory Dataset.
      */
-    schemaJson?: pulumi.Input<string>;
+    schemaJson?: pulumi.Input<string | undefined>;
     /**
      * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * A JSON object that contains the properties of the Data Factory Dataset. Refer to
      * datafactory/models.go for the shape of the expected JSON. For example, the JSON object for `AzureBlob`-typed Dataset will be unmarshaled into `AzureBlobDatasetTypeProperties struct`.
      */
-    typePropertiesJson?: pulumi.Input<string>;
+    typePropertiesJson?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -302,11 +302,11 @@ export interface CustomDatasetArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
@@ -314,11 +314,11 @@ export interface CustomDatasetArgs {
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `linkedService` block as defined below.
      */
@@ -326,15 +326,15 @@ export interface CustomDatasetArgs {
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A JSON object that contains the schema of the Data Factory Dataset.
      */
-    schemaJson?: pulumi.Input<string>;
+    schemaJson?: pulumi.Input<string | undefined>;
     /**
      * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      */

@@ -167,43 +167,43 @@ export interface DirectoryState {
     /**
      * The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
      */
-    billingType?: pulumi.Input<string>;
+    billingType?: pulumi.Input<string | undefined>;
     /**
      * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      */
-    dataResidencyLocation?: pulumi.Input<string>;
+    dataResidencyLocation?: pulumi.Input<string | undefined>;
     /**
      * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The date from which the billing type took effect. May not be populated until after the first billing cycle.
      */
-    effectiveStartDate?: pulumi.Input<string>;
+    effectiveStartDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the AAD B2C Directory.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Tenant ID for the AAD B2C tenant.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface DirectoryArgs {
     /**
      * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      */
@@ -221,7 +221,7 @@ export interface DirectoryArgs {
     /**
      * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
      */
@@ -237,5 +237,5 @@ export interface DirectoryArgs {
     /**
      * A mapping of tags which should be assigned to the AAD B2C Directory.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

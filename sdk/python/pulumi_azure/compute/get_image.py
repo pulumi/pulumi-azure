@@ -200,10 +200,10 @@ def get_image(name: Optional[_builtins.str] = None,
         sort_descending=pulumi.get(__ret__, 'sort_descending'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_resilient=pulumi.get(__ret__, 'zone_resilient'))
-def get_image_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name_regex: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     sort_descending: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_image_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     sort_descending: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to access information about an existing Image.

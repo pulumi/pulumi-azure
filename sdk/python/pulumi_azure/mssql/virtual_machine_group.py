@@ -25,9 +25,9 @@ class VirtualMachineGroupArgs:
                  sql_image_offer: pulumi.Input[_builtins.str],
                  sql_image_sku: pulumi.Input[_builtins.str],
                  wsfc_domain_profile: pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs'],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineGroup resource.
 
@@ -100,51 +100,51 @@ class VirtualMachineGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VirtualMachineGroupState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wsfc_domain_profile: pulumi.Input[Optional['VirtualMachineGroupWsfcDomainProfileArgs']] = None):
         """
         Input properties used for looking up and filtering VirtualMachineGroup resources.
 
@@ -173,86 +173,86 @@ class _VirtualMachineGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlImageOffer")
-    def sql_image_offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_image_offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_image_offer")
 
     @sql_image_offer.setter
-    def sql_image_offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_image_offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_image_offer", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlImageSku")
-    def sql_image_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_image_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
         """
         return pulumi.get(self, "sql_image_sku")
 
     @sql_image_sku.setter
-    def sql_image_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_image_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_image_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="wsfcDomainProfile")
-    def wsfc_domain_profile(self) -> Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']]:
+    def wsfc_domain_profile(self) -> pulumi.Input[Optional['VirtualMachineGroupWsfcDomainProfileArgs']]:
         """
         A `wsfc_domain_profile` block as defined below.
         """
         return pulumi.get(self, "wsfc_domain_profile")
 
     @wsfc_domain_profile.setter
-    def wsfc_domain_profile(self, value: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']]):
+    def wsfc_domain_profile(self, value: pulumi.Input[Optional['VirtualMachineGroupWsfcDomainProfileArgs']]):
         pulumi.set(self, "wsfc_domain_profile", value)
 
 
@@ -262,13 +262,13 @@ class VirtualMachineGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wsfc_domain_profile: Optional[pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Virtual Machine Group.
@@ -381,13 +381,13 @@ class VirtualMachineGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wsfc_domain_profile: Optional[pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -422,13 +422,13 @@ class VirtualMachineGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-            sql_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            wsfc_domain_profile: Optional[pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None) -> 'VirtualMachineGroup':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None) -> 'VirtualMachineGroup':
         """
         Get an existing VirtualMachineGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

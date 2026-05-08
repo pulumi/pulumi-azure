@@ -23,8 +23,8 @@ class MedtechServiceFhirDestinationArgs:
                  destination_fhir_service_id: pulumi.Input[_builtins.str],
                  destination_identity_resolution_type: pulumi.Input[_builtins.str],
                  medtech_service_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MedtechServiceFhirDestination resource.
 
@@ -94,38 +94,38 @@ class MedtechServiceFhirDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _MedtechServiceFhirDestinationState:
     def __init__(__self__, *,
-                 destination_fhir_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_fhir_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_identity_resolution_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 medtech_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_fhir_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_fhir_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_identity_resolution_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 medtech_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MedtechServiceFhirDestination resources.
 
@@ -151,74 +151,74 @@ class _MedtechServiceFhirDestinationState:
 
     @_builtins.property
     @pulumi.getter(name="destinationFhirMappingJson")
-    def destination_fhir_mapping_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_fhir_mapping_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
         """
         return pulumi.get(self, "destination_fhir_mapping_json")
 
     @destination_fhir_mapping_json.setter
-    def destination_fhir_mapping_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_fhir_mapping_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_fhir_mapping_json", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFhirServiceId")
-    def destination_fhir_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_fhir_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         """
         return pulumi.get(self, "destination_fhir_service_id")
 
     @destination_fhir_service_id.setter
-    def destination_fhir_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_fhir_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_fhir_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIdentityResolutionType")
-    def destination_identity_resolution_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_identity_resolution_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         """
         return pulumi.get(self, "destination_identity_resolution_type")
 
     @destination_identity_resolution_type.setter
-    def destination_identity_resolution_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_identity_resolution_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_identity_resolution_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="medtechServiceId")
-    def medtech_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def medtech_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
         return pulumi.get(self, "medtech_service_id")
 
     @medtech_service_id.setter
-    def medtech_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def medtech_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "medtech_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -228,12 +228,12 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_fhir_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_fhir_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_identity_resolution_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 medtech_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_fhir_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_fhir_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_identity_resolution_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 medtech_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Healthcare Med Tech Service Fhir Destination.
@@ -463,12 +463,12 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_fhir_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_fhir_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_identity_resolution_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 medtech_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_fhir_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_fhir_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_identity_resolution_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 medtech_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,12 +502,12 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_fhir_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_fhir_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_identity_resolution_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            medtech_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'MedtechServiceFhirDestination':
+            destination_fhir_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_fhir_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_identity_resolution_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            medtech_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'MedtechServiceFhirDestination':
         """
         Get an existing MedtechServiceFhirDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

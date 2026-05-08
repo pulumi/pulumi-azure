@@ -20,8 +20,8 @@ __all__ = ['EmailServiceDomainSenderUsernameArgs', 'EmailServiceDomainSenderUser
 class EmailServiceDomainSenderUsernameArgs:
     def __init__(__self__, *,
                  email_service_domain_id: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailServiceDomainSenderUsername resource.
 
@@ -49,35 +49,35 @@ class EmailServiceDomainSenderUsernameArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the Email Communication Service Domain Sender Username resource.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _EmailServiceDomainSenderUsernameState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailServiceDomainSenderUsername resources.
 
@@ -94,38 +94,38 @@ class _EmailServiceDomainSenderUsernameState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the Email Communication Service Domain Sender Username resource.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emailServiceDomainId")
-    def email_service_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_service_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "email_service_domain_id")
 
     @email_service_domain_id.setter
-    def email_service_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_service_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_service_domain_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -135,9 +135,9 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Email Communication Service Domain Sender Username.
@@ -248,9 +248,9 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,9 +275,9 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailServiceDomainSenderUsername':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailServiceDomainSenderUsername':
         """
         Get an existing EmailServiceDomainSenderUsername resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

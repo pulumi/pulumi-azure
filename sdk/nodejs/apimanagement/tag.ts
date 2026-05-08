@@ -124,15 +124,15 @@ export interface TagState {
     /**
      * The ID of the API Management. Changing this forces a new API Management Tag to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API Management Tag. Defaults to the `name`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,9 +146,9 @@ export interface TagArgs {
     /**
      * The display name of the API Management Tag. Defaults to the `name`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

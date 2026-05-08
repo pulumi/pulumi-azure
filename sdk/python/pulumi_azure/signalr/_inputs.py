@@ -64,22 +64,22 @@ class ServiceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 
     > **Note:** This is required when `type` is set to `UserAssigned`
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
@@ -108,7 +108,7 @@ class ServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 
@@ -117,42 +117,42 @@ class ServiceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ServiceLiveTraceArgsDict(TypedDict):
-    connectivity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    connectivity_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the live trace is enabled? Defaults to `true`.
     """
-    http_request_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    http_request_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
     """
-    messaging_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    messaging_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `MessagingLogs` is enabled? Defaults to `true`
     """
@@ -160,10 +160,10 @@ class ServiceLiveTraceArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLiveTraceArgs:
     def __init__(__self__, *,
-                 connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
         :param pulumi.Input[_builtins.bool] enabled: Whether the live trace is enabled? Defaults to `true`.
@@ -181,50 +181,50 @@ class ServiceLiveTraceArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectivityLogsEnabled")
-    def connectivity_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def connectivity_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "connectivity_logs_enabled")
 
     @connectivity_logs_enabled.setter
-    def connectivity_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def connectivity_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "connectivity_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the live trace is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpRequestLogsEnabled")
-    def http_request_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_request_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "http_request_logs_enabled")
 
     @http_request_logs_enabled.setter
-    def http_request_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_request_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_request_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="messagingLogsEnabled")
-    def messaging_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def messaging_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `MessagingLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "messaging_logs_enabled")
 
     @messaging_logs_enabled.setter
-    def messaging_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def messaging_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "messaging_logs_enabled", value)
 
 
@@ -233,13 +233,13 @@ class ServiceNetworkAclPrivateEndpointArgsDict(TypedDict):
     """
     The ID of the Private Endpoint which is based on the SignalR service.
     """
-    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
     > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
     """
-    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    denied_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -252,8 +252,8 @@ class ServiceNetworkAclPrivateEndpointArgsDict(TypedDict):
 class ServiceNetworkAclPrivateEndpointArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 denied_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Private Endpoint which is based on the SignalR service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -285,7 +285,7 @@ class ServiceNetworkAclPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedRequestTypes")
-    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -294,12 +294,12 @@ class ServiceNetworkAclPrivateEndpointArgs:
         return pulumi.get(self, "allowed_request_types")
 
     @allowed_request_types.setter
-    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_request_types", value)
 
     @_builtins.property
     @pulumi.getter(name="deniedRequestTypes")
-    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def denied_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -310,18 +310,18 @@ class ServiceNetworkAclPrivateEndpointArgs:
         return pulumi.get(self, "denied_request_types")
 
     @denied_request_types.setter
-    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def denied_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "denied_request_types", value)
 
 
 class ServiceNetworkAclPublicNetworkArgsDict(TypedDict):
-    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
     > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
     """
-    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    denied_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -333,8 +333,8 @@ class ServiceNetworkAclPublicNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceNetworkAclPublicNetworkArgs:
     def __init__(__self__, *,
-                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 denied_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
@@ -352,7 +352,7 @@ class ServiceNetworkAclPublicNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedRequestTypes")
-    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -361,12 +361,12 @@ class ServiceNetworkAclPublicNetworkArgs:
         return pulumi.get(self, "allowed_request_types")
 
     @allowed_request_types.setter
-    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_request_types", value)
 
     @_builtins.property
     @pulumi.getter(name="deniedRequestTypes")
-    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def denied_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -377,7 +377,7 @@ class ServiceNetworkAclPublicNetworkArgs:
         return pulumi.get(self, "denied_request_types")
 
     @denied_request_types.setter
-    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def denied_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "denied_request_types", value)
 
 
@@ -451,7 +451,7 @@ class ServiceUpstreamEndpointArgsDict(TypedDict):
     """
     The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
     """
@@ -463,7 +463,7 @@ class ServiceUpstreamEndpointArgs:
                  event_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  hub_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  url_template: pulumi.Input[_builtins.str],
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] category_patterns: The categories to match on, or `*` for all.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_patterns: The events to match on, or `*` for all.
@@ -528,14 +528,14 @@ class ServiceUpstreamEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 

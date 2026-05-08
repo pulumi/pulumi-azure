@@ -156,8 +156,8 @@ def get_enterprise_database(cluster_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
-def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enterprise_database_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
     """
     Use this data source to access information about an existing Redis Enterprise Database

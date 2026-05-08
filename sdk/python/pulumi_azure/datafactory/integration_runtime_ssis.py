@@ -23,23 +23,23 @@ class IntegrationRuntimeSsisArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
                  node_size: pulumi.Input[_builtins.str],
-                 catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
-                 copy_compute_scale: Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
-                 express_vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
-                 pipeline_external_compute_scale: Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']] = None,
-                 proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
-                 vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
+                 catalog_info: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 copy_compute_scale: pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_setup_script: pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_custom_setup: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
+                 express_vnet_integration: pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 package_stores: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
+                 pipeline_external_compute_scale: pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']] = None,
+                 proxy: pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']] = None,
+                 vnet_integration: pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSsis resource.
 
@@ -128,31 +128,31 @@ class IntegrationRuntimeSsisArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogInfo")
-    def catalog_info(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]:
+    def catalog_info(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]:
         """
         A `catalog_info` block as defined below.
         """
         return pulumi.get(self, "catalog_info")
 
     @catalog_info.setter
-    def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
+    def catalog_info(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
 
     @_builtins.property
     @pulumi.getter(name="copyComputeScale")
-    def copy_compute_scale(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']]:
+    def copy_compute_scale(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']]:
         """
         One `copy_compute_scale` block as defined below.
         """
         return pulumi.get(self, "copy_compute_scale")
 
     @copy_compute_scale.setter
-    def copy_compute_scale(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']]):
+    def copy_compute_scale(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']]):
         pulumi.set(self, "copy_compute_scale", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialName")
-    def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 
@@ -161,200 +161,200 @@ class IntegrationRuntimeSsisArgs:
         return pulumi.get(self, "credential_name")
 
     @credential_name.setter
-    def credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customSetupScript")
-    def custom_setup_script(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']]:
+    def custom_setup_script(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']]:
         """
         A `custom_setup_script` block as defined below.
         """
         return pulumi.get(self, "custom_setup_script")
 
     @custom_setup_script.setter
-    def custom_setup_script(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']]):
+    def custom_setup_script(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']]):
         pulumi.set(self, "custom_setup_script", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter(name="expressCustomSetup")
-    def express_custom_setup(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
+    def express_custom_setup(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
         """
         An `express_custom_setup` block as defined below.
         """
         return pulumi.get(self, "express_custom_setup")
 
     @express_custom_setup.setter
-    def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
+    def express_custom_setup(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
         pulumi.set(self, "express_custom_setup", value)
 
     @_builtins.property
     @pulumi.getter(name="expressVnetIntegration")
-    def express_vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
+    def express_vnet_integration(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
         """
         A `express_vnet_integration` block as defined below.
         """
         return pulumi.get(self, "express_vnet_integration")
 
     @express_vnet_integration.setter
-    def express_vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
+    def express_vnet_integration(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
         pulumi.set(self, "express_vnet_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallel_executions_per_node(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
     @max_parallel_executions_per_node.setter
-    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallel_executions_per_node(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallel_executions_per_node", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageStores")
-    def package_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
+    def package_stores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
         """
         One or more `package_store` block as defined below.
         """
         return pulumi.get(self, "package_stores")
 
     @package_stores.setter
-    def package_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
+    def package_stores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
         pulumi.set(self, "package_stores", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineExternalComputeScale")
-    def pipeline_external_compute_scale(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]:
+    def pipeline_external_compute_scale(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]:
         """
         One `pipeline_external_compute_scale` block as defined below.
         """
         return pulumi.get(self, "pipeline_external_compute_scale")
 
     @pipeline_external_compute_scale.setter
-    def pipeline_external_compute_scale(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]):
+    def pipeline_external_compute_scale(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]):
         pulumi.set(self, "pipeline_external_compute_scale", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]:
+    def proxy(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']]:
         """
         A `proxy` block as defined below.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]):
+    def proxy(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetIntegration")
-    def vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']]:
+    def vnet_integration(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']]:
         """
         A `vnet_integration` block as defined below.
         """
         return pulumi.get(self, "vnet_integration")
 
     @vnet_integration.setter
-    def vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']]):
+    def vnet_integration(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']]):
         pulumi.set(self, "vnet_integration", value)
 
 
 @pulumi.input_type
 class _IntegrationRuntimeSsisState:
     def __init__(__self__, *,
-                 catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
-                 copy_compute_scale: Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
-                 express_vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
-                 pipeline_external_compute_scale: Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']] = None,
-                 proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
-                 vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
+                 catalog_info: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 copy_compute_scale: pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_setup_script: pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_custom_setup: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
+                 express_vnet_integration: pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 package_stores: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
+                 pipeline_external_compute_scale: pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']] = None,
+                 proxy: pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']] = None,
+                 vnet_integration: pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSsis resources.
 
@@ -421,31 +421,31 @@ class _IntegrationRuntimeSsisState:
 
     @_builtins.property
     @pulumi.getter(name="catalogInfo")
-    def catalog_info(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]:
+    def catalog_info(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]:
         """
         A `catalog_info` block as defined below.
         """
         return pulumi.get(self, "catalog_info")
 
     @catalog_info.setter
-    def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
+    def catalog_info(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
 
     @_builtins.property
     @pulumi.getter(name="copyComputeScale")
-    def copy_compute_scale(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']]:
+    def copy_compute_scale(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']]:
         """
         One `copy_compute_scale` block as defined below.
         """
         return pulumi.get(self, "copy_compute_scale")
 
     @copy_compute_scale.setter
-    def copy_compute_scale(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs']]):
+    def copy_compute_scale(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCopyComputeScaleArgs']]):
         pulumi.set(self, "copy_compute_scale", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialName")
-    def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 
@@ -454,199 +454,199 @@ class _IntegrationRuntimeSsisState:
         return pulumi.get(self, "credential_name")
 
     @credential_name.setter
-    def credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customSetupScript")
-    def custom_setup_script(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']]:
+    def custom_setup_script(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']]:
         """
         A `custom_setup_script` block as defined below.
         """
         return pulumi.get(self, "custom_setup_script")
 
     @custom_setup_script.setter
-    def custom_setup_script(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']]):
+    def custom_setup_script(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisCustomSetupScriptArgs']]):
         pulumi.set(self, "custom_setup_script", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter(name="expressCustomSetup")
-    def express_custom_setup(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
+    def express_custom_setup(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
         """
         An `express_custom_setup` block as defined below.
         """
         return pulumi.get(self, "express_custom_setup")
 
     @express_custom_setup.setter
-    def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
+    def express_custom_setup(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
         pulumi.set(self, "express_custom_setup", value)
 
     @_builtins.property
     @pulumi.getter(name="expressVnetIntegration")
-    def express_vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
+    def express_vnet_integration(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
         """
         A `express_vnet_integration` block as defined below.
         """
         return pulumi.get(self, "express_vnet_integration")
 
     @express_vnet_integration.setter
-    def express_vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
+    def express_vnet_integration(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
         pulumi.set(self, "express_vnet_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallel_executions_per_node(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
     @max_parallel_executions_per_node.setter
-    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallel_executions_per_node(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallel_executions_per_node", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSize")
-    def node_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         """
         return pulumi.get(self, "node_size")
 
     @node_size.setter
-    def node_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_size", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageStores")
-    def package_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
+    def package_stores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
         """
         One or more `package_store` block as defined below.
         """
         return pulumi.get(self, "package_stores")
 
     @package_stores.setter
-    def package_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
+    def package_stores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
         pulumi.set(self, "package_stores", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineExternalComputeScale")
-    def pipeline_external_compute_scale(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]:
+    def pipeline_external_compute_scale(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]:
         """
         One `pipeline_external_compute_scale` block as defined below.
         """
         return pulumi.get(self, "pipeline_external_compute_scale")
 
     @pipeline_external_compute_scale.setter
-    def pipeline_external_compute_scale(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]):
+    def pipeline_external_compute_scale(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs']]):
         pulumi.set(self, "pipeline_external_compute_scale", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]:
+    def proxy(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']]:
         """
         A `proxy` block as defined below.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]):
+    def proxy(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisProxyArgs']]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetIntegration")
-    def vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']]:
+    def vnet_integration(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']]:
         """
         A `vnet_integration` block as defined below.
         """
         return pulumi.get(self, "vnet_integration")
 
     @vnet_integration.setter
-    def vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']]):
+    def vnet_integration(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisVnetIntegrationArgs']]):
         pulumi.set(self, "vnet_integration", value)
 
 
@@ -656,25 +656,25 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_info: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
-                 copy_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_setup_script: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_custom_setup: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
-                 express_vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
-                 pipeline_external_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
-                 proxy: Optional[pulumi.Input[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
-                 vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None,
+                 catalog_info: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
+                 copy_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_setup_script: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_custom_setup: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
+                 express_vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 package_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
+                 pipeline_external_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
+                 proxy: pulumi.Input[Optional[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
+                 vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Data Factory Azure-SSIS Integration Runtime.
@@ -799,25 +799,25 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_info: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
-                 copy_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
-                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_setup_script: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_custom_setup: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
-                 express_vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
-                 pipeline_external_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
-                 proxy: Optional[pulumi.Input[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
-                 vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None,
+                 catalog_info: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
+                 copy_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_setup_script: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_custom_setup: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
+                 express_vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 package_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
+                 pipeline_external_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
+                 proxy: pulumi.Input[Optional[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
+                 vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -862,25 +862,25 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catalog_info: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
-            copy_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
-            credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_setup_script: Optional[pulumi.Input[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            edition: Optional[pulumi.Input[_builtins.str]] = None,
-            express_custom_setup: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
-            express_vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_parallel_executions_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_size: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-            package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
-            pipeline_external_compute_scale: Optional[pulumi.Input[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
-            proxy: Optional[pulumi.Input[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
-            vnet_integration: Optional[pulumi.Input[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None) -> 'IntegrationRuntimeSsis':
+            catalog_info: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']]] = None,
+            copy_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']]] = None,
+            credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_setup_script: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            express_custom_setup: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict']]] = None,
+            express_vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_size: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            package_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict']]]]] = None,
+            pipeline_external_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict']]] = None,
+            proxy: pulumi.Input[Optional[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict']]] = None,
+            vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict']]] = None) -> 'IntegrationRuntimeSsis':
         """
         Get an existing IntegrationRuntimeSsis resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

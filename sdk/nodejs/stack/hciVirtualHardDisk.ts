@@ -201,57 +201,57 @@ export interface HciVirtualHardDiskState {
     /**
      * The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    blockSizeInBytes?: pulumi.Input<number>;
+    blockSizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    diskFileFormat?: pulumi.Input<string>;
+    diskFileFormat?: pulumi.Input<string | undefined>;
     /**
      * The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    diskSizeInGb?: pulumi.Input<number>;
+    diskSizeInGb?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    dynamicEnabled?: pulumi.Input<boolean>;
+    dynamicEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    hypervGeneration?: pulumi.Input<string>;
+    hypervGeneration?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    logicalSectorInBytes?: pulumi.Input<number>;
+    logicalSectorInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    physicalSectorInBytes?: pulumi.Input<number>;
+    physicalSectorInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      *
      * > **Note:** If `storagePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    storagePathId?: pulumi.Input<string>;
+    storagePathId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -261,7 +261,7 @@ export interface HciVirtualHardDiskArgs {
     /**
      * The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    blockSizeInBytes?: pulumi.Input<number>;
+    blockSizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
@@ -269,7 +269,7 @@ export interface HciVirtualHardDiskArgs {
     /**
      * The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    diskFileFormat?: pulumi.Input<string>;
+    diskFileFormat?: pulumi.Input<string | undefined>;
     /**
      * The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
@@ -277,27 +277,27 @@ export interface HciVirtualHardDiskArgs {
     /**
      * Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    dynamicEnabled?: pulumi.Input<boolean>;
+    dynamicEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    hypervGeneration?: pulumi.Input<string>;
+    hypervGeneration?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    logicalSectorInBytes?: pulumi.Input<number>;
+    logicalSectorInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    physicalSectorInBytes?: pulumi.Input<number>;
+    physicalSectorInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
@@ -307,9 +307,9 @@ export interface HciVirtualHardDiskArgs {
      *
      * > **Note:** If `storagePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    storagePathId?: pulumi.Input<string>;
+    storagePathId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

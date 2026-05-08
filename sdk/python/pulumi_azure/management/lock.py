@@ -21,8 +21,8 @@ class LockArgs:
     def __init__(__self__, *,
                  lock_level: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Lock resource.
 
@@ -68,36 +68,36 @@ class LockArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
 
 @pulumi.input_type
 class _LockState:
     def __init__(__self__, *,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Lock resources.
 
@@ -119,7 +119,7 @@ class _LockState:
 
     @_builtins.property
     @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
 
@@ -128,43 +128,43 @@ class _LockState:
         return pulumi.get(self, "lock_level")
 
     @lock_level.setter
-    def lock_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -174,10 +174,10 @@ class Lock(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
@@ -355,10 +355,10 @@ class Lock(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,10 +388,10 @@ class Lock(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None) -> 'Lock':
+            lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'Lock':
         """
         Get an existing Lock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

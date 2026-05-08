@@ -201,27 +201,27 @@ export interface BackupPolicyPostgresqlFlexibleServerState {
     /**
      * Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
      */
-    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[]>;
+    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      */
-    defaultRetentionRule?: pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule>;
+    defaultRetentionRule?: pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule | undefined>;
     /**
      * Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -239,15 +239,15 @@ export interface BackupPolicyPostgresqlFlexibleServerArgs {
     /**
      * Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
      */

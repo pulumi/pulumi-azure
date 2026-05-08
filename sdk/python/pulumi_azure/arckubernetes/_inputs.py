@@ -40,11 +40,11 @@ class ClusterExtensionIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -53,8 +53,8 @@ class ClusterExtensionIdentityArgsDict(TypedDict):
 class ClusterExtensionIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
@@ -80,26 +80,26 @@ class ClusterExtensionIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -108,11 +108,11 @@ class ClusterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -121,8 +121,8 @@ class ClusterIdentityArgsDict(TypedDict):
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
@@ -148,26 +148,26 @@ class ClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -176,27 +176,27 @@ class FluxConfigurationBlobStorageArgsDict(TypedDict):
     """
     Specifies the Azure Blob container ID.
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the account key (shared key) to access the storage account.
     """
-    local_auth_reference: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    sas_token: NotRequired[pulumi.Input[_builtins.str]]
+    sas_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the shared access token to access the storage container.
     """
-    service_principal: NotRequired[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgsDict']]
+    service_principal: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']]]
     """
     A `service_principal` block as defined below.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
     """
@@ -205,12 +205,12 @@ class FluxConfigurationBlobStorageArgsDict(TypedDict):
 class FluxConfigurationBlobStorageArgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[_builtins.str],
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] container_id: Specifies the Azure Blob container ID.
         :param pulumi.Input[_builtins.str] account_key: Specifies the account key (shared key) to access the storage account.
@@ -248,74 +248,74 @@ class FluxConfigurationBlobStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account key (shared key) to access the storage account.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthReference")
-    def local_auth_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         """
         return pulumi.get(self, "local_auth_reference")
 
     @local_auth_reference.setter
-    def local_auth_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the shared access token to access the storage container.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]:
+    def service_principal(self) -> pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']]:
         """
         A `service_principal` block as defined below.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]):
+    def service_principal(self, value: pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']]):
         pulumi.set(self, "service_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
@@ -328,19 +328,19 @@ class FluxConfigurationBlobStorageServicePrincipalArgsDict(TypedDict):
     """
     Specifies the tenant ID for authenticating a Service Principal.
     """
-    client_certificate_base64: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base64-encoded certificate used to authenticate a Service Principal .
     """
-    client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the password for the certificate used to authenticate a Service Principal .
     """
-    client_certificate_send_chain: NotRequired[pulumi.Input[_builtins.bool]]
+    client_certificate_send_chain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the client secret for authenticating a Service Principal.
     """
@@ -350,10 +350,10 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 client_certificate_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_send_chain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_certificate_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_send_chain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: Specifies the client ID for authenticating a Service Principal.
         :param pulumi.Input[_builtins.str] tenant_id: Specifies the tenant ID for authenticating a Service Principal.
@@ -399,50 +399,50 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateBase64")
-    def client_certificate_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded certificate used to authenticate a Service Principal .
         """
         return pulumi.get(self, "client_certificate_base64")
 
     @client_certificate_base64.setter
-    def client_certificate_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePassword")
-    def client_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password for the certificate used to authenticate a Service Principal .
         """
         return pulumi.get(self, "client_certificate_password")
 
     @client_certificate_password.setter
-    def client_certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateSendChain")
-    def client_certificate_send_chain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_send_chain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
         """
         return pulumi.get(self, "client_certificate_send_chain")
 
     @client_certificate_send_chain.setter
-    def client_certificate_send_chain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_send_chain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_send_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client secret for authenticating a Service Principal.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
 
@@ -455,27 +455,27 @@ class FluxConfigurationBucketArgsDict(TypedDict):
     """
     Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
     """
-    access_key: NotRequired[pulumi.Input[_builtins.str]]
+    access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the plaintext access key used to securely access the S3 bucket.
     """
-    local_auth_reference: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    secret_key_base64: NotRequired[pulumi.Input[_builtins.str]]
+    secret_key_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Base64-encoded secret key used to authenticate with the bucket source.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
     """
-    tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    tls_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
     """
@@ -485,12 +485,12 @@ class FluxConfigurationBucketArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_key_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_key_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Specifies the bucket name to sync from the url endpoint for the flux configuration.
         :param pulumi.Input[_builtins.str] url: Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
@@ -542,74 +542,74 @@ class FluxConfigurationBucketArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the plaintext access key used to securely access the S3 bucket.
         """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthReference")
-    def local_auth_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         """
         return pulumi.get(self, "local_auth_reference")
 
     @local_auth_reference.setter
-    def local_auth_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKeyBase64")
-    def secret_key_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_key_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Base64-encoded secret key used to authenticate with the bucket source.
         """
         return pulumi.get(self, "secret_key_base64")
 
     @secret_key_base64.setter
-    def secret_key_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_key_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_key_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
-    def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
-    def tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_enabled", value)
 
 
@@ -626,35 +626,35 @@ class FluxConfigurationGitRepositoryArgsDict(TypedDict):
     """
     Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
     """
-    https_ca_cert_base64: NotRequired[pulumi.Input[_builtins.str]]
+    https_ca_cert_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
     """
-    https_key_base64: NotRequired[pulumi.Input[_builtins.str]]
+    https_key_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
     """
-    https_user: NotRequired[pulumi.Input[_builtins.str]]
+    https_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
     """
-    local_auth_reference: NotRequired[pulumi.Input[_builtins.str]]
+    local_auth_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
     """
-    ssh_known_hosts_base64: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_known_hosts_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
     """
-    ssh_private_key_base64: NotRequired[pulumi.Input[_builtins.str]]
+    ssh_private_key_base64: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Base64-encoded SSH private key in PEM format.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
     """
@@ -665,14 +665,14 @@ class FluxConfigurationGitRepositoryArgs:
                  reference_type: pulumi.Input[_builtins.str],
                  reference_value: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 https_ca_cert_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_key_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_known_hosts_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_private_key_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 https_ca_cert_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_key_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_known_hosts_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_private_key_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] reference_type: Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
         :param pulumi.Input[_builtins.str] reference_value: Specifies the source reference value for the GitRepository object.
@@ -744,98 +744,98 @@ class FluxConfigurationGitRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpsCaCertBase64")
-    def https_ca_cert_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_ca_cert_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
         """
         return pulumi.get(self, "https_ca_cert_base64")
 
     @https_ca_cert_base64.setter
-    def https_ca_cert_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_ca_cert_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_ca_cert_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsKeyBase64")
-    def https_key_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_key_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
         """
         return pulumi.get(self, "https_key_base64")
 
     @https_key_base64.setter
-    def https_key_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_key_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_key_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsUser")
-    def https_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
         """
         return pulumi.get(self, "https_user")
 
     @https_user.setter
-    def https_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_user", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthReference")
-    def local_auth_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_auth_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
         """
         return pulumi.get(self, "local_auth_reference")
 
     @local_auth_reference.setter
-    def local_auth_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_auth_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_auth_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKnownHostsBase64")
-    def ssh_known_hosts_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_known_hosts_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
         """
         return pulumi.get(self, "ssh_known_hosts_base64")
 
     @ssh_known_hosts_base64.setter
-    def ssh_known_hosts_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_known_hosts_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_known_hosts_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPrivateKeyBase64")
-    def ssh_private_key_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_private_key_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Base64-encoded SSH private key in PEM format.
         """
         return pulumi.get(self, "ssh_private_key_base64")
 
     @ssh_private_key_base64.setter
-    def ssh_private_key_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_private_key_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_private_key_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
@@ -844,31 +844,31 @@ class FluxConfigurationKustomizationArgsDict(TypedDict):
     """
     Specifies the name of the kustomization.
     """
-    depends_ons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    depends_ons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
     """
-    garbage_collection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    garbage_collection_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the path in the source reference to reconcile on the cluster.
     """
-    recreating_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    recreating_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
     """
-    retry_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    retry_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
     """
-    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    sync_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
     """
@@ -877,13 +877,13 @@ class FluxConfigurationKustomizationArgsDict(TypedDict):
 class FluxConfigurationKustomizationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 garbage_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 recreating_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retry_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 depends_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 garbage_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 recreating_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retry_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the kustomization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] depends_ons: Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
@@ -924,99 +924,99 @@ class FluxConfigurationKustomizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOns")
-    def depends_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
         """
         return pulumi.get(self, "depends_ons")
 
     @depends_ons.setter
-    def depends_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_ons", value)
 
     @_builtins.property
     @pulumi.getter(name="garbageCollectionEnabled")
-    def garbage_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def garbage_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "garbage_collection_enabled")
 
     @garbage_collection_enabled.setter
-    def garbage_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def garbage_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "garbage_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path in the source reference to reconcile on the cluster.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="recreatingEnabled")
-    def recreating_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recreating_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
         """
         return pulumi.get(self, "recreating_enabled")
 
     @recreating_enabled.setter
-    def recreating_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recreating_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recreating_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalInSeconds")
-    def retry_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
         """
         return pulumi.get(self, "retry_interval_in_seconds")
 
     @retry_interval_in_seconds.setter
-    def retry_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="syncIntervalInSeconds")
-    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sync_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
         """
         return pulumi.get(self, "sync_interval_in_seconds")
 
     @sync_interval_in_seconds.setter
-    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sync_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sync_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
 class ProvisionedClusterAzureActiveDirectoryArgsDict(TypedDict):
-    admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    admin_group_object_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
     """
-    azure_rbac_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    azure_rbac_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
     """
@@ -1024,9 +1024,9 @@ class ProvisionedClusterAzureActiveDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class ProvisionedClusterAzureActiveDirectoryArgs:
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_rbac_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_group_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 azure_rbac_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_group_object_ids: A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
         :param pulumi.Input[_builtins.bool] azure_rbac_enabled: Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
@@ -1041,38 +1041,38 @@ class ProvisionedClusterAzureActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminGroupObjectIds")
-    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_group_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
-    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_group_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="azureRbacEnabled")
-    def azure_rbac_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azure_rbac_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
         """
         return pulumi.get(self, "azure_rbac_enabled")
 
     @azure_rbac_enabled.setter
-    def azure_rbac_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azure_rbac_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_rbac_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1081,11 +1081,11 @@ class ProvisionedClusterIdentityArgsDict(TypedDict):
     """
     The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -1094,8 +1094,8 @@ class ProvisionedClusterIdentityArgsDict(TypedDict):
 class ProvisionedClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
@@ -1121,26 +1121,26 @@ class ProvisionedClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

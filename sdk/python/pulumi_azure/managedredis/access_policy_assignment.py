@@ -62,8 +62,8 @@ class AccessPolicyAssignmentArgs:
 @pulumi.input_type
 class _AccessPolicyAssignmentState:
     def __init__(__self__, *,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssignment resources.
 
@@ -79,19 +79,19 @@ class _AccessPolicyAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="managedRedisId")
-    def managed_redis_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_redis_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
         """
         return pulumi.get(self, "managed_redis_id")
 
     @managed_redis_id.setter
-    def managed_redis_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_redis_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_redis_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the Azure Active Directory user, group, service principal, or managed identity to assign the access policy to. Changing this forces a new Access Policy Assignment to be created.
 
@@ -100,7 +100,7 @@ class _AccessPolicyAssignmentState:
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
 
@@ -110,8 +110,8 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Managed Redis Access Policy Assignment.
@@ -165,8 +165,8 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,8 +192,8 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccessPolicyAssignment':
+            managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccessPolicyAssignment':
         """
         Get an existing AccessPolicyAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

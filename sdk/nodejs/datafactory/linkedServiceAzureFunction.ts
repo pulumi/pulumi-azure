@@ -173,43 +173,43 @@ export interface LinkedServiceAzureFunctionState {
      *
      * The following supported arguments are specific to Azure Function Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      */
-    keyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFunctionKeyVaultKey>;
+    keyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFunctionKeyVaultKey | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The url of the Azure Function.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,11 +221,11 @@ export interface LinkedServiceAzureFunctionArgs {
      *
      * The following supported arguments are specific to Azure Function Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -233,27 +233,27 @@ export interface LinkedServiceAzureFunctionArgs {
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      */
-    keyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFunctionKeyVaultKey>;
+    keyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFunctionKeyVaultKey | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The url of the Azure Function.
      */

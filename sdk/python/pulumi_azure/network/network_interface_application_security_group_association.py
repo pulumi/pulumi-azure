@@ -58,8 +58,8 @@ class NetworkInterfaceApplicationSecurityGroupAssociationArgs:
 @pulumi.input_type
 class _NetworkInterfaceApplicationSecurityGroupAssociationState:
     def __init__(__self__, *,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceApplicationSecurityGroupAssociation resources.
 
@@ -73,26 +73,26 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationSecurityGroupId")
-    def application_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_security_group_id")
 
     @application_security_group_id.setter
-    def application_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
 
@@ -102,8 +102,8 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the association between a Network Interface and a Application Security Group.
@@ -247,8 +247,8 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,8 +274,8 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkInterfaceApplicationSecurityGroupAssociation':
+            application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkInterfaceApplicationSecurityGroupAssociation':
         """
         Get an existing NetworkInterfaceApplicationSecurityGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

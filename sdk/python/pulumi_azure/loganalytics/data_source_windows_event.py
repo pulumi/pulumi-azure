@@ -23,7 +23,7 @@ class DataSourceWindowsEventArgs:
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSourceWindowsEvent resource.
 
@@ -90,25 +90,25 @@ class DataSourceWindowsEventArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DataSourceWindowsEventState:
     def __init__(__self__, *,
-                 event_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSourceWindowsEvent resources.
 
@@ -131,62 +131,62 @@ class _DataSourceWindowsEventState:
 
     @_builtins.property
     @pulumi.getter(name="eventLogName")
-    def event_log_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_log_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Windows Event Log to collect events from.
         """
         return pulumi.get(self, "event_log_name")
 
     @event_log_name.setter
-    def event_log_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_log_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_log_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
-    def event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
-    def workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_name", value)
 
 
@@ -196,11 +196,11 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Windows Event DataSource.
@@ -313,11 +313,11 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -350,11 +350,11 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-            event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataSourceWindowsEvent':
+            event_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataSourceWindowsEvent':
         """
         Get an existing DataSourceWindowsEvent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

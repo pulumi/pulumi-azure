@@ -20,8 +20,8 @@ __all__ = ['MoverProjectArgs', 'MoverProject']
 class MoverProjectArgs:
     def __init__(__self__, *,
                  storage_mover_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverProject resource.
 
@@ -49,35 +49,35 @@ class MoverProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _MoverProjectState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverProject resources.
 
@@ -94,38 +94,38 @@ class _MoverProjectState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMoverId")
-    def storage_mover_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mover_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_mover_id")
 
     @storage_mover_id.setter
-    def storage_mover_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mover_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mover_id", value)
 
 
@@ -135,9 +135,9 @@ class MoverProject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Mover Project.
@@ -242,9 +242,9 @@ class MoverProject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,9 +269,9 @@ class MoverProject(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MoverProject':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MoverProject':
         """
         Get an existing MoverProject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

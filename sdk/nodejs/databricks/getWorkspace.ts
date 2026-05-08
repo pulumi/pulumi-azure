@@ -151,5 +151,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * A mapping of tags to assign to the Databricks Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

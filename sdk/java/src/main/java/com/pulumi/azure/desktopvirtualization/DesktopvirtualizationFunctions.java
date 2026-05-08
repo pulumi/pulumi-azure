@@ -35,8 +35,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -231,8 +231,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -280,8 +280,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -328,8 +328,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -376,8 +376,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -424,8 +424,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -472,8 +472,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -520,8 +520,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -569,8 +569,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -618,8 +618,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -667,8 +667,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -716,8 +716,8 @@ public final class DesktopvirtualizationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
      * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

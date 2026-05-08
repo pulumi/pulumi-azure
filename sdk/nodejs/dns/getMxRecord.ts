@@ -129,7 +129,7 @@ export interface GetMxRecordOutputArgs {
     /**
      * The name of the DNS MX Record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists.
      */

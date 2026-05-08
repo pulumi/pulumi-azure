@@ -25,14 +25,14 @@ class GalleryApplicationVersionArgs:
                  manage_action: pulumi.Input['GalleryApplicationVersionManageActionArgs'],
                  source: pulumi.Input['GalleryApplicationVersionSourceArgs'],
                  target_regions: pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]],
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_health_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
 
@@ -120,116 +120,116 @@ class GalleryApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="configFile")
-    def config_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "config_file")
 
     @config_file.setter
-    def config_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_file", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHealthCheck")
-    def enable_health_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_health_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Gallery Application reports health. Defaults to `false`.
         """
         return pulumi.get(self, "enable_health_check")
 
     @enable_health_check.setter
-    def enable_health_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_health_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_health_check", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Gallery Application Version.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_from_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_from_latest")
 
     @exclude_from_latest.setter
-    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFile")
-    def package_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "package_file")
 
     @package_file.setter
-    def package_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Gallery Application Version.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _GalleryApplicationVersionState:
     def __init__(__self__, *,
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_health_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_action: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None):
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_action: pulumi.Input[Optional['GalleryApplicationVersionManageActionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['GalleryApplicationVersionSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering GalleryApplicationVersion resources.
 
@@ -273,146 +273,146 @@ class _GalleryApplicationVersionState:
 
     @_builtins.property
     @pulumi.getter(name="configFile")
-    def config_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "config_file")
 
     @config_file.setter
-    def config_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_file", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHealthCheck")
-    def enable_health_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_health_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Gallery Application reports health. Defaults to `false`.
         """
         return pulumi.get(self, "enable_health_check")
 
     @enable_health_check.setter
-    def enable_health_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_health_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_health_check", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Gallery Application Version.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_from_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_from_latest")
 
     @exclude_from_latest.setter
-    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplicationId")
-    def gallery_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Gallery Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_application_id")
 
     @gallery_application_id.setter
-    def gallery_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_application_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="manageAction")
-    def manage_action(self) -> Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']]:
+    def manage_action(self) -> pulumi.Input[Optional['GalleryApplicationVersionManageActionArgs']]:
         """
         A `manage_action` block as defined below.
         """
         return pulumi.get(self, "manage_action")
 
     @manage_action.setter
-    def manage_action(self, value: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']]):
+    def manage_action(self, value: pulumi.Input[Optional['GalleryApplicationVersionManageActionArgs']]):
         pulumi.set(self, "manage_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFile")
-    def package_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "package_file")
 
     @package_file.setter
-    def package_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['GalleryApplicationVersionSourceArgs']]:
         """
         A `source` block as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['GalleryApplicationVersionSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Gallery Application Version.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]]:
+    def target_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]]:
         """
         One or more `target_region` blocks as defined below.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]]):
+    def target_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]]):
         pulumi.set(self, "target_regions", value)
 
 
@@ -422,18 +422,18 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_health_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Gallery Application Version.
@@ -611,18 +611,18 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_health_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -662,18 +662,18 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config_file: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_health_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-            gallery_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            package_file: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None) -> 'GalleryApplicationVersion':
+            config_file: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_file: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None) -> 'GalleryApplicationVersion':
         """
         Get an existing GalleryApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

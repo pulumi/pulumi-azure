@@ -159,7 +159,7 @@ export interface GetElasticsearchOutputArgs {
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<pulumi.Input<inputs.elasticcloud.GetElasticsearchLogArgs>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.elasticcloud.GetElasticsearchLogArgs>[] | undefined>;
     /**
      * The name of the Elasticsearch resource.
      */

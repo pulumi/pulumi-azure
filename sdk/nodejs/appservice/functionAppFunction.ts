@@ -314,61 +314,61 @@ export interface FunctionAppFunctionState {
     /**
      * The config for this Function in JSON format.
      */
-    configJson?: pulumi.Input<string>;
+    configJson?: pulumi.Input<string | undefined>;
     /**
      * The URL of the configuration JSON.
      */
-    configUrl?: pulumi.Input<string>;
+    configUrl?: pulumi.Input<string | undefined>;
     /**
      * Should this function be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `file` block as detailed below. Changing this forces a new resource to be created.
      */
-    files?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppFunctionFile>[]>;
+    files?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppFunctionFile>[] | undefined>;
     /**
      * The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
      */
-    functionAppId?: pulumi.Input<string>;
+    functionAppId?: pulumi.Input<string | undefined>;
     /**
      * The invocation URL.
      */
-    invocationUrl?: pulumi.Input<string>;
+    invocationUrl?: pulumi.Input<string | undefined>;
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
      *
      * > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * The name of the function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Script root path URL.
      */
-    scriptRootPathUrl?: pulumi.Input<string>;
+    scriptRootPathUrl?: pulumi.Input<string | undefined>;
     /**
      * The script URL.
      */
-    scriptUrl?: pulumi.Input<string>;
+    scriptUrl?: pulumi.Input<string | undefined>;
     /**
      * The URL for the Secrets File.
      */
-    secretsFileUrl?: pulumi.Input<string>;
+    secretsFileUrl?: pulumi.Input<string | undefined>;
     /**
      * The test data for the function.
      */
-    testData?: pulumi.Input<string>;
+    testData?: pulumi.Input<string | undefined>;
     /**
      * The Test data URL.
      */
-    testDataUrl?: pulumi.Input<string>;
+    testDataUrl?: pulumi.Input<string | undefined>;
     /**
      * The function URL.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -382,11 +382,11 @@ export interface FunctionAppFunctionArgs {
     /**
      * Should this function be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `file` block as detailed below. Changing this forces a new resource to be created.
      */
-    files?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppFunctionFile>[]>;
+    files?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppFunctionFile>[] | undefined>;
     /**
      * The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
      */
@@ -396,13 +396,13 @@ export interface FunctionAppFunctionArgs {
      *
      * > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * The name of the function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The test data for the function.
      */
-    testData?: pulumi.Input<string>;
+    testData?: pulumi.Input<string | undefined>;
 }

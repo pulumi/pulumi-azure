@@ -24,14 +24,14 @@ class BackupVaultArgs:
                  datastore_type: pulumi.Input[_builtins.str],
                  redundancy: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_duration_in_days: Optional[pulumi.Input[_builtins.float]] = None,
-                 soft_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['BackupVaultIdentityArgs']] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+                 soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
 
@@ -115,7 +115,7 @@ class BackupVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
-    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_region_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable cross-region restore for the Backup Vault.
 
@@ -124,60 +124,60 @@ class BackupVaultArgs:
         return pulumi.get(self, "cross_region_restore_enabled")
 
     @cross_region_restore_enabled.setter
-    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_region_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_region_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['BackupVaultIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['BackupVaultIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['BackupVaultIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['BackupVaultIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "immutability")
 
     @immutability.setter
-    def immutability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutability", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDurationInDays")
-    def retention_duration_in_days(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retention_duration_in_days(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
 
@@ -186,12 +186,12 @@ class BackupVaultArgs:
         return pulumi.get(self, "retention_duration_in_days")
 
     @retention_duration_in_days.setter
-    def retention_duration_in_days(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retention_duration_in_days(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retention_duration_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="softDelete")
-    def soft_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def soft_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 
@@ -200,36 +200,36 @@ class BackupVaultArgs:
         return pulumi.get(self, "soft_delete")
 
     @soft_delete.setter
-    def soft_delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def soft_delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "soft_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Backup Vault.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _BackupVaultState:
     def __init__(__self__, *,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datastore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_duration_in_days: Optional[pulumi.Input[_builtins.float]] = None,
-                 soft_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['BackupVaultIdentityArgs']] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+                 soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
 
@@ -278,7 +278,7 @@ class _BackupVaultState:
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
-    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_region_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable cross-region restore for the Backup Vault.
 
@@ -287,12 +287,12 @@ class _BackupVaultState:
         return pulumi.get(self, "cross_region_restore_enabled")
 
     @cross_region_restore_enabled.setter
-    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_region_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_region_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="datastoreType")
-    def datastore_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datastore_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 
@@ -301,84 +301,84 @@ class _BackupVaultState:
         return pulumi.get(self, "datastore_type")
 
     @datastore_type.setter
-    def datastore_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datastore_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datastore_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['BackupVaultIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['BackupVaultIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['BackupVaultIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['BackupVaultIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "immutability")
 
     @immutability.setter
-    def immutability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutability", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def redundancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redundancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "redundancy")
 
     @redundancy.setter
-    def redundancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redundancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redundancy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDurationInDays")
-    def retention_duration_in_days(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retention_duration_in_days(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
 
@@ -387,12 +387,12 @@ class _BackupVaultState:
         return pulumi.get(self, "retention_duration_in_days")
 
     @retention_duration_in_days.setter
-    def retention_duration_in_days(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retention_duration_in_days(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retention_duration_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="softDelete")
-    def soft_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def soft_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 
@@ -401,19 +401,19 @@ class _BackupVaultState:
         return pulumi.get(self, "soft_delete")
 
     @soft_delete.setter
-    def soft_delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def soft_delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "soft_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Backup Vault.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -423,17 +423,17 @@ class BackupVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datastore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_duration_in_days: Optional[pulumi.Input[_builtins.float]] = None,
-                 soft_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+                 soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Backup Vault.
@@ -550,17 +550,17 @@ class BackupVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datastore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_duration_in_days: Optional[pulumi.Input[_builtins.float]] = None,
-                 soft_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+                 soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -597,17 +597,17 @@ class BackupVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            datastore_type: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
-            immutability: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_duration_in_days: Optional[pulumi.Input[_builtins.float]] = None,
-            soft_delete: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'BackupVault':
+            cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+            immutability: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+            soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'BackupVault':
         """
         Get an existing BackupVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

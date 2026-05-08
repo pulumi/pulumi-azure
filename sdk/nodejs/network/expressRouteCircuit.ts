@@ -212,17 +212,17 @@ export interface ExpressRouteCircuitState {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
-    allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean | undefined>;
     /**
      * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
      * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
-    bandwidthInGbps?: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number | undefined>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
@@ -230,51 +230,51 @@ export interface ExpressRouteCircuitState {
      *
      * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
-    bandwidthInMbps?: pulumi.Input<number>;
+    bandwidthInMbps?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
-    expressRoutePortId?: pulumi.Input<string>;
+    expressRoutePortId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
-    peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string | undefined>;
     /**
      * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
-    rateLimitingEnabled?: pulumi.Input<boolean>;
+    rateLimitingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The string needed by the service provider to provision the ExpressRoute circuit.
      */
-    serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
-    serviceProviderName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string | undefined>;
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      */
-    serviceProviderProvisioningState?: pulumi.Input<string>;
+    serviceProviderProvisioningState?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
+    sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -284,17 +284,17 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
-    allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean | undefined>;
     /**
      * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
      * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
-    bandwidthInGbps?: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number | undefined>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
@@ -302,27 +302,27 @@ export interface ExpressRouteCircuitArgs {
      *
      * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
-    bandwidthInMbps?: pulumi.Input<number>;
+    bandwidthInMbps?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
-    expressRoutePortId?: pulumi.Input<string>;
+    expressRoutePortId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
-    peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string | undefined>;
     /**
      * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
-    rateLimitingEnabled?: pulumi.Input<boolean>;
+    rateLimitingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
@@ -330,7 +330,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
-    serviceProviderName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
@@ -338,5 +338,5 @@ export interface ExpressRouteCircuitArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

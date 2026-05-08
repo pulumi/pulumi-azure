@@ -20,11 +20,11 @@ __all__ = ['PlacementGroupArgs', 'PlacementGroup']
 class PlacementGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_vm_sizes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
 
@@ -65,7 +65,7 @@ class PlacementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedVmSizes")
-    def allowed_vm_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_vm_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 
@@ -74,48 +74,48 @@ class PlacementGroupArgs:
         return pulumi.get(self, "allowed_vm_sizes")
 
     @allowed_vm_sizes.setter
-    def allowed_vm_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_vm_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_vm_sizes", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
 
@@ -124,19 +124,19 @@ class PlacementGroupArgs:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
 class _PlacementGroupState:
     def __init__(__self__, *,
-                 allowed_vm_sizes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
 
@@ -166,7 +166,7 @@ class _PlacementGroupState:
 
     @_builtins.property
     @pulumi.getter(name="allowedVmSizes")
-    def allowed_vm_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_vm_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 
@@ -175,60 +175,60 @@ class _PlacementGroupState:
         return pulumi.get(self, "allowed_vm_sizes")
 
     @allowed_vm_sizes.setter
-    def allowed_vm_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_vm_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_vm_sizes", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
 
@@ -237,7 +237,7 @@ class _PlacementGroupState:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -247,12 +247,12 @@ class PlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_vm_sizes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
@@ -362,12 +362,12 @@ class PlacementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_vm_sizes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,12 +395,12 @@ class PlacementGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_vm_sizes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'PlacementGroup':
+            allowed_vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'PlacementGroup':
         """
         Get an existing PlacementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

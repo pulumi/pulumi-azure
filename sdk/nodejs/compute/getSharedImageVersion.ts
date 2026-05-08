@@ -184,9 +184,9 @@ export interface GetSharedImageVersionOutputArgs {
     /**
      * Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
      */
-    sortVersionsBySemver?: pulumi.Input<boolean>;
+    sortVersionsBySemver?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags assigned to the Shared Image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

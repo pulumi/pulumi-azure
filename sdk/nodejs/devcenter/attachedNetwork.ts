@@ -147,15 +147,15 @@ export interface AttachedNetworkState {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
      */
-    networkConnectionId?: pulumi.Input<string>;
+    networkConnectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface AttachedNetworkArgs {
     /**
      * Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
      */

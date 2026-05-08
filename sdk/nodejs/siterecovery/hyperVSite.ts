@@ -117,11 +117,11 @@ export interface HyperVSiteState {
     /**
      * The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -131,7 +131,7 @@ export interface HyperVSiteArgs {
     /**
      * The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created.
      */

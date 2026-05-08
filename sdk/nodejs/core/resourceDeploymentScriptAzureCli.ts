@@ -234,75 +234,75 @@ export interface ResourceDeploymentScriptAzureCliState {
     /**
      * Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
      */
-    cleanupPreference?: pulumi.Input<string>;
+    cleanupPreference?: pulumi.Input<string | undefined>;
     /**
      * Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
      */
-    commandLine?: pulumi.Input<string>;
+    commandLine?: pulumi.Input<string | undefined>;
     /**
      * A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    container?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliContainer>;
+    container?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliContainer | undefined>;
     /**
      * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliEnvironmentVariable>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliEnvironmentVariable>[] | undefined>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
      */
-    forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    identity?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliIdentity>;
+    identity?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of script outputs.
      */
-    outputs?: pulumi.Input<string>;
+    outputs?: pulumi.Input<string | undefined>;
     /**
      * Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    primaryScriptUri?: pulumi.Input<string>;
+    primaryScriptUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
      */
-    retentionInterval?: pulumi.Input<string>;
+    retentionInterval?: pulumi.Input<string | undefined>;
     /**
      * Script body. Changing this forces a new Resource Deployment Script to be created.
      */
-    scriptContent?: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string | undefined>;
     /**
      * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    storageAccount?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliStorageAccount>;
+    storageAccount?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliStorageAccount | undefined>;
     /**
      * Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[]>;
+    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Deployment Script.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
      */
-    timeout?: pulumi.Input<string>;
+    timeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -312,39 +312,39 @@ export interface ResourceDeploymentScriptAzureCliArgs {
     /**
      * Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
      */
-    cleanupPreference?: pulumi.Input<string>;
+    cleanupPreference?: pulumi.Input<string | undefined>;
     /**
      * Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
      */
-    commandLine?: pulumi.Input<string>;
+    commandLine?: pulumi.Input<string | undefined>;
     /**
      * A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    container?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliContainer>;
+    container?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliContainer | undefined>;
     /**
      * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliEnvironmentVariable>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliEnvironmentVariable>[] | undefined>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
      */
-    forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    identity?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliIdentity>;
+    identity?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    primaryScriptUri?: pulumi.Input<string>;
+    primaryScriptUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
@@ -356,23 +356,23 @@ export interface ResourceDeploymentScriptAzureCliArgs {
     /**
      * Script body. Changing this forces a new Resource Deployment Script to be created.
      */
-    scriptContent?: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string | undefined>;
     /**
      * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    storageAccount?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliStorageAccount>;
+    storageAccount?: pulumi.Input<inputs.core.ResourceDeploymentScriptAzureCliStorageAccount | undefined>;
     /**
      * Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[]>;
+    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Deployment Script.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
      */
-    timeout?: pulumi.Input<string>;
+    timeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
      */

@@ -175,33 +175,33 @@ export interface EmailTemplateState {
     /**
      * The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The body of the Email. Its format has to be a well-formed HTML document.
      *
      * > **Note:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The description of the Email Template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The subject of the Email.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * The title of the Email Template.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }
 
 /**

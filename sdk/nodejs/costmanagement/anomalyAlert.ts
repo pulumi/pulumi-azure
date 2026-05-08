@@ -147,31 +147,31 @@ export interface AnomalyAlertState {
     /**
      * The display name which should be used for this Cost Anomaly Alert.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of email addresses which the Anomaly Alerts are send to.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
      */
-    emailSubject?: pulumi.Input<string>;
+    emailSubject?: pulumi.Input<string | undefined>;
     /**
      * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    notificationEmail?: pulumi.Input<string>;
+    notificationEmail?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,17 +193,17 @@ export interface AnomalyAlertArgs {
     /**
      * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    notificationEmail?: pulumi.Input<string>;
+    notificationEmail?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

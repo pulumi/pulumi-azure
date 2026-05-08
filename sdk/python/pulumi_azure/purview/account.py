@@ -23,12 +23,12 @@ class AccountArgs:
     def __init__(__self__, *,
                  identity: pulumi.Input['AccountIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -86,19 +86,19 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEventHubEnabled")
-    def managed_event_hub_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed_event_hub_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
 
@@ -107,12 +107,12 @@ class AccountArgs:
         return pulumi.get(self, "managed_event_hub_enabled")
 
     @managed_event_hub_enabled.setter
-    def managed_event_hub_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed_event_hub_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed_event_hub_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 
@@ -121,64 +121,64 @@ class AccountArgs:
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkEnabled")
-    def public_network_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Purview Account be visible to the public network? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_enabled")
 
     @public_network_enabled.setter
-    def public_network_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Purview Account.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 atlas_kafka_endpoint_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardian_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 atlas_kafka_endpoint_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 atlas_kafka_endpoint_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardian_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources: pulumi.Input[Optional[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -235,91 +235,91 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="atlasKafkaEndpointPrimaryConnectionString")
-    def atlas_kafka_endpoint_primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def atlas_kafka_endpoint_primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Atlas Kafka endpoint primary connection string.
         """
         return pulumi.get(self, "atlas_kafka_endpoint_primary_connection_string")
 
     @atlas_kafka_endpoint_primary_connection_string.setter
-    def atlas_kafka_endpoint_primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def atlas_kafka_endpoint_primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "atlas_kafka_endpoint_primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="atlasKafkaEndpointSecondaryConnectionString")
-    def atlas_kafka_endpoint_secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def atlas_kafka_endpoint_secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Atlas Kafka endpoint secondary connection string.
         """
         return pulumi.get(self, "atlas_kafka_endpoint_secondary_connection_string")
 
     @atlas_kafka_endpoint_secondary_connection_string.setter
-    def atlas_kafka_endpoint_secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def atlas_kafka_endpoint_secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "atlas_kafka_endpoint_secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="awsExternalId")
-    def aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configured in AWS to allow use of the role arn used for scanning
         """
         return pulumi.get(self, "aws_external_id")
 
     @aws_external_id.setter
-    def aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogEndpoint")
-    def catalog_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Catalog endpoint.
         """
         return pulumi.get(self, "catalog_endpoint")
 
     @catalog_endpoint.setter
-    def catalog_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="guardianEndpoint")
-    def guardian_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardian_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Guardian endpoint.
         """
         return pulumi.get(self, "guardian_endpoint")
 
     @guardian_endpoint.setter
-    def guardian_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardian_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardian_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEventHubEnabled")
-    def managed_event_hub_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed_event_hub_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
 
@@ -328,12 +328,12 @@ class _AccountState:
         return pulumi.get(self, "managed_event_hub_enabled")
 
     @managed_event_hub_enabled.setter
-    def managed_event_hub_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed_event_hub_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed_event_hub_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 
@@ -342,79 +342,79 @@ class _AccountState:
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResources")
-    def managed_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]:
+    def managed_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]:
         """
         A `managed_resources` block as defined below.
         """
         return pulumi.get(self, "managed_resources")
 
     @managed_resources.setter
-    def managed_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]):
+    def managed_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]):
         pulumi.set(self, "managed_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkEnabled")
-    def public_network_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Purview Account be visible to the public network? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_enabled")
 
     @public_network_enabled.setter
-    def public_network_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scanEndpoint")
-    def scan_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scan_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scan endpoint.
         """
         return pulumi.get(self, "scan_endpoint")
 
     @scan_endpoint.setter
-    def scan_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scan_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scan_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Purview Account.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -424,14 +424,14 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Purview Account.
@@ -543,14 +543,14 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -591,21 +591,21 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            atlas_kafka_endpoint_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            catalog_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            guardian_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scan_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            atlas_kafka_endpoint_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            atlas_kafka_endpoint_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            guardian_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scan_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

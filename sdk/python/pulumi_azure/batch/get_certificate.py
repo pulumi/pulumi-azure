@@ -173,9 +173,9 @@ def get_certificate(account_name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         thumbprint_algorithm=pulumi.get(__ret__, 'thumbprint_algorithm'))
-def get_certificate_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing certificate in a Batch Account.

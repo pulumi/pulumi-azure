@@ -179,53 +179,53 @@ export interface PublicIpPrefixState {
      *
      * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
      */
-    customIpPrefixId?: pulumi.Input<string>;
+    customIpPrefixId?: pulumi.Input<string | undefined>;
     /**
      * The IP address prefix value that was allocated.
      */
-    ipPrefix?: pulumi.Input<string>;
+    ipPrefix?: pulumi.Input<string | undefined>;
     /**
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      */
-    ipVersion?: pulumi.Input<string>;
+    ipVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
      * > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
-    prefixLength?: pulumi.Input<number>;
+    prefixLength?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
      * > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -237,25 +237,25 @@ export interface PublicIpPrefixArgs {
      *
      * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
      */
-    customIpPrefixId?: pulumi.Input<string>;
+    customIpPrefixId?: pulumi.Input<string | undefined>;
     /**
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      */
-    ipVersion?: pulumi.Input<string>;
+    ipVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
      * > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
-    prefixLength?: pulumi.Input<number>;
+    prefixLength?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
@@ -263,21 +263,21 @@ export interface PublicIpPrefixArgs {
     /**
      * The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
      * > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

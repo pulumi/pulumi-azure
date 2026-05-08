@@ -148,8 +148,8 @@ def get_network_security_group(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         security_rules=pulumi.get(__ret__, 'security_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_security_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_security_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Use this data source to access information about an existing Network Security Group.

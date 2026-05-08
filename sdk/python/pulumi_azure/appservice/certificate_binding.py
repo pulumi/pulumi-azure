@@ -73,12 +73,12 @@ class CertificateBindingArgs:
 @pulumi.input_type
 class _CertificateBindingState:
     def __init__(__self__, *,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_binding_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_binding_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateBinding resources.
 
@@ -104,74 +104,74 @@ class _CertificateBindingState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service to which the certificate was bound.
         """
         return pulumi.get(self, "app_service_name")
 
     @app_service_name.setter
-    def app_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname of the bound certificate.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnameBindingId")
-    def hostname_binding_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname_binding_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
         """
         return pulumi.get(self, "hostname_binding_id")
 
     @hostname_binding_id.setter
-    def hostname_binding_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname_binding_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname_binding_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
         """
         return pulumi.get(self, "ssl_state")
 
     @ssl_state.setter
-    def ssl_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate thumbprint.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -181,9 +181,9 @@ class CertificateBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_binding_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_binding_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Service Certificate Binding.
@@ -340,9 +340,9 @@ class CertificateBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_binding_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_binding_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,12 +374,12 @@ class CertificateBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname_binding_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None) -> 'CertificateBinding':
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname_binding_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> 'CertificateBinding':
         """
         Get an existing CertificateBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,16 +23,16 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 accelerated_networking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auxiliary_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
@@ -108,7 +108,7 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkingEnabled")
-    def accelerated_networking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
 
@@ -119,12 +119,12 @@ class NetworkInterfaceArgs:
         return pulumi.get(self, "accelerated_networking_enabled")
 
     @accelerated_networking_enabled.setter
-    def accelerated_networking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accelerated_networking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accelerated_networking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
-    def auxiliary_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auxiliary_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
 
@@ -133,12 +133,12 @@ class NetworkInterfaceArgs:
         return pulumi.get(self, "auxiliary_mode")
 
     @auxiliary_mode.setter
-    def auxiliary_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auxiliary_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auxiliary_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliarySku")
-    def auxiliary_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auxiliary_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
 
@@ -147,12 +147,12 @@ class NetworkInterfaceArgs:
         return pulumi.get(self, "auxiliary_sku")
 
     @auxiliary_sku.setter
-    def auxiliary_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auxiliary_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auxiliary_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 
@@ -161,103 +161,103 @@ class NetworkInterfaceArgs:
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="internalDnsNameLabel")
-    def internal_dns_name_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_dns_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         """
         return pulumi.get(self, "internal_dns_name_label")
 
     @internal_dns_name_label.setter
-    def internal_dns_name_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_dns_name_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_dns_name_label", value)
 
     @_builtins.property
     @pulumi.getter(name="ipForwardingEnabled")
-    def ip_forwarding_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should IP Forwarding be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "ip_forwarding_enabled")
 
     @ip_forwarding_enabled.setter
-    def ip_forwarding_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ip_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_forwarding_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NetworkInterfaceState:
     def __init__(__self__, *,
-                 accelerated_networking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auxiliary_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_domain_name_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
-                 ip_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 applied_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_domain_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterface resources.
 
@@ -329,7 +329,7 @@ class _NetworkInterfaceState:
 
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkingEnabled")
-    def accelerated_networking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
 
@@ -340,24 +340,24 @@ class _NetworkInterfaceState:
         return pulumi.get(self, "accelerated_networking_enabled")
 
     @accelerated_networking_enabled.setter
-    def accelerated_networking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accelerated_networking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accelerated_networking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="appliedDnsServers")
-    def applied_dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def applied_dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         """
         return pulumi.get(self, "applied_dns_servers")
 
     @applied_dns_servers.setter
-    def applied_dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def applied_dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "applied_dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
-    def auxiliary_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auxiliary_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
 
@@ -366,12 +366,12 @@ class _NetworkInterfaceState:
         return pulumi.get(self, "auxiliary_mode")
 
     @auxiliary_mode.setter
-    def auxiliary_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auxiliary_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auxiliary_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliarySku")
-    def auxiliary_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auxiliary_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
 
@@ -380,12 +380,12 @@ class _NetworkInterfaceState:
         return pulumi.get(self, "auxiliary_sku")
 
     @auxiliary_sku.setter
-    def auxiliary_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auxiliary_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auxiliary_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 
@@ -394,163 +394,163 @@ class _NetworkInterfaceState:
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="internalDnsNameLabel")
-    def internal_dns_name_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_dns_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         """
         return pulumi.get(self, "internal_dns_name_label")
 
     @internal_dns_name_label.setter
-    def internal_dns_name_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_dns_name_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_dns_name_label", value)
 
     @_builtins.property
     @pulumi.getter(name="internalDomainNameSuffix")
-    def internal_domain_name_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_domain_name_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         """
         return pulumi.get(self, "internal_domain_name_suffix")
 
     @internal_domain_name_suffix.setter
-    def internal_domain_name_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_domain_name_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_domain_name_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]]:
         """
         One or more `ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="ipForwardingEnabled")
-    def ip_forwarding_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should IP Forwarding be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "ip_forwarding_enabled")
 
     @ip_forwarding_enabled.setter
-    def ip_forwarding_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ip_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_forwarding_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Media Access Control (MAC) Address of the Network Interface.
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first private IP address of the network interface.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The private IP addresses of the network interface.
         """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
-    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Machine which this Network Interface is connected to.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
 
@@ -560,18 +560,18 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerated_networking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auxiliary_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
-                 ip_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Network Interface.
@@ -717,18 +717,18 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerated_networking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auxiliary_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 auxiliary_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
-                 ip_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -770,24 +770,24 @@ class NetworkInterface(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accelerated_networking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            auxiliary_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            auxiliary_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            internal_dns_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-            internal_domain_name_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
-            ip_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkInterface':
+            accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            applied_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+            internal_domain_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
+            ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkInterface':
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

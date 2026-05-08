@@ -24,14 +24,14 @@ class WorkbookArgs:
                  data_json: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['WorkbookIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workbook resource.
 
@@ -107,79 +107,79 @@ class WorkbookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the workbook.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WorkbookIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WorkbookIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
 
@@ -188,36 +188,36 @@ class WorkbookArgs:
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Workbook.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _WorkbookState:
     def __init__(__self__, *,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['WorkbookIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workbook resources.
 
@@ -260,115 +260,115 @@ class _WorkbookState:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="dataJson")
-    def data_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         """
         return pulumi.get(self, "data_json")
 
     @data_json.setter
-    def data_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the workbook.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user-defined name (display name) of the workbook.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WorkbookIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WorkbookIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
 
@@ -377,19 +377,19 @@ class _WorkbookState:
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Workbook.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -399,17 +399,17 @@ class Workbook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Workbook.
@@ -550,17 +550,17 @@ class Workbook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -597,17 +597,17 @@ class Workbook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            category: Optional[pulumi.Input[_builtins.str]] = None,
-            data_json: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Workbook':
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            data_json: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Workbook':
         """
         Get an existing Workbook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

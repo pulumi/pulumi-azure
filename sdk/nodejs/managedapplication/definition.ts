@@ -190,53 +190,53 @@ export interface DefinitionState {
     /**
      * One or more `authorization` block defined below.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[] | undefined>;
     /**
      * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
-    createUiDefinition?: pulumi.Input<string>;
+    createUiDefinition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application definition description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application definition display name.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      */
-    lockLevel?: pulumi.Input<string>;
+    lockLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the inline main template JSON which has resources to be provisioned.
      */
-    mainTemplate?: pulumi.Input<string>;
+    mainTemplate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the package enabled? Defaults to `true`.
      */
-    packageEnabled?: pulumi.Input<boolean>;
+    packageEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the managed application definition package file Uri.
      */
-    packageFileUri?: pulumi.Input<string>;
+    packageFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -246,15 +246,15 @@ export interface DefinitionArgs {
     /**
      * One or more `authorization` block defined below.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[] | undefined>;
     /**
      * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
-    createUiDefinition?: pulumi.Input<string>;
+    createUiDefinition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application definition description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application definition display name.
      */
@@ -262,7 +262,7 @@ export interface DefinitionArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      */
@@ -270,19 +270,19 @@ export interface DefinitionArgs {
     /**
      * Specifies the inline main template JSON which has resources to be provisioned.
      */
-    mainTemplate?: pulumi.Input<string>;
+    mainTemplate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the package enabled? Defaults to `true`.
      */
-    packageEnabled?: pulumi.Input<boolean>;
+    packageEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the managed application definition package file Uri.
      */
-    packageFileUri?: pulumi.Input<string>;
+    packageFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      */
@@ -292,5 +292,5 @@ export interface DefinitionArgs {
      *
      * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

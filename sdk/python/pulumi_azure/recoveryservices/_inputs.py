@@ -32,7 +32,7 @@ class VaultEncryptionArgsDict(TypedDict):
     """
     The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
     """
-    use_system_assigned_identity: NotRequired[pulumi.Input[_builtins.bool]]
+    use_system_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
@@ -40,7 +40,7 @@ class VaultEncryptionArgsDict(TypedDict):
 
     !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the user assigned identity ID to be used.
     """
@@ -50,8 +50,8 @@ class VaultEncryptionArgs:
     def __init__(__self__, *,
                  infrastructure_encryption_enabled: pulumi.Input[_builtins.bool],
                  key_id: pulumi.Input[_builtins.str],
-                 use_system_assigned_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 use_system_assigned_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
         :param pulumi.Input[_builtins.str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
@@ -95,7 +95,7 @@ class VaultEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="useSystemAssignedIdentity")
-    def use_system_assigned_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_system_assigned_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
@@ -106,19 +106,19 @@ class VaultEncryptionArgs:
         return pulumi.get(self, "use_system_assigned_identity")
 
     @use_system_assigned_identity.setter
-    def use_system_assigned_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_system_assigned_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_system_assigned_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user assigned identity ID to be used.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -127,17 +127,17 @@ class VaultIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
     > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -146,9 +146,9 @@ class VaultIdentityArgsDict(TypedDict):
 class VaultIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
@@ -179,7 +179,7 @@ class VaultIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
@@ -188,40 +188,40 @@ class VaultIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class VaultMonitoringArgsDict(TypedDict):
-    alerts_for_all_job_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    alerts_for_all_job_failures_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
     """
-    alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
     """
@@ -229,8 +229,8 @@ class VaultMonitoringArgsDict(TypedDict):
 @pulumi.input_type
 class VaultMonitoringArgs:
     def __init__(__self__, *,
-                 alerts_for_all_job_failures_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alerts_for_critical_operation_failures_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alerts_for_critical_operation_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
@@ -242,26 +242,26 @@ class VaultMonitoringArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertsForAllJobFailuresEnabled")
-    def alerts_for_all_job_failures_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def alerts_for_all_job_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
         """
         return pulumi.get(self, "alerts_for_all_job_failures_enabled")
 
     @alerts_for_all_job_failures_enabled.setter
-    def alerts_for_all_job_failures_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def alerts_for_all_job_failures_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "alerts_for_all_job_failures_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="alertsForCriticalOperationFailuresEnabled")
-    def alerts_for_critical_operation_failures_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def alerts_for_critical_operation_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         """
         return pulumi.get(self, "alerts_for_critical_operation_failures_enabled")
 
     @alerts_for_critical_operation_failures_enabled.setter
-    def alerts_for_critical_operation_failures_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def alerts_for_critical_operation_failures_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "alerts_for_critical_operation_failures_enabled", value)
 
 

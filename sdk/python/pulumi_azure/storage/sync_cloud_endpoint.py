@@ -22,8 +22,8 @@ class SyncCloudEndpointArgs:
                  file_share_name: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
                  storage_sync_group_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncCloudEndpoint resource.
 
@@ -79,37 +79,37 @@ class SyncCloudEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountTenantId")
-    def storage_account_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         """
         return pulumi.get(self, "storage_account_tenant_id")
 
     @storage_account_tenant_id.setter
-    def storage_account_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_tenant_id", value)
 
 
 @pulumi.input_type
 class _SyncCloudEndpointState:
     def __init__(__self__, *,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyncCloudEndpoint resources.
 
@@ -132,62 +132,62 @@ class _SyncCloudEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountTenantId")
-    def storage_account_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         """
         return pulumi.get(self, "storage_account_tenant_id")
 
     @storage_account_tenant_id.setter
-    def storage_account_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncGroupId")
-    def storage_sync_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sync_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
         return pulumi.get(self, "storage_sync_group_id")
 
     @storage_sync_group_id.setter
-    def storage_sync_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sync_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sync_group_id", value)
 
 
@@ -197,11 +197,11 @@ class SyncCloudEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Sync Cloud Endpoint.
@@ -352,11 +352,11 @@ class SyncCloudEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -387,11 +387,11 @@ class SyncCloudEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyncCloudEndpoint':
+            file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SyncCloudEndpoint':
         """
         Get an existing SyncCloudEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

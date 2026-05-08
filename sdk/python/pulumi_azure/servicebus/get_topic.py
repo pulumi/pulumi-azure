@@ -291,10 +291,10 @@ def get_topic(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         status=pulumi.get(__ret__, 'status'),
         support_ordering=pulumi.get(__ret__, 'support_ordering'))
-def get_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     namespace_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_topic_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Use this data source to access information about an existing Service Bus Topic.

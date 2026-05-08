@@ -137,15 +137,15 @@ export interface ApiReleaseState {
     /**
      * The ID of the API Management API. Changing this forces a new API Management API Release to be created.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Release Notes.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,9 +159,9 @@ export interface ApiReleaseArgs {
     /**
      * The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Release Notes.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
 }

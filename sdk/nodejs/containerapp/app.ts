@@ -244,77 +244,77 @@ export interface AppState {
     /**
      * The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Custom Domain Verification for this Container App.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * A `dapr` block as detailed below.
      */
-    dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
+    dapr?: pulumi.Input<inputs.containerapp.AppDapr | undefined>;
     /**
      * An `identity` block as detailed below.
      */
-    identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
+    identity?: pulumi.Input<inputs.containerapp.AppIdentity | undefined>;
     /**
      * An `ingress` block as detailed below.
      */
-    ingress?: pulumi.Input<inputs.containerapp.AppIngress>;
+    ingress?: pulumi.Input<inputs.containerapp.AppIngress | undefined>;
     /**
      * The FQDN of the Latest Revision of the Container App.
      */
-    latestRevisionFqdn?: pulumi.Input<string>;
+    latestRevisionFqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the latest Container Revision.
      */
-    latestRevisionName?: pulumi.Input<string>;
+    latestRevisionName?: pulumi.Input<string | undefined>;
     /**
      * The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum of inactive revisions allowed for this Container App.
      */
-    maxInactiveRevisions?: pulumi.Input<number>;
+    maxInactiveRevisions?: pulumi.Input<number | undefined>;
     /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of the Public IP Addresses which the Container App uses for outbound network access.
      */
-    outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `registry` block as detailed below.
      */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.AppRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.AppRegistry>[] | undefined>;
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `trafficWeight` block in the `ingress` configuration.
      */
-    revisionMode?: pulumi.Input<string>;
+    revisionMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `secret` block as detailed below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.AppSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.AppSecret>[] | undefined>;
     /**
      * A mapping of tags to assign to the Container App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `template` block as detailed below.
      */
-    template?: pulumi.Input<inputs.containerapp.AppTemplate>;
+    template?: pulumi.Input<inputs.containerapp.AppTemplate | undefined>;
     /**
      * The name of the Workload Profile in the Container App Environment to place this Container App.
      *
      * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
      */
-    workloadProfileName?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -328,27 +328,27 @@ export interface AppArgs {
     /**
      * A `dapr` block as detailed below.
      */
-    dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
+    dapr?: pulumi.Input<inputs.containerapp.AppDapr | undefined>;
     /**
      * An `identity` block as detailed below.
      */
-    identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
+    identity?: pulumi.Input<inputs.containerapp.AppIdentity | undefined>;
     /**
      * An `ingress` block as detailed below.
      */
-    ingress?: pulumi.Input<inputs.containerapp.AppIngress>;
+    ingress?: pulumi.Input<inputs.containerapp.AppIngress | undefined>;
     /**
      * The maximum of inactive revisions allowed for this Container App.
      */
-    maxInactiveRevisions?: pulumi.Input<number>;
+    maxInactiveRevisions?: pulumi.Input<number | undefined>;
     /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `registry` block as detailed below.
      */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.AppRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.AppRegistry>[] | undefined>;
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
@@ -360,11 +360,11 @@ export interface AppArgs {
     /**
      * One or more `secret` block as detailed below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.AppSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.AppSecret>[] | undefined>;
     /**
      * A mapping of tags to assign to the Container App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `template` block as detailed below.
      */
@@ -374,5 +374,5 @@ export interface AppArgs {
      *
      * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
      */
-    workloadProfileName?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string | undefined>;
 }

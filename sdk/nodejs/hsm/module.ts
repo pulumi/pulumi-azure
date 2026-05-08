@@ -235,41 +235,41 @@ export interface ModuleState {
     /**
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managementNetworkProfile` block as defined below.
      *
      * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
-    managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
+    managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile | undefined>;
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
-    networkProfile?: pulumi.Input<inputs.hsm.ModuleNetworkProfile>;
+    networkProfile?: pulumi.Input<inputs.hsm.ModuleNetworkProfile | undefined>;
     /**
      * The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    stampId?: pulumi.Input<string>;
+    stampId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -279,17 +279,17 @@ export interface ModuleArgs {
     /**
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managementNetworkProfile` block as defined below.
      *
      * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
-    managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
+    managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile | undefined>;
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
@@ -305,13 +305,13 @@ export interface ModuleArgs {
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    stampId?: pulumi.Input<string>;
+    stampId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

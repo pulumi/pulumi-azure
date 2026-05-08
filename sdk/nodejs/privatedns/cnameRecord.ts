@@ -156,31 +156,31 @@ export interface CnameRecordState {
     /**
      * The FQDN of the DNS CNAME Record.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The target of the CNAME.
      */
-    record?: pulumi.Input<string>;
+    record?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface CnameRecordArgs {
     /**
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The target of the CNAME.
      */
@@ -202,7 +202,7 @@ export interface CnameRecordArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      */

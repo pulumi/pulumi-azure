@@ -156,27 +156,27 @@ export interface VirtualMachineManagerVirtualMachineTemplateState {
     /**
      * The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the System Center Virtual Machine Manager Virtual Machine Template should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the System Center Virtual Machine Manager Virtual Machine Template should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the System Center Virtual Machine Manager Server Inventory Item. Changing this forces a new resource to be created.
      */
-    systemCenterVirtualMachineManagerServerInventoryItemId?: pulumi.Input<string>;
+    systemCenterVirtualMachineManagerServerInventoryItemId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the System Center Virtual Machine Manager Virtual Machine Template.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -190,11 +190,11 @@ export interface VirtualMachineManagerVirtualMachineTemplateArgs {
     /**
      * The Azure Region where the System Center Virtual Machine Manager Virtual Machine Template should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the System Center Virtual Machine Manager Virtual Machine Template should exist. Changing this forces a new resource to be created.
      */
@@ -206,5 +206,5 @@ export interface VirtualMachineManagerVirtualMachineTemplateArgs {
     /**
      * A mapping of tags which should be assigned to the System Center Virtual Machine Manager Virtual Machine Template.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

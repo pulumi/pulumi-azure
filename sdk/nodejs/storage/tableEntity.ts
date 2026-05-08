@@ -139,19 +139,19 @@ export interface TableEntityState {
     /**
      * A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
      */
-    entity?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    entity?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
-    partitionKey?: pulumi.Input<string>;
+    partitionKey?: pulumi.Input<string | undefined>;
     /**
      * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
-    rowKey?: pulumi.Input<string>;
+    rowKey?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share ID in which this file will be placed into.
      */
-    storageTableId?: pulumi.Input<string>;
+    storageTableId?: pulumi.Input<string | undefined>;
 }
 
 /**

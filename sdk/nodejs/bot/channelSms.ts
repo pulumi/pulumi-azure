@@ -155,27 +155,27 @@ export interface ChannelSmsState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The phone number for the SMS Channel.
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The account security identifier (SID) for the SMS Channel.
      */
-    smsChannelAccountSecurityId?: pulumi.Input<string>;
+    smsChannelAccountSecurityId?: pulumi.Input<string | undefined>;
     /**
      * The authorization token for the SMS Channel.
      */
-    smsChannelAuthToken?: pulumi.Input<string>;
+    smsChannelAuthToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface ChannelSmsArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The phone number for the SMS Channel.
      */

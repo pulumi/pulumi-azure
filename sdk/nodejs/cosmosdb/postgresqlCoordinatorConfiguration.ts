@@ -131,15 +131,15 @@ export interface PostgresqlCoordinatorConfigurationState {
     /**
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface PostgresqlCoordinatorConfigurationArgs {
     /**
      * The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster.
      */

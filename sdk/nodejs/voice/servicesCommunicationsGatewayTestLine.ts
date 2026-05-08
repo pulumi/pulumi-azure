@@ -150,27 +150,27 @@ export interface ServicesCommunicationsGatewayTestLineState {
     /**
      * Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the phone number.
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
      */
-    purpose?: pulumi.Input<string>;
+    purpose?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
      */
-    voiceServicesCommunicationsGatewayId?: pulumi.Input<string>;
+    voiceServicesCommunicationsGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface ServicesCommunicationsGatewayTestLineArgs {
     /**
      * Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the phone number.
      */
@@ -196,7 +196,7 @@ export interface ServicesCommunicationsGatewayTestLineArgs {
     /**
      * A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
      */

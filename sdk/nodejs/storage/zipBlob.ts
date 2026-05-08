@@ -122,40 +122,40 @@ export class ZipBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ZipBlob resources.
  */
 export interface ZipBlobState {
-    accessTier?: pulumi.Input<string>;
-    cacheControl?: pulumi.Input<string>;
-    content?: pulumi.Input<pulumi.asset.Archive>;
-    contentMd5?: pulumi.Input<string>;
-    contentType?: pulumi.Input<string>;
-    encryptionScope?: pulumi.Input<string>;
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
-    parallelism?: pulumi.Input<number>;
-    size?: pulumi.Input<number>;
-    sourceContent?: pulumi.Input<string>;
-    sourceUri?: pulumi.Input<string>;
-    storageAccountName?: pulumi.Input<string>;
-    storageContainerName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
+    cacheControl?: pulumi.Input<string | undefined>;
+    content?: pulumi.Input<pulumi.asset.Archive | undefined>;
+    contentMd5?: pulumi.Input<string | undefined>;
+    contentType?: pulumi.Input<string | undefined>;
+    encryptionScope?: pulumi.Input<string | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    parallelism?: pulumi.Input<number | undefined>;
+    size?: pulumi.Input<number | undefined>;
+    sourceContent?: pulumi.Input<string | undefined>;
+    sourceUri?: pulumi.Input<string | undefined>;
+    storageAccountName?: pulumi.Input<string | undefined>;
+    storageContainerName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a ZipBlob resource.
  */
 export interface ZipBlobArgs {
-    accessTier?: pulumi.Input<string>;
-    cacheControl?: pulumi.Input<string>;
-    content?: pulumi.Input<pulumi.asset.Archive>;
-    contentMd5?: pulumi.Input<string>;
-    contentType?: pulumi.Input<string>;
-    encryptionScope?: pulumi.Input<string>;
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
-    parallelism?: pulumi.Input<number>;
-    size?: pulumi.Input<number>;
-    sourceContent?: pulumi.Input<string>;
-    sourceUri?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
+    cacheControl?: pulumi.Input<string | undefined>;
+    content?: pulumi.Input<pulumi.asset.Archive | undefined>;
+    contentMd5?: pulumi.Input<string | undefined>;
+    contentType?: pulumi.Input<string | undefined>;
+    encryptionScope?: pulumi.Input<string | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    parallelism?: pulumi.Input<number | undefined>;
+    size?: pulumi.Input<number | undefined>;
+    sourceContent?: pulumi.Input<string | undefined>;
+    sourceUri?: pulumi.Input<string | undefined>;
     storageAccountName: pulumi.Input<string>;
     storageContainerName: pulumi.Input<string>;
     type: pulumi.Input<string>;

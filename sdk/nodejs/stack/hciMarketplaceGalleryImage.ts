@@ -152,43 +152,43 @@ export interface HciMarketplaceGalleryImageState {
     /**
      * The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    hypervGeneration?: pulumi.Input<string>;
+    hypervGeneration?: pulumi.Input<string | undefined>;
     /**
      * An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    identifier?: pulumi.Input<inputs.stack.HciMarketplaceGalleryImageIdentifier>;
+    identifier?: pulumi.Input<inputs.stack.HciMarketplaceGalleryImageIdentifier | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    storagePathId?: pulumi.Input<string>;
+    storagePathId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Marketplace Gallery Image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -210,11 +210,11 @@ export interface HciMarketplaceGalleryImageArgs {
     /**
      * The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
@@ -226,11 +226,11 @@ export interface HciMarketplaceGalleryImageArgs {
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    storagePathId?: pulumi.Input<string>;
+    storagePathId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Marketplace Gallery Image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */

@@ -340,39 +340,39 @@ export interface ManagedInstanceFailoverGroupState {
     /**
      * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
-    managedInstanceId?: pulumi.Input<string>;
+    managedInstanceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
-    partnerManagedInstanceId?: pulumi.Input<string>;
+    partnerManagedInstanceId?: pulumi.Input<string | undefined>;
     /**
      * A `partnerRegion` block as defined below.
      */
-    partnerRegions?: pulumi.Input<pulumi.Input<inputs.mssql.ManagedInstanceFailoverGroupPartnerRegion>[]>;
+    partnerRegions?: pulumi.Input<pulumi.Input<inputs.mssql.ManagedInstanceFailoverGroupPartnerRegion>[] | undefined>;
     /**
      * A `readWriteEndpointFailoverPolicy` block as defined below.
      */
-    readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
+    readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy | undefined>;
     /**
      * Failover policy for the read-only endpoint. Defaults to `true`.
      */
-    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
+    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The partner replication role of the Managed Instance Failover Group.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
      */
-    secondaryType?: pulumi.Input<string>;
+    secondaryType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -382,7 +382,7 @@ export interface ManagedInstanceFailoverGroupArgs {
     /**
      * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
@@ -390,7 +390,7 @@ export interface ManagedInstanceFailoverGroupArgs {
     /**
      * The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
@@ -402,9 +402,9 @@ export interface ManagedInstanceFailoverGroupArgs {
     /**
      * Failover policy for the read-only endpoint. Defaults to `true`.
      */
-    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
+    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
      */
-    secondaryType?: pulumi.Input<string>;
+    secondaryType?: pulumi.Input<string | undefined>;
 }

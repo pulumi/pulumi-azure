@@ -209,23 +209,23 @@ export interface ConfigurationState {
     /**
      * One or more `configFile` blocks as defined below.
      */
-    configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
+    configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[] | undefined>;
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      */
-    nginxDeploymentId?: pulumi.Input<string>;
+    nginxDeploymentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the package data for this configuration.
      */
-    packageData?: pulumi.Input<string>;
+    packageData?: pulumi.Input<string | undefined>;
     /**
      * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
-    protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
+    protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[] | undefined>;
     /**
      * Specifies the root file path of this Nginx Configuration.
      */
-    rootFile?: pulumi.Input<string>;
+    rootFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface ConfigurationArgs {
     /**
      * One or more `configFile` blocks as defined below.
      */
-    configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
+    configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[] | undefined>;
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      */
@@ -243,11 +243,11 @@ export interface ConfigurationArgs {
     /**
      * Specifies the package data for this configuration.
      */
-    packageData?: pulumi.Input<string>;
+    packageData?: pulumi.Input<string | undefined>;
     /**
      * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
-    protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
+    protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[] | undefined>;
     /**
      * Specifies the root file path of this Nginx Configuration.
      */

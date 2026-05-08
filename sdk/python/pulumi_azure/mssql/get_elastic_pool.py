@@ -266,9 +266,9 @@ def get_elastic_pool(name: Optional[_builtins.str] = None,
         skus=pulumi.get(__ret__, 'skus'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_elastic_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_elastic_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            server_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Use this data source to access information about an existing SQL elastic pool.

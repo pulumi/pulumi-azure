@@ -25,15 +25,15 @@ class ManagedHardwareSecurityModuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_domain_quorum: Optional[pulumi.Input[_builtins.int]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModule resource.
 
@@ -124,131 +124,131 @@ class ManagedHardwareSecurityModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether traffic from public networks is permitted. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDomainKeyVaultCertificateIds")
-    def security_domain_key_vault_certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_domain_key_vault_certificate_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
         """
         return pulumi.get(self, "security_domain_key_vault_certificate_ids")
 
     @security_domain_key_vault_certificate_ids.setter
-    def security_domain_key_vault_certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_domain_key_vault_certificate_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_domain_key_vault_certificate_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDomainQuorum")
-    def security_domain_quorum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def security_domain_quorum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         """
         return pulumi.get(self, "security_domain_quorum")
 
     @security_domain_quorum.setter
-    def security_domain_quorum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def security_domain_quorum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "security_domain_quorum", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleState:
     def __init__(__self__, *,
-                 admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hsm_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_domain_encrypted_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_domain_quorum: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hsm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_domain_encrypted_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModule resources.
 
@@ -301,182 +301,182 @@ class _ManagedHardwareSecurityModuleState:
 
     @_builtins.property
     @pulumi.getter(name="adminObjectIds")
-    def admin_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_object_ids")
 
     @admin_object_ids.setter
-    def admin_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmUri")
-    def hsm_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
         """
         return pulumi.get(self, "hsm_uri")
 
     @hsm_uri.setter
-    def hsm_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether traffic from public networks is permitted. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDomainEncryptedData")
-    def security_domain_encrypted_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_domain_encrypted_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
         """
         return pulumi.get(self, "security_domain_encrypted_data")
 
     @security_domain_encrypted_data.setter
-    def security_domain_encrypted_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_domain_encrypted_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_domain_encrypted_data", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDomainKeyVaultCertificateIds")
-    def security_domain_key_vault_certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_domain_key_vault_certificate_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
         """
         return pulumi.get(self, "security_domain_key_vault_certificate_ids")
 
     @security_domain_key_vault_certificate_ids.setter
-    def security_domain_key_vault_certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_domain_key_vault_certificate_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_domain_key_vault_certificate_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDomainQuorum")
-    def security_domain_quorum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def security_domain_quorum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         """
         return pulumi.get(self, "security_domain_quorum")
 
     @security_domain_quorum.setter
-    def security_domain_quorum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def security_domain_quorum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "security_domain_quorum", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -486,19 +486,19 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_domain_quorum: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Key Vault Managed Hardware Security Module.
@@ -627,19 +627,19 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_domain_quorum: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -684,21 +684,21 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            hsm_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acls: Optional[pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            security_domain_encrypted_data: Optional[pulumi.Input[_builtins.str]] = None,
-            security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            security_domain_quorum: Optional[pulumi.Input[_builtins.int]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedHardwareSecurityModule':
+            admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hsm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_domain_encrypted_data: pulumi.Input[Optional[_builtins.str]] = None,
+            security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedHardwareSecurityModule':
         """
         Get an existing ManagedHardwareSecurityModule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

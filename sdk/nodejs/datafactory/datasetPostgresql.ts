@@ -167,43 +167,43 @@ export interface DatasetPostgresqlState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset PostgreSQL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset PostgreSQL.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetPostgresqlSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetPostgresqlSchemaColumn>[] | undefined>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,11 +213,11 @@ export interface DatasetPostgresqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -225,11 +225,11 @@ export interface DatasetPostgresqlArgs {
     /**
      * The description for the Data Factory Dataset PostgreSQL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
@@ -237,17 +237,17 @@ export interface DatasetPostgresqlArgs {
     /**
      * Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset PostgreSQL.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetPostgresqlSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetPostgresqlSchemaColumn>[] | undefined>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

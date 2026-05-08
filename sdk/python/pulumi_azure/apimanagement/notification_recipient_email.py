@@ -73,9 +73,9 @@ class NotificationRecipientEmailArgs:
 @pulumi.input_type
 class _NotificationRecipientEmailState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationRecipientEmail resources.
 
@@ -92,38 +92,38 @@ class _NotificationRecipientEmailState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
         """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
 
@@ -133,9 +133,9 @@ class NotificationRecipientEmail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management Notification Recipient Email.
@@ -246,9 +246,9 @@ class NotificationRecipientEmail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,9 +277,9 @@ class NotificationRecipientEmail(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'NotificationRecipientEmail':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationRecipientEmail':
         """
         Get an existing NotificationRecipientEmail resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,47 +20,47 @@ __all__ = [
 ]
 
 class DeviceDevicePropertyArgsDict(TypedDict):
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Data Box Edge/Gateway device local capacity in MB.
     """
-    configured_role_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    configured_role_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Type of compute roles configured.
     """
-    culture: NotRequired[pulumi.Input[_builtins.str]]
+    culture: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Data Box Edge/Gateway device culture.
     """
-    hcs_version: NotRequired[pulumi.Input[_builtins.str]]
+    hcs_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The device software version number of the device (e.g. 1.2.18105.6).
     """
-    model: NotRequired[pulumi.Input[_builtins.str]]
+    model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Data Box Edge/Gateway device model.
     """
-    node_count: NotRequired[pulumi.Input[_builtins.int]]
+    node_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of nodes in the cluster.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Serial Number of Data Box Edge/Gateway device.
     """
-    software_version: NotRequired[pulumi.Input[_builtins.str]]
+    software_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Data Box Edge/Gateway device software version.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the Data Box Edge/Gateway device.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Data Box Edge/Gateway device timezone.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the Data Box Edge/Gateway device.
     """
@@ -68,17 +68,17 @@ class DeviceDevicePropertyArgsDict(TypedDict):
 @pulumi.input_type
 class DeviceDevicePropertyArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 configured_role_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 culture: Optional[pulumi.Input[_builtins.str]] = None,
-                 hcs_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 configured_role_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 culture: pulumi.Input[Optional[_builtins.str]] = None,
+                 hcs_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] capacity: The Data Box Edge/Gateway device local capacity in MB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] configured_role_types: Type of compute roles configured.
@@ -117,134 +117,134 @@ class DeviceDevicePropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Data Box Edge/Gateway device local capacity in MB.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="configuredRoleTypes")
-    def configured_role_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def configured_role_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Type of compute roles configured.
         """
         return pulumi.get(self, "configured_role_types")
 
     @configured_role_types.setter
-    def configured_role_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def configured_role_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configured_role_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def culture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def culture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Box Edge/Gateway device culture.
         """
         return pulumi.get(self, "culture")
 
     @culture.setter
-    def culture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def culture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "culture", value)
 
     @_builtins.property
     @pulumi.getter(name="hcsVersion")
-    def hcs_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hcs_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The device software version number of the device (e.g. 1.2.18105.6).
         """
         return pulumi.get(self, "hcs_version")
 
     @hcs_version.setter
-    def hcs_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hcs_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hcs_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Box Edge/Gateway device model.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of nodes in the cluster.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Serial Number of Data Box Edge/Gateway device.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareVersion")
-    def software_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def software_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Box Edge/Gateway device software version.
         """
         return pulumi.get(self, "software_version")
 
     @software_version.setter
-    def software_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def software_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "software_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Data Box Edge/Gateway device.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Box Edge/Gateway device timezone.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Data Box Edge/Gateway device.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

@@ -219,58 +219,58 @@ export interface WebTestState {
     /**
      * The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
      */
-    configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string | undefined>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the test actively being monitored.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      *
      * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
-    geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    geoLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    retryEnabled?: pulumi.Input<boolean>;
-    syntheticMonitorId?: pulumi.Input<string>;
+    retryEnabled?: pulumi.Input<boolean | undefined>;
+    syntheticMonitorId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -288,15 +288,15 @@ export interface WebTestArgs {
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the test actively being monitored.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      *
@@ -310,11 +310,11 @@ export interface WebTestArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
      */
@@ -322,13 +322,13 @@ export interface WebTestArgs {
     /**
      * Allow for retries should this WebTest fail.
      */
-    retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

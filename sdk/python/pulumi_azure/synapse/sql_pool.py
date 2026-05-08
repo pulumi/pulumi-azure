@@ -24,14 +24,14 @@ class SqlPoolArgs:
                  sku_name: pulumi.Input[_builtins.str],
                  storage_account_type: pulumi.Input[_builtins.str],
                  synapse_workspace_id: pulumi.Input[_builtins.str],
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_backup_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional['SqlPoolRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlPool resource.
 
@@ -105,115 +105,115 @@ class SqlPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncrypted")
-    def data_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is transparent data encryption enabled?
         """
         return pulumi.get(self, "data_encrypted")
 
     @data_encrypted.setter
-    def data_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupPolicyEnabled")
-    def geo_backup_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_backup_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is geo-backup policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "geo_backup_policy_enabled")
 
     @geo_backup_policy_enabled.setter
-    def geo_backup_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_backup_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_backup_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryDatabaseId")
-    def recovery_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "recovery_database_id")
 
     @recovery_database_id.setter
-    def recovery_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_database_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['SqlPoolRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['SqlPoolRestoreArgs']]:
         """
         A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['SqlPoolRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['SqlPoolRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SqlPoolState:
     def __init__(__self__, *,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_backup_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional['SqlPoolRestoreArgs']] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SqlPool resources.
 
@@ -254,134 +254,134 @@ class _SqlPoolState:
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncrypted")
-    def data_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is transparent data encryption enabled?
         """
         return pulumi.get(self, "data_encrypted")
 
     @data_encrypted.setter
-    def data_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupPolicyEnabled")
-    def geo_backup_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_backup_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is geo-backup policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "geo_backup_policy_enabled")
 
     @geo_backup_policy_enabled.setter
-    def geo_backup_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_backup_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_backup_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryDatabaseId")
-    def recovery_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "recovery_database_id")
 
     @recovery_database_id.setter
-    def recovery_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_database_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['SqlPoolRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['SqlPoolRestoreArgs']]:
         """
         A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['SqlPoolRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['SqlPoolRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -391,17 +391,17 @@ class SqlPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_backup_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Synapse SQL Pool.
@@ -536,17 +536,17 @@ class SqlPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_backup_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,17 +583,17 @@ class SqlPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            collation: Optional[pulumi.Input[_builtins.str]] = None,
-            create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            geo_backup_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SqlPool':
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SqlPool':
         """
         Get an existing SqlPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

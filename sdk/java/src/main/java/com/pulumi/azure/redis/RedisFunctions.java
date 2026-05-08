@@ -32,8 +32,8 @@ public final class RedisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.redis.RedisFunctions;
      * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class RedisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.redis.RedisFunctions;
      * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -132,8 +132,8 @@ public final class RedisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.redis.RedisFunctions;
      * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class RedisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.redis.RedisFunctions;
      * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -232,8 +232,8 @@ public final class RedisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.redis.RedisFunctions;
      * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

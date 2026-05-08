@@ -148,21 +148,21 @@ export interface NetworkManagerIpamPoolStaticCidrState {
      *
      * > **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Network Manager IP Address Management (IPAM) Pool. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager IPAM Pool Static CIDR. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
      *
      * > **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      */
-    numberOfIpAddressesToAllocate?: pulumi.Input<string>;
+    numberOfIpAddressesToAllocate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface NetworkManagerIpamPoolStaticCidrArgs {
      *
      * > **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Network Manager IP Address Management (IPAM) Pool. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
      */
@@ -182,11 +182,11 @@ export interface NetworkManagerIpamPoolStaticCidrArgs {
     /**
      * The name which should be used for this Network Manager IPAM Pool Static CIDR. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
      *
      * > **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      */
-    numberOfIpAddressesToAllocate?: pulumi.Input<string>;
+    numberOfIpAddressesToAllocate?: pulumi.Input<string | undefined>;
 }

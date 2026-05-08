@@ -231,35 +231,35 @@ export interface PacketCaptureState {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.compute.PacketCaptureFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.compute.PacketCaptureFilter>[] | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    maximumBytesPerPacket?: pulumi.Input<number>;
+    maximumBytesPerPacket?: pulumi.Input<number | undefined>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    maximumBytesPerSession?: pulumi.Input<number>;
+    maximumBytesPerSession?: pulumi.Input<number | undefined>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    maximumCaptureDurationInSeconds?: pulumi.Input<number>;
+    maximumCaptureDurationInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    networkWatcherId?: pulumi.Input<string>;
+    networkWatcherId?: pulumi.Input<string | undefined>;
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    storageLocation?: pulumi.Input<inputs.compute.PacketCaptureStorageLocation>;
+    storageLocation?: pulumi.Input<inputs.compute.PacketCaptureStorageLocation | undefined>;
     /**
      * The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -269,23 +269,23 @@ export interface PacketCaptureArgs {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.compute.PacketCaptureFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.compute.PacketCaptureFilter>[] | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    maximumBytesPerPacket?: pulumi.Input<number>;
+    maximumBytesPerPacket?: pulumi.Input<number | undefined>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    maximumBytesPerSession?: pulumi.Input<number>;
+    maximumBytesPerSession?: pulumi.Input<number | undefined>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    maximumCaptureDurationInSeconds?: pulumi.Input<number>;
+    maximumCaptureDurationInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Network Watcher. Changing this forces a new resource to be created.
      */

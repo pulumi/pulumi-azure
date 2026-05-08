@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//			storage2, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
 //				Name:                   pulumi.String("storageaccountname"),
 //				ResourceGroupName:      rg.Name,
 //				Location:               rg.Location,
@@ -49,14 +49,14 @@ import (
 //			}
 //			container, err := storage.NewContainer(ctx, "container", &storage.ContainerArgs{
 //				Name:                pulumi.String("mycontainer"),
-//				StorageAccountName:  storage.Name,
+//				StorageAccountName:  storage2.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
-//				ConnectionString: storage.PrimaryConnectionString,
+//				ConnectionString: storage2.PrimaryConnectionString,
 //				ContainerName:    container.Name,
 //				HttpsOnly:        pulumi.Bool(true),
 //				IpAddress:        pulumi.String("168.1.5.65"),

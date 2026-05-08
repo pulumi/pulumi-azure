@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Attestation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     var example = Azurerm.Attestation.Invoke(new()
         ///     {
         ///         Name = "example-attestationprovider",
         ///         ResourceGroupName = "example-resource-group",
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Attestation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     var example = Azurerm.Attestation.Invoke(new()
         ///     {
         ///         Name = "example-attestationprovider",
         ///         ResourceGroupName = "example-resource-group",
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Attestation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azurerm.Index.Attestation.Invoke(new()
+        ///     var example = Azurerm.Attestation.Invoke(new()
         ///     {
         ///         Name = "example-attestationprovider",
         ///         ResourceGroupName = "example-resource-group",

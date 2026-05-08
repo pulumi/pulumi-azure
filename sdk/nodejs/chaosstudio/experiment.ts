@@ -221,27 +221,27 @@ export interface ExperimentState {
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.chaosstudio.ExperimentIdentity>;
+    identity?: pulumi.Input<inputs.chaosstudio.ExperimentIdentity | undefined>;
     /**
      * The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `selectors` blocks as defined below.
      */
-    selectors?: pulumi.Input<pulumi.Input<inputs.chaosstudio.ExperimentSelector>[]>;
+    selectors?: pulumi.Input<pulumi.Input<inputs.chaosstudio.ExperimentSelector>[] | undefined>;
     /**
      * One or more `steps` blocks as defined below.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.chaosstudio.ExperimentStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.chaosstudio.ExperimentStep>[] | undefined>;
 }
 
 /**
@@ -251,15 +251,15 @@ export interface ExperimentArgs {
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.chaosstudio.ExperimentIdentity>;
+    identity?: pulumi.Input<inputs.chaosstudio.ExperimentIdentity | undefined>;
     /**
      * The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */

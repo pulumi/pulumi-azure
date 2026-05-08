@@ -139,27 +139,27 @@ export interface AccountState {
     /**
      * The URI of the Trusted Signing Account which is used during signing files.
      */
-    accountUri?: pulumi.Input<string>;
+    accountUri?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Trusted Signing Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface AccountArgs {
     /**
      * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
      */
@@ -185,5 +185,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags which should be assigned to the Trusted Signing Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

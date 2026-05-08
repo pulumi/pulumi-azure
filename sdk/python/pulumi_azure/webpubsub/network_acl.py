@@ -23,8 +23,8 @@ class NetworkAclArgs:
     def __init__(__self__, *,
                  public_network: pulumi.Input['NetworkAclPublicNetworkArgs'],
                  web_pubsub_id: pulumi.Input[_builtins.str],
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None):
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
 
@@ -66,36 +66,36 @@ class NetworkAclArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]:
         """
         A `private_endpoint` block as defined below.
         """
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
 
 @pulumi.input_type
 class _NetworkAclState:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
-                 public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
+                 public_network: pulumi.Input[Optional['NetworkAclPublicNetworkArgs']] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAcl resources.
 
@@ -115,50 +115,50 @@ class _NetworkAclState:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]:
         """
         A `private_endpoint` block as defined below.
         """
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetwork")
-    def public_network(self) -> Optional[pulumi.Input['NetworkAclPublicNetworkArgs']]:
+    def public_network(self) -> pulumi.Input[Optional['NetworkAclPublicNetworkArgs']]:
         """
         A `public_network` block as defined below.
         """
         return pulumi.get(self, "public_network")
 
     @public_network.setter
-    def public_network(self, value: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']]):
+    def public_network(self, value: pulumi.Input[Optional['NetworkAclPublicNetworkArgs']]):
         pulumi.set(self, "public_network", value)
 
     @_builtins.property
     @pulumi.getter(name="webPubsubId")
-    def web_pubsub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_pubsub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Web Pubsub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 
     @web_pubsub_id.setter
-    def web_pubsub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_pubsub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_pubsub_id", value)
 
 
@@ -168,10 +168,10 @@ class NetworkAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
-                 public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+                 public_network: pulumi.Input[Optional[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Network ACL for a Web Pubsub.
@@ -345,10 +345,10 @@ class NetworkAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
-                 public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+                 public_network: pulumi.Input[Optional[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,10 +376,10 @@ class NetworkAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_action: Optional[pulumi.Input[_builtins.str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
-            public_network: Optional[pulumi.Input[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
-            web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkAcl':
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict']]]]] = None,
+            public_network: pulumi.Input[Optional[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict']]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkAcl':
         """
         Get an existing NetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

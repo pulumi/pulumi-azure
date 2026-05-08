@@ -24,7 +24,7 @@ class ModuleArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  module_link: pulumi.Input['ModuleModuleLinkArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Module resource.
 
@@ -77,24 +77,24 @@ class ModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ModuleState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input['ModuleModuleLinkArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional['ModuleModuleLinkArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Module resources.
 
@@ -114,50 +114,50 @@ class _ModuleState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="moduleLink")
-    def module_link(self) -> Optional[pulumi.Input['ModuleModuleLinkArgs']]:
+    def module_link(self) -> pulumi.Input[Optional['ModuleModuleLinkArgs']]:
         """
         A `module_link` block as defined below.
         """
         return pulumi.get(self, "module_link")
 
     @module_link.setter
-    def module_link(self, value: Optional[pulumi.Input['ModuleModuleLinkArgs']]):
+    def module_link(self, value: pulumi.Input[Optional['ModuleModuleLinkArgs']]):
         pulumi.set(self, "module_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -167,10 +167,10 @@ class Module(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Automation Module.
@@ -284,10 +284,10 @@ class Module(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,10 +317,10 @@ class Module(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            module_link: Optional[pulumi.Input[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Module':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            module_link: pulumi.Input[Optional[Union['ModuleModuleLinkArgs', 'ModuleModuleLinkArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Module':
         """
         Get an existing Module resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

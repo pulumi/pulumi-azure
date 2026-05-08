@@ -98,8 +98,8 @@ def get_mpa_account_scope(billing_account_name: Optional[_builtins.str] = None,
         billing_account_name=pulumi.get(__ret__, 'billing_account_name'),
         customer_name=pulumi.get(__ret__, 'customer_name'),
         id=pulumi.get(__ret__, 'id'))
-def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 customer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mpa_account_scope_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 customer_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMpaAccountScopeResult]:
     """
     Use this data source to access an ID for your MPA Account billing scope.

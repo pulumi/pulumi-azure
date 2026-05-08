@@ -158,37 +158,37 @@ export interface ActionHttpState {
     /**
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    logicAppId?: pulumi.Input<string>;
+    logicAppId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    queries?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    queries?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      */
-    runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[]>;
+    runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[] | undefined>;
     /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,11 +198,11 @@ export interface ActionHttpArgs {
     /**
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
@@ -216,15 +216,15 @@ export interface ActionHttpArgs {
      *
      * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    queries?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    queries?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      */
-    runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[]>;
+    runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[] | undefined>;
     /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */

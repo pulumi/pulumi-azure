@@ -151,8 +151,8 @@ def get_ip_groups(name: Optional[_builtins.str] = None,
         names=pulumi.get(__ret__, 'names'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ip_groups_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ip_groups_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpGroupsResult]:
     """
     Use this data source to access information about existing IP Groups.

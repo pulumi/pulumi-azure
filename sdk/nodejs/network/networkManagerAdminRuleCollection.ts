@@ -148,19 +148,19 @@ export interface NetworkManagerAdminRuleCollectionState {
     /**
      * A description of the Network Manager Admin Rule Collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
      */
-    networkGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created.
      */
-    securityAdminConfigurationId?: pulumi.Input<string>;
+    securityAdminConfigurationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,11 +170,11 @@ export interface NetworkManagerAdminRuleCollectionArgs {
     /**
      * A description of the Network Manager Admin Rule Collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
      */

@@ -22,22 +22,22 @@ class ChannelsRegistrationArgs:
                  microsoft_app_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 cmk_key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ChannelsRegistration resource.
 
@@ -141,7 +141,7 @@ class ChannelsRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmkKeyVaultUrl")
-    def cmk_key_vault_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmk_key_vault_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
 
@@ -152,120 +152,120 @@ class ChannelsRegistrationArgs:
         return pulumi.get(self, "cmk_key_vault_url")
 
     @cmk_key_vault_url.setter
-    def cmk_key_vault_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmk_key_vault_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmk_key_vault_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Bot Channels Registration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights API Key to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
     @developer_app_insights_api_key.setter
-    def developer_app_insights_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights Application ID to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_application_id")
 
     @developer_app_insights_application_id.setter
-    def developer_app_insights_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights Key to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_key")
 
     @developer_app_insights_key.setter
-    def developer_app_insights_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_key", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Bot Channels Registration endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppTenantId")
-    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_tenant_id")
 
     @microsoft_app_tenant_id.setter
-    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 
@@ -274,92 +274,92 @@ class ChannelsRegistrationArgs:
         return pulumi.get(self, "microsoft_app_type")
 
     @microsoft_app_type.setter
-    def microsoft_app_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppUserAssignedIdentityId")
-    def microsoft_app_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_user_assigned_identity_id")
 
     @microsoft_app_user_assigned_identity_id.setter
-    def microsoft_app_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingEndpointEnabled")
-    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def streaming_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_endpoint_enabled")
 
     @streaming_endpoint_enabled.setter
-    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def streaming_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "streaming_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ChannelsRegistrationState:
     def __init__(__self__, *,
-                 cmk_key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelsRegistration resources.
 
@@ -430,7 +430,7 @@ class _ChannelsRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="cmkKeyVaultUrl")
-    def cmk_key_vault_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmk_key_vault_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
 
@@ -441,132 +441,132 @@ class _ChannelsRegistrationState:
         return pulumi.get(self, "cmk_key_vault_url")
 
     @cmk_key_vault_url.setter
-    def cmk_key_vault_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmk_key_vault_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmk_key_vault_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Bot Channels Registration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights API Key to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
     @developer_app_insights_api_key.setter
-    def developer_app_insights_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights Application ID to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_application_id")
 
     @developer_app_insights_application_id.setter
-    def developer_app_insights_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights Key to associate with the Bot Channels Registration.
         """
         return pulumi.get(self, "developer_app_insights_key")
 
     @developer_app_insights_key.setter
-    def developer_app_insights_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_key", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Bot Channels Registration endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppId")
-    def microsoft_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_id")
 
     @microsoft_app_id.setter
-    def microsoft_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppTenantId")
-    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_tenant_id")
 
     @microsoft_app_tenant_id.setter
-    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 
@@ -575,91 +575,91 @@ class _ChannelsRegistrationState:
         return pulumi.get(self, "microsoft_app_type")
 
     @microsoft_app_type.setter
-    def microsoft_app_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppUserAssignedIdentityId")
-    def microsoft_app_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_user_assigned_identity_id")
 
     @microsoft_app_user_assigned_identity_id.setter
-    def microsoft_app_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingEndpointEnabled")
-    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def streaming_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_endpoint_enabled")
 
     @streaming_endpoint_enabled.setter
-    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def streaming_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "streaming_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -669,25 +669,25 @@ class ChannelsRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Bot Channels Registration.
@@ -806,25 +806,25 @@ class ChannelsRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -871,25 +871,25 @@ class ChannelsRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cmk_key_vault_url: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ChannelsRegistration':
+            cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ChannelsRegistration':
         """
         Get an existing ChannelsRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

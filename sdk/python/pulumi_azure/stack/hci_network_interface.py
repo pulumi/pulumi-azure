@@ -24,11 +24,11 @@ class HciNetworkInterfaceArgs:
                  custom_location_id: pulumi.Input[_builtins.str],
                  ip_configuration: pulumi.Input['HciNetworkInterfaceIpConfigurationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciNetworkInterface resource.
 
@@ -95,31 +95,31 @@ class HciNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MAC address of the Network Interface. Changing this forces a new resource to be created.
 
@@ -128,45 +128,45 @@ class HciNetworkInterfaceArgs:
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _HciNetworkInterfaceState:
     def __init__(__self__, *,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration: Optional[pulumi.Input['HciNetworkInterfaceIpConfigurationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration: pulumi.Input[Optional['HciNetworkInterfaceIpConfigurationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HciNetworkInterface resources.
 
@@ -200,55 +200,55 @@ class _HciNetworkInterfaceState:
 
     @_builtins.property
     @pulumi.getter(name="customLocationId")
-    def custom_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_location_id")
 
     @custom_location_id.setter
-    def custom_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_location_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional[pulumi.Input['HciNetworkInterfaceIpConfigurationArgs']]:
+    def ip_configuration(self) -> pulumi.Input[Optional['HciNetworkInterfaceIpConfigurationArgs']]:
         """
         An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configuration")
 
     @ip_configuration.setter
-    def ip_configuration(self, value: Optional[pulumi.Input['HciNetworkInterfaceIpConfigurationArgs']]):
+    def ip_configuration(self, value: pulumi.Input[Optional['HciNetworkInterfaceIpConfigurationArgs']]):
         pulumi.set(self, "ip_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MAC address of the Network Interface. Changing this forces a new resource to be created.
 
@@ -257,43 +257,43 @@ class _HciNetworkInterfaceState:
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -303,14 +303,14 @@ class HciNetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration: Optional[pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Stack HCI Network Interface.
@@ -478,14 +478,14 @@ class HciNetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration: Optional[pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,14 +519,14 @@ class HciNetworkInterface(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_configuration: Optional[pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HciNetworkInterface':
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HciNetworkInterface':
         """
         Get an existing HciNetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

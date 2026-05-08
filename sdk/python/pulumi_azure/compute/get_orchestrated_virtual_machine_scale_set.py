@@ -148,8 +148,8 @@ def get_orchestrated_virtual_machine_scale_set(name: Optional[_builtins.str] = N
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_orchestrated_virtual_machine_scale_set_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_orchestrated_virtual_machine_scale_set_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratedVirtualMachineScaleSetResult]:
     """
     Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.

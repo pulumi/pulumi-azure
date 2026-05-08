@@ -58,8 +58,8 @@ class SpringCloudActiveDeploymentArgs:
 @pulumi.input_type
 class _SpringCloudActiveDeploymentState:
     def __init__(__self__, *,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudActiveDeployment resources.
 
@@ -73,26 +73,26 @@ class _SpringCloudActiveDeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of Spring Cloud Deployment which is going to be active.
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
@@ -102,8 +102,8 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Active Azure Spring Cloud Deployment.
@@ -235,8 +235,8 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,8 +262,8 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudActiveDeployment':
+            deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudActiveDeployment':
         """
         Get an existing SpringCloudActiveDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -202,35 +202,35 @@ export interface OutputFunctionState {
     /**
      * The API key for the Function.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of events in each batch that's sent to the function. Defaults to `100`.
      */
-    batchMaxCount?: pulumi.Input<number>;
+    batchMaxCount?: pulumi.Input<number | undefined>;
     /**
      * The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
      */
-    batchMaxInBytes?: pulumi.Input<number>;
+    batchMaxInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name of the Function App.
      */
-    functionApp?: pulumi.Input<string>;
+    functionApp?: pulumi.Input<string | undefined>;
     /**
      * The name of the function in the Function App.
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -244,11 +244,11 @@ export interface OutputFunctionArgs {
     /**
      * The maximum number of events in each batch that's sent to the function. Defaults to `100`.
      */
-    batchMaxCount?: pulumi.Input<number>;
+    batchMaxCount?: pulumi.Input<number | undefined>;
     /**
      * The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
      */
-    batchMaxInBytes?: pulumi.Input<number>;
+    batchMaxInBytes?: pulumi.Input<number | undefined>;
     /**
      * The name of the Function App.
      */
@@ -260,7 +260,7 @@ export interface OutputFunctionArgs {
     /**
      * The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
      */

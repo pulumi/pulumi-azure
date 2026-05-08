@@ -117,7 +117,7 @@ export interface GetKubernetesServiceVersionsOutputArgs {
     /**
      * Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
      */
-    includePreview?: pulumi.Input<boolean>;
+    includePreview?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the location in which to query for versions.
      */
@@ -125,5 +125,5 @@ export interface GetKubernetesServiceVersionsOutputArgs {
     /**
      * A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
      */
-    versionPrefix?: pulumi.Input<string>;
+    versionPrefix?: pulumi.Input<string | undefined>;
 }

@@ -25,28 +25,28 @@ class ServiceArgs:
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
-                 gateway_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-                 sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
-                 sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delegation: pulumi.Input[Optional['ServiceDelegationArgs']] = None,
+                 gateway_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hostname_configuration: pulumi.Input[Optional['ServiceHostnameConfigurationArgs']] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional['ServiceProtocolsArgs']] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security: pulumi.Input[Optional['ServiceSecurityArgs']] = None,
+                 sign_in: pulumi.Input[Optional['ServiceSignInArgs']] = None,
+                 sign_up: pulumi.Input[Optional['ServiceSignUpArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_access: pulumi.Input[Optional['ServiceTenantAccessArgs']] = None,
+                 virtual_network_configuration: pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -192,151 +192,151 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]:
+    def additional_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]:
         """
         One or more `additional_location` blocks as defined below.
         """
         return pulumi.get(self, "additional_locations")
 
     @additional_locations.setter
-    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]):
+    def additional_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]):
         pulumi.set(self, "additional_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
         """
         One or more `certificate` blocks (up to 10) as defined below.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def delegation(self) -> Optional[pulumi.Input['ServiceDelegationArgs']]:
+    def delegation(self) -> pulumi.Input[Optional['ServiceDelegationArgs']]:
         """
         A `delegation` block as defined below.
         """
         return pulumi.get(self, "delegation")
 
     @delegation.setter
-    def delegation(self, value: Optional[pulumi.Input['ServiceDelegationArgs']]):
+    def delegation(self, value: pulumi.Input[Optional['ServiceDelegationArgs']]):
         pulumi.set(self, "delegation", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayDisabled")
-    def gateway_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def gateway_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable the gateway in main region? This is only supported when `additional_location` is set.
         """
         return pulumi.get(self, "gateway_disabled")
 
     @gateway_disabled.setter
-    def gateway_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def gateway_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "gateway_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnameConfiguration")
-    def hostname_configuration(self) -> Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]:
+    def hostname_configuration(self) -> pulumi.Input[Optional['ServiceHostnameConfigurationArgs']]:
         """
         A `hostname_configuration` block as defined below.
         """
         return pulumi.get(self, "hostname_configuration")
 
     @hostname_configuration.setter
-    def hostname_configuration(self, value: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]):
+    def hostname_configuration(self, value: pulumi.Input[Optional['ServiceHostnameConfigurationArgs']]):
         pulumi.set(self, "hostname_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minApiVersion")
-    def min_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         """
         return pulumi.get(self, "min_api_version")
 
     @min_api_version.setter
-    def min_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_sender_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address from which the notification will be sent.
         """
         return pulumi.get(self, "notification_sender_email")
 
     @notification_sender_email.setter
-    def notification_sender_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_sender_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_sender_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input['ServiceProtocolsArgs']]:
+    def protocols(self) -> pulumi.Input[Optional['ServiceProtocolsArgs']]:
         """
         A `protocols` block as defined below.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input['ServiceProtocolsArgs']]):
+    def protocols(self, value: pulumi.Input[Optional['ServiceProtocolsArgs']]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a standard SKU IPv4 Public IP.
 
@@ -345,12 +345,12 @@ class ServiceArgs:
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public access to the service allowed? Defaults to `true`.
 
@@ -359,84 +359,84 @@ class ServiceArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['ServiceSecurityArgs']]:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['ServiceSecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['ServiceSecurityArgs']]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter(name="signIn")
-    def sign_in(self) -> Optional[pulumi.Input['ServiceSignInArgs']]:
+    def sign_in(self) -> pulumi.Input[Optional['ServiceSignInArgs']]:
         """
         A `sign_in` block as defined below.
         """
         return pulumi.get(self, "sign_in")
 
     @sign_in.setter
-    def sign_in(self, value: Optional[pulumi.Input['ServiceSignInArgs']]):
+    def sign_in(self, value: pulumi.Input[Optional['ServiceSignInArgs']]):
         pulumi.set(self, "sign_in", value)
 
     @_builtins.property
     @pulumi.getter(name="signUp")
-    def sign_up(self) -> Optional[pulumi.Input['ServiceSignUpArgs']]:
+    def sign_up(self) -> pulumi.Input[Optional['ServiceSignUpArgs']]:
         """
         A `sign_up` block as defined below.
         """
         return pulumi.get(self, "sign_up")
 
     @sign_up.setter
-    def sign_up(self, value: Optional[pulumi.Input['ServiceSignUpArgs']]):
+    def sign_up(self, value: pulumi.Input[Optional['ServiceSignUpArgs']]):
         pulumi.set(self, "sign_up", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantAccess")
-    def tenant_access(self) -> Optional[pulumi.Input['ServiceTenantAccessArgs']]:
+    def tenant_access(self) -> pulumi.Input[Optional['ServiceTenantAccessArgs']]:
         """
         A `tenant_access` block as defined below.
         """
         return pulumi.get(self, "tenant_access")
 
     @tenant_access.setter
-    def tenant_access(self, value: Optional[pulumi.Input['ServiceTenantAccessArgs']]):
+    def tenant_access(self, value: pulumi.Input[Optional['ServiceTenantAccessArgs']]):
         pulumi.set(self, "tenant_access", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]:
+    def virtual_network_configuration(self) -> pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']]:
         """
         A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]):
+    def virtual_network_configuration(self, value: pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 
@@ -445,12 +445,12 @@ class ServiceArgs:
         return pulumi.get(self, "virtual_network_type")
 
     @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this API Management service should be located.
 
@@ -459,47 +459,47 @@ class ServiceArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
-                 developer_portal_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_regional_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publisher_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-                 sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
-                 sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delegation: pulumi.Input[Optional['ServiceDelegationArgs']] = None,
+                 developer_portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_regional_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_configuration: pulumi.Input[Optional['ServiceHostnameConfigurationArgs']] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: pulumi.Input[Optional['ServiceProtocolsArgs']] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publisher_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional['ServiceSecurityArgs']] = None,
+                 sign_in: pulumi.Input[Optional['ServiceSignInArgs']] = None,
+                 sign_up: pulumi.Input[Optional['ServiceSignUpArgs']] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_access: pulumi.Input[Optional['ServiceTenantAccessArgs']] = None,
+                 virtual_network_configuration: pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -621,223 +621,223 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]:
+    def additional_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]:
         """
         One or more `additional_location` blocks as defined below.
         """
         return pulumi.get(self, "additional_locations")
 
     @additional_locations.setter
-    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]):
+    def additional_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]):
         pulumi.set(self, "additional_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
         """
         One or more `certificate` blocks (up to 10) as defined below.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def delegation(self) -> Optional[pulumi.Input['ServiceDelegationArgs']]:
+    def delegation(self) -> pulumi.Input[Optional['ServiceDelegationArgs']]:
         """
         A `delegation` block as defined below.
         """
         return pulumi.get(self, "delegation")
 
     @delegation.setter
-    def delegation(self, value: Optional[pulumi.Input['ServiceDelegationArgs']]):
+    def delegation(self, value: pulumi.Input[Optional['ServiceDelegationArgs']]):
         pulumi.set(self, "delegation", value)
 
     @_builtins.property
     @pulumi.getter(name="developerPortalUrl")
-    def developer_portal_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_portal_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the Developer Portal associated with this API Management service.
         """
         return pulumi.get(self, "developer_portal_url")
 
     @developer_portal_url.setter
-    def developer_portal_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_portal_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_portal_url", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayDisabled")
-    def gateway_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def gateway_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable the gateway in main region? This is only supported when `additional_location` is set.
         """
         return pulumi.get(self, "gateway_disabled")
 
     @gateway_disabled.setter
-    def gateway_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def gateway_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "gateway_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayRegionalUrl")
-    def gateway_regional_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_regional_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Regional Gateway for the API Management Service in the specified region.
         """
         return pulumi.get(self, "gateway_regional_url")
 
     @gateway_regional_url.setter
-    def gateway_regional_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_regional_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_regional_url", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayUrl")
-    def gateway_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Gateway for the API Management Service.
         """
         return pulumi.get(self, "gateway_url")
 
     @gateway_url.setter
-    def gateway_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_url", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnameConfiguration")
-    def hostname_configuration(self) -> Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]:
+    def hostname_configuration(self) -> pulumi.Input[Optional['ServiceHostnameConfigurationArgs']]:
         """
         A `hostname_configuration` block as defined below.
         """
         return pulumi.get(self, "hostname_configuration")
 
     @hostname_configuration.setter
-    def hostname_configuration(self, value: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]):
+    def hostname_configuration(self, value: pulumi.Input[Optional['ServiceHostnameConfigurationArgs']]):
         pulumi.set(self, "hostname_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementApiUrl")
-    def management_api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the Management API associated with this API Management service.
         """
         return pulumi.get(self, "management_api_url")
 
     @management_api_url.setter
-    def management_api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="minApiVersion")
-    def min_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         """
         return pulumi.get(self, "min_api_version")
 
     @min_api_version.setter
-    def min_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_sender_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address from which the notification will be sent.
         """
         return pulumi.get(self, "notification_sender_email")
 
     @notification_sender_email.setter
-    def notification_sender_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_sender_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_sender_email", value)
 
     @_builtins.property
     @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the Publisher Portal associated with this API Management service.
         """
         return pulumi.get(self, "portal_url")
 
     @portal_url.setter
-    def portal_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_url", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
-    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input['ServiceProtocolsArgs']]:
+    def protocols(self) -> pulumi.Input[Optional['ServiceProtocolsArgs']]:
         """
         A `protocols` block as defined below.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input['ServiceProtocolsArgs']]):
+    def protocols(self, value: pulumi.Input[Optional['ServiceProtocolsArgs']]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a standard SKU IPv4 Public IP.
 
@@ -846,24 +846,24 @@ class _ServiceState:
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public access to the service allowed? Defaults to `true`.
 
@@ -872,96 +872,96 @@ class _ServiceState:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherEmail")
-    def publisher_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of publisher/company.
         """
         return pulumi.get(self, "publisher_email")
 
     @publisher_email.setter
-    def publisher_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_email", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of publisher/company.
         """
         return pulumi.get(self, "publisher_name")
 
     @publisher_name.setter
-    def publisher_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scmUrl")
-    def scm_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scm_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
         """
         return pulumi.get(self, "scm_url")
 
     @scm_url.setter
-    def scm_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scm_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scm_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['ServiceSecurityArgs']]:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['ServiceSecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['ServiceSecurityArgs']]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter(name="signIn")
-    def sign_in(self) -> Optional[pulumi.Input['ServiceSignInArgs']]:
+    def sign_in(self) -> pulumi.Input[Optional['ServiceSignInArgs']]:
         """
         A `sign_in` block as defined below.
         """
         return pulumi.get(self, "sign_in")
 
     @sign_in.setter
-    def sign_in(self, value: Optional[pulumi.Input['ServiceSignInArgs']]):
+    def sign_in(self, value: pulumi.Input[Optional['ServiceSignInArgs']]):
         pulumi.set(self, "sign_in", value)
 
     @_builtins.property
     @pulumi.getter(name="signUp")
-    def sign_up(self) -> Optional[pulumi.Input['ServiceSignUpArgs']]:
+    def sign_up(self) -> pulumi.Input[Optional['ServiceSignUpArgs']]:
         """
         A `sign_up` block as defined below.
         """
         return pulumi.get(self, "sign_up")
 
     @sign_up.setter
-    def sign_up(self, value: Optional[pulumi.Input['ServiceSignUpArgs']]):
+    def sign_up(self, value: pulumi.Input[Optional['ServiceSignUpArgs']]):
         pulumi.set(self, "sign_up", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
@@ -972,48 +972,48 @@ class _ServiceState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantAccess")
-    def tenant_access(self) -> Optional[pulumi.Input['ServiceTenantAccessArgs']]:
+    def tenant_access(self) -> pulumi.Input[Optional['ServiceTenantAccessArgs']]:
         """
         A `tenant_access` block as defined below.
         """
         return pulumi.get(self, "tenant_access")
 
     @tenant_access.setter
-    def tenant_access(self, value: Optional[pulumi.Input['ServiceTenantAccessArgs']]):
+    def tenant_access(self, value: pulumi.Input[Optional['ServiceTenantAccessArgs']]):
         pulumi.set(self, "tenant_access", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]:
+    def virtual_network_configuration(self) -> pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']]:
         """
         A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]):
+    def virtual_network_configuration(self, value: pulumi.Input[Optional['ServiceVirtualNetworkConfigurationArgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 
@@ -1022,12 +1022,12 @@ class _ServiceState:
         return pulumi.get(self, "virtual_network_type")
 
     @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this API Management service should be located.
 
@@ -1036,7 +1036,7 @@ class _ServiceState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -1046,32 +1046,32 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
-                 gateway_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publisher_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-                 sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
-                 sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delegation: pulumi.Input[Optional[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
+                 gateway_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hostname_configuration: pulumi.Input[Optional[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publisher_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sign_in: pulumi.Input[Optional[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+                 sign_up: pulumi.Input[Optional[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_access: pulumi.Input[Optional[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+                 virtual_network_configuration: pulumi.Input[Optional[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an API Management Service.
@@ -1225,32 +1225,32 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
-                 gateway_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publisher_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-                 sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
-                 sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delegation: pulumi.Input[Optional[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
+                 gateway_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hostname_configuration: pulumi.Input[Optional[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publisher_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sign_in: pulumi.Input[Optional[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+                 sign_up: pulumi.Input[Optional[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_access: pulumi.Input[Optional[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+                 virtual_network_configuration: pulumi.Input[Optional[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1312,40 +1312,40 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
-            client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
-            developer_portal_url: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            gateway_regional_url: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            management_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-            min_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_url: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
-            public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            publisher_email: Optional[pulumi.Input[_builtins.str]] = None,
-            publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scm_url: Optional[pulumi.Input[_builtins.str]] = None,
-            security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-            sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
-            sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
-            virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
-            virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Service':
+            additional_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            delegation: pulumi.Input[Optional[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
+            developer_portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            gateway_regional_url: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname_configuration: pulumi.Input[Optional[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            min_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            protocols: pulumi.Input[Optional[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
+            public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            publisher_email: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scm_url: pulumi.Input[Optional[_builtins.str]] = None,
+            security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+            sign_in: pulumi.Input[Optional[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+            sign_up: pulumi.Input[Optional[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_access: pulumi.Input[Optional[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+            virtual_network_configuration: pulumi.Input[Optional[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
+            virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

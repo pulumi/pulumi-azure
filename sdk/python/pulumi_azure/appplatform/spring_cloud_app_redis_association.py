@@ -22,8 +22,8 @@ class SpringCloudAppRedisAssociationArgs:
                  redis_access_key: pulumi.Input[_builtins.str],
                  redis_cache_id: pulumi.Input[_builtins.str],
                  spring_cloud_app_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpringCloudAppRedisAssociation resource.
 
@@ -79,37 +79,37 @@ class SpringCloudAppRedisAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnabled")
-    def ssl_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should SSL be used when connecting to Redis? Defaults to `true`.
         """
         return pulumi.get(self, "ssl_enabled")
 
     @ssl_enabled.setter
-    def ssl_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_enabled", value)
 
 
 @pulumi.input_type
 class _SpringCloudAppRedisAssociationState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppRedisAssociation resources.
 
@@ -132,62 +132,62 @@ class _SpringCloudAppRedisAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redisAccessKey")
-    def redis_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Redis Cache access key.
         """
         return pulumi.get(self, "redis_access_key")
 
     @redis_access_key.setter
-    def redis_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="redisCacheId")
-    def redis_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "redis_cache_id")
 
     @redis_cache_id.setter
-    def redis_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_cache_id", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnabled")
-    def ssl_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should SSL be used when connecting to Redis? Defaults to `true`.
         """
         return pulumi.get(self, "ssl_enabled")
 
     @ssl_enabled.setter
-    def ssl_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_enabled", value)
 
 
@@ -197,11 +197,11 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Associates a Spring Cloud Application with a Redis Cache.
@@ -326,11 +326,11 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,11 +361,11 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redis_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SpringCloudAppRedisAssociation':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SpringCloudAppRedisAssociation':
         """
         Get an existing SpringCloudAppRedisAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,7 +22,7 @@ class IntegrationAccountSessionArgs:
                  content: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountSession resource.
 
@@ -75,24 +75,24 @@ class IntegrationAccountSessionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountSessionState:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountSession resources.
 
@@ -112,50 +112,50 @@ class _IntegrationAccountSessionState:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the Logic App Integration Account Session.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -165,10 +165,10 @@ class IntegrationAccountSession(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Integration Account Session.
@@ -284,10 +284,10 @@ class IntegrationAccountSession(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,10 +317,10 @@ class IntegrationAccountSession(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAccountSession':
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccountSession':
         """
         Get an existing IntegrationAccountSession resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

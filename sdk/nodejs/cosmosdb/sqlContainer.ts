@@ -227,63 +227,63 @@ export interface SqlContainerState {
     /**
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy | undefined>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * An `indexingPolicy` block as defined below.
      */
-    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
+    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy | undefined>;
     /**
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      */
-    partitionKeyKind?: pulumi.Input<string>;
+    partitionKeyKind?: pulumi.Input<string | undefined>;
     /**
      * A list of partition key paths. Changing this forces a new resource to be created.
      */
-    partitionKeyPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionKeyPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      *
      * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
-    partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[] | undefined>;
 }
 
 /**
@@ -297,17 +297,17 @@ export interface SqlContainerArgs {
     /**
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy | undefined>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
@@ -315,19 +315,19 @@ export interface SqlContainerArgs {
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * An `indexingPolicy` block as defined below.
      */
-    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
+    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy | undefined>;
     /**
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      */
-    partitionKeyKind?: pulumi.Input<string>;
+    partitionKeyKind?: pulumi.Input<string | undefined>;
     /**
      * A list of partition key paths. Changing this forces a new resource to be created.
      */
@@ -337,7 +337,7 @@ export interface SqlContainerArgs {
      *
      * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
-    partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
@@ -345,9 +345,9 @@ export interface SqlContainerArgs {
     /**
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[] | undefined>;
 }

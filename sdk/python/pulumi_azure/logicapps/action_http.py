@@ -24,11 +24,11 @@ class ActionHttpArgs:
                  logic_app_id: pulumi.Input[_builtins.str],
                  method: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None):
         """
         The set of arguments for constructing a ActionHttp resource.
 
@@ -95,31 +95,31 @@ class ActionHttpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -128,45 +128,45 @@ class ActionHttpArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def queries(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def queries(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "queries")
 
     @queries.setter
-    def queries(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def queries(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "queries", value)
 
     @_builtins.property
     @pulumi.getter(name="runAfters")
-    def run_afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]:
+    def run_afters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]:
         """
         Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         """
         return pulumi.get(self, "run_afters")
 
     @run_afters.setter
-    def run_afters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]):
+    def run_afters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]):
         pulumi.set(self, "run_afters", value)
 
 
 @pulumi.input_type
 class _ActionHttpState:
     def __init__(__self__, *,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionHttp resources.
 
@@ -200,55 +200,55 @@ class _ActionHttpState:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "logic_app_id")
 
     @logic_app_id.setter
-    def logic_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -257,43 +257,43 @@ class _ActionHttpState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def queries(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def queries(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         """
         return pulumi.get(self, "queries")
 
     @queries.setter
-    def queries(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def queries(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "queries", value)
 
     @_builtins.property
     @pulumi.getter(name="runAfters")
-    def run_afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]:
+    def run_afters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]:
         """
         Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         """
         return pulumi.get(self, "run_afters")
 
     @run_afters.setter
-    def run_afters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]):
+    def run_afters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]]):
         pulumi.set(self, "run_afters", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI which will be called when this HTTP Action is triggered.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -303,14 +303,14 @@ class ActionHttp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an HTTP Action within a Logic App Workflow
@@ -414,14 +414,14 @@ class ActionHttp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,14 +455,14 @@ class ActionHttp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            method: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            run_afters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
-            uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionHttp':
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionHttp':
         """
         Get an existing ActionHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

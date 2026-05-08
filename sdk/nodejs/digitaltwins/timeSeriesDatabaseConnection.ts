@@ -251,43 +251,43 @@ export interface TimeSeriesDatabaseConnectionState {
     /**
      * The ID of the Digital Twins. Changing this forces a new resource to be created.
      */
-    digitalTwinsId?: pulumi.Input<string>;
+    digitalTwinsId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
-    eventhubConsumerGroupName?: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Event Hub. Changing this forces a new resource to be created.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * URI of the Event Hub Namespace. Changing this forces a new resource to be created.
      */
-    eventhubNamespaceEndpointUri?: pulumi.Input<string>;
+    eventhubNamespaceEndpointUri?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
      */
-    eventhubNamespaceId?: pulumi.Input<string>;
+    eventhubNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    kustoClusterId?: pulumi.Input<string>;
+    kustoClusterId?: pulumi.Input<string | undefined>;
     /**
      * URI of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    kustoClusterUri?: pulumi.Input<string>;
+    kustoClusterUri?: pulumi.Input<string | undefined>;
     /**
      * Name of the Kusto Database. Changing this forces a new resource to be created.
      */
-    kustoDatabaseName?: pulumi.Input<string>;
+    kustoDatabaseName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
-    kustoTableName?: pulumi.Input<string>;
+    kustoTableName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -301,7 +301,7 @@ export interface TimeSeriesDatabaseConnectionArgs {
     /**
      * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
-    eventhubConsumerGroupName?: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Event Hub. Changing this forces a new resource to be created.
      */
@@ -329,9 +329,9 @@ export interface TimeSeriesDatabaseConnectionArgs {
     /**
      * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
-    kustoTableName?: pulumi.Input<string>;
+    kustoTableName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

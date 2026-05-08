@@ -160,27 +160,27 @@ export interface GlobalSchemaState {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The description of the schema.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for this Schema. Changing this forces a new resource to be created.
      */
-    schemaId?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string | undefined>;
     /**
      * The content type of the Schema. Possible values are `xml` and `json`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The string defining the document representing the Schema.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface GlobalSchemaArgs {
     /**
      * The description of the schema.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */

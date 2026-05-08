@@ -24,7 +24,7 @@ class AssessmentArgs:
                  assessment_policy_id: pulumi.Input[_builtins.str],
                  status: pulumi.Input['AssessmentStatusArgs'],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -77,24 +77,24 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional data to associate with the assessment.
         """
         return pulumi.get(self, "additional_data")
 
     @additional_data.setter
-    def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_data", value)
 
 
 @pulumi.input_type
 class _AssessmentState:
     def __init__(__self__, *,
-                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['AssessmentStatusArgs']] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Assessment resources.
 
@@ -114,50 +114,50 @@ class _AssessmentState:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional data to associate with the assessment.
         """
         return pulumi.get(self, "additional_data")
 
     @additional_data.setter
-    def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_data", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentPolicyId")
-    def assessment_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
         """
         return pulumi.get(self, "assessment_policy_id")
 
     @assessment_policy_id.setter
-    def assessment_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AssessmentStatusArgs']]:
+    def status(self) -> pulumi.Input[Optional['AssessmentStatusArgs']]:
         """
         A `status` block as defined below.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AssessmentStatusArgs']]):
+    def status(self, value: pulumi.Input[Optional['AssessmentStatusArgs']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -167,10 +167,10 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Security Center Assessment for Azure Security Center.
@@ -348,10 +348,10 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -381,10 +381,10 @@ class Assessment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            assessment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Assessment':
+            additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Assessment':
         """
         Get an existing Assessment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

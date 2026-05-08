@@ -103,11 +103,11 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
 @pulumi.input_type
 class _FlexibleServerActiveDirectoryAdministratoryState:
     def __init__(__self__, *,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
 
@@ -130,62 +130,62 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the identity used for AAD Authentication.
         """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login name of the principal to set as the server administrator
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Tenant ID.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -195,11 +195,11 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Active Directory administrator on a MySQL Flexible Server
@@ -336,11 +336,11 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,11 +377,11 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            login: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlexibleServerActiveDirectoryAdministratory':
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            login: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlexibleServerActiveDirectoryAdministratory':
         """
         Get an existing FlexibleServerActiveDirectoryAdministratory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

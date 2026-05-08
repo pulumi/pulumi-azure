@@ -167,39 +167,39 @@ export interface LinkedServiceOdataState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service OData.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service OData.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `basicAuthentication` block as defined below.
      */
-    basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication>;
+    basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service OData.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service OData.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service OData. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service OData.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The URL of the OData service endpoint.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,15 +209,15 @@ export interface LinkedServiceOdataArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service OData.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service OData.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `basicAuthentication` block as defined below.
      */
-    basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication>;
+    basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -225,19 +225,19 @@ export interface LinkedServiceOdataArgs {
     /**
      * The description for the Data Factory Linked Service OData.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service OData.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service OData. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service OData.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The URL of the OData service endpoint.
      */

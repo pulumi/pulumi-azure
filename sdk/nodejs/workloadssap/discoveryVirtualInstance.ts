@@ -186,47 +186,47 @@ export interface DiscoveryVirtualInstanceState {
     /**
      * The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
      */
-    centralServerVirtualMachineId?: pulumi.Input<string>;
+    centralServerVirtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.DiscoveryVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.DiscoveryVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
      */
-    managedStorageAccountName?: pulumi.Input<string>;
+    managedStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SAP Product type for the SAP Discovery Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
      */
-    sapProduct?: pulumi.Input<string>;
+    sapProduct?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -244,27 +244,27 @@ export interface DiscoveryVirtualInstanceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.DiscoveryVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.DiscoveryVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
      */
-    managedStorageAccountName?: pulumi.Input<string>;
+    managedStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
@@ -276,5 +276,5 @@ export interface DiscoveryVirtualInstanceArgs {
     /**
      * A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -126,27 +126,27 @@ export interface FlexibleServerActiveDirectoryAdministratorState {
     /**
      * The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The name of Azure Active Directory principal. Changing this forces a new resource to be created.
      */
-    principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string | undefined>;
     /**
      * The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group for the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Tenant ID. Changing this forces a new resource to be created.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**

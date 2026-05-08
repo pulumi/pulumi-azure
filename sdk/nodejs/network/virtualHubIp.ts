@@ -171,27 +171,27 @@ export interface VirtualHubIpState {
     /**
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The private IP address of the IP configuration.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      */
-    privateIpAllocationMethod?: pulumi.Input<string>;
+    privateIpAllocationMethod?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,15 +201,15 @@ export interface VirtualHubIpArgs {
     /**
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The private IP address of the IP configuration.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      */
-    privateIpAllocationMethod?: pulumi.Input<string>;
+    privateIpAllocationMethod?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */

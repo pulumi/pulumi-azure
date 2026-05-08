@@ -30,35 +30,35 @@ __all__ = [
 ]
 
 class AttachedDatabaseConfigurationSharingArgsDict(TypedDict):
-    external_tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables exclude from the follower database.
     """
-    external_tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables to include in the follower database.
     """
-    functions_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    functions_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of functions to exclude from the follower database.
     """
-    functions_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    functions_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of functions to include in the follower database.
     """
-    materialized_views_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views exclude from the follower database.
     """
-    materialized_views_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views to include in the follower database.
     """
-    tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to exclude from the follower database.
     """
-    tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to include in the follower database.
     """
@@ -66,14 +66,14 @@ class AttachedDatabaseConfigurationSharingArgsDict(TypedDict):
 @pulumi.input_type
 class AttachedDatabaseConfigurationSharingArgs:
     def __init__(__self__, *,
-                 external_tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 external_tables_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_tables_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_excludes: List of external tables exclude from the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_includes: List of external tables to include in the follower database.
@@ -103,98 +103,98 @@ class AttachedDatabaseConfigurationSharingArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToExcludes")
-    def external_tables_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables exclude from the follower database.
         """
         return pulumi.get(self, "external_tables_to_excludes")
 
     @external_tables_to_excludes.setter
-    def external_tables_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToIncludes")
-    def external_tables_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables to include in the follower database.
         """
         return pulumi.get(self, "external_tables_to_includes")
 
     @external_tables_to_includes.setter
-    def external_tables_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="functionsToExcludes")
-    def functions_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def functions_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of functions to exclude from the follower database.
         """
         return pulumi.get(self, "functions_to_excludes")
 
     @functions_to_excludes.setter
-    def functions_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def functions_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "functions_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="functionsToIncludes")
-    def functions_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def functions_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of functions to include in the follower database.
         """
         return pulumi.get(self, "functions_to_includes")
 
     @functions_to_includes.setter
-    def functions_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def functions_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "functions_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExcludes")
-    def materialized_views_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views exclude from the follower database.
         """
         return pulumi.get(self, "materialized_views_to_excludes")
 
     @materialized_views_to_excludes.setter
-    def materialized_views_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToIncludes")
-    def materialized_views_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views to include in the follower database.
         """
         return pulumi.get(self, "materialized_views_to_includes")
 
     @materialized_views_to_includes.setter
-    def materialized_views_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToExcludes")
-    def tables_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to exclude from the follower database.
         """
         return pulumi.get(self, "tables_to_excludes")
 
     @tables_to_excludes.setter
-    def tables_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToIncludes")
-    def tables_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to include in the follower database.
         """
         return pulumi.get(self, "tables_to_includes")
 
     @tables_to_includes.setter
-    def tables_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_includes", value)
 
 
@@ -203,17 +203,17 @@ class ClusterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this System Assigned Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this System Assigned Managed Service Identity.
     """
@@ -222,9 +222,9 @@ class ClusterIdentityArgsDict(TypedDict):
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
@@ -255,7 +255,7 @@ class ClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 
@@ -264,31 +264,31 @@ class ClusterIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this System Assigned Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this System Assigned Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -391,7 +391,7 @@ class ClusterSkuArgsDict(TypedDict):
     """
     The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the node count for the cluster. Boundaries depend on the SKU name.
 
@@ -404,7 +404,7 @@ class ClusterSkuArgsDict(TypedDict):
 class ClusterSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
         :param pulumi.Input[_builtins.int] capacity: Specifies the node count for the cluster. Boundaries depend on the SKU name.
@@ -431,7 +431,7 @@ class ClusterSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the node count for the cluster. Boundaries depend on the SKU name.
 
@@ -442,7 +442,7 @@ class ClusterSkuArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 

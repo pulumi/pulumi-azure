@@ -21,10 +21,10 @@ class ApiConnectionArgs:
     def __init__(__self__, *,
                  managed_api_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApiConnection resource.
 
@@ -74,31 +74,31 @@ class ApiConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A display name for this API Connection.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameter_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameter values associated with this API Connection.
 
@@ -107,31 +107,31 @@ class ApiConnectionArgs:
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameter_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the API Connection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApiConnectionState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApiConnection resources.
 
@@ -159,43 +159,43 @@ class _ApiConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A display name for this API Connection.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedApiId")
-    def managed_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "managed_api_id")
 
     @managed_api_id.setter
-    def managed_api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_api_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameter_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameter values associated with this API Connection.
 
@@ -204,31 +204,31 @@ class _ApiConnectionState:
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameter_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the API Connection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -238,12 +238,12 @@ class ApiConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an API Connection.
@@ -373,12 +373,12 @@ class ApiConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -408,12 +408,12 @@ class ApiConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ApiConnection':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ApiConnection':
         """
         Get an existing ApiConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

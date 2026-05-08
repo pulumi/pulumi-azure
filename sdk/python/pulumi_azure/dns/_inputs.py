@@ -258,39 +258,39 @@ class ZoneSoaRecordArgsDict(TypedDict):
     """
     The email contact for the SOA record.
     """
-    expire_time: NotRequired[pulumi.Input[_builtins.int]]
+    expire_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expire time for the SOA record. Defaults to `2419200`.
     """
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified domain name.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain name of the authoritative name server for the SOA record.
     """
-    minimum_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
     """
-    refresh_time: NotRequired[pulumi.Input[_builtins.int]]
+    refresh_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The refresh time for the SOA record. Defaults to `3600`.
     """
-    retry_time: NotRequired[pulumi.Input[_builtins.int]]
+    retry_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The retry time for the SOA record. Defaults to `300`.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.int]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The serial number for the SOA record. Defaults to `1`.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A mapping of tags to assign to the Record Set.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Time To Live of the SOA Record in seconds. Defaults to `3600`.
     """
@@ -299,15 +299,15 @@ class ZoneSoaRecordArgsDict(TypedDict):
 class ZoneSoaRecordArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 expire_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 expire_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] email: The email contact for the SOA record.
         :param pulumi.Input[_builtins.int] expire_time: The expire time for the SOA record. Defaults to `2419200`.
@@ -354,110 +354,110 @@ class ZoneSoaRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expire_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expire time for the SOA record. Defaults to `2419200`.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expire_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expire_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the authoritative name server for the SOA record.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The refresh time for the SOA record. Defaults to `3600`.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_time", value)
 
     @_builtins.property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retry time for the SOA record. Defaults to `300`.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The serial number for the SOA record. Defaults to `1`.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Record Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 

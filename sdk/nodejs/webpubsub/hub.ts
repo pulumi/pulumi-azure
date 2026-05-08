@@ -192,27 +192,27 @@ export interface HubState {
      * Is anonymous connections are allowed for this hub? Defaults to `false`.
      * Possible values are `true`, `false`.
      */
-    anonymousConnectionsEnabled?: pulumi.Input<boolean>;
+    anonymousConnectionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `eventHandler` block as defined below.
      *
      * > **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      */
-    eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
+    eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[] | undefined>;
     /**
      * An `eventListener` block as defined below.
      *
      * > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
-    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
+    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[] | undefined>;
     /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
-    webPubsubId?: pulumi.Input<string>;
+    webPubsubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,23 +223,23 @@ export interface HubArgs {
      * Is anonymous connections are allowed for this hub? Defaults to `false`.
      * Possible values are `true`, `false`.
      */
-    anonymousConnectionsEnabled?: pulumi.Input<boolean>;
+    anonymousConnectionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `eventHandler` block as defined below.
      *
      * > **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      */
-    eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
+    eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[] | undefined>;
     /**
      * An `eventListener` block as defined below.
      *
      * > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
-    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
+    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[] | undefined>;
     /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */

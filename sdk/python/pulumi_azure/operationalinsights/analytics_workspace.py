@@ -22,22 +22,22 @@ __all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
 class AnalyticsWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_resource_only_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cmk_for_query_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
-                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']] = None,
+                 immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsWorkspace resource.
 
@@ -117,149 +117,149 @@ class AnalyticsWorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowResourceOnlyPermissions")
-    def allow_resource_only_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_resource_only_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         """
         return pulumi.get(self, "allow_resource_only_permissions")
 
     @allow_resource_only_permissions.setter
-    def allow_resource_only_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_resource_only_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_resource_only_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="cmkForQueryForced")
-    def cmk_for_query_forced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cmk_for_query_forced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Customer Managed Storage mandatory for query management?
         """
         return pulumi.get(self, "cmk_for_query_forced")
 
     @cmk_for_query_forced.setter
-    def cmk_for_query_forced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cmk_for_query_forced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cmk_for_query_forced", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyQuotaGb")
-    def daily_quota_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_quota_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
     @daily_quota_gb.setter
-    def daily_quota_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_quota_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_quota_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Rule to use for this workspace.
         """
         return pulumi.get(self, "data_collection_rule_id")
 
     @data_collection_rule_id.setter
-    def data_collection_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="immediateDataPurgeOn30DaysEnabled")
-    def immediate_data_purge_on30_days_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immediate_data_purge_on30_days_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         """
         return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
 
     @immediate_data_purge_on30_days_enabled.setter
-    def immediate_data_purge_on30_days_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immediate_data_purge_on30_days_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_ingestion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
     @internet_query_enabled.setter
-    def internet_query_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
     @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationCapacityInGbPerDay")
-    def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
 
@@ -268,24 +268,24 @@ class AnalyticsWorkspaceArgs:
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
     @reservation_capacity_in_gb_per_day.setter
-    def reservation_capacity_in_gb_per_day(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reservation_capacity_in_gb_per_day(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workspace data retention in days. Possible values are between `30` and `730`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
 
@@ -298,45 +298,45 @@ class AnalyticsWorkspaceArgs:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AnalyticsWorkspaceState:
     def __init__(__self__, *,
-                 allow_resource_only_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cmk_for_query_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
-                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']] = None,
+                 immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
 
@@ -414,161 +414,161 @@ class _AnalyticsWorkspaceState:
 
     @_builtins.property
     @pulumi.getter(name="allowResourceOnlyPermissions")
-    def allow_resource_only_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_resource_only_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         """
         return pulumi.get(self, "allow_resource_only_permissions")
 
     @allow_resource_only_permissions.setter
-    def allow_resource_only_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_resource_only_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_resource_only_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="cmkForQueryForced")
-    def cmk_for_query_forced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cmk_for_query_forced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Customer Managed Storage mandatory for query management?
         """
         return pulumi.get(self, "cmk_for_query_forced")
 
     @cmk_for_query_forced.setter
-    def cmk_for_query_forced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cmk_for_query_forced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cmk_for_query_forced", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyQuotaGb")
-    def daily_quota_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_quota_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
     @daily_quota_gb.setter
-    def daily_quota_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_quota_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_quota_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Rule to use for this workspace.
         """
         return pulumi.get(self, "data_collection_rule_id")
 
     @data_collection_rule_id.setter
-    def data_collection_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="immediateDataPurgeOn30DaysEnabled")
-    def immediate_data_purge_on30_days_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immediate_data_purge_on30_days_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         """
         return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
 
     @immediate_data_purge_on30_days_enabled.setter
-    def immediate_data_purge_on30_days_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immediate_data_purge_on30_days_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_ingestion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
     @internet_query_enabled.setter
-    def internet_query_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
     @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primarySharedKey")
-    def primary_shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary shared key for the Log Analytics Workspace.
         """
         return pulumi.get(self, "primary_shared_key")
 
     @primary_shared_key.setter
-    def primary_shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_shared_key", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationCapacityInGbPerDay")
-    def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
 
@@ -577,48 +577,48 @@ class _AnalyticsWorkspaceState:
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
     @reservation_capacity_in_gb_per_day.setter
-    def reservation_capacity_in_gb_per_day(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reservation_capacity_in_gb_per_day(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workspace data retention in days. Possible values are between `30` and `730`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySharedKey")
-    def secondary_shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary shared key for the Log Analytics Workspace.
         """
         return pulumi.get(self, "secondary_shared_key")
 
     @secondary_shared_key.setter
-    def secondary_shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_shared_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
 
@@ -631,31 +631,31 @@ class _AnalyticsWorkspaceState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -665,23 +665,23 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_resource_only_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cmk_for_query_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
-                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+                 immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Log Analytics (formally Operational Insights) Workspace.
@@ -803,23 +803,23 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_resource_only_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cmk_for_query_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
-                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+                 immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -863,26 +863,26 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_resource_only_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-            cmk_for_query_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-            daily_quota_gb: Optional[pulumi.Input[_builtins.float]] = None,
-            data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
-            immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-            reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            secondary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AnalyticsWorkspace':
+            allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+            cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+            immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            secondary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AnalyticsWorkspace':
         """
         Get an existing AnalyticsWorkspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

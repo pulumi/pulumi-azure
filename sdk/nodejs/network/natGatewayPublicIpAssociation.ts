@@ -130,13 +130,13 @@ export interface NatGatewayPublicIpAssociationState {
     /**
      * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
 }
 
 /**

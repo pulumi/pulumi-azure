@@ -121,13 +121,13 @@ export interface GetPublicConfigurationsOutputArgs {
     /**
      * The Azure location to filter the list of Public Maintenance Configurations against.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
      */
-    recurEvery?: pulumi.Input<string>;
+    recurEvery?: pulumi.Input<string | undefined>;
     /**
      * The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }

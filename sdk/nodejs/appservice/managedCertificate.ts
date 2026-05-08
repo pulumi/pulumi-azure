@@ -204,43 +204,43 @@ export interface ManagedCertificateState {
     /**
      * The Canonical Name of the Certificate.
      */
-    canonicalName?: pulumi.Input<string>;
+    canonicalName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
      */
-    customHostnameBindingId?: pulumi.Input<string>;
+    customHostnameBindingId?: pulumi.Input<string | undefined>;
     /**
      * The expiration date of the Certificate.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of the Certificate.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * The list of Host Names for the Certificate.
      */
-    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Start date for the Certificate.
      */
-    issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string | undefined>;
     /**
      * The issuer of the Certificate.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * The Subject Name for the Certificate.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Certificate Thumbprint.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,5 +254,5 @@ export interface ManagedCertificateArgs {
     /**
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

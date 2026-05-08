@@ -158,39 +158,39 @@ export interface IntegrationRuntimeRuleState {
     /**
      * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
-    cleanupEnabled?: pulumi.Input<boolean>;
+    cleanupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number | undefined>;
     /**
      * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
      */
-    virtualNetworkEnabled?: pulumi.Input<boolean>;
+    virtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -200,15 +200,15 @@ export interface IntegrationRuntimeRuleArgs {
     /**
      * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
-    cleanupEnabled?: pulumi.Input<boolean>;
+    cleanupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
@@ -216,21 +216,21 @@ export interface IntegrationRuntimeRuleArgs {
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number | undefined>;
     /**
      * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
      */
-    virtualNetworkEnabled?: pulumi.Input<boolean>;
+    virtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
 }

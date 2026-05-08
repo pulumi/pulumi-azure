@@ -224,15 +224,15 @@ export interface AccountCustomerManagedKeyState {
     /**
      * The ID of the Cognitive Account. Changing this forces a new resource to be created.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
      */
-    identityClientId?: pulumi.Input<string>;
+    identityClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface AccountCustomerManagedKeyArgs {
     /**
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
      */
-    identityClientId?: pulumi.Input<string>;
+    identityClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
      */

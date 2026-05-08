@@ -23,8 +23,8 @@ class IntegrationAccountMapArgs:
                  integration_account_name: pulumi.Input[_builtins.str],
                  map_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountMap resource.
 
@@ -94,38 +94,38 @@ class IntegrationAccountMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata of the Logic App Integration Account Map.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountMapState:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountMap resources.
 
@@ -151,74 +151,74 @@ class _IntegrationAccountMapState:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the Logic App Integration Account Map.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mapType")
-    def map_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def map_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         """
         return pulumi.get(self, "map_type")
 
     @map_type.setter
-    def map_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def map_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "map_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata of the Logic App Integration Account Map.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -228,12 +228,12 @@ class IntegrationAccountMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Integration Account Map.
@@ -349,12 +349,12 @@ class IntegrationAccountMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,12 +388,12 @@ class IntegrationAccountMap(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            map_type: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAccountMap':
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            map_type: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccountMap':
         """
         Get an existing IntegrationAccountMap resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -28,9 +28,9 @@ class IdentityProviderAadb2cArgs:
                  signin_policy: pulumi.Input[_builtins.str],
                  signin_tenant: pulumi.Input[_builtins.str],
                  signup_policy: pulumi.Input[_builtins.str],
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProviderAadb2c resource.
 
@@ -173,56 +173,56 @@ class IdentityProviderAadb2cArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientLibrary")
-    def client_library(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_library(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client library to be used in the Azure AD B2C Identity Provider.
         """
         return pulumi.get(self, "client_library")
 
     @client_library.setter
-    def client_library(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_library(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_library", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetPolicy")
-    def password_reset_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password reset Policy Name.
         """
         return pulumi.get(self, "password_reset_policy")
 
     @password_reset_policy.setter
-    def password_reset_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="profileEditingPolicy")
-    def profile_editing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_editing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile editing Policy Name.
         """
         return pulumi.get(self, "profile_editing_policy")
 
     @profile_editing_policy.setter
-    def profile_editing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_editing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_editing_policy", value)
 
 
 @pulumi.input_type
 class _IdentityProviderAadb2cState:
     def __init__(__self__, *,
-                 allowed_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 signup_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 signup_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderAadb2c resources.
 
@@ -266,146 +266,146 @@ class _IdentityProviderAadb2cState:
 
     @_builtins.property
     @pulumi.getter(name="allowedTenant")
-    def allowed_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The allowed AAD tenant, usually your B2C tenant domain.
         """
         return pulumi.get(self, "allowed_tenant")
 
     @allowed_tenant.setter
-    def allowed_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         """
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client ID of the Application in your B2C tenant.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientLibrary")
-    def client_library(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_library(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client library to be used in the Azure AD B2C Identity Provider.
         """
         return pulumi.get(self, "client_library")
 
     @client_library.setter
-    def client_library(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_library(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_library", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client secret of the Application in your B2C tenant.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetPolicy")
-    def password_reset_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password reset Policy Name.
         """
         return pulumi.get(self, "password_reset_policy")
 
     @password_reset_policy.setter
-    def password_reset_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="profileEditingPolicy")
-    def profile_editing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_editing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile editing Policy Name.
         """
         return pulumi.get(self, "profile_editing_policy")
 
     @profile_editing_policy.setter
-    def profile_editing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_editing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_editing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="signinPolicy")
-    def signin_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signin_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Signin Policy Name.
         """
         return pulumi.get(self, "signin_policy")
 
     @signin_policy.setter
-    def signin_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signin_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signin_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="signinTenant")
-    def signin_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signin_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         """
         return pulumi.get(self, "signin_tenant")
 
     @signin_tenant.setter
-    def signin_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signin_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signin_tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="signupPolicy")
-    def signup_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signup_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Signup Policy Name.
         """
         return pulumi.get(self, "signup_policy")
 
     @signup_policy.setter
-    def signup_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signup_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signup_policy", value)
 
 
@@ -415,18 +415,18 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 signup_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 signup_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Azure AD B2C Identity Provider.
@@ -570,18 +570,18 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 signup_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 signup_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -633,18 +633,18 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            authority: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_library: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            password_reset_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            signin_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-            signup_policy: Optional[pulumi.Input[_builtins.str]] = None) -> 'IdentityProviderAadb2c':
+            allowed_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            authority: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_library: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            signup_policy: pulumi.Input[Optional[_builtins.str]] = None) -> 'IdentityProviderAadb2c':
         """
         Get an existing IdentityProviderAadb2c resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -145,10 +145,10 @@ def get_shared_image_versions(gallery_name: Optional[_builtins.str] = None,
         images=pulumi.get(__ret__, 'images'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags_filter=pulumi.get(__ret__, 'tags_filter'))
-def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     tags_filter: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_shared_image_versions_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     tags_filter: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedImageVersionsResult]:
     """
     Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.

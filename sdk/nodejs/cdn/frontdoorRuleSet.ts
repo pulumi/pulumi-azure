@@ -115,11 +115,11 @@ export interface FrontdoorRuleSetState {
     /**
      * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      */
-    cdnFrontdoorProfileId?: pulumi.Input<string>;
+    cdnFrontdoorProfileId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface FrontdoorRuleSetArgs {
     /**
      * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

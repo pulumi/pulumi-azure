@@ -179,35 +179,35 @@ export interface SpacecraftState {
     /**
      * A `links` block as defined below. Changing this forces a new resource to be created.
      */
-    links?: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[] | undefined>;
     /**
      * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * NORAD ID of the Spacecraft.
      */
-    noradId?: pulumi.Input<string>;
+    noradId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Title of the two line elements (TLE).
      */
-    titleLine?: pulumi.Input<string>;
+    titleLine?: pulumi.Input<string | undefined>;
     /**
      * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      */
-    twoLineElements?: pulumi.Input<pulumi.Input<string>[]>;
+    twoLineElements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -221,11 +221,11 @@ export interface SpacecraftArgs {
     /**
      * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * NORAD ID of the Spacecraft.
      */
@@ -237,7 +237,7 @@ export interface SpacecraftArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Title of the two line elements (TLE).
      */

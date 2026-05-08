@@ -24,20 +24,20 @@ class HostPoolArgs:
                  load_balancer_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 custom_rdp_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_sessions_allowed: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validate_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostPool resource.
 
@@ -136,55 +136,55 @@ class HostPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRdpProperties")
-    def custom_rdp_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_rdp_properties(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         """
         return pulumi.get(self, "custom_rdp_properties")
 
     @custom_rdp_properties.setter
-    def custom_rdp_properties(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_rdp_properties(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_rdp_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Virtual Desktop Host Pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the Virtual Desktop Host Pool.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumSessionsAllowed")
-    def maximum_sessions_allowed(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_sessions_allowed(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
@@ -192,24 +192,24 @@ class HostPoolArgs:
         return pulumi.get(self, "maximum_sessions_allowed")
 
     @maximum_sessions_allowed.setter
-    def maximum_sessions_allowed(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_sessions_allowed(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_sessions_allowed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="personalDesktopAssignmentType")
-    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_desktop_assignment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
 
@@ -218,114 +218,114 @@ class HostPoolArgs:
         return pulumi.get(self, "personal_desktop_assignment_type")
 
     @personal_desktop_assignment_type.setter
-    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_desktop_assignment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_desktop_assignment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredAppGroupType")
-    def preferred_app_group_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_app_group_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         """
         return pulumi.get(self, "preferred_app_group_type")
 
     @preferred_app_group_type.setter
-    def preferred_app_group_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_app_group_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_app_group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledAgentUpdates")
-    def scheduled_agent_updates(self) -> Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']]:
+    def scheduled_agent_updates(self) -> pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']]:
         """
         A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         """
         return pulumi.get(self, "scheduled_agent_updates")
 
     @scheduled_agent_updates.setter
-    def scheduled_agent_updates(self, value: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']]):
+    def scheduled_agent_updates(self, value: pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']]):
         pulumi.set(self, "scheduled_agent_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="startVmOnConnect")
-    def start_vm_on_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_vm_on_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         """
         return pulumi.get(self, "start_vm_on_connect")
 
     @start_vm_on_connect.setter
-    def start_vm_on_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_vm_on_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validateEnvironment")
-    def validate_environment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_environment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
         return pulumi.get(self, "validate_environment")
 
     @validate_environment.setter
-    def validate_environment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_environment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="vmTemplate")
-    def vm_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         return pulumi.get(self, "vm_template")
 
     @vm_template.setter
-    def vm_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_template", value)
 
 
 @pulumi.input_type
 class _HostPoolState:
     def __init__(__self__, *,
-                 custom_rdp_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_sessions_allowed: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HostPool resources.
 
@@ -389,43 +389,43 @@ class _HostPoolState:
 
     @_builtins.property
     @pulumi.getter(name="customRdpProperties")
-    def custom_rdp_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_rdp_properties(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         """
         return pulumi.get(self, "custom_rdp_properties")
 
     @custom_rdp_properties.setter
-    def custom_rdp_properties(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_rdp_properties(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_rdp_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Virtual Desktop Host Pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the Virtual Desktop Host Pool.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
@@ -434,24 +434,24 @@ class _HostPoolState:
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumSessionsAllowed")
-    def maximum_sessions_allowed(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_sessions_allowed(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
@@ -459,24 +459,24 @@ class _HostPoolState:
         return pulumi.get(self, "maximum_sessions_allowed")
 
     @maximum_sessions_allowed.setter
-    def maximum_sessions_allowed(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_sessions_allowed(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_sessions_allowed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="personalDesktopAssignmentType")
-    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_desktop_assignment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
 
@@ -485,115 +485,115 @@ class _HostPoolState:
         return pulumi.get(self, "personal_desktop_assignment_type")
 
     @personal_desktop_assignment_type.setter
-    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_desktop_assignment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_desktop_assignment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredAppGroupType")
-    def preferred_app_group_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_app_group_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         """
         return pulumi.get(self, "preferred_app_group_type")
 
     @preferred_app_group_type.setter
-    def preferred_app_group_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_app_group_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_app_group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledAgentUpdates")
-    def scheduled_agent_updates(self) -> Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']]:
+    def scheduled_agent_updates(self) -> pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']]:
         """
         A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         """
         return pulumi.get(self, "scheduled_agent_updates")
 
     @scheduled_agent_updates.setter
-    def scheduled_agent_updates(self, value: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']]):
+    def scheduled_agent_updates(self, value: pulumi.Input[Optional['HostPoolScheduledAgentUpdatesArgs']]):
         pulumi.set(self, "scheduled_agent_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="startVmOnConnect")
-    def start_vm_on_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_vm_on_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         """
         return pulumi.get(self, "start_vm_on_connect")
 
     @start_vm_on_connect.setter
-    def start_vm_on_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_vm_on_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="validateEnvironment")
-    def validate_environment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_environment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
         return pulumi.get(self, "validate_environment")
 
     @validate_environment.setter
-    def validate_environment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_environment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="vmTemplate")
-    def vm_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         return pulumi.get(self, "vm_template")
 
     @vm_template.setter
-    def vm_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_template", value)
 
 
@@ -603,23 +603,23 @@ class HostPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rdp_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_sessions_allowed: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Host Pool.
@@ -757,23 +757,23 @@ class HostPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rdp_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_sessions_allowed: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
-                 start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+                 start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -816,23 +816,23 @@ class HostPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_rdp_properties: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_sessions_allowed: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            personal_desktop_assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_app_group_type: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
-            start_vm_on_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            validate_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-            vm_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'HostPool':
+            custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+            start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+            vm_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'HostPool':
         """
         Get an existing HostPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

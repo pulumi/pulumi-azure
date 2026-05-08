@@ -328,27 +328,27 @@ export interface ManagedInstanceStartStopScheduleState {
     /**
      * Specifies the description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
      */
-    managedInstanceId?: pulumi.Input<string>;
+    managedInstanceId?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the next action will be executed in the corresponding schedule time zone.
      */
-    nextExecutionTime?: pulumi.Input<string>;
+    nextExecutionTime?: pulumi.Input<string | undefined>;
     /**
      * Next action to be executed (Start or Stop).
      */
-    nextRunAction?: pulumi.Input<string>;
+    nextRunAction?: pulumi.Input<string | undefined>;
     /**
      * A `schedule` block as defined below.
      */
-    schedules?: pulumi.Input<pulumi.Input<inputs.mssql.ManagedInstanceStartStopScheduleSchedule>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.mssql.ManagedInstanceStartStopScheduleSchedule>[] | undefined>;
     /**
      * Specifies the time zone of the schedule. Defaults to `UTC`.
      */
-    timezoneId?: pulumi.Input<string>;
+    timezoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -358,7 +358,7 @@ export interface ManagedInstanceStartStopScheduleArgs {
     /**
      * Specifies the description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
      */
@@ -370,5 +370,5 @@ export interface ManagedInstanceStartStopScheduleArgs {
     /**
      * Specifies the time zone of the schedule. Defaults to `UTC`.
      */
-    timezoneId?: pulumi.Input<string>;
+    timezoneId?: pulumi.Input<string | undefined>;
 }

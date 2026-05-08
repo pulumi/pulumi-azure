@@ -23,13 +23,13 @@ class InferenceClusterArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[_builtins.str],
                  machine_learning_workspace_id: pulumi.Input[_builtins.str],
-                 cluster_purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['InferenceClusterIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl: pulumi.Input[Optional['InferenceClusterSslArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InferenceCluster resource.
 
@@ -88,7 +88,7 @@ class InferenceClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterPurpose")
-    def cluster_purpose(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_purpose(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 
@@ -97,94 +97,94 @@ class InferenceClusterArgs:
         return pulumi.get(self, "cluster_purpose")
 
     @cluster_purpose.setter
-    def cluster_purpose(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_purpose(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_purpose", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['InferenceClusterIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['InferenceClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArgs']]:
+    def ssl(self) -> pulumi.Input[Optional['InferenceClusterSslArgs']]:
         """
         A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArgs']]):
+    def ssl(self, value: pulumi.Input[Optional['InferenceClusterSslArgs']]):
         pulumi.set(self, "ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _InferenceClusterState:
     def __init__(__self__, *,
-                 cluster_purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['InferenceClusterIdentityArgs']] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl: pulumi.Input[Optional['InferenceClusterSslArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering InferenceCluster resources.
 
@@ -221,7 +221,7 @@ class _InferenceClusterState:
 
     @_builtins.property
     @pulumi.getter(name="clusterPurpose")
-    def cluster_purpose(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_purpose(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 
@@ -230,103 +230,103 @@ class _InferenceClusterState:
         return pulumi.get(self, "cluster_purpose")
 
     @cluster_purpose.setter
-    def cluster_purpose(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_purpose(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_purpose", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['InferenceClusterIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['InferenceClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "kubernetes_cluster_id")
 
     @kubernetes_cluster_id.setter
-    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="machineLearningWorkspaceId")
-    def machine_learning_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_learning_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "machine_learning_workspace_id")
 
     @machine_learning_workspace_id.setter
-    def machine_learning_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_learning_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_learning_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArgs']]:
+    def ssl(self) -> pulumi.Input[Optional['InferenceClusterSslArgs']]:
         """
         A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArgs']]):
+    def ssl(self, value: pulumi.Input[Optional['InferenceClusterSslArgs']]):
         pulumi.set(self, "ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -336,15 +336,15 @@ class InferenceCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl: Optional[pulumi.Input[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl: pulumi.Input[Optional[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Machine Learning Inference Cluster.
@@ -581,15 +581,15 @@ class InferenceCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl: Optional[pulumi.Input[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl: pulumi.Input[Optional[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -622,15 +622,15 @@ class InferenceCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_purpose: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
-            kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl: Optional[pulumi.Input[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'InferenceCluster':
+            cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict']]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl: pulumi.Input[Optional[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'InferenceCluster':
         """
         Get an existing InferenceCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

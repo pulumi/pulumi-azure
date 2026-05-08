@@ -1283,9 +1283,9 @@ def get_account(min_tls_version: Optional[_builtins.str] = None,
         secondary_web_microsoft_host=pulumi.get(__ret__, 'secondary_web_microsoft_host'),
         table_encryption_key_type=pulumi.get(__ret__, 'table_encryption_key_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_account_output(min_tls_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Storage Account.

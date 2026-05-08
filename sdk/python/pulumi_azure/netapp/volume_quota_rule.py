@@ -22,9 +22,9 @@ class VolumeQuotaRuleArgs:
                  quota_size_in_kib: pulumi.Input[_builtins.int],
                  quota_type: pulumi.Input[_builtins.str],
                  volume_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_target: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeQuotaRule resource.
 
@@ -87,31 +87,31 @@ class VolumeQuotaRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaTarget")
-    def quota_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 
@@ -122,19 +122,19 @@ class VolumeQuotaRuleArgs:
         return pulumi.get(self, "quota_target")
 
     @quota_target.setter
-    def quota_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_target", value)
 
 
 @pulumi.input_type
 class _VolumeQuotaRuleState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
-                 quota_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+                 quota_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeQuotaRule resources.
 
@@ -164,43 +164,43 @@ class _VolumeQuotaRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaSizeInKib")
-    def quota_size_in_kib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def quota_size_in_kib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Quota size in kibibytes.
         """
         return pulumi.get(self, "quota_size_in_kib")
 
     @quota_size_in_kib.setter
-    def quota_size_in_kib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def quota_size_in_kib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "quota_size_in_kib", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaTarget")
-    def quota_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 
@@ -211,31 +211,31 @@ class _VolumeQuotaRuleState:
         return pulumi.get(self, "quota_target")
 
     @quota_target.setter
-    def quota_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_target", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaType")
-    def quota_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "quota_type")
 
     @quota_type.setter
-    def quota_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_type", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
-    def volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_id", value)
 
 
@@ -245,12 +245,12 @@ class VolumeQuotaRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
-                 quota_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+                 quota_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Volume Quota Rule.
@@ -490,12 +490,12 @@ class VolumeQuotaRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
-                 quota_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+                 quota_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,12 +527,12 @@ class VolumeQuotaRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            quota_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
-            quota_target: Optional[pulumi.Input[_builtins.str]] = None,
-            quota_type: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VolumeQuotaRule':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+            quota_target: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_type: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VolumeQuotaRule':
         """
         Get an existing VolumeQuotaRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

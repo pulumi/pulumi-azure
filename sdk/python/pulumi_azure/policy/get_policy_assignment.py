@@ -236,8 +236,8 @@ def get_policy_assignment(name: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
         scope_id=pulumi.get(__ret__, 'scope_id'))
-def get_policy_assignment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_assignment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     Use this data source to access information about an existing Policy Assignment.

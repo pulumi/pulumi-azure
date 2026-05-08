@@ -123,19 +123,19 @@ export interface LicationLoadBalancerFrontendState {
     /**
      * The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
      */
-    applicationLoadBalancerId?: pulumi.Input<string>;
+    applicationLoadBalancerId?: pulumi.Input<string | undefined>;
     /**
      * The Fully Qualified Domain Name of the DNS record associated to an Application Gateway for Containers Frontend.
      */
-    fullyQualifiedDomainName?: pulumi.Input<string>;
+    fullyQualifiedDomainName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -149,9 +149,9 @@ export interface LicationLoadBalancerFrontendArgs {
     /**
      * The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

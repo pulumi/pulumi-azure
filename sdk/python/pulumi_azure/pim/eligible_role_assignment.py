@@ -24,11 +24,11 @@ class EligibleRoleAssignmentArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
-                 ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']] = None,
+                 ticket: pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']] = None):
         """
         The set of arguments for constructing a EligibleRoleAssignment resource.
 
@@ -95,19 +95,19 @@ class EligibleRoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 
@@ -116,58 +116,58 @@ class EligibleRoleAssignmentArgs:
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The justification of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']]:
         """
         A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def ticket(self) -> Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]:
+    def ticket(self) -> pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']]:
         """
         A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
     @ticket.setter
-    def ticket(self, value: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]):
+    def ticket(self, value: pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']]):
         pulumi.set(self, "ticket", value)
 
 
 @pulumi.input_type
 class _EligibleRoleAssignmentState:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
 
@@ -204,19 +204,19 @@ class _EligibleRoleAssignmentState:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 
@@ -225,91 +225,91 @@ class _EligibleRoleAssignmentState:
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The justification of the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of principal to which the role will be assigned.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']]:
         """
         A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['EligibleRoleAssignmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def ticket(self) -> Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]:
+    def ticket(self) -> pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']]:
         """
         A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
     @ticket.setter
-    def ticket(self, value: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']]):
+    def ticket(self, value: pulumi.Input[Optional['EligibleRoleAssignmentTicketArgs']]):
         pulumi.set(self, "ticket", value)
 
 
@@ -319,14 +319,14 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         """
         Manages a PIM Eligible Role Assignment.
@@ -520,14 +520,14 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -562,15 +562,15 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition: Optional[pulumi.Input[_builtins.str]] = None,
-            condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-            justification: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-            schedule: Optional[pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            ticket: Optional[pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None) -> 'EligibleRoleAssignment':
+            condition: pulumi.Input[Optional[_builtins.str]] = None,
+            condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+            justification: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None) -> 'EligibleRoleAssignment':
         """
         Get an existing EligibleRoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

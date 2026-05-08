@@ -163,37 +163,37 @@ export interface JobScheduleState {
     /**
      * The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
      */
-    jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string | undefined>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      *
      * > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of the Automation Job Schedule.
      */
-    resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string | undefined>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
-    runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string | undefined>;
     /**
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
-    runbookName?: pulumi.Input<string>;
+    runbookName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Schedule. Changing this forces a new resource to be created.
      */
-    scheduleName?: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,13 +207,13 @@ export interface JobScheduleArgs {
     /**
      * The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
      */
-    jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string | undefined>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      *
      * > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
@@ -221,7 +221,7 @@ export interface JobScheduleArgs {
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
-    runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string | undefined>;
     /**
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */

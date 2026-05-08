@@ -22,19 +22,19 @@ __all__ = [
 ]
 
 class PrivateCloudCircuitArgsDict(TypedDict):
-    express_route_id: NotRequired[pulumi.Input[_builtins.str]]
+    express_route_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the ExpressRoute Circuit.
     """
-    express_route_private_peering_id: NotRequired[pulumi.Input[_builtins.str]]
+    express_route_private_peering_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the ExpressRoute Circuit private peering.
     """
-    primary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    primary_subnet_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR of the primary subnet.
     """
-    secondary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_subnet_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR of the secondary subnet.
     """
@@ -42,10 +42,10 @@ class PrivateCloudCircuitArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateCloudCircuitArgs:
     def __init__(__self__, *,
-                 express_route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_private_peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 express_route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_private_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] express_route_id: The ID of the ExpressRoute Circuit.
         :param pulumi.Input[_builtins.str] express_route_private_peering_id: The ID of the ExpressRoute Circuit private peering.
@@ -63,50 +63,50 @@ class PrivateCloudCircuitArgs:
 
     @_builtins.property
     @pulumi.getter(name="expressRouteId")
-    def express_route_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the ExpressRoute Circuit.
         """
         return pulumi.get(self, "express_route_id")
 
     @express_route_id.setter
-    def express_route_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRoutePrivatePeeringId")
-    def express_route_private_peering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_private_peering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the ExpressRoute Circuit private peering.
         """
         return pulumi.get(self, "express_route_private_peering_id")
 
     @express_route_private_peering_id.setter
-    def express_route_private_peering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_private_peering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_private_peering_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primarySubnetCidr")
-    def primary_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR of the primary subnet.
         """
         return pulumi.get(self, "primary_subnet_cidr")
 
     @primary_subnet_cidr.setter
-    def primary_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySubnetCidr")
-    def secondary_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR of the secondary subnet.
         """
         return pulumi.get(self, "secondary_subnet_cidr")
 
     @secondary_subnet_cidr.setter
-    def secondary_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_subnet_cidr", value)
 
 
@@ -115,11 +115,11 @@ class PrivateCloudManagementClusterArgsDict(TypedDict):
     """
     The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
     """
-    hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    hosts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of hosts in the management cluster.
     """
-    id: NotRequired[pulumi.Input[_builtins.int]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ID of the management cluster.
     """
@@ -128,8 +128,8 @@ class PrivateCloudManagementClusterArgsDict(TypedDict):
 class PrivateCloudManagementClusterArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[_builtins.int],
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.int]] = None):
+                 hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] size: The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hosts: A list of hosts in the management cluster.
@@ -155,26 +155,26 @@ class PrivateCloudManagementClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of hosts in the management cluster.
         """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
-    def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the management cluster.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "id", value)
 
 

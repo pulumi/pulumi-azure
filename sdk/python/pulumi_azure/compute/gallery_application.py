@@ -21,14 +21,14 @@ class GalleryApplicationArgs:
     def __init__(__self__, *,
                  gallery_id: pulumi.Input[_builtins.str],
                  supported_os_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplication resource.
 
@@ -88,114 +88,114 @@ class GalleryApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Gallery Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Gallery Application.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The End User Licence Agreement of the Gallery Application.
         """
         return pulumi.get(self, "eula")
 
     @eula.setter
-    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Gallery Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_statement_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Privacy Statement associated with the Gallery Application.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
     @privacy_statement_uri.setter
-    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_statement_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_statement_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_note_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Release Notes associated with the Gallery Application.
         """
         return pulumi.get(self, "release_note_uri")
 
     @release_note_uri.setter
-    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_note_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_note_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Gallery Application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _GalleryApplicationState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GalleryApplication resources.
 
@@ -233,122 +233,122 @@ class _GalleryApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Gallery Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Gallery Application.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The End User Licence Agreement of the Gallery Application.
         """
         return pulumi.get(self, "eula")
 
     @eula.setter
-    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryId")
-    def gallery_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_id")
 
     @gallery_id.setter
-    def gallery_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Gallery Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_statement_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Privacy Statement associated with the Gallery Application.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
     @privacy_statement_uri.setter
-    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_statement_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_statement_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_note_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Release Notes associated with the Gallery Application.
         """
         return pulumi.get(self, "release_note_uri")
 
     @release_note_uri.setter
-    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_note_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_note_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedOsType")
-    def supported_os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def supported_os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "supported_os_type")
 
     @supported_os_type.setter
-    def supported_os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def supported_os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "supported_os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Gallery Application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -358,16 +358,16 @@ class GalleryApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Gallery Application.
@@ -481,16 +481,16 @@ class GalleryApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,16 +524,16 @@ class GalleryApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-            eula: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            supported_os_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GalleryApplication':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            eula: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            supported_os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GalleryApplication':
         """
         Get an existing GalleryApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

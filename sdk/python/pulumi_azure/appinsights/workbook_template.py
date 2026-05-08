@@ -24,12 +24,12 @@ class WorkbookTemplateArgs:
                  galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  template_data: pulumi.Input[_builtins.str],
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 localized: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 localized: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WorkbookTemplate resource.
 
@@ -97,89 +97,89 @@ class WorkbookTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the author of the workbook template.
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author", value)
 
     @_builtins.property
     @pulumi.getter
-    def localized(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def localized(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         """
         return pulumi.get(self, "localized")
 
     @localized.setter
-    def localized(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def localized(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "localized", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Insights Workbook Template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _WorkbookTemplateState:
     def __init__(__self__, *,
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
-                 localized: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+                 localized: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkbookTemplate resources.
 
@@ -214,110 +214,110 @@ class _WorkbookTemplateState:
 
     @_builtins.property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the author of the workbook template.
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author", value)
 
     @_builtins.property
     @pulumi.getter
-    def galleries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
+    def galleries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
         """
         A `galleries` block as defined below.
         """
         return pulumi.get(self, "galleries")
 
     @galleries.setter
-    def galleries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
+    def galleries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
         pulumi.set(self, "galleries", value)
 
     @_builtins.property
     @pulumi.getter
-    def localized(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def localized(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         """
         return pulumi.get(self, "localized")
 
     @localized.setter
-    def localized(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def localized(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "localized", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Insights Workbook Template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateData")
-    def template_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid JSON object containing workbook template payload.
         """
         return pulumi.get(self, "template_data")
 
     @template_data.setter
-    def template_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_data", value)
 
 
@@ -327,15 +327,15 @@ class WorkbookTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
-                 localized: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+                 localized: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Application Insights Workbook Template.
@@ -546,15 +546,15 @@ class WorkbookTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
-                 localized: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+                 localized: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -589,15 +589,15 @@ class WorkbookTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            author: Optional[pulumi.Input[_builtins.str]] = None,
-            galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
-            localized: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            template_data: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkbookTemplate':
+            author: pulumi.Input[Optional[_builtins.str]] = None,
+            galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+            localized: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_data: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkbookTemplate':
         """
         Get an existing WorkbookTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

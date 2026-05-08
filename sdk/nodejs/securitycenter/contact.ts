@@ -128,23 +128,23 @@ export interface ContactState {
     /**
      * Whether to send security alerts notifications to the security contact.
      */
-    alertNotifications?: pulumi.Input<boolean>;
+    alertNotifications?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to send security alerts notifications to subscription admins.
      */
-    alertsToAdmins?: pulumi.Input<boolean>;
+    alertsToAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * The email of the Security Center Contact.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The phone number of the Security Center Contact.
      */
-    phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,9 +166,9 @@ export interface ContactArgs {
     /**
      * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The phone number of the Security Center Contact.
      */
-    phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string | undefined>;
 }

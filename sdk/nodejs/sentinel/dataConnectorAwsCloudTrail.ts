@@ -120,15 +120,15 @@ export interface DataConnectorAwsCloudTrailState {
     /**
      * The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
      */
-    awsRoleArn?: pulumi.Input<string>;
+    awsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,5 +146,5 @@ export interface DataConnectorAwsCloudTrailArgs {
     /**
      * The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

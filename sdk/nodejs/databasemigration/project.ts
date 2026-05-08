@@ -174,31 +174,31 @@ export interface ProjectState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specify the name of the database migration project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * The platform type of the migration source. Possible values are `MongoDb`, `MySQL`, `PostgreSql`, `SQL` and `Unknown`. Changing this forces a new resource to be created.
      */
-    sourcePlatform?: pulumi.Input<string>;
+    sourcePlatform?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      */
-    targetPlatform?: pulumi.Input<string>;
+    targetPlatform?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,11 +208,11 @@ export interface ProjectArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specify the name of the database migration project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
      */
@@ -228,7 +228,7 @@ export interface ProjectArgs {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The platform type of the migration target. Possible values are `AzureDbForMySql`, `AzureDbForPostgreSql`, `MongoDb`, `SQLDB`, `SQLMI` and `Unknown`. Changing this forces a new resource to be created.
      */

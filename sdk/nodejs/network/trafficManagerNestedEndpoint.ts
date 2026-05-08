@@ -231,57 +231,57 @@ export interface TrafficManagerNestedEndpointState {
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointCustomHeader>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointCustomHeader>[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
-    endpointLocation?: pulumi.Input<string>;
+    endpointLocation?: pulumi.Input<string | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
+    geoMappings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      *
      * > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
      */
-    minimumChildEndpoints?: pulumi.Input<number>;
+    minimumChildEndpoints?: pulumi.Input<number | undefined>;
     /**
      * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    minimumRequiredChildEndpointsIpv4?: pulumi.Input<number>;
+    minimumRequiredChildEndpointsIpv4?: pulumi.Input<number | undefined>;
     /**
      * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    minimumRequiredChildEndpointsIpv6?: pulumi.Input<number>;
+    minimumRequiredChildEndpointsIpv6?: pulumi.Input<number | undefined>;
     /**
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      */
-    profileId?: pulumi.Input<string>;
+    profileId?: pulumi.Input<string | undefined>;
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[] | undefined>;
     /**
      * The resource id of an Azure resource to target.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -291,19 +291,19 @@ export interface TrafficManagerNestedEndpointArgs {
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointCustomHeader>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointCustomHeader>[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
-    endpointLocation?: pulumi.Input<string>;
+    endpointLocation?: pulumi.Input<string | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
+    geoMappings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      *
@@ -313,19 +313,19 @@ export interface TrafficManagerNestedEndpointArgs {
     /**
      * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    minimumRequiredChildEndpointsIpv4?: pulumi.Input<number>;
+    minimumRequiredChildEndpointsIpv4?: pulumi.Input<number | undefined>;
     /**
      * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    minimumRequiredChildEndpointsIpv6?: pulumi.Input<number>;
+    minimumRequiredChildEndpointsIpv6?: pulumi.Input<number | undefined>;
     /**
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      */
@@ -333,7 +333,7 @@ export interface TrafficManagerNestedEndpointArgs {
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[] | undefined>;
     /**
      * The resource id of an Azure resource to target.
      */
@@ -341,5 +341,5 @@ export interface TrafficManagerNestedEndpointArgs {
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }

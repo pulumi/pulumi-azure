@@ -145,7 +145,7 @@ export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     /**
      * The Shared access policies used to access the connection string for the alias.
      */
-    aliasAuthorizationRuleId?: pulumi.Input<string>;
+    aliasAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * The name of this Service Bus Disaster Recovery Config.
      */
@@ -153,13 +153,13 @@ export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     /**
      * The ID of the Service Bus Namespace.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }

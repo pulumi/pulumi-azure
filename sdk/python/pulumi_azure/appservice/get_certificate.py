@@ -211,9 +211,9 @@ def get_certificate(name: Optional[_builtins.str] = None,
         subject_name=pulumi.get(__ret__, 'subject_name'),
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'))
-def get_certificate_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_certificate_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an App Service Certificate.

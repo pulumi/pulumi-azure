@@ -23,13 +23,13 @@ class PoolArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_level: pulumi.Input[_builtins.str],
                  size_in_tb: pulumi.Input[_builtins.int],
-                 cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
 
@@ -124,7 +124,7 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="coolAccessEnabled")
-    def cool_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cool_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
 
@@ -133,96 +133,96 @@ class PoolArgs:
         return pulumi.get(self, "cool_access_enabled")
 
     @cool_access_enabled.setter
-    def cool_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cool_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cool_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customThroughputMibps")
-    def custom_throughput_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def custom_throughput_mibps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         """
         return pulumi.get(self, "custom_throughput_mibps")
 
     @custom_throughput_mibps.setter
-    def custom_throughput_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def custom_throughput_mibps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "custom_throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="qosType")
-    def qos_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qos_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         """
         return pulumi.get(self, "qos_type")
 
     @qos_type.setter
-    def qos_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qos_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qos_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PoolState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
 
@@ -269,19 +269,19 @@ class _PoolState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccessEnabled")
-    def cool_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cool_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
 
@@ -290,96 +290,96 @@ class _PoolState:
         return pulumi.get(self, "cool_access_enabled")
 
     @cool_access_enabled.setter
-    def cool_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cool_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cool_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customThroughputMibps")
-    def custom_throughput_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def custom_throughput_mibps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         """
         return pulumi.get(self, "custom_throughput_mibps")
 
     @custom_throughput_mibps.setter
-    def custom_throughput_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def custom_throughput_mibps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "custom_throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="qosType")
-    def qos_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qos_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         """
         return pulumi.get(self, "qos_type")
 
     @qos_type.setter
-    def qos_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qos_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qos_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
-    def service_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_level", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInTb")
-    def size_in_tb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_tb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
@@ -390,19 +390,19 @@ class _PoolState:
         return pulumi.get(self, "size_in_tb")
 
     @size_in_tb.setter
-    def size_in_tb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_tb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_tb", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -412,17 +412,17 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Pool within a NetApp Account.
@@ -595,17 +595,17 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -644,17 +644,17 @@ class Pool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
-            encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            qos_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_level: Optional[pulumi.Input[_builtins.str]] = None,
-            size_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Pool':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+            encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_level: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

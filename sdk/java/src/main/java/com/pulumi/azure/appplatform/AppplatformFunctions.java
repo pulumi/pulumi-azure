@@ -34,8 +34,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -214,8 +214,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -259,8 +259,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -303,8 +303,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -347,8 +347,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -391,8 +391,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -435,8 +435,8 @@ public final class AppplatformFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appplatform.AppplatformFunctions;
      * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

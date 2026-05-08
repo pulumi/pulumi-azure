@@ -233,73 +233,73 @@ export interface AnalyticsWorkspaceState {
     /**
      * Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
      */
-    allowResourceOnlyPermissions?: pulumi.Input<boolean>;
+    allowResourceOnlyPermissions?: pulumi.Input<boolean | undefined>;
     /**
      * Is Customer Managed Storage mandatory for query management?
      */
-    cmkForQueryForced?: pulumi.Input<boolean>;
+    cmkForQueryForced?: pulumi.Input<boolean | undefined>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
      */
-    dailyQuotaGb?: pulumi.Input<number>;
+    dailyQuotaGb?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Data Collection Rule to use for this workspace.
      */
-    dataCollectionRuleId?: pulumi.Input<string>;
+    dataCollectionRuleId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
     /**
      * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
      */
-    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean>;
+    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean>;
+    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
-    internetQueryEnabled?: pulumi.Input<boolean>;
+    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      */
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Primary shared key for the Log Analytics Workspace.
      */
-    primarySharedKey?: pulumi.Input<string>;
+    primarySharedKey?: pulumi.Input<string | undefined>;
     /**
      * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
-    reservationCapacityInGbPerDay?: pulumi.Input<number>;
+    reservationCapacityInGbPerDay?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The workspace data retention in days. Possible values are between `30` and `730`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The Secondary shared key for the Log Analytics Workspace.
      */
-    secondarySharedKey?: pulumi.Input<string>;
+    secondarySharedKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
      *
@@ -309,15 +309,15 @@ export interface AnalyticsWorkspaceState {
      *
      * > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Workspace (or Customer) ID for the Log Analytics Workspace.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -327,57 +327,57 @@ export interface AnalyticsWorkspaceArgs {
     /**
      * Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
      */
-    allowResourceOnlyPermissions?: pulumi.Input<boolean>;
+    allowResourceOnlyPermissions?: pulumi.Input<boolean | undefined>;
     /**
      * Is Customer Managed Storage mandatory for query management?
      */
-    cmkForQueryForced?: pulumi.Input<boolean>;
+    cmkForQueryForced?: pulumi.Input<boolean | undefined>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
      */
-    dailyQuotaGb?: pulumi.Input<number>;
+    dailyQuotaGb?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Data Collection Rule to use for this workspace.
      */
-    dataCollectionRuleId?: pulumi.Input<string>;
+    dataCollectionRuleId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
     /**
      * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
      */
-    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean>;
+    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean>;
+    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
-    internetQueryEnabled?: pulumi.Input<boolean>;
+    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      */
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
-    reservationCapacityInGbPerDay?: pulumi.Input<number>;
+    reservationCapacityInGbPerDay?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
@@ -385,7 +385,7 @@ export interface AnalyticsWorkspaceArgs {
     /**
      * The workspace data retention in days. Possible values are between `30` and `730`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerGB2018`, `PerNode`, `Premium`, `Standalone`, `Standard`, `CapacityReservation`, `LACluster` and `Unlimited`. Defaults to `PerGB2018`.
      *
@@ -395,9 +395,9 @@ export interface AnalyticsWorkspaceArgs {
      *
      * > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

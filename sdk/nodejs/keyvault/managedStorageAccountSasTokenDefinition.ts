@@ -215,31 +215,31 @@ export interface ManagedStorageAccountSasTokenDefinitionState {
     /**
      * The ID of the Managed Storage Account.
      */
-    managedStorageAccountId?: pulumi.Input<string>;
+    managedStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this SAS Definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
-    sasTemplateUri?: pulumi.Input<string>;
+    sasTemplateUri?: pulumi.Input<string | undefined>;
     /**
      * The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
      */
-    sasType?: pulumi.Input<string>;
+    sasType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Secret that is created by Managed Storage Account SAS Definition.
      */
-    secretId?: pulumi.Input<string>;
+    secretId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */
-    validityPeriod?: pulumi.Input<string>;
+    validityPeriod?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,7 +253,7 @@ export interface ManagedStorageAccountSasTokenDefinitionArgs {
     /**
      * The name which should be used for this SAS Definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
@@ -265,7 +265,7 @@ export interface ManagedStorageAccountSasTokenDefinitionArgs {
     /**
      * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */

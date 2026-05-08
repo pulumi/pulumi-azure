@@ -154,31 +154,31 @@ export interface FederatedIdentityCredentialState {
     /**
      * Specifies the audience for this Federated Identity Credential.
      */
-    audience?: pulumi.Input<string>;
+    audience?: pulumi.Input<string | undefined>;
     /**
      * Specifies the issuer of this Federated Identity Credential.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subject for this Federated Identity Credential.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,15 +196,15 @@ export interface FederatedIdentityCredentialArgs {
     /**
      * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subject for this Federated Identity Credential.
      */
@@ -212,5 +212,5 @@ export interface FederatedIdentityCredentialArgs {
     /**
      * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }

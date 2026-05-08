@@ -22,9 +22,9 @@ __all__ = ['TagRulesArgs', 'TagRules']
 class TagRulesArgs:
     def __init__(__self__, *,
                  monitor_id: pulumi.Input[_builtins.str],
-                 log_rule: Optional[pulumi.Input['TagRulesLogRuleArgs']] = None,
-                 metric_rule: Optional[pulumi.Input['TagRulesMetricRuleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_rule: pulumi.Input[Optional['TagRulesLogRuleArgs']] = None,
+                 metric_rule: pulumi.Input[Optional['TagRulesMetricRuleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagRules resource.
 
@@ -55,48 +55,48 @@ class TagRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="logRule")
-    def log_rule(self) -> Optional[pulumi.Input['TagRulesLogRuleArgs']]:
+    def log_rule(self) -> pulumi.Input[Optional['TagRulesLogRuleArgs']]:
         """
         Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         """
         return pulumi.get(self, "log_rule")
 
     @log_rule.setter
-    def log_rule(self, value: Optional[pulumi.Input['TagRulesLogRuleArgs']]):
+    def log_rule(self, value: pulumi.Input[Optional['TagRulesLogRuleArgs']]):
         pulumi.set(self, "log_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="metricRule")
-    def metric_rule(self) -> Optional[pulumi.Input['TagRulesMetricRuleArgs']]:
+    def metric_rule(self) -> pulumi.Input[Optional['TagRulesMetricRuleArgs']]:
         """
         Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         """
         return pulumi.get(self, "metric_rule")
 
     @metric_rule.setter
-    def metric_rule(self, value: Optional[pulumi.Input['TagRulesMetricRuleArgs']]):
+    def metric_rule(self, value: pulumi.Input[Optional['TagRulesMetricRuleArgs']]):
         pulumi.set(self, "metric_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TagRulesState:
     def __init__(__self__, *,
-                 log_rule: Optional[pulumi.Input['TagRulesLogRuleArgs']] = None,
-                 metric_rule: Optional[pulumi.Input['TagRulesMetricRuleArgs']] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_rule: pulumi.Input[Optional['TagRulesLogRuleArgs']] = None,
+                 metric_rule: pulumi.Input[Optional['TagRulesMetricRuleArgs']] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagRules resources.
 
@@ -116,50 +116,50 @@ class _TagRulesState:
 
     @_builtins.property
     @pulumi.getter(name="logRule")
-    def log_rule(self) -> Optional[pulumi.Input['TagRulesLogRuleArgs']]:
+    def log_rule(self) -> pulumi.Input[Optional['TagRulesLogRuleArgs']]:
         """
         Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         """
         return pulumi.get(self, "log_rule")
 
     @log_rule.setter
-    def log_rule(self, value: Optional[pulumi.Input['TagRulesLogRuleArgs']]):
+    def log_rule(self, value: pulumi.Input[Optional['TagRulesLogRuleArgs']]):
         pulumi.set(self, "log_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="metricRule")
-    def metric_rule(self) -> Optional[pulumi.Input['TagRulesMetricRuleArgs']]:
+    def metric_rule(self) -> pulumi.Input[Optional['TagRulesMetricRuleArgs']]:
         """
         Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         """
         return pulumi.get(self, "metric_rule")
 
     @metric_rule.setter
-    def metric_rule(self, value: Optional[pulumi.Input['TagRulesMetricRuleArgs']]):
+    def metric_rule(self, value: pulumi.Input[Optional['TagRulesMetricRuleArgs']]):
         pulumi.set(self, "metric_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitor_id")
 
     @monitor_id.setter
-    def monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -169,10 +169,10 @@ class TagRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_rule: Optional[pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-                 metric_rule: Optional[pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
+                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Dynatrace tag rules.
@@ -346,10 +346,10 @@ class TagRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_rule: Optional[pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-                 metric_rule: Optional[pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
+                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,10 +375,10 @@ class TagRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_rule: Optional[pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-            metric_rule: Optional[pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
-            monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'TagRules':
+            log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
+            metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TagRules':
         """
         Get an existing TagRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

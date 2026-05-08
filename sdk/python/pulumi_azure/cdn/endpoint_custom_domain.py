@@ -23,9 +23,9 @@ class EndpointCustomDomainArgs:
     def __init__(__self__, *,
                  cdn_endpoint_id: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
-                 cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None):
+                 cdn_managed_https: pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_https: pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']] = None):
         """
         The set of arguments for constructing a EndpointCustomDomain resource.
 
@@ -72,31 +72,31 @@ class EndpointCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="cdnManagedHttps")
-    def cdn_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']]:
+    def cdn_managed_https(self) -> pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']]:
         """
         A `cdn_managed_https` block as defined below.
         """
         return pulumi.get(self, "cdn_managed_https")
 
     @cdn_managed_https.setter
-    def cdn_managed_https(self, value: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']]):
+    def cdn_managed_https(self, value: pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']]):
         pulumi.set(self, "cdn_managed_https", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedHttps")
-    def user_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]:
+    def user_managed_https(self) -> pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']]:
         """
         A `user_managed_https` block as defined below.
 
@@ -105,18 +105,18 @@ class EndpointCustomDomainArgs:
         return pulumi.get(self, "user_managed_https")
 
     @user_managed_https.setter
-    def user_managed_https(self, value: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]):
+    def user_managed_https(self, value: pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']]):
         pulumi.set(self, "user_managed_https", value)
 
 
 @pulumi.input_type
 class _EndpointCustomDomainState:
     def __init__(__self__, *,
-                 cdn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None):
+                 cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_managed_https: pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_https: pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']] = None):
         """
         Input properties used for looking up and filtering EndpointCustomDomain resources.
 
@@ -141,55 +141,55 @@ class _EndpointCustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="cdnEndpointId")
-    def cdn_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
         """
         return pulumi.get(self, "cdn_endpoint_id")
 
     @cdn_endpoint_id.setter
-    def cdn_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnManagedHttps")
-    def cdn_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']]:
+    def cdn_managed_https(self) -> pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']]:
         """
         A `cdn_managed_https` block as defined below.
         """
         return pulumi.get(self, "cdn_managed_https")
 
     @cdn_managed_https.setter
-    def cdn_managed_https(self, value: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']]):
+    def cdn_managed_https(self, value: pulumi.Input[Optional['EndpointCustomDomainCdnManagedHttpsArgs']]):
         pulumi.set(self, "cdn_managed_https", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedHttps")
-    def user_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]:
+    def user_managed_https(self) -> pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']]:
         """
         A `user_managed_https` block as defined below.
 
@@ -198,7 +198,7 @@ class _EndpointCustomDomainState:
         return pulumi.get(self, "user_managed_https")
 
     @user_managed_https.setter
-    def user_managed_https(self, value: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]):
+    def user_managed_https(self, value: pulumi.Input[Optional['EndpointCustomDomainUserManagedHttpsArgs']]):
         pulumi.set(self, "user_managed_https", value)
 
 
@@ -208,11 +208,11 @@ class EndpointCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
+                 cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Custom Domain for a CDN (classic) Endpoint.
@@ -367,11 +367,11 @@ class EndpointCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
+                 cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,11 +400,11 @@ class EndpointCustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
-            host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None) -> 'EndpointCustomDomain':
+            cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None) -> 'EndpointCustomDomain':
         """
         Get an existing EndpointCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,15 +22,15 @@ __all__ = ['DicomServiceArgs', 'DicomService']
 class DicomServiceArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['DicomServiceCorsArgs']] = None,
-                 data_partitions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage: Optional[pulumi.Input['DicomServiceStorageArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cors: pulumi.Input[Optional['DicomServiceCorsArgs']] = None,
+                 data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['DicomServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage: pulumi.Input[Optional['DicomServiceStorageArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DicomService resource.
 
@@ -79,129 +79,129 @@ class DicomServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['DicomServiceCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['DicomServiceCorsArgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['DicomServiceCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['DicomServiceCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPartitionsEnabled")
-    def data_partitions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_partitions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "data_partitions_enabled")
 
     @data_partitions_enabled.setter
-    def data_partitions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_partitions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_partitions_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyUrl")
-    def encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         """
         return pulumi.get(self, "encryption_key_url")
 
     @encryption_key_url.setter
-    def encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DicomServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DicomServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['DicomServiceStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['DicomServiceStorageArgs']]:
         """
         A `storage` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['DicomServiceStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['DicomServiceStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Healthcare DICOM Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DicomServiceState:
     def __init__(__self__, *,
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]] = None,
-                 cors: Optional[pulumi.Input['DicomServiceCorsArgs']] = None,
-                 data_partitions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input['DicomServiceStorageArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentications: pulumi.Input[Optional[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]] = None,
+                 cors: pulumi.Input[Optional['DicomServiceCorsArgs']] = None,
+                 data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['DicomServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional['DicomServiceStorageArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DicomService resources.
 
@@ -247,155 +247,155 @@ class _DicomServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]:
+    def authentications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]:
         """
         The `authentication` block as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]):
+    def authentications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]):
         pulumi.set(self, "authentications", value)
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['DicomServiceCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['DicomServiceCorsArgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['DicomServiceCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['DicomServiceCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPartitionsEnabled")
-    def data_partitions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_partitions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "data_partitions_enabled")
 
     @data_partitions_enabled.setter
-    def data_partitions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_partitions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_partitions_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyUrl")
-    def encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         """
         return pulumi.get(self, "encryption_key_url")
 
     @encryption_key_url.setter
-    def encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DicomServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DicomServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]:
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceUrl")
-    def service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url of the Healthcare DICOM Services.
         """
         return pulumi.get(self, "service_url")
 
     @service_url.setter
-    def service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['DicomServiceStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['DicomServiceStorageArgs']]:
         """
         A `storage` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['DicomServiceStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['DicomServiceStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Healthcare DICOM Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -405,16 +405,16 @@ class DicomService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
-                 data_partitions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+                 data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage: pulumi.Input[Optional[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Healthcare DICOM Service
@@ -532,16 +532,16 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
-                 data_partitions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+                 data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage: pulumi.Input[Optional[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -576,19 +576,19 @@ class DicomService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]]] = None,
-            cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
-            data_partitions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServicePrivateEndpointArgs', 'DicomServicePrivateEndpointArgsDict']]]]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            service_url: Optional[pulumi.Input[_builtins.str]] = None,
-            storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DicomService':
+            authentications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]]] = None,
+            cors: pulumi.Input[Optional[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+            data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DicomServicePrivateEndpointArgs', 'DicomServicePrivateEndpointArgsDict']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DicomService':
         """
         Get an existing DicomService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

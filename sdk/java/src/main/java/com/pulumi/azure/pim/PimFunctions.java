@@ -34,8 +34,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -89,8 +89,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -144,8 +144,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -199,8 +199,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -254,8 +254,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -313,8 +313,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -360,8 +360,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -423,8 +423,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -470,8 +470,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -533,8 +533,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -580,8 +580,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -643,8 +643,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -690,8 +690,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -753,8 +753,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -800,8 +800,8 @@ public final class PimFunctions {
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
      * import com.pulumi.azure.pim.PimFunctions;
      * import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

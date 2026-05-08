@@ -24,7 +24,7 @@ class GlobalSchemaArgs:
                  schema_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalSchema resource.
 
@@ -105,26 +105,26 @@ class GlobalSchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the schema.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _GlobalSchemaState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GlobalSchema resources.
 
@@ -150,74 +150,74 @@ class _GlobalSchemaState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the schema.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for this Schema. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type of the Schema. Possible values are `xml` and `json`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string defining the document representing the Schema.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -227,12 +227,12 @@ class GlobalSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Global Schema within an API Management Service.
@@ -352,12 +352,12 @@ class GlobalSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,12 +393,12 @@ class GlobalSchema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'GlobalSchema':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'GlobalSchema':
         """
         Get an existing GlobalSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

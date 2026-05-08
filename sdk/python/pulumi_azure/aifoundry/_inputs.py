@@ -34,7 +34,7 @@ class HubEncryptionArgsDict(TypedDict):
     """
     The Key Vault ID where the customer owned encryption key exists.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user assigned identity ID that has access to the encryption key.
 
@@ -46,7 +46,7 @@ class HubEncryptionArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[_builtins.str],
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_id: The Key Vault URI to access the encryption key.
         :param pulumi.Input[_builtins.str] key_vault_id: The Key Vault ID where the customer owned encryption key exists.
@@ -85,7 +85,7 @@ class HubEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity ID that has access to the encryption key.
 
@@ -94,7 +94,7 @@ class HubEncryptionArgs:
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -103,17 +103,17 @@ class HubIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -122,9 +122,9 @@ class HubIdentityArgsDict(TypedDict):
 class HubIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
@@ -155,7 +155,7 @@ class HubIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 
@@ -164,36 +164,36 @@ class HubIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class HubManagedNetworkArgsDict(TypedDict):
-    isolation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    isolation_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
     """
@@ -201,7 +201,7 @@ class HubManagedNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class HubManagedNetworkArgs:
     def __init__(__self__, *,
-                 isolation_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 isolation_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] isolation_mode: The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         """
@@ -210,14 +210,14 @@ class HubManagedNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="isolationMode")
-    def isolation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def isolation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         """
         return pulumi.get(self, "isolation_mode")
 
     @isolation_mode.setter
-    def isolation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def isolation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "isolation_mode", value)
 
 
@@ -226,17 +226,17 @@ class ProjectIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -245,9 +245,9 @@ class ProjectIdentityArgsDict(TypedDict):
 class ProjectIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
@@ -278,7 +278,7 @@ class ProjectIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 
@@ -287,31 +287,31 @@ class ProjectIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

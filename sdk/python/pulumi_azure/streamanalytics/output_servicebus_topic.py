@@ -26,12 +26,12 @@ class OutputServicebusTopicArgs:
                  servicebus_namespace: pulumi.Input[_builtins.str],
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_property_columns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OutputServicebusTopic resource.
 
@@ -129,67 +129,67 @@ class OutputServicebusTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of property columns to add to the Service Bus Topic output.
         """
         return pulumi.get(self, "property_columns")
 
     @property_columns.setter
-    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_key")
 
     @shared_access_policy_key.setter
-    def shared_access_policy_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_name")
 
     @shared_access_policy_name.setter
-    def shared_access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="systemPropertyColumns")
-    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def system_property_columns(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
 
@@ -198,24 +198,24 @@ class OutputServicebusTopicArgs:
         return pulumi.get(self, "system_property_columns")
 
     @system_property_columns.setter
-    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def system_property_columns(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_property_columns", value)
 
 
 @pulumi.input_type
 class _OutputServicebusTopicState:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
-                 servicebus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional['OutputServicebusTopicSerializationArgs']] = None,
+                 servicebus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_property_columns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputServicebusTopic resources.
 
@@ -258,115 +258,115 @@ class _OutputServicebusTopicState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of property columns to add to the Service Bus Topic output.
         """
         return pulumi.get(self, "property_columns")
 
     @property_columns.setter
-    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']]:
+    def serialization(self) -> pulumi.Input[Optional['OutputServicebusTopicSerializationArgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']]):
+    def serialization(self, value: pulumi.Input[Optional['OutputServicebusTopicSerializationArgs']]):
         pulumi.set(self, "serialization", value)
 
     @_builtins.property
     @pulumi.getter(name="servicebusNamespace")
-    def servicebus_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def servicebus_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
         """
         return pulumi.get(self, "servicebus_namespace")
 
     @servicebus_namespace.setter
-    def servicebus_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def servicebus_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "servicebus_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_key")
 
     @shared_access_policy_key.setter
-    def shared_access_policy_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_name")
 
     @shared_access_policy_name.setter
-    def shared_access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="systemPropertyColumns")
-    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def system_property_columns(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
 
@@ -375,19 +375,19 @@ class _OutputServicebusTopicState:
         return pulumi.get(self, "system_property_columns")
 
     @system_property_columns.setter
-    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def system_property_columns(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_property_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Service Bus Topic.
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -397,17 +397,17 @@ class OutputServicebusTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
-                 servicebus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
+                 servicebus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_property_columns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output to a ServiceBus Topic.
@@ -560,17 +560,17 @@ class OutputServicebusTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
-                 servicebus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
+                 servicebus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_property_columns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -613,17 +613,17 @@ class OutputServicebusTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            serialization: Optional[pulumi.Input[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
-            servicebus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            topic_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'OutputServicebusTopic':
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            property_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['OutputServicebusTopicSerializationArgs', 'OutputServicebusTopicSerializationArgsDict']]] = None,
+            servicebus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            system_property_columns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            topic_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'OutputServicebusTopic':
         """
         Get an existing OutputServicebusTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

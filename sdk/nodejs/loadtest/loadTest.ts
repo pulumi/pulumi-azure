@@ -158,35 +158,35 @@ export interface LoadTestState {
     /**
      * Resource data plane URI.
      */
-    dataPlaneUri?: pulumi.Input<string>;
+    dataPlaneUri?: pulumi.Input<string | undefined>;
     /**
      * Description of the resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
      */
-    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption>;
+    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
-    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
+    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity | undefined>;
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Load Test.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -196,23 +196,23 @@ export interface LoadTestArgs {
     /**
      * Description of the resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
      */
-    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption>;
+    encryption?: pulumi.Input<inputs.loadtest.LoadTestEncryption | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
-    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
+    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity | undefined>;
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
@@ -220,5 +220,5 @@ export interface LoadTestArgs {
     /**
      * A mapping of tags which should be assigned to the Load Test.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

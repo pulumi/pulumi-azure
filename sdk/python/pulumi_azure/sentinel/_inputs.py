@@ -104,19 +104,19 @@ __all__ = [
 ]
 
 class AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the threshold observation.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the built-in Anomaly Alert Rule.
     """
-    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of supported values of the single select observation.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of values of the single select observation.
     """
@@ -124,10 +124,10 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
@@ -145,67 +145,67 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the threshold observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedValues")
-    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of supported values of the single select observation.
         """
         return pulumi.get(self, "supported_values")
 
     @supported_values.setter
-    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of values of the single select observation.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the threshold observation.
     """
-    exclude: NotRequired[pulumi.Input[_builtins.str]]
+    exclude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The excluded value per `description`.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the built-in Anomaly Alert Rule.
     """
-    prioritize: NotRequired[pulumi.Input[_builtins.str]]
+    prioritize: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prioritized value per `description`.
     """
@@ -213,10 +213,10 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prioritize: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prioritize: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] exclude: The excluded value per `description`.
@@ -234,59 +234,59 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the threshold observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def exclude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The excluded value per `description`.
         """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
-    def exclude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def prioritize(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prioritize(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prioritized value per `description`.
         """
         return pulumi.get(self, "prioritize")
 
     @prioritize.setter
-    def prioritize(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prioritize(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prioritize", value)
 
 
 class AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict(TypedDict):
-    connector_id: NotRequired[pulumi.Input[_builtins.str]]
+    connector_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the required Data Connector.
     """
-    data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    data_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of data types of the required Data Connector.
     """
@@ -294,8 +294,8 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
     def __init__(__self__, *,
-                 connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] connector_id: The ID of the required Data Connector.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_types: A list of data types of the required Data Connector.
@@ -307,43 +307,43 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the required Data Connector.
         """
         return pulumi.get(self, "connector_id")
 
     @connector_id.setter
-    def connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of data types of the required Data Connector.
         """
         return pulumi.get(self, "data_types")
 
     @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_types", value)
 
 
 class AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the threshold observation.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the built-in Anomaly Alert Rule.
     """
-    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of supported values of the single select observation.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the threshold observation.
     """
@@ -351,10 +351,10 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
@@ -372,71 +372,71 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the threshold observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedValues")
-    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of supported values of the single select observation.
         """
         return pulumi.get(self, "supported_values")
 
     @supported_values.setter
-    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the threshold observation.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class AlertRuleAnomalyBuiltInThresholdObservationArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the threshold observation.
     """
-    max: NotRequired[pulumi.Input[_builtins.str]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The max value of the threshold observation.
     """
-    min: NotRequired[pulumi.Input[_builtins.str]]
+    min: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The min value of the threshold observation.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the built-in Anomaly Alert Rule.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the threshold observation.
     """
@@ -444,11 +444,11 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInThresholdObservationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max: Optional[pulumi.Input[_builtins.str]] = None,
-                 min: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max: pulumi.Input[Optional[_builtins.str]] = None,
+                 min: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] max: The max value of the threshold observation.
@@ -469,62 +469,62 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the threshold observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The max value of the threshold observation.
         """
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max", value)
 
     @_builtins.property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The min value of the threshold observation.
         """
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the threshold observation.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -537,11 +537,11 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgsDict(TypedDict):
     """
     A list of values of the multi select observation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the multi select observation.
     """
-    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of supported values of the multi select observation.
     """
@@ -551,8 +551,8 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the multi select observation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of values of the multi select observation.
@@ -592,26 +592,26 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the multi select observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedValues")
-    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of supported values of the multi select observation.
         """
         return pulumi.get(self, "supported_values")
 
     @supported_values.setter
-    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_values", value)
 
 
@@ -620,15 +620,15 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict(TypedDict):
     """
     The name of the prioritized exclude observation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the prioritized exclude observation.
     """
-    exclude: NotRequired[pulumi.Input[_builtins.str]]
+    exclude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The excluded value per `description`.
     """
-    prioritize: NotRequired[pulumi.Input[_builtins.str]]
+    prioritize: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prioritized value per `description`.
     """
@@ -637,9 +637,9 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict(TypedDict):
 class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude: Optional[pulumi.Input[_builtins.str]] = None,
-                 prioritize: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude: pulumi.Input[Optional[_builtins.str]] = None,
+                 prioritize: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the prioritized exclude observation.
         :param pulumi.Input[_builtins.str] description: The description of the prioritized exclude observation.
@@ -668,47 +668,47 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the prioritized exclude observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def exclude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The excluded value per `description`.
         """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
-    def exclude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
     @pulumi.getter
-    def prioritize(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prioritize(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prioritized value per `description`.
         """
         return pulumi.get(self, "prioritize")
 
     @prioritize.setter
-    def prioritize(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prioritize(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prioritize", value)
 
 
 class AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict(TypedDict):
-    connector_id: NotRequired[pulumi.Input[_builtins.str]]
+    connector_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the required Data Connector.
     """
-    data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    data_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of data types of the required Data Connector.
     """
@@ -716,8 +716,8 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
     def __init__(__self__, *,
-                 connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] connector_id: The ID of the required Data Connector.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_types: A list of data types of the required Data Connector.
@@ -729,26 +729,26 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the required Data Connector.
         """
         return pulumi.get(self, "connector_id")
 
     @connector_id.setter
-    def connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of data types of the required Data Connector.
         """
         return pulumi.get(self, "data_types")
 
     @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_types", value)
 
 
@@ -761,11 +761,11 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict(TypedDict):
     """
     The value of the multi select observation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the single select observation.
     """
-    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of supported values of the single select observation.
     """
@@ -775,8 +775,8 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the single select observation.
         :param pulumi.Input[_builtins.str] value: The value of the multi select observation.
@@ -816,26 +816,26 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the single select observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedValues")
-    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of supported values of the single select observation.
         """
         return pulumi.get(self, "supported_values")
 
     @supported_values.setter
-    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_values", value)
 
 
@@ -848,15 +848,15 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgsDict(TypedDict):
     """
     The value of the threshold observation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the threshold observation.
     """
-    max: NotRequired[pulumi.Input[_builtins.str]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The max value of the threshold observation.
     """
-    min: NotRequired[pulumi.Input[_builtins.str]]
+    min: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The min value of the threshold observation.
     """
@@ -866,9 +866,9 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max: Optional[pulumi.Input[_builtins.str]] = None,
-                 min: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max: pulumi.Input[Optional[_builtins.str]] = None,
+                 min: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the threshold observation.
         :param pulumi.Input[_builtins.str] value: The value of the threshold observation.
@@ -911,38 +911,38 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the threshold observation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The max value of the threshold observation.
         """
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max", value)
 
     @_builtins.property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The min value of the threshold observation.
         """
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min", value)
 
 
@@ -951,11 +951,11 @@ class AlertRuleFusionSourceArgsDict(TypedDict):
     """
     The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
     """
-    sub_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgsDict']]]]
+    sub_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]]
     """
     One or more `sub_type` blocks as defined below.
     """
@@ -964,8 +964,8 @@ class AlertRuleFusionSourceArgsDict(TypedDict):
 class AlertRuleFusionSourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_types: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
         :param pulumi.Input[_builtins.bool] enabled: Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
@@ -991,26 +991,26 @@ class AlertRuleFusionSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="subTypes")
-    def sub_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]:
+    def sub_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]:
         """
         One or more `sub_type` blocks as defined below.
         """
         return pulumi.get(self, "sub_types")
 
     @sub_types.setter
-    def sub_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]):
+    def sub_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]):
         pulumi.set(self, "sub_types", value)
 
 
@@ -1023,7 +1023,7 @@ class AlertRuleFusionSourceSubTypeArgsDict(TypedDict):
     """
     A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
     """
@@ -1033,7 +1033,7 @@ class AlertRuleFusionSourceSubTypeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  severities_alloweds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] severities_alloweds: A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
@@ -1070,35 +1070,35 @@ class AlertRuleFusionSourceSubTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class AlertRuleNrtAlertDetailsOverrideArgsDict(TypedDict):
-    description_format: NotRequired[pulumi.Input[_builtins.str]]
+    description_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format containing columns name(s) to override the description of this Sentinel Alert Rule.
     """
-    display_name_format: NotRequired[pulumi.Input[_builtins.str]]
+    display_name_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format containing columns name(s) to override the name of this Sentinel Alert Rule.
     """
-    dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict']]]]
+    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]]
     """
     A list of `dynamic_property` blocks as defined below.
     """
-    severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    severity_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column name to take the alert severity from.
     """
-    tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    tactics_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column name to take the alert tactics from.
     """
@@ -1106,11 +1106,11 @@ class AlertRuleNrtAlertDetailsOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleNrtAlertDetailsOverrideArgs:
     def __init__(__self__, *,
-                 description_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
-                 severity_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tactics_column_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_properties: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
+                 severity_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tactics_column_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[_builtins.str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
@@ -1131,62 +1131,62 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="descriptionFormat")
-    def description_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         """
         return pulumi.get(self, "description_format")
 
     @description_format.setter
-    def description_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description_format", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameFormat")
-    def display_name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format containing columns name(s) to override the name of this Sentinel Alert Rule.
         """
         return pulumi.get(self, "display_name_format")
 
     @display_name_format.setter
-    def display_name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicProperties")
-    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]:
+    def dynamic_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]:
         """
         A list of `dynamic_property` blocks as defined below.
         """
         return pulumi.get(self, "dynamic_properties")
 
     @dynamic_properties.setter
-    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]):
+    def dynamic_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]):
         pulumi.set(self, "dynamic_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="severityColumnName")
-    def severity_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column name to take the alert severity from.
         """
         return pulumi.get(self, "severity_column_name")
 
     @severity_column_name.setter
-    def severity_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity_column_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tacticsColumnName")
-    def tactics_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tactics_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column name to take the alert tactics from.
         """
         return pulumi.get(self, "tactics_column_name")
 
     @tactics_column_name.setter
-    def tactics_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tactics_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tactics_column_name", value)
 
 
@@ -1407,31 +1407,31 @@ class AlertRuleNrtIncidentArgs:
 
 
 class AlertRuleNrtIncidentGroupingArgsDict(TypedDict):
-    by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_alert_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
     """
-    by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_custom_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
     """
-    by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_entities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
     """
-    entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
+    entity_matching_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
     """
-    lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
+    lookback_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
     """
-    reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
+    reopen_closed_incidents: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to re-open closed matching incidents? Defaults to `false`.
     """
@@ -1439,13 +1439,13 @@ class AlertRuleNrtIncidentGroupingArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleNrtIncidentGroupingArgs:
     def __init__(__self__, *,
-                 by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_matching_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 reopen_closed_incidents: Optional[pulumi.Input[_builtins.bool]] = None):
+                 by_alert_details: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 by_custom_details: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 by_entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_matching_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 reopen_closed_incidents: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
@@ -1472,86 +1472,86 @@ class AlertRuleNrtIncidentGroupingArgs:
 
     @_builtins.property
     @pulumi.getter(name="byAlertDetails")
-    def by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_alert_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         """
         return pulumi.get(self, "by_alert_details")
 
     @by_alert_details.setter
-    def by_alert_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_alert_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_alert_details", value)
 
     @_builtins.property
     @pulumi.getter(name="byCustomDetails")
-    def by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_custom_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
         """
         return pulumi.get(self, "by_custom_details")
 
     @by_custom_details.setter
-    def by_custom_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_custom_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_custom_details", value)
 
     @_builtins.property
     @pulumi.getter(name="byEntities")
-    def by_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         """
         return pulumi.get(self, "by_entities")
 
     @by_entities.setter
-    def by_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_entities", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityMatchingMethod")
-    def entity_matching_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_matching_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         """
         return pulumi.get(self, "entity_matching_method")
 
     @entity_matching_method.setter
-    def entity_matching_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_matching_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_matching_method", value)
 
     @_builtins.property
     @pulumi.getter(name="lookbackDuration")
-    def lookback_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         """
         return pulumi.get(self, "lookback_duration")
 
     @lookback_duration.setter
-    def lookback_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="reopenClosedIncidents")
-    def reopen_closed_incidents(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reopen_closed_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to re-open closed matching incidents? Defaults to `false`.
         """
         return pulumi.get(self, "reopen_closed_incidents")
 
     @reopen_closed_incidents.setter
-    def reopen_closed_incidents(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reopen_closed_incidents(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reopen_closed_incidents", value)
 
 
@@ -1584,23 +1584,23 @@ class AlertRuleNrtSentinelEntityMappingArgs:
 
 
 class AlertRuleScheduledAlertDetailsOverrideArgsDict(TypedDict):
-    description_format: NotRequired[pulumi.Input[_builtins.str]]
+    description_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format containing columns name(s) to override the description of this Sentinel Alert Rule.
     """
-    display_name_format: NotRequired[pulumi.Input[_builtins.str]]
+    display_name_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format containing columns name(s) to override the name of this Sentinel Alert Rule.
     """
-    dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict']]]]
+    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]]
     """
     A list of `dynamic_property` blocks as defined below.
     """
-    severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    severity_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column name to take the alert severity from.
     """
-    tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    tactics_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column name to take the alert tactics from.
     """
@@ -1608,11 +1608,11 @@ class AlertRuleScheduledAlertDetailsOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleScheduledAlertDetailsOverrideArgs:
     def __init__(__self__, *,
-                 description_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
-                 severity_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tactics_column_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_properties: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
+                 severity_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tactics_column_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[_builtins.str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
@@ -1633,62 +1633,62 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="descriptionFormat")
-    def description_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         """
         return pulumi.get(self, "description_format")
 
     @description_format.setter
-    def description_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description_format", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameFormat")
-    def display_name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format containing columns name(s) to override the name of this Sentinel Alert Rule.
         """
         return pulumi.get(self, "display_name_format")
 
     @display_name_format.setter
-    def display_name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicProperties")
-    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]:
+    def dynamic_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]:
         """
         A list of `dynamic_property` blocks as defined below.
         """
         return pulumi.get(self, "dynamic_properties")
 
     @dynamic_properties.setter
-    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]):
+    def dynamic_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]):
         pulumi.set(self, "dynamic_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="severityColumnName")
-    def severity_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column name to take the alert severity from.
         """
         return pulumi.get(self, "severity_column_name")
 
     @severity_column_name.setter
-    def severity_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity_column_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tacticsColumnName")
-    def tactics_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tactics_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column name to take the alert tactics from.
         """
         return pulumi.get(self, "tactics_column_name")
 
     @tactics_column_name.setter
-    def tactics_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tactics_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tactics_column_name", value)
 
 
@@ -1909,31 +1909,31 @@ class AlertRuleScheduledIncidentArgs:
 
 
 class AlertRuleScheduledIncidentGroupingArgsDict(TypedDict):
-    by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_alert_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
     """
-    by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_custom_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
     """
-    by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    by_entities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
     """
-    entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
+    entity_matching_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
     """
-    lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
+    lookback_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
     """
-    reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
+    reopen_closed_incidents: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to re-open closed matching incidents? Defaults to `false`.
     """
@@ -1941,13 +1941,13 @@ class AlertRuleScheduledIncidentGroupingArgsDict(TypedDict):
 @pulumi.input_type
 class AlertRuleScheduledIncidentGroupingArgs:
     def __init__(__self__, *,
-                 by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_matching_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 reopen_closed_incidents: Optional[pulumi.Input[_builtins.bool]] = None):
+                 by_alert_details: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 by_custom_details: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 by_entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_matching_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 reopen_closed_incidents: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
@@ -1974,86 +1974,86 @@ class AlertRuleScheduledIncidentGroupingArgs:
 
     @_builtins.property
     @pulumi.getter(name="byAlertDetails")
-    def by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_alert_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         """
         return pulumi.get(self, "by_alert_details")
 
     @by_alert_details.setter
-    def by_alert_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_alert_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_alert_details", value)
 
     @_builtins.property
     @pulumi.getter(name="byCustomDetails")
-    def by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_custom_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
         """
         return pulumi.get(self, "by_custom_details")
 
     @by_custom_details.setter
-    def by_custom_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_custom_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_custom_details", value)
 
     @_builtins.property
     @pulumi.getter(name="byEntities")
-    def by_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def by_entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         """
         return pulumi.get(self, "by_entities")
 
     @by_entities.setter
-    def by_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def by_entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "by_entities", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityMatchingMethod")
-    def entity_matching_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_matching_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         """
         return pulumi.get(self, "entity_matching_method")
 
     @entity_matching_method.setter
-    def entity_matching_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_matching_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_matching_method", value)
 
     @_builtins.property
     @pulumi.getter(name="lookbackDuration")
-    def lookback_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         """
         return pulumi.get(self, "lookback_duration")
 
     @lookback_duration.setter
-    def lookback_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="reopenClosedIncidents")
-    def reopen_closed_incidents(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reopen_closed_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to re-open closed matching incidents? Defaults to `false`.
         """
         return pulumi.get(self, "reopen_closed_incidents")
 
     @reopen_closed_incidents.setter
-    def reopen_closed_incidents(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reopen_closed_incidents(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reopen_closed_incidents", value)
 
 
@@ -2090,33 +2090,33 @@ class AuthomationRuleActionIncidentArgsDict(TypedDict):
     """
     The execution order of this action.
     """
-    classification: NotRequired[pulumi.Input[_builtins.str]]
+    classification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
     > **Note:** The `classification` is required when `status` is `Closed`.
     """
-    classification_comment: NotRequired[pulumi.Input[_builtins.str]]
+    classification_comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The comment why the incident is to be closed.
 
     > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of labels to add to the incident.
     """
-    owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    owner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of the entity this incident is assigned to.
     """
-    severity: NotRequired[pulumi.Input[_builtins.str]]
+    severity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
     > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
     """
@@ -2125,12 +2125,12 @@ class AuthomationRuleActionIncidentArgsDict(TypedDict):
 class AuthomationRuleActionIncidentArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[_builtins.int],
-                 classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 classification_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 classification_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
         :param pulumi.Input[_builtins.str] classification: The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -2174,7 +2174,7 @@ class AuthomationRuleActionIncidentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def classification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def classification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
@@ -2183,12 +2183,12 @@ class AuthomationRuleActionIncidentArgs:
         return pulumi.get(self, "classification")
 
     @classification.setter
-    def classification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def classification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "classification", value)
 
     @_builtins.property
     @pulumi.getter(name="classificationComment")
-    def classification_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def classification_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comment why the incident is to be closed.
 
@@ -2197,36 +2197,36 @@ class AuthomationRuleActionIncidentArgs:
         return pulumi.get(self, "classification_comment")
 
     @classification_comment.setter
-    def classification_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def classification_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "classification_comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of labels to add to the incident.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the entity this incident is assigned to.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
@@ -2235,19 +2235,19 @@ class AuthomationRuleActionIncidentArgs:
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -2260,7 +2260,7 @@ class AuthomationRuleActionIncidentTaskArgsDict(TypedDict):
     """
     The title of the incident task.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the incident task.
     """
@@ -2270,7 +2270,7 @@ class AuthomationRuleActionIncidentTaskArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
         :param pulumi.Input[_builtins.str] title: The title of the incident task.
@@ -2307,14 +2307,14 @@ class AuthomationRuleActionIncidentTaskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the incident task.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2327,7 +2327,7 @@ class AuthomationRuleActionPlaybookArgsDict(TypedDict):
     """
     The execution order of this action.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Tenant that owns the playbook.
     """
@@ -2337,7 +2337,7 @@ class AuthomationRuleActionPlaybookArgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] logic_app_id: The ID of the Logic App that defines the playbook's logic.
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
@@ -2374,14 +2374,14 @@ class AuthomationRuleActionPlaybookArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Tenant that owns the playbook.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -2390,33 +2390,33 @@ class AutomationRuleActionIncidentArgsDict(TypedDict):
     """
     The execution order of this action.
     """
-    classification: NotRequired[pulumi.Input[_builtins.str]]
+    classification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
     > **Note:** The `classification` is required when `status` is `Closed`.
     """
-    classification_comment: NotRequired[pulumi.Input[_builtins.str]]
+    classification_comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The comment why the incident is to be closed.
 
     > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of labels to add to the incident.
     """
-    owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    owner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of the entity this incident is assigned to.
     """
-    severity: NotRequired[pulumi.Input[_builtins.str]]
+    severity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
     > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
     """
@@ -2425,12 +2425,12 @@ class AutomationRuleActionIncidentArgsDict(TypedDict):
 class AutomationRuleActionIncidentArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[_builtins.int],
-                 classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 classification_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 classification_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
         :param pulumi.Input[_builtins.str] classification: The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -2474,7 +2474,7 @@ class AutomationRuleActionIncidentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def classification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def classification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
@@ -2483,12 +2483,12 @@ class AutomationRuleActionIncidentArgs:
         return pulumi.get(self, "classification")
 
     @classification.setter
-    def classification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def classification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "classification", value)
 
     @_builtins.property
     @pulumi.getter(name="classificationComment")
-    def classification_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def classification_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comment why the incident is to be closed.
 
@@ -2497,36 +2497,36 @@ class AutomationRuleActionIncidentArgs:
         return pulumi.get(self, "classification_comment")
 
     @classification_comment.setter
-    def classification_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def classification_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "classification_comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of labels to add to the incident.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the entity this incident is assigned to.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
@@ -2535,19 +2535,19 @@ class AutomationRuleActionIncidentArgs:
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -2560,7 +2560,7 @@ class AutomationRuleActionIncidentTaskArgsDict(TypedDict):
     """
     The title of the incident task.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the incident task.
     """
@@ -2570,7 +2570,7 @@ class AutomationRuleActionIncidentTaskArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
         :param pulumi.Input[_builtins.str] title: The title of the incident task.
@@ -2607,14 +2607,14 @@ class AutomationRuleActionIncidentTaskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the incident task.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2627,7 +2627,7 @@ class AutomationRuleActionPlaybookArgsDict(TypedDict):
     """
     The execution order of this action.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Tenant that owns the playbook.
     """
@@ -2637,7 +2637,7 @@ class AutomationRuleActionPlaybookArgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] logic_app_id: The ID of the Logic App that defines the playbook's logic.
         :param pulumi.Input[_builtins.int] order: The execution order of this action.
@@ -2674,27 +2674,27 @@ class AutomationRuleActionPlaybookArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Tenant that owns the playbook.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class MetadataAuthorArgsDict(TypedDict):
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address of the author contact.
     """
-    link: NotRequired[pulumi.Input[_builtins.str]]
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The link for author/vendor page.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the author, company or person.
     """
@@ -2702,9 +2702,9 @@ class MetadataAuthorArgsDict(TypedDict):
 @pulumi.input_type
 class MetadataAuthorArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email: The email address of the author contact.
         :param pulumi.Input[_builtins.str] link: The link for author/vendor page.
@@ -2719,47 +2719,47 @@ class MetadataAuthorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the author contact.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The link for author/vendor page.
         """
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the author, company or person.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class MetadataCategoryArgsDict(TypedDict):
-    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of domains for the solution content item.
     """
-    verticals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    verticals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of industry verticals for the solution content item.
     """
@@ -2767,8 +2767,8 @@ class MetadataCategoryArgsDict(TypedDict):
 @pulumi.input_type
 class MetadataCategoryArgs:
     def __init__(__self__, *,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verticals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verticals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: Specifies a list of domains for the solution content item.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] verticals: Specifies a list of industry verticals for the solution content item.
@@ -2780,26 +2780,26 @@ class MetadataCategoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of domains for the solution content item.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def verticals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def verticals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of industry verticals for the solution content item.
         """
         return pulumi.get(self, "verticals")
 
     @verticals.setter
-    def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def verticals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "verticals", value)
 
 
@@ -2808,11 +2808,11 @@ class MetadataSourceArgsDict(TypedDict):
     """
     The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the content source, the solution ID, Log Analytics Workspace name etc.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
     """
@@ -2821,8 +2821,8 @@ class MetadataSourceArgsDict(TypedDict):
 class MetadataSourceArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kind: The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
         :param pulumi.Input[_builtins.str] id: The id of the content source, the solution ID, Log Analytics Workspace name etc.
@@ -2848,26 +2848,26 @@ class MetadataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the content source, the solution ID, Log Analytics Workspace name etc.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2876,15 +2876,15 @@ class MetadataSupportArgsDict(TypedDict):
     """
     The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address of the support contact.
     """
-    link: NotRequired[pulumi.Input[_builtins.str]]
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The link for support help.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the support contact.
     """
@@ -2893,9 +2893,9 @@ class MetadataSupportArgsDict(TypedDict):
 class MetadataSupportArgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[_builtins.str],
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] tier: The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
         :param pulumi.Input[_builtins.str] email: The email address of the support contact.
@@ -2924,59 +2924,59 @@ class MetadataSupportArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the support contact.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The link for support help.
         """
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the support contact.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ThreatIntelligenceIndicatorExternalReferenceArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the external reference of the Threat Intelligence Indicator.
     """
-    hashes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    hashes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The list of hashes of the external reference of the Threat Intelligence Indicator.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Sentinel Threat Intelligence Indicator.
     """
-    source_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source name of the external reference of the Threat Intelligence Indicator.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The url of the external reference of the Threat Intelligence Indicator.
     """
@@ -2984,11 +2984,11 @@ class ThreatIntelligenceIndicatorExternalReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ThreatIntelligenceIndicatorExternalReferenceArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hashes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the external reference of the Threat Intelligence Indicator.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hashes: The list of hashes of the external reference of the Threat Intelligence Indicator.
@@ -3009,75 +3009,75 @@ class ThreatIntelligenceIndicatorExternalReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the external reference of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def hashes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def hashes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The list of hashes of the external reference of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "hashes")
 
     @hashes.setter
-    def hashes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def hashes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hashes", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Sentinel Threat Intelligence Indicator.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source name of the external reference of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url of the external reference of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
 class ThreatIntelligenceIndicatorGranularMarkingArgsDict(TypedDict):
-    language: NotRequired[pulumi.Input[_builtins.str]]
+    language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The language of granular marking of the Threat Intelligence Indicator.
     """
-    marking_ref: NotRequired[pulumi.Input[_builtins.str]]
+    marking_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference of the granular marking of the Threat Intelligence Indicator.
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of selectors of the granular marking of the Threat Intelligence Indicator.
     """
@@ -3085,9 +3085,9 @@ class ThreatIntelligenceIndicatorGranularMarkingArgsDict(TypedDict):
 @pulumi.input_type
 class ThreatIntelligenceIndicatorGranularMarkingArgs:
     def __init__(__self__, *,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 marking_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 marking_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] language: The language of granular marking of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] marking_ref: The reference of the granular marking of the Threat Intelligence Indicator.
@@ -3102,43 +3102,43 @@ class ThreatIntelligenceIndicatorGranularMarkingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language of granular marking of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter(name="markingRef")
-    def marking_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marking_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference of the granular marking of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "marking_ref")
 
     @marking_ref.setter
-    def marking_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marking_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marking_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of selectors of the granular marking of the Threat Intelligence Indicator.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selectors", value)
 
 
 class ThreatIntelligenceIndicatorKillChainPhaseArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for the Lockheed Martin cyber kill chain phase.
     """
@@ -3146,7 +3146,7 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgsDict(TypedDict):
 @pulumi.input_type
 class ThreatIntelligenceIndicatorKillChainPhaseArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Lockheed Martin cyber kill chain phase.
         """
@@ -3155,23 +3155,23 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the Lockheed Martin cyber kill chain phase.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ThreatIntelligenceIndicatorParsedPatternArgsDict(TypedDict):
-    pattern_type_key: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_type_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type key of parsed pattern.
     """
-    pattern_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict']]]]
+    pattern_type_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]]
     """
     A `pattern_type_values` block as defined below.
     """
@@ -3179,8 +3179,8 @@ class ThreatIntelligenceIndicatorParsedPatternArgsDict(TypedDict):
 @pulumi.input_type
 class ThreatIntelligenceIndicatorParsedPatternArgs:
     def __init__(__self__, *,
-                 pattern_type_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None):
+                 pattern_type_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type_values: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] pattern_type_key: The type key of parsed pattern.
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]] pattern_type_values: A `pattern_type_values` block as defined below.
@@ -3192,35 +3192,35 @@ class ThreatIntelligenceIndicatorParsedPatternArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternTypeKey")
-    def pattern_type_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_type_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type key of parsed pattern.
         """
         return pulumi.get(self, "pattern_type_key")
 
     @pattern_type_key.setter
-    def pattern_type_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_type_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_type_key", value)
 
     @_builtins.property
     @pulumi.getter(name="patternTypeValues")
-    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]:
+    def pattern_type_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]:
         """
         A `pattern_type_values` block as defined below.
         """
         return pulumi.get(self, "pattern_type_values")
 
     @pattern_type_values.setter
-    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]):
+    def pattern_type_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]):
         pulumi.set(self, "pattern_type_values", value)
 
 
 class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict(TypedDict):
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the parsed pattern type.
     """
-    value_type: NotRequired[pulumi.Input[_builtins.str]]
+    value_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the value of the parsed pattern type value.
     """
@@ -3228,8 +3228,8 @@ class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict(TypedDict
 @pulumi.input_type
 class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] value: The value of the parsed pattern type.
         :param pulumi.Input[_builtins.str] value_type: The type of the value of the parsed pattern type value.
@@ -3241,26 +3241,26 @@ class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the parsed pattern type.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the value of the parsed pattern type value.
         """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
 

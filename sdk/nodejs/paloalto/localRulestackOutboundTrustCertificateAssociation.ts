@@ -103,7 +103,7 @@ export interface LocalRulestackOutboundTrustCertificateAssociationState {
     /**
      * The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
 }
 
 /**

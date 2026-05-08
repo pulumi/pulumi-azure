@@ -27,11 +27,11 @@ class FrontdoorArgs:
                  frontend_endpoints: pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  routing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]],
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 backend_pool_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Frontdoor resource.
 
@@ -142,87 +142,87 @@ class FrontdoorArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPoolSettings")
-    def backend_pool_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
+    def backend_pool_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
         """
         A `backend_pool_settings` block as defined below.
         """
         return pulumi.get(self, "backend_pool_settings")
 
     @backend_pool_settings.setter
-    def backend_pool_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]):
+    def backend_pool_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]):
         pulumi.set(self, "backend_pool_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the Front Door service.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerEnabled")
-    def load_balancer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def load_balancer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "load_balancer_enabled")
 
     @load_balancer_enabled.setter
-    def load_balancer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def load_balancer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "load_balancer_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FrontdoorState:
     def __init__(__self__, *,
-                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]] = None,
-                 backend_pool_health_probes_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 backend_pool_load_balancing_settings_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]] = None,
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
-                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]] = None,
-                 backend_pools_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
-                 frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 header_frontdoor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
-                 routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 backend_pool_health_probes: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]] = None,
+                 backend_pool_health_probes_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backend_pool_load_balancing_settings_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backend_pool_load_balancings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]] = None,
+                 backend_pool_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
+                 backend_pools: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]] = None,
+                 backend_pools_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicit_resource_orders: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
+                 frontend_endpoints_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 header_frontdoor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
+                 routing_rules_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Frontdoor resources.
 
@@ -288,67 +288,67 @@ class _FrontdoorState:
 
     @_builtins.property
     @pulumi.getter(name="backendPoolHealthProbes")
-    def backend_pool_health_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]:
+    def backend_pool_health_probes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]:
         """
         A `backend_pool_health_probe` block as defined below.
         """
         return pulumi.get(self, "backend_pool_health_probes")
 
     @backend_pool_health_probes.setter
-    def backend_pool_health_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]):
+    def backend_pool_health_probes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]):
         pulumi.set(self, "backend_pool_health_probes", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolHealthProbesMap")
-    def backend_pool_health_probes_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def backend_pool_health_probes_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         """
         return pulumi.get(self, "backend_pool_health_probes_map")
 
     @backend_pool_health_probes_map.setter
-    def backend_pool_health_probes_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def backend_pool_health_probes_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_pool_health_probes_map", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolLoadBalancingSettingsMap")
-    def backend_pool_load_balancing_settings_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def backend_pool_load_balancing_settings_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
         """
         return pulumi.get(self, "backend_pool_load_balancing_settings_map")
 
     @backend_pool_load_balancing_settings_map.setter
-    def backend_pool_load_balancing_settings_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def backend_pool_load_balancing_settings_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_pool_load_balancing_settings_map", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolLoadBalancings")
-    def backend_pool_load_balancings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]:
+    def backend_pool_load_balancings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]:
         """
         A `backend_pool_load_balancing` block as defined below.
         """
         return pulumi.get(self, "backend_pool_load_balancings")
 
     @backend_pool_load_balancings.setter
-    def backend_pool_load_balancings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]):
+    def backend_pool_load_balancings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]):
         pulumi.set(self, "backend_pool_load_balancings", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolSettings")
-    def backend_pool_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
+    def backend_pool_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
         """
         A `backend_pool_settings` block as defined below.
         """
         return pulumi.get(self, "backend_pool_settings")
 
     @backend_pool_settings.setter
-    def backend_pool_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]):
+    def backend_pool_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]):
         pulumi.set(self, "backend_pool_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]:
+    def backend_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]:
         """
         A `backend_pool` block as defined below.
 
@@ -357,160 +357,160 @@ class _FrontdoorState:
         return pulumi.get(self, "backend_pools")
 
     @backend_pools.setter
-    def backend_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]):
+    def backend_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]):
         pulumi.set(self, "backend_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolsMap")
-    def backend_pools_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def backend_pools_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         """
         return pulumi.get(self, "backend_pools_map")
 
     @backend_pools_map.setter
-    def backend_pools_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def backend_pools_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_pools_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host that each frontendEndpoint must CNAME to.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitResourceOrders")
-    def explicit_resource_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]:
+    def explicit_resource_orders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]:
         return pulumi.get(self, "explicit_resource_orders")
 
     @explicit_resource_orders.setter
-    def explicit_resource_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]):
+    def explicit_resource_orders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]):
         pulumi.set(self, "explicit_resource_orders", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the Front Door service.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]:
+    def frontend_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]:
         """
         A `frontend_endpoint` block as defined below.
         """
         return pulumi.get(self, "frontend_endpoints")
 
     @frontend_endpoints.setter
-    def frontend_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]):
+    def frontend_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]):
         pulumi.set(self, "frontend_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendEndpointsMap")
-    def frontend_endpoints_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def frontend_endpoints_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         """
         return pulumi.get(self, "frontend_endpoints_map")
 
     @frontend_endpoints_map.setter
-    def frontend_endpoints_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def frontend_endpoints_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "frontend_endpoints_map", value)
 
     @_builtins.property
     @pulumi.getter(name="headerFrontdoorId")
-    def header_frontdoor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def header_frontdoor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         """
         return pulumi.get(self, "header_frontdoor_id")
 
     @header_frontdoor_id.setter
-    def header_frontdoor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def header_frontdoor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "header_frontdoor_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerEnabled")
-    def load_balancer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def load_balancer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "load_balancer_enabled")
 
     @load_balancer_enabled.setter
-    def load_balancer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def load_balancer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "load_balancer_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]:
+    def routing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]:
         """
         A `routing_rule` block as defined below.
         """
         return pulumi.get(self, "routing_rules")
 
     @routing_rules.setter
-    def routing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]):
+    def routing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]):
         pulumi.set(self, "routing_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRulesMap")
-    def routing_rules_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def routing_rules_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
         """
         return pulumi.get(self, "routing_rules_map")
 
     @routing_rules_map.setter
-    def routing_rules_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def routing_rules_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "routing_rules_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -520,17 +520,17 @@ class Frontdoor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
-                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
-                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
-                 load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backend_pool_health_probes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
+                 backend_pool_load_balancings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+                 backend_pool_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+                 backend_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
+                 load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -721,17 +721,17 @@ class Frontdoor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
-                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
-                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
-                 load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backend_pool_health_probes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
+                 backend_pool_load_balancings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+                 backend_pool_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+                 backend_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
+                 load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -782,25 +782,25 @@ class Frontdoor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
-            backend_pool_health_probes_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            backend_pool_load_balancing_settings_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
-            backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
-            backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
-            backend_pools_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            cname: Optional[pulumi.Input[_builtins.str]] = None,
-            explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorExplicitResourceOrderArgs', 'FrontdoorExplicitResourceOrderArgsDict']]]]] = None,
-            friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
-            frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            header_frontdoor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
-            routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Frontdoor':
+            backend_pool_health_probes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
+            backend_pool_health_probes_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            backend_pool_load_balancing_settings_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            backend_pool_load_balancings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+            backend_pool_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+            backend_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
+            backend_pools_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            cname: pulumi.Input[Optional[_builtins.str]] = None,
+            explicit_resource_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorExplicitResourceOrderArgs', 'FrontdoorExplicitResourceOrderArgsDict']]]]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
+            frontend_endpoints_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            header_frontdoor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
+            routing_rules_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Frontdoor':
         """
         Get an existing Frontdoor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

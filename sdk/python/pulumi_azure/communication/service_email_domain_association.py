@@ -58,8 +58,8 @@ class ServiceEmailDomainAssociationArgs:
 @pulumi.input_type
 class _ServiceEmailDomainAssociationState:
     def __init__(__self__, *,
-                 communication_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 communication_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEmailDomainAssociation resources.
 
@@ -73,26 +73,26 @@ class _ServiceEmailDomainAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="communicationServiceId")
-    def communication_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def communication_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
         """
         return pulumi.get(self, "communication_service_id")
 
     @communication_service_id.setter
-    def communication_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def communication_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "communication_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="emailServiceDomainId")
-    def email_service_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_service_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
         """
         return pulumi.get(self, "email_service_domain_id")
 
     @email_service_domain_id.setter
-    def email_service_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_service_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_service_domain_id", value)
 
 
@@ -102,8 +102,8 @@ class ServiceEmailDomainAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a communication service email domain association.
@@ -221,8 +221,8 @@ class ServiceEmailDomainAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 communication_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 communication_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,8 +248,8 @@ class ServiceEmailDomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            communication_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEmailDomainAssociation':
+            communication_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email_service_domain_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEmailDomainAssociation':
         """
         Get an existing ServiceEmailDomainAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

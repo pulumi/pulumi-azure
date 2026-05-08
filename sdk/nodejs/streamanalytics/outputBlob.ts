@@ -235,59 +235,59 @@ export interface OutputBlobState {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
-    batchMaxWaitTime?: pulumi.Input<string>;
+    batchMaxWaitTime?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
-    batchMinRows?: pulumi.Input<number>;
+    batchMinRows?: pulumi.Input<number | undefined>;
     /**
      * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
      */
-    blobWriteMode?: pulumi.Input<string>;
+    blobWriteMode?: pulumi.Input<string | undefined>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      */
-    pathPattern?: pulumi.Input<string>;
+    pathPattern?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `serialization` block as defined below.
      */
-    serialization?: pulumi.Input<inputs.streamanalytics.OutputBlobSerialization>;
+    serialization?: pulumi.Input<inputs.streamanalytics.OutputBlobSerialization | undefined>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Container within the Storage Account.
      */
-    storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
     /**
      * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -297,19 +297,19 @@ export interface OutputBlobArgs {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
-    batchMaxWaitTime?: pulumi.Input<string>;
+    batchMaxWaitTime?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
-    batchMinRows?: pulumi.Input<number>;
+    batchMinRows?: pulumi.Input<number | undefined>;
     /**
      * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
      */
-    blobWriteMode?: pulumi.Input<string>;
+    blobWriteMode?: pulumi.Input<string | undefined>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
@@ -317,7 +317,7 @@ export interface OutputBlobArgs {
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      */
@@ -333,7 +333,7 @@ export interface OutputBlobArgs {
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account.
      */

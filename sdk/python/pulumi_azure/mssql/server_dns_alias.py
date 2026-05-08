@@ -20,7 +20,7 @@ __all__ = ['ServerDnsAliasArgs', 'ServerDnsAlias']
 class ServerDnsAliasArgs:
     def __init__(__self__, *,
                  mssql_server_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerDnsAlias resource.
 
@@ -45,23 +45,23 @@ class ServerDnsAliasArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ServerDnsAliasState:
     def __init__(__self__, *,
-                 dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 mssql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 mssql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerDnsAlias resources.
 
@@ -78,38 +78,38 @@ class _ServerDnsAliasState:
 
     @_builtins.property
     @pulumi.getter(name="dnsRecord")
-    def dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified DNS record for alias.
         """
         return pulumi.get(self, "dns_record")
 
     @dns_record.setter
-    def dns_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_record", value)
 
     @_builtins.property
     @pulumi.getter(name="mssqlServerId")
-    def mssql_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mssql_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
         return pulumi.get(self, "mssql_server_id")
 
     @mssql_server_id.setter
-    def mssql_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mssql_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mssql_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -119,8 +119,8 @@ class ServerDnsAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mssql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mssql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MS SQL Server DNS Alias.
@@ -228,8 +228,8 @@ class ServerDnsAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mssql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mssql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,9 +254,9 @@ class ServerDnsAlias(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-            mssql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerDnsAlias':
+            dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+            mssql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerDnsAlias':
         """
         Get an existing ServerDnsAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

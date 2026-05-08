@@ -153,33 +153,33 @@ export interface ClusterState {
     /**
      * The GUID of the cluster.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
-    identity?: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.loganalytics.ClusterIdentity | undefined>;
     /**
      * The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
      *
      * > **Note:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters).
      */
-    sizeGb?: pulumi.Input<number>;
+    sizeGb?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface ClusterArgs {
     /**
      * The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
@@ -207,9 +207,9 @@ export interface ClusterArgs {
      *
      * > **Note:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters).
      */
-    sizeGb?: pulumi.Input<number>;
+    sizeGb?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

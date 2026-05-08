@@ -159,43 +159,43 @@ export interface LocalRulestackState {
     /**
      * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
-    antiSpywareProfile?: pulumi.Input<string>;
+    antiSpywareProfile?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
      */
-    antiVirusProfile?: pulumi.Input<string>;
+    antiVirusProfile?: pulumi.Input<string | undefined>;
     /**
      * The description for this Local Rulestack.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
-    dnsSubscription?: pulumi.Input<string>;
+    dnsSubscription?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    fileBlockingProfile?: pulumi.Input<string>;
+    fileBlockingProfile?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    urlFilteringProfile?: pulumi.Input<string>;
+    urlFilteringProfile?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    vulnerabilityProfile?: pulumi.Input<string>;
+    vulnerabilityProfile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,31 +205,31 @@ export interface LocalRulestackArgs {
     /**
      * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
-    antiSpywareProfile?: pulumi.Input<string>;
+    antiSpywareProfile?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
      */
-    antiVirusProfile?: pulumi.Input<string>;
+    antiVirusProfile?: pulumi.Input<string | undefined>;
     /**
      * The description for this Local Rulestack.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
-    dnsSubscription?: pulumi.Input<string>;
+    dnsSubscription?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    fileBlockingProfile?: pulumi.Input<string>;
+    fileBlockingProfile?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
@@ -237,9 +237,9 @@ export interface LocalRulestackArgs {
     /**
      * The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    urlFilteringProfile?: pulumi.Input<string>;
+    urlFilteringProfile?: pulumi.Input<string | undefined>;
     /**
      * The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    vulnerabilityProfile?: pulumi.Input<string>;
+    vulnerabilityProfile?: pulumi.Input<string | undefined>;
 }

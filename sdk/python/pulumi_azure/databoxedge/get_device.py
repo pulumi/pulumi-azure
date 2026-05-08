@@ -157,8 +157,8 @@ def get_device(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_device_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get information about a Databox Edge Device.

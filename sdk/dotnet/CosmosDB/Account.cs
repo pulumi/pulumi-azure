@@ -29,7 +29,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = "westus",
     ///     });
     /// 
-    ///     var ri = new Random.Index.Integer("ri", new()
+    ///     var ri = new Random.Integer("ri", new()
     ///     {
     ///         Min = 10000,
     ///         Max = 99999,
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Name = "example-resource",
     ///         Location = exampleAzurermResourceGroup.Location,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         DefaultIdentityType = Std.Index.Join.Invoke(new()
+    ///         DefaultIdentityType = Std.Join.Invoke(new()
     ///         {
     ///             Separator = "=",
     ///             Input = new[]

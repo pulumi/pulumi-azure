@@ -21,7 +21,7 @@ class GalleryArgs:
     def __init__(__self__, *,
                  dev_center_id: pulumi.Input[_builtins.str],
                  shared_gallery_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gallery resource.
 
@@ -60,23 +60,23 @@ class GalleryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _GalleryState:
     def __init__(__self__, *,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Gallery resources.
 
@@ -93,38 +93,38 @@ class _GalleryState:
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedGalleryId")
-    def shared_gallery_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_gallery_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
         """
         return pulumi.get(self, "shared_gallery_id")
 
     @shared_gallery_id.setter
-    def shared_gallery_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_gallery_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_gallery_id", value)
 
 
@@ -134,9 +134,9 @@ class Gallery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Dev Center Gallery.
@@ -275,9 +275,9 @@ class Gallery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,9 +304,9 @@ class Gallery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Gallery':
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_gallery_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Gallery':
         """
         Get an existing Gallery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

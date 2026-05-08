@@ -20,14 +20,14 @@ __all__ = ['IntegrationRuntimeRuleArgs', 'IntegrationRuntimeRule']
 class IntegrationRuntimeRuleArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
-                 cleanup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cleanup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeRule resource.
 
@@ -73,113 +73,113 @@ class IntegrationRuntimeRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="cleanupEnabled")
-    def cleanup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         """
         return pulumi.get(self, "cleanup_enabled")
 
     @cleanup_enabled.setter
-    def cleanup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMin")
-    def time_to_live_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
 
     @time_to_live_min.setter
-    def time_to_live_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_min", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkEnabled")
-    def virtual_network_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def virtual_network_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_enabled")
 
     @virtual_network_enabled.setter
-    def virtual_network_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def virtual_network_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "virtual_network_enabled", value)
 
 
 @pulumi.input_type
 class _IntegrationRuntimeRuleState:
     def __init__(__self__, *,
-                 cleanup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cleanup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeRule resources.
 
@@ -214,110 +214,110 @@ class _IntegrationRuntimeRuleState:
 
     @_builtins.property
     @pulumi.getter(name="cleanupEnabled")
-    def cleanup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         """
         return pulumi.get(self, "cleanup_enabled")
 
     @cleanup_enabled.setter
-    def cleanup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMin")
-    def time_to_live_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
 
     @time_to_live_min.setter
-    def time_to_live_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_min", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkEnabled")
-    def virtual_network_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def virtual_network_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_enabled")
 
     @virtual_network_enabled.setter
-    def virtual_network_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def virtual_network_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "virtual_network_enabled", value)
 
 
@@ -327,15 +327,15 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cleanup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cleanup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Data Factory Azure Integration Runtime.
@@ -446,15 +446,15 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cleanup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cleanup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,15 +485,15 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cleanup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-            core_count: Optional[pulumi.Input[_builtins.int]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
-            virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'IntegrationRuntimeRule':
+            cleanup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'IntegrationRuntimeRule':
         """
         Get an existing IntegrationRuntimeRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -159,33 +159,33 @@ export interface DevBoxDefinitionState {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
      *
      * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
      */
-    hibernateSupportEnabled?: pulumi.Input<boolean>;
+    hibernateSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */
-    imageReferenceId?: pulumi.Input<string>;
+    imageReferenceId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU for the Dev Center Dev Box Definition.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface DevBoxDefinitionArgs {
      *
      * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
      */
-    hibernateSupportEnabled?: pulumi.Input<boolean>;
+    hibernateSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */
@@ -209,11 +209,11 @@ export interface DevBoxDefinitionArgs {
     /**
      * The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU for the Dev Center Dev Box Definition.
      */
@@ -221,5 +221,5 @@ export interface DevBoxDefinitionArgs {
     /**
      * A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -136,15 +136,15 @@ export interface WatchlistItemState {
     /**
      * The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The key value pairs of the Sentinel Watchlist Item.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
      */
-    watchlistId?: pulumi.Input<string>;
+    watchlistId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface WatchlistItemArgs {
     /**
      * The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The key value pairs of the Sentinel Watchlist Item.
      */

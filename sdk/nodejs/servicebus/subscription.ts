@@ -212,65 +212,65 @@ export interface SubscriptionState {
     /**
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
      */
-    batchedOperationsEnabled?: pulumi.Input<boolean>;
+    batchedOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
-    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
+    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
-    clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
+    clientScopedSubscriptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */
-    deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
+    deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
-    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    defaultMessageTtl?: pulumi.Input<string>;
+    defaultMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      */
-    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward messages to.
      */
-    forwardTo?: pulumi.Input<string>;
+    forwardTo?: pulumi.Input<string | undefined>;
     /**
      * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
      */
-    lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of deliveries.
      */
-    maxDeliveryCount?: pulumi.Input<number>;
+    maxDeliveryCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
-    requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
-    topicId?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -280,45 +280,45 @@ export interface SubscriptionArgs {
     /**
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
      */
-    batchedOperationsEnabled?: pulumi.Input<boolean>;
+    batchedOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
-    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
+    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
-    clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
+    clientScopedSubscriptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */
-    deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
+    deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
-    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    defaultMessageTtl?: pulumi.Input<string>;
+    defaultMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      */
-    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward messages to.
      */
-    forwardTo?: pulumi.Input<string>;
+    forwardTo?: pulumi.Input<string | undefined>;
     /**
      * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
      */
-    lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of deliveries.
      */
@@ -326,15 +326,15 @@ export interface SubscriptionArgs {
     /**
      * Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
-    requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */

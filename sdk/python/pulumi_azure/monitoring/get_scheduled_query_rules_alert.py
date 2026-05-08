@@ -285,8 +285,8 @@ def get_scheduled_query_rules_alert(name: Optional[_builtins.str] = None,
         throttling=pulumi.get(__ret__, 'throttling'),
         time_window=pulumi.get(__ret__, 'time_window'),
         triggers=pulumi.get(__ret__, 'triggers'))
-def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduled_query_rules_alert_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryRulesAlertResult]:
     """
     Use this data source to access the properties of an AlertingAction scheduled query rule.

@@ -22,12 +22,12 @@ __all__ = ['BackupPolicyBlobStorageArgs', 'BackupPolicyBlobStorage']
 class BackupPolicyBlobStorageArgs:
     def __init__(__self__, *,
                  vault_id: pulumi.Input[_builtins.str],
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operational_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operational_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicyBlobStorage resource.
 
@@ -71,43 +71,43 @@ class BackupPolicyBlobStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
-    def backup_repeating_time_intervals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_repeating_time_intervals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "backup_repeating_time_intervals")
 
     @backup_repeating_time_intervals.setter
-    def backup_repeating_time_intervals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_repeating_time_intervals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_repeating_time_intervals", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationalDefaultRetentionDuration")
-    def operational_default_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operational_default_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "operational_default_retention_duration")
 
     @operational_default_retention_duration.setter
-    def operational_default_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operational_default_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operational_default_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
 
@@ -116,24 +116,24 @@ class BackupPolicyBlobStorageArgs:
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultDefaultRetentionDuration")
-    def vault_default_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_default_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
 
@@ -142,20 +142,20 @@ class BackupPolicyBlobStorageArgs:
         return pulumi.get(self, "vault_default_retention_duration")
 
     @vault_default_retention_duration.setter
-    def vault_default_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_default_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_default_retention_duration", value)
 
 
 @pulumi.input_type
 class _BackupPolicyBlobStorageState:
     def __init__(__self__, *,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operational_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operational_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyBlobStorage resources.
 
@@ -188,43 +188,43 @@ class _BackupPolicyBlobStorageState:
 
     @_builtins.property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
-    def backup_repeating_time_intervals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_repeating_time_intervals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "backup_repeating_time_intervals")
 
     @backup_repeating_time_intervals.setter
-    def backup_repeating_time_intervals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_repeating_time_intervals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_repeating_time_intervals", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationalDefaultRetentionDuration")
-    def operational_default_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operational_default_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "operational_default_retention_duration")
 
     @operational_default_retention_duration.setter
-    def operational_default_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operational_default_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operational_default_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
 
@@ -233,24 +233,24 @@ class _BackupPolicyBlobStorageState:
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyBlobStorageRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultDefaultRetentionDuration")
-    def vault_default_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_default_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
 
@@ -259,19 +259,19 @@ class _BackupPolicyBlobStorageState:
         return pulumi.get(self, "vault_default_retention_duration")
 
     @vault_default_retention_duration.setter
-    def vault_default_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_default_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_default_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
         """
         return pulumi.get(self, "vault_id")
 
     @vault_id.setter
-    def vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_id", value)
 
 
@@ -281,13 +281,13 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operational_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operational_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backup Policy Blob Storage.
@@ -478,13 +478,13 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operational_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operational_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,13 +513,13 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            operational_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupPolicyBlobStorage':
+            backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operational_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyBlobStorage':
         """
         Get an existing BackupPolicyBlobStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,7 +21,7 @@ class AssignmentArgs:
     def __init__(__self__, *,
                  lighthouse_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assignment resource.
 
@@ -60,23 +60,23 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AssignmentState:
     def __init__(__self__, *,
-                 lighthouse_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 lighthouse_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Assignment resources.
 
@@ -93,38 +93,38 @@ class _AssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="lighthouseDefinitionId")
-    def lighthouse_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lighthouse_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lighthouse_definition_id")
 
     @lighthouse_definition_id.setter
-    def lighthouse_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lighthouse_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lighthouse_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -134,9 +134,9 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lighthouse_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 lighthouse_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
@@ -227,9 +227,9 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lighthouse_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 lighthouse_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,9 +256,9 @@ class Assignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            lighthouse_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None) -> 'Assignment':
+            lighthouse_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'Assignment':
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

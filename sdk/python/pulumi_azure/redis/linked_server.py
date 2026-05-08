@@ -103,13 +103,13 @@ class LinkedServerArgs:
 @pulumi.input_type
 class _LinkedServerState:
     def __init__(__self__, *,
-                 geo_replicated_primary_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 geo_replicated_primary_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServer resources.
 
@@ -138,86 +138,86 @@ class _LinkedServerState:
 
     @_builtins.property
     @pulumi.getter(name="geoReplicatedPrimaryHostName")
-    def geo_replicated_primary_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_replicated_primary_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-replicated primary hostname for this linked server.
         """
         return pulumi.get(self, "geo_replicated_primary_host_name")
 
     @geo_replicated_primary_host_name.setter
-    def geo_replicated_primary_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_replicated_primary_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_replicated_primary_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedRedisCacheId")
-    def linked_redis_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_redis_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         """
         return pulumi.get(self, "linked_redis_cache_id")
 
     @linked_redis_cache_id.setter
-    def linked_redis_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_redis_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_redis_cache_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedRedisCacheLocation")
-    def linked_redis_cache_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_redis_cache_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the linked Redis cache. Changing this forces a new Redis to be created.
         """
         return pulumi.get(self, "linked_redis_cache_location")
 
     @linked_redis_cache_location.setter
-    def linked_redis_cache_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_redis_cache_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_redis_cache_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the linked server.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverRole")
-    def server_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         """
         return pulumi.get(self, "server_role")
 
     @server_role.setter
-    def server_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_role", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRedisCacheName")
-    def target_redis_cache_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_redis_cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
         return pulumi.get(self, "target_redis_cache_name")
 
     @target_redis_cache_name.setter
-    def target_redis_cache_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_redis_cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_redis_cache_name", value)
 
 
@@ -227,11 +227,11 @@ class LinkedServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Redis Linked Server (ie Geo Location)
@@ -392,11 +392,11 @@ class LinkedServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,13 +433,13 @@ class LinkedServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            geo_replicated_primary_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-            linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_role: Optional[pulumi.Input[_builtins.str]] = None,
-            target_redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkedServer':
+            geo_replicated_primary_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_role: pulumi.Input[Optional[_builtins.str]] = None,
+            target_redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedServer':
         """
         Get an existing LinkedServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

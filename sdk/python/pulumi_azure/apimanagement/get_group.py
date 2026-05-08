@@ -171,9 +171,9 @@ def get_group(api_management_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_group_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to access information about an existing API Management Group.

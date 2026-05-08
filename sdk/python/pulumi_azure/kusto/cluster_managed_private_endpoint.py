@@ -23,9 +23,9 @@ class ClusterManagedPrivateEndpointArgs:
                  group_id: pulumi.Input[_builtins.str],
                  private_link_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterManagedPrivateEndpoint resource.
 
@@ -98,51 +98,51 @@ class ClusterManagedPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
-    def private_link_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_resource_region")
 
     @private_link_resource_region.setter
-    def private_link_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user request message.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
 
 @pulumi.input_type
 class _ClusterManagedPrivateEndpointState:
     def __init__(__self__, *,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterManagedPrivateEndpoint resources.
 
@@ -171,86 +171,86 @@ class _ClusterManagedPrivateEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kusto Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_resource_id")
 
     @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
-    def private_link_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_resource_region")
 
     @private_link_resource_region.setter
-    def private_link_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user request message.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -260,13 +260,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
@@ -405,13 +405,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,13 +446,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-            request_message: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterManagedPrivateEndpoint':
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterManagedPrivateEndpoint':
         """
         Get an existing ClusterManagedPrivateEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

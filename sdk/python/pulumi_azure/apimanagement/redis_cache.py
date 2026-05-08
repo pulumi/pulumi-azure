@@ -21,10 +21,10 @@ class RedisCacheArgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[_builtins.str],
                  connection_string: pulumi.Input[_builtins.str],
-                 cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisCache resource.
 
@@ -72,62 +72,62 @@ class RedisCacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheLocation")
-    def cache_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         """
         return pulumi.get(self, "cache_location")
 
     @cache_location.setter
-    def cache_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the API Management Redis Cache.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redisCacheId")
-    def redis_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Cache for Redis.
         """
         return pulumi.get(self, "redis_cache_id")
 
     @redis_cache_id.setter
-    def redis_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_cache_id", value)
 
 
 @pulumi.input_type
 class _RedisCacheState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RedisCache resources.
 
@@ -153,74 +153,74 @@ class _RedisCacheState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheLocation")
-    def cache_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         """
         return pulumi.get(self, "cache_location")
 
     @cache_location.setter
-    def cache_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_location", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string to the Cache for Redis.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the API Management Redis Cache.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redisCacheId")
-    def redis_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Cache for Redis.
         """
         return pulumi.get(self, "redis_cache_id")
 
     @redis_cache_id.setter
-    def redis_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_cache_id", value)
 
 
@@ -230,12 +230,12 @@ class RedisCache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management Redis Cache.
@@ -375,12 +375,12 @@ class RedisCache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,12 +412,12 @@ class RedisCache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_location: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RedisCache':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RedisCache':
         """
         Get an existing RedisCache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

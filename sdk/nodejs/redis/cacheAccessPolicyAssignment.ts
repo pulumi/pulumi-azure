@@ -155,23 +155,23 @@ export interface CacheAccessPolicyAssignmentState {
     /**
      * The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    objectIdAlias?: pulumi.Input<string>;
+    objectIdAlias?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface CacheAccessPolicyAssignmentArgs {
     /**
      * The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */

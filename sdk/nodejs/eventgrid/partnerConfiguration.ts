@@ -132,19 +132,19 @@ export interface PartnerConfigurationState {
     /**
      * Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
      */
-    defaultMaximumExpirationTimeInDays?: pulumi.Input<number>;
+    defaultMaximumExpirationTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * One or more `partnerAuthorization` blocks as defined below.
      */
-    partnerAuthorizations?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerConfigurationPartnerAuthorization>[]>;
+    partnerAuthorizations?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerConfigurationPartnerAuthorization>[] | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Configuration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -154,11 +154,11 @@ export interface PartnerConfigurationArgs {
     /**
      * Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
      */
-    defaultMaximumExpirationTimeInDays?: pulumi.Input<number>;
+    defaultMaximumExpirationTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * One or more `partnerAuthorization` blocks as defined below.
      */
-    partnerAuthorizations?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerConfigurationPartnerAuthorization>[]>;
+    partnerAuthorizations?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerConfigurationPartnerAuthorization>[] | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
      */
@@ -166,5 +166,5 @@ export interface PartnerConfigurationArgs {
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Configuration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

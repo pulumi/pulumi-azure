@@ -120,7 +120,7 @@ def get_resource_group(name: Optional[_builtins.str] = None,
         managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Use this data source to access information about an existing Resource Group.

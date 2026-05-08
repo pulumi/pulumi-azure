@@ -21,9 +21,9 @@ class RoleAssignmentArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
                  role_name: pulumi.Input[_builtins.str],
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_spark_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
 
@@ -80,7 +80,7 @@ class RoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
 
@@ -89,12 +89,12 @@ class RoleAssignmentArgs:
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseSparkPoolId")
-    def synapse_spark_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_spark_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
 
@@ -103,30 +103,30 @@ class RoleAssignmentArgs:
         return pulumi.get(self, "synapse_spark_pool_id")
 
     @synapse_spark_pool_id.setter
-    def synapse_spark_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_spark_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_spark_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
 
 @pulumi.input_type
 class _RoleAssignmentState:
     def __init__(__self__, *,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_spark_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleAssignment resources.
 
@@ -157,19 +157,19 @@ class _RoleAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
 
@@ -178,12 +178,12 @@ class _RoleAssignmentState:
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
 
@@ -194,12 +194,12 @@ class _RoleAssignmentState:
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseSparkPoolId")
-    def synapse_spark_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_spark_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
 
@@ -208,19 +208,19 @@ class _RoleAssignmentState:
         return pulumi.get(self, "synapse_spark_pool_id")
 
     @synapse_spark_pool_id.setter
-    def synapse_spark_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_spark_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_spark_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
 
@@ -230,11 +230,11 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_spark_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Synapse Role Assignment.
@@ -387,11 +387,11 @@ class RoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_spark_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,11 +420,11 @@ class RoleAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_spark_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RoleAssignment':
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoleAssignment':
         """
         Get an existing RoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,15 +21,15 @@ class PrefixArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 commissioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_advertising_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 roa_validity_end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wan_validation_signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Prefix resource.
 
@@ -98,7 +98,7 @@ class PrefixArgs:
 
     @_builtins.property
     @pulumi.getter(name="commissioningEnabled")
-    def commissioning_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def commissioning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 
@@ -107,12 +107,12 @@ class PrefixArgs:
         return pulumi.get(self, "commissioning_enabled")
 
     @commissioning_enabled.setter
-    def commissioning_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def commissioning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "commissioning_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetAdvertisingDisabled")
-    def internet_advertising_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_advertising_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 
@@ -121,84 +121,84 @@ class PrefixArgs:
         return pulumi.get(self, "internet_advertising_disabled")
 
     @internet_advertising_disabled.setter
-    def internet_advertising_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_advertising_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_advertising_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentCustomIpPrefixId")
-    def parent_custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_custom_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parent_custom_ip_prefix_id")
 
     @parent_custom_ip_prefix_id.setter
-    def parent_custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_custom_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roaValidityEndDate")
-    def roa_validity_end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def roa_validity_end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "roa_validity_end_date")
 
     @roa_validity_end_date.setter
-    def roa_validity_end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def roa_validity_end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "roa_validity_end_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Custom IP Prefix.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="wanValidationSignedMessage")
-    def wan_validation_signed_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wan_validation_signed_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "wan_validation_signed_message")
 
     @wan_validation_signed_message.setter
-    def wan_validation_signed_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wan_validation_signed_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wan_validation_signed_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
 
@@ -207,24 +207,24 @@ class PrefixArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _PrefixState:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_advertising_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roa_validity_end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wan_validation_signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Prefix resources.
 
@@ -271,19 +271,19 @@ class _PrefixState:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="commissioningEnabled")
-    def commissioning_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def commissioning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 
@@ -292,12 +292,12 @@ class _PrefixState:
         return pulumi.get(self, "commissioning_enabled")
 
     @commissioning_enabled.setter
-    def commissioning_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def commissioning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "commissioning_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetAdvertisingDisabled")
-    def internet_advertising_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_advertising_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 
@@ -306,96 +306,96 @@ class _PrefixState:
         return pulumi.get(self, "internet_advertising_disabled")
 
     @internet_advertising_disabled.setter
-    def internet_advertising_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_advertising_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_advertising_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentCustomIpPrefixId")
-    def parent_custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_custom_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parent_custom_ip_prefix_id")
 
     @parent_custom_ip_prefix_id.setter
-    def parent_custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_custom_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roaValidityEndDate")
-    def roa_validity_end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def roa_validity_end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "roa_validity_end_date")
 
     @roa_validity_end_date.setter
-    def roa_validity_end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def roa_validity_end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "roa_validity_end_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Custom IP Prefix.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="wanValidationSignedMessage")
-    def wan_validation_signed_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wan_validation_signed_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "wan_validation_signed_message")
 
     @wan_validation_signed_message.setter
-    def wan_validation_signed_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wan_validation_signed_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wan_validation_signed_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
 
@@ -404,7 +404,7 @@ class _PrefixState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -414,17 +414,17 @@ class Prefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_advertising_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roa_validity_end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wan_validation_signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a custom IPv4 prefix or custom IPv6 prefix.
@@ -478,9 +478,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+            cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1)).apply(lambda invoke: invoke.result),
+                netnum=1).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
 
@@ -571,9 +571,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+            cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1)).apply(lambda invoke: invoke.result),
+                netnum=1).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
 
@@ -601,17 +601,17 @@ class Prefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 commissioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_advertising_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roa_validity_end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wan_validation_signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -646,17 +646,17 @@ class Prefix(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            commissioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            internet_advertising_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            roa_validity_end_date: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            wan_validation_signed_message: Optional[pulumi.Input[_builtins.str]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Prefix':
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Prefix':
         """
         Get an existing Prefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

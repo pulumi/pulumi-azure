@@ -587,8 +587,8 @@ def get_exadata_infrastructure(name: Optional[_builtins.str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         total_storage_size_in_gbs=pulumi.get(__ret__, 'total_storage_size_in_gbs'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_exadata_infrastructure_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_exadata_infrastructure_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExadataInfrastructureResult]:
     """
     Use this data source to access information about an existing Cloud Exadata Infrastructure.

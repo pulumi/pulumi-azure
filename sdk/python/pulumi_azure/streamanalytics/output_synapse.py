@@ -26,7 +26,7 @@ class OutputSynapseArgs:
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
                  table: pulumi.Input[_builtins.str],
                  user: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputSynapse resource.
 
@@ -135,28 +135,28 @@ class OutputSynapseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OutputSynapseState:
     def __init__(__self__, *,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputSynapse resources.
 
@@ -188,98 +188,98 @@ class _OutputSynapseState:
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password that will be used to connect to the Azure SQL database.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -289,14 +289,14 @@ class OutputSynapse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
@@ -454,14 +454,14 @@ class OutputSynapse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,14 +505,14 @@ class OutputSynapse(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            table: Optional[pulumi.Input[_builtins.str]] = None,
-            user: Optional[pulumi.Input[_builtins.str]] = None) -> 'OutputSynapse':
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> 'OutputSynapse':
         """
         Get an existing OutputSynapse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

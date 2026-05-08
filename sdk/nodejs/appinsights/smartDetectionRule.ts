@@ -139,23 +139,23 @@ export interface SmartDetectionRuleState {
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Do emails get sent to subscription owners? Defaults to `true`.
      */
-    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface SmartDetectionRuleArgs {
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      */
@@ -175,13 +175,13 @@ export interface SmartDetectionRuleArgs {
     /**
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Do emails get sent to subscription owners? Defaults to `true`.
      */
-    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean | undefined>;
 }

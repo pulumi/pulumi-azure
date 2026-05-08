@@ -173,37 +173,37 @@ export interface WorkspaceNamedValueState {
     /**
      * The ID of the API Management Workspace. Changing this forces a new resource to be created.
      */
-    apiManagementWorkspaceId?: pulumi.Input<string>;
+    apiManagementWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The display name of this API Management Workspace Named Value.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the API Management Workspace Named Value is secret. Defaults to `false`.
      *
      * > **Note:** Setting the field `secret` to `true` does not make this field sensitive in Terraform, instead it marks the value as secret and encrypts the value in Azure.
      */
-    secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Workspace Named Value.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of this API Management Workspace Named Value.
      *
      * > **Note:** Exactly one of `value` or `valueFromKeyVault` must be specified.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * A `valueFromKeyVault` block as defined below.
      *
      * > **Note:** Exactly one of `value` or `valueFromKeyVault` must be specified. If `valueFromKeyVault` is specified, `secret` must also be set to `true`.
      */
-    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.WorkspaceNamedValueValueFromKeyVault>;
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.WorkspaceNamedValueValueFromKeyVault | undefined>;
 }
 
 /**
@@ -221,27 +221,27 @@ export interface WorkspaceNamedValueArgs {
     /**
      * The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the API Management Workspace Named Value is secret. Defaults to `false`.
      *
      * > **Note:** Setting the field `secret` to `true` does not make this field sensitive in Terraform, instead it marks the value as secret and encrypts the value in Azure.
      */
-    secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Workspace Named Value.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of this API Management Workspace Named Value.
      *
      * > **Note:** Exactly one of `value` or `valueFromKeyVault` must be specified.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * A `valueFromKeyVault` block as defined below.
      *
      * > **Note:** Exactly one of `value` or `valueFromKeyVault` must be specified. If `valueFromKeyVault` is specified, `secret` must also be set to `true`.
      */
-    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.WorkspaceNamedValueValueFromKeyVault>;
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.WorkspaceNamedValueValueFromKeyVault | undefined>;
 }

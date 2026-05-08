@@ -160,31 +160,31 @@ export interface TxtRecordState {
     /**
      * The FQDN of the DNS TXT Record.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `record` blocks as defined below.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.privatedns.TxtRecordRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.privatedns.TxtRecordRecord>[] | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface TxtRecordArgs {
     /**
      * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `record` blocks as defined below.
      */
@@ -206,7 +206,7 @@ export interface TxtRecordArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

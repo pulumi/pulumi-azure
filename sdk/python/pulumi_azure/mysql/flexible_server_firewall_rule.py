@@ -23,7 +23,7 @@ class FlexibleServerFirewallRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  start_ip_address: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerFirewallRule resource.
 
@@ -94,25 +94,25 @@ class FlexibleServerFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FlexibleServerFirewallRuleState:
     def __init__(__self__, *,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
 
@@ -137,7 +137,7 @@ class _FlexibleServerFirewallRuleState:
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the End IP Address associated with this Firewall Rule. 
 
@@ -146,55 +146,55 @@ class _FlexibleServerFirewallRuleState:
         return pulumi.get(self, "end_ip_address")
 
     @end_ip_address.setter
-    def end_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Start IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
     @start_ip_address.setter
-    def start_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip_address", value)
 
 
@@ -204,11 +204,11 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Firewall Rule for a MySQL Flexible Server.
@@ -409,11 +409,11 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,11 +446,11 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_ip_address: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlexibleServerFirewallRule':
+            end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_ip_address: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlexibleServerFirewallRule':
         """
         Get an existing FlexibleServerFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -58,8 +58,8 @@ class ClusterCustomerManagedKeyArgs:
 @pulumi.input_type
 class _ClusterCustomerManagedKeyState:
     def __init__(__self__, *,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
 
@@ -73,26 +73,26 @@ class _ClusterCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key to use for encryption.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsClusterId")
-    def log_analytics_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
         return pulumi.get(self, "log_analytics_cluster_id")
 
     @log_analytics_cluster_id.setter
-    def log_analytics_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_cluster_id", value)
 
 
@@ -102,8 +102,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Cluster Customer Managed Key.
@@ -299,8 +299,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,8 +326,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterCustomerManagedKey':
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterCustomerManagedKey':
         """
         Get an existing ClusterCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

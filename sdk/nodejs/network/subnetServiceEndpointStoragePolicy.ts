@@ -163,23 +163,23 @@ export interface SubnetServiceEndpointStoragePolicyState {
     /**
      * A `definition` block as defined below
      */
-    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[]>;
+    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[] | undefined>;
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -189,15 +189,15 @@ export interface SubnetServiceEndpointStoragePolicyArgs {
     /**
      * A `definition` block as defined below
      */
-    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[]>;
+    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[] | undefined>;
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
@@ -205,5 +205,5 @@ export interface SubnetServiceEndpointStoragePolicyArgs {
     /**
      * A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

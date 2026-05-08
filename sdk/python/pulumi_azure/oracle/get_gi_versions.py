@@ -134,9 +134,9 @@ def get_gi_versions(location: Optional[_builtins.str] = None,
         shape=pulumi.get(__ret__, 'shape'),
         versions=pulumi.get(__ret__, 'versions'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_gi_versions_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                           shape: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_gi_versions_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                           shape: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGiVersionsResult]:
     """
     This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.

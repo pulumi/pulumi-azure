@@ -169,36 +169,36 @@ export interface DatabaseExtendedAuditingPolicyState {
     /**
      * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    databaseId?: pulumi.Input<string>;
+    databaseId?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? Defaults to `true`.
      *
      * > **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
      * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,28 +214,28 @@ export interface DatabaseExtendedAuditingPolicyArgs {
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? Defaults to `true`.
      *
      * > **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
      * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

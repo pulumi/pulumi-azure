@@ -166,31 +166,31 @@ export interface DataSourceWindowsPerformanceCounterState {
     /**
      * The friendly name of the performance counter.
      */
-    counterName?: pulumi.Input<string>;
+    counterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * The time of sample interval in seconds. Supports values between 10 and 2147483647.
      */
-    intervalSeconds?: pulumi.Input<number>;
+    intervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface DataSourceWindowsPerformanceCounterArgs {
     /**
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      */

@@ -142,29 +142,29 @@ export interface LocalRulestackCertificateState {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the Certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
-    keyVaultCertificateId?: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack Certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
-    rulestackId?: pulumi.Input<string>;
+    rulestackId?: pulumi.Input<string | undefined>;
     /**
      * Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      *
      * > **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      */
-    selfSigned?: pulumi.Input<boolean>;
+    selfSigned?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -174,19 +174,19 @@ export interface LocalRulestackCertificateArgs {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the Certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
-    keyVaultCertificateId?: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack Certificate.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
@@ -196,5 +196,5 @@ export interface LocalRulestackCertificateArgs {
      *
      * > **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      */
-    selfSigned?: pulumi.Input<boolean>;
+    selfSigned?: pulumi.Input<boolean | undefined>;
 }

@@ -66,8 +66,8 @@ class StaticWebAppFunctionAppRegistrationArgs:
 @pulumi.input_type
 class _StaticWebAppFunctionAppRegistrationState:
     def __init__(__self__, *,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_web_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticWebAppFunctionAppRegistration resources.
 
@@ -85,7 +85,7 @@ class _StaticWebAppFunctionAppRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="functionAppId")
-    def function_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
 
@@ -96,19 +96,19 @@ class _StaticWebAppFunctionAppRegistrationState:
         return pulumi.get(self, "function_app_id")
 
     @function_app_id.setter
-    def function_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="staticWebAppId")
-    def static_web_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_web_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "static_web_app_id")
 
     @static_web_app_id.setter
-    def static_web_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_web_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_web_app_id", value)
 
 
@@ -118,8 +118,8 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_web_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_web_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Service Static Web App Function App Registration.
@@ -269,8 +269,8 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_web_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_web_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -296,8 +296,8 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            static_web_app_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'StaticWebAppFunctionAppRegistration':
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            static_web_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'StaticWebAppFunctionAppRegistration':
         """
         Get an existing StaticWebAppFunctionAppRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

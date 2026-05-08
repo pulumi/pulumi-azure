@@ -23,8 +23,8 @@ class Powershell72ModuleArgs:
     def __init__(__self__, *,
                  automation_account_id: pulumi.Input[_builtins.str],
                  module_link: pulumi.Input['Powershell72ModuleModuleLinkArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Powershell72Module resource.
 
@@ -66,36 +66,36 @@ class Powershell72ModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _Powershell72ModuleState:
     def __init__(__self__, *,
-                 automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input['Powershell72ModuleModuleLinkArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional['Powershell72ModuleModuleLinkArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Powershell72Module resources.
 
@@ -115,50 +115,50 @@ class _Powershell72ModuleState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountId")
-    def automation_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
         """
         return pulumi.get(self, "automation_account_id")
 
     @automation_account_id.setter
-    def automation_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="moduleLink")
-    def module_link(self) -> Optional[pulumi.Input['Powershell72ModuleModuleLinkArgs']]:
+    def module_link(self) -> pulumi.Input[Optional['Powershell72ModuleModuleLinkArgs']]:
         """
         A `module_link` block as defined below.
         """
         return pulumi.get(self, "module_link")
 
     @module_link.setter
-    def module_link(self, value: Optional[pulumi.Input['Powershell72ModuleModuleLinkArgs']]):
+    def module_link(self, value: pulumi.Input[Optional['Powershell72ModuleModuleLinkArgs']]):
         pulumi.set(self, "module_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,10 +168,10 @@ class Powershell72Module(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Automation Powershell 7.2 Module.
@@ -283,10 +283,10 @@ class Powershell72Module(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,10 +314,10 @@ class Powershell72Module(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Powershell72Module':
+            automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Powershell72Module':
         """
         Get an existing Powershell72Module resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

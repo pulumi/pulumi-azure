@@ -160,43 +160,43 @@ export interface StaticSiteState {
     /**
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The default host name of the Static Web App.
      */
-    defaultHostName?: pulumi.Input<string>;
+    defaultHostName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
+    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    skuSize?: pulumi.Input<string>;
+    skuSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -206,19 +206,19 @@ export interface StaticSiteArgs {
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
+    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
@@ -226,13 +226,13 @@ export interface StaticSiteArgs {
     /**
      * Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    skuSize?: pulumi.Input<string>;
+    skuSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

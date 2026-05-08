@@ -25,15 +25,15 @@ class AppArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  revision_mode: pulumi.Input[_builtins.str],
                  template: pulumi.Input['AppTemplateArgs'],
-                 dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
-                 identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
-                 ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
-                 max_inactive_revisions: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dapr: pulumi.Input[Optional['AppDaprArgs']] = None,
+                 identity: pulumi.Input[Optional['AppIdentityArgs']] = None,
+                 ingress: pulumi.Input[Optional['AppIngressArgs']] = None,
+                 max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registries: pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a App resource.
 
@@ -126,103 +126,103 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dapr(self) -> Optional[pulumi.Input['AppDaprArgs']]:
+    def dapr(self) -> pulumi.Input[Optional['AppDaprArgs']]:
         """
         A `dapr` block as detailed below.
         """
         return pulumi.get(self, "dapr")
 
     @dapr.setter
-    def dapr(self, value: Optional[pulumi.Input['AppDaprArgs']]):
+    def dapr(self, value: pulumi.Input[Optional['AppDaprArgs']]):
         pulumi.set(self, "dapr", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AppIdentityArgs']]:
         """
         An `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input['AppIngressArgs']]:
+    def ingress(self) -> pulumi.Input[Optional['AppIngressArgs']]:
         """
         An `ingress` block as detailed below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input['AppIngressArgs']]):
+    def ingress(self, value: pulumi.Input[Optional['AppIngressArgs']]):
         pulumi.set(self, "ingress", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInactiveRevisions")
-    def max_inactive_revisions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_inactive_revisions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum of inactive revisions allowed for this Container App.
         """
         return pulumi.get(self, "max_inactive_revisions")
 
     @max_inactive_revisions.setter
-    def max_inactive_revisions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_inactive_revisions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_inactive_revisions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this Container App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]:
+    def registries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]]:
         """
         A `registry` block as detailed below.
         """
         return pulumi.get(self, "registries")
 
     @registries.setter
-    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]):
+    def registries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]]):
         pulumi.set(self, "registries", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]]:
         """
         One or more `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Container App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfileName")
-    def workload_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Workload Profile in the Container App Environment to place this Container App.
 
@@ -231,31 +231,31 @@ class AppArgs:
         return pulumi.get(self, "workload_profile_name")
 
     @workload_profile_name.setter
-    def workload_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_profile_name", value)
 
 
 @pulumi.input_type
 class _AppState:
     def __init__(__self__, *,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
-                 identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
-                 ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
-                 latest_revision_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_revision_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_inactive_revisions: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input['AppTemplateArgs']] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr: pulumi.Input[Optional['AppDaprArgs']] = None,
+                 identity: pulumi.Input[Optional['AppIdentityArgs']] = None,
+                 ingress: pulumi.Input[Optional['AppIngressArgs']] = None,
+                 latest_revision_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_revision_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 registries: pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional['AppTemplateArgs']] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering App resources.
 
@@ -319,211 +319,211 @@ class _AppState:
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
-    def container_app_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_environment_id")
 
     @container_app_environment_id.setter
-    def container_app_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Domain Verification for this Container App.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def dapr(self) -> Optional[pulumi.Input['AppDaprArgs']]:
+    def dapr(self) -> pulumi.Input[Optional['AppDaprArgs']]:
         """
         A `dapr` block as detailed below.
         """
         return pulumi.get(self, "dapr")
 
     @dapr.setter
-    def dapr(self, value: Optional[pulumi.Input['AppDaprArgs']]):
+    def dapr(self, value: pulumi.Input[Optional['AppDaprArgs']]):
         pulumi.set(self, "dapr", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AppIdentityArgs']]:
         """
         An `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input['AppIngressArgs']]:
+    def ingress(self) -> pulumi.Input[Optional['AppIngressArgs']]:
         """
         An `ingress` block as detailed below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input['AppIngressArgs']]):
+    def ingress(self, value: pulumi.Input[Optional['AppIngressArgs']]):
         pulumi.set(self, "ingress", value)
 
     @_builtins.property
     @pulumi.getter(name="latestRevisionFqdn")
-    def latest_revision_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latest_revision_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the Latest Revision of the Container App.
         """
         return pulumi.get(self, "latest_revision_fqdn")
 
     @latest_revision_fqdn.setter
-    def latest_revision_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latest_revision_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latest_revision_fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="latestRevisionName")
-    def latest_revision_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latest_revision_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the latest Container Revision.
         """
         return pulumi.get(self, "latest_revision_name")
 
     @latest_revision_name.setter
-    def latest_revision_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latest_revision_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latest_revision_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInactiveRevisions")
-    def max_inactive_revisions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_inactive_revisions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum of inactive revisions allowed for this Container App.
         """
         return pulumi.get(self, "max_inactive_revisions")
 
     @max_inactive_revisions.setter
-    def max_inactive_revisions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_inactive_revisions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_inactive_revisions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this Container App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def outbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Public IP Addresses which the Container App uses for outbound network access.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @outbound_ip_addresses.setter
-    def outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def outbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]:
+    def registries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]]:
         """
         A `registry` block as detailed below.
         """
         return pulumi.get(self, "registries")
 
     @registries.setter
-    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]):
+    def registries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppRegistryArgs']]]]):
         pulumi.set(self, "registries", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="revisionMode")
-    def revision_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
         """
         return pulumi.get(self, "revision_mode")
 
     @revision_mode.setter
-    def revision_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]]:
         """
         One or more `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Container App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['AppTemplateArgs']]:
+    def template(self) -> pulumi.Input[Optional['AppTemplateArgs']]:
         """
         A `template` block as detailed below.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['AppTemplateArgs']]):
+    def template(self, value: pulumi.Input[Optional['AppTemplateArgs']]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfileName")
-    def workload_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Workload Profile in the Container App Environment to place this Container App.
 
@@ -532,7 +532,7 @@ class _AppState:
         return pulumi.get(self, "workload_profile_name")
 
     @workload_profile_name.setter
-    def workload_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_profile_name", value)
 
 
@@ -542,19 +542,19 @@ class App(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr: Optional[pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
-                 ingress: Optional[pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
-                 max_inactive_revisions: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr: pulumi.Input[Optional[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
+                 ingress: pulumi.Input[Optional[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
+                 max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Container App.
@@ -703,19 +703,19 @@ class App(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr: Optional[pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
-                 ingress: Optional[pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
-                 max_inactive_revisions: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
-                 workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr: pulumi.Input[Optional[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
+                 ingress: pulumi.Input[Optional[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
+                 max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
+                 workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -763,24 +763,24 @@ class App(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dapr: Optional[pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
-            ingress: Optional[pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
-            latest_revision_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_revision_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_inactive_revisions: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            revision_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            template: Optional[pulumi.Input[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
-            workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'App':
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dapr: pulumi.Input[Optional[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
+            ingress: pulumi.Input[Optional[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
+            latest_revision_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_revision_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[Union['AppTemplateArgs', 'AppTemplateArgsDict']]] = None,
+            workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'App':
         """
         Get an existing App resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -32,8 +32,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -130,8 +130,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -228,8 +228,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -279,8 +279,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -330,8 +330,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -381,8 +381,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -432,8 +432,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class PostgresqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
      * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

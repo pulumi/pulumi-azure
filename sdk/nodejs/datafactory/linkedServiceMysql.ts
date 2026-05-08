@@ -148,35 +148,35 @@ export interface LinkedServiceMysqlState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with MySQL.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service MySQL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -186,11 +186,11 @@ export interface LinkedServiceMysqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with MySQL.
      */
@@ -202,17 +202,17 @@ export interface LinkedServiceMysqlArgs {
     /**
      * The description for the Data Factory Linked Service MySQL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

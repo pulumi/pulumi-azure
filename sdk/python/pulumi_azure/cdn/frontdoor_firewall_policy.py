@@ -24,18 +24,18 @@ class FrontdoorFirewallPolicyArgs:
                  mode: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_scrubbing: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_scrubbing: pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorFirewallPolicy resource.
 
@@ -137,7 +137,7 @@ class FrontdoorFirewallPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="captchaCookieExpirationInMinutes")
-    def captcha_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def captcha_cookie_expiration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
 
@@ -148,60 +148,60 @@ class FrontdoorFirewallPolicyArgs:
         return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
 
     @captcha_cookie_expiration_in_minutes.setter
-    def captcha_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def captcha_cookie_expiration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "captcha_cookie_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
-    def custom_block_response_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_block_response_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         """
         return pulumi.get(self, "custom_block_response_body")
 
     @custom_block_response_body.setter
-    def custom_block_response_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_block_response_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_block_response_body", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseStatusCode")
-    def custom_block_response_status_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def custom_block_response_status_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         """
         return pulumi.get(self, "custom_block_response_status_code")
 
     @custom_block_response_status_code.setter
-    def custom_block_response_status_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def custom_block_response_status_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "custom_block_response_status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]:
         """
         One or more `custom_rule` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Front Door Firewall Policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
-    def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def js_challenge_cookie_expiration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 
@@ -212,12 +212,12 @@ class FrontdoorFirewallPolicyArgs:
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @js_challenge_cookie_expiration_in_minutes.setter
-    def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def js_challenge_cookie_expiration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="logScrubbing")
-    def log_scrubbing(self) -> Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]:
+    def log_scrubbing(self) -> pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']]:
         """
         A `log_scrubbing` block as defined below.
 
@@ -226,48 +226,48 @@ class FrontdoorFirewallPolicyArgs:
         return pulumi.get(self, "log_scrubbing")
 
     @log_scrubbing.setter
-    def log_scrubbing(self, value: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]):
+    def log_scrubbing(self, value: pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']]):
         pulumi.set(self, "log_scrubbing", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
+    def managed_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
         """
         One or more `managed_rule` blocks as defined below.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]):
+    def managed_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]):
         pulumi.set(self, "managed_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If action type is redirect, this field represents redirect URL for the client.
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBodyCheckEnabled")
-    def request_body_check_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_body_check_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should policy managed rules inspect the request body content? Defaults to `true`.
 
@@ -276,41 +276,41 @@ class FrontdoorFirewallPolicyArgs:
         return pulumi.get(self, "request_body_check_enabled")
 
     @request_body_check_enabled.setter
-    def request_body_check_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_body_check_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_body_check_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Front Door Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FrontdoorFirewallPolicyState:
     def __init__(__self__, *,
-                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_scrubbing: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_scrubbing: pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorFirewallPolicy resources.
 
@@ -380,7 +380,7 @@ class _FrontdoorFirewallPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="captchaCookieExpirationInMinutes")
-    def captcha_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def captcha_cookie_expiration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
 
@@ -391,72 +391,72 @@ class _FrontdoorFirewallPolicyState:
         return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
 
     @captcha_cookie_expiration_in_minutes.setter
-    def captcha_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def captcha_cookie_expiration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "captcha_cookie_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
-    def custom_block_response_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_block_response_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         """
         return pulumi.get(self, "custom_block_response_body")
 
     @custom_block_response_body.setter
-    def custom_block_response_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_block_response_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_block_response_body", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseStatusCode")
-    def custom_block_response_status_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def custom_block_response_status_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         """
         return pulumi.get(self, "custom_block_response_status_code")
 
     @custom_block_response_status_code.setter
-    def custom_block_response_status_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def custom_block_response_status_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "custom_block_response_status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]:
         """
         One or more `custom_rule` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Front Door Firewall Policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendEndpointIds")
-    def frontend_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def frontend_endpoint_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         """
         return pulumi.get(self, "frontend_endpoint_ids")
 
     @frontend_endpoint_ids.setter
-    def frontend_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def frontend_endpoint_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "frontend_endpoint_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
-    def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def js_challenge_cookie_expiration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 
@@ -467,12 +467,12 @@ class _FrontdoorFirewallPolicyState:
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @js_challenge_cookie_expiration_in_minutes.setter
-    def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def js_challenge_cookie_expiration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="logScrubbing")
-    def log_scrubbing(self) -> Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]:
+    def log_scrubbing(self) -> pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']]:
         """
         A `log_scrubbing` block as defined below.
 
@@ -481,60 +481,60 @@ class _FrontdoorFirewallPolicyState:
         return pulumi.get(self, "log_scrubbing")
 
     @log_scrubbing.setter
-    def log_scrubbing(self, value: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]):
+    def log_scrubbing(self, value: pulumi.Input[Optional['FrontdoorFirewallPolicyLogScrubbingArgs']]):
         pulumi.set(self, "log_scrubbing", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
+    def managed_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
         """
         One or more `managed_rule` blocks as defined below.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]):
+    def managed_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]):
         pulumi.set(self, "managed_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If action type is redirect, this field represents redirect URL for the client.
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBodyCheckEnabled")
-    def request_body_check_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_body_check_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should policy managed rules inspect the request body content? Defaults to `true`.
 
@@ -543,24 +543,24 @@ class _FrontdoorFirewallPolicyState:
         return pulumi.get(self, "request_body_check_enabled")
 
     @request_body_check_enabled.setter
-    def request_body_check_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_body_check_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_body_check_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 
@@ -569,19 +569,19 @@ class _FrontdoorFirewallPolicyState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Front Door Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -591,21 +591,21 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Firewall Policy instance.
@@ -948,21 +948,21 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1004,22 +1004,22 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
-            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-            managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            request_body_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorFirewallPolicy':
+            captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
+            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorFirewallPolicy':
         """
         Get an existing FrontdoorFirewallPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

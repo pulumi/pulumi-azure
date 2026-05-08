@@ -178,39 +178,39 @@ export interface AnalyticsItemState {
     /**
      * The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * The content for the Analytics Item, for example the query text if `type` is `query`.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The alias to use for the function. Required when `type` is `function`.
      */
-    functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * A string containing the time the Analytics Item was created.
      */
-    timeCreated?: pulumi.Input<string>;
+    timeCreated?: pulumi.Input<string | undefined>;
     /**
      * A string containing the time the Analytics Item was last modified.
      */
-    timeModified?: pulumi.Input<string>;
+    timeModified?: pulumi.Input<string | undefined>;
     /**
      * The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * A string indicating the version of the query format
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,11 +228,11 @@ export interface AnalyticsItemArgs {
     /**
      * The alias to use for the function. Required when `type` is `function`.
      */
-    functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
      */

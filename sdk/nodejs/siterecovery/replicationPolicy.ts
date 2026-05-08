@@ -150,23 +150,23 @@ export interface ReplicationPolicyState {
      *
      * > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
      */
-    applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
+    applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The name of the replication policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration in minutes for which the recovery points need to be stored.
      */
-    recoveryPointRetentionInMinutes?: pulumi.Input<number>;
+    recoveryPointRetentionInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,7 +182,7 @@ export interface ReplicationPolicyArgs {
     /**
      * The name of the replication policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration in minutes for which the recovery points need to be stored.
      */

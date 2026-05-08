@@ -221,47 +221,47 @@ export interface LinkedServiceKustoState {
      *
      * The following supported arguments are specific to Azure Kusto Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * The Kusto Database Name.
      */
-    kustoDatabaseName?: pulumi.Input<string>;
+    kustoDatabaseName?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Kusto Cluster endpoint.
      */
-    kustoEndpoint?: pulumi.Input<string>;
+    kustoEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The service principal id in which to authenticate against the Kusto Database.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Kusto Database.
      */
-    servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
@@ -269,11 +269,11 @@ export interface LinkedServiceKustoState {
      *
      * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
      */
-    useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -285,11 +285,11 @@ export interface LinkedServiceKustoArgs {
      *
      * The following supported arguments are specific to Azure Kusto Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -297,11 +297,11 @@ export interface LinkedServiceKustoArgs {
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * The Kusto Database Name.
      */
@@ -313,19 +313,19 @@ export interface LinkedServiceKustoArgs {
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The service principal id in which to authenticate against the Kusto Database.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Kusto Database.
      */
-    servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
@@ -333,9 +333,9 @@ export interface LinkedServiceKustoArgs {
      *
      * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
      */
-    useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean | undefined>;
 }

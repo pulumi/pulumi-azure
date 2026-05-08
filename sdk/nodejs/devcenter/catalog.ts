@@ -153,23 +153,23 @@ export interface CatalogState {
     /**
      * A `catalogAdogit` block as defined below.
      */
-    catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit>;
+    catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit | undefined>;
     /**
      * A `catalogGithub` block as defined below.
      */
-    catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub>;
+    catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub | undefined>;
     /**
      * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,11 +179,11 @@ export interface CatalogArgs {
     /**
      * A `catalogAdogit` block as defined below.
      */
-    catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit>;
+    catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit | undefined>;
     /**
      * A `catalogGithub` block as defined below.
      */
-    catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub>;
+    catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub | undefined>;
     /**
      * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
      */
@@ -191,7 +191,7 @@ export interface CatalogArgs {
     /**
      * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
      */

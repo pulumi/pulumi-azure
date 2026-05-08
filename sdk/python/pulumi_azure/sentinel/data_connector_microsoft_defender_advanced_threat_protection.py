@@ -20,8 +20,8 @@ __all__ = ['DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs', 'DataCo
 class DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorMicrosoftDefenderAdvancedThreatProtection resource.
 
@@ -51,19 +51,19 @@ class DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Microsoft Defender Advanced Threat Protection Data Connector. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Microsoft Defender Advanced Threat Protection Data Connector connects to. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
 
@@ -72,16 +72,16 @@ class DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
 class _DataConnectorMicrosoftDefenderAdvancedThreatProtectionState:
     def __init__(__self__, *,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorMicrosoftDefenderAdvancedThreatProtection resources.
 
@@ -100,31 +100,31 @@ class _DataConnectorMicrosoftDefenderAdvancedThreatProtectionState:
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Microsoft Defender Advanced Threat Protection Data Connector. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Microsoft Defender Advanced Threat Protection Data Connector connects to. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
 
@@ -133,7 +133,7 @@ class _DataConnectorMicrosoftDefenderAdvancedThreatProtectionState:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -143,9 +143,9 @@ class DataConnectorMicrosoftDefenderAdvancedThreatProtection(pulumi.CustomResour
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Microsoft Defender Advanced Threat Protection Data Connector.
@@ -240,9 +240,9 @@ class DataConnectorMicrosoftDefenderAdvancedThreatProtection(pulumi.CustomResour
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -267,9 +267,9 @@ class DataConnectorMicrosoftDefenderAdvancedThreatProtection(pulumi.CustomResour
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataConnectorMicrosoftDefenderAdvancedThreatProtection':
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataConnectorMicrosoftDefenderAdvancedThreatProtection':
         """
         Get an existing DataConnectorMicrosoftDefenderAdvancedThreatProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

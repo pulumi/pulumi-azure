@@ -23,15 +23,15 @@ class TrafficManagerExternalEndpointArgs:
     def __init__(__self__, *,
                  profile_id: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 always_serve_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
 
@@ -94,127 +94,127 @@ class TrafficManagerExternalEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysServeEnabled")
-    def always_serve_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_serve_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         """
         return pulumi.get(self, "always_serve_enabled")
 
     @always_serve_enabled.setter
-    def always_serve_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_serve_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_serve_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the endpoint enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMappings")
-    def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
     @geo_mappings.setter
-    def geo_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the External Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class _TrafficManagerExternalEndpointState:
     def __init__(__self__, *,
-                 always_serve_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerExternalEndpoint resources.
 
@@ -255,134 +255,134 @@ class _TrafficManagerExternalEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysServeEnabled")
-    def always_serve_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_serve_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         """
         return pulumi.get(self, "always_serve_enabled")
 
     @always_serve_enabled.setter
-    def always_serve_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_serve_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_serve_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the endpoint enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMappings")
-    def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
     @geo_mappings.setter
-    def geo_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the External Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="profileId")
-    def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
-    def profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN DNS name of the target.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -392,17 +392,17 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_serve_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages an External Endpoint within a Traffic Manager Profile.
@@ -549,17 +549,17 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_serve_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -594,17 +594,17 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_serve_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-            geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None,
-            weight: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficManagerExternalEndpoint':
+            always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointCustomHeaderArgs', 'TrafficManagerExternalEndpointCustomHeaderArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerExternalEndpointSubnetArgs', 'TrafficManagerExternalEndpointSubnetArgsDict']]]]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrafficManagerExternalEndpoint':
         """
         Get an existing TrafficManagerExternalEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

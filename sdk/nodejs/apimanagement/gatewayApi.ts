@@ -123,11 +123,11 @@ export interface GatewayApiState {
     /**
      * The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**

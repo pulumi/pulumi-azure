@@ -24,12 +24,12 @@ class ScaleSetPacketCaptureArgs:
                  network_watcher_id: pulumi.Input[_builtins.str],
                  storage_location: pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs'],
                  virtual_machine_scale_set_id: pulumi.Input[_builtins.str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
-                 machine_scope: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']] = None,
-                 maximum_bytes_per_packet: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_bytes_per_session: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_capture_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
+                 machine_scope: pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']] = None,
+                 maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScaleSetPacketCapture resource.
 
@@ -97,89 +97,89 @@ class ScaleSetPacketCaptureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]:
         """
         One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="machineScope")
-    def machine_scope(self) -> Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]:
+    def machine_scope(self) -> pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']]:
         """
         A `machine_scope` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "machine_scope")
 
     @machine_scope.setter
-    def machine_scope(self, value: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]):
+    def machine_scope(self, value: pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']]):
         pulumi.set(self, "machine_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumBytesPerPacket")
-    def maximum_bytes_per_packet(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_bytes_per_packet(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_bytes_per_packet")
 
     @maximum_bytes_per_packet.setter
-    def maximum_bytes_per_packet(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_bytes_per_packet(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_bytes_per_packet", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumBytesPerSession")
-    def maximum_bytes_per_session(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_bytes_per_session(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_bytes_per_session")
 
     @maximum_bytes_per_session.setter
-    def maximum_bytes_per_session(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_bytes_per_session(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_bytes_per_session", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCaptureDurationInSeconds")
-    def maximum_capture_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_capture_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_capture_duration_in_seconds")
 
     @maximum_capture_duration_in_seconds.setter
-    def maximum_capture_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_capture_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_capture_duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ScaleSetPacketCaptureState:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
-                 machine_scope: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']] = None,
-                 maximum_bytes_per_packet: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_bytes_per_session: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_capture_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
+                 machine_scope: pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']] = None,
+                 maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional['ScaleSetPacketCaptureStorageLocationArgs']] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScaleSetPacketCapture resources.
 
@@ -214,110 +214,110 @@ class _ScaleSetPacketCaptureState:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]:
         """
         One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="machineScope")
-    def machine_scope(self) -> Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]:
+    def machine_scope(self) -> pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']]:
         """
         A `machine_scope` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "machine_scope")
 
     @machine_scope.setter
-    def machine_scope(self, value: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]):
+    def machine_scope(self, value: pulumi.Input[Optional['ScaleSetPacketCaptureMachineScopeArgs']]):
         pulumi.set(self, "machine_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumBytesPerPacket")
-    def maximum_bytes_per_packet(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_bytes_per_packet(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_bytes_per_packet")
 
     @maximum_bytes_per_packet.setter
-    def maximum_bytes_per_packet(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_bytes_per_packet(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_bytes_per_packet", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumBytesPerSession")
-    def maximum_bytes_per_session(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_bytes_per_session(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_bytes_per_session")
 
     @maximum_bytes_per_session.setter
-    def maximum_bytes_per_session(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_bytes_per_session(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_bytes_per_session", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCaptureDurationInSeconds")
-    def maximum_capture_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_capture_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maximum_capture_duration_in_seconds")
 
     @maximum_capture_duration_in_seconds.setter
-    def maximum_capture_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_capture_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_capture_duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkWatcherId")
-    def network_watcher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_watcher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Network Watcher. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_watcher_id")
 
     @network_watcher_id.setter
-    def network_watcher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_watcher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_watcher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']]:
+    def storage_location(self) -> pulumi.Input[Optional['ScaleSetPacketCaptureStorageLocationArgs']]:
         """
         A `storage_location` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
-    def storage_location(self, value: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']]):
+    def storage_location(self, value: pulumi.Input[Optional['ScaleSetPacketCaptureStorageLocationArgs']]):
         pulumi.set(self, "storage_location", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
     @virtual_machine_scale_set_id.setter
-    def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
 
@@ -327,15 +327,15 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
-                 machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
-                 maximum_bytes_per_packet: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_bytes_per_session: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_capture_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+                 machine_scope: pulumi.Input[Optional[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
+                 maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
@@ -562,15 +562,15 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
-                 machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
-                 maximum_bytes_per_packet: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_bytes_per_session: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_capture_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+                 machine_scope: pulumi.Input[Optional[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
+                 maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -605,15 +605,15 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
-            machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
-            maximum_bytes_per_packet: Optional[pulumi.Input[_builtins.int]] = None,
-            maximum_bytes_per_session: Optional[pulumi.Input[_builtins.int]] = None,
-            maximum_capture_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
-            virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScaleSetPacketCapture':
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+            machine_scope: pulumi.Input[Optional[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
+            maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_location: pulumi.Input[Optional[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
+            virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScaleSetPacketCapture':
         """
         Get an existing ScaleSetPacketCapture resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

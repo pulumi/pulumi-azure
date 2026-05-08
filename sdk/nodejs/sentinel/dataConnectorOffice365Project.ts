@@ -118,17 +118,17 @@ export interface DataConnectorOffice365ProjectState {
     /**
      * The ID of the Log Analytics Workspace that this Office 365 Project Data Connector resides in. Changing this forces a new Office 365 Project Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Office 365 Project Data Connector. Changing this forces a new Office 365 Project Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,11 +142,11 @@ export interface DataConnectorOffice365ProjectArgs {
     /**
      * The name which should be used for this Office 365 Project Data Connector. Changing this forces a new Office 365 Project Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

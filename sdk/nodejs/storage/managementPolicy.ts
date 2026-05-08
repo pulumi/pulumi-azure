@@ -172,11 +172,11 @@ export interface ManagementPolicyState {
     /**
      * A `rule` block as documented below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[] | undefined>;
     /**
      * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface ManagementPolicyArgs {
     /**
      * A `rule` block as documented below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[] | undefined>;
     /**
      * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */

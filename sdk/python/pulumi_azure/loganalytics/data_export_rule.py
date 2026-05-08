@@ -23,8 +23,8 @@ class DataExportRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  workspace_resource_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataExportRule resource.
 
@@ -94,39 +94,39 @@ class DataExportRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DataExportRuleState:
     def __init__(__self__, *,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 export_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 export_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataExportRule resources.
 
@@ -155,86 +155,86 @@ class _DataExportRuleState:
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceId")
-    def destination_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
         """
         return pulumi.get(self, "destination_resource_id")
 
     @destination_resource_id.setter
-    def destination_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="exportRuleId")
-    def export_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the created Data Export Rule.
         """
         return pulumi.get(self, "export_rule_id")
 
     @export_rule_id.setter
-    def export_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def table_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
         """
         return pulumi.get(self, "table_names")
 
     @table_names.setter
-    def table_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def table_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_names", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 
@@ -244,12 +244,12 @@ class DataExportRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Data Export Rule.
@@ -379,12 +379,12 @@ class DataExportRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,13 +419,13 @@ class DataExportRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            export_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataExportRule':
+            destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            export_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataExportRule':
         """
         Get an existing DataExportRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

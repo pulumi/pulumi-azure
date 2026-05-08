@@ -151,23 +151,23 @@ export interface VpnServerConfigurationPolicyGroupState {
     /**
      * Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `policy` blocks as documented below.
      */
-    policies?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupPolicy>[]>;
+    policies?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupPolicy>[] | undefined>;
     /**
      * The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
      */
-    vpnServerConfigurationId?: pulumi.Input<string>;
+    vpnServerConfigurationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,11 +177,11 @@ export interface VpnServerConfigurationPolicyGroupArgs {
     /**
      * Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `policy` blocks as documented below.
      */
@@ -189,7 +189,7 @@ export interface VpnServerConfigurationPolicyGroupArgs {
     /**
      * The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
      */

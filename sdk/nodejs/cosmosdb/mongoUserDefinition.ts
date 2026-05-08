@@ -160,21 +160,21 @@ export interface MongoUserDefinitionState {
     /**
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      */
-    cosmosMongoDatabaseId?: pulumi.Input<string>;
+    cosmosMongoDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * A list of Mongo Roles that are inherited to the Mongo User Definition.
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The password for the Mongo User Definition.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The username for the Mongo User Definition. Changing this forces a new resource to be created.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface MongoUserDefinitionArgs {
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The password for the Mongo User Definition.
      */

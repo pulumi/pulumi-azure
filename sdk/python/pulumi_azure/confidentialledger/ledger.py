@@ -24,10 +24,10 @@ class LedgerArgs:
                  azuread_based_service_principals: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]],
                  ledger_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
 
@@ -89,65 +89,65 @@ class LedgerArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedSecurityPrincipals")
-    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
+    def certificate_based_security_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
         """
         A list of `certificate_based_security_principal` blocks as defined below.
         """
         return pulumi.get(self, "certificate_based_security_principals")
 
     @certificate_based_security_principals.setter
-    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
+    def certificate_based_security_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "certificate_based_security_principals", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Confidential Ledger.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LedgerState:
     def __init__(__self__, *,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
-                 identity_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ledger_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ledger_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 azuread_based_service_principals: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
+                 certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+                 identity_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ledger_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ledger_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Ledger resources.
 
@@ -182,110 +182,110 @@ class _LedgerState:
 
     @_builtins.property
     @pulumi.getter(name="azureadBasedServicePrincipals")
-    def azuread_based_service_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]:
+    def azuread_based_service_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]:
         """
         A list of `azuread_based_service_principal` blocks as defined below.
         """
         return pulumi.get(self, "azuread_based_service_principals")
 
     @azuread_based_service_principals.setter
-    def azuread_based_service_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]):
+    def azuread_based_service_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]):
         pulumi.set(self, "azuread_based_service_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedSecurityPrincipals")
-    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
+    def certificate_based_security_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
         """
         A list of `certificate_based_security_principal` blocks as defined below.
         """
         return pulumi.get(self, "certificate_based_security_principals")
 
     @certificate_based_security_principals.setter
-    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
+    def certificate_based_security_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "certificate_based_security_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="identityServiceEndpoint")
-    def identity_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identity Service Endpoint for this Confidential Ledger.
         """
         return pulumi.get(self, "identity_service_endpoint")
 
     @identity_service_endpoint.setter
-    def identity_service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerEndpoint")
-    def ledger_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ledger_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Endpoint for this Confidential Ledger.
         """
         return pulumi.get(self, "ledger_endpoint")
 
     @ledger_endpoint.setter
-    def ledger_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ledger_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ledger_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerType")
-    def ledger_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ledger_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ledger_type")
 
     @ledger_type.setter
-    def ledger_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ledger_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ledger_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Confidential Ledger.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -295,13 +295,13 @@ class Ledger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
-                 ledger_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azuread_based_service_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
+                 certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
+                 ledger_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Confidential Ledger.
@@ -416,13 +416,13 @@ class Ledger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
-                 ledger_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azuread_based_service_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
+                 certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
+                 ledger_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,15 +457,15 @@ class Ledger(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
-            certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
-            identity_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            ledger_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            ledger_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Ledger':
+            azuread_based_service_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]]] = None,
+            certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict']]]]] = None,
+            identity_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ledger_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ledger_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Ledger':
         """
         Get an existing Ledger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

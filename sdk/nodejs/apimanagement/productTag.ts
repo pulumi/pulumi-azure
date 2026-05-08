@@ -151,19 +151,19 @@ export interface ProductTagState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management product. Changing this forces a new resource to be created.
      */
-    apiManagementProductId?: pulumi.Input<string>;
+    apiManagementProductId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,7 +181,7 @@ export interface ProductTagArgs {
     /**
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */

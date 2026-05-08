@@ -23,13 +23,13 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -86,106 +86,106 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
+    def encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
-    def encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]):
+    def encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]]):
         pulumi.set(self, "encryptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the automation account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 dsc_primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 dsc_secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 dsc_server_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
-                 hybrid_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dsc_primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 dsc_secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 dsc_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
+                 hybrid_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -234,167 +234,167 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="dscPrimaryAccessKey")
-    def dsc_primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dsc_primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         """
         return pulumi.get(self, "dsc_primary_access_key")
 
     @dsc_primary_access_key.setter
-    def dsc_primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dsc_primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dsc_primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dscSecondaryAccessKey")
-    def dsc_secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dsc_secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         """
         return pulumi.get(self, "dsc_secondary_access_key")
 
     @dsc_secondary_access_key.setter
-    def dsc_secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dsc_secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dsc_secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dscServerEndpoint")
-    def dsc_server_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dsc_server_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DSC Server Endpoint associated with this Automation Account.
         """
         return pulumi.get(self, "dsc_server_endpoint")
 
     @dsc_server_endpoint.setter
-    def dsc_server_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dsc_server_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dsc_server_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
+    def encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
-    def encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]):
+    def encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountEncryptionArgs']]]]):
         pulumi.set(self, "encryptions", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridServiceUrl")
-    def hybrid_service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hybrid_service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         """
         return pulumi.get(self, "hybrid_service_url")
 
     @hybrid_service_url.setter
-    def hybrid_service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hybrid_service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hybrid_service_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the automation account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the account. Possible values are `Basic` and `Free`.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -404,15 +404,15 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Automation Account.
@@ -523,15 +523,15 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,20 +571,20 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dsc_primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            dsc_secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            dsc_server_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
-            hybrid_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountPrivateEndpointConnectionArgs', 'AccountPrivateEndpointConnectionArgsDict']]]]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            dsc_primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            dsc_secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            dsc_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
+            hybrid_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountPrivateEndpointConnectionArgs', 'AccountPrivateEndpointConnectionArgsDict']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

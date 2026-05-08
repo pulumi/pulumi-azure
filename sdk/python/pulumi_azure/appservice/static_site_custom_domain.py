@@ -21,7 +21,7 @@ class StaticSiteCustomDomainArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  static_site_id: pulumi.Input[_builtins.str],
-                 validation_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 validation_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticSiteCustomDomain resource.
 
@@ -60,24 +60,24 @@ class StaticSiteCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
-    def validation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_type", value)
 
 
 @pulumi.input_type
 class _StaticSiteCustomDomainState:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticSiteCustomDomain resources.
 
@@ -97,50 +97,50 @@ class _StaticSiteCustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="staticSiteId")
-    def static_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         """
         return pulumi.get(self, "static_site_id")
 
     @static_site_id.setter
-    def static_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_site_id", value)
 
     @_builtins.property
     @pulumi.getter(name="validationToken")
-    def validation_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Token to be used with `dns-txt-token` validation.
         """
         return pulumi.get(self, "validation_token")
 
     @validation_token.setter
-    def validation_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_token", value)
 
     @_builtins.property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
-    def validation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_type", value)
 
 
@@ -150,9 +150,9 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Static Site Custom Domain.
@@ -329,9 +329,9 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,10 +361,10 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            static_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_token: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'StaticSiteCustomDomain':
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            static_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_token: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StaticSiteCustomDomain':
         """
         Get an existing StaticSiteCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

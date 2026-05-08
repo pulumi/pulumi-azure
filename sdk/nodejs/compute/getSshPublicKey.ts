@@ -117,5 +117,5 @@ export interface GetSshPublicKeyOutputArgs {
     /**
      * A mapping of tags which should be assigned to the SSH Public Key.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

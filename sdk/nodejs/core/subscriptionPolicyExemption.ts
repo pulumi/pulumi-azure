@@ -162,39 +162,39 @@ export interface SubscriptionPolicyExemptionState {
     /**
      * A description to use for this Policy Exemption.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A friendly display name to use for this Policy Exemption.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
      */
-    exemptionCategory?: pulumi.Input<string>;
+    exemptionCategory?: pulumi.Input<string | undefined>;
     /**
      * The expiration date and time in UTC ISO 8601 format of this policy exemption.
      */
-    expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string | undefined>;
     /**
      * The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name of the Policy Exemption. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      */
-    policyAssignmentId?: pulumi.Input<string>;
+    policyAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -204,11 +204,11 @@ export interface SubscriptionPolicyExemptionArgs {
     /**
      * A description to use for this Policy Exemption.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A friendly display name to use for this Policy Exemption.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
      */
@@ -216,15 +216,15 @@ export interface SubscriptionPolicyExemptionArgs {
     /**
      * The expiration date and time in UTC ISO 8601 format of this policy exemption.
      */
-    expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string | undefined>;
     /**
      * The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name of the Policy Exemption. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      */
@@ -232,7 +232,7 @@ export interface SubscriptionPolicyExemptionArgs {
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
      */

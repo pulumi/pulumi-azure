@@ -21,7 +21,7 @@ class TargetArgs:
     def __init__(__self__, *,
                  target_resource_id: pulumi.Input[_builtins.str],
                  target_type: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
@@ -60,23 +60,23 @@ class TargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _TargetState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Target resources.
 
@@ -93,38 +93,38 @@ class _TargetState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Target Resource Id within which this Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers). Changing this forces a new Chaos Studio Target to be created.
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
 
@@ -134,9 +134,9 @@ class Target(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -159,7 +159,7 @@ class Target(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -219,7 +219,7 @@ class Target(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -261,9 +261,9 @@ class Target(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,9 +290,9 @@ class Target(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Target':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Target':
         """
         Get an existing Target resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

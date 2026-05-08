@@ -23,13 +23,13 @@ class VpnGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_id: pulumi.Input[_builtins.str],
-                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bgp_settings: pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnGateway resource.
 
@@ -86,102 +86,102 @@ class VpnGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
-    def bgp_route_translation_for_nat_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_translation_for_nat_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         """
         return pulumi.get(self, "bgp_route_translation_for_nat_enabled")
 
     @bgp_route_translation_for_nat_enabled.setter
-    def bgp_route_translation_for_nat_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_translation_for_nat_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_translation_for_nat_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']]:
         """
         A `bgp_settings` block as defined below.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPreference")
-    def routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Defaults to `Microsoft Network`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routing_preference")
 
     @routing_preference.setter
-    def routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Scale Unit for this VPN Gateway. Defaults to `1`.
         """
         return pulumi.get(self, "scale_unit")
 
     @scale_unit.setter
-    def scale_unit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the VPN Gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VpnGatewayState:
     def __init__(__self__, *,
-                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bgp_settings: pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnGateway resources.
 
@@ -219,122 +219,122 @@ class _VpnGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
-    def bgp_route_translation_for_nat_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_translation_for_nat_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         """
         return pulumi.get(self, "bgp_route_translation_for_nat_enabled")
 
     @bgp_route_translation_for_nat_enabled.setter
-    def bgp_route_translation_for_nat_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_translation_for_nat_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_translation_for_nat_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']]:
         """
         A `bgp_settings` block as defined below.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: pulumi.Input[Optional['VpnGatewayBgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]]:
         """
         An `ip_configuration` block as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPreference")
-    def routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Defaults to `Microsoft Network`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routing_preference")
 
     @routing_preference.setter
-    def routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Scale Unit for this VPN Gateway. Defaults to `1`.
         """
         return pulumi.get(self, "scale_unit")
 
     @scale_unit.setter
-    def scale_unit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the VPN Gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubId")
-    def virtual_hub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_hub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
-    def virtual_hub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_hub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_hub_id", value)
 
 
@@ -344,15 +344,15 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bgp_settings: Optional[pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
@@ -487,15 +487,15 @@ class VpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bgp_settings: Optional[pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -529,16 +529,16 @@ class VpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            bgp_settings: Optional[pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-            scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpnGateway':
+            bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpnGateway':
         """
         Get an existing VpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

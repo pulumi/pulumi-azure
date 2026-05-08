@@ -56,8 +56,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -107,8 +107,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -209,8 +209,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -260,8 +260,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -311,8 +311,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -411,8 +411,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -461,8 +461,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -511,8 +511,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -562,8 +562,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -616,8 +616,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -670,8 +670,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -724,8 +724,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -778,8 +778,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -833,8 +833,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -895,8 +895,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -957,8 +957,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1019,8 +1019,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1081,8 +1081,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
      * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1141,8 +1141,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1191,8 +1191,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1241,8 +1241,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1291,8 +1291,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1341,8 +1341,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1391,8 +1391,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1441,8 +1441,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1491,8 +1491,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1541,8 +1541,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1591,8 +1591,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1641,8 +1641,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1690,8 +1690,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1739,8 +1739,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1788,8 +1788,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1837,8 +1837,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1886,8 +1886,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1935,8 +1935,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1984,8 +1984,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2033,8 +2033,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2082,8 +2082,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2131,8 +2131,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2181,8 +2181,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2231,8 +2231,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2281,8 +2281,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2331,8 +2331,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2385,8 +2385,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ServiceArgs;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2452,8 +2452,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ServiceArgs;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2519,8 +2519,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ServiceArgs;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2586,8 +2586,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ServiceArgs;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2653,8 +2653,8 @@ public final class ApimanagementFunctions {
      * import com.pulumi.azure.apimanagement.ServiceArgs;
      * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
      * import com.pulumi.azure.apimanagement.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

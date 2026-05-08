@@ -22,8 +22,8 @@ class RegistryScopeMapArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  container_registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryScopeMap resource.
 
@@ -79,37 +79,37 @@ class RegistryScopeMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Container Registry.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the scope map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RegistryScopeMapState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryScopeMap resources.
 
@@ -132,62 +132,62 @@ class _RegistryScopeMapState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryName")
-    def container_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Registry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_registry_name")
 
     @container_registry_name.setter
-    def container_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Container Registry.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the scope map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -197,11 +197,11 @@ class RegistryScopeMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
@@ -336,11 +336,11 @@ class RegistryScopeMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -371,11 +371,11 @@ class RegistryScopeMap(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            container_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'RegistryScopeMap':
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'RegistryScopeMap':
         """
         Get an existing RegistryScopeMap resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -191,53 +191,53 @@ export interface EventHubNamespaceAuthorizationRuleState {
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The Primary Connection String for the Authorization Rule.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
      */
-    primaryConnectionStringAlias?: pulumi.Input<string>;
+    primaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Primary Key for the Authorization Rule.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
      */
-    secondaryConnectionStringAlias?: pulumi.Input<string>;
+    secondaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -247,15 +247,15 @@ export interface EventHubNamespaceAuthorizationRuleArgs {
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
@@ -269,5 +269,5 @@ export interface EventHubNamespaceAuthorizationRuleArgs {
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }

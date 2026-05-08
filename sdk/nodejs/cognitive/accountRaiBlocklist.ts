@@ -130,19 +130,19 @@ export interface AccountRaiBlocklistState {
     /**
      * The ID of the Cognitive Services Account. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * A short description for the Cognitive Account Rai Blocklist.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -156,13 +156,13 @@ export interface AccountRaiBlocklistArgs {
     /**
      * A short description for the Cognitive Account Rai Blocklist.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

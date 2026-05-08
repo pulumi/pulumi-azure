@@ -138,27 +138,27 @@ export interface AzureTrafficCollectorState {
     /**
      * The list of Resource IDs of collector policies.
      */
-    collectorPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    collectorPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Resource ID of virtual hub.
      */
-    virtualHubIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualHubIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -168,11 +168,11 @@ export interface AzureTrafficCollectorArgs {
     /**
      * Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
@@ -180,5 +180,5 @@ export interface AzureTrafficCollectorArgs {
     /**
      * A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

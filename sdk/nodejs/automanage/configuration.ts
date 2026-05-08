@@ -231,52 +231,52 @@ export interface ConfigurationState {
     /**
      * A `antimalware` block as defined below.
      */
-    antimalware?: pulumi.Input<inputs.automanage.ConfigurationAntimalware>;
+    antimalware?: pulumi.Input<inputs.automanage.ConfigurationAntimalware | undefined>;
     /**
      * Whether the automation account is enabled. Defaults to `false`.
      */
-    automationAccountEnabled?: pulumi.Input<boolean>;
+    automationAccountEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `azureSecurityBaseline` block as defined below.
      */
-    azureSecurityBaseline?: pulumi.Input<inputs.automanage.ConfigurationAzureSecurityBaseline>;
+    azureSecurityBaseline?: pulumi.Input<inputs.automanage.ConfigurationAzureSecurityBaseline | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.automanage.ConfigurationBackup>;
+    backup?: pulumi.Input<inputs.automanage.ConfigurationBackup | undefined>;
     /**
      * Whether the boot diagnostics are enabled. Defaults to `false`.
      */
-    bootDiagnosticsEnabled?: pulumi.Input<boolean>;
+    bootDiagnosticsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the defender for cloud is enabled. Defaults to `false`.
      */
-    defenderForCloudEnabled?: pulumi.Input<boolean>;
+    defenderForCloudEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the guest configuration is enabled. Defaults to `false`.
      */
-    guestConfigurationEnabled?: pulumi.Input<boolean>;
+    guestConfigurationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether log analytics are enabled. Defaults to `false`.
      */
-    logAnalyticsEnabled?: pulumi.Input<boolean>;
+    logAnalyticsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Whether the status change alert is enabled. Defaults to `false`.
      */
-    statusChangeAlertEnabled?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    statusChangeAlertEnabled?: pulumi.Input<boolean | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -286,43 +286,43 @@ export interface ConfigurationArgs {
     /**
      * A `antimalware` block as defined below.
      */
-    antimalware?: pulumi.Input<inputs.automanage.ConfigurationAntimalware>;
+    antimalware?: pulumi.Input<inputs.automanage.ConfigurationAntimalware | undefined>;
     /**
      * Whether the automation account is enabled. Defaults to `false`.
      */
-    automationAccountEnabled?: pulumi.Input<boolean>;
+    automationAccountEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `azureSecurityBaseline` block as defined below.
      */
-    azureSecurityBaseline?: pulumi.Input<inputs.automanage.ConfigurationAzureSecurityBaseline>;
+    azureSecurityBaseline?: pulumi.Input<inputs.automanage.ConfigurationAzureSecurityBaseline | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.automanage.ConfigurationBackup>;
+    backup?: pulumi.Input<inputs.automanage.ConfigurationBackup | undefined>;
     /**
      * Whether the boot diagnostics are enabled. Defaults to `false`.
      */
-    bootDiagnosticsEnabled?: pulumi.Input<boolean>;
+    bootDiagnosticsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the defender for cloud is enabled. Defaults to `false`.
      */
-    defenderForCloudEnabled?: pulumi.Input<boolean>;
+    defenderForCloudEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the guest configuration is enabled. Defaults to `false`.
      */
-    guestConfigurationEnabled?: pulumi.Input<boolean>;
+    guestConfigurationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether log analytics are enabled. Defaults to `false`.
      */
-    logAnalyticsEnabled?: pulumi.Input<boolean>;
+    logAnalyticsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
@@ -330,6 +330,6 @@ export interface ConfigurationArgs {
     /**
      * Whether the status change alert is enabled. Defaults to `false`.
      */
-    statusChangeAlertEnabled?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    statusChangeAlertEnabled?: pulumi.Input<boolean | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

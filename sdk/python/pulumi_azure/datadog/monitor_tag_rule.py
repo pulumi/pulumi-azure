@@ -22,9 +22,9 @@ __all__ = ['MonitorTagRuleArgs', 'MonitorTagRule']
 class MonitorTagRuleArgs:
     def __init__(__self__, *,
                  datadog_monitor_id: pulumi.Input[_builtins.str],
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorTagRule resource.
 
@@ -55,48 +55,48 @@ class MonitorTagRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]:
         """
         A `log` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]:
         """
         A `metric` block as defined below.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _MonitorTagRuleState:
     def __init__(__self__, *,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorTagRule resources.
 
@@ -116,50 +116,50 @@ class _MonitorTagRuleState:
 
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
-    def datadog_monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datadog_monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         """
         return pulumi.get(self, "datadog_monitor_id")
 
     @datadog_monitor_id.setter
-    def datadog_monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datadog_monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datadog_monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]:
         """
         A `log` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]:
         """
         A `metric` block as defined below.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -169,10 +169,10 @@ class MonitorTagRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages TagRules on the datadog Monitor.
@@ -320,10 +320,10 @@ class MonitorTagRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,10 +349,10 @@ class MonitorTagRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
-            metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'MonitorTagRule':
+            datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'MonitorTagRule':
         """
         Get an existing MonitorTagRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

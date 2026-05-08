@@ -187,39 +187,39 @@ export interface ApplicationGroupState {
     /**
      * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
-    defaultDesktopDisplayName?: pulumi.Input<string>;
+    defaultDesktopDisplayName?: pulumi.Input<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application Group.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
-    hostPoolId?: pulumi.Input<string>;
+    hostPoolId?: pulumi.Input<string | undefined>;
     /**
      * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -229,15 +229,15 @@ export interface ApplicationGroupArgs {
     /**
      * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
-    defaultDesktopDisplayName?: pulumi.Input<string>;
+    defaultDesktopDisplayName?: pulumi.Input<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application Group.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
@@ -245,11 +245,11 @@ export interface ApplicationGroupArgs {
     /**
      * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
@@ -257,7 +257,7 @@ export interface ApplicationGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */

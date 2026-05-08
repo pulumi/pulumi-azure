@@ -21,9 +21,9 @@ class CredentialUserManagedIdentityArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
                  identity_id: pulumi.Input[_builtins.str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialUserManagedIdentity resource.
 
@@ -74,7 +74,7 @@ class CredentialUserManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Credential.
 
@@ -83,42 +83,42 @@ class CredentialUserManagedIdentityArgs:
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Credential.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CredentialUserManagedIdentityState:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CredentialUserManagedIdentity resources.
 
@@ -145,7 +145,7 @@ class _CredentialUserManagedIdentityState:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Credential.
 
@@ -154,36 +154,36 @@ class _CredentialUserManagedIdentityState:
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Credential.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 
@@ -192,19 +192,19 @@ class _CredentialUserManagedIdentityState:
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -214,11 +214,11 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage a Data Factory User Assigned Managed Identity credential resource. These resources are used by Data Factory to access data sources.
@@ -355,11 +355,11 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,11 +388,11 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CredentialUserManagedIdentity':
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CredentialUserManagedIdentity':
         """
         Get an existing CredentialUserManagedIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

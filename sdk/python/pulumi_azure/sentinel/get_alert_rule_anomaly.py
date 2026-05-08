@@ -307,9 +307,9 @@ def get_alert_rule_anomaly(display_name: Optional[_builtins.str] = None,
         tactics=pulumi.get(__ret__, 'tactics'),
         techniques=pulumi.get(__ret__, 'techniques'),
         threshold_observations=pulumi.get(__ret__, 'threshold_observations'))
-def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_alert_rule_anomaly_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleAnomalyResult]:
     """
     Use this data source to access information about an existing Anomaly Alert Rule.

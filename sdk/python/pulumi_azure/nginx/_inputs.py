@@ -101,7 +101,7 @@ class ConfigurationProtectedFileArgsDict(TypedDict):
     """
     Specifies the path of this config file.
     """
-    content_hash: NotRequired[pulumi.Input[_builtins.str]]
+    content_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hash of the contents of this configuration file prefixed by the algorithm used.
     """
@@ -111,7 +111,7 @@ class ConfigurationProtectedFileArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
                  virtual_path: pulumi.Input[_builtins.str],
-                 content_hash: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_hash: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param pulumi.Input[_builtins.str] virtual_path: Specifies the path of this config file.
@@ -148,14 +148,14 @@ class ConfigurationProtectedFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentHash")
-    def content_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash of the contents of this configuration file prefixed by the algorithm used.
         """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
-    def content_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_hash", value)
 
 
@@ -298,7 +298,7 @@ class DeploymentFrontendPrivateArgs:
 
 
 class DeploymentFrontendPublicArgsDict(TypedDict):
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Public IP Resource ID to this NGINX Deployment.
     """
@@ -306,7 +306,7 @@ class DeploymentFrontendPublicArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentFrontendPublicArgs:
     def __init__(__self__, *,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
@@ -315,14 +315,14 @@ class DeploymentFrontendPublicArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
 
@@ -331,22 +331,22 @@ class DeploymentIdentityArgsDict(TypedDict):
     """
     Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of user managed identity ids to be assigned.
 
     > **Note:** This is required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DeploymentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of user managed identity ids to be assigned.
@@ -375,7 +375,7 @@ class DeploymentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned.
 
@@ -384,31 +384,31 @@ class DeploymentIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class DeploymentLoggingStorageAccountArgsDict(TypedDict):
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
     """
@@ -416,8 +416,8 @@ class DeploymentLoggingStorageAccountArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentLoggingStorageAccountArgs:
     def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
@@ -428,23 +428,23 @@ class DeploymentLoggingStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -481,7 +481,7 @@ class DeploymentWebApplicationFirewallArgsDict(TypedDict):
     """
     Whether WAF is enabled/disabled for this NGINX Deployment.
     """
-    statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]
+    statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]]
     """
     A `status` block as defined below.
     """
@@ -490,7 +490,7 @@ class DeploymentWebApplicationFirewallArgsDict(TypedDict):
 class DeploymentWebApplicationFirewallArgs:
     def __init__(__self__, *,
                  activation_state_enabled: pulumi.Input[_builtins.bool],
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]] = None):
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] activation_state_enabled: Whether WAF is enabled/disabled for this NGINX Deployment.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]] statuses: A `status` block as defined below.
@@ -513,31 +513,31 @@ class DeploymentWebApplicationFirewallArgs:
 
     @_builtins.property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]:
+    def statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]:
         """
         A `status` block as defined below.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]):
+    def statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
 
 class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
-    attack_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]
+    attack_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]]
     """
     One or more `attack_signatures_package` blocks as defined below.
     """
-    bot_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]
+    bot_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]]
     """
     One or more `bot_signatures_package` blocks as defined below.
     """
-    component_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]
+    component_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]]
     """
     One or more `component_versions` blocks as defined below.
     """
-    threat_campaigns_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]
+    threat_campaigns_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]]
     """
     One or more `threat_campaigns_package` blocks as defined below.
     """
@@ -545,10 +545,10 @@ class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusArgs:
     def __init__(__self__, *,
-                 attack_signatures_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]] = None,
-                 bot_signatures_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]] = None,
-                 component_versions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]] = None,
-                 threat_campaigns_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]] = None):
+                 attack_signatures_packages: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]] = None,
+                 bot_signatures_packages: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]] = None,
+                 component_versions: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]] = None,
+                 threat_campaigns_packages: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]] attack_signatures_packages: One or more `attack_signatures_package` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]] bot_signatures_packages: One or more `bot_signatures_package` blocks as defined below.
@@ -566,59 +566,59 @@ class DeploymentWebApplicationFirewallStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="attackSignaturesPackages")
-    def attack_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]:
+    def attack_signatures_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]:
         """
         One or more `attack_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "attack_signatures_packages")
 
     @attack_signatures_packages.setter
-    def attack_signatures_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]):
+    def attack_signatures_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]):
         pulumi.set(self, "attack_signatures_packages", value)
 
     @_builtins.property
     @pulumi.getter(name="botSignaturesPackages")
-    def bot_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]:
+    def bot_signatures_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]:
         """
         One or more `bot_signatures_package` blocks as defined below.
         """
         return pulumi.get(self, "bot_signatures_packages")
 
     @bot_signatures_packages.setter
-    def bot_signatures_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]):
+    def bot_signatures_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]):
         pulumi.set(self, "bot_signatures_packages", value)
 
     @_builtins.property
     @pulumi.getter(name="componentVersions")
-    def component_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]:
+    def component_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]:
         """
         One or more `component_versions` blocks as defined below.
         """
         return pulumi.get(self, "component_versions")
 
     @component_versions.setter
-    def component_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]):
+    def component_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]):
         pulumi.set(self, "component_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="threatCampaignsPackages")
-    def threat_campaigns_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]:
+    def threat_campaigns_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]:
         """
         One or more `threat_campaigns_package` blocks as defined below.
         """
         return pulumi.get(self, "threat_campaigns_packages")
 
     @threat_campaigns_packages.setter
-    def threat_campaigns_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]):
+    def threat_campaigns_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]):
         pulumi.set(self, "threat_campaigns_packages", value)
 
 
 class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(TypedDict):
-    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    revision_datetime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The revision date and time of the threat campaigns package.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the threat campaigns package.
     """
@@ -626,8 +626,8 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(Type
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
     def __init__(__self__, *,
-                 revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 revision_datetime: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
         :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
@@ -639,35 +639,35 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
-    def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_datetime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision date and time of the threat campaigns package.
         """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
-    def revision_datetime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_datetime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_datetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the threat campaigns package.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDict):
-    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    revision_datetime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The revision date and time of the threat campaigns package.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the threat campaigns package.
     """
@@ -675,8 +675,8 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDi
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
     def __init__(__self__, *,
-                 revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 revision_datetime: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
         :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
@@ -688,35 +688,35 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
-    def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_datetime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision date and time of the threat campaigns package.
         """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
-    def revision_datetime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_datetime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_datetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the threat campaigns package.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
-    waf_engine_version: NotRequired[pulumi.Input[_builtins.str]]
+    waf_engine_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the WAF Engine.
     """
-    waf_nginx_version: NotRequired[pulumi.Input[_builtins.str]]
+    waf_nginx_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the WAF Nginx module.
     """
@@ -724,8 +724,8 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
     def __init__(__self__, *,
-                 waf_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 waf_nginx_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 waf_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 waf_nginx_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] waf_engine_version: The version of the WAF Engine.
         :param pulumi.Input[_builtins.str] waf_nginx_version: The version of the WAF Nginx module.
@@ -737,35 +737,35 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="wafEngineVersion")
-    def waf_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def waf_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the WAF Engine.
         """
         return pulumi.get(self, "waf_engine_version")
 
     @waf_engine_version.setter
-    def waf_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def waf_engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "waf_engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="wafNginxVersion")
-    def waf_nginx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def waf_nginx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the WAF Nginx module.
         """
         return pulumi.get(self, "waf_nginx_version")
 
     @waf_nginx_version.setter
-    def waf_nginx_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def waf_nginx_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "waf_nginx_version", value)
 
 
 class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(TypedDict):
-    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    revision_datetime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The revision date and time of the threat campaigns package.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the threat campaigns package.
     """
@@ -773,8 +773,8 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(Typed
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
     def __init__(__self__, *,
-                 revision_datetime: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 revision_datetime: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] revision_datetime: The revision date and time of the threat campaigns package.
         :param pulumi.Input[_builtins.str] version: The version of the threat campaigns package.
@@ -786,26 +786,26 @@ class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="revisionDatetime")
-    def revision_datetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_datetime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision date and time of the threat campaigns package.
         """
         return pulumi.get(self, "revision_datetime")
 
     @revision_datetime.setter
-    def revision_datetime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_datetime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_datetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the threat campaigns package.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 

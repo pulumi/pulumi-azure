@@ -20,14 +20,14 @@ __all__ = ['ScriptArgs', 'Script']
 class ScriptArgs:
     def __init__(__self__, *,
                  database_id: pulumi.Input[_builtins.str],
-                 continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
 
@@ -73,113 +73,113 @@ class ScriptArgs:
 
     @_builtins.property
     @pulumi.getter(name="continueOnErrorsEnabled")
-    def continue_on_errors_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continue_on_errors_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicates whether to continue if one of the command fails.
         """
         return pulumi.get(self, "continue_on_errors_enabled")
 
     @continue_on_errors_enabled.setter
-    def continue_on_errors_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continue_on_errors_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continue_on_errors_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forceAnUpdateWhenValueChanged")
-    def force_an_update_when_value_changed(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_an_update_when_value_changed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique string. If changed the script will be applied again.
         """
         return pulumi.get(self, "force_an_update_when_value_changed")
 
     @force_an_update_when_value_changed.setter
-    def force_an_update_when_value_changed(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_an_update_when_value_changed(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_an_update_when_value_changed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalPermissionsAction")
-    def principal_permissions_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_permissions_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         """
         return pulumi.get(self, "principal_permissions_action")
 
     @principal_permissions_action.setter
-    def principal_permissions_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_permissions_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_permissions_action", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptContent")
-    def script_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_content")
 
     @script_content.setter
-    def script_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_content", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLevel")
-    def script_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_level")
 
     @script_level.setter
-    def script_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
 class _ScriptState:
     def __init__(__self__, *,
-                 continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
 
@@ -214,110 +214,110 @@ class _ScriptState:
 
     @_builtins.property
     @pulumi.getter(name="continueOnErrorsEnabled")
-    def continue_on_errors_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continue_on_errors_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag that indicates whether to continue if one of the command fails.
         """
         return pulumi.get(self, "continue_on_errors_enabled")
 
     @continue_on_errors_enabled.setter
-    def continue_on_errors_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continue_on_errors_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continue_on_errors_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseId")
-    def database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         """
         return pulumi.get(self, "database_id")
 
     @database_id.setter
-    def database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="forceAnUpdateWhenValueChanged")
-    def force_an_update_when_value_changed(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_an_update_when_value_changed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique string. If changed the script will be applied again.
         """
         return pulumi.get(self, "force_an_update_when_value_changed")
 
     @force_an_update_when_value_changed.setter
-    def force_an_update_when_value_changed(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_an_update_when_value_changed(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_an_update_when_value_changed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalPermissionsAction")
-    def principal_permissions_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_permissions_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
         """
         return pulumi.get(self, "principal_permissions_action")
 
     @principal_permissions_action.setter
-    def principal_permissions_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_permissions_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_permissions_action", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptContent")
-    def script_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_content")
 
     @script_content.setter
-    def script_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_content", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLevel")
-    def script_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_level")
 
     @script_level.setter
-    def script_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -327,15 +327,15 @@ class Script(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Kusto Script.
@@ -532,15 +532,15 @@ class Script(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -573,15 +573,15 @@ class Script(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            continue_on_errors_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            force_an_update_when_value_changed: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_permissions_action: Optional[pulumi.Input[_builtins.str]] = None,
-            sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-            script_content: Optional[pulumi.Input[_builtins.str]] = None,
-            script_level: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Script':
+            continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+            script_content: pulumi.Input[Optional[_builtins.str]] = None,
+            script_level: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Script':
         """
         Get an existing Script resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

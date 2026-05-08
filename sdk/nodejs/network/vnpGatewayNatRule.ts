@@ -166,31 +166,31 @@ export interface VnpGatewayNatRuleState {
     /**
      * One of more `externalMapping` blocks as defined below.
      */
-    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
+    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[] | undefined>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
-    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[]>;
+    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[] | undefined>;
     /**
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
-    ipConfigurationId?: pulumi.Input<string>;
+    ipConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,27 +200,27 @@ export interface VnpGatewayNatRuleArgs {
     /**
      * One of more `externalMapping` blocks as defined below.
      */
-    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
+    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[] | undefined>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
-    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[]>;
+    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleInternalMapping>[] | undefined>;
     /**
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
-    ipConfigurationId?: pulumi.Input<string>;
+    ipConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */

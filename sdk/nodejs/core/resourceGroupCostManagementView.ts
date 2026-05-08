@@ -204,43 +204,43 @@ export interface ResourceGroupCostManagementViewState {
     /**
      * Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
      */
-    accumulated?: pulumi.Input<boolean>;
+    accumulated?: pulumi.Input<boolean | undefined>;
     /**
      * Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
      */
-    chartType?: pulumi.Input<string>;
+    chartType?: pulumi.Input<string | undefined>;
     /**
      * A `dataset` block as defined below.
      */
-    dataset?: pulumi.Input<inputs.core.ResourceGroupCostManagementViewDataset>;
+    dataset?: pulumi.Input<inputs.core.ResourceGroupCostManagementViewDataset | undefined>;
     /**
      * User visible input name of the Cost Management View.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
      */
-    kpis?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewKpi>[]>;
+    kpis?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewKpi>[] | undefined>;
     /**
      * The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
      */
-    pivots?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewPivot>[]>;
+    pivots?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewPivot>[] | undefined>;
     /**
      * The type of the report. The only possible value is `Usage`.
      */
-    reportType?: pulumi.Input<string>;
+    reportType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created.
      */
-    resourceGroupId?: pulumi.Input<string>;
+    resourceGroupId?: pulumi.Input<string | undefined>;
     /**
      * The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
      */
-    timeframe?: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -266,15 +266,15 @@ export interface ResourceGroupCostManagementViewArgs {
     /**
      * One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
      */
-    kpis?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewKpi>[]>;
+    kpis?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewKpi>[] | undefined>;
     /**
      * The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
      */
-    pivots?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewPivot>[]>;
+    pivots?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupCostManagementViewPivot>[] | undefined>;
     /**
      * The type of the report. The only possible value is `Usage`.
      */

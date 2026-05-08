@@ -241,15 +241,15 @@ export interface GetAccountSASOutputArgs {
     /**
      * Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
      */
-    ipAddresses?: pulumi.Input<string>;
+    ipAddresses?: pulumi.Input<string | undefined>;
     /**
      * A `permissions` block as defined below.
      */
-    permissions?: pulumi.Input<inputs.storage.GetAccountSASPermissionsArgs>;
+    permissions?: pulumi.Input<inputs.storage.GetAccountSASPermissionsArgs | undefined>;
     /**
      * A `resourceTypes` block as defined below.
      */
@@ -261,7 +261,7 @@ export interface GetAccountSASOutputArgs {
     /**
      * Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
      */
-    signedVersion?: pulumi.Input<string>;
+    signedVersion?: pulumi.Input<string | undefined>;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */

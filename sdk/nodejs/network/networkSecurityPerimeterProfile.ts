@@ -115,11 +115,11 @@ export interface NetworkSecurityPerimeterProfileState {
     /**
      * The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Security Perimeter within this Profile is created. Changing this forces a new Network Security Perimeter Profile to be created.
      */
-    networkSecurityPerimeterId?: pulumi.Input<string>;
+    networkSecurityPerimeterId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -129,7 +129,7 @@ export interface NetworkSecurityPerimeterProfileArgs {
     /**
      * The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Security Perimeter within this Profile is created. Changing this forces a new Network Security Perimeter Profile to be created.
      */

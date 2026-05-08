@@ -173,61 +173,61 @@ export interface CassandraClusterState {
     /**
      * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
      */
-    authenticationMethod?: pulumi.Input<string>;
+    authenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
      */
-    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
-    defaultAdminPassword?: pulumi.Input<string>;
+    defaultAdminPassword?: pulumi.Input<string | undefined>;
     /**
      * The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
-    delegatedManagementSubnetId?: pulumi.Input<string>;
+    delegatedManagementSubnetId?: pulumi.Input<string | undefined>;
     /**
      * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
      */
-    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      */
-    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
      *
      * > **Note:** To disable this feature, set this property to `0`.
      */
-    hoursBetweenBackups?: pulumi.Input<number>;
+    hoursBetweenBackups?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity>;
+    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity | undefined>;
     /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
-    repairEnabled?: pulumi.Input<boolean>;
+    repairEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -237,11 +237,11 @@ export interface CassandraClusterArgs {
     /**
      * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
      */
-    authenticationMethod?: pulumi.Input<string>;
+    authenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
      */
-    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
@@ -253,33 +253,33 @@ export interface CassandraClusterArgs {
     /**
      * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
      */
-    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      */
-    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
      *
      * > **Note:** To disable this feature, set this property to `0`.
      */
-    hoursBetweenBackups?: pulumi.Input<number>;
+    hoursBetweenBackups?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity>;
+    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity | undefined>;
     /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
-    repairEnabled?: pulumi.Input<boolean>;
+    repairEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
@@ -287,9 +287,9 @@ export interface CassandraClusterArgs {
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

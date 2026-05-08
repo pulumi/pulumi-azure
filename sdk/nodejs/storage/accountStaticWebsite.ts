@@ -120,15 +120,15 @@ export interface AccountStaticWebsiteState {
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    error404Document?: pulumi.Input<string>;
+    error404Document?: pulumi.Input<string | undefined>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
      */
-    indexDocument?: pulumi.Input<string>;
+    indexDocument?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,11 +138,11 @@ export interface AccountStaticWebsiteArgs {
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    error404Document?: pulumi.Input<string>;
+    error404Document?: pulumi.Input<string | undefined>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
      */
-    indexDocument?: pulumi.Input<string>;
+    indexDocument?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
      */

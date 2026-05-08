@@ -183,11 +183,11 @@ export interface AccountNetworkRulesState {
      *
      * > **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */
-    bypasses?: pulumi.Input<pulumi.Input<string>[]>;
+    bypasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      *
@@ -197,21 +197,21 @@ export interface AccountNetworkRulesState {
      *
      * > **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      */
-    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `privateLinkAccess` block as defined below.
      */
-    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
+    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[] | undefined>;
     /**
      * Specifies the ID of the storage account. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A list of virtual network subnet ids to secure the storage account.
      *
      * > **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      */
-    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -223,7 +223,7 @@ export interface AccountNetworkRulesArgs {
      *
      * > **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */
-    bypasses?: pulumi.Input<pulumi.Input<string>[]>;
+    bypasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      */
@@ -237,11 +237,11 @@ export interface AccountNetworkRulesArgs {
      *
      * > **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      */
-    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `privateLinkAccess` block as defined below.
      */
-    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
+    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[] | undefined>;
     /**
      * Specifies the ID of the storage account. Changing this forces a new resource to be created.
      */
@@ -251,5 +251,5 @@ export interface AccountNetworkRulesArgs {
      *
      * > **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      */
-    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

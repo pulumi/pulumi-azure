@@ -221,27 +221,27 @@ export interface ContactState {
     /**
      * ID of the orbital contact profile. Changing this forces a new resource to be created.
      */
-    contactProfileId?: pulumi.Input<string>;
+    contactProfileId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure ground station. Changing this forces a new resource to be created.
      */
-    groundStationName?: pulumi.Input<string>;
+    groundStationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Contact. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Reservation end time of the Contact. Changing this forces a new resource to be created.
      */
-    reservationEndTime?: pulumi.Input<string>;
+    reservationEndTime?: pulumi.Input<string | undefined>;
     /**
      * Reservation start time of the Contact. Changing this forces a new resource to be created.
      */
-    reservationStartTime?: pulumi.Input<string>;
+    reservationStartTime?: pulumi.Input<string | undefined>;
     /**
      * The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
      */
-    spacecraftId?: pulumi.Input<string>;
+    spacecraftId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -259,7 +259,7 @@ export interface ContactArgs {
     /**
      * The name of the Contact. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Reservation end time of the Contact. Changing this forces a new resource to be created.
      */

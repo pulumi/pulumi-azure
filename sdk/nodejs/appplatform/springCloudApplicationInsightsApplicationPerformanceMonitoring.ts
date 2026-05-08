@@ -168,35 +168,35 @@ export interface SpringCloudApplicationInsightsApplicationPerformanceMonitoringS
     /**
      * The instrumentation key used to push data to Application Insights.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cloud role instance.
      */
-    roleInstance?: pulumi.Input<string>;
+    roleInstance?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cloud role name used to label the component on the application map.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the percentage for fixed-percentage sampling.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of requests per second for the rate-limited sampling.
      */
-    samplingRequestsPerSecond?: pulumi.Input<number>;
+    samplingRequestsPerSecond?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,31 +206,31 @@ export interface SpringCloudApplicationInsightsApplicationPerformanceMonitoringA
     /**
      * The instrumentation key used to push data to Application Insights.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cloud role instance.
      */
-    roleInstance?: pulumi.Input<string>;
+    roleInstance?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cloud role name used to label the component on the application map.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the percentage for fixed-percentage sampling.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of requests per second for the rate-limited sampling.
      */
-    samplingRequestsPerSecond?: pulumi.Input<number>;
+    samplingRequestsPerSecond?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */

@@ -145,23 +145,23 @@ export interface ServiceTrustState {
     /**
      * The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
      */
-    domainServiceId?: pulumi.Input<string>;
+    domainServiceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password of the inbound trust set in the on-premise Active Directory Domain Service.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service.
      */
-    trustedDomainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedDomainDnsIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The FQDN of the on-premise Active Directory Domain Service.
      */
-    trustedDomainFqdn?: pulumi.Input<string>;
+    trustedDomainFqdn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface ServiceTrustArgs {
     /**
      * The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password of the inbound trust set in the on-premise Active Directory Domain Service.
      */

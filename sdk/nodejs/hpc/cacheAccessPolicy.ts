@@ -147,15 +147,15 @@ export interface CacheAccessPolicyState {
     /**
      * One or more `accessRule` blocks (up to three) as defined below.
      */
-    accessRules?: pulumi.Input<pulumi.Input<inputs.hpc.CacheAccessPolicyAccessRule>[]>;
+    accessRules?: pulumi.Input<pulumi.Input<inputs.hpc.CacheAccessPolicyAccessRule>[] | undefined>;
     /**
      * The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
      */
-    hpcCacheId?: pulumi.Input<string>;
+    hpcCacheId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,5 +173,5 @@ export interface CacheAccessPolicyArgs {
     /**
      * The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

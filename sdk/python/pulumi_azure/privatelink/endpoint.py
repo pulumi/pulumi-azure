@@ -24,12 +24,12 @@ class EndpointArgs:
                  private_service_connection: pulumi.Input['EndpointPrivateServiceConnectionArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 custom_network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -97,92 +97,92 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="customNetworkInterfaceName")
-    def custom_network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_network_interface_name")
 
     @custom_network_interface_name.setter
-    def custom_network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
         """
         One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneGroup")
-    def private_dns_zone_group(self) -> Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]:
+    def private_dns_zone_group(self) -> pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']]:
         """
         A `private_dns_zone_group` block as defined below.
         """
         return pulumi.get(self, "private_dns_zone_group")
 
     @private_dns_zone_group.setter
-    def private_dns_zone_group(self, value: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]):
+    def private_dns_zone_group(self, value: pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']]):
         pulumi.set(self, "private_dns_zone_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EndpointState:
     def __init__(__self__, *,
-                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
-                 custom_network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
-                 private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
+                 custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
+                 private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']] = None,
+                 private_service_connection: pulumi.Input[Optional['EndpointPrivateServiceConnectionArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
 
@@ -226,146 +226,146 @@ class _EndpointState:
 
     @_builtins.property
     @pulumi.getter(name="customDnsConfigs")
-    def custom_dns_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]:
+    def custom_dns_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]:
         """
         A `custom_dns_configs` block as defined below.
         """
         return pulumi.get(self, "custom_dns_configs")
 
     @custom_dns_configs.setter
-    def custom_dns_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]):
+    def custom_dns_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]):
         pulumi.set(self, "custom_dns_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="customNetworkInterfaceName")
-    def custom_network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_network_interface_name")
 
     @custom_network_interface_name.setter
-    def custom_network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
         """
         One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
         """
         A `network_interface` block as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]:
+    def private_dns_zone_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]:
         """
         A `private_dns_zone_configs` block as defined below.
         """
         return pulumi.get(self, "private_dns_zone_configs")
 
     @private_dns_zone_configs.setter
-    def private_dns_zone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]):
+    def private_dns_zone_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]):
         pulumi.set(self, "private_dns_zone_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneGroup")
-    def private_dns_zone_group(self) -> Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]:
+    def private_dns_zone_group(self) -> pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']]:
         """
         A `private_dns_zone_group` block as defined below.
         """
         return pulumi.get(self, "private_dns_zone_group")
 
     @private_dns_zone_group.setter
-    def private_dns_zone_group(self, value: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]):
+    def private_dns_zone_group(self, value: pulumi.Input[Optional['EndpointPrivateDnsZoneGroupArgs']]):
         pulumi.set(self, "private_dns_zone_group", value)
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnection")
-    def private_service_connection(self) -> Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']]:
+    def private_service_connection(self) -> pulumi.Input[Optional['EndpointPrivateServiceConnectionArgs']]:
         """
         A `private_service_connection` block as defined below.
         """
         return pulumi.get(self, "private_service_connection")
 
     @private_service_connection.setter
-    def private_service_connection(self, value: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']]):
+    def private_service_connection(self, value: pulumi.Input[Optional['EndpointPrivateServiceConnectionArgs']]):
         pulumi.set(self, "private_service_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -375,15 +375,15 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-                 private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Private Endpoint.
@@ -758,15 +758,15 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-                 private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -804,18 +804,18 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]]] = None,
-            custom_network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
-            private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]]] = None,
-            private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-            private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Endpoint':
+            custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]]] = None,
+            custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
+            private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]]] = None,
+            private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+            private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Endpoint':
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

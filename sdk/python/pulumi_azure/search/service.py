@@ -23,20 +23,20 @@ class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_failure_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosting_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 semantic_search_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -136,7 +136,7 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedIps")
-    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
 
@@ -145,12 +145,12 @@ class ServiceArgs:
         return pulumi.get(self, "allowed_ips")
 
     @allowed_ips.setter
-    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationFailureMode")
-    def authentication_failure_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_failure_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 
@@ -159,24 +159,24 @@ class ServiceArgs:
         return pulumi.get(self, "authentication_failure_mode")
 
     @authentication_failure_mode.setter
-    def authentication_failure_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_failure_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_failure_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnforcementEnabled")
-    def customer_managed_key_enforcement_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enforcement_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         """
         return pulumi.get(self, "customer_managed_key_enforcement_enabled")
 
     @customer_managed_key_enforcement_enabled.setter
-    def customer_managed_key_enforcement_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enforcement_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enforcement_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingMode")
-    def hosting_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosting_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 
@@ -185,72 +185,72 @@ class ServiceArgs:
         return pulumi.get(self, "hosting_mode")
 
     @hosting_mode.setter
-    def hosting_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosting_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosting_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
-    def network_rule_bypass_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
     @network_rule_bypass_option.setter
-    def network_rule_bypass_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_rule_bypass_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_rule_bypass_option", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 
@@ -259,36 +259,36 @@ class ServiceArgs:
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_count", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticSearchSku")
-    def semantic_search_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def semantic_search_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 
@@ -297,46 +297,46 @@ class ServiceArgs:
         return pulumi.get(self, "semantic_search_sku")
 
     @semantic_search_sku.setter
-    def semantic_search_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def semantic_search_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "semantic_search_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of tags which should be assigned to this Search Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_failure_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_encryption_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_encryption_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -423,7 +423,7 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="allowedIps")
-    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
 
@@ -432,12 +432,12 @@ class _ServiceState:
         return pulumi.get(self, "allowed_ips")
 
     @allowed_ips.setter
-    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationFailureMode")
-    def authentication_failure_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_failure_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 
@@ -446,48 +446,48 @@ class _ServiceState:
         return pulumi.get(self, "authentication_failure_mode")
 
     @authentication_failure_mode.setter
-    def authentication_failure_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_failure_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_failure_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryptionComplianceStatus")
-    def customer_managed_key_encryption_compliance_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_encryption_compliance_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         """
         return pulumi.get(self, "customer_managed_key_encryption_compliance_status")
 
     @customer_managed_key_encryption_compliance_status.setter
-    def customer_managed_key_encryption_compliance_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_encryption_compliance_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_encryption_compliance_status", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnforcementEnabled")
-    def customer_managed_key_enforcement_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enforcement_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         """
         return pulumi.get(self, "customer_managed_key_enforcement_enabled")
 
     @customer_managed_key_enforcement_enabled.setter
-    def customer_managed_key_enforcement_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enforcement_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enforcement_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint used to connect to this Search Service.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingMode")
-    def hosting_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosting_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 
@@ -496,72 +496,72 @@ class _ServiceState:
         return pulumi.get(self, "hosting_mode")
 
     @hosting_mode.setter
-    def hosting_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosting_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosting_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
-    def network_rule_bypass_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
     @network_rule_bypass_option.setter
-    def network_rule_bypass_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_rule_bypass_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_rule_bypass_option", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 
@@ -570,84 +570,84 @@ class _ServiceState:
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_count", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Key used for Search Service Administration.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="queryKeys")
-    def query_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]:
+    def query_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]:
         """
         A `query_keys` block as defined below.
         """
         return pulumi.get(self, "query_keys")
 
     @query_keys.setter
-    def query_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]):
+    def query_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]):
         pulumi.set(self, "query_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Key used for Search Service Administration.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticSearchSku")
-    def semantic_search_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def semantic_search_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 
@@ -656,12 +656,12 @@ class _ServiceState:
         return pulumi.get(self, "semantic_search_sku")
 
     @semantic_search_sku.setter
-    def semantic_search_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def semantic_search_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "semantic_search_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`.
 
@@ -674,19 +674,19 @@ class _ServiceState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of tags which should be assigned to this Search Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -696,22 +696,22 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_failure_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosting_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Search Service.
@@ -913,22 +913,22 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_failure_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosting_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 semantic_search_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -975,27 +975,27 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authentication_failure_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key_encryption_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            hosting_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            query_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceQueryKeyArgs', 'ServiceQueryKeyArgsDict']]]]] = None,
-            replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            semantic_search_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
+            allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_encryption_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            query_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceQueryKeyArgs', 'ServiceQueryKeyArgsDict']]]]] = None,
+            replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -160,11 +160,11 @@ export interface AutomanageConfigurationAssignmentState {
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      */
-    configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the Virtual Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
 }
 
 /**

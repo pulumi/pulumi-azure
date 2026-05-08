@@ -67,7 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			storage, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
+//			storage2, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(pulumi.String(current.TenantId)),
 //				ObjectId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
@@ -128,7 +128,7 @@ import (
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				client,
-//				storage,
+//				storage2,
 //			}))
 //			if err != nil {
 //				return err

@@ -269,73 +269,73 @@ export interface DeploymentState {
     /**
      * An `autoScaleProfile` block as defined below.
      */
-    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[]>;
+    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[] | undefined>;
     /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
-    automaticUpgradeChannel?: pulumi.Input<string>;
+    automaticUpgradeChannel?: pulumi.Input<string | undefined>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * The dataplane API endpoint of the NGINX Deployment.
      */
-    dataplaneApiEndpoint?: pulumi.Input<string>;
+    dataplaneApiEndpoint?: pulumi.Input<string | undefined>;
     /**
      * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
-    diagnoseSupportEnabled?: pulumi.Input<boolean>;
+    diagnoseSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * One or more `frontendPrivate` blocks as defined below.
      */
-    frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[]>;
+    frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[] | undefined>;
     /**
      * A `frontendPublic` block as defined below.
      */
-    frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic>;
+    frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.nginx.DeploymentIdentity>;
+    identity?: pulumi.Input<inputs.nginx.DeploymentIdentity | undefined>;
     /**
      * The IP address of the NGINX Deployment.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
-    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
+    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[] | undefined>;
     /**
      * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
-    managedResourceGroup?: pulumi.Input<string>;
+    managedResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[] | undefined>;
     /**
      * The version of the NGINX Deployment.
      */
-    nginxVersion?: pulumi.Input<string>;
+    nginxVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the NGINX Deployment SKU.
      *
@@ -343,15 +343,15 @@ export interface DeploymentState {
      *
      * > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `webApplicationFirewall` blocks as defined below.
      */
-    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall>;
+    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall | undefined>;
 }
 
 /**
@@ -361,57 +361,57 @@ export interface DeploymentArgs {
     /**
      * An `autoScaleProfile` block as defined below.
      */
-    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[]>;
+    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[] | undefined>;
     /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
-    automaticUpgradeChannel?: pulumi.Input<string>;
+    automaticUpgradeChannel?: pulumi.Input<string | undefined>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
-    diagnoseSupportEnabled?: pulumi.Input<boolean>;
+    diagnoseSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * One or more `frontendPrivate` blocks as defined below.
      */
-    frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[]>;
+    frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[] | undefined>;
     /**
      * A `frontendPublic` block as defined below.
      */
-    frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic>;
+    frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.nginx.DeploymentIdentity>;
+    identity?: pulumi.Input<inputs.nginx.DeploymentIdentity | undefined>;
     /**
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
-    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
+    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[] | undefined>;
     /**
      * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
-    managedResourceGroup?: pulumi.Input<string>;
+    managedResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[] | undefined>;
     /**
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
@@ -427,9 +427,9 @@ export interface DeploymentArgs {
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `webApplicationFirewall` blocks as defined below.
      */
-    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall>;
+    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall | undefined>;
 }

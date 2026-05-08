@@ -144,8 +144,8 @@ def get_dataset_kusto_database(name: Optional[_builtins.str] = None,
         kusto_database_id=pulumi.get(__ret__, 'kusto_database_id'),
         name=pulumi.get(__ret__, 'name'),
         share_id=pulumi.get(__ret__, 'share_id'))
-def get_dataset_kusto_database_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      share_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_kusto_database_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      share_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetKustoDatabaseResult]:
     """
     Use this data source to access information about an existing Data Share Kusto Database Dataset.

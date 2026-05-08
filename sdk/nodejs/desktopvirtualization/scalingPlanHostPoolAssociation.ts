@@ -101,15 +101,15 @@ export interface ScalingPlanHostPoolAssociationState {
     /**
      * Should the Scaling Plan be enabled on this Host Pool.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    hostPoolId?: pulumi.Input<string>;
+    hostPoolId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
      */
-    scalingPlanId?: pulumi.Input<string>;
+    scalingPlanId?: pulumi.Input<string | undefined>;
 }
 
 /**

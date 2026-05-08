@@ -38,8 +38,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -87,8 +87,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -234,8 +234,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -332,8 +332,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -381,8 +381,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -479,8 +479,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -528,8 +528,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -576,8 +576,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -624,8 +624,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -672,8 +672,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -720,8 +720,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -768,8 +768,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetDeploymentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetDeploymentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -866,8 +866,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetDeploymentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -915,8 +915,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetDeploymentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -964,8 +964,8 @@ public final class NginxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.nginx.NginxFunctions;
      * import com.pulumi.azure.nginx.inputs.GetDeploymentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

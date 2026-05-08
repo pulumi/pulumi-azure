@@ -21,8 +21,8 @@ class ClusterDeploymentSafeguardArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[_builtins.str],
                  level: pulumi.Input[_builtins.str],
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pod_security_standards_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterDeploymentSafeguard resource.
 
@@ -64,36 +64,36 @@ class ClusterDeploymentSafeguardArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedNamespaces")
-    def excluded_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Kubernetes namespace names that should be excluded from Deployment Safeguards enforcement. This allows certain namespaces to bypass the configured policies.
         """
         return pulumi.get(self, "excluded_namespaces")
 
     @excluded_namespaces.setter
-    def excluded_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_namespaces", value)
 
     @_builtins.property
     @pulumi.getter(name="podSecurityStandardsLevel")
-    def pod_security_standards_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_security_standards_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Pod Security Standards level to enforce. Possible values are `Baseline`, `Privileged`, and `Restricted`. Defaults to `Privileged`.
         """
         return pulumi.get(self, "pod_security_standards_level")
 
     @pod_security_standards_level.setter
-    def pod_security_standards_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_security_standards_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_security_standards_level", value)
 
 
 @pulumi.input_type
 class _ClusterDeploymentSafeguardState:
     def __init__(__self__, *,
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_security_standards_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterDeploymentSafeguard resources.
 
@@ -113,50 +113,50 @@ class _ClusterDeploymentSafeguardState:
 
     @_builtins.property
     @pulumi.getter(name="excludedNamespaces")
-    def excluded_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Kubernetes namespace names that should be excluded from Deployment Safeguards enforcement. This allows certain namespaces to bypass the configured policies.
         """
         return pulumi.get(self, "excluded_namespaces")
 
     @excluded_namespaces.setter
-    def excluded_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_namespaces", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Kubernetes Cluster ID for which Deployment Safeguards should be configured. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubernetes_cluster_id")
 
     @kubernetes_cluster_id.setter
-    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of Deployment Safeguards enforcement. Possible values are `Warn` and `Enforce`.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter(name="podSecurityStandardsLevel")
-    def pod_security_standards_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_security_standards_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Pod Security Standards level to enforce. Possible values are `Baseline`, `Privileged`, and `Restricted`. Defaults to `Privileged`.
         """
         return pulumi.get(self, "pod_security_standards_level")
 
     @pod_security_standards_level.setter
-    def pod_security_standards_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_security_standards_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_security_standards_level", value)
 
 
@@ -166,10 +166,10 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_security_standards_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Deployment Safeguard for a Kubernetes Cluster.
@@ -309,10 +309,10 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_security_standards_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,10 +340,10 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            level: Optional[pulumi.Input[_builtins.str]] = None,
-            pod_security_standards_level: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterDeploymentSafeguard':
+            excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            level: pulumi.Input[Optional[_builtins.str]] = None,
+            pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterDeploymentSafeguard':
         """
         Get an existing ClusterDeploymentSafeguard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

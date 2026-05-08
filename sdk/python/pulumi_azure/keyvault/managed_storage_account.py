@@ -22,10 +22,10 @@ class ManagedStorageAccountArgs:
                  key_vault_id: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
                  storage_account_key: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regenerate_key_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regeneration_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedStorageAccount resource.
 
@@ -89,19 +89,19 @@ class ManagedStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="regenerateKeyAutomatically")
-    def regenerate_key_automatically(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def regenerate_key_automatically(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Storage Account access key be regenerated periodically?
 
@@ -110,44 +110,44 @@ class ManagedStorageAccountArgs:
         return pulumi.get(self, "regenerate_key_automatically")
 
     @regenerate_key_automatically.setter
-    def regenerate_key_automatically(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def regenerate_key_automatically(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "regenerate_key_automatically", value)
 
     @_builtins.property
     @pulumi.getter(name="regenerationPeriod")
-    def regeneration_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regeneration_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "regeneration_period")
 
     @regeneration_period.setter
-    def regeneration_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regeneration_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regeneration_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedStorageAccountState:
     def __init__(__self__, *,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regenerate_key_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regeneration_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ManagedStorageAccount resources.
 
@@ -178,31 +178,31 @@ class _ManagedStorageAccountState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="regenerateKeyAutomatically")
-    def regenerate_key_automatically(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def regenerate_key_automatically(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Storage Account access key be regenerated periodically?
 
@@ -211,55 +211,55 @@ class _ManagedStorageAccountState:
         return pulumi.get(self, "regenerate_key_automatically")
 
     @regenerate_key_automatically.setter
-    def regenerate_key_automatically(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def regenerate_key_automatically(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "regenerate_key_automatically", value)
 
     @_builtins.property
     @pulumi.getter(name="regenerationPeriod")
-    def regeneration_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regeneration_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "regeneration_period")
 
     @regeneration_period.setter
-    def regeneration_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regeneration_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regeneration_period", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
         """
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -269,13 +269,13 @@ class ManagedStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regenerate_key_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regeneration_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Key Vault Managed Storage Account.
@@ -432,13 +432,13 @@ class ManagedStorageAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regenerate_key_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regeneration_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,13 +471,13 @@ class ManagedStorageAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            regenerate_key_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-            regeneration_period: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ManagedStorageAccount':
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+            regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ManagedStorageAccount':
         """
         Get an existing ManagedStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,9 +24,9 @@ class CollectorPolicyArgs:
                  ipfx_emission: pulumi.Input['CollectorPolicyIpfxEmissionArgs'],
                  ipfx_ingestion: pulumi.Input['CollectorPolicyIpfxIngestionArgs'],
                  traffic_collector_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CollectorPolicy resource.
 
@@ -85,50 +85,50 @@ class CollectorPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Network Function Collector Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CollectorPolicyState:
     def __init__(__self__, *,
-                 ipfx_emission: Optional[pulumi.Input['CollectorPolicyIpfxEmissionArgs']] = None,
-                 ipfx_ingestion: Optional[pulumi.Input['CollectorPolicyIpfxIngestionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_collector_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipfx_emission: pulumi.Input[Optional['CollectorPolicyIpfxEmissionArgs']] = None,
+                 ipfx_ingestion: pulumi.Input[Optional['CollectorPolicyIpfxIngestionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_collector_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CollectorPolicy resources.
 
@@ -154,74 +154,74 @@ class _CollectorPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="ipfxEmission")
-    def ipfx_emission(self) -> Optional[pulumi.Input['CollectorPolicyIpfxEmissionArgs']]:
+    def ipfx_emission(self) -> pulumi.Input[Optional['CollectorPolicyIpfxEmissionArgs']]:
         """
         An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "ipfx_emission")
 
     @ipfx_emission.setter
-    def ipfx_emission(self, value: Optional[pulumi.Input['CollectorPolicyIpfxEmissionArgs']]):
+    def ipfx_emission(self, value: pulumi.Input[Optional['CollectorPolicyIpfxEmissionArgs']]):
         pulumi.set(self, "ipfx_emission", value)
 
     @_builtins.property
     @pulumi.getter(name="ipfxIngestion")
-    def ipfx_ingestion(self) -> Optional[pulumi.Input['CollectorPolicyIpfxIngestionArgs']]:
+    def ipfx_ingestion(self) -> pulumi.Input[Optional['CollectorPolicyIpfxIngestionArgs']]:
         """
         An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "ipfx_ingestion")
 
     @ipfx_ingestion.setter
-    def ipfx_ingestion(self, value: Optional[pulumi.Input['CollectorPolicyIpfxIngestionArgs']]):
+    def ipfx_ingestion(self, value: pulumi.Input[Optional['CollectorPolicyIpfxIngestionArgs']]):
         pulumi.set(self, "ipfx_ingestion", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Network Function Collector Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficCollectorId")
-    def traffic_collector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_collector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         """
         return pulumi.get(self, "traffic_collector_id")
 
     @traffic_collector_id.setter
-    def traffic_collector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_collector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_collector_id", value)
 
 
@@ -231,12 +231,12 @@ class CollectorPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-                 ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_collector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_collector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Function Collector Policy.
@@ -262,7 +262,7 @@ class CollectorPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=1,
+            bandwidth_in_gbps=float(1),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -353,7 +353,7 @@ class CollectorPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=1,
+            bandwidth_in_gbps=float(1),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -420,12 +420,12 @@ class CollectorPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-                 ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_collector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_collector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,12 +457,12 @@ class CollectorPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-            ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            traffic_collector_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CollectorPolicy':
+            ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+            ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_collector_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CollectorPolicy':
         """
         Get an existing CollectorPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

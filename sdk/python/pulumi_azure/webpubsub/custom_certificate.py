@@ -21,7 +21,7 @@ class CustomCertificateArgs:
     def __init__(__self__, *,
                  custom_certificate_id: pulumi.Input[_builtins.str],
                  web_pubsub_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomCertificate resource.
 
@@ -68,24 +68,24 @@ class CustomCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CustomCertificateState:
     def __init__(__self__, *,
-                 certificate_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomCertificate resources.
 
@@ -109,19 +109,19 @@ class _CustomCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="certificateVersion")
-    def certificate_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate version of the Web PubSub Custom Certificate.
         """
         return pulumi.get(self, "certificate_version")
 
     @certificate_version.setter
-    def certificate_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_version", value)
 
     @_builtins.property
     @pulumi.getter(name="customCertificateId")
-    def custom_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 
@@ -130,24 +130,24 @@ class _CustomCertificateState:
         return pulumi.get(self, "custom_certificate_id")
 
     @custom_certificate_id.setter
-    def custom_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="webPubsubId")
-    def web_pubsub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_pubsub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 
@@ -156,7 +156,7 @@ class _CustomCertificateState:
         return pulumi.get(self, "web_pubsub_id")
 
     @web_pubsub_id.setter
-    def web_pubsub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_pubsub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_pubsub_id", value)
 
 
@@ -166,9 +166,9 @@ class CustomCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Web PubSub Custom Certificate.
@@ -381,9 +381,9 @@ class CustomCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -411,10 +411,10 @@ class CustomCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_version: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomCertificate':
+            certificate_version: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomCertificate':
         """
         Get an existing CustomCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

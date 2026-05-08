@@ -22,7 +22,7 @@ class FirewallRuleArgs:
                  end_ip_address: pulumi.Input[_builtins.str],
                  start_ip_address: pulumi.Input[_builtins.str],
                  synapse_workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -83,24 +83,24 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the firewall rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FirewallRuleState:
     def __init__(__self__, *,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
 
@@ -124,7 +124,7 @@ class _FirewallRuleState:
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ending IP address to allow through the firewall for this rule.
 
@@ -135,43 +135,43 @@ class _FirewallRuleState:
         return pulumi.get(self, "end_ip_address")
 
     @end_ip_address.setter
-    def end_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the firewall rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The starting IP address to allow through the firewall for this rule.
         """
         return pulumi.get(self, "start_ip_address")
 
     @start_ip_address.setter
-    def start_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
 
@@ -181,10 +181,10 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows you to Manages a Synapse Firewall Rule.
@@ -316,10 +316,10 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,10 +349,10 @@ class FirewallRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FirewallRule':
+            end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirewallRule':
         """
         Get an existing FirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -191,49 +191,49 @@ export interface QueueAuthorizationRuleState {
     /**
      * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Primary Connection String for the Authorization Rule.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      */
-    primaryConnectionStringAlias?: pulumi.Input<string>;
+    primaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Primary Key for the Authorization Rule.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    queueId?: pulumi.Input<string>;
+    queueId?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    secondaryConnectionStringAlias?: pulumi.Input<string>;
+    secondaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -243,15 +243,15 @@ export interface QueueAuthorizationRuleArgs {
     /**
      * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      *
@@ -261,5 +261,5 @@ export interface QueueAuthorizationRuleArgs {
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }

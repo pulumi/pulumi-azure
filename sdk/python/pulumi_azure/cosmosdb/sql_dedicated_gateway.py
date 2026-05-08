@@ -73,9 +73,9 @@ class SqlDedicatedGatewayArgs:
 @pulumi.input_type
 class _SqlDedicatedGatewayState:
     def __init__(__self__, *,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlDedicatedGateway resources.
 
@@ -92,38 +92,38 @@ class _SqlDedicatedGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbAccountId")
-    def cosmosdb_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cosmosdb_account_id")
 
     @cosmosdb_account_id.setter
-    def cosmosdb_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         return pulumi.get(self, "instance_size")
 
     @instance_size.setter
-    def instance_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_size", value)
 
 
@@ -133,9 +133,9 @@ class SqlDedicatedGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
@@ -258,9 +258,9 @@ class SqlDedicatedGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,9 +289,9 @@ class SqlDedicatedGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            instance_size: Optional[pulumi.Input[_builtins.str]] = None) -> 'SqlDedicatedGateway':
+            cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_size: pulumi.Input[Optional[_builtins.str]] = None) -> 'SqlDedicatedGateway':
         """
         Get an existing SqlDedicatedGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

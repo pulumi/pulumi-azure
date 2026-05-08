@@ -169,43 +169,43 @@ export interface PartnerNamespaceState {
     /**
      * The endpoint for the Event Grid Partner Namespace.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerNamespaceInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerNamespaceInboundIpRule>[] | undefined>;
     /**
      * Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource Id of the Event Grid Partner Registration that this namespace is associated with. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    partnerRegistrationId?: pulumi.Input<string>;
+    partnerRegistrationId?: pulumi.Input<string | undefined>;
     /**
      * The partner topic routing mode. Possible values are `ChannelNameHeader` and `SourceEventAttribute`. Defaults to `ChannelNameHeader`. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    partnerTopicRoutingMode?: pulumi.Input<string>;
+    partnerTopicRoutingMode?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Namespace should exist. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Namespace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -215,19 +215,19 @@ export interface PartnerNamespaceArgs {
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerNamespaceInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.PartnerNamespaceInboundIpRule>[] | undefined>;
     /**
      * Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource Id of the Event Grid Partner Registration that this namespace is associated with. Changing this forces a new Event Grid Partner Namespace to be created.
      */
@@ -235,11 +235,11 @@ export interface PartnerNamespaceArgs {
     /**
      * The partner topic routing mode. Possible values are `ChannelNameHeader` and `SourceEventAttribute`. Defaults to `ChannelNameHeader`. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    partnerTopicRoutingMode?: pulumi.Input<string>;
+    partnerTopicRoutingMode?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Namespace should exist. Changing this forces a new Event Grid Partner Namespace to be created.
      */
@@ -247,5 +247,5 @@ export interface PartnerNamespaceArgs {
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Namespace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

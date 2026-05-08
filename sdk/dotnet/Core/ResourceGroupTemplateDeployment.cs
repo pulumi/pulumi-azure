@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Core
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["armExampleOutput"] = Std.Index.Jsondecode.Invoke(new()
+    ///         ["armExampleOutput"] = Std.Jsondecode.Invoke(new()
     ///         {
     ///             Input = example.OutputContent,
     ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),

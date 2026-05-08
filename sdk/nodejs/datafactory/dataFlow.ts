@@ -301,43 +301,43 @@ export interface DataFlowState {
     /**
      * List of tags that can be used for describing the Data Factory Data Flow.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Data Flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The script for the Data Factory Data Flow.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The script lines for the Data Factory Data Flow.
      */
-    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
+    scriptLines?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
-    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowSink>[]>;
+    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowSink>[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowSource>[] | undefined>;
     /**
      * One or more `transformation` blocks as defined below.
      */
-    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowTransformation>[]>;
+    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowTransformation>[] | undefined>;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface DataFlowArgs {
     /**
      * List of tags that can be used for describing the Data Factory Data Flow.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      */
@@ -355,23 +355,23 @@ export interface DataFlowArgs {
     /**
      * The description for the Data Factory Data Flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The script for the Data Factory Data Flow.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The script lines for the Data Factory Data Flow.
      */
-    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
+    scriptLines?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
@@ -383,5 +383,5 @@ export interface DataFlowArgs {
     /**
      * One or more `transformation` blocks as defined below.
      */
-    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowTransformation>[]>;
+    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.DataFlowTransformation>[] | undefined>;
 }

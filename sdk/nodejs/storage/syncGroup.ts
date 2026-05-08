@@ -115,11 +115,11 @@ export interface SyncGroupState {
     /**
      * The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
      */
-    storageSyncId?: pulumi.Input<string>;
+    storageSyncId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -129,7 +129,7 @@ export interface SyncGroupArgs {
     /**
      * The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
      */

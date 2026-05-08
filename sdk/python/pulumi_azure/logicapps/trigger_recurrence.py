@@ -24,10 +24,10 @@ class TriggerRecurrenceArgs:
                  frequency: pulumi.Input[_builtins.str],
                  interval: pulumi.Input[_builtins.int],
                  logic_app_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerRecurrence resource.
 
@@ -91,7 +91,7 @@ class TriggerRecurrenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -100,56 +100,56 @@ class TriggerRecurrenceArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']]:
         """
         A `schedule` block as specified below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
 class _TriggerRecurrenceState:
     def __init__(__self__, *,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerRecurrence resources.
 
@@ -180,43 +180,43 @@ class _TriggerRecurrenceState:
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "logic_app_id")
 
     @logic_app_id.setter
-    def logic_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -225,43 +225,43 @@ class _TriggerRecurrenceState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']]:
         """
         A `schedule` block as specified below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['TriggerRecurrenceScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -271,13 +271,13 @@ class TriggerRecurrence(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
@@ -380,13 +380,13 @@ class TriggerRecurrence(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,13 +419,13 @@ class TriggerRecurrence(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schedule: Optional[pulumi.Input[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'TriggerRecurrence':
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'TriggerRecurrence':
         """
         Get an existing TriggerRecurrence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

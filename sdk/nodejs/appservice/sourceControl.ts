@@ -181,45 +181,45 @@ export interface SourceControlState {
      *
      * > **Note:** Function apps are not supported at this time.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The branch name to use for deployments. Changing this forces a new resource to be created.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration>;
+    githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration | undefined>;
     /**
      * The URL for the repository. Changing this forces a new resource to be created.
      */
-    repoUrl?: pulumi.Input<string>;
+    repoUrl?: pulumi.Input<string | undefined>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
-    rollbackEnabled?: pulumi.Input<boolean>;
+    rollbackEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SCM Type in use. This value is decoded by the service from the repository information supplied.
      */
-    scmType?: pulumi.Input<string>;
+    scmType?: pulumi.Input<string | undefined>;
     /**
      * Should the App use local Git configuration. Changing this forces a new resource to be created.
      */
-    useLocalGit?: pulumi.Input<boolean>;
+    useLocalGit?: pulumi.Input<boolean | undefined>;
     /**
      * Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    useManualIntegration?: pulumi.Input<boolean>;
+    useManualIntegration?: pulumi.Input<boolean | undefined>;
     /**
      * The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    useMercurial?: pulumi.Input<boolean>;
+    useMercurial?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
      */
-    usesGithubAction?: pulumi.Input<boolean>;
+    usesGithubAction?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -235,31 +235,31 @@ export interface SourceControlArgs {
     /**
      * The branch name to use for deployments. Changing this forces a new resource to be created.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration>;
+    githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration | undefined>;
     /**
      * The URL for the repository. Changing this forces a new resource to be created.
      */
-    repoUrl?: pulumi.Input<string>;
+    repoUrl?: pulumi.Input<string | undefined>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
-    rollbackEnabled?: pulumi.Input<boolean>;
+    rollbackEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the App use local Git configuration. Changing this forces a new resource to be created.
      */
-    useLocalGit?: pulumi.Input<boolean>;
+    useLocalGit?: pulumi.Input<boolean | undefined>;
     /**
      * Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    useManualIntegration?: pulumi.Input<boolean>;
+    useManualIntegration?: pulumi.Input<boolean | undefined>;
     /**
      * The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    useMercurial?: pulumi.Input<boolean>;
+    useMercurial?: pulumi.Input<boolean | undefined>;
 }

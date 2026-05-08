@@ -22,20 +22,20 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['EnvironmentIdentityArgs']] = None,
-                 infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['EnvironmentIdentityArgs']] = None,
+                 infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -111,31 +111,31 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")
-    def dapr_application_insights_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_application_insights_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dapr_application_insights_connection_string")
 
     @dapr_application_insights_connection_string.setter
-    def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_application_insights_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_application_insights_connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EnvironmentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EnvironmentIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EnvironmentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EnvironmentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroupName")
-    def infrastructure_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 
@@ -144,12 +144,12 @@ class EnvironmentArgs:
         return pulumi.get(self, "infrastructure_resource_group_name")
 
     @infrastructure_resource_group_name.setter
-    def infrastructure_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureSubnetId")
-    def infrastructure_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
 
@@ -158,12 +158,12 @@ class EnvironmentArgs:
         return pulumi.get(self, "infrastructure_subnet_id")
 
     @infrastructure_subnet_id.setter
-    def infrastructure_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancerEnabled")
-    def internal_load_balancer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal_load_balancer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -172,24 +172,24 @@ class EnvironmentArgs:
         return pulumi.get(self, "internal_load_balancer_enabled")
 
     @internal_load_balancer_enabled.setter
-    def internal_load_balancer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal_load_balancer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal_load_balancer_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
 
@@ -198,24 +198,24 @@ class EnvironmentArgs:
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logsDestination")
-    def logs_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logs_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         """
         return pulumi.get(self, "logs_destination")
 
     @logs_destination.setter
-    def logs_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logs_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logs_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualTlsEnabled")
-    def mutual_tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mutual_tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 
@@ -224,60 +224,60 @@ class EnvironmentArgs:
         return pulumi.get(self, "mutual_tls_enabled")
 
     @mutual_tls_enabled.setter
-    def mutual_tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mutual_tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mutual_tls_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfiles")
-    def workload_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
+    def workload_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
         """
         One or more `workload_profile` blocks as defined below.
         """
         return pulumi.get(self, "workload_profiles")
 
     @workload_profiles.setter
-    def workload_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]):
+    def workload_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]):
         pulumi.set(self, "workload_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
-    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundancy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -286,34 +286,34 @@ class EnvironmentArgs:
         return pulumi.get(self, "zone_redundancy_enabled")
 
     @zone_redundancy_enabled.setter
-    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundancy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
 @pulumi.input_type
 class _EnvironmentState:
     def __init__(__self__, *,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_bridge_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['EnvironmentIdentityArgs']] = None,
-                 infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_reserved_dns_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_bridge_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['EnvironmentIdentityArgs']] = None,
+                 infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_reserved_dns_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
 
@@ -396,67 +396,67 @@ class _EnvironmentState:
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Domain Verification for this Container App Environment.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")
-    def dapr_application_insights_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_application_insights_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dapr_application_insights_connection_string")
 
     @dapr_application_insights_connection_string.setter
-    def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_application_insights_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_application_insights_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDomain")
-    def default_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default, publicly resolvable, name of this Container App Environment.
         """
         return pulumi.get(self, "default_domain")
 
     @default_domain.setter
-    def default_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerBridgeCidr")
-    def docker_bridge_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_bridge_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
         """
         return pulumi.get(self, "docker_bridge_cidr")
 
     @docker_bridge_cidr.setter
-    def docker_bridge_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_bridge_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_bridge_cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EnvironmentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EnvironmentIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EnvironmentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EnvironmentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroupName")
-    def infrastructure_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 
@@ -465,12 +465,12 @@ class _EnvironmentState:
         return pulumi.get(self, "infrastructure_resource_group_name")
 
     @infrastructure_resource_group_name.setter
-    def infrastructure_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureSubnetId")
-    def infrastructure_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
 
@@ -479,12 +479,12 @@ class _EnvironmentState:
         return pulumi.get(self, "infrastructure_subnet_id")
 
     @infrastructure_subnet_id.setter
-    def infrastructure_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancerEnabled")
-    def internal_load_balancer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal_load_balancer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -493,24 +493,24 @@ class _EnvironmentState:
         return pulumi.get(self, "internal_load_balancer_enabled")
 
     @internal_load_balancer_enabled.setter
-    def internal_load_balancer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal_load_balancer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal_load_balancer_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
 
@@ -519,24 +519,24 @@ class _EnvironmentState:
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logsDestination")
-    def logs_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logs_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         """
         return pulumi.get(self, "logs_destination")
 
     @logs_destination.setter
-    def logs_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logs_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logs_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualTlsEnabled")
-    def mutual_tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mutual_tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 
@@ -545,108 +545,108 @@ class _EnvironmentState:
         return pulumi.get(self, "mutual_tls_enabled")
 
     @mutual_tls_enabled.setter
-    def mutual_tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mutual_tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mutual_tls_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformReservedCidr")
-    def platform_reserved_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_reserved_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         """
         return pulumi.get(self, "platform_reserved_cidr")
 
     @platform_reserved_cidr.setter
-    def platform_reserved_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_reserved_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_reserved_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="platformReservedDnsIpAddress")
-    def platform_reserved_dns_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_reserved_dns_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
         """
         return pulumi.get(self, "platform_reserved_dns_ip_address")
 
     @platform_reserved_dns_ip_address.setter
-    def platform_reserved_dns_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_reserved_dns_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_reserved_dns_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="staticIpAddress")
-    def static_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP address of the Environment.
         """
         return pulumi.get(self, "static_ip_address")
 
     @static_ip_address.setter
-    def static_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadProfiles")
-    def workload_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
+    def workload_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
         """
         One or more `workload_profile` blocks as defined below.
         """
         return pulumi.get(self, "workload_profiles")
 
     @workload_profiles.setter
-    def workload_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]):
+    def workload_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]):
         pulumi.set(self, "workload_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
-    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundancy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -655,7 +655,7 @@ class _EnvironmentState:
         return pulumi.get(self, "zone_redundancy_enabled")
 
     @zone_redundancy_enabled.setter
-    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundancy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
@@ -665,21 +665,21 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
-                 infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+                 infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Container App Environment.
@@ -820,21 +820,21 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
-                 infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+                 infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -879,27 +879,27 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            default_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            docker_bridge_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
-            infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            logs_destination: Optional[pulumi.Input[_builtins.str]] = None,
-            mutual_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_reserved_dns_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
-            zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Environment':
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_bridge_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+            infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            logs_destination: pulumi.Input[Optional[_builtins.str]] = None,
+            mutual_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_reserved_dns_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+            zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

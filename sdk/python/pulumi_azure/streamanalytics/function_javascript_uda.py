@@ -25,7 +25,7 @@ class FunctionJavascriptUdaArgs:
                  output: pulumi.Input['FunctionJavascriptUdaOutputArgs'],
                  script: pulumi.Input[_builtins.str],
                  stream_analytics_job_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionJavascriptUda resource.
 
@@ -92,25 +92,25 @@ class FunctionJavascriptUdaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FunctionJavascriptUdaState:
     def __init__(__self__, *,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output: pulumi.Input[Optional['FunctionJavascriptUdaOutputArgs']] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionJavascriptUda resources.
 
@@ -133,62 +133,62 @@ class _FunctionJavascriptUdaState:
 
     @_builtins.property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]]:
+    def inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]]:
         """
         One or more `input` blocks as defined below.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]]):
+    def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]]):
         pulumi.set(self, "inputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def output(self) -> Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']]:
+    def output(self) -> pulumi.Input[Optional['FunctionJavascriptUdaOutputArgs']]:
         """
         An `output` block as defined below.
         """
         return pulumi.get(self, "output")
 
     @output.setter
-    def output(self, value: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']]):
+    def output(self, value: pulumi.Input[Optional['FunctionJavascriptUdaOutputArgs']]):
         pulumi.set(self, "output", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JavaScript of this UDA Function.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobId")
-    def stream_analytics_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_id")
 
     @stream_analytics_job_id.setter
-    def stream_analytics_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
@@ -198,11 +198,11 @@ class FunctionJavascriptUda(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output: Optional[pulumi.Input[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output: pulumi.Input[Optional[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
@@ -339,11 +339,11 @@ class FunctionJavascriptUda(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output: Optional[pulumi.Input[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output: pulumi.Input[Optional[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,11 +376,11 @@ class FunctionJavascriptUda(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            output: Optional[pulumi.Input[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
-            script: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionJavascriptUda':
+            inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output: pulumi.Input[Optional[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict']]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionJavascriptUda':
         """
         Get an existing FunctionJavascriptUda resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -157,31 +157,31 @@ export interface GroupState {
     /**
      * The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The description of this API Management Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this API Management Group.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface GroupArgs {
     /**
      * The description of this API Management Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this API Management Group.
      */
@@ -203,11 +203,11 @@ export interface GroupArgs {
     /**
      * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
      */
@@ -215,5 +215,5 @@ export interface GroupArgs {
     /**
      * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

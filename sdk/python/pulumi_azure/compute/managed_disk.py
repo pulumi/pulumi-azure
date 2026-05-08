@@ -24,38 +24,38 @@ class ManagedDiskArgs:
                  create_option: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_type: pulumi.Input[_builtins.str],
-                 disk_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
-                 gallery_image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_shares: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_demand_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optimized_frequent_attach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_plus_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']] = None,
+                 gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
 
@@ -260,7 +260,7 @@ class ManagedDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskAccessId")
-    def disk_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the disk access resource for using private endpoints on disks.
 
@@ -269,12 +269,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "disk_access_id")
 
     @disk_access_id.setter
-    def disk_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_access_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
 
@@ -285,60 +285,60 @@ class ManagedDiskArgs:
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsReadOnly")
-    def disk_iops_read_only(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_iops_read_only(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         """
         return pulumi.get(self, "disk_iops_read_only")
 
     @disk_iops_read_only.setter
-    def disk_iops_read_only(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_iops_read_only(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_iops_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         """
         return pulumi.get(self, "disk_iops_read_write")
 
     @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_iops_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="diskMbpsReadOnly")
-    def disk_mbps_read_only(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_mbps_read_only(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         """
         return pulumi.get(self, "disk_mbps_read_only")
 
     @disk_mbps_read_only.setter
-    def disk_mbps_read_only(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_mbps_read_only(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_mbps_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         """
         return pulumi.get(self, "disk_mbps_read_write")
 
     @disk_mbps_read_write.setter
-    def disk_mbps_read_write(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_mbps_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 
@@ -353,24 +353,24 @@ class ManagedDiskArgs:
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -379,60 +379,60 @@ class ManagedDiskArgs:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageReferenceId")
-    def gallery_image_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_image_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_image_reference_id")
 
     @gallery_image_reference_id.setter
-    def gallery_image_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_image_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_image_reference_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter(name="imageReferenceId")
-    def image_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_reference_id")
 
     @image_reference_id.setter
-    def image_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalSectorSize")
-    def logical_sector_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logical_sector_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
 
@@ -441,12 +441,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "logical_sector_size")
 
     @logical_sector_size.setter
-    def logical_sector_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logical_sector_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logical_sector_size", value)
 
     @_builtins.property
     @pulumi.getter(name="maxShares")
-    def max_shares(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_shares(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 
@@ -455,36 +455,36 @@ class ManagedDiskArgs:
         return pulumi.get(self, "max_shares")
 
     @max_shares.setter
-    def max_shares(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_shares(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_shares", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAccessPolicy")
-    def network_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         """
         return pulumi.get(self, "network_access_policy")
 
     @network_access_policy.setter
-    def network_access_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_access_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandBurstingEnabled")
-    def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_demand_bursting_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if On-Demand Bursting is enabled for the Managed Disk.
 
@@ -493,12 +493,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "on_demand_bursting_enabled")
 
     @on_demand_bursting_enabled.setter
-    def on_demand_bursting_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_demand_bursting_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_demand_bursting_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="optimizedFrequentAttachEnabled")
-    def optimized_frequent_attach_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optimized_frequent_attach_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
 
@@ -507,36 +507,36 @@ class ManagedDiskArgs:
         return pulumi.get(self, "optimized_frequent_attach_enabled")
 
     @optimized_frequent_attach_enabled.setter
-    def optimized_frequent_attach_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optimized_frequent_attach_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optimized_frequent_attach_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="performancePlusEnabled")
-    def performance_plus_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def performance_plus_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "performance_plus_enabled")
 
     @performance_plus_enabled.setter
-    def performance_plus_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def performance_plus_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "performance_plus_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether it is allowed to access the disk via public network. Defaults to `true`.
 
@@ -545,12 +545,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="secureVmDiskEncryptionSetId")
-    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_vm_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
 
@@ -559,12 +559,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
     @secure_vm_disk_encryption_set_id.setter
-    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_vm_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 
@@ -578,60 +578,60 @@ class ManagedDiskArgs:
         return pulumi.get(self, "security_type")
 
     @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_uri")
 
     @source_uri.setter
-    def source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 
@@ -640,12 +640,12 @@ class ManagedDiskArgs:
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchEnabled")
-    def trusted_launch_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 
@@ -654,24 +654,24 @@ class ManagedDiskArgs:
         return pulumi.get(self, "trusted_launch_enabled")
 
     @trusted_launch_enabled.setter
-    def trusted_launch_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def upload_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upload_size_bytes")
 
     @upload_size_bytes.setter
-    def upload_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def upload_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "upload_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 
@@ -680,48 +680,48 @@ class ManagedDiskArgs:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
 class _ManagedDiskState:
     def __init__(__self__, *,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
-                 gallery_image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_shares: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_demand_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optimized_frequent_attach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_plus_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']] = None,
+                 gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
 
@@ -884,7 +884,7 @@ class _ManagedDiskState:
 
     @_builtins.property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
@@ -898,12 +898,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_option", value)
 
     @_builtins.property
     @pulumi.getter(name="diskAccessId")
-    def disk_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the disk access resource for using private endpoints on disks.
 
@@ -912,12 +912,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "disk_access_id")
 
     @disk_access_id.setter
-    def disk_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_access_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
 
@@ -928,60 +928,60 @@ class _ManagedDiskState:
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsReadOnly")
-    def disk_iops_read_only(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_iops_read_only(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         """
         return pulumi.get(self, "disk_iops_read_only")
 
     @disk_iops_read_only.setter
-    def disk_iops_read_only(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_iops_read_only(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_iops_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         """
         return pulumi.get(self, "disk_iops_read_write")
 
     @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_iops_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="diskMbpsReadOnly")
-    def disk_mbps_read_only(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_mbps_read_only(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         """
         return pulumi.get(self, "disk_mbps_read_only")
 
     @disk_mbps_read_only.setter
-    def disk_mbps_read_only(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_mbps_read_only(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_mbps_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         """
         return pulumi.get(self, "disk_mbps_read_write")
 
     @disk_mbps_read_write.setter
-    def disk_mbps_read_write(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_mbps_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 
@@ -996,24 +996,24 @@ class _ManagedDiskState:
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -1022,60 +1022,60 @@ class _ManagedDiskState:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: pulumi.Input[Optional['ManagedDiskEncryptionSettingsArgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageReferenceId")
-    def gallery_image_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_image_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_image_reference_id")
 
     @gallery_image_reference_id.setter
-    def gallery_image_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_image_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_image_reference_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter(name="imageReferenceId")
-    def image_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_reference_id")
 
     @image_reference_id.setter
-    def image_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalSectorSize")
-    def logical_sector_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logical_sector_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
 
@@ -1084,12 +1084,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "logical_sector_size")
 
     @logical_sector_size.setter
-    def logical_sector_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logical_sector_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logical_sector_size", value)
 
     @_builtins.property
     @pulumi.getter(name="maxShares")
-    def max_shares(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_shares(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 
@@ -1098,36 +1098,36 @@ class _ManagedDiskState:
         return pulumi.get(self, "max_shares")
 
     @max_shares.setter
-    def max_shares(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_shares(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_shares", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAccessPolicy")
-    def network_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. Defaults to `AllowAll`.
         """
         return pulumi.get(self, "network_access_policy")
 
     @network_access_policy.setter
-    def network_access_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_access_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandBurstingEnabled")
-    def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_demand_bursting_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if On-Demand Bursting is enabled for the Managed Disk.
 
@@ -1136,12 +1136,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "on_demand_bursting_enabled")
 
     @on_demand_bursting_enabled.setter
-    def on_demand_bursting_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_demand_bursting_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_demand_bursting_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="optimizedFrequentAttachEnabled")
-    def optimized_frequent_attach_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optimized_frequent_attach_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
 
@@ -1150,36 +1150,36 @@ class _ManagedDiskState:
         return pulumi.get(self, "optimized_frequent_attach_enabled")
 
     @optimized_frequent_attach_enabled.setter
-    def optimized_frequent_attach_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optimized_frequent_attach_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optimized_frequent_attach_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="performancePlusEnabled")
-    def performance_plus_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def performance_plus_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "performance_plus_enabled")
 
     @performance_plus_enabled.setter
-    def performance_plus_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def performance_plus_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "performance_plus_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether it is allowed to access the disk via public network. Defaults to `true`.
 
@@ -1188,24 +1188,24 @@ class _ManagedDiskState:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secureVmDiskEncryptionSetId")
-    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_vm_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
 
@@ -1214,12 +1214,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
     @secure_vm_disk_encryption_set_id.setter
-    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_vm_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 
@@ -1233,48 +1233,48 @@ class _ManagedDiskState:
         return pulumi.get(self, "security_type")
 
     @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_uri")
 
     @source_uri.setter
-    def source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 
@@ -1283,24 +1283,24 @@ class _ManagedDiskState:
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 
@@ -1309,12 +1309,12 @@ class _ManagedDiskState:
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchEnabled")
-    def trusted_launch_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 
@@ -1323,24 +1323,24 @@ class _ManagedDiskState:
         return pulumi.get(self, "trusted_launch_enabled")
 
     @trusted_launch_enabled.setter
-    def trusted_launch_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def upload_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upload_size_bytes")
 
     @upload_size_bytes.setter
-    def upload_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def upload_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "upload_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 
@@ -1349,7 +1349,7 @@ class _ManagedDiskState:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -1359,41 +1359,41 @@ class ManagedDisk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
-                 gallery_image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_shares: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_demand_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optimized_frequent_attach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_plus_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+                 gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a managed disk.
@@ -1652,41 +1652,41 @@ class ManagedDisk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
-                 gallery_image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_shares: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_demand_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optimized_frequent_attach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_plus_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+                 gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1747,41 +1747,41 @@ class ManagedDisk(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_option: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_iops_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_iops_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_mbps_read_only: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_mbps_read_write: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_settings: Optional[pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
-            gallery_image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-            image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logical_sector_size: Optional[pulumi.Input[_builtins.int]] = None,
-            max_shares: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            on_demand_bursting_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            optimized_frequent_attach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            os_type: Optional[pulumi.Input[_builtins.str]] = None,
-            performance_plus_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            security_type: Optional[pulumi.Input[_builtins.str]] = None,
-            source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tier: Optional[pulumi.Input[_builtins.str]] = None,
-            trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            upload_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedDisk':
+            create_option: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+            gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+            max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedDisk':
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

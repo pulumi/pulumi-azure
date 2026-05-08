@@ -22,19 +22,19 @@ __all__ = ['ConfigurationStoreArgs', 'ConfigurationStore']
 class ConfigurationStoreArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['ConfigurationStoreIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationStore resource.
 
@@ -105,19 +105,19 @@ class ConfigurationStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
-    def data_plane_proxy_authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_plane_proxy_authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
         """
         return pulumi.get(self, "data_plane_proxy_authentication_mode")
 
     @data_plane_proxy_authentication_mode.setter
-    def data_plane_proxy_authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_plane_proxy_authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_plane_proxy_authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
-    def data_plane_proxy_private_link_delegation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_plane_proxy_private_link_delegation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether data plane proxy private link delegation is enabled. Defaults to `false`.
 
@@ -126,72 +126,72 @@ class ConfigurationStoreArgs:
         return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
 
     @data_plane_proxy_private_link_delegation_enabled.setter
-    def data_plane_proxy_private_link_delegation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_plane_proxy_private_link_delegation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_plane_proxy_private_link_delegation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ConfigurationStoreIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ConfigurationStoreIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 
@@ -200,12 +200,12 @@ class ConfigurationStoreArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 
@@ -214,24 +214,24 @@ class ConfigurationStoreArgs:
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
+    def replicas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
         """
         One or more `replica` blocks as defined below.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
+    def replicas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
         pulumi.set(self, "replicas", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 
@@ -240,12 +240,12 @@ class ConfigurationStoreArgs:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 
@@ -254,44 +254,44 @@ class ConfigurationStoreArgs:
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ConfigurationStoreState:
     def __init__(__self__, *,
-                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]] = None,
-                 primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]] = None,
-                 secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ConfigurationStoreIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]] = None,
+                 primary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]] = None,
+                 secondary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationStore resources.
 
@@ -366,19 +366,19 @@ class _ConfigurationStoreState:
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
-    def data_plane_proxy_authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_plane_proxy_authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
         """
         return pulumi.get(self, "data_plane_proxy_authentication_mode")
 
     @data_plane_proxy_authentication_mode.setter
-    def data_plane_proxy_authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_plane_proxy_authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_plane_proxy_authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
-    def data_plane_proxy_private_link_delegation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_plane_proxy_private_link_delegation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether data plane proxy private link delegation is enabled. Defaults to `false`.
 
@@ -387,108 +387,108 @@ class _ConfigurationStoreState:
         return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
 
     @data_plane_proxy_private_link_delegation_enabled.setter
-    def data_plane_proxy_private_link_delegation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_plane_proxy_private_link_delegation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_plane_proxy_private_link_delegation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['ConfigurationStoreEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the App Configuration Replica.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ConfigurationStoreIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ConfigurationStoreIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryReadKeys")
-    def primary_read_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]:
+    def primary_read_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]:
         """
         A `primary_read_key` block as defined below containing the primary read access key.
         """
         return pulumi.get(self, "primary_read_keys")
 
     @primary_read_keys.setter
-    def primary_read_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]):
+    def primary_read_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]):
         pulumi.set(self, "primary_read_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWriteKeys")
-    def primary_write_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]:
+    def primary_write_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]:
         """
         A `primary_write_key` block as defined below containing the primary write access key.
         """
         return pulumi.get(self, "primary_write_keys")
 
     @primary_write_keys.setter
-    def primary_write_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]):
+    def primary_write_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]):
         pulumi.set(self, "primary_write_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 
@@ -497,12 +497,12 @@ class _ConfigurationStoreState:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 
@@ -511,60 +511,60 @@ class _ConfigurationStoreState:
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
+    def replicas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
         """
         One or more `replica` blocks as defined below.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
+    def replicas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
         pulumi.set(self, "replicas", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryReadKeys")
-    def secondary_read_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]:
+    def secondary_read_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]:
         """
         A `secondary_read_key` block as defined below containing the secondary read access key.
         """
         return pulumi.get(self, "secondary_read_keys")
 
     @secondary_read_keys.setter
-    def secondary_read_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]):
+    def secondary_read_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]):
         pulumi.set(self, "secondary_read_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWriteKeys")
-    def secondary_write_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]:
+    def secondary_write_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]:
         """
         A `secondary_write_key` block as defined below containing the secondary write access key.
         """
         return pulumi.get(self, "secondary_write_keys")
 
     @secondary_write_keys.setter
-    def secondary_write_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]):
+    def secondary_write_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]):
         pulumi.set(self, "secondary_write_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 
@@ -573,12 +573,12 @@ class _ConfigurationStoreState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 
@@ -587,19 +587,19 @@ class _ConfigurationStoreState:
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -609,20 +609,20 @@ class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure App Configuration.
@@ -952,20 +952,20 @@ class ConfigurationStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1006,25 +1006,25 @@ class ConfigurationStore(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_plane_proxy_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict']]]]] = None,
-            primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict']]]]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]]] = None,
-            secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConfigurationStore':
+            data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict']]]]] = None,
+            primary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict']]]]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]]] = None,
+            secondary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConfigurationStore':
         """
         Get an existing ConfigurationStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

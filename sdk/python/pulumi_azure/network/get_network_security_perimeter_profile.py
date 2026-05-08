@@ -107,8 +107,8 @@ def get_network_security_perimeter_profile(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_security_perimeter_id=pulumi.get(__ret__, 'network_security_perimeter_id'))
-def get_network_security_perimeter_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  network_security_perimeter_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_security_perimeter_profile_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  network_security_perimeter_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterProfileResult]:
     """
     Use this data source to access information about an existing Network Security Perimeter Profile.

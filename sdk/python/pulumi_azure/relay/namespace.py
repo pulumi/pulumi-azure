@@ -21,9 +21,9 @@ class NamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
 
@@ -68,54 +68,54 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NamespaceState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
 
@@ -153,122 +153,122 @@ class _NamespaceState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="metricId")
-    def metric_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for Azure Insights metrics.
         """
         return pulumi.get(self, "metric_id")
 
     @metric_id.setter
-    def metric_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SKU to use. At this time the only supported value is `Standard`.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -278,11 +278,11 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Relay Namespace.
@@ -389,11 +389,11 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,16 +429,16 @@ class Namespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Namespace':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

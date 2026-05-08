@@ -185,7 +185,7 @@ export interface ExtensionState {
     /**
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    arcMachineId?: pulumi.Input<string>;
+    arcMachineId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
      *
@@ -193,45 +193,45 @@ export interface ExtensionState {
      *
      * > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
      */
-    automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    automaticUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Json formatted protected settings for the extension.
      */
-    protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string | undefined>;
     /**
      * Json formatted public settings for the extension.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the script handler.
      *
      * > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
      */
-    typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,23 +249,23 @@ export interface ExtensionArgs {
      *
      * > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
      */
-    automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    automaticUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Json formatted protected settings for the extension.
      */
-    protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
@@ -273,11 +273,11 @@ export interface ExtensionArgs {
     /**
      * Json formatted public settings for the extension.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
@@ -287,5 +287,5 @@ export interface ExtensionArgs {
      *
      * > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
      */
-    typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string | undefined>;
 }

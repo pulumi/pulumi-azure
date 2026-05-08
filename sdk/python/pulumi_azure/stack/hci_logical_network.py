@@ -25,10 +25,10 @@ class HciLogicalNetworkArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet: pulumi.Input['HciLogicalNetworkSubnetArgs'],
                  virtual_switch_name: pulumi.Input[_builtins.str],
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciLogicalNetwork resource.
 
@@ -104,64 +104,64 @@ class HciLogicalNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _HciLogicalNetworkState:
     def __init__(__self__, *,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['HciLogicalNetworkSubnetArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_switch_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional['HciLogicalNetworkSubnetArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciLogicalNetwork resources.
 
@@ -193,98 +193,98 @@ class _HciLogicalNetworkState:
 
     @_builtins.property
     @pulumi.getter(name="customLocationId")
-    def custom_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_location_id")
 
     @custom_location_id.setter
-    def custom_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_location_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['HciLogicalNetworkSubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['HciLogicalNetworkSubnetArgs']]:
         """
         A `subnet` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['HciLogicalNetworkSubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['HciLogicalNetworkSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualSwitchName")
-    def virtual_switch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_switch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_switch_name")
 
     @virtual_switch_name.setter
-    def virtual_switch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_switch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_switch_name", value)
 
 
@@ -294,14 +294,14 @@ class HciLogicalNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_switch_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Stack HCI Logical Network.
@@ -439,14 +439,14 @@ class HciLogicalNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_switch_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,14 +482,14 @@ class HciLogicalNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet: Optional[pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_switch_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'HciLogicalNetwork':
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'HciLogicalNetwork':
         """
         Get an existing HciLogicalNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

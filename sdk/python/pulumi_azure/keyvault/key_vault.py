@@ -24,20 +24,20 @@ class KeyVaultArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
-                 enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
+                 enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['KeyVaultNetworkAclsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KeyVault resource.
 
@@ -141,7 +141,7 @@ class KeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
         A list of up to 1024 objects describing access policies, as described below.
 
@@ -150,116 +150,116 @@ class KeyVaultArgs:
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
-    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
+    def contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         return pulumi.get(self, "contacts")
 
     @contacts.setter
-    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]):
+    def contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]]):
         pulumi.set(self, "contacts", value)
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
     @_utilities.deprecated("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
-    def enable_rbac_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_rbac_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_rbac_authorization")
 
     @enable_rbac_authorization.setter
-    def enable_rbac_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_rbac_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_rbac_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDeployment")
-    def enabled_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
     @enabled_for_deployment.setter
-    def enabled_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDiskEncryption")
-    def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_disk_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
     @enabled_for_disk_encryption.setter
-    def enabled_for_disk_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_disk_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_disk_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForTemplateDeployment")
-    def enabled_for_template_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_template_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
     @enabled_for_template_deployment.setter
-    def enabled_for_template_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_template_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_template_deployment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['KeyVaultNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['KeyVaultNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this Key Vault. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Purge Protection enabled for this Key Vault? 
 
@@ -268,12 +268,12 @@ class KeyVaultArgs:
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacAuthorizationEnabled")
-    def rbac_authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rbac_authorization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 
@@ -282,12 +282,12 @@ class KeyVaultArgs:
         return pulumi.get(self, "rbac_authorization_enabled")
 
     @rbac_authorization_enabled.setter
-    def rbac_authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rbac_authorization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rbac_authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 
@@ -296,43 +296,43 @@ class KeyVaultArgs:
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _KeyVaultState:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
-                 enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
+                 enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['KeyVaultNetworkAclsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyVault resources.
 
@@ -406,7 +406,7 @@ class _KeyVaultState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
         A list of up to 1024 objects describing access policies, as described below.
 
@@ -415,116 +415,116 @@ class _KeyVaultState:
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
-    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
+    def contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         return pulumi.get(self, "contacts")
 
     @contacts.setter
-    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]):
+    def contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyVaultContactArgs']]]]):
         pulumi.set(self, "contacts", value)
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
     @_utilities.deprecated("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
-    def enable_rbac_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_rbac_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_rbac_authorization")
 
     @enable_rbac_authorization.setter
-    def enable_rbac_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_rbac_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_rbac_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDeployment")
-    def enabled_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
     @enabled_for_deployment.setter
-    def enabled_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForDiskEncryption")
-    def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_disk_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
     @enabled_for_disk_encryption.setter
-    def enabled_for_disk_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_disk_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_disk_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledForTemplateDeployment")
-    def enabled_for_template_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled_for_template_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
     @enabled_for_template_deployment.setter
-    def enabled_for_template_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled_for_template_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled_for_template_deployment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['KeyVaultNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['KeyVaultNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this Key Vault. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Purge Protection enabled for this Key Vault? 
 
@@ -533,12 +533,12 @@ class _KeyVaultState:
         return pulumi.get(self, "purge_protection_enabled")
 
     @purge_protection_enabled.setter
-    def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def purge_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacAuthorizationEnabled")
-    def rbac_authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rbac_authorization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 
@@ -547,36 +547,36 @@ class _KeyVaultState:
         return pulumi.get(self, "rbac_authorization_enabled")
 
     @rbac_authorization_enabled.setter
-    def rbac_authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rbac_authorization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rbac_authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 
@@ -585,43 +585,43 @@ class _KeyVaultState:
         return pulumi.get(self, "soft_delete_retention_days")
 
     @soft_delete_retention_days.setter
-    def soft_delete_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Key Vault, used for performing operations on keys and secrets.
         """
         return pulumi.get(self, "vault_uri")
 
     @vault_uri.setter
-    def vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_uri", value)
 
 
@@ -631,23 +631,23 @@ class KeyVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
-                 enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
+                 enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Key Vault.
@@ -788,23 +788,23 @@ class KeyVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
-                 enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
+                 enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -848,24 +848,24 @@ class KeyVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
-            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
-            enable_rbac_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled_for_disk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled_for_template_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeyVault':
+            access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]]] = None,
+            contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict']]]]] = None,
+            enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeyVault':
         """
         Get an existing KeyVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

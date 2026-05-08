@@ -181,9 +181,9 @@ def get_dps(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_operations_host_name=pulumi.get(__ret__, 'service_operations_host_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dps_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_dps_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDpsResult]:
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service.

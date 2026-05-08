@@ -58,8 +58,8 @@ class WorkspaceArgs:
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
 
@@ -73,26 +73,26 @@ class _WorkspaceState:
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace to save the data in.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -102,8 +102,8 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the subscription's Security Center Workspace.
@@ -197,8 +197,8 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,8 +224,8 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workspace':
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -204,47 +204,47 @@ export interface LinkedServiceSqlServerState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service SQL Server.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service SQL Server.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service SQL Server.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultConnectionString>;
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The on-premises Windows authentication user name.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,15 +254,15 @@ export interface LinkedServiceSqlServerArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service SQL Server.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service SQL Server.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -270,29 +270,29 @@ export interface LinkedServiceSqlServerArgs {
     /**
      * The description for the Data Factory Linked Service SQL Server.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultConnectionString>;
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The on-premises Windows authentication user name.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

@@ -154,23 +154,23 @@ export interface RegistryScopeMapState {
     /**
      * A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
      */
-    actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    containerRegistryName?: pulumi.Input<string>;
+    containerRegistryName?: pulumi.Input<string | undefined>;
     /**
      * The description of the Container Registry.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,11 +188,11 @@ export interface RegistryScopeMapArgs {
     /**
      * The description of the Container Registry.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */

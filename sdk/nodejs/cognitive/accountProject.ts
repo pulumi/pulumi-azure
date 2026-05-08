@@ -180,39 +180,39 @@ export interface AccountProjectState {
     /**
      * The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * Whether this project is the default project for the Cognitive Account.
      */
-    default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the Cognitive Account Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Cognitive Account Project.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of endpoint names to endpoint URLs for the project.
      */
-    endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cognitive.AccountProjectIdentity>;
+    identity?: pulumi.Input<inputs.cognitive.AccountProjectIdentity | undefined>;
     /**
      * The Azure Region where the Cognitive Account Project should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Account Project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -226,11 +226,11 @@ export interface AccountProjectArgs {
     /**
      * A description of the Cognitive Account Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Cognitive Account Project.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -238,13 +238,13 @@ export interface AccountProjectArgs {
     /**
      * The Azure Region where the Cognitive Account Project should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Account Project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -209,41 +209,41 @@ export interface VirtualMachineManagerVirtualMachineInstanceState {
     /**
      * The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** This resource will be restarted while updating `hardware`.
      */
-    hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware>;
+    hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware | undefined>;
     /**
      * An `infrastructure` block as defined below.
      */
-    infrastructure?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructure>;
+    infrastructure?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructure | undefined>;
     /**
      * A `networkInterface` block as defined below.
      *
      * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[] | undefined>;
     /**
      * An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      */
-    operatingSystem?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem>;
+    operatingSystem?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
      */
-    scopedResourceId?: pulumi.Input<string>;
+    scopedResourceId?: pulumi.Input<string | undefined>;
     /**
      * A `storageDisk` block as defined below.
      *
      * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
-    storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[]>;
+    storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[] | undefined>;
     /**
      * A list of IDs of System Center Virtual Machine Manager Availability Set.
      */
-    systemCenterVirtualMachineManagerAvailabilitySetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    systemCenterVirtualMachineManagerAvailabilitySetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -259,7 +259,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
      *
      * > **Note:** This resource will be restarted while updating `hardware`.
      */
-    hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware>;
+    hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware | undefined>;
     /**
      * An `infrastructure` block as defined below.
      */
@@ -269,11 +269,11 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
      *
      * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[] | undefined>;
     /**
      * An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      */
-    operatingSystem?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem>;
+    operatingSystem?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
      */
@@ -283,9 +283,9 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
      *
      * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
-    storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[]>;
+    storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[] | undefined>;
     /**
      * A list of IDs of System Center Virtual Machine Manager Availability Set.
      */
-    systemCenterVirtualMachineManagerAvailabilitySetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    systemCenterVirtualMachineManagerAvailabilitySetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

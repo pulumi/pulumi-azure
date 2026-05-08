@@ -207,47 +207,47 @@ export interface DatastoreDatalakeGen2State {
     /**
      * An URL used for authentication.
      */
-    authorityUrl?: pulumi.Input<string>;
+    authorityUrl?: pulumi.Input<string | undefined>;
     /**
      * The object ID of the Service Principal.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The secret of the Service Principal.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this Machines Learning DataStore is the default for the Workspace.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    serviceDataIdentity?: pulumi.Input<string>;
+    serviceDataIdentity?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      */
-    storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Tenant which the Service Principal belongs to.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -257,27 +257,27 @@ export interface DatastoreDatalakeGen2Args {
     /**
      * An URL used for authentication.
      */
-    authorityUrl?: pulumi.Input<string>;
+    authorityUrl?: pulumi.Input<string | undefined>;
     /**
      * The object ID of the Service Principal.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The secret of the Service Principal.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    serviceDataIdentity?: pulumi.Input<string>;
+    serviceDataIdentity?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      */
@@ -285,11 +285,11 @@ export interface DatastoreDatalakeGen2Args {
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Tenant which the Service Principal belongs to.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */

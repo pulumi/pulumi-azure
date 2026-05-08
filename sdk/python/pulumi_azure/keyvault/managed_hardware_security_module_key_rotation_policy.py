@@ -21,8 +21,8 @@ class ManagedHardwareSecurityModuleKeyRotationPolicyArgs:
     def __init__(__self__, *,
                  expire_after: pulumi.Input[_builtins.str],
                  managed_hsm_key_id: pulumi.Input[_builtins.str],
-                 time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleKeyRotationPolicy resource.
 
@@ -64,36 +64,36 @@ class ManagedHardwareSecurityModuleKeyRotationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeAfterCreation")
-    def time_after_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_after_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         """
         return pulumi.get(self, "time_after_creation")
 
     @time_after_creation.setter
-    def time_after_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_after_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_after_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBeforeExpiry")
-    def time_before_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_before_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         """
         return pulumi.get(self, "time_before_expiry")
 
     @time_before_expiry.setter
-    def time_before_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_before_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_before_expiry", value)
 
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleKeyRotationPolicyState:
     def __init__(__self__, *,
-                 expire_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
+                 expire_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleKeyRotationPolicy resources.
 
@@ -113,50 +113,50 @@ class _ManagedHardwareSecurityModuleKeyRotationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="expireAfter")
-    def expire_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expire_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
         """
         return pulumi.get(self, "expire_after")
 
     @expire_after.setter
-    def expire_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expire_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expire_after", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAfterCreation")
-    def time_after_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_after_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         """
         return pulumi.get(self, "time_after_creation")
 
     @time_after_creation.setter
-    def time_after_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_after_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_after_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBeforeExpiry")
-    def time_before_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_before_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         """
         return pulumi.get(self, "time_before_expiry")
 
     @time_before_expiry.setter
-    def time_before_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_before_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_before_expiry", value)
 
 
@@ -166,10 +166,10 @@ class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expire_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None,
+                 expire_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Managed HSM Key rotation policy.
@@ -259,10 +259,10 @@ class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expire_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None,
+                 expire_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,10 +290,10 @@ class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            expire_after: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            time_after_creation: Optional[pulumi.Input[_builtins.str]] = None,
-            time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleKeyRotationPolicy':
+            expire_after: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_after_creation: pulumi.Input[Optional[_builtins.str]] = None,
+            time_before_expiry: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleKeyRotationPolicy':
         """
         Get an existing ManagedHardwareSecurityModuleKeyRotationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

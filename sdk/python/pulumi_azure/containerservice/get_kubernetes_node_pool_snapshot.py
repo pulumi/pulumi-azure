@@ -127,8 +127,8 @@ def get_kubernetes_node_pool_snapshot(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         source_node_pool_id=pulumi.get(__ret__, 'source_node_pool_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kubernetes_node_pool_snapshot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesNodePoolSnapshotResult]:
     """
     Use this data source to access information about an existing Kubernetes Node Pool Snapshot.

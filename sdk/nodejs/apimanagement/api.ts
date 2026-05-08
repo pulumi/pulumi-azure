@@ -281,111 +281,111 @@ export interface ApiState {
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
      */
-    apiType?: pulumi.Input<string>;
+    apiType?: pulumi.Input<string | undefined>;
     /**
      * A `contact` block as documented below.
      */
-    contact?: pulumi.Input<inputs.apimanagement.ApiContact>;
+    contact?: pulumi.Input<inputs.apimanagement.ApiContact | undefined>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A `import` block as documented below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
-    import?: pulumi.Input<inputs.apimanagement.ApiImport>;
+    import?: pulumi.Input<inputs.apimanagement.ApiImport | undefined>;
     /**
      * Is this the current API Revision?
      */
-    isCurrent?: pulumi.Input<boolean>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
     /**
      * Is this API Revision online/accessible via the Gateway?
      */
-    isOnline?: pulumi.Input<boolean>;
+    isOnline?: pulumi.Input<boolean | undefined>;
     /**
      * A `license` block as documented below.
      */
-    license?: pulumi.Input<inputs.apimanagement.ApiLicense>;
+    license?: pulumi.Input<inputs.apimanagement.ApiLicense | undefined>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `oauth2Authorization` block as documented below.
      */
-    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
      * An `openidAuthentication` block as documented below.
      */
-    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
+    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
      * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
-    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Revision which used for this API. Changing this forces a new resource to be created.
      */
-    revision?: pulumi.Input<string>;
+    revision?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Revision of the API Management API.
      */
-    revisionDescription?: pulumi.Input<string>;
+    revisionDescription?: pulumi.Input<string | undefined>;
     /**
      * Absolute URL of the backend service implementing this API.
      *
      * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
-    serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string | undefined>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
-    sourceApiId?: pulumi.Input<string>;
+    sourceApiId?: pulumi.Input<string | undefined>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames | undefined>;
     /**
      * Should this API require a subscription key? Defaults to `true`.
      */
-    subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Absolute URL of the Terms of Service for the API.
      */
-    termsOfServiceUrl?: pulumi.Input<string>;
+    termsOfServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Version of the API Management API.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Version Set which this API is associated with.
      *
      * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
-    versionSetId?: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -399,51 +399,51 @@ export interface ApiArgs {
     /**
      * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
      */
-    apiType?: pulumi.Input<string>;
+    apiType?: pulumi.Input<string | undefined>;
     /**
      * A `contact` block as documented below.
      */
-    contact?: pulumi.Input<inputs.apimanagement.ApiContact>;
+    contact?: pulumi.Input<inputs.apimanagement.ApiContact | undefined>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A `import` block as documented below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
-    import?: pulumi.Input<inputs.apimanagement.ApiImport>;
+    import?: pulumi.Input<inputs.apimanagement.ApiImport | undefined>;
     /**
      * A `license` block as documented below.
      */
-    license?: pulumi.Input<inputs.apimanagement.ApiLicense>;
+    license?: pulumi.Input<inputs.apimanagement.ApiLicense | undefined>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `oauth2Authorization` block as documented below.
      */
-    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
      * An `openidAuthentication` block as documented below.
      */
-    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
+    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
      * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
-    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
@@ -455,41 +455,41 @@ export interface ApiArgs {
     /**
      * The description of the API Revision of the API Management API.
      */
-    revisionDescription?: pulumi.Input<string>;
+    revisionDescription?: pulumi.Input<string | undefined>;
     /**
      * Absolute URL of the backend service implementing this API.
      *
      * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
-    serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string | undefined>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
-    sourceApiId?: pulumi.Input<string>;
+    sourceApiId?: pulumi.Input<string | undefined>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames | undefined>;
     /**
      * Should this API require a subscription key? Defaults to `true`.
      */
-    subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Absolute URL of the Terms of Service for the API.
      */
-    termsOfServiceUrl?: pulumi.Input<string>;
+    termsOfServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Version of the API Management API.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Version Set which this API is associated with.
      *
      * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
-    versionSetId?: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string | undefined>;
 }

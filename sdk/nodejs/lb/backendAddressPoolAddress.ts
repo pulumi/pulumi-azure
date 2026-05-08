@@ -166,27 +166,27 @@ export interface BackendAddressPoolAddressState {
      *
      * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
-    backendAddressIpConfigurationId?: pulumi.Input<string>;
+    backendAddressIpConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
-    backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string | undefined>;
     /**
      * A list of `inboundNatRulePortMapping` block as defined below.
      */
-    inboundNatRulePortMappings?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping>[]>;
+    inboundNatRulePortMappings?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping>[] | undefined>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,7 +198,7 @@ export interface BackendAddressPoolAddressArgs {
      *
      * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
-    backendAddressIpConfigurationId?: pulumi.Input<string>;
+    backendAddressIpConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
@@ -206,13 +206,13 @@ export interface BackendAddressPoolAddressArgs {
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }

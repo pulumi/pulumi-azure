@@ -201,51 +201,51 @@ export interface SpringCloudAppDynamicsApplicationPerformanceMonitoringState {
     /**
      * Specifies the account access key used to authenticate with the Controller.
      */
-    agentAccountAccessKey?: pulumi.Input<string>;
+    agentAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the account name of the App Dynamics account.
      */
-    agentAccountName?: pulumi.Input<string>;
+    agentAccountName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the logical business application that this JVM node belongs to.
      */
-    agentApplicationName?: pulumi.Input<string>;
+    agentApplicationName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the node. Where JVMs are dynamically created.
      */
-    agentNodeName?: pulumi.Input<string>;
+    agentNodeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the tier that this JVM node belongs to.
      */
-    agentTierName?: pulumi.Input<string>;
+    agentTierName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
      */
-    agentUniqueHostId?: pulumi.Input<string>;
+    agentUniqueHostId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hostname or the IP address of the AppDynamics Controller.
      */
-    controllerHostName?: pulumi.Input<string>;
+    controllerHostName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
      */
-    controllerPort?: pulumi.Input<number>;
+    controllerPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
      */
-    controllerSslEnabled?: pulumi.Input<boolean>;
+    controllerSslEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -263,19 +263,19 @@ export interface SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs {
     /**
      * Specifies the name of the logical business application that this JVM node belongs to.
      */
-    agentApplicationName?: pulumi.Input<string>;
+    agentApplicationName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the node. Where JVMs are dynamically created.
      */
-    agentNodeName?: pulumi.Input<string>;
+    agentNodeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the tier that this JVM node belongs to.
      */
-    agentTierName?: pulumi.Input<string>;
+    agentTierName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
      */
-    agentUniqueHostId?: pulumi.Input<string>;
+    agentUniqueHostId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hostname or the IP address of the AppDynamics Controller.
      */
@@ -283,19 +283,19 @@ export interface SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs {
     /**
      * Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
      */
-    controllerPort?: pulumi.Input<number>;
+    controllerPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
      */
-    controllerSslEnabled?: pulumi.Input<boolean>;
+    controllerSslEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */

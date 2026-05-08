@@ -135,11 +135,11 @@ export interface SpringCloudActiveDeploymentState {
     /**
      * Specifies the name of Spring Cloud Deployment which is going to be active.
      */
-    deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
 }
 
 /**

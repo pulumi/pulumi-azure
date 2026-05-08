@@ -133,23 +133,23 @@ export interface RouteFilterState {
     /**
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Route Filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `rule` block as defined below.
      */
-    rule?: pulumi.Input<inputs.network.RouteFilterRule>;
+    rule?: pulumi.Input<inputs.network.RouteFilterRule | undefined>;
     /**
      * A mapping of tags which should be assigned to the Route Filter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface RouteFilterArgs {
     /**
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Route Filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
@@ -171,9 +171,9 @@ export interface RouteFilterArgs {
     /**
      * A `rule` block as defined below.
      */
-    rule?: pulumi.Input<inputs.network.RouteFilterRule>;
+    rule?: pulumi.Input<inputs.network.RouteFilterRule | undefined>;
     /**
      * A mapping of tags which should be assigned to the Route Filter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

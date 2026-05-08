@@ -152,23 +152,23 @@ export interface VirtualHubConnectionState {
     /**
      * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
-    internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
-    remoteVirtualNetworkId?: pulumi.Input<string>;
+    remoteVirtualNetworkId?: pulumi.Input<string | undefined>;
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting | undefined>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,11 +178,11 @@ export interface VirtualHubConnectionArgs {
     /**
      * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
-    internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
@@ -190,7 +190,7 @@ export interface VirtualHubConnectionArgs {
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting | undefined>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */

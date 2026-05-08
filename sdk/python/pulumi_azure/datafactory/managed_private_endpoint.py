@@ -21,9 +21,9 @@ class ManagedPrivateEndpointArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
 
@@ -70,7 +70,7 @@ class ManagedPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
 
@@ -79,42 +79,42 @@ class ManagedPrivateEndpointArgs:
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subresourceName")
-    def subresource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_name")
 
     @subresource_name.setter
-    def subresource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subresource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subresource_name", value)
 
 
 @pulumi.input_type
 class _ManagedPrivateEndpointState:
     def __init__(__self__, *,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
 
@@ -139,19 +139,19 @@ class _ManagedPrivateEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
 
@@ -160,43 +160,43 @@ class _ManagedPrivateEndpointState:
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subresourceName")
-    def subresource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_name")
 
     @subresource_name.setter
-    def subresource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subresource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subresource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -206,11 +206,11 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Factory Managed Private Endpoint.
@@ -337,11 +337,11 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -370,11 +370,11 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            subresource_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedPrivateEndpoint':
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedPrivateEndpoint':
         """
         Get an existing ManagedPrivateEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

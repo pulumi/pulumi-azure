@@ -34,7 +34,7 @@ class ElasticSanSkuArgsDict(TypedDict):
 
     > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
     """
@@ -43,7 +43,7 @@ class ElasticSanSkuArgsDict(TypedDict):
 class ElasticSanSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
                
@@ -70,14 +70,14 @@ class ElasticSanSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -133,19 +133,19 @@ class VolumeGroupEncryptionArgsDict(TypedDict):
     """
     The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
     """
-    current_versioned_key_expiration_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    current_versioned_key_expiration_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp of the expiration time for the current version of the customer managed key.
     """
-    current_versioned_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    current_versioned_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the current versioned Key Vault Key in use.
     """
-    last_key_rotation_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    last_key_rotation_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp of the last rotation of the Key Vault Key.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
     """
@@ -154,10 +154,10 @@ class VolumeGroupEncryptionArgsDict(TypedDict):
 class VolumeGroupEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 current_versioned_key_expiration_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_versioned_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_key_rotation_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 current_versioned_key_expiration_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_versioned_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_key_rotation_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_vault_key_id: The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
         :param pulumi.Input[_builtins.str] current_versioned_key_expiration_timestamp: The timestamp of the expiration time for the current version of the customer managed key.
@@ -189,50 +189,50 @@ class VolumeGroupEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentVersionedKeyExpirationTimestamp")
-    def current_versioned_key_expiration_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_versioned_key_expiration_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp of the expiration time for the current version of the customer managed key.
         """
         return pulumi.get(self, "current_versioned_key_expiration_timestamp")
 
     @current_versioned_key_expiration_timestamp.setter
-    def current_versioned_key_expiration_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_versioned_key_expiration_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_versioned_key_expiration_timestamp", value)
 
     @_builtins.property
     @pulumi.getter(name="currentVersionedKeyId")
-    def current_versioned_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_versioned_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the current versioned Key Vault Key in use.
         """
         return pulumi.get(self, "current_versioned_key_id")
 
     @current_versioned_key_id.setter
-    def current_versioned_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_versioned_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_versioned_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastKeyRotationTimestamp")
-    def last_key_rotation_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_key_rotation_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp of the last rotation of the Key Vault Key.
         """
         return pulumi.get(self, "last_key_rotation_timestamp")
 
     @last_key_rotation_timestamp.setter
-    def last_key_rotation_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_key_rotation_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_key_rotation_timestamp", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -241,15 +241,15 @@ class VolumeGroupIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
     """
@@ -258,9 +258,9 @@ class VolumeGroupIdentityArgsDict(TypedDict):
 class VolumeGroupIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
@@ -289,38 +289,38 @@ class VolumeGroupIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -329,7 +329,7 @@ class VolumeGroupNetworkRuleArgsDict(TypedDict):
     """
     The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
     """
@@ -338,7 +338,7 @@ class VolumeGroupNetworkRuleArgsDict(TypedDict):
 class VolumeGroupNetworkRuleArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
         :param pulumi.Input[_builtins.str] action: The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
@@ -361,14 +361,14 @@ class VolumeGroupNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
 

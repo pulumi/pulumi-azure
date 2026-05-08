@@ -147,15 +147,15 @@ export interface JobTargetGroupState {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
      */
-    jobAgentId?: pulumi.Input<string>;
+    jobAgentId?: pulumi.Input<string | undefined>;
     /**
      * One or more `jobTarget` blocks as defined below.
      */
-    jobTargets?: pulumi.Input<pulumi.Input<inputs.mssql.JobTargetGroupJobTarget>[]>;
+    jobTargets?: pulumi.Input<pulumi.Input<inputs.mssql.JobTargetGroupJobTarget>[] | undefined>;
     /**
      * The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,9 +169,9 @@ export interface JobTargetGroupArgs {
     /**
      * One or more `jobTarget` blocks as defined below.
      */
-    jobTargets?: pulumi.Input<pulumi.Input<inputs.mssql.JobTargetGroupJobTarget>[]>;
+    jobTargets?: pulumi.Input<pulumi.Input<inputs.mssql.JobTargetGroupJobTarget>[] | undefined>;
     /**
      * The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

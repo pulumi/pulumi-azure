@@ -148,35 +148,35 @@ export interface SubscriptionTemplateDeploymentState {
     /**
      * The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
-    outputContent?: pulumi.Input<string>;
+    outputContent?: pulumi.Input<string | undefined>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Subscription Template Deployment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The contents of the ARM Template which should be deployed into this Subscription.
      */
-    templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      */
-    templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,29 +186,29 @@ export interface SubscriptionTemplateDeploymentArgs {
     /**
      * The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Subscription Template Deployment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The contents of the ARM Template which should be deployed into this Subscription.
      */
-    templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      */
-    templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string | undefined>;
 }

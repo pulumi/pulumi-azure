@@ -153,19 +153,19 @@ export interface EnvironmentCustomDomainState {
     /**
      * The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
      */
-    certificateBlobBase64?: pulumi.Input<string>;
+    certificateBlobBase64?: pulumi.Input<string | undefined>;
     /**
      * The password for the Certificate bundle.
      */
-    certificatePassword?: pulumi.Input<string>;
+    certificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Custom DNS Suffix for the Container App Environment.
      */
-    dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string | undefined>;
 }
 
 /**

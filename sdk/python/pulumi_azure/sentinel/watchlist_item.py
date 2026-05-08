@@ -21,7 +21,7 @@ class WatchlistItemArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  watchlist_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WatchlistItem resource.
 
@@ -60,23 +60,23 @@ class WatchlistItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _WatchlistItemState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WatchlistItem resources.
 
@@ -93,38 +93,38 @@ class _WatchlistItemState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The key value pairs of the Sentinel Watchlist Item.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="watchlistId")
-    def watchlist_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watchlist_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
         """
         return pulumi.get(self, "watchlist_id")
 
     @watchlist_id.setter
-    def watchlist_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watchlist_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watchlist_id", value)
 
 
@@ -134,9 +134,9 @@ class WatchlistItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Sentinel Watchlist Item.
@@ -261,9 +261,9 @@ class WatchlistItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watchlist_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,9 +290,9 @@ class WatchlistItem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            watchlist_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WatchlistItem':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            watchlist_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WatchlistItem':
         """
         Get an existing WatchlistItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

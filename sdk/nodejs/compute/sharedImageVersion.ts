@@ -229,31 +229,31 @@ export interface SharedImageVersionState {
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    blobUri?: pulumi.Input<string>;
+    blobUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean>;
+    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
-    galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
@@ -261,39 +261,39 @@ export interface SharedImageVersionState {
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    managedImageId?: pulumi.Input<string>;
+    managedImageId?: pulumi.Input<string | undefined>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    osDiskSnapshotId?: pulumi.Input<string>;
+    osDiskSnapshotId?: pulumi.Input<string | undefined>;
     /**
      * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
      */
-    replicationMode?: pulumi.Input<string>;
+    replicationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
+    targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[] | undefined>;
 }
 
 /**
@@ -307,19 +307,19 @@ export interface SharedImageVersionArgs {
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    blobUri?: pulumi.Input<string>;
+    blobUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean>;
+    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
@@ -331,7 +331,7 @@ export interface SharedImageVersionArgs {
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
@@ -339,21 +339,21 @@ export interface SharedImageVersionArgs {
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    managedImageId?: pulumi.Input<string>;
+    managedImageId?: pulumi.Input<string | undefined>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    osDiskSnapshotId?: pulumi.Input<string>;
+    osDiskSnapshotId?: pulumi.Input<string | undefined>;
     /**
      * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
      */
-    replicationMode?: pulumi.Input<string>;
+    replicationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -363,11 +363,11 @@ export interface SharedImageVersionArgs {
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */

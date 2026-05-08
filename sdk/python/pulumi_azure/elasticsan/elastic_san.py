@@ -24,11 +24,11 @@ class ElasticSanArgs:
                  base_size_in_tib: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ElasticSanSkuArgs'],
-                 extended_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticSan resource.
 
@@ -101,7 +101,7 @@ class ElasticSanArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedSizeInTib")
-    def extended_size_in_tib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def extended_size_in_tib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
@@ -110,48 +110,48 @@ class ElasticSanArgs:
         return pulumi.get(self, "extended_size_in_tib")
 
     @extended_size_in_tib.setter
-    def extended_size_in_tib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def extended_size_in_tib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "extended_size_in_tib", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Elastic SAN resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 
@@ -160,26 +160,26 @@ class ElasticSanArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _ElasticSanState:
     def __init__(__self__, *,
-                 base_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 extended_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['ElasticSanSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 total_iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_volume_size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_group_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 base_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['ElasticSanSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 total_iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_volume_size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ElasticSan resources.
 
@@ -232,7 +232,7 @@ class _ElasticSanState:
 
     @_builtins.property
     @pulumi.getter(name="baseSizeInTib")
-    def base_size_in_tib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def base_size_in_tib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
@@ -241,12 +241,12 @@ class _ElasticSanState:
         return pulumi.get(self, "base_size_in_tib")
 
     @base_size_in_tib.setter
-    def base_size_in_tib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def base_size_in_tib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "base_size_in_tib", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedSizeInTib")
-    def extended_size_in_tib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def extended_size_in_tib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
@@ -255,132 +255,132 @@ class _ElasticSanState:
         return pulumi.get(self, "extended_size_in_tib")
 
     @extended_size_in_tib.setter
-    def extended_size_in_tib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def extended_size_in_tib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "extended_size_in_tib", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ElasticSanSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ElasticSanSkuArgs']]:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ElasticSanSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ElasticSanSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Elastic SAN resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="totalIops")
-    def total_iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total Provisioned IOps of the Elastic SAN resource.
         """
         return pulumi.get(self, "total_iops")
 
     @total_iops.setter
-    def total_iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_iops", value)
 
     @_builtins.property
     @pulumi.getter(name="totalMbps")
-    def total_mbps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_mbps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total Provisioned MBps Elastic SAN resource.
         """
         return pulumi.get(self, "total_mbps")
 
     @total_mbps.setter
-    def total_mbps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_mbps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_mbps", value)
 
     @_builtins.property
     @pulumi.getter(name="totalSizeInTib")
-    def total_size_in_tib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_size_in_tib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total size of the Elastic SAN resource in TB.
         """
         return pulumi.get(self, "total_size_in_tib")
 
     @total_size_in_tib.setter
-    def total_size_in_tib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_size_in_tib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_size_in_tib", value)
 
     @_builtins.property
     @pulumi.getter(name="totalVolumeSizeInGib")
-    def total_volume_size_in_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_volume_size_in_gib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total size of the provisioned Volumes in GiB.
         """
         return pulumi.get(self, "total_volume_size_in_gib")
 
     @total_volume_size_in_gib.setter
-    def total_volume_size_in_gib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_volume_size_in_gib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_volume_size_in_gib", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeGroupCount")
-    def volume_group_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_group_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of volume groups in this Elastic SAN resource.
         """
         return pulumi.get(self, "volume_group_count")
 
     @volume_group_count.setter
-    def volume_group_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_group_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_group_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 
@@ -389,7 +389,7 @@ class _ElasticSanState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -399,14 +399,14 @@ class ElasticSan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 extended_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 base_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Elastic SAN resource.
@@ -524,14 +524,14 @@ class ElasticSan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 extended_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 base_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -570,19 +570,19 @@ class ElasticSan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            base_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-            extended_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            total_iops: Optional[pulumi.Input[_builtins.int]] = None,
-            total_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-            total_size_in_tib: Optional[pulumi.Input[_builtins.int]] = None,
-            total_volume_size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-            volume_group_count: Optional[pulumi.Input[_builtins.int]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ElasticSan':
+            base_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_iops: pulumi.Input[Optional[_builtins.int]] = None,
+            total_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+            total_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            total_volume_size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ElasticSan':
         """
         Get an existing ElasticSan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

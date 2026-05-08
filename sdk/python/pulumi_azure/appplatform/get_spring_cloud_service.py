@@ -169,8 +169,8 @@ def get_spring_cloud_service(name: Optional[_builtins.str] = None,
         required_network_traffic_rules=pulumi.get(__ret__, 'required_network_traffic_rules'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_spring_cloud_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_spring_cloud_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringCloudServiceResult]:
     """
     Use this data source to access information about an existing Spring Cloud Service.

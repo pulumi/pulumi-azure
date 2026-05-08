@@ -133,5 +133,5 @@ export interface GetConfigurationKeyOutputArgs {
     /**
      * The label of the App Configuration Key.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }

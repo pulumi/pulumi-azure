@@ -193,27 +193,27 @@ export interface SnapshotState {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Snapshot. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
-    volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface SnapshotArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Snapshot. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */

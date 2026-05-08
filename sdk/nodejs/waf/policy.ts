@@ -242,39 +242,39 @@ export interface PolicyState {
     /**
      * One or more `customRules` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[] | undefined>;
     /**
      * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
      */
-    httpListenerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    httpListenerIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Resource location. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedRules` blocks as defined below.
      */
-    managedRules?: pulumi.Input<inputs.waf.PolicyManagedRules>;
+    managedRules?: pulumi.Input<inputs.waf.PolicyManagedRules | undefined>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
      */
-    pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `policySettings` block as defined below.
      */
-    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
+    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -284,11 +284,11 @@ export interface PolicyArgs {
     /**
      * One or more `customRules` blocks as defined below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[] | undefined>;
     /**
      * Resource location. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedRules` blocks as defined below.
      */
@@ -296,11 +296,11 @@ export interface PolicyArgs {
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `policySettings` block as defined below.
      */
-    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
+    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -308,5 +308,5 @@ export interface PolicyArgs {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

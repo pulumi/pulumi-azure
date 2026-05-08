@@ -198,39 +198,39 @@ export interface DatastoreFileshareState {
     /**
      * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      */
-    accountKey?: pulumi.Input<string>;
+    accountKey?: pulumi.Input<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicate whether this Machines Learning DataStore is the default for the Workspace.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    serviceDataIdentity?: pulumi.Input<string>;
+    serviceDataIdentity?: pulumi.Input<string | undefined>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      */
-    sharedAccessSignature?: pulumi.Input<string>;
+    sharedAccessSignature?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created.
      */
-    storageFileshareId?: pulumi.Input<string>;
+    storageFileshareId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -240,23 +240,23 @@ export interface DatastoreFileshareArgs {
     /**
      * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      */
-    accountKey?: pulumi.Input<string>;
+    accountKey?: pulumi.Input<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    serviceDataIdentity?: pulumi.Input<string>;
+    serviceDataIdentity?: pulumi.Input<string | undefined>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      */
-    sharedAccessSignature?: pulumi.Input<string>;
+    sharedAccessSignature?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created.
      */
@@ -264,7 +264,7 @@ export interface DatastoreFileshareArgs {
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */

@@ -127,9 +127,9 @@ export interface GetGiVersionsOutputArgs {
     /**
      * The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
      */
-    shape?: pulumi.Input<string>;
+    shape?: pulumi.Input<string | undefined>;
     /**
      * Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

@@ -46,15 +46,15 @@ class GlobalVMShutdownScheduleNotificationSettingsArgsDict(TypedDict):
     """
     Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     E-mail address to which the notification will be sent.
     """
-    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
     """
-    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    webhook_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The webhook URL to which the notification will be sent.
     """
@@ -63,9 +63,9 @@ class GlobalVMShutdownScheduleNotificationSettingsArgsDict(TypedDict):
 class GlobalVMShutdownScheduleNotificationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
         :param pulumi.Input[_builtins.str] email: E-mail address to which the notification will be sent.
@@ -94,38 +94,38 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         E-mail address to which the notification will be sent.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webhook URL to which the notification will be sent.
         """
         return pulumi.get(self, "webhook_url")
 
     @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_url", value)
 
 
@@ -223,7 +223,7 @@ class LinuxVirtualMachineInboundNatRuleArgsDict(TypedDict):
     """
     The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
     """
-    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The frontend port associated with this Inbound NAT Rule.
     """
@@ -233,7 +233,7 @@ class LinuxVirtualMachineInboundNatRuleArgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 frontend_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 frontend_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
@@ -270,14 +270,14 @@ class LinuxVirtualMachineInboundNatRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port", value)
 
 
@@ -338,15 +338,15 @@ class ScheduleHourlyRecurrenceArgs:
 
 
 class ScheduleNotificationSettingsArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
     """
-    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in minutes before event at which notification will be sent.
     """
-    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    webhook_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The webhook URL to which the notification will be sent.
     """
@@ -354,9 +354,9 @@ class ScheduleNotificationSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleNotificationSettingsArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
         :param pulumi.Input[_builtins.int] time_in_minutes: Time in minutes before event at which notification will be sent.
@@ -371,38 +371,38 @@ class ScheduleNotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes before event at which notification will be sent.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webhook URL to which the notification will be sent.
         """
         return pulumi.get(self, "webhook_url")
 
     @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_url", value)
 
 
@@ -411,7 +411,7 @@ class ScheduleWeeklyRecurrenceArgsDict(TypedDict):
     """
     The time when the schedule takes effect.
     """
-    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    week_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
     """
@@ -420,7 +420,7 @@ class ScheduleWeeklyRecurrenceArgsDict(TypedDict):
 class ScheduleWeeklyRecurrenceArgs:
     def __init__(__self__, *,
                  time: pulumi.Input[_builtins.str],
-                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 week_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] time: The time when the schedule takes effect.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -443,31 +443,31 @@ class ScheduleWeeklyRecurrenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def week_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def week_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "week_days", value)
 
 
 class VirtualNetworkSubnetArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
     """
-    shared_public_ip_address: NotRequired[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgsDict']]
+    shared_public_ip_address: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgs']]]
     """
     A `shared_public_ip_address` block as defined below.
     """
-    use_in_virtual_machine_creation: NotRequired[pulumi.Input[_builtins.str]]
+    use_in_virtual_machine_creation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
     """
-    use_public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    use_public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
     """
@@ -475,10 +475,10 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkSubnetArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_public_ip_address: Optional[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgs']] = None,
-                 use_in_virtual_machine_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_public_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_public_ip_address: pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgs']] = None,
+                 use_in_virtual_machine_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_public_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgs'] shared_public_ip_address: A `shared_public_ip_address` block as defined below.
@@ -496,55 +496,55 @@ class VirtualNetworkSubnetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPublicIpAddress")
-    def shared_public_ip_address(self) -> Optional[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgs']]:
+    def shared_public_ip_address(self) -> pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgs']]:
         """
         A `shared_public_ip_address` block as defined below.
         """
         return pulumi.get(self, "shared_public_ip_address")
 
     @shared_public_ip_address.setter
-    def shared_public_ip_address(self, value: Optional[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgs']]):
+    def shared_public_ip_address(self, value: pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgs']]):
         pulumi.set(self, "shared_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="useInVirtualMachineCreation")
-    def use_in_virtual_machine_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_in_virtual_machine_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "use_in_virtual_machine_creation")
 
     @use_in_virtual_machine_creation.setter
-    def use_in_virtual_machine_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_in_virtual_machine_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_in_virtual_machine_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="usePublicIpAddress")
-    def use_public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "use_public_ip_address")
 
     @use_public_ip_address.setter
-    def use_public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_public_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_public_ip_address", value)
 
 
 class VirtualNetworkSubnetSharedPublicIpAddressArgsDict(TypedDict):
-    allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict']]]]
+    allowed_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]]
     """
     A list of `allowed_ports` blocks as defined below.
     """
@@ -552,7 +552,7 @@ class VirtualNetworkSubnetSharedPublicIpAddressArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkSubnetSharedPublicIpAddressArgs:
     def __init__(__self__, *,
-                 allowed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]] = None):
+                 allowed_ports: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]] allowed_ports: A list of `allowed_ports` blocks as defined below.
         """
@@ -561,23 +561,23 @@ class VirtualNetworkSubnetSharedPublicIpAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedPorts")
-    def allowed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]:
+    def allowed_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]:
         """
         A list of `allowed_ports` blocks as defined below.
         """
         return pulumi.get(self, "allowed_ports")
 
     @allowed_ports.setter
-    def allowed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]):
+    def allowed_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]):
         pulumi.set(self, "allowed_ports", value)
 
 
 class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict(TypedDict):
-    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    backend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port on the Virtual Machine that the traffic will be sent to.
     """
-    transport_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    transport_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
     """
@@ -585,8 +585,8 @@ class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 transport_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 transport_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] backend_port: The port on the Virtual Machine that the traffic will be sent to.
         :param pulumi.Input[_builtins.str] transport_protocol: The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
@@ -598,26 +598,26 @@ class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port on the Virtual Machine that the traffic will be sent to.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transport_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
         """
         return pulumi.get(self, "transport_protocol")
 
     @transport_protocol.setter
-    def transport_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transport_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transport_protocol", value)
 
 
@@ -715,7 +715,7 @@ class WindowsVirtualMachineInboundNatRuleArgsDict(TypedDict):
     """
     The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
     """
-    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The frontend port associated with this Inbound NAT Rule.
     """
@@ -725,7 +725,7 @@ class WindowsVirtualMachineInboundNatRuleArgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 frontend_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 frontend_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
@@ -762,14 +762,14 @@ class WindowsVirtualMachineInboundNatRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port", value)
 
 

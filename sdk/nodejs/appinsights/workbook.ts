@@ -191,49 +191,49 @@ export interface WorkbookState {
     /**
      * Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON.
      */
-    dataJson?: pulumi.Input<string>;
+    dataJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the workbook.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user-defined name (display name) of the workbook.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Workbook to be created.
      */
-    identity?: pulumi.Input<inputs.appinsights.WorkbookIdentity>;
+    identity?: pulumi.Input<inputs.appinsights.WorkbookIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Workbook.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -243,7 +243,7 @@ export interface WorkbookArgs {
     /**
      * Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON.
      */
@@ -251,7 +251,7 @@ export interface WorkbookArgs {
     /**
      * Specifies the description of the workbook.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user-defined name (display name) of the workbook.
      */
@@ -259,15 +259,15 @@ export interface WorkbookArgs {
     /**
      * An `identity` block as defined below. Changing this forces a new Workbook to be created.
      */
-    identity?: pulumi.Input<inputs.appinsights.WorkbookIdentity>;
+    identity?: pulumi.Input<inputs.appinsights.WorkbookIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
@@ -275,15 +275,15 @@ export interface WorkbookArgs {
     /**
      * Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Workbook.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -265,9 +265,9 @@ def get_firewall(dns_proxy_enabled: Optional[_builtins.bool] = None,
         threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
         virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_output(dns_proxy_enabled: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Use this data source to access information about an existing Azure Firewall.

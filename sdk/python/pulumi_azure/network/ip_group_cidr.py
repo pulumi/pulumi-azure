@@ -66,8 +66,8 @@ class IPGroupCIDRArgs:
 @pulumi.input_type
 class _IPGroupCIDRState:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IPGroupCIDR resources.
 
@@ -85,7 +85,7 @@ class _IPGroupCIDRState:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `CIDR` that should be added to the IP Group.
         Changing this forces a new IP Group CIDR to be created.
@@ -95,12 +95,12 @@ class _IPGroupCIDRState:
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="ipGroupId")
-    def ip_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the destination IP Group.
         Changing this forces a new IP Group CIDR to be created.
@@ -108,7 +108,7 @@ class _IPGroupCIDRState:
         return pulumi.get(self, "ip_group_id")
 
     @ip_group_id.setter
-    def ip_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_group_id", value)
 
 
@@ -118,8 +118,8 @@ class IPGroupCIDR(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages IP Group CIDR records.
@@ -235,8 +235,8 @@ class IPGroupCIDR(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,8 +262,8 @@ class IPGroupCIDR(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'IPGroupCIDR':
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'IPGroupCIDR':
         """
         Get an existing IPGroupCIDR resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

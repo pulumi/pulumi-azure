@@ -136,8 +136,8 @@ def get_sas(connection_string: Optional[_builtins.str] = None,
         expiry=pulumi.get(__ret__, 'expiry'),
         id=pulumi.get(__ret__, 'id'),
         sas=pulumi.get(__ret__, 'sas'))
-def get_sas_output(connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                   expiry: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sas_output(connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                   expiry: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSasResult]:
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.

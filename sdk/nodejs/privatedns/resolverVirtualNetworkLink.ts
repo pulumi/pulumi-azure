@@ -172,19 +172,19 @@ export interface ResolverVirtualNetworkLinkState {
     /**
      * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      */
-    dnsForwardingRulesetId?: pulumi.Input<string>;
+    dnsForwardingRulesetId?: pulumi.Input<string | undefined>;
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,11 +198,11 @@ export interface ResolverVirtualNetworkLinkArgs {
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */

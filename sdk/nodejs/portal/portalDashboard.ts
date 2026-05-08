@@ -285,25 +285,25 @@ export interface PortalDashboardState {
     /**
      * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
-    dashboardProperties?: pulumi.Input<string>;
+    dashboardProperties?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      *
      * > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -317,13 +317,13 @@ export interface PortalDashboardArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      *
      * > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
@@ -331,5 +331,5 @@ export interface PortalDashboardArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

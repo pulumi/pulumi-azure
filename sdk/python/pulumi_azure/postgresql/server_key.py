@@ -58,8 +58,8 @@ class ServerKeyArgs:
 @pulumi.input_type
 class _ServerKeyState:
     def __init__(__self__, *,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerKey resources.
 
@@ -73,26 +73,26 @@ class _ServerKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to a Key Vault Key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_id", value)
 
 
@@ -102,8 +102,8 @@ class ServerKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a PostgreSQL Server.
@@ -339,8 +339,8 @@ class ServerKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,8 +366,8 @@ class ServerKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            server_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerKey':
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerKey':
         """
         Get an existing ServerKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

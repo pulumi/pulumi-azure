@@ -24,9 +24,9 @@ class ExperimentArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input[Sequence[pulumi.Input['ExperimentSelectorArgs']]],
                  steps: pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]],
-                 identity: Optional[pulumi.Input['ExperimentIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional['ExperimentIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Experiment resource.
 
@@ -85,50 +85,50 @@ class ExperimentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ExperimentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ExperimentIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ExperimentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ExperimentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExperimentState:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['ExperimentIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentSelectorArgs']]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]]] = None):
+                 identity: pulumi.Input[Optional['ExperimentIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentSelectorArgs']]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentStepArgs']]]] = None):
         """
         Input properties used for looking up and filtering Experiment resources.
 
@@ -154,74 +154,74 @@ class _ExperimentState:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ExperimentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ExperimentIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ExperimentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ExperimentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentSelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentSelectorArgs']]]]:
         """
         One or more `selectors` blocks as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentSelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentStepArgs']]]]:
         """
         One or more `steps` blocks as defined below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
 
@@ -231,12 +231,12 @@ class Experiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Chaos Studio Experiment.
@@ -478,12 +478,12 @@ class Experiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,12 +515,12 @@ class Experiment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None) -> 'Experiment':
+            identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None) -> 'Experiment':
         """
         Get an existing Experiment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

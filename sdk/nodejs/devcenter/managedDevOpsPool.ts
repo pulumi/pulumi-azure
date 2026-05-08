@@ -213,53 +213,53 @@ export interface ManagedDevOpsPoolState {
     /**
      * An `azureDevopsOrganization` block as defined below.
      */
-    azureDevopsOrganization?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganization>;
+    azureDevopsOrganization?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganization | undefined>;
     /**
      * The ID of the Dev Center project.
      */
-    devCenterProjectId?: pulumi.Input<string>;
+    devCenterProjectId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolIdentity | undefined>;
     /**
      * The Azure Region where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Defines how many resources can there be created at any given time. Possible values range between `1` and `10000`.
      */
-    maximumConcurrency?: pulumi.Input<number>;
+    maximumConcurrency?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Managed DevOps Pool. The name must be between 3 and 44 characters, can only include alphanumeric characters, periods (`.`) and hyphens (`-`), must start with an alphanumeric character and cannot end with a period (`.`). Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `statefulAgent` block as defined below.
      */
-    statefulAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatefulAgent>;
+    statefulAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatefulAgent | undefined>;
     /**
      * A `statelessAgent` block as defined below.
      *
      * > **Note:** Exactly one of `statefulAgent` or `statelessAgent` must be specified.
      */
-    statelessAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatelessAgent>;
+    statelessAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatelessAgent | undefined>;
     /**
      * A mapping of tags which should be assigned to the Managed DevOps Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `virtualMachineScaleSetFabric` block as defined below.
      */
-    virtualMachineScaleSetFabric?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabric>;
+    virtualMachineScaleSetFabric?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabric | undefined>;
     /**
      * Specifies the work folder for every agent in the pool.
      */
-    workFolder?: pulumi.Input<string>;
+    workFolder?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -277,11 +277,11 @@ export interface ManagedDevOpsPoolArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolIdentity | undefined>;
     /**
      * The Azure Region where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Defines how many resources can there be created at any given time. Possible values range between `1` and `10000`.
      */
@@ -289,7 +289,7 @@ export interface ManagedDevOpsPoolArgs {
     /**
      * The name which should be used for this Managed DevOps Pool. The name must be between 3 and 44 characters, can only include alphanumeric characters, periods (`.`) and hyphens (`-`), must start with an alphanumeric character and cannot end with a period (`.`). Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
      */
@@ -297,17 +297,17 @@ export interface ManagedDevOpsPoolArgs {
     /**
      * A `statefulAgent` block as defined below.
      */
-    statefulAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatefulAgent>;
+    statefulAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatefulAgent | undefined>;
     /**
      * A `statelessAgent` block as defined below.
      *
      * > **Note:** Exactly one of `statefulAgent` or `statelessAgent` must be specified.
      */
-    statelessAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatelessAgent>;
+    statelessAgent?: pulumi.Input<inputs.devcenter.ManagedDevOpsPoolStatelessAgent | undefined>;
     /**
      * A mapping of tags which should be assigned to the Managed DevOps Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `virtualMachineScaleSetFabric` block as defined below.
      */
@@ -315,5 +315,5 @@ export interface ManagedDevOpsPoolArgs {
     /**
      * Specifies the work folder for every agent in the pool.
      */
-    workFolder?: pulumi.Input<string>;
+    workFolder?: pulumi.Input<string | undefined>;
 }

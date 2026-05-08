@@ -151,23 +151,23 @@ export interface PrivateLinkAssociationState {
      *
      * > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
      */
-    resourceManagementPrivateLinkId?: pulumi.Input<string>;
+    resourceManagementPrivateLinkId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface PrivateLinkAssociationArgs {
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
      */

@@ -159,21 +159,21 @@ export interface FlexibleServerVirtualEndpointState {
     /**
      * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
      *
      * > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
      */
-    replicaServerId?: pulumi.Input<string>;
+    replicaServerId?: pulumi.Input<string | undefined>;
     /**
      * The Resource ID of the *Source* Postgres Flexible Server this should be associated with. Changing this forces a new resource to be created.
      */
-    sourceServerId?: pulumi.Input<string>;
+    sourceServerId?: pulumi.Input<string | undefined>;
     /**
      * The type of Virtual Endpoint. Currently only `ReadWrite` is supported. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface FlexibleServerVirtualEndpointArgs {
     /**
      * The name of the Virtual Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
      *

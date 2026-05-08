@@ -22,12 +22,12 @@ __all__ = ['VnpGatewayNatRuleArgs', 'VnpGatewayNatRule']
 class VnpGatewayNatRuleArgs:
     def __init__(__self__, *,
                  vpn_gateway_id: pulumi.Input[_builtins.str],
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VnpGatewayNatRule resource.
 
@@ -67,87 +67,87 @@ class VnpGatewayNatRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
+    def external_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
         """
         One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
+    def external_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
+    def internal_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
         """
         One of more `internal_mapping` blocks as defined below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
+    def internal_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         """
         return pulumi.get(self, "ip_configuration_id")
 
     @ip_configuration_id.setter
-    def ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _VnpGatewayNatRuleState:
     def __init__(__self__, *,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VnpGatewayNatRule resources.
 
@@ -176,86 +176,86 @@ class _VnpGatewayNatRuleState:
 
     @_builtins.property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
+    def external_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
         """
         One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
+    def external_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
+    def internal_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
         """
         One of more `internal_mapping` blocks as defined below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
+    def internal_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         """
         return pulumi.get(self, "ip_configuration_id")
 
     @ip_configuration_id.setter
-    def ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
-    def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
-    def vpn_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_gateway_id", value)
 
 
@@ -265,13 +265,13 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VPN Gateway NAT Rule.
@@ -412,13 +412,13 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+                 internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,13 +447,13 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
-            ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VnpGatewayNatRule':
+            external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
+            internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
+            ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VnpGatewayNatRule':
         """
         Get an existing VnpGatewayNatRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

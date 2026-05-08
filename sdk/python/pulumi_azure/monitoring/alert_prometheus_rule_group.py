@@ -24,13 +24,13 @@ class AlertPrometheusRuleGroupArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AlertPrometheusRuleGroup resource.
 
@@ -101,102 +101,102 @@ class AlertPrometheusRuleGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Kubernetes Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Alert Management Prometheus Rule Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroupEnabled")
-    def rule_group_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rule_group_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
         """
         return pulumi.get(self, "rule_group_enabled")
 
     @rule_group_enabled.setter
-    def rule_group_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rule_group_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rule_group_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AlertPrometheusRuleGroupState:
     def __init__(__self__, *,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertPrometheusRuleGroup resources.
 
@@ -234,122 +234,122 @@ class _AlertPrometheusRuleGroupState:
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Kubernetes Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Alert Management Prometheus Rule Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroupEnabled")
-    def rule_group_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rule_group_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
         """
         return pulumi.get(self, "rule_group_enabled")
 
     @rule_group_enabled.setter
-    def rule_group_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rule_group_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rule_group_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]:
         """
         One or more `rule` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the resource ID of the Azure Monitor Workspace.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -359,16 +359,16 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Alert Management Prometheus Rule Group.
@@ -592,16 +592,16 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -637,16 +637,16 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AlertPrometheusRuleGroup':
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AlertPrometheusRuleGroup':
         """
         Get an existing AlertPrometheusRuleGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

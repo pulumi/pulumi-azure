@@ -144,10 +144,10 @@ def get_public_i_ps(allocation_type: Optional[_builtins.str] = None,
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           attachment_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_public_i_ps_output(allocation_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           attachment_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPsResult]:
     """
     Use this data source to access information about a set of existing Public IP Addresses.

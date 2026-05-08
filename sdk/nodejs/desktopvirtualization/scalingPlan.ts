@@ -149,43 +149,43 @@ export interface ScalingPlanState {
     /**
      * A description of the Scaling Plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the tag associated with the VMs you want to exclude from autoscaling.
      */
-    exclusionTag?: pulumi.Input<string>;
+    exclusionTag?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the Scaling Plan.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * One or more `hostPool` blocks as defined below.
      */
-    hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
+    hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[] | undefined>;
     /**
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `schedule` blocks as defined below.
      */
-    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanSchedule>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanSchedule>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,27 +195,27 @@ export interface ScalingPlanArgs {
     /**
      * A description of the Scaling Plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the tag associated with the VMs you want to exclude from autoscaling.
      */
-    exclusionTag?: pulumi.Input<string>;
+    exclusionTag?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the Scaling Plan.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * One or more `hostPool` blocks as defined below.
      */
-    hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
+    hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[] | undefined>;
     /**
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
@@ -227,7 +227,7 @@ export interface ScalingPlanArgs {
     /**
      * A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */

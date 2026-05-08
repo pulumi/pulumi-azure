@@ -21,7 +21,7 @@ class VmwareReplicationPolicyAssociationArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
                  recovery_vault_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VmwareReplicationPolicyAssociation resource.
 
@@ -62,23 +62,23 @@ class VmwareReplicationPolicyAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy association. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VmwareReplicationPolicyAssociationState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VmwareReplicationPolicyAssociation resources.
 
@@ -96,31 +96,31 @@ class _VmwareReplicationPolicyAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy association. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultId")
-    def recovery_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Recovery Service Vault to which the policy should be associated.
         Changing this forces a new association to be created.
@@ -128,7 +128,7 @@ class _VmwareReplicationPolicyAssociationState:
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
-    def recovery_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_id", value)
 
 
@@ -138,9 +138,9 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
@@ -258,9 +258,9 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,9 +287,9 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VmwareReplicationPolicyAssociation':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VmwareReplicationPolicyAssociation':
         """
         Get an existing VmwareReplicationPolicyAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

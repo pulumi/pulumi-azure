@@ -190,51 +190,51 @@ export interface KubernetesClusterExtensionState {
     /**
      * An `aksAssignedIdentity` block as defined below.
      */
-    aksAssignedIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterExtensionAksAssignedIdentity>[]>;
+    aksAssignedIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterExtensionAksAssignedIdentity>[] | undefined>;
     /**
      * Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
-    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration settings, as name-value pairs for configuring this extension.
      */
-    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current version of the extension.
      */
-    currentVersion?: pulumi.Input<string>;
+    currentVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    extensionType?: pulumi.Input<string>;
+    extensionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan>;
+    plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan | undefined>;
     /**
      * Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    releaseNamespace?: pulumi.Input<string>;
+    releaseNamespace?: pulumi.Input<string | undefined>;
     /**
      * The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    releaseTrain?: pulumi.Input<string>;
+    releaseTrain?: pulumi.Input<string | undefined>;
     /**
      * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    targetNamespace?: pulumi.Input<string>;
+    targetNamespace?: pulumi.Input<string | undefined>;
     /**
      * User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -248,11 +248,11 @@ export interface KubernetesClusterExtensionArgs {
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
-    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration settings, as name-value pairs for configuring this extension.
      */
-    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
      */
@@ -260,25 +260,25 @@ export interface KubernetesClusterExtensionArgs {
     /**
      * Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan>;
+    plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan | undefined>;
     /**
      * Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    releaseNamespace?: pulumi.Input<string>;
+    releaseNamespace?: pulumi.Input<string | undefined>;
     /**
      * The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    releaseTrain?: pulumi.Input<string>;
+    releaseTrain?: pulumi.Input<string | undefined>;
     /**
      * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    targetNamespace?: pulumi.Input<string>;
+    targetNamespace?: pulumi.Input<string | undefined>;
     /**
      * User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

@@ -164,9 +164,9 @@ def get_sql_role_definition(account_name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_role_definition_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_role_definition_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlRoleDefinitionResult]:
     """
     Use this data source to access information about an existing Cosmos DB SQL Role Definition.

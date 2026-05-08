@@ -200,44 +200,44 @@ export interface RouteServerState {
     /**
      * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
-    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    hubRoutingPreference?: pulumi.Input<string>;
+    hubRoutingPreference?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Route Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
-    routingState?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
+    routingState?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    virtualRouterAsn?: pulumi.Input<number>;
-    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    virtualRouterAsn?: pulumi.Input<number | undefined>;
+    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -247,19 +247,19 @@ export interface RouteServerArgs {
     /**
      * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
-    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    hubRoutingPreference?: pulumi.Input<string>;
+    hubRoutingPreference?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Route Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
@@ -281,5 +281,5 @@ export interface RouteServerArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

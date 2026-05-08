@@ -325,101 +325,101 @@ export interface VirtualMachineState {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    deleteDataDisksOnTermination?: pulumi.Input<boolean>;
+    deleteDataDisksOnTermination?: pulumi.Input<boolean | undefined>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    deleteOsDiskOnTermination?: pulumi.Input<boolean>;
+    deleteOsDiskOnTermination?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity | undefined>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
-    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
+    osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile | undefined>;
     /**
      * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
-    osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
+    osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
      * One or more `osProfileSecrets` blocks as defined below.
      */
-    osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
+    osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[] | undefined>;
     /**
      * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
-    osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
+    osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
      * A `plan` block as defined below.
      */
-    plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.VirtualMachinePlan | undefined>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
-    primaryNetworkInterfaceId?: pulumi.Input<string>;
+    primaryNetworkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `storageDataDisk` blocks as defined below.
      *
      * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
-    storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
+    storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[] | undefined>;
     /**
      * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
-    storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
+    storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference | undefined>;
     /**
      * A `storageOsDisk` block as defined below.
      */
-    storageOsDisk?: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk>;
+    storageOsDisk?: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk | undefined>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
      */
-    vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string | undefined>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      *
@@ -427,7 +427,7 @@ export interface VirtualMachineState {
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
-    zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -437,43 +437,43 @@ export interface VirtualMachineArgs {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    deleteDataDisksOnTermination?: pulumi.Input<boolean>;
+    deleteDataDisksOnTermination?: pulumi.Input<boolean | undefined>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    deleteOsDiskOnTermination?: pulumi.Input<boolean>;
+    deleteOsDiskOnTermination?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity | undefined>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
@@ -481,31 +481,31 @@ export interface VirtualMachineArgs {
     /**
      * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
+    osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile | undefined>;
     /**
      * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
-    osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
+    osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
      * One or more `osProfileSecrets` blocks as defined below.
      */
-    osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
+    osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[] | undefined>;
     /**
      * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
-    osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
+    osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
      * A `plan` block as defined below.
      */
-    plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.VirtualMachinePlan | undefined>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
-    primaryNetworkInterfaceId?: pulumi.Input<string>;
+    primaryNetworkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -515,11 +515,11 @@ export interface VirtualMachineArgs {
      *
      * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
-    storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
+    storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[] | undefined>;
     /**
      * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
-    storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
+    storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference | undefined>;
     /**
      * A `storageOsDisk` block as defined below.
      */
@@ -527,7 +527,7 @@ export interface VirtualMachineArgs {
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
      */
@@ -539,5 +539,5 @@ export interface VirtualMachineArgs {
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
-    zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string | undefined>;
 }

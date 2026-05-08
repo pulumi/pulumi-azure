@@ -198,31 +198,31 @@ export interface ActiveRoleAssignmentState {
     /**
      * The justification for the role assignment. Changing this forces a new resource to be created.
      */
-    justification?: pulumi.Input<string>;
+    justification?: pulumi.Input<string | undefined>;
     /**
      * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * Type of principal to which the role will be assigned.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule>;
+    schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule | undefined>;
     /**
      * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket>;
+    ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface ActiveRoleAssignmentArgs {
     /**
      * The justification for the role assignment. Changing this forces a new resource to be created.
      */
-    justification?: pulumi.Input<string>;
+    justification?: pulumi.Input<string | undefined>;
     /**
      * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
@@ -244,7 +244,7 @@ export interface ActiveRoleAssignmentArgs {
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule>;
+    schedule?: pulumi.Input<inputs.pim.ActiveRoleAssignmentSchedule | undefined>;
     /**
      * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
@@ -252,5 +252,5 @@ export interface ActiveRoleAssignmentArgs {
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket>;
+    ticket?: pulumi.Input<inputs.pim.ActiveRoleAssignmentTicket | undefined>;
 }

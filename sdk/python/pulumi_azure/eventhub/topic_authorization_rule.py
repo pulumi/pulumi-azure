@@ -20,10 +20,10 @@ __all__ = ['TopicAuthorizationRuleArgs', 'TopicAuthorizationRule']
 class TopicAuthorizationRuleArgs:
     def __init__(__self__, *,
                  topic_id: pulumi.Input[_builtins.str],
-                 listen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 manage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.bool]] = None):
+                 listen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 manage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TopicAuthorizationRule resource.
 
@@ -61,67 +61,67 @@ class TopicAuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def listen(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def listen(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants listen access to this this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "listen")
 
     @listen.setter
-    def listen(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def listen(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "listen", value)
 
     @_builtins.property
     @pulumi.getter
-    def manage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         return pulumi.get(self, "manage")
 
     @manage.setter
-    def manage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manage", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send", value)
 
 
 @pulumi.input_type
 class _TopicAuthorizationRuleState:
     def __init__(__self__, *,
-                 listen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 manage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.bool]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 listen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 manage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.bool]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TopicAuthorizationRule resources.
 
@@ -164,127 +164,127 @@ class _TopicAuthorizationRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def listen(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def listen(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants listen access to this this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "listen")
 
     @listen.setter
-    def listen(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def listen(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "listen", value)
 
     @_builtins.property
     @pulumi.getter
-    def manage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         return pulumi.get(self, "manage")
 
     @manage.setter
-    def manage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manage", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Connection String for the ServiceBus Topic authorization Rule.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionStringAlias")
-    def primary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         """
         return pulumi.get(self, "primary_connection_string_alias")
 
     @primary_connection_string_alias.setter
-    def primary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Key for the ServiceBus Topic authorization Rule.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Connection String for the ServiceBus Topic authorization Rule.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionStringAlias")
-    def secondary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias Secondary Connection String for the ServiceBus Namespace
         """
         return pulumi.get(self, "secondary_connection_string_alias")
 
     @secondary_connection_string_alias.setter
-    def secondary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Key for the ServiceBus Topic authorization Rule.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send", value)
 
     @_builtins.property
     @pulumi.getter(name="topicId")
-    def topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
 
@@ -293,7 +293,7 @@ class _TopicAuthorizationRuleState:
         return pulumi.get(self, "topic_id")
 
     @topic_id.setter
-    def topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_id", value)
 
 
@@ -308,11 +308,11 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 listen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 manage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.bool]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 listen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 manage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.bool]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
@@ -439,11 +439,11 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 listen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 manage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.bool]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 listen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 manage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.bool]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -479,17 +479,17 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            listen: Optional[pulumi.Input[_builtins.bool]] = None,
-            manage: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            send: Optional[pulumi.Input[_builtins.bool]] = None,
-            topic_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TopicAuthorizationRule':
+            listen: pulumi.Input[Optional[_builtins.bool]] = None,
+            manage: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.bool]] = None,
+            topic_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TopicAuthorizationRule':
         """
         Get an existing TopicAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

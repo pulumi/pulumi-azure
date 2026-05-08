@@ -152,29 +152,29 @@ export interface FrontdoorOriginGroupState {
     /**
      * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      */
-    cdnFrontdoorProfileId?: pulumi.Input<string>;
+    cdnFrontdoorProfileId?: pulumi.Input<string | undefined>;
     /**
      * A `healthProbe` block as defined below.
      */
-    healthProbe?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupHealthProbe>;
+    healthProbe?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupHealthProbe | undefined>;
     /**
      * A `loadBalancing` block as defined below.
      */
-    loadBalancing?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupLoadBalancing>;
+    loadBalancing?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupLoadBalancing | undefined>;
     /**
      * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      *
      * > **Note:** This property is currently not used, but will be in the near future.
      */
-    restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number>;
+    restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether session affinity should be enabled on this host. Defaults to `true`.
      */
-    sessionAffinityEnabled?: pulumi.Input<boolean>;
+    sessionAffinityEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -188,7 +188,7 @@ export interface FrontdoorOriginGroupArgs {
     /**
      * A `healthProbe` block as defined below.
      */
-    healthProbe?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupHealthProbe>;
+    healthProbe?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupHealthProbe | undefined>;
     /**
      * A `loadBalancing` block as defined below.
      */
@@ -196,15 +196,15 @@ export interface FrontdoorOriginGroupArgs {
     /**
      * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      *
      * > **Note:** This property is currently not used, but will be in the near future.
      */
-    restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number>;
+    restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether session affinity should be enabled on this host. Defaults to `true`.
      */
-    sessionAffinityEnabled?: pulumi.Input<boolean>;
+    sessionAffinityEnabled?: pulumi.Input<boolean | undefined>;
 }

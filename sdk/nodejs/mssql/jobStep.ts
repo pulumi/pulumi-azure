@@ -237,59 +237,59 @@ export interface JobStepState {
     /**
      * The initial retry interval in seconds. Defaults to `1`.
      */
-    initialRetryIntervalSeconds?: pulumi.Input<number>;
+    initialRetryIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
      * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
-    jobCredentialId?: pulumi.Input<string>;
+    jobCredentialId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
      */
-    jobId?: pulumi.Input<string>;
+    jobId?: pulumi.Input<string | undefined>;
     /**
      * The index at which to insert this Elastic Job Step into the Elastic Job.
      *
      * > **Note:** This value must be greater than or equal to 1 and less than or equal to the number of job steps in the Elastic Job.
      */
-    jobStepIndex?: pulumi.Input<number>;
+    jobStepIndex?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Elastic Job Target Group.
      */
-    jobTargetGroupId?: pulumi.Input<string>;
+    jobTargetGroupId?: pulumi.Input<string | undefined>;
     /**
      * The maximum retry interval in seconds. Defaults to `120`.
      *
      * > **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      */
-    maximumRetryIntervalSeconds?: pulumi.Input<number>;
+    maximumRetryIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `outputTarget` block as defined below.
      */
-    outputTarget?: pulumi.Input<inputs.mssql.JobStepOutputTarget>;
+    outputTarget?: pulumi.Input<inputs.mssql.JobStepOutputTarget | undefined>;
     /**
      * The number of retry attempts. Defaults to `10`.
      */
-    retryAttempts?: pulumi.Input<number>;
+    retryAttempts?: pulumi.Input<number | undefined>;
     /**
      * The multiplier for time between retries. Defaults to `2.0`.
      */
-    retryIntervalBackoffMultiplier?: pulumi.Input<number>;
+    retryIntervalBackoffMultiplier?: pulumi.Input<number | undefined>;
     /**
      * The T-SQL script to be executed by this Elastic Job Step.
      *
      * > **Note:** While Azure places no restrictions on the script provided here, it is recommended to ensure the script is idempotent.
      */
-    sqlScript?: pulumi.Input<string>;
+    sqlScript?: pulumi.Input<string | undefined>;
     /**
      * The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
      */
-    timeoutSeconds?: pulumi.Input<number>;
+    timeoutSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -299,13 +299,13 @@ export interface JobStepArgs {
     /**
      * The initial retry interval in seconds. Defaults to `1`.
      */
-    initialRetryIntervalSeconds?: pulumi.Input<number>;
+    initialRetryIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
      * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
-    jobCredentialId?: pulumi.Input<string>;
+    jobCredentialId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
      */
@@ -325,23 +325,23 @@ export interface JobStepArgs {
      *
      * > **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      */
-    maximumRetryIntervalSeconds?: pulumi.Input<number>;
+    maximumRetryIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `outputTarget` block as defined below.
      */
-    outputTarget?: pulumi.Input<inputs.mssql.JobStepOutputTarget>;
+    outputTarget?: pulumi.Input<inputs.mssql.JobStepOutputTarget | undefined>;
     /**
      * The number of retry attempts. Defaults to `10`.
      */
-    retryAttempts?: pulumi.Input<number>;
+    retryAttempts?: pulumi.Input<number | undefined>;
     /**
      * The multiplier for time between retries. Defaults to `2.0`.
      */
-    retryIntervalBackoffMultiplier?: pulumi.Input<number>;
+    retryIntervalBackoffMultiplier?: pulumi.Input<number | undefined>;
     /**
      * The T-SQL script to be executed by this Elastic Job Step.
      *
@@ -351,5 +351,5 @@ export interface JobStepArgs {
     /**
      * The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
      */
-    timeoutSeconds?: pulumi.Input<number>;
+    timeoutSeconds?: pulumi.Input<number | undefined>;
 }

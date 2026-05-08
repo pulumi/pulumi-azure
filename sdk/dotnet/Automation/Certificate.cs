@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Automation
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         Description = "This is an example certificate",
-    ///         Base64 = Std.Index.Filebase64.Invoke(new()
+    ///         Base64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

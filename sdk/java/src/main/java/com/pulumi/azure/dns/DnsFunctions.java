@@ -61,8 +61,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -165,8 +165,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -269,8 +269,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -373,8 +373,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -425,8 +425,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -477,8 +477,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -633,8 +633,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -685,8 +685,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -789,8 +789,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -841,8 +841,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -893,8 +893,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -945,8 +945,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -997,8 +997,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1049,8 +1049,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1101,8 +1101,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1153,8 +1153,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1205,8 +1205,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1257,8 +1257,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1309,8 +1309,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1361,8 +1361,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1413,8 +1413,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1465,8 +1465,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1517,8 +1517,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1569,8 +1569,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1621,8 +1621,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1673,8 +1673,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1725,8 +1725,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1777,8 +1777,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1829,8 +1829,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1881,8 +1881,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1932,8 +1932,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1983,8 +1983,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2034,8 +2034,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2085,8 +2085,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2136,8 +2136,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2188,8 +2188,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2240,8 +2240,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2292,8 +2292,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2344,8 +2344,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2396,8 +2396,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2448,8 +2448,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2500,8 +2500,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2552,8 +2552,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2604,8 +2604,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2654,8 +2654,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2703,8 +2703,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2752,8 +2752,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2801,8 +2801,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2850,8 +2850,8 @@ public final class DnsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dns.DnsFunctions;
      * import com.pulumi.azure.dns.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

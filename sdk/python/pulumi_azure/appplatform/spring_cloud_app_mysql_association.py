@@ -24,7 +24,7 @@ class SpringCloudAppMysqlAssociationArgs:
                  password: pulumi.Input[_builtins.str],
                  spring_cloud_app_id: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppMysqlAssociation resource.
 
@@ -105,26 +105,26 @@ class SpringCloudAppMysqlAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudAppMysqlAssociationState:
     def __init__(__self__, *,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppMysqlAssociation resources.
 
@@ -150,74 +150,74 @@ class _SpringCloudAppMysqlAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mysqlServerId")
-    def mysql_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mysql_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mysql_server_id")
 
     @mysql_server_id.setter
-    def mysql_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mysql_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mysql_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -227,12 +227,12 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates a Spring Cloud Application with a MySQL Database.
@@ -372,12 +372,12 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mysql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mysql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -415,12 +415,12 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mysql_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudAppMysqlAssociation':
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mysql_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudAppMysqlAssociation':
         """
         Get an existing SpringCloudAppMysqlAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

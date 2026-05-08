@@ -140,23 +140,23 @@ export interface AccountState {
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.datashare.AccountIdentity>;
+    identity?: pulumi.Input<inputs.datashare.AccountIdentity | undefined>;
     /**
      * The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Data Share Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -170,11 +170,11 @@ export interface AccountArgs {
     /**
      * The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
@@ -182,5 +182,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags which should be assigned to the Data Share Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

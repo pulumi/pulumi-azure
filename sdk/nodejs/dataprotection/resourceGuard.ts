@@ -129,23 +129,23 @@ export interface ResourceGuardState {
     /**
      * The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Guard. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Guard.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of the critical operations which are not protected by this Resource Guard.
      */
-    vaultCriticalOperationExclusionLists?: pulumi.Input<pulumi.Input<string>[]>;
+    vaultCriticalOperationExclusionLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -155,11 +155,11 @@ export interface ResourceGuardArgs {
     /**
      * The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Guard. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
@@ -167,9 +167,9 @@ export interface ResourceGuardArgs {
     /**
      * A mapping of tags which should be assigned to the Resource Guard.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of the critical operations which are not protected by this Resource Guard.
      */
-    vaultCriticalOperationExclusionLists?: pulumi.Input<pulumi.Input<string>[]>;
+    vaultCriticalOperationExclusionLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

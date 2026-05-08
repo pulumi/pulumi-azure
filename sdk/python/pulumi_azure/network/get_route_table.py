@@ -173,8 +173,8 @@ def get_route_table(name: Optional[_builtins.str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_route_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Use this data source to access information about an existing Route Table.

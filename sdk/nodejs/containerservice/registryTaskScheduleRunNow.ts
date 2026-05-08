@@ -112,7 +112,7 @@ export interface RegistryTaskScheduleRunNowState {
     /**
      * The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
      */
-    containerRegistryTaskId?: pulumi.Input<string>;
+    containerRegistryTaskId?: pulumi.Input<string | undefined>;
 }
 
 /**

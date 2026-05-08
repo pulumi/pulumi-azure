@@ -223,73 +223,73 @@ export interface AlertRuleAnomalyBuiltInState {
     /**
      * The version of the Anomaly Security ML Analytics Settings.
      */
-    anomalySettingsVersion?: pulumi.Input<number>;
+    anomalySettingsVersion?: pulumi.Input<number | undefined>;
     /**
      * The anomaly version of the Anomaly Alert Rule.
      */
-    anomalyVersion?: pulumi.Input<string>;
+    anomalyVersion?: pulumi.Input<string | undefined>;
     /**
      * The description of the threshold observation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Should the Built-in Anomaly Alert Rule be enabled?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The frequency the Anomaly Alert Rule will be run.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * A list of `multiSelectObservation` blocks as defined below.
      */
-    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation>[]>;
+    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation>[] | undefined>;
     /**
      * The Name of the built-in Anomaly Alert Rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.
      */
-    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation>[]>;
+    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation>[] | undefined>;
     /**
      * A `requiredDataConnector` block as defined below.
      */
-    requiredDataConnectors?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInRequiredDataConnector>[]>;
+    requiredDataConnectors?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInRequiredDataConnector>[] | undefined>;
     /**
      * The ID of the anomaly settings definition Id.
      */
-    settingsDefinitionId?: pulumi.Input<string>;
+    settingsDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A list of `singleSelectObservation` blocks as defined below.
      */
-    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInSingleSelectObservation>[]>;
+    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInSingleSelectObservation>[] | undefined>;
     /**
      * A list of categories of attacks by which to classify the rule.
      */
-    tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    techniques?: pulumi.Input<pulumi.Input<string>[]>;
+    techniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of `thresholdObservation` blocks as defined below.
      */
-    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInThresholdObservation>[]>;
+    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInThresholdObservation>[] | undefined>;
 }
 
 /**
@@ -301,7 +301,7 @@ export interface AlertRuleAnomalyBuiltInArgs {
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Should the Built-in Anomaly Alert Rule be enabled?
      */
@@ -317,5 +317,5 @@ export interface AlertRuleAnomalyBuiltInArgs {
     /**
      * The Name of the built-in Anomaly Alert Rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

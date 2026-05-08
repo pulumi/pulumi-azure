@@ -337,119 +337,119 @@ export interface ServiceState {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[] | undefined>;
     /**
      * One or more `certificate` blocks (up to 10) as defined below.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[] | undefined>;
     /**
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `delegation` block as defined below.
      */
-    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation>;
+    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation | undefined>;
     /**
      * The URL for the Developer Portal associated with this API Management service.
      */
-    developerPortalUrl?: pulumi.Input<string>;
+    developerPortalUrl?: pulumi.Input<string | undefined>;
     /**
      * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
-    gatewayDisabled?: pulumi.Input<boolean>;
+    gatewayDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
-    gatewayRegionalUrl?: pulumi.Input<string>;
+    gatewayRegionalUrl?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Gateway for the API Management Service.
      */
-    gatewayUrl?: pulumi.Input<string>;
+    gatewayUrl?: pulumi.Input<string | undefined>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
+    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity | undefined>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The URL for the Management API associated with this API Management service.
      */
-    managementApiUrl?: pulumi.Input<string>;
+    managementApiUrl?: pulumi.Input<string | undefined>;
     /**
      * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
      */
-    minApiVersion?: pulumi.Input<string>;
+    minApiVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Email address from which the notification will be sent.
      */
-    notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string | undefined>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
-    portalUrl?: pulumi.Input<string>;
+    portalUrl?: pulumi.Input<string | undefined>;
     /**
      * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      */
-    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `protocols` block as defined below.
      */
-    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols | undefined>;
     /**
      * ID of a standard SKU IPv4 Public IP.
      *
      * > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
-    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is public access to the service allowed? Defaults to `true`.
      *
      * > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email of publisher/company.
      */
-    publisherEmail?: pulumi.Input<string>;
+    publisherEmail?: pulumi.Input<string | undefined>;
     /**
      * The name of publisher/company.
      */
-    publisherName?: pulumi.Input<string>;
+    publisherName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
      */
-    scmUrl?: pulumi.Input<string>;
+    scmUrl?: pulumi.Input<string | undefined>;
     /**
      * A `security` block as defined below.
      */
-    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
+    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity | undefined>;
     /**
      * A `signIn` block as defined below.
      */
-    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
+    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn | undefined>;
     /**
      * A `signUp` block as defined below.
      */
-    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
+    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp | undefined>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
@@ -457,31 +457,31 @@ export interface ServiceState {
      *
      * > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `tenantAccess` block as defined below.
      */
-    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
+    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess | undefined>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      *
      * > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
-    virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **Note:** Availability zones are only supported in the Premium tier.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -491,63 +491,63 @@ export interface ServiceArgs {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[] | undefined>;
     /**
      * One or more `certificate` blocks (up to 10) as defined below.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[] | undefined>;
     /**
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `delegation` block as defined below.
      */
-    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation>;
+    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation | undefined>;
     /**
      * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
-    gatewayDisabled?: pulumi.Input<boolean>;
+    gatewayDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
+    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity | undefined>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
      */
-    minApiVersion?: pulumi.Input<string>;
+    minApiVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Email address from which the notification will be sent.
      */
-    notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string | undefined>;
     /**
      * A `protocols` block as defined below.
      */
-    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols | undefined>;
     /**
      * ID of a standard SKU IPv4 Public IP.
      *
      * > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
     /**
      * Is public access to the service allowed? Defaults to `true`.
      *
      * > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email of publisher/company.
      */
@@ -563,15 +563,15 @@ export interface ServiceArgs {
     /**
      * A `security` block as defined below.
      */
-    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
+    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity | undefined>;
     /**
      * A `signIn` block as defined below.
      */
-    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
+    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn | undefined>;
     /**
      * A `signUp` block as defined below.
      */
-    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
+    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp | undefined>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
@@ -583,25 +583,25 @@ export interface ServiceArgs {
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `tenantAccess` block as defined below.
      */
-    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
+    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess | undefined>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      *
      * > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
-    virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **Note:** Availability zones are only supported in the Premium tier.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

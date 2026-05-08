@@ -25,19 +25,19 @@ class CacheArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-                 dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ntp_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_access_policy: pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']] = None,
+                 directory_active_directory: pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']] = None,
+                 directory_flat_file: pulumi.Input[Optional['CacheDirectoryFlatFileArgs']] = None,
+                 directory_ldap: pulumi.Input[Optional['CacheDirectoryLdapArgs']] = None,
+                 dns: pulumi.Input[Optional['CacheDnsArgs']] = None,
+                 identity: pulumi.Input[Optional['CacheIdentityArgs']] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
 
@@ -150,55 +150,55 @@ class CacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
-    def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatically_rotate_key_to_latest_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         """
         return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
     @automatically_rotate_key_to_latest_enabled.setter
-    def automatically_rotate_key_to_latest_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatically_rotate_key_to_latest_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatically_rotate_key_to_latest_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAccessPolicy")
-    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
+    def default_access_policy(self) -> pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']]:
         """
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
 
     @default_access_policy.setter
-    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
+    def default_access_policy(self, value: pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']]):
         pulumi.set(self, "default_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryActiveDirectory")
-    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+    def directory_active_directory(self) -> pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']]:
         """
         A `directory_active_directory` block as defined below.
         """
         return pulumi.get(self, "directory_active_directory")
 
     @directory_active_directory.setter
-    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+    def directory_active_directory(self, value: pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']]):
         pulumi.set(self, "directory_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryFlatFile")
-    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+    def directory_flat_file(self) -> pulumi.Input[Optional['CacheDirectoryFlatFileArgs']]:
         """
         A `directory_flat_file` block as defined below.
         """
         return pulumi.get(self, "directory_flat_file")
 
     @directory_flat_file.setter
-    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+    def directory_flat_file(self, value: pulumi.Input[Optional['CacheDirectoryFlatFileArgs']]):
         pulumi.set(self, "directory_flat_file", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryLdap")
-    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+    def directory_ldap(self) -> pulumi.Input[Optional['CacheDirectoryLdapArgs']]:
         """
         A `directory_ldap` block as defined below.
 
@@ -207,127 +207,127 @@ class CacheArgs:
         return pulumi.get(self, "directory_ldap")
 
     @directory_ldap.setter
-    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+    def directory_ldap(self, value: pulumi.Input[Optional['CacheDirectoryLdapArgs']]):
         pulumi.set(self, "directory_ldap", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['CacheDnsArgs']]:
+    def dns(self) -> pulumi.Input[Optional['CacheDnsArgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
+    def dns(self, value: pulumi.Input[Optional['CacheDnsArgs']]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CacheIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CacheIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ntpServer")
-    def ntp_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ntp_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         """
         return pulumi.get(self, "ntp_server")
 
     @ntp_server.setter
-    def ntp_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ntp_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ntp_server", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the HPC Cache.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CacheState:
     def __init__(__self__, *,
-                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-                 dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ntp_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_access_policy: pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']] = None,
+                 directory_active_directory: pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']] = None,
+                 directory_flat_file: pulumi.Input[Optional['CacheDirectoryFlatFileArgs']] = None,
+                 directory_ldap: pulumi.Input[Optional['CacheDirectoryLdapArgs']] = None,
+                 dns: pulumi.Input[Optional['CacheDnsArgs']] = None,
+                 identity: pulumi.Input[Optional['CacheIdentityArgs']] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
 
@@ -395,19 +395,19 @@ class _CacheState:
 
     @_builtins.property
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
-    def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatically_rotate_key_to_latest_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         """
         return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
     @automatically_rotate_key_to_latest_enabled.setter
-    def automatically_rotate_key_to_latest_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatically_rotate_key_to_latest_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatically_rotate_key_to_latest_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSizeInGb")
-    def cache_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 
@@ -416,48 +416,48 @@ class _CacheState:
         return pulumi.get(self, "cache_size_in_gb")
 
     @cache_size_in_gb.setter
-    def cache_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAccessPolicy")
-    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
+    def default_access_policy(self) -> pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']]:
         """
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
 
     @default_access_policy.setter
-    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
+    def default_access_policy(self, value: pulumi.Input[Optional['CacheDefaultAccessPolicyArgs']]):
         pulumi.set(self, "default_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryActiveDirectory")
-    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+    def directory_active_directory(self) -> pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']]:
         """
         A `directory_active_directory` block as defined below.
         """
         return pulumi.get(self, "directory_active_directory")
 
     @directory_active_directory.setter
-    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+    def directory_active_directory(self, value: pulumi.Input[Optional['CacheDirectoryActiveDirectoryArgs']]):
         pulumi.set(self, "directory_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryFlatFile")
-    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+    def directory_flat_file(self) -> pulumi.Input[Optional['CacheDirectoryFlatFileArgs']]:
         """
         A `directory_flat_file` block as defined below.
         """
         return pulumi.get(self, "directory_flat_file")
 
     @directory_flat_file.setter
-    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+    def directory_flat_file(self, value: pulumi.Input[Optional['CacheDirectoryFlatFileArgs']]):
         pulumi.set(self, "directory_flat_file", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryLdap")
-    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+    def directory_ldap(self) -> pulumi.Input[Optional['CacheDirectoryLdapArgs']]:
         """
         A `directory_ldap` block as defined below.
 
@@ -466,120 +466,120 @@ class _CacheState:
         return pulumi.get(self, "directory_ldap")
 
     @directory_ldap.setter
-    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+    def directory_ldap(self, value: pulumi.Input[Optional['CacheDirectoryLdapArgs']]):
         pulumi.set(self, "directory_ldap", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['CacheDnsArgs']]:
+    def dns(self) -> pulumi.Input[Optional['CacheDnsArgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
+    def dns(self, value: pulumi.Input[Optional['CacheDnsArgs']]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CacheIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CacheIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mount_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses where the HPC Cache can be mounted.
         """
         return pulumi.get(self, "mount_addresses")
 
     @mount_addresses.setter
-    def mount_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mount_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mount_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ntpServer")
-    def ntp_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ntp_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         """
         return pulumi.get(self, "ntp_server")
 
     @ntp_server.setter
-    def ntp_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ntp_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ntp_server", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 
@@ -588,31 +588,31 @@ class _CacheState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the HPC Cache.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -622,23 +622,23 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_access_policy: Optional[pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-                 directory_active_directory: Optional[pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-                 directory_flat_file: Optional[pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-                 directory_ldap: Optional[pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-                 dns: Optional[pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ntp_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
+                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
+                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
+                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
+                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a HPC Cache.
@@ -789,23 +789,23 @@ class Cache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_access_policy: Optional[pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-                 directory_active_directory: Optional[pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-                 directory_flat_file: Optional[pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-                 directory_ldap: Optional[pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-                 dns: Optional[pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ntp_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
+                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
+                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
+                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
+                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -851,24 +851,24 @@ class Cache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            cache_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            default_access_policy: Optional[pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-            directory_active_directory: Optional[pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-            directory_flat_file: Optional[pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-            directory_ldap: Optional[pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-            dns: Optional[pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mtu: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ntp_server: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Cache':
+            automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
+            directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
+            directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
+            directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
+            dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

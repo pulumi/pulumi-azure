@@ -73,9 +73,9 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs:
 @pulumi.input_type
 class _NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState:
     def __init__(__self__, *,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resources.
 
@@ -92,38 +92,38 @@ class _NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationName")
-    def ip_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configuration_name")
 
     @ip_configuration_name.setter
-    def ip_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
 
@@ -133,9 +133,9 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
@@ -396,9 +396,9 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,9 +427,9 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation':
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation':
         """
         Get an existing NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

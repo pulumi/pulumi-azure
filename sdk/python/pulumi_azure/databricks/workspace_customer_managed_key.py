@@ -54,8 +54,8 @@ class WorkspaceCustomerManagedKeyArgs:
 @pulumi.input_type
 class _WorkspaceCustomerManagedKeyState:
     def __init__(__self__, *,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceCustomerManagedKey resources.
 
@@ -68,23 +68,23 @@ class _WorkspaceCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the databricks workspace in Databricks control plane.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -94,8 +94,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Databricks Workspace
@@ -228,8 +228,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,8 +255,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceCustomerManagedKey':
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceCustomerManagedKey':
         """
         Get an existing WorkspaceCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

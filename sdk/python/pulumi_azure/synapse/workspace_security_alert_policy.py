@@ -21,12 +21,12 @@ class WorkspaceSecurityAlertPolicyArgs:
     def __init__(__self__, *,
                  policy_state: pulumi.Input[_builtins.str],
                  synapse_workspace_id: pulumi.Input[_builtins.str],
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSecurityAlertPolicy resource.
 
@@ -80,88 +80,88 @@ class WorkspaceSecurityAlertPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdminsEnabled")
-    def email_account_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         """
         return pulumi.get(self, "email_account_admins_enabled")
 
     @email_account_admins_enabled.setter
-    def email_account_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the alert is sent.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
 @pulumi.input_type
 class _WorkspaceSecurityAlertPolicyState:
     def __init__(__self__, *,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSecurityAlertPolicy resources.
 
@@ -193,98 +193,98 @@ class _WorkspaceSecurityAlertPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdminsEnabled")
-    def email_account_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         """
         return pulumi.get(self, "email_account_admins_enabled")
 
     @email_account_admins_enabled.setter
-    def email_account_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the alert is sent.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="policyState")
-    def policy_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
         """
         return pulumi.get(self, "policy_state")
 
     @policy_state.setter
-    def policy_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_state", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
 
@@ -294,14 +294,14 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Security Alert Policy for a Synapse Workspace.
@@ -471,14 +471,14 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,14 +512,14 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_state: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceSecurityAlertPolicy':
+            disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_state: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceSecurityAlertPolicy':
         """
         Get an existing WorkspaceSecurityAlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

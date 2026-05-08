@@ -195,55 +195,55 @@ export interface DatasetAzureBlobState {
      *
      * The following supported arguments are specific to Azure Blob Dataset:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      */
-    dynamicFilenameEnabled?: pulumi.Input<boolean>;
+    dynamicFilenameEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      */
-    dynamicPathEnabled?: pulumi.Input<boolean>;
+    dynamicPathEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The filename of the Azure Blob.
      */
-    filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The path of the Azure Blob.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureBlobSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureBlobSchemaColumn>[] | undefined>;
 }
 
 /**
@@ -255,11 +255,11 @@ export interface DatasetAzureBlobArgs {
      *
      * The following supported arguments are specific to Azure Blob Dataset:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -267,23 +267,23 @@ export interface DatasetAzureBlobArgs {
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      */
-    dynamicFilenameEnabled?: pulumi.Input<boolean>;
+    dynamicFilenameEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      */
-    dynamicPathEnabled?: pulumi.Input<boolean>;
+    dynamicPathEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The filename of the Azure Blob.
      */
-    filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
@@ -291,17 +291,17 @@ export interface DatasetAzureBlobArgs {
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The path of the Azure Blob.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureBlobSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureBlobSchemaColumn>[] | undefined>;
 }

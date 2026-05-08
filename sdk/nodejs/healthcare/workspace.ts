@@ -124,20 +124,20 @@ export interface WorkspaceState {
     /**
      * Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
      */
-    name?: pulumi.Input<string>;
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.healthcare.WorkspacePrivateEndpointConnection>[]>;
+    name?: pulumi.Input<string | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.healthcare.WorkspacePrivateEndpointConnection>[] | undefined>;
     /**
      * Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface WorkspaceArgs {
     /**
      * Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
      */
@@ -159,5 +159,5 @@ export interface WorkspaceArgs {
     /**
      * A mapping of tags to assign to the Healthcare Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

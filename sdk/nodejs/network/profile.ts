@@ -166,27 +166,27 @@ export interface ProfileState {
     /**
      * A `containerNetworkInterface` block as documented below.
      */
-    containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
+    containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface | undefined>;
     /**
      * A list of Container Network Interface IDs.
      */
-    containerNetworkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    containerNetworkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -200,11 +200,11 @@ export interface ProfileArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
@@ -212,5 +212,5 @@ export interface ProfileArgs {
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

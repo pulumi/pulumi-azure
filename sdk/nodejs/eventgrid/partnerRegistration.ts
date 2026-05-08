@@ -122,19 +122,19 @@ export interface PartnerRegistrationState {
     /**
      * The name which should be used for this EventGrid Partner Registration. Changing this forces a new EventGrid Partner Registration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The immutable id of the corresponding partner registration.
      */
-    partnerRegistrationId?: pulumi.Input<string>;
+    partnerRegistrationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the EventGrid Partner Registration should exist. Changing this forces a new EventGrid Partner Registration to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the EventGrid Partner Registration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface PartnerRegistrationArgs {
     /**
      * The name which should be used for this EventGrid Partner Registration. Changing this forces a new EventGrid Partner Registration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the EventGrid Partner Registration should exist. Changing this forces a new EventGrid Partner Registration to be created.
      */
@@ -152,5 +152,5 @@ export interface PartnerRegistrationArgs {
     /**
      * A mapping of tags which should be assigned to the EventGrid Partner Registration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

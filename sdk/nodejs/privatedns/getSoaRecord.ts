@@ -152,7 +152,7 @@ export interface GetSoaRecordOutputArgs {
     /**
      * The name of the Private DNS SOA Record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Private DNS Zone (parent resource) exists.
      */

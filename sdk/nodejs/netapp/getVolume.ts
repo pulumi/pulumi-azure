@@ -210,5 +210,5 @@ export interface GetVolumeOutputArgs {
     /**
      * Volume security style
      */
-    securityStyle?: pulumi.Input<string>;
+    securityStyle?: pulumi.Input<string | undefined>;
 }

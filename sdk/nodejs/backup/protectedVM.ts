@@ -179,35 +179,35 @@ export interface ProtectedVMState {
      *
      * > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
      */
-    backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
-    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
-    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      *
      * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      *
      * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
-    sourceVmId?: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,21 +221,21 @@ export interface ProtectedVMArgs {
      *
      * > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
      */
-    backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
-    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
-    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      *
      * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -249,5 +249,5 @@ export interface ProtectedVMArgs {
      *
      * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
-    sourceVmId?: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string | undefined>;
 }

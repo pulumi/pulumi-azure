@@ -20,9 +20,9 @@ __all__ = ['CustomDomainArgs', 'CustomDomain']
 class CustomDomainArgs:
     def __init__(__self__, *,
                  container_app_id: pulumi.Input[_builtins.str],
-                 certificate_binding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
 
@@ -59,7 +59,7 @@ class CustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateBindingType")
-    def certificate_binding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_binding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
 
@@ -68,12 +68,12 @@ class CustomDomainArgs:
         return pulumi.get(self, "certificate_binding_type")
 
     @certificate_binding_type.setter
-    def certificate_binding_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_binding_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_binding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentCertificateId")
-    def container_app_environment_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 
@@ -82,12 +82,12 @@ class CustomDomainArgs:
         return pulumi.get(self, "container_app_environment_certificate_id")
 
     @container_app_environment_certificate_id.setter
-    def container_app_environment_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
 
@@ -96,18 +96,18 @@ class CustomDomainArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CustomDomainState:
     def __init__(__self__, *,
-                 certificate_binding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_managed_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_managed_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
 
@@ -136,7 +136,7 @@ class _CustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="certificateBindingType")
-    def certificate_binding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_binding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
 
@@ -145,12 +145,12 @@ class _CustomDomainState:
         return pulumi.get(self, "certificate_binding_type")
 
     @certificate_binding_type.setter
-    def certificate_binding_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_binding_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_binding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentCertificateId")
-    def container_app_environment_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 
@@ -159,36 +159,36 @@ class _CustomDomainState:
         return pulumi.get(self, "container_app_environment_certificate_id")
 
     @container_app_environment_certificate_id.setter
-    def container_app_environment_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentManagedCertificateId")
-    def container_app_environment_managed_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_managed_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App Environment Managed Certificate to use.
         """
         return pulumi.get(self, "container_app_environment_managed_certificate_id")
 
     @container_app_environment_managed_certificate_id.setter
-    def container_app_environment_managed_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_managed_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_managed_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppId")
-    def container_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_id")
 
     @container_app_id.setter
-    def container_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
 
@@ -197,7 +197,7 @@ class _CustomDomainState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -207,10 +207,10 @@ class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_binding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Container App Custom Domain.
@@ -450,10 +450,10 @@ class CustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_binding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,11 +480,11 @@ class CustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_binding_type: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_environment_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_environment_managed_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomDomain':
+            certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_managed_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

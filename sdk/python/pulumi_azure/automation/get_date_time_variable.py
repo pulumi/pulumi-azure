@@ -151,9 +151,9 @@ def get_date_time_variable(automation_account_name: Optional[_builtins.str] = No
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         value=pulumi.get(__ret__, 'value'))
-def get_date_time_variable_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_date_time_variable_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDateTimeVariableResult]:
     """
     Use this data source to access information about an existing Automation Datetime Variable.

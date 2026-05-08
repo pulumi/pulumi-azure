@@ -22,8 +22,8 @@ class SharedPrivateLinkResourceArgs:
                  signalr_service_id: pulumi.Input[_builtins.str],
                  sub_resource_name: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
 
@@ -83,38 +83,38 @@ class SharedPrivateLinkResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
 
 @pulumi.input_type
 class _SharedPrivateLinkResourceState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedPrivateLinkResource resources.
 
@@ -142,67 +142,67 @@ class _SharedPrivateLinkResourceState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter(name="signalrServiceId")
-    def signalr_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signalr_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the Signalr Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "signalr_service_id")
 
     @signalr_service_id.setter
-    def signalr_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signalr_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signalr_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subResourceName")
-    def sub_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sub_resource_name")
 
     @sub_resource_name.setter
-    def sub_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
@@ -211,7 +211,7 @@ class _SharedPrivateLinkResourceState:
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -221,11 +221,11 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Shared Private Link Resource for a Signalr service.
@@ -374,11 +374,11 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,12 +410,12 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            request_message: Optional[pulumi.Input[_builtins.str]] = None,
-            signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            sub_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SharedPrivateLinkResource':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SharedPrivateLinkResource':
         """
         Get an existing SharedPrivateLinkResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

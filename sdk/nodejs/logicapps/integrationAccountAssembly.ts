@@ -164,35 +164,35 @@ export interface IntegrationAccountAssemblyState {
     /**
      * The name of the Logic App Integration Account Assembly.
      */
-    assemblyName?: pulumi.Input<string>;
+    assemblyName?: pulumi.Input<string | undefined>;
     /**
      * The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
      */
-    assemblyVersion?: pulumi.Input<string>;
+    assemblyVersion?: pulumi.Input<string | undefined>;
     /**
      * The content of the Logic App Integration Account Assembly.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The content link URI of the Logic App Integration Account Assembly.
      */
-    contentLinkUri?: pulumi.Input<string>;
+    contentLinkUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The metadata of the Logic App Integration Account Assembly.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,15 +206,15 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
      */
-    assemblyVersion?: pulumi.Input<string>;
+    assemblyVersion?: pulumi.Input<string | undefined>;
     /**
      * The content of the Logic App Integration Account Assembly.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The content link URI of the Logic App Integration Account Assembly.
      */
-    contentLinkUri?: pulumi.Input<string>;
+    contentLinkUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
@@ -222,11 +222,11 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The metadata of the Logic App Integration Account Assembly.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
      */

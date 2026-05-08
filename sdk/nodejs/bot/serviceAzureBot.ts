@@ -215,89 +215,89 @@ export interface ServiceAzureBotState {
      *
      * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
      */
-    cmkKeyVaultKeyUrl?: pulumi.Input<string>;
+    cmkKeyVaultKeyUrl?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */
-    developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Application Insights instance to associate with this Azure Bot Service.
      */
-    developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Application Insight Key to associate with this Azure Bot Service.
      */
-    developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string | undefined>;
     /**
      * The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Bot Service endpoint.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * Is local authentication enabled? Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of LUIS App IDs to associate with this Azure Bot Service.
      */
-    luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
+    luisAppIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The LUIS key to associate with this Azure Bot Service.
      */
-    luisKey?: pulumi.Input<string>;
+    luisKey?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
      */
-    microsoftAppId?: pulumi.Input<string>;
+    microsoftAppId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    microsoftAppMsiId?: pulumi.Input<string>;
+    microsoftAppMsiId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    microsoftAppTenantId?: pulumi.Input<string>;
+    microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string>;
+    microsoftAppType?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
      */
-    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    streamingEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -309,47 +309,47 @@ export interface ServiceAzureBotArgs {
      *
      * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
      */
-    cmkKeyVaultKeyUrl?: pulumi.Input<string>;
+    cmkKeyVaultKeyUrl?: pulumi.Input<string | undefined>;
     /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */
-    developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Application Insights instance to associate with this Azure Bot Service.
      */
-    developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Application Insight Key to associate with this Azure Bot Service.
      */
-    developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string | undefined>;
     /**
      * The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Bot Service endpoint.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * Is local authentication enabled? Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of LUIS App IDs to associate with this Azure Bot Service.
      */
-    luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
+    luisAppIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The LUIS key to associate with this Azure Bot Service.
      */
-    luisKey?: pulumi.Input<string>;
+    luisKey?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
      */
@@ -357,25 +357,25 @@ export interface ServiceAzureBotArgs {
     /**
      * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    microsoftAppMsiId?: pulumi.Input<string>;
+    microsoftAppMsiId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    microsoftAppTenantId?: pulumi.Input<string>;
+    microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string>;
+    microsoftAppType?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
@@ -387,9 +387,9 @@ export interface ServiceAzureBotArgs {
     /**
      * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
      */
-    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    streamingEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

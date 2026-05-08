@@ -229,47 +229,47 @@ export interface NetworkManagerAdminRuleState {
     /**
      * Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
      */
-    adminRuleCollectionId?: pulumi.Input<string>;
+    adminRuleCollectionId?: pulumi.Input<string | undefined>;
     /**
      * A description of the Network Manager Admin Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleDestination>[] | undefined>;
     /**
      * Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
      */
-    direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleSource>[] | undefined>;
 }
 
 /**
@@ -287,15 +287,15 @@ export interface NetworkManagerAdminRuleArgs {
     /**
      * A description of the Network Manager Admin Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleDestination>[] | undefined>;
     /**
      * Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
      */
@@ -303,7 +303,7 @@ export interface NetworkManagerAdminRuleArgs {
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
@@ -315,9 +315,9 @@ export interface NetworkManagerAdminRuleArgs {
     /**
      * A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerAdminRuleSource>[] | undefined>;
 }

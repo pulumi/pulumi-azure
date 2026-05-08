@@ -56,7 +56,7 @@ class AccountDataStoreArgsDict(TypedDict):
     """
     The name given to the linked Storage Account.
     """
-    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account that should be linked to this Azure Maps Account.
     """
@@ -65,7 +65,7 @@ class AccountDataStoreArgsDict(TypedDict):
 class AccountDataStoreArgs:
     def __init__(__self__, *,
                  unique_name: pulumi.Input[_builtins.str],
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] unique_name: The name given to the linked Storage Account.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account that should be linked to this Azure Maps Account.
@@ -88,14 +88,14 @@ class AccountDataStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account that should be linked to this Azure Maps Account.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -104,17 +104,17 @@ class AccountIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -123,9 +123,9 @@ class AccountIdentityArgsDict(TypedDict):
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
@@ -156,7 +156,7 @@ class AccountIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
 
@@ -165,31 +165,31 @@ class AccountIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

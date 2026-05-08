@@ -20,13 +20,13 @@ __all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
 class AvailabilitySetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AvailabilitySet resource.
 
@@ -73,43 +73,43 @@ class AvailabilitySetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed")
 
     @managed.setter
-    def managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 
@@ -118,12 +118,12 @@ class AvailabilitySetArgs:
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="platformUpdateDomainCount")
-    def platform_update_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_update_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 
@@ -132,45 +132,45 @@ class AvailabilitySetArgs:
         return pulumi.get(self, "platform_update_domain_count")
 
     @platform_update_domain_count.setter
-    def platform_update_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_update_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_update_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AvailabilitySetState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AvailabilitySet resources.
 
@@ -206,43 +206,43 @@ class _AvailabilitySetState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed")
 
     @managed.setter
-    def managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 
@@ -251,12 +251,12 @@ class _AvailabilitySetState:
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="platformUpdateDomainCount")
-    def platform_update_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_update_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 
@@ -265,43 +265,43 @@ class _AvailabilitySetState:
         return pulumi.get(self, "platform_update_domain_count")
 
     @platform_update_domain_count.setter
-    def platform_update_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_update_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_update_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -311,14 +311,14 @@ class AvailabilitySet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Availability Set for Virtual Machines.
@@ -430,14 +430,14 @@ class AvailabilitySet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,14 +467,14 @@ class AvailabilitySet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-            platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-            proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AvailabilitySet':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AvailabilitySet':
         """
         Get an existing AvailabilitySet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

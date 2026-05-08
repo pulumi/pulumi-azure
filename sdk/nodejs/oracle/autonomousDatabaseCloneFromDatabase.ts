@@ -344,53 +344,53 @@ export interface AutonomousDatabaseCloneFromDatabaseState {
     /**
      * The password for the SYS, SYSTEM, and PDB Admin users. The password must be at least 12 characters long, and contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (`"`) or the username "admin", regardless of casing. Changing this forces a new Autonomous Database Clone to be created.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses. Changing this forces a new Autonomous Database Clone to be created.
      */
-    allowedIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. Changing this forces a new Autonomous Database Clone to be created.
      */
-    autoScalingEnabled?: pulumi.Input<boolean>;
+    autoScalingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database storage. Changing this forces a new Autonomous Database Clone to be created.
      */
-    autoScalingForStorageEnabled?: pulumi.Input<boolean>;
+    autoScalingForStorageEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Retention period, in days, for backups. Possible values range between `1` and `60`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    backupRetentionPeriodInDays?: pulumi.Input<number>;
+    backupRetentionPeriodInDays?: pulumi.Input<number | undefined>;
     /**
      * The character set for the autonomous database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    characterSet?: pulumi.Input<string>;
+    characterSet?: pulumi.Input<string | undefined>;
     /**
      * The type of clone to create. Possible values are `Full` and `Metadata`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    cloneType?: pulumi.Input<string>;
+    cloneType?: pulumi.Input<string | undefined>;
     /**
      * The compute amount (CPUs) available to the database. Possible values range between `2.0` and `512.0`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    computeCount?: pulumi.Input<number>;
+    computeCount?: pulumi.Input<number | undefined>;
     /**
      * The compute model of the Autonomous Database. Possible values are `ECPU` and `OCPU`. Changing this forces a new Autonomous Database Clone to be created.
      *
      * > **Note:** `ECPU` compute model is the recommended model and `OCPU` compute model is legacy.
      */
-    computeModel?: pulumi.Input<string>;
+    computeModel?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database Clone to be created.
      */
-    customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    customerContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes. Possible values range between `1` and `384`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    dataStorageSizeInTb?: pulumi.Input<number>;
+    dataStorageSizeInTb?: pulumi.Input<number | undefined>;
     /**
      * A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    databaseVersion?: pulumi.Input<string>;
+    databaseVersion?: pulumi.Input<string | undefined>;
     /**
      * The Autonomous Database workload type. Possible values are `OLTP` and `DW`, `APEX`, `AJD`. Changing this forces a new Autonomous Database Clone to be created.
      * * OLTP - indicates an Autonomous Transaction Processing database
@@ -400,55 +400,55 @@ export interface AutonomousDatabaseCloneFromDatabaseState {
      *
      * > **Note:** To clone the database with a different `databaseWorkload` type, please refer to the documentation [here](https://docs.public.oneportal.content.oci.oraclecloud.com/iaas/autonomous-database-serverless/doc/autonomous-clone-cross-workload-type.html#GUID-527A712D-FF82-498B-AB35-8A1623E36EDD) for correct configuration steps.
      */
-    databaseWorkload?: pulumi.Input<string>;
+    databaseWorkload?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Autonomous Database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database Clone to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database Clone to be created.
      */
-    mtlsConnectionRequired?: pulumi.Input<boolean>;
+    mtlsConnectionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this autonomous database clone from database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The national character set for the autonomous database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    nationalCharacterSet?: pulumi.Input<string>;
+    nationalCharacterSet?: pulumi.Input<string | undefined>;
     /**
      * The refreshable model for the clone. Possible values are `Automatic` and `Manual`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    refreshableModel?: pulumi.Input<string>;
+    refreshableModel?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the autonomous database clone from database should exist. Changing this forces a new Autonomous Database Clone to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source Autonomous Database to clone from. Changing this forces a new Autonomous Database Clone to be created.
      */
-    sourceAutonomousDatabaseId?: pulumi.Input<string>;
+    sourceAutonomousDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet the resource is associated with. Changing this forces a new Autonomous Database Clone to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Autonomous Database Clone. Changing this forces a new Autonomous Database Clone to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Network this Autonomous Database Clone should be created in. Changing this forces a new Autonomous Database Clone to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -462,7 +462,7 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses. Changing this forces a new Autonomous Database Clone to be created.
      */
-    allowedIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. Changing this forces a new Autonomous Database Clone to be created.
      */
@@ -496,7 +496,7 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database Clone to be created.
      */
-    customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    customerContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes. Possible values range between `1` and `384`. Changing this forces a new Autonomous Database Clone to be created.
      */
@@ -526,7 +526,7 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database Clone to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database Clone to be created.
      */
@@ -534,7 +534,7 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * The name which should be used for this autonomous database clone from database. Changing this forces a new Autonomous Database Clone to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The national character set for the autonomous database. Changing this forces a new Autonomous Database Clone to be created.
      */
@@ -542,7 +542,7 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * The refreshable model for the clone. Possible values are `Automatic` and `Manual`. Changing this forces a new Autonomous Database Clone to be created.
      */
-    refreshableModel?: pulumi.Input<string>;
+    refreshableModel?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the autonomous database clone from database should exist. Changing this forces a new Autonomous Database Clone to be created.
      */
@@ -554,13 +554,13 @@ export interface AutonomousDatabaseCloneFromDatabaseArgs {
     /**
      * The ID of the subnet the resource is associated with. Changing this forces a new Autonomous Database Clone to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Autonomous Database Clone. Changing this forces a new Autonomous Database Clone to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Network this Autonomous Database Clone should be created in. Changing this forces a new Autonomous Database Clone to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }

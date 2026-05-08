@@ -175,9 +175,9 @@ def get_volume_group_oracle(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         volumes=pulumi.get(__ret__, 'volumes'))
-def get_volume_group_oracle_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_volume_group_oracle_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupOracleResult]:
     """
     Use this data source to access information about an existing Application Volume Group for Oracle application.

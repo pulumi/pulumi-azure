@@ -23,12 +23,12 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
                  collection_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorThreatIntelligenceTaxii resource.
 
@@ -112,55 +112,55 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
 
     @_builtins.property
     @pulumi.getter(name="lookbackDate")
-    def lookback_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         """
         return pulumi.get(self, "lookback_date")
 
     @lookback_date.setter
-    def lookback_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the TAXII server.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingFrequency")
-    def polling_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def polling_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         """
         return pulumi.get(self, "polling_frequency")
 
     @polling_frequency.setter
-    def polling_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def polling_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "polling_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
 
@@ -169,35 +169,35 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the TAXII server.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
 class _DataConnectorThreatIntelligenceTaxiiState:
     def __init__(__self__, *,
-                 api_root_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_root_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorThreatIntelligenceTaxii resources.
 
@@ -237,103 +237,103 @@ class _DataConnectorThreatIntelligenceTaxiiState:
 
     @_builtins.property
     @pulumi.getter(name="apiRootUrl")
-    def api_root_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_root_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API root URI of the TAXII server.
         """
         return pulumi.get(self, "api_root_url")
 
     @api_root_url.setter
-    def api_root_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_root_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_root_url", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
-    def collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The collection ID of the TAXII server.
         """
         return pulumi.get(self, "collection_id")
 
     @collection_id.setter
-    def collection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lookbackDate")
-    def lookback_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         """
         return pulumi.get(self, "lookback_date")
 
     @lookback_date.setter
-    def lookback_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the TAXII server.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingFrequency")
-    def polling_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def polling_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         """
         return pulumi.get(self, "polling_frequency")
 
     @polling_frequency.setter
-    def polling_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def polling_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "polling_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
 
@@ -342,19 +342,19 @@ class _DataConnectorThreatIntelligenceTaxiiState:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the TAXII server.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -364,16 +364,16 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_root_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_root_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Threat Intelligence TAXII Data Connector.
@@ -495,16 +495,16 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_root_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_root_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -544,16 +544,16 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_root_url: Optional[pulumi.Input[_builtins.str]] = None,
-            collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            polling_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataConnectorThreatIntelligenceTaxii':
+            api_root_url: pulumi.Input[Optional[_builtins.str]] = None,
+            collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataConnectorThreatIntelligenceTaxii':
         """
         Get an existing DataConnectorThreatIntelligenceTaxii resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -177,8 +177,8 @@ def get_managed_hardware_security_module_role_definition(managed_hsm_id: Optiona
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         role_name=pulumi.get(__ret__, 'role_name'),
         role_type=pulumi.get(__ret__, 'role_type'))
-def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
     """
     Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.

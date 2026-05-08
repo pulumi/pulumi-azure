@@ -247,33 +247,33 @@ export interface VolumeGroupState {
     /**
      * Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
      */
-    elasticSanId?: pulumi.Input<string>;
+    elasticSanId?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below.
      *
      * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
-    encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption>;
+    encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption | undefined>;
     /**
      * Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
      */
-    encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
      */
-    identity?: pulumi.Input<inputs.elasticsan.VolumeGroupIdentity>;
+    identity?: pulumi.Input<inputs.elasticsan.VolumeGroupIdentity | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkRule` blocks as defined below.
      */
-    networkRules?: pulumi.Input<pulumi.Input<inputs.elasticsan.VolumeGroupNetworkRule>[]>;
+    networkRules?: pulumi.Input<pulumi.Input<inputs.elasticsan.VolumeGroupNetworkRule>[] | undefined>;
     /**
      * Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
      */
-    protocolType?: pulumi.Input<string>;
+    protocolType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,25 +289,25 @@ export interface VolumeGroupArgs {
      *
      * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
-    encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption>;
+    encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption | undefined>;
     /**
      * Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
      */
-    encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
      */
-    identity?: pulumi.Input<inputs.elasticsan.VolumeGroupIdentity>;
+    identity?: pulumi.Input<inputs.elasticsan.VolumeGroupIdentity | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkRule` blocks as defined below.
      */
-    networkRules?: pulumi.Input<pulumi.Input<inputs.elasticsan.VolumeGroupNetworkRule>[]>;
+    networkRules?: pulumi.Input<pulumi.Input<inputs.elasticsan.VolumeGroupNetworkRule>[] | undefined>;
     /**
      * Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
      */
-    protocolType?: pulumi.Input<string>;
+    protocolType?: pulumi.Input<string | undefined>;
 }

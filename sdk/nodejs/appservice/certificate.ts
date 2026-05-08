@@ -203,71 +203,71 @@ export interface CertificateState {
     /**
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
-    appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
     /**
      * The expiration date for the certificate.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of the certificate.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * List of host names the certificate applies to.
      */
-    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the App Service Environment where the certificate is in use.
      */
-    hostingEnvironmentProfileId?: pulumi.Input<string>;
+    hostingEnvironmentProfileId?: pulumi.Input<string | undefined>;
     /**
      * The issue date for the certificate.
      */
-    issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the certificate issuer.
      */
-    issuer?: pulumi.Input<string>;
-    keyVaultId?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to access the certificate's private key. Changing this forces a new resource to be created.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The subject name of the certificate.
      */
-    subjectName?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subjectName?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The thumbprint for the certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -277,37 +277,37 @@ export interface CertificateArgs {
     /**
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
-    appServicePlanId?: pulumi.Input<string>;
-    keyVaultId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to access the certificate's private key. Changing this forces a new resource to be created.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

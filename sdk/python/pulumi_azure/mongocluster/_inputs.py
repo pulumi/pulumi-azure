@@ -28,15 +28,15 @@ __all__ = [
 ]
 
 class MongoClusterConnectionStringArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the connection string.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
     """
@@ -44,9 +44,9 @@ class MongoClusterConnectionStringArgsDict(TypedDict):
 @pulumi.input_type
 class MongoClusterConnectionStringArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the connection string.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -61,38 +61,38 @@ class MongoClusterConnectionStringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the connection string.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

@@ -21,22 +21,22 @@ class PublicIpArgs:
     def __init__(__self__, *,
                  allocation_method: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 ddos_protection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIp resource.
 
@@ -142,19 +142,19 @@ class PublicIpArgs:
 
     @_builtins.property
     @pulumi.getter(name="ddosProtectionMode")
-    def ddos_protection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddos_protection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         """
         return pulumi.get(self, "ddos_protection_mode")
 
     @ddos_protection_mode.setter
-    def ddos_protection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddos_protection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddos_protection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ddosProtectionPlanId")
-    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddos_protection_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of DDoS protection plan associated with the public IP. 
 
@@ -163,60 +163,60 @@ class PublicIpArgs:
         return pulumi.get(self, "ddos_protection_plan_id")
 
     @ddos_protection_plan_id.setter
-    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddos_protection_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddos_protection_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
 
     @domain_name_label.setter
-    def domain_name_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name_label", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNameLabelScope")
-    def domain_name_label_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name_label_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         """
         return pulumi.get(self, "domain_name_label_scope")
 
     @domain_name_label_scope.setter
-    def domain_name_label_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name_label_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name_label_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def ip_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 
@@ -225,12 +225,12 @@ class PublicIpArgs:
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def ip_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
@@ -239,60 +239,60 @@ class PublicIpArgs:
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpPrefixId")
-    def public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
-    def public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseFqdn")
-    def reverse_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         return pulumi.get(self, "reverse_fqdn")
 
     @reverse_fqdn.setter
-    def reverse_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse_fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
@@ -303,12 +303,12 @@ class PublicIpArgs:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 
@@ -317,24 +317,24 @@ class PublicIpArgs:
         return pulumi.get(self, "sku_tier")
 
     @sku_tier.setter
-    def sku_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 
@@ -343,33 +343,33 @@ class PublicIpArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _PublicIpState:
     def __init__(__self__, *,
-                 allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIp resources.
 
@@ -455,7 +455,7 @@ class _PublicIpState:
 
     @_builtins.property
     @pulumi.getter(name="allocationMethod")
-    def allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 
@@ -466,24 +466,24 @@ class _PublicIpState:
         return pulumi.get(self, "allocation_method")
 
     @allocation_method.setter
-    def allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="ddosProtectionMode")
-    def ddos_protection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddos_protection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         """
         return pulumi.get(self, "ddos_protection_mode")
 
     @ddos_protection_mode.setter
-    def ddos_protection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddos_protection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddos_protection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ddosProtectionPlanId")
-    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddos_protection_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of DDoS protection plan associated with the public IP. 
 
@@ -492,84 +492,84 @@ class _PublicIpState:
         return pulumi.get(self, "ddos_protection_plan_id")
 
     @ddos_protection_plan_id.setter
-    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddos_protection_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddos_protection_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
 
     @domain_name_label.setter
-    def domain_name_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name_label", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNameLabelScope")
-    def domain_name_label_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name_label_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`.
         """
         return pulumi.get(self, "domain_name_label_scope")
 
     @domain_name_label_scope.setter
-    def domain_name_label_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name_label_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name_label_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address value that was allocated.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def ip_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 
@@ -578,12 +578,12 @@ class _PublicIpState:
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def ip_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
@@ -592,72 +592,72 @@ class _PublicIpState:
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpPrefixId")
-    def public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
-    def public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseFqdn")
-    def reverse_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         return pulumi.get(self, "reverse_fqdn")
 
     @reverse_fqdn.setter
-    def reverse_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse_fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
@@ -668,12 +668,12 @@ class _PublicIpState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 
@@ -682,24 +682,24 @@ class _PublicIpState:
         return pulumi.get(self, "sku_tier")
 
     @sku_tier.setter
-    def sku_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 
@@ -708,7 +708,7 @@ class _PublicIpState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -718,24 +718,24 @@ class PublicIp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Public IP Address.
@@ -877,24 +877,24 @@ class PublicIp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_label_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -938,26 +938,26 @@ class PublicIp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-            ddos_protection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            ddos_protection_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name_label: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name_label_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            reverse_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PublicIp':
+            allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PublicIp':
         """
         Get an existing PublicIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

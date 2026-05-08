@@ -114,19 +114,19 @@ export interface HciDeploymentSettingState {
     /**
      * Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    arcResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    arcResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    scaleUnits?: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnit>[]>;
+    scaleUnits?: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnit>[] | undefined>;
     /**
      * The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    stackHciClusterId?: pulumi.Input<string>;
+    stackHciClusterId?: pulumi.Input<string | undefined>;
     /**
      * The deployment template version. The format must be a set of numbers separated by dots such as `10.0.0.0`. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**

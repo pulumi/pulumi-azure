@@ -22,18 +22,18 @@ __all__ = ['WorkflowArgs', 'Workflow']
 class WorkflowArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
-                 integration_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_integration_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_control: pulumi.Input[Optional['WorkflowAccessControlArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['WorkflowIdentityArgs']] = None,
+                 integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
@@ -93,91 +93,91 @@ class WorkflowArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+    def access_control(self) -> pulumi.Input[Optional['WorkflowAccessControlArgs']]:
         """
         A `access_control` block as defined below.
         """
         return pulumi.get(self, "access_control")
 
     @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+    def access_control(self, value: pulumi.Input[Optional['WorkflowAccessControlArgs']]):
         pulumi.set(self, "access_control", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Logic App Workflow enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WorkflowIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WorkflowIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironmentId")
-    def integration_service_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_service_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         """
         return pulumi.get(self, "integration_service_environment_id")
 
     @integration_service_environment_id.setter
-    def integration_service_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_service_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_service_environment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppIntegrationAccountId")
-    def logic_app_integration_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_integration_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the integration account linked by this Logic App Workflow.
         """
         return pulumi.get(self, "logic_app_integration_account_id")
 
     @logic_app_integration_account_id.setter
-    def logic_app_integration_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_integration_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_integration_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Key-Value pairs.
 
@@ -186,79 +186,79 @@ class WorkflowArgs:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowParameters")
-    def workflow_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def workflow_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
         """
         return pulumi.get(self, "workflow_parameters")
 
     @workflow_parameters.setter
-    def workflow_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def workflow_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workflow_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowSchema")
-    def workflow_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workflow_schema")
 
     @workflow_schema.setter
-    def workflow_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowVersion")
-    def workflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workflow_version")
 
     @workflow_version.setter
-    def workflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_version", value)
 
 
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
-                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
-                 access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
-                 integration_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_integration_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_control: pulumi.Input[Optional['WorkflowAccessControlArgs']] = None,
+                 access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connector_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['WorkflowIdentityArgs']] = None,
+                 integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workflow_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
 
@@ -322,127 +322,127 @@ class _WorkflowState:
 
     @_builtins.property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+    def access_control(self) -> pulumi.Input[Optional['WorkflowAccessControlArgs']]:
         """
         A `access_control` block as defined below.
         """
         return pulumi.get(self, "access_control")
 
     @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+    def access_control(self, value: pulumi.Input[Optional['WorkflowAccessControlArgs']]):
         pulumi.set(self, "access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoint")
-    def access_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Access Endpoint for the Logic App Workflow.
         """
         return pulumi.get(self, "access_endpoint")
 
     @access_endpoint.setter
-    def access_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorEndpointIpAddresses")
-    def connector_endpoint_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connector_endpoint_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of access endpoint IP addresses of connector.
         """
         return pulumi.get(self, "connector_endpoint_ip_addresses")
 
     @connector_endpoint_ip_addresses.setter
-    def connector_endpoint_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connector_endpoint_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connector_endpoint_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOutboundIpAddresses")
-    def connector_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connector_outbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of outgoing IP addresses of connector.
         """
         return pulumi.get(self, "connector_outbound_ip_addresses")
 
     @connector_outbound_ip_addresses.setter
-    def connector_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connector_outbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connector_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Logic App Workflow enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WorkflowIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WorkflowIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironmentId")
-    def integration_service_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_service_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         """
         return pulumi.get(self, "integration_service_environment_id")
 
     @integration_service_environment_id.setter
-    def integration_service_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_service_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_service_environment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppIntegrationAccountId")
-    def logic_app_integration_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_integration_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the integration account linked by this Logic App Workflow.
         """
         return pulumi.get(self, "logic_app_integration_account_id")
 
     @logic_app_integration_account_id.setter
-    def logic_app_integration_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_integration_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_integration_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Key-Value pairs.
 
@@ -451,91 +451,91 @@ class _WorkflowState:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowEndpointIpAddresses")
-    def workflow_endpoint_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def workflow_endpoint_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of access endpoint IP addresses of workflow.
         """
         return pulumi.get(self, "workflow_endpoint_ip_addresses")
 
     @workflow_endpoint_ip_addresses.setter
-    def workflow_endpoint_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def workflow_endpoint_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workflow_endpoint_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowOutboundIpAddresses")
-    def workflow_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def workflow_outbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of outgoing IP addresses of workflow.
         """
         return pulumi.get(self, "workflow_outbound_ip_addresses")
 
     @workflow_outbound_ip_addresses.setter
-    def workflow_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def workflow_outbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workflow_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowParameters")
-    def workflow_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def workflow_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
         """
         return pulumi.get(self, "workflow_parameters")
 
     @workflow_parameters.setter
-    def workflow_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def workflow_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "workflow_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowSchema")
-    def workflow_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workflow_schema")
 
     @workflow_schema.setter
-    def workflow_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowVersion")
-    def workflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workflow_version")
 
     @workflow_version.setter
-    def workflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_version", value)
 
 
@@ -545,19 +545,19 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
-                 integration_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_integration_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_control: pulumi.Input[Optional[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
+                 integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Workflow.
@@ -666,19 +666,19 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
-                 integration_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_integration_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflow_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_control: pulumi.Input[Optional[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
+                 integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -718,24 +718,24 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_control: Optional[pulumi.Input[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
-            access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
-            integration_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logic_app_integration_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workflow_schema: Optional[pulumi.Input[_builtins.str]] = None,
-            workflow_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workflow':
+            access_control: pulumi.Input[Optional[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']]] = None,
+            access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connector_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict']]] = None,
+            integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workflow_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workflow_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            workflow_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workflow':
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

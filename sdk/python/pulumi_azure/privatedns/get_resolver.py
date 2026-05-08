@@ -143,8 +143,8 @@ def get_resolver(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_resolver_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverResult]:
     """
     Gets information about an existing Private DNS Resolver.

@@ -112,19 +112,19 @@ export interface PrivateLinkHubState {
     /**
      * Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Private Link Hub. Changing this forces a new Synapse Private Link Hub to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Synapse Private Link Hub. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Synapse Private Link Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -134,11 +134,11 @@ export interface PrivateLinkHubArgs {
     /**
      * Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Private Link Hub. Changing this forces a new Synapse Private Link Hub to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Synapse Private Link Hub. Changing this forces a new resource to be created.
      */
@@ -146,5 +146,5 @@ export interface PrivateLinkHubArgs {
     /**
      * A mapping of tags which should be assigned to the Synapse Private Link Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

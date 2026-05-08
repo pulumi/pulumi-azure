@@ -228,81 +228,81 @@ export interface IntegrationRuntimeSsisState {
     /**
      * A `catalogInfo` block as defined below.
      */
-    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
     /**
      * One `copyComputeScale` block as defined below.
      */
-    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale>;
+    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale | undefined>;
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
      * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
-    credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * A `customSetupScript` block as defined below.
      */
-    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCustomSetupScript>;
+    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCustomSetupScript | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * An `expressCustomSetup` block as defined below.
      */
-    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
     /**
      * A `expressVnetIntegration` block as defined below.
      */
-    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration>;
+    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration | undefined>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
-    maxParallelExecutionsPerNode?: pulumi.Input<number>;
+    maxParallelExecutionsPerNode?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      */
-    nodeSize?: pulumi.Input<string>;
+    nodeSize?: pulumi.Input<string | undefined>;
     /**
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * One or more `packageStore` block as defined below.
      */
-    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
+    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[] | undefined>;
     /**
      * One `pipelineExternalComputeScale` block as defined below.
      */
-    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale>;
+    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale | undefined>;
     /**
      * A `proxy` block as defined below.
      */
-    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
+    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
     /**
      * A `vnetIntegration` block as defined below.
      */
-    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisVnetIntegration>;
+    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisVnetIntegration | undefined>;
 }
 
 /**
@@ -312,21 +312,21 @@ export interface IntegrationRuntimeSsisArgs {
     /**
      * A `catalogInfo` block as defined below.
      */
-    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
     /**
      * One `copyComputeScale` block as defined below.
      */
-    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale>;
+    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale | undefined>;
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
      * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
-    credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * A `customSetupScript` block as defined below.
      */
-    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCustomSetupScript>;
+    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCustomSetupScript | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -334,35 +334,35 @@ export interface IntegrationRuntimeSsisArgs {
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * An `expressCustomSetup` block as defined below.
      */
-    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
     /**
      * A `expressVnetIntegration` block as defined below.
      */
-    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration>;
+    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration | undefined>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
-    maxParallelExecutionsPerNode?: pulumi.Input<number>;
+    maxParallelExecutionsPerNode?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      */
@@ -370,21 +370,21 @@ export interface IntegrationRuntimeSsisArgs {
     /**
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * One or more `packageStore` block as defined below.
      */
-    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
+    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[] | undefined>;
     /**
      * One `pipelineExternalComputeScale` block as defined below.
      */
-    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale>;
+    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale | undefined>;
     /**
      * A `proxy` block as defined below.
      */
-    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
+    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
     /**
      * A `vnetIntegration` block as defined below.
      */
-    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisVnetIntegration>;
+    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisVnetIntegration | undefined>;
 }

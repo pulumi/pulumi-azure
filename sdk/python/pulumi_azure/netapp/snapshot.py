@@ -23,8 +23,8 @@ class SnapshotArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
 
@@ -94,38 +94,38 @@ class SnapshotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SnapshotState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
 
@@ -151,74 +151,74 @@ class _SnapshotState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_name", value)
 
 
@@ -228,12 +228,12 @@ class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a NetApp Snapshot.
@@ -421,12 +421,12 @@ class Snapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,12 +460,12 @@ class Snapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Snapshot':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -166,31 +166,31 @@ export interface DevCenterState {
     /**
      * The URI of the Dev Center.
      */
-    devCenterUri?: pulumi.Input<string>;
+    devCenterUri?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
      */
-    identity?: pulumi.Input<inputs.devcenter.DevCenterIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.DevCenterIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
      */
-    projectCatalogItemSyncEnabled?: pulumi.Input<boolean>;
+    projectCatalogItemSyncEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -200,19 +200,19 @@ export interface DevCenterArgs {
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
      */
-    identity?: pulumi.Input<inputs.devcenter.DevCenterIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.DevCenterIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
      */
-    projectCatalogItemSyncEnabled?: pulumi.Input<boolean>;
+    projectCatalogItemSyncEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
@@ -220,5 +220,5 @@ export interface DevCenterArgs {
     /**
      * A mapping of tags which should be assigned to the Dev Center.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

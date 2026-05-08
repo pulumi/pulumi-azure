@@ -235,57 +235,57 @@ export interface LinkServiceState {
     /**
      * A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
-    autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The destination IP address of the Private Link Service.
      */
-    destinationIpAddress?: pulumi.Input<string>;
+    destinationIpAddress?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableProxyProtocol?: pulumi.Input<boolean>;
+    enableProxyProtocol?: pulumi.Input<boolean | undefined>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
-    loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
-    natIpConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
+    natIpConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[] | undefined>;
     /**
      * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
      */
-    proxyProtocolEnabled?: pulumi.Input<boolean>;
+    proxyProtocolEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
      * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
-    visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -295,31 +295,31 @@ export interface LinkServiceArgs {
     /**
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
-    autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The destination IP address of the Private Link Service.
      */
-    destinationIpAddress?: pulumi.Input<string>;
+    destinationIpAddress?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableProxyProtocol?: pulumi.Input<boolean>;
+    enableProxyProtocol?: pulumi.Input<boolean | undefined>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
-    loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
@@ -327,7 +327,7 @@ export interface LinkServiceArgs {
     /**
      * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
      */
-    proxyProtocolEnabled?: pulumi.Input<boolean>;
+    proxyProtocolEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -335,11 +335,11 @@ export interface LinkServiceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
      * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
-    visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

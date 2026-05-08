@@ -153,9 +153,9 @@ def get_alert_rule_template(display_name: Optional[_builtins.str] = None,
         nrt_templates=pulumi.get(__ret__, 'nrt_templates'),
         scheduled_templates=pulumi.get(__ret__, 'scheduled_templates'),
         security_incident_templates=pulumi.get(__ret__, 'security_incident_templates'))
-def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_alert_rule_template_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleTemplateResult]:
     """
     Use this data source to access information about an existing Sentinel Alert Rule Template.

@@ -142,23 +142,23 @@ export interface CapacityReservationState {
     /**
      * The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
      */
-    capacityReservationGroupId?: pulumi.Input<string>;
+    capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.compute.CapacityReservationSku>;
+    sku?: pulumi.Input<inputs.compute.CapacityReservationSku | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface CapacityReservationArgs {
     /**
      * Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
@@ -180,9 +180,9 @@ export interface CapacityReservationArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

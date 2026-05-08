@@ -20,9 +20,9 @@ __all__ = ['NetworkManagerIpamPoolStaticCidrArgs', 'NetworkManagerIpamPoolStatic
 class NetworkManagerIpamPoolStaticCidrArgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[_builtins.str],
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerIpamPoolStaticCidr resource.
 
@@ -57,7 +57,7 @@ class NetworkManagerIpamPoolStaticCidrArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
 
@@ -66,24 +66,24 @@ class NetworkManagerIpamPoolStaticCidrArgs:
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager IPAM Pool Static CIDR. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfIpAddressesToAllocate")
-    def number_of_ip_addresses_to_allocate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def number_of_ip_addresses_to_allocate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
 
@@ -92,17 +92,17 @@ class NetworkManagerIpamPoolStaticCidrArgs:
         return pulumi.get(self, "number_of_ip_addresses_to_allocate")
 
     @number_of_ip_addresses_to_allocate.setter
-    def number_of_ip_addresses_to_allocate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def number_of_ip_addresses_to_allocate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "number_of_ip_addresses_to_allocate", value)
 
 
 @pulumi.input_type
 class _NetworkManagerIpamPoolStaticCidrState:
     def __init__(__self__, *,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerIpamPoolStaticCidr resources.
 
@@ -126,7 +126,7 @@ class _NetworkManagerIpamPoolStaticCidrState:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
 
@@ -135,36 +135,36 @@ class _NetworkManagerIpamPoolStaticCidrState:
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Manager IP Address Management (IPAM) Pool. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
         """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
-    def ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager IPAM Pool Static CIDR. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfIpAddressesToAllocate")
-    def number_of_ip_addresses_to_allocate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def number_of_ip_addresses_to_allocate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `"16"`.
 
@@ -173,7 +173,7 @@ class _NetworkManagerIpamPoolStaticCidrState:
         return pulumi.get(self, "number_of_ip_addresses_to_allocate")
 
     @number_of_ip_addresses_to_allocate.setter
-    def number_of_ip_addresses_to_allocate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def number_of_ip_addresses_to_allocate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "number_of_ip_addresses_to_allocate", value)
 
 
@@ -183,10 +183,10 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager IPAM Pool Static CIDR.
@@ -322,10 +322,10 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -351,10 +351,10 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerIpamPoolStaticCidr':
+            address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerIpamPoolStaticCidr':
         """
         Get an existing NetworkManagerIpamPoolStaticCidr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

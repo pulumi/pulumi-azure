@@ -20,9 +20,9 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -53,53 +53,53 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
 
     @data_location.setter
-    def data_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Communication Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 data_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -134,110 +134,110 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
 
     @data_location.setter
-    def data_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname of the Communication Service
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string of the Communication Service.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key of the Communication Service.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string of the Communication Service.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key of the Communication Service.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Communication Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -247,10 +247,10 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Communication Service.
@@ -348,10 +348,10 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,15 +384,15 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_location: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
+            data_location: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,11 +22,11 @@ __all__ = ['RouteTableArgs', 'RouteTable']
 class RouteTableArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
 
@@ -65,43 +65,43 @@ class RouteTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
-    def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_propagation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
-    def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_propagation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
         """
         A list of objects representing routes. Each object accepts the arguments documented below.
 
@@ -110,32 +110,32 @@ class RouteTableArgs:
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RouteTableState:
     def __init__(__self__, *,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RouteTable resources.
 
@@ -166,55 +166,55 @@ class _RouteTableState:
 
     @_builtins.property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
-    def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_propagation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
-    def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_propagation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
         """
         A list of objects representing routes. Each object accepts the arguments documented below.
 
@@ -223,31 +223,31 @@ class _RouteTableState:
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The collection of Subnets associated with this route table.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -257,12 +257,12 @@ class RouteTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Route Table
@@ -386,12 +386,12 @@ class RouteTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,13 +420,13 @@ class RouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RouteTable':
+            bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RouteTable':
         """
         Get an existing RouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

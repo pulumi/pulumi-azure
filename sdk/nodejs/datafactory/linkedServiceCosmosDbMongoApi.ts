@@ -166,43 +166,43 @@ export interface LinkedServiceCosmosDbMongoApiState {
      *
      * The following supported arguments are specific to CosmosDB Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether API server version is 3.2 or higher. Defaults to `false`.
      */
-    serverVersionIs32OrHigher?: pulumi.Input<boolean>;
+    serverVersionIs32OrHigher?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -214,15 +214,15 @@ export interface LinkedServiceCosmosDbMongoApiArgs {
      *
      * The following supported arguments are specific to CosmosDB Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -230,25 +230,25 @@ export interface LinkedServiceCosmosDbMongoApiArgs {
     /**
      * The name of the database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether API server version is 3.2 or higher. Defaults to `false`.
      */
-    serverVersionIs32OrHigher?: pulumi.Input<boolean>;
+    serverVersionIs32OrHigher?: pulumi.Input<boolean | undefined>;
 }

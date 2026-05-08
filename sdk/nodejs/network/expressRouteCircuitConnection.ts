@@ -205,29 +205,29 @@ export interface ExpressRouteCircuitConnectionState {
     /**
      * The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
      */
-    addressPrefixIpv4?: pulumi.Input<string>;
+    addressPrefixIpv4?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 address space from which to allocate customer addresses for global reach.
      *
      * > **Note:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
      */
-    addressPrefixIpv6?: pulumi.Input<string>;
+    addressPrefixIpv6?: pulumi.Input<string | undefined>;
     /**
      * The authorization key which is associated with the Express Route Circuit Connection.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
      */
-    peerPeeringId?: pulumi.Input<string>;
+    peerPeeringId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
      */
-    peeringId?: pulumi.Input<string>;
+    peeringId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -243,15 +243,15 @@ export interface ExpressRouteCircuitConnectionArgs {
      *
      * > **Note:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
      */
-    addressPrefixIpv6?: pulumi.Input<string>;
+    addressPrefixIpv6?: pulumi.Input<string | undefined>;
     /**
      * The authorization key which is associated with the Express Route Circuit Connection.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
      */

@@ -184,8 +184,8 @@ def get_vpn_gateway(name: Optional[_builtins.str] = None,
         scale_unit=pulumi.get(__ret__, 'scale_unit'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'))
-def get_vpn_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_gateway_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Use this data source to access information about an existing VPN Gateway within a Virtual Hub.

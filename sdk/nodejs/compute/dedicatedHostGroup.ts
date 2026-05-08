@@ -145,31 +145,31 @@ export interface DedicatedHostGroupState {
     /**
      * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    automaticPlacementEnabled?: pulumi.Input<boolean>;
+    automaticPlacementEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,15 +179,15 @@ export interface DedicatedHostGroupArgs {
     /**
      * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    automaticPlacementEnabled?: pulumi.Input<boolean>;
+    automaticPlacementEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
      */
@@ -199,9 +199,9 @@ export interface DedicatedHostGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

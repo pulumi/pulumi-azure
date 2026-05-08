@@ -88,7 +88,7 @@ export interface GetContainersOutputArgs {
     /**
      * A prefix match used for the Storage Container `name` field.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account that the Storage Containers reside in.
      */

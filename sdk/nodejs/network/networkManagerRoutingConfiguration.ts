@@ -133,19 +133,19 @@ export interface NetworkManagerRoutingConfigurationState {
     /**
      * The description of the Network Manager Routing Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
     /**
      * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
      */
-    routeTableUsageMode?: pulumi.Input<string>;
+    routeTableUsageMode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,11 +155,11 @@ export interface NetworkManagerRoutingConfigurationArgs {
     /**
      * The description of the Network Manager Routing Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
      */
@@ -167,5 +167,5 @@ export interface NetworkManagerRoutingConfigurationArgs {
     /**
      * The route table usage mode for the Network Manager Routing Configuration. Possible values are `ManagedOnly` and `UseExisting`. Defaults to `ManagedOnly`.
      */
-    routeTableUsageMode?: pulumi.Input<string>;
+    routeTableUsageMode?: pulumi.Input<string | undefined>;
 }

@@ -152,23 +152,23 @@ export interface HypervNetworkMappingState {
     /**
      * The name of the HyperV network mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
     /**
      * The Name of the primary network. Changing this forces a new resource to be created.
      */
-    sourceNetworkName?: pulumi.Input<string>;
+    sourceNetworkName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
      */
-    sourceSystemCenterVirtualMachineManagerName?: pulumi.Input<string>;
+    sourceSystemCenterVirtualMachineManagerName?: pulumi.Input<string | undefined>;
     /**
      * The id of the recovery network. Changing this forces a new resource to be created.
      */
-    targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface HypervNetworkMappingArgs {
     /**
      * The name of the HyperV network mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
      */

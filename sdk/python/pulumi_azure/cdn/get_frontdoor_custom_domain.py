@@ -187,9 +187,9 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tls=pulumi.get(__ret__, 'tls'),
         validation_token=pulumi.get(__ret__, 'validation_token'))
-def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorCustomDomainResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.

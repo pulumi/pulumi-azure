@@ -201,29 +201,29 @@ export interface ClusterCustomerManagedKeyState {
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * The name of Key Vault Key.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault for CMK encryption.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The version of Key Vault Key.
      */
-    keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string | undefined>;
     /**
      * The Managed HSM Key ID for CMK encryption.
      *
      * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
-    userIdentity?: pulumi.Input<string>;
+    userIdentity?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -237,23 +237,23 @@ export interface ClusterCustomerManagedKeyArgs {
     /**
      * The name of Key Vault Key.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault for CMK encryption.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The version of Key Vault Key.
      */
-    keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string | undefined>;
     /**
      * The Managed HSM Key ID for CMK encryption.
      *
      * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
-    userIdentity?: pulumi.Input<string>;
+    userIdentity?: pulumi.Input<string | undefined>;
 }

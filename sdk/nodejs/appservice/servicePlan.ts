@@ -205,43 +205,43 @@ export interface ServicePlanState {
      *
      * > **Note:** Requires an Isolated SKU for `azure.appservice.EnvironmentV3`, supported values include `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, and `I6v2`.
      */
-    appServiceEnvironmentId?: pulumi.Input<string>;
+    appServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * A string representing the Kind of Service Plan.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
-    maximumElasticWorkerCount?: pulumi.Input<number>;
+    maximumElasticWorkerCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
-    perSiteScalingEnabled?: pulumi.Input<boolean>;
+    perSiteScalingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
      */
-    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean>;
+    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      */
-    reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `P0v4`, `P1v4`, `P2v4`, `P3v4`, `P1mv4`, `P2mv4`, `P3mv4`, `P4mv4`, `P5mv4`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `FC1`, `WS1`, `WS2`, `WS3`, and `Y1`.
      *
@@ -251,15 +251,15 @@ export interface ServicePlanState {
      *
      * > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the AppService.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The number of Workers (instances) to be allocated.
      */
-    workerCount?: pulumi.Input<number>;
+    workerCount?: pulumi.Input<number | undefined>;
     /**
      * Should the Service Plan balance across Availability Zones in the region.
      *
@@ -267,7 +267,7 @@ export interface ServicePlanState {
      *
      * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
-    zoneBalancingEnabled?: pulumi.Input<boolean>;
+    zoneBalancingEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -279,19 +279,19 @@ export interface ServicePlanArgs {
      *
      * > **Note:** Requires an Isolated SKU for `azure.appservice.EnvironmentV3`, supported values include `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, and `I6v2`.
      */
-    appServiceEnvironmentId?: pulumi.Input<string>;
+    appServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
-    maximumElasticWorkerCount?: pulumi.Input<number>;
+    maximumElasticWorkerCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      */
@@ -299,11 +299,11 @@ export interface ServicePlanArgs {
     /**
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
-    perSiteScalingEnabled?: pulumi.Input<boolean>;
+    perSiteScalingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
      */
-    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean>;
+    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
@@ -321,11 +321,11 @@ export interface ServicePlanArgs {
     /**
      * A mapping of tags which should be assigned to the AppService.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The number of Workers (instances) to be allocated.
      */
-    workerCount?: pulumi.Input<number>;
+    workerCount?: pulumi.Input<number | undefined>;
     /**
      * Should the Service Plan balance across Availability Zones in the region.
      *
@@ -333,5 +333,5 @@ export interface ServicePlanArgs {
      *
      * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
-    zoneBalancingEnabled?: pulumi.Input<boolean>;
+    zoneBalancingEnabled?: pulumi.Input<boolean | undefined>;
 }

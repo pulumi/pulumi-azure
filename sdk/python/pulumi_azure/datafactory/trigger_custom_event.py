@@ -25,13 +25,13 @@ class TriggerCustomEventArgs:
                  eventgrid_topic_id: pulumi.Input[_builtins.str],
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]],
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerCustomEvent resource.
 
@@ -116,103 +116,103 @@ class TriggerCustomEventArgs:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectBeginsWith")
-    def subject_begins_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_begins_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that event subject starts with for trigger to fire.
         """
         return pulumi.get(self, "subject_begins_with")
 
     @subject_begins_with.setter
-    def subject_begins_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_begins_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_begins_with", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectEndsWith")
-    def subject_ends_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_ends_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that event subject ends with for trigger to fire.
         """
         return pulumi.get(self, "subject_ends_with")
 
     @subject_ends_with.setter
-    def subject_ends_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_ends_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_ends_with", value)
 
 
 @pulumi.input_type
 class _TriggerCustomEventState:
     def __init__(__self__, *,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventgrid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]] = None,
-                 subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventgrid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]] = None,
+                 subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerCustomEvent resources.
 
@@ -253,134 +253,134 @@ class _TriggerCustomEventState:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Custom Event Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventgridTopicId")
-    def eventgrid_topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventgrid_topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
         """
         return pulumi.get(self, "eventgrid_topic_id")
 
     @eventgrid_topic_id.setter
-    def eventgrid_topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventgrid_topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventgrid_topic_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of events that will fire this trigger. At least one event must be specified.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]]:
+    def pipelines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]]:
         """
         One or more `pipeline` blocks as defined below.
         """
         return pulumi.get(self, "pipelines")
 
     @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]]):
+    def pipelines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]]):
         pulumi.set(self, "pipelines", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectBeginsWith")
-    def subject_begins_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_begins_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that event subject starts with for trigger to fire.
         """
         return pulumi.get(self, "subject_begins_with")
 
     @subject_begins_with.setter
-    def subject_begins_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_begins_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_begins_with", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectEndsWith")
-    def subject_ends_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_ends_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that event subject ends with for trigger to fire.
         """
         return pulumi.get(self, "subject_ends_with")
 
     @subject_ends_with.setter
-    def subject_ends_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_ends_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_ends_with", value)
 
 
@@ -390,17 +390,17 @@ class TriggerCustomEvent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventgrid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
-                 subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventgrid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
+                 subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Custom Event Trigger inside an Azure Data Factory.
@@ -557,17 +557,17 @@ class TriggerCustomEvent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventgrid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
-                 subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventgrid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
+                 subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -606,17 +606,17 @@ class TriggerCustomEvent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activated: Optional[pulumi.Input[_builtins.bool]] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            eventgrid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-            events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
-            subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None) -> 'TriggerCustomEvent':
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict']]]]] = None,
+            subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None) -> 'TriggerCustomEvent':
         """
         Get an existing TriggerCustomEvent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

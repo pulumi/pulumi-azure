@@ -88,10 +88,10 @@ class WorkspaceSqlAadAdminArgs:
 @pulumi.input_type
 class _WorkspaceSqlAadAdminState:
     def __init__(__self__, *,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSqlAadAdmin resources.
 
@@ -111,50 +111,50 @@ class _WorkspaceSqlAadAdminState:
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login name of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse Workspace where the Azure AD SQL Administrator should be configured.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the Azure AD SQL Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -164,10 +164,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
@@ -359,10 +359,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,10 +394,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            login: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceSqlAadAdmin':
+            login: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceSqlAadAdmin':
         """
         Get an existing WorkspaceSqlAadAdmin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -318,11 +318,11 @@ class HBaseClusterComponentVersionArgs:
 
 
 class HBaseClusterComputeIsolationArgsDict(TypedDict):
-    compute_isolation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    compute_isolation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the host SKU.
     """
@@ -330,8 +330,8 @@ class HBaseClusterComputeIsolationArgsDict(TypedDict):
 @pulumi.input_type
 class HBaseClusterComputeIsolationArgs:
     def __init__(__self__, *,
-                 compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] host_sku: The name of the host SKU.
@@ -343,43 +343,43 @@ class HBaseClusterComputeIsolationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationEnabled")
-    def compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
-    def compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host SKU.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
 class HBaseClusterDiskEncryptionArgsDict(TypedDict):
-    encryption_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is indicator to show whether resource disk encryption is enabled.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the key vault key.
     """
-    key_vault_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the resource ID of Managed Identity used to access the key vault.
     """
@@ -387,10 +387,10 @@ class HBaseClusterDiskEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class HBaseClusterDiskEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
@@ -408,50 +408,50 @@ class HBaseClusterDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is indicator to show whether resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key vault key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultManagedIdentityId")
-    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
 
     @key_vault_managed_identity_id.setter
-    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
@@ -556,15 +556,15 @@ class HBaseClusterGatewayArgs:
 
 
 class HBaseClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input['HBaseClusterMetastoresAmbariArgsDict']]
+    ambari: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgs']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input['HBaseClusterMetastoresHiveArgsDict']]
+    hive: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresHiveArgs']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input['HBaseClusterMetastoresOozieArgsDict']]
+    oozie: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresOozieArgs']]]
     """
     An `oozie` block as defined below.
     """
@@ -572,9 +572,9 @@ class HBaseClusterMetastoresArgsDict(TypedDict):
 @pulumi.input_type
 class HBaseClusterMetastoresArgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']] = None):
+                 ambari: pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgs']] = None,
+                 hive: pulumi.Input[Optional['HBaseClusterMetastoresHiveArgs']] = None,
+                 oozie: pulumi.Input[Optional['HBaseClusterMetastoresOozieArgs']] = None):
         """
         :param pulumi.Input['HBaseClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
         :param pulumi.Input['HBaseClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
@@ -589,38 +589,38 @@ class HBaseClusterMetastoresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgs']]):
         pulumi.set(self, "ambari", value)
 
     @_builtins.property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']]:
+    def hive(self) -> pulumi.Input[Optional['HBaseClusterMetastoresHiveArgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']]):
+    def hive(self, value: pulumi.Input[Optional['HBaseClusterMetastoresHiveArgs']]):
         pulumi.set(self, "hive", value)
 
     @_builtins.property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']]:
+    def oozie(self) -> pulumi.Input[Optional['HBaseClusterMetastoresOozieArgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']]):
+    def oozie(self, value: pulumi.Input[Optional['HBaseClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
 
@@ -927,13 +927,13 @@ class HBaseClusterMonitorArgs:
 
 
 class HBaseClusterNetworkArgsDict(TypedDict):
-    connection_direction: NotRequired[pulumi.Input[_builtins.str]]
+    connection_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
     > **Note:** To enable the private link the `connection_direction` must be set to `Outbound`.
     """
-    private_link_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -941,8 +941,8 @@ class HBaseClusterNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class HBaseClusterNetworkArgs:
     def __init__(__self__, *,
-                 connection_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
@@ -956,7 +956,7 @@ class HBaseClusterNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionDirection")
-    def connection_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
@@ -965,19 +965,19 @@ class HBaseClusterNetworkArgs:
         return pulumi.get(self, "connection_direction")
 
     @connection_direction.setter
-    def connection_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
     @private_link_enabled.setter
-    def private_link_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
 
@@ -1052,19 +1052,19 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
     """
     The name of the IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP allocation method. Possible values are `Dynamic` and `Static`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
     """
@@ -1073,10 +1073,10 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
 class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary.
@@ -1108,50 +1108,50 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP allocation method. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -1230,27 +1230,27 @@ class HBaseClusterRolesHeadNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -1260,11 +1260,11 @@ class HBaseClusterRolesHeadNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -1317,7 +1317,7 @@ class HBaseClusterRolesHeadNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
@@ -1326,24 +1326,24 @@ class HBaseClusterRolesHeadNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
@@ -1352,31 +1352,31 @@ class HBaseClusterRolesHeadNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -1389,7 +1389,7 @@ class HBaseClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -1399,7 +1399,7 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -1436,14 +1436,14 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1460,31 +1460,31 @@ class HBaseClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgsDict']]
+    autoscale: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgs']]]
     """
     A `autoscale` block as defined below.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -1495,12 +1495,12 @@ class HBaseClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscale: pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -1570,19 +1570,19 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgs']]):
         pulumi.set(self, "autoscale", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -1591,24 +1591,24 @@ class HBaseClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -1617,36 +1617,36 @@ class HBaseClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 class HBaseClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    recurrence: NotRequired[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
     """
     A `recurrence` block as defined below.
 
@@ -1656,7 +1656,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
-                 recurrence: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 recurrence: pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
         """
         :param pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
                
@@ -1667,7 +1667,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
         """
         A `recurrence` block as defined below.
 
@@ -1676,7 +1676,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleArgs:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -1802,7 +1802,7 @@ class HBaseClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -1812,7 +1812,7 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -1849,14 +1849,14 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1869,27 +1869,27 @@ class HBaseClusterRolesZookeeperNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -1899,11 +1899,11 @@ class HBaseClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -1956,7 +1956,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -1965,24 +1965,24 @@ class HBaseClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -1991,31 +1991,31 @@ class HBaseClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -2028,7 +2028,7 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -2038,7 +2038,7 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -2075,14 +2075,14 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -2111,7 +2111,7 @@ class HBaseClusterSecurityProfileArgsDict(TypedDict):
     """
     The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
     """
@@ -2125,7 +2125,7 @@ class HBaseClusterSecurityProfileArgs:
                  domain_username: pulumi.Input[_builtins.str],
                  ldaps_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  msi_resource_id: pulumi.Input[_builtins.str],
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
@@ -2218,14 +2218,14 @@ class HBaseClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDns")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
@@ -2246,7 +2246,7 @@ class HBaseClusterStorageAccountArgsDict(TypedDict):
 
     > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account. Changing this forces a new resource to be created.
     """
@@ -2257,7 +2257,7 @@ class HBaseClusterStorageAccountArgs:
                  is_default: pulumi.Input[_builtins.bool],
                  storage_account_key: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
@@ -2316,14 +2316,14 @@ class HBaseClusterStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 
@@ -2453,11 +2453,11 @@ class HadoopClusterComponentVersionArgs:
 
 
 class HadoopClusterComputeIsolationArgsDict(TypedDict):
-    compute_isolation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    compute_isolation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the host SKU.
     """
@@ -2465,8 +2465,8 @@ class HadoopClusterComputeIsolationArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterComputeIsolationArgs:
     def __init__(__self__, *,
-                 compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] host_sku: The name of the host SKU.
@@ -2478,43 +2478,43 @@ class HadoopClusterComputeIsolationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationEnabled")
-    def compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
-    def compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host SKU.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
 class HadoopClusterDiskEncryptionArgsDict(TypedDict):
-    encryption_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is indicator to show whether resource disk encryption is enabled.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the key vault key.
     """
-    key_vault_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the resource ID of Managed Identity used to access the key vault.
     """
@@ -2522,10 +2522,10 @@ class HadoopClusterDiskEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterDiskEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
@@ -2543,50 +2543,50 @@ class HadoopClusterDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is indicator to show whether resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key vault key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultManagedIdentityId")
-    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
 
     @key_vault_managed_identity_id.setter
-    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
@@ -2691,15 +2691,15 @@ class HadoopClusterGatewayArgs:
 
 
 class HadoopClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input['HadoopClusterMetastoresAmbariArgsDict']]
+    ambari: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgs']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input['HadoopClusterMetastoresHiveArgsDict']]
+    hive: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresHiveArgs']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input['HadoopClusterMetastoresOozieArgsDict']]
+    oozie: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresOozieArgs']]]
     """
     An `oozie` block as defined below.
     """
@@ -2707,9 +2707,9 @@ class HadoopClusterMetastoresArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterMetastoresArgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']] = None):
+                 ambari: pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgs']] = None,
+                 hive: pulumi.Input[Optional['HadoopClusterMetastoresHiveArgs']] = None,
+                 oozie: pulumi.Input[Optional['HadoopClusterMetastoresOozieArgs']] = None):
         """
         :param pulumi.Input['HadoopClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
         :param pulumi.Input['HadoopClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
@@ -2724,38 +2724,38 @@ class HadoopClusterMetastoresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgs']]):
         pulumi.set(self, "ambari", value)
 
     @_builtins.property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']]:
+    def hive(self) -> pulumi.Input[Optional['HadoopClusterMetastoresHiveArgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']]):
+    def hive(self, value: pulumi.Input[Optional['HadoopClusterMetastoresHiveArgs']]):
         pulumi.set(self, "hive", value)
 
     @_builtins.property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']]:
+    def oozie(self) -> pulumi.Input[Optional['HadoopClusterMetastoresOozieArgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']]):
+    def oozie(self, value: pulumi.Input[Optional['HadoopClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
 
@@ -3062,13 +3062,13 @@ class HadoopClusterMonitorArgs:
 
 
 class HadoopClusterNetworkArgsDict(TypedDict):
-    connection_direction: NotRequired[pulumi.Input[_builtins.str]]
+    connection_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
     > **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
     """
-    private_link_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -3076,8 +3076,8 @@ class HadoopClusterNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterNetworkArgs:
     def __init__(__self__, *,
-                 connection_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
@@ -3091,7 +3091,7 @@ class HadoopClusterNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionDirection")
-    def connection_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
@@ -3100,19 +3100,19 @@ class HadoopClusterNetworkArgs:
         return pulumi.get(self, "connection_direction")
 
     @connection_direction.setter
-    def connection_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
     @private_link_enabled.setter
-    def private_link_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
 
@@ -3187,19 +3187,19 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
     """
     The name of the IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP allocation method. Possible values are `Dynamic` and `Static`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
     """
@@ -3208,10 +3208,10 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
 class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary.
@@ -3243,50 +3243,50 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP allocation method. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -3303,7 +3303,7 @@ class HadoopClusterRolesArgsDict(TypedDict):
     """
     A `zookeeper_node` block as defined below.
     """
-    edge_node: NotRequired[pulumi.Input['HadoopClusterRolesEdgeNodeArgsDict']]
+    edge_node: NotRequired[pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgs']]]
     """
     A `edge_node` block as defined below.
     """
@@ -3314,7 +3314,7 @@ class HadoopClusterRolesArgs:
                  head_node: pulumi.Input['HadoopClusterRolesHeadNodeArgs'],
                  worker_node: pulumi.Input['HadoopClusterRolesWorkerNodeArgs'],
                  zookeeper_node: pulumi.Input['HadoopClusterRolesZookeeperNodeArgs'],
-                 edge_node: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']] = None):
+                 edge_node: pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgs']] = None):
         """
         :param pulumi.Input['HadoopClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
         :param pulumi.Input['HadoopClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
@@ -3365,14 +3365,14 @@ class HadoopClusterRolesArgs:
 
     @_builtins.property
     @pulumi.getter(name="edgeNode")
-    def edge_node(self) -> Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']]:
+    def edge_node(self) -> pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgs']]:
         """
         A `edge_node` block as defined below.
         """
         return pulumi.get(self, "edge_node")
 
     @edge_node.setter
-    def edge_node(self, value: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']]):
+    def edge_node(self, value: pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgs']]):
         pulumi.set(self, "edge_node", value)
 
 
@@ -3389,11 +3389,11 @@ class HadoopClusterRolesEdgeNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
     """
-    https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict']]]]
+    https_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]]
     """
     The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
     """
-    uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict']]]]
+    uninstall_script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]]
     """
     A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
     """
@@ -3404,8 +3404,8 @@ class HadoopClusterRolesEdgeNodeArgs:
                  install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
                  target_instance_count: pulumi.Input[_builtins.int],
                  vm_size: pulumi.Input[_builtins.str],
-                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]] = None,
-                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]] = None):
+                 https_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]] = None,
+                 uninstall_script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
@@ -3459,47 +3459,47 @@ class HadoopClusterRolesEdgeNodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpsEndpoints")
-    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]:
+    def https_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
         """
         return pulumi.get(self, "https_endpoints")
 
     @https_endpoints.setter
-    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]):
+    def https_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]):
         pulumi.set(self, "https_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="uninstallScriptActions")
-    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]:
+    def uninstall_script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]:
         """
         A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uninstall_script_actions")
 
     @uninstall_script_actions.setter
-    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]):
+    def uninstall_script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]):
         pulumi.set(self, "uninstall_script_actions", value)
 
 
 class HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict(TypedDict):
-    access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    access_modes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of access modes for the application.
     """
-    destination_port: NotRequired[pulumi.Input[_builtins.int]]
+    destination_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The destination port to connect to.
     """
-    disable_gateway_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_gateway_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicates whether the gateway authentication is enabled or not.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private ip address of the endpoint.
     """
-    sub_domain_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    sub_domain_suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application's subdomain suffix.
     """
@@ -3507,11 +3507,11 @@ class HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
     def __init__(__self__, *,
-                 access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 disable_gateway_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_domain_suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 disable_gateway_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_domain_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_modes: A list of access modes for the application.
         :param pulumi.Input[_builtins.int] destination_port: The destination port to connect to.
@@ -3532,62 +3532,62 @@ class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessModes")
-    def access_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def access_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of access modes for the application.
         """
         return pulumi.get(self, "access_modes")
 
     @access_modes.setter
-    def access_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def access_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "access_modes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The destination port to connect to.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter(name="disableGatewayAuth")
-    def disable_gateway_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_gateway_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicates whether the gateway authentication is enabled or not.
         """
         return pulumi.get(self, "disable_gateway_auth")
 
     @disable_gateway_auth.setter
-    def disable_gateway_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_gateway_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_gateway_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private ip address of the endpoint.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="subDomainSuffix")
-    def sub_domain_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_domain_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application's subdomain suffix.
         """
         return pulumi.get(self, "sub_domain_suffix")
 
     @sub_domain_suffix.setter
-    def sub_domain_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_domain_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_domain_suffix", value)
 
 
@@ -3600,7 +3600,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgsDict(TypedDict):
     """
     The URI pointing to the script to run during the installation of the edge node.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script.
     """
@@ -3610,7 +3610,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the install script action.
         :param pulumi.Input[_builtins.str] uri: The URI pointing to the script to run during the installation of the edge node.
@@ -3647,14 +3647,14 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -3667,7 +3667,7 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict(TypedDict):
     """
     The URI pointing to the script to run during the installation of the edge node.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script.
     """
@@ -3677,7 +3677,7 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the uninstall script action.
         :param pulumi.Input[_builtins.str] uri: The URI pointing to the script to run during the installation of the edge node.
@@ -3714,14 +3714,14 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -3734,27 +3734,27 @@ class HadoopClusterRolesHeadNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -3764,11 +3764,11 @@ class HadoopClusterRolesHeadNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -3821,7 +3821,7 @@ class HadoopClusterRolesHeadNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
@@ -3830,24 +3830,24 @@ class HadoopClusterRolesHeadNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
@@ -3856,31 +3856,31 @@ class HadoopClusterRolesHeadNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -3893,7 +3893,7 @@ class HadoopClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -3903,7 +3903,7 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -3940,14 +3940,14 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -3964,31 +3964,31 @@ class HadoopClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgsDict']]
+    autoscale: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgs']]]
     """
     A `autoscale` block as defined below.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -3999,12 +3999,12 @@ class HadoopClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscale: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -4074,19 +4074,19 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgs']]):
         pulumi.set(self, "autoscale", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -4095,24 +4095,24 @@ class HadoopClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -4121,40 +4121,40 @@ class HadoopClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 class HadoopClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    capacity: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]
+    capacity: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]]
     """
     A `capacity` block as defined below.
     """
-    recurrence: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
     """
     A `recurrence` block as defined below.
 
@@ -4164,8 +4164,8 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 capacity: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
+                 recurrence: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
         """
         :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
@@ -4179,19 +4179,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+    def capacity(self) -> pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+    def capacity(self, value: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
         """
         A `recurrence` block as defined below.
 
@@ -4200,7 +4200,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -4373,7 +4373,7 @@ class HadoopClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -4383,7 +4383,7 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -4420,14 +4420,14 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4440,27 +4440,27 @@ class HadoopClusterRolesZookeeperNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -4470,11 +4470,11 @@ class HadoopClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -4527,7 +4527,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -4536,24 +4536,24 @@ class HadoopClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -4562,31 +4562,31 @@ class HadoopClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -4599,7 +4599,7 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -4609,7 +4609,7 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -4646,14 +4646,14 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4682,7 +4682,7 @@ class HadoopClusterSecurityProfileArgsDict(TypedDict):
     """
     The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
     """
@@ -4696,7 +4696,7 @@ class HadoopClusterSecurityProfileArgs:
                  domain_username: pulumi.Input[_builtins.str],
                  ldaps_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  msi_resource_id: pulumi.Input[_builtins.str],
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
@@ -4789,14 +4789,14 @@ class HadoopClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDns")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
@@ -4817,7 +4817,7 @@ class HadoopClusterStorageAccountArgsDict(TypedDict):
 
     > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account. Changing this forces a new resource to be created.
     """
@@ -4828,7 +4828,7 @@ class HadoopClusterStorageAccountArgs:
                  is_default: pulumi.Input[_builtins.bool],
                  storage_account_key: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
@@ -4887,14 +4887,14 @@ class HadoopClusterStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 
@@ -5024,11 +5024,11 @@ class InteractiveQueryClusterComponentVersionArgs:
 
 
 class InteractiveQueryClusterComputeIsolationArgsDict(TypedDict):
-    compute_isolation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    compute_isolation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the host SKU.
     """
@@ -5036,8 +5036,8 @@ class InteractiveQueryClusterComputeIsolationArgsDict(TypedDict):
 @pulumi.input_type
 class InteractiveQueryClusterComputeIsolationArgs:
     def __init__(__self__, *,
-                 compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] host_sku: The name of the host SKU.
@@ -5049,43 +5049,43 @@ class InteractiveQueryClusterComputeIsolationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationEnabled")
-    def compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
-    def compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host SKU.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
 class InteractiveQueryClusterDiskEncryptionArgsDict(TypedDict):
-    encryption_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is indicator to show whether resource disk encryption is enabled.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the key vault key.
     """
-    key_vault_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the resource ID of Managed Identity used to access the key vault.
     """
@@ -5093,10 +5093,10 @@ class InteractiveQueryClusterDiskEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class InteractiveQueryClusterDiskEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
@@ -5114,50 +5114,50 @@ class InteractiveQueryClusterDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is indicator to show whether resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key vault key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultManagedIdentityId")
-    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
 
     @key_vault_managed_identity_id.setter
-    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
@@ -5262,15 +5262,15 @@ class InteractiveQueryClusterGatewayArgs:
 
 
 class InteractiveQueryClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgsDict']]
+    ambari: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgs']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgsDict']]
+    hive: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgs']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgsDict']]
+    oozie: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgs']]]
     """
     An `oozie` block as defined below.
     """
@@ -5278,9 +5278,9 @@ class InteractiveQueryClusterMetastoresArgsDict(TypedDict):
 @pulumi.input_type
 class InteractiveQueryClusterMetastoresArgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']] = None):
+                 ambari: pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgs']] = None,
+                 hive: pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgs']] = None,
+                 oozie: pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgs']] = None):
         """
         :param pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
@@ -5295,38 +5295,38 @@ class InteractiveQueryClusterMetastoresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgs']]):
         pulumi.set(self, "ambari", value)
 
     @_builtins.property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']]:
+    def hive(self) -> pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']]):
+    def hive(self, value: pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgs']]):
         pulumi.set(self, "hive", value)
 
     @_builtins.property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']]:
+    def oozie(self) -> pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']]):
+    def oozie(self, value: pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
 
@@ -5633,13 +5633,13 @@ class InteractiveQueryClusterMonitorArgs:
 
 
 class InteractiveQueryClusterNetworkArgsDict(TypedDict):
-    connection_direction: NotRequired[pulumi.Input[_builtins.str]]
+    connection_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
     > **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
     """
-    private_link_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -5647,8 +5647,8 @@ class InteractiveQueryClusterNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class InteractiveQueryClusterNetworkArgs:
     def __init__(__self__, *,
-                 connection_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
@@ -5662,7 +5662,7 @@ class InteractiveQueryClusterNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionDirection")
-    def connection_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
@@ -5671,19 +5671,19 @@ class InteractiveQueryClusterNetworkArgs:
         return pulumi.get(self, "connection_direction")
 
     @connection_direction.setter
-    def connection_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
     @private_link_enabled.setter
-    def private_link_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
 
@@ -5758,19 +5758,19 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict(Typ
     """
     The name of the IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP allocation method. Possible values are `Dynamic` and `Static`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
     """
@@ -5779,10 +5779,10 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict(Typ
 class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary.
@@ -5814,50 +5814,50 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP allocation method. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -5938,27 +5938,27 @@ class InteractiveQueryClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -5968,11 +5968,11 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -6029,7 +6029,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
@@ -6038,24 +6038,24 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
@@ -6064,31 +6064,31 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -6101,7 +6101,7 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -6111,7 +6111,7 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -6148,14 +6148,14 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -6174,31 +6174,31 @@ class InteractiveQueryClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
     """
-    autoscale: NotRequired[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict']]
+    autoscale: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]]
     """
     A `autoscale` block as defined below.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -6209,12 +6209,12 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscale: pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -6288,19 +6288,19 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]):
         pulumi.set(self, "autoscale", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -6309,24 +6309,24 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -6335,36 +6335,36 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    recurrence: NotRequired[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
     """
     A `recurrence` block as defined below.
     """
@@ -6372,7 +6372,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
-                 recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 recurrence: pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
         """
         :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
         """
@@ -6381,14 +6381,14 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
         """
         A `recurrence` block as defined below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -6514,7 +6514,7 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -6524,7 +6524,7 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -6561,14 +6561,14 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -6581,27 +6581,27 @@ class InteractiveQueryClusterRolesZookeeperNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -6611,11 +6611,11 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -6668,7 +6668,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -6677,24 +6677,24 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -6703,31 +6703,31 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -6740,7 +6740,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -6750,7 +6750,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -6787,14 +6787,14 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -6823,7 +6823,7 @@ class InteractiveQueryClusterSecurityProfileArgsDict(TypedDict):
     """
     The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
     """
@@ -6837,7 +6837,7 @@ class InteractiveQueryClusterSecurityProfileArgs:
                  domain_username: pulumi.Input[_builtins.str],
                  ldaps_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  msi_resource_id: pulumi.Input[_builtins.str],
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
@@ -6930,14 +6930,14 @@ class InteractiveQueryClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDns")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
@@ -6958,7 +6958,7 @@ class InteractiveQueryClusterStorageAccountArgsDict(TypedDict):
 
     > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account. Changing this forces a new resource to be created.
     """
@@ -6969,7 +6969,7 @@ class InteractiveQueryClusterStorageAccountArgs:
                  is_default: pulumi.Input[_builtins.bool],
                  storage_account_key: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
@@ -7028,14 +7028,14 @@ class InteractiveQueryClusterStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 
@@ -7165,11 +7165,11 @@ class KafkaClusterComponentVersionArgs:
 
 
 class KafkaClusterComputeIsolationArgsDict(TypedDict):
-    compute_isolation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    compute_isolation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the host SKU.
     """
@@ -7177,8 +7177,8 @@ class KafkaClusterComputeIsolationArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterComputeIsolationArgs:
     def __init__(__self__, *,
-                 compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] host_sku: The name of the host SKU.
@@ -7190,43 +7190,43 @@ class KafkaClusterComputeIsolationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationEnabled")
-    def compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
-    def compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host SKU.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
 class KafkaClusterDiskEncryptionArgsDict(TypedDict):
-    encryption_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is indicator to show whether resource disk encryption is enabled.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the key vault key.
     """
-    key_vault_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the resource ID of Managed Identity used to access the key vault.
     """
@@ -7234,10 +7234,10 @@ class KafkaClusterDiskEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterDiskEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
@@ -7255,50 +7255,50 @@ class KafkaClusterDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is indicator to show whether resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key vault key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultManagedIdentityId")
-    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
 
     @key_vault_managed_identity_id.setter
-    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
@@ -7403,15 +7403,15 @@ class KafkaClusterGatewayArgs:
 
 
 class KafkaClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input['KafkaClusterMetastoresAmbariArgsDict']]
+    ambari: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgs']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input['KafkaClusterMetastoresHiveArgsDict']]
+    hive: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresHiveArgs']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input['KafkaClusterMetastoresOozieArgsDict']]
+    oozie: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresOozieArgs']]]
     """
     An `oozie` block as defined below.
     """
@@ -7419,9 +7419,9 @@ class KafkaClusterMetastoresArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterMetastoresArgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']] = None):
+                 ambari: pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgs']] = None,
+                 hive: pulumi.Input[Optional['KafkaClusterMetastoresHiveArgs']] = None,
+                 oozie: pulumi.Input[Optional['KafkaClusterMetastoresOozieArgs']] = None):
         """
         :param pulumi.Input['KafkaClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
         :param pulumi.Input['KafkaClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
@@ -7436,38 +7436,38 @@ class KafkaClusterMetastoresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgs']]):
         pulumi.set(self, "ambari", value)
 
     @_builtins.property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']]:
+    def hive(self) -> pulumi.Input[Optional['KafkaClusterMetastoresHiveArgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']]):
+    def hive(self, value: pulumi.Input[Optional['KafkaClusterMetastoresHiveArgs']]):
         pulumi.set(self, "hive", value)
 
     @_builtins.property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']]:
+    def oozie(self) -> pulumi.Input[Optional['KafkaClusterMetastoresOozieArgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']]):
+    def oozie(self, value: pulumi.Input[Optional['KafkaClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
 
@@ -7774,13 +7774,13 @@ class KafkaClusterMonitorArgs:
 
 
 class KafkaClusterNetworkArgsDict(TypedDict):
-    connection_direction: NotRequired[pulumi.Input[_builtins.str]]
+    connection_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
     > **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
     """
-    private_link_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -7788,8 +7788,8 @@ class KafkaClusterNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterNetworkArgs:
     def __init__(__self__, *,
-                 connection_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
@@ -7803,7 +7803,7 @@ class KafkaClusterNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionDirection")
-    def connection_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
@@ -7812,19 +7812,19 @@ class KafkaClusterNetworkArgs:
         return pulumi.get(self, "connection_direction")
 
     @connection_direction.setter
-    def connection_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
     @private_link_enabled.setter
-    def private_link_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
 
@@ -7899,19 +7899,19 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
     """
     The name of the IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP allocation method. Possible values are `Dynamic` and `Static`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
     """
@@ -7920,10 +7920,10 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
 class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary.
@@ -7955,50 +7955,50 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP allocation method. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -8068,7 +8068,7 @@ class KafkaClusterRolesArgsDict(TypedDict):
     """
     A `zookeeper_node` block as defined below.
     """
-    kafka_management_node: NotRequired[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgsDict']]
+    kafka_management_node: NotRequired[pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgs']]]
     """
     A `kafka_management_node` block as defined below.
 
@@ -8081,7 +8081,7 @@ class KafkaClusterRolesArgs:
                  head_node: pulumi.Input['KafkaClusterRolesHeadNodeArgs'],
                  worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArgs'],
                  zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'],
-                 kafka_management_node: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']] = None):
+                 kafka_management_node: pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgs']] = None):
         """
         :param pulumi.Input['KafkaClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
         :param pulumi.Input['KafkaClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
@@ -8134,7 +8134,7 @@ class KafkaClusterRolesArgs:
 
     @_builtins.property
     @pulumi.getter(name="kafkaManagementNode")
-    def kafka_management_node(self) -> Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]:
+    def kafka_management_node(self) -> pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgs']]:
         """
         A `kafka_management_node` block as defined below.
 
@@ -8143,7 +8143,7 @@ class KafkaClusterRolesArgs:
         return pulumi.get(self, "kafka_management_node")
 
     @kafka_management_node.setter
-    def kafka_management_node(self, value: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]):
+    def kafka_management_node(self, value: pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgs']]):
         pulumi.set(self, "kafka_management_node", value)
 
 
@@ -8156,27 +8156,27 @@ class KafkaClusterRolesHeadNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -8186,11 +8186,11 @@ class KafkaClusterRolesHeadNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -8243,7 +8243,7 @@ class KafkaClusterRolesHeadNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
@@ -8252,24 +8252,24 @@ class KafkaClusterRolesHeadNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
@@ -8278,31 +8278,31 @@ class KafkaClusterRolesHeadNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -8315,7 +8315,7 @@ class KafkaClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -8325,7 +8325,7 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -8362,14 +8362,14 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -8378,33 +8378,33 @@ class KafkaClusterRolesKafkaManagementNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Username of the local administrator for the Kafka Management Nodes.
 
     > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -8413,12 +8413,12 @@ class KafkaClusterRolesKafkaManagementNodeArgsDict(TypedDict):
 class KafkaClusterRolesKafkaManagementNodeArgs:
     def __init__(__self__, *,
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
@@ -8462,7 +8462,7 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 
@@ -8471,24 +8471,24 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 
@@ -8497,24 +8497,24 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Username of the local administrator for the Kafka Management Nodes.
 
@@ -8523,19 +8523,19 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -8548,7 +8548,7 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -8558,7 +8558,7 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -8595,14 +8595,14 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -8623,27 +8623,27 @@ class KafkaClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -8655,11 +8655,11 @@ class KafkaClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_disks_per_node: The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
@@ -8740,7 +8740,7 @@ class KafkaClusterRolesWorkerNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -8749,24 +8749,24 @@ class KafkaClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -8775,31 +8775,31 @@ class KafkaClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -8812,7 +8812,7 @@ class KafkaClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -8822,7 +8822,7 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -8859,14 +8859,14 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -8879,27 +8879,27 @@ class KafkaClusterRolesZookeeperNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -8909,11 +8909,11 @@ class KafkaClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -8966,7 +8966,7 @@ class KafkaClusterRolesZookeeperNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -8975,24 +8975,24 @@ class KafkaClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -9001,31 +9001,31 @@ class KafkaClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -9038,7 +9038,7 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -9048,7 +9048,7 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -9085,14 +9085,14 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -9121,7 +9121,7 @@ class KafkaClusterSecurityProfileArgsDict(TypedDict):
     """
     The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
     """
@@ -9135,7 +9135,7 @@ class KafkaClusterSecurityProfileArgs:
                  domain_username: pulumi.Input[_builtins.str],
                  ldaps_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  msi_resource_id: pulumi.Input[_builtins.str],
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
@@ -9228,14 +9228,14 @@ class KafkaClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDns")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
@@ -9256,7 +9256,7 @@ class KafkaClusterStorageAccountArgsDict(TypedDict):
 
     > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account. Changing this forces a new resource to be created.
     """
@@ -9267,7 +9267,7 @@ class KafkaClusterStorageAccountArgs:
                  is_default: pulumi.Input[_builtins.bool],
                  storage_account_key: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
@@ -9326,14 +9326,14 @@ class KafkaClusterStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 
@@ -9463,11 +9463,11 @@ class SparkClusterComponentVersionArgs:
 
 
 class SparkClusterComputeIsolationArgsDict(TypedDict):
-    compute_isolation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    compute_isolation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
     """
-    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    host_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the host SKU.
     """
@@ -9475,8 +9475,8 @@ class SparkClusterComputeIsolationArgsDict(TypedDict):
 @pulumi.input_type
 class SparkClusterComputeIsolationArgs:
     def __init__(__self__, *,
-                 compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_sku: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_sku: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] host_sku: The name of the host SKU.
@@ -9488,43 +9488,43 @@ class SparkClusterComputeIsolationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolationEnabled")
-    def compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
-    def compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostSku")
-    def host_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host SKU.
         """
         return pulumi.get(self, "host_sku")
 
     @host_sku.setter
-    def host_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_sku", value)
 
 
 class SparkClusterDiskEncryptionArgsDict(TypedDict):
-    encryption_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This is indicator to show whether resource disk encryption is enabled.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the key vault key.
     """
-    key_vault_managed_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the resource ID of Managed Identity used to access the key vault.
     """
@@ -9532,10 +9532,10 @@ class SparkClusterDiskEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class SparkClusterDiskEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
@@ -9553,50 +9553,50 @@ class SparkClusterDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This is indicator to show whether resource disk encryption is enabled.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key vault key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultManagedIdentityId")
-    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
 
     @key_vault_managed_identity_id.setter
-    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
@@ -9701,15 +9701,15 @@ class SparkClusterGatewayArgs:
 
 
 class SparkClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input['SparkClusterMetastoresAmbariArgsDict']]
+    ambari: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresAmbariArgs']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input['SparkClusterMetastoresHiveArgsDict']]
+    hive: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresHiveArgs']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input['SparkClusterMetastoresOozieArgsDict']]
+    oozie: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresOozieArgs']]]
     """
     An `oozie` block as defined below.
     """
@@ -9717,9 +9717,9 @@ class SparkClusterMetastoresArgsDict(TypedDict):
 @pulumi.input_type
 class SparkClusterMetastoresArgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']] = None):
+                 ambari: pulumi.Input[Optional['SparkClusterMetastoresAmbariArgs']] = None,
+                 hive: pulumi.Input[Optional['SparkClusterMetastoresHiveArgs']] = None,
+                 oozie: pulumi.Input[Optional['SparkClusterMetastoresOozieArgs']] = None):
         """
         :param pulumi.Input['SparkClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
         :param pulumi.Input['SparkClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
@@ -9734,38 +9734,38 @@ class SparkClusterMetastoresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> pulumi.Input[Optional['SparkClusterMetastoresAmbariArgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: pulumi.Input[Optional['SparkClusterMetastoresAmbariArgs']]):
         pulumi.set(self, "ambari", value)
 
     @_builtins.property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']]:
+    def hive(self) -> pulumi.Input[Optional['SparkClusterMetastoresHiveArgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']]):
+    def hive(self, value: pulumi.Input[Optional['SparkClusterMetastoresHiveArgs']]):
         pulumi.set(self, "hive", value)
 
     @_builtins.property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']]:
+    def oozie(self) -> pulumi.Input[Optional['SparkClusterMetastoresOozieArgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']]):
+    def oozie(self, value: pulumi.Input[Optional['SparkClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
 
@@ -10072,13 +10072,13 @@ class SparkClusterMonitorArgs:
 
 
 class SparkClusterNetworkArgsDict(TypedDict):
-    connection_direction: NotRequired[pulumi.Input[_builtins.str]]
+    connection_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
     > **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
     """
-    private_link_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -10086,8 +10086,8 @@ class SparkClusterNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class SparkClusterNetworkArgs:
     def __init__(__self__, *,
-                 connection_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
@@ -10101,7 +10101,7 @@ class SparkClusterNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionDirection")
-    def connection_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 
@@ -10110,19 +10110,19 @@ class SparkClusterNetworkArgs:
         return pulumi.get(self, "connection_direction")
 
     @connection_direction.setter
-    def connection_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
     @private_link_enabled.setter
-    def private_link_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
 
@@ -10197,19 +10197,19 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
     """
     The name of the IP configuration.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether this IP configuration is primary.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP allocation method. Possible values are `Dynamic` and `Static`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
     """
@@ -10218,10 +10218,10 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
 class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary.
@@ -10253,50 +10253,50 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this IP configuration is primary.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP allocation method. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the IP configuration should be provisioned.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -10375,27 +10375,27 @@ class SparkClusterRolesHeadNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -10405,11 +10405,11 @@ class SparkClusterRolesHeadNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -10462,7 +10462,7 @@ class SparkClusterRolesHeadNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
@@ -10471,24 +10471,24 @@ class SparkClusterRolesHeadNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
@@ -10497,31 +10497,31 @@ class SparkClusterRolesHeadNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -10534,7 +10534,7 @@ class SparkClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -10544,7 +10544,7 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -10581,14 +10581,14 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -10605,31 +10605,31 @@ class SparkClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgsDict']]
+    autoscale: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgs']]]
     """
     A `autoscale` block as defined below.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -10640,12 +10640,12 @@ class SparkClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscale: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -10715,19 +10715,19 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgs']]):
         pulumi.set(self, "autoscale", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -10736,24 +10736,24 @@ class SparkClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 
@@ -10762,40 +10762,40 @@ class SparkClusterRolesWorkerNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 class SparkClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    capacity: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]
+    capacity: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]]
     """
     A `capacity` block as defined below.
     """
-    recurrence: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
     """
     A `recurrence` block as defined below.
 
@@ -10805,8 +10805,8 @@ class SparkClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 capacity: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
+                 recurrence: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
         """
         :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
@@ -10820,19 +10820,19 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+    def capacity(self) -> pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+    def capacity(self, value: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
         """
         A `recurrence` block as defined below.
 
@@ -10841,7 +10841,7 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -11014,7 +11014,7 @@ class SparkClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -11024,7 +11024,7 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -11061,14 +11061,14 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -11081,27 +11081,27 @@ class SparkClusterRolesZookeeperNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
     > **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
     """
@@ -11111,11 +11111,11 @@ class SparkClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_actions: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -11168,7 +11168,7 @@ class SparkClusterRolesZookeeperNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -11177,24 +11177,24 @@ class SparkClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
@@ -11203,31 +11203,31 @@ class SparkClusterRolesZookeeperNodeArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -11240,7 +11240,7 @@ class SparkClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
     """
     The URI to the script.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters for the script provided.
     """
@@ -11250,7 +11250,7 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -11287,14 +11287,14 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the script provided.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -11323,7 +11323,7 @@ class SparkClusterSecurityProfileArgsDict(TypedDict):
     """
     The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
     """
-    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_users_group_dns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
     """
@@ -11337,7 +11337,7 @@ class SparkClusterSecurityProfileArgs:
                  domain_username: pulumi.Input[_builtins.str],
                  ldaps_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  msi_resource_id: pulumi.Input[_builtins.str],
-                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_users_group_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
@@ -11430,14 +11430,14 @@ class SparkClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterUsersGroupDns")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_users_group_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_users_group_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
@@ -11458,7 +11458,7 @@ class SparkClusterStorageAccountArgsDict(TypedDict):
 
     > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Storage Account. Changing this forces a new resource to be created.
     """
@@ -11469,7 +11469,7 @@ class SparkClusterStorageAccountArgs:
                  is_default: pulumi.Input[_builtins.bool],
                  storage_account_key: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
@@ -11528,14 +11528,14 @@ class SparkClusterStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 

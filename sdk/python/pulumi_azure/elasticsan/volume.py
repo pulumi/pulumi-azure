@@ -23,8 +23,8 @@ class VolumeArgs:
     def __init__(__self__, *,
                  size_in_gib: pulumi.Input[_builtins.int],
                  volume_group_id: pulumi.Input[_builtins.str],
-                 create_source: Optional[pulumi.Input['VolumeCreateSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_source: pulumi.Input[Optional['VolumeCreateSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -70,40 +70,40 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="createSource")
-    def create_source(self) -> Optional[pulumi.Input['VolumeCreateSourceArgs']]:
+    def create_source(self) -> pulumi.Input[Optional['VolumeCreateSourceArgs']]:
         """
         A `create_source` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_source")
 
     @create_source.setter
-    def create_source(self, value: Optional[pulumi.Input['VolumeCreateSourceArgs']]):
+    def create_source(self, value: pulumi.Input[Optional['VolumeCreateSourceArgs']]):
         pulumi.set(self, "create_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VolumeState:
     def __init__(__self__, *,
-                 create_source: Optional[pulumi.Input['VolumeCreateSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_iqn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_portal_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_portal_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_source: pulumi.Input[Optional['VolumeCreateSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_portal_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_portal_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
 
@@ -137,31 +137,31 @@ class _VolumeState:
 
     @_builtins.property
     @pulumi.getter(name="createSource")
-    def create_source(self) -> Optional[pulumi.Input['VolumeCreateSourceArgs']]:
+    def create_source(self) -> pulumi.Input[Optional['VolumeCreateSourceArgs']]:
         """
         A `create_source` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_source")
 
     @create_source.setter
-    def create_source(self, value: Optional[pulumi.Input['VolumeCreateSourceArgs']]):
+    def create_source(self, value: pulumi.Input[Optional['VolumeCreateSourceArgs']]):
         pulumi.set(self, "create_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInGib")
-    def size_in_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_gib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 
@@ -170,67 +170,67 @@ class _VolumeState:
         return pulumi.get(self, "size_in_gib")
 
     @size_in_gib.setter
-    def size_in_gib(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_gib(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_gib", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_iqn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The iSCSI Target IQN of the Elastic SAN Volume.
         """
         return pulumi.get(self, "target_iqn")
 
     @target_iqn.setter
-    def target_iqn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_iqn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_iqn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPortalHostname")
-    def target_portal_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_portal_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The iSCSI Target Portal Host Name of the Elastic SAN Volume.
         """
         return pulumi.get(self, "target_portal_hostname")
 
     @target_portal_hostname.setter
-    def target_portal_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_portal_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_portal_hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPortalPort")
-    def target_portal_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_portal_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The iSCSI Target Portal Port of the Elastic SAN Volume.
         """
         return pulumi.get(self, "target_portal_port")
 
     @target_portal_port.setter
-    def target_portal_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_portal_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_portal_port", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeGroupId")
-    def volume_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_group_id")
 
     @volume_group_id.setter
-    def volume_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID of the Elastic SAN Volume.
         """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
-    def volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_id", value)
 
 
@@ -240,10 +240,10 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Elastic SAN Volume resource.
@@ -453,10 +453,10 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,14 +488,14 @@ class Volume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_source: Optional[pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            size_in_gib: Optional[pulumi.Input[_builtins.int]] = None,
-            target_iqn: Optional[pulumi.Input[_builtins.str]] = None,
-            target_portal_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            target_portal_port: Optional[pulumi.Input[_builtins.int]] = None,
-            volume_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Volume':
+            create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_portal_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            target_portal_port: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

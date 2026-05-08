@@ -162,8 +162,8 @@ def get_managed_database(managed_instance_id: Optional[_builtins.str] = None,
         point_in_time_restores=pulumi.get(__ret__, 'point_in_time_restores'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         short_term_retention_days=pulumi.get(__ret__, 'short_term_retention_days'))
-def get_managed_database_output(managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_database_output(managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDatabaseResult]:
     """
     Use this data source to access information about an existing Azure SQL Azure Managed Database.

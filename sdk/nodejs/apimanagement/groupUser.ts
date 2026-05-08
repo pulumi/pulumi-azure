@@ -134,19 +134,19 @@ export interface GroupUserState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

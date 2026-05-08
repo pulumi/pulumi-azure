@@ -174,8 +174,8 @@ def get_budget_resource_group(name: Optional[_builtins.str] = None,
         resource_group_id=pulumi.get(__ret__, 'resource_group_id'),
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_periods=pulumi.get(__ret__, 'time_periods'))
-def get_budget_resource_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_budget_resource_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResourceGroupResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific resource group.

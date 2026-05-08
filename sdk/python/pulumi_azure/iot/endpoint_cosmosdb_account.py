@@ -24,14 +24,14 @@ class EndpointCosmosdbAccountArgs:
                  endpoint_uri: pulumi.Input[_builtins.str],
                  iothub_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointCosmosdbAccount resource.
 
@@ -141,19 +141,19 @@ class EndpointCosmosdbAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 
@@ -162,48 +162,48 @@ class EndpointCosmosdbAccountArgs:
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyName")
-    def partition_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the partition key associated with the Cosmos DB Container.
         """
         return pulumi.get(self, "partition_key_name")
 
     @partition_key_name.setter
-    def partition_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyTemplate")
-    def partition_key_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         """
         return pulumi.get(self, "partition_key_template")
 
     @partition_key_template.setter
-    def partition_key_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_template", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key of the Cosmos DB Account.
 
@@ -212,12 +212,12 @@ class EndpointCosmosdbAccountArgs:
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key of the Cosmos DB Account.
 
@@ -226,12 +226,12 @@ class EndpointCosmosdbAccountArgs:
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription ID for the endpoint.
 
@@ -240,26 +240,26 @@ class EndpointCosmosdbAccountArgs:
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
 @pulumi.input_type
 class _EndpointCosmosdbAccountState:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointCosmosdbAccount resources.
 
@@ -314,55 +314,55 @@ class _EndpointCosmosdbAccountState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "endpoint_uri")
 
     @endpoint_uri.setter
-    def endpoint_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 
@@ -371,60 +371,60 @@ class _EndpointCosmosdbAccountState:
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubId")
-    def iothub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_id")
 
     @iothub_id.setter
-    def iothub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyName")
-    def partition_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the partition key associated with the Cosmos DB Container.
         """
         return pulumi.get(self, "partition_key_name")
 
     @partition_key_name.setter
-    def partition_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyTemplate")
-    def partition_key_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         """
         return pulumi.get(self, "partition_key_template")
 
     @partition_key_template.setter
-    def partition_key_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_template", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key of the Cosmos DB Account.
 
@@ -433,24 +433,24 @@ class _EndpointCosmosdbAccountState:
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key of the Cosmos DB Account.
 
@@ -459,12 +459,12 @@ class _EndpointCosmosdbAccountState:
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription ID for the endpoint.
 
@@ -473,7 +473,7 @@ class _EndpointCosmosdbAccountState:
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -483,19 +483,19 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IotHub Cosmos DB Account Endpoint
@@ -678,19 +678,19 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -735,19 +735,19 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_key_template: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndpointCosmosdbAccount':
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'EndpointCosmosdbAccount':
         """
         Get an existing EndpointCosmosdbAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

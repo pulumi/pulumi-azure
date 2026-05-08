@@ -210,44 +210,44 @@ export interface HybridConnectionState {
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string | undefined>;
     /**
      * The hostname of the endpoint.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * The name of the Relay Namespace.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The port of the endpoint.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
-    relayId?: pulumi.Input<string>;
-    relayName?: pulumi.Input<string>;
+    relayId?: pulumi.Input<string | undefined>;
+    relayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
-    sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string | undefined>;
     /**
      * The value of the Service Bus Primary Access key.
      */
-    sendKeyValue?: pulumi.Input<string>;
+    sendKeyValue?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Bus namespace.
      */
-    serviceBusNamespace?: pulumi.Input<string>;
+    serviceBusNamespace?: pulumi.Input<string | undefined>;
     /**
      * The suffix for the service bus endpoint.
      */
-    serviceBusSuffix?: pulumi.Input<string>;
+    serviceBusSuffix?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -277,5 +277,5 @@ export interface HybridConnectionArgs {
     /**
      * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
-    sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string | undefined>;
 }

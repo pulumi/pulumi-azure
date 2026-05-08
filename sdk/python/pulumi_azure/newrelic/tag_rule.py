@@ -22,12 +22,12 @@ __all__ = ['TagRuleArgs', 'TagRule']
 class TagRuleArgs:
     def __init__(__self__, *,
                  monitor_id: pulumi.Input[_builtins.str],
-                 activity_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_active_directory_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
-                 metric_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
-                 subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
+                 metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
+                 subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagRule resource.
 
@@ -67,87 +67,87 @@ class TagRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="activityLogEnabled")
-    def activity_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activity_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "activity_log_enabled")
 
     @activity_log_enabled.setter
-    def activity_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activity_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activity_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectoryLogEnabled")
-    def azure_active_directory_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azure_active_directory_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "azure_active_directory_log_enabled")
 
     @azure_active_directory_log_enabled.setter
-    def azure_active_directory_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azure_active_directory_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_active_directory_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logTagFilters")
-    def log_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]:
+    def log_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]:
         """
         A `log_tag_filter` block as defined below.
         """
         return pulumi.get(self, "log_tag_filters")
 
     @log_tag_filters.setter
-    def log_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]):
+    def log_tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]):
         pulumi.set(self, "log_tag_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="metricEnabled")
-    def metric_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metric_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether metrics should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "metric_enabled")
 
     @metric_enabled.setter
-    def metric_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metric_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metric_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="metricTagFilters")
-    def metric_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]:
+    def metric_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]:
         """
         A `metric_tag_filter` block as defined below.
         """
         return pulumi.get(self, "metric_tag_filters")
 
     @metric_tag_filters.setter
-    def metric_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]):
+    def metric_tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]):
         pulumi.set(self, "metric_tag_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLogEnabled")
-    def subscription_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "subscription_log_enabled")
 
     @subscription_log_enabled.setter
-    def subscription_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_log_enabled", value)
 
 
 @pulumi.input_type
 class _TagRuleState:
     def __init__(__self__, *,
-                 activity_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_active_directory_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
-                 metric_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
+                 metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TagRule resources.
 
@@ -176,86 +176,86 @@ class _TagRuleState:
 
     @_builtins.property
     @pulumi.getter(name="activityLogEnabled")
-    def activity_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activity_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "activity_log_enabled")
 
     @activity_log_enabled.setter
-    def activity_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activity_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activity_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectoryLogEnabled")
-    def azure_active_directory_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azure_active_directory_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "azure_active_directory_log_enabled")
 
     @azure_active_directory_log_enabled.setter
-    def azure_active_directory_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azure_active_directory_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_active_directory_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logTagFilters")
-    def log_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]:
+    def log_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]:
         """
         A `log_tag_filter` block as defined below.
         """
         return pulumi.get(self, "log_tag_filters")
 
     @log_tag_filters.setter
-    def log_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]):
+    def log_tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]]):
         pulumi.set(self, "log_tag_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="metricEnabled")
-    def metric_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metric_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether metrics should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "metric_enabled")
 
     @metric_enabled.setter
-    def metric_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metric_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metric_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="metricTagFilters")
-    def metric_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]:
+    def metric_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]:
         """
         A `metric_tag_filter` block as defined below.
         """
         return pulumi.get(self, "metric_tag_filters")
 
     @metric_tag_filters.setter
-    def metric_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]):
+    def metric_tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]]):
         pulumi.set(self, "metric_tag_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         """
         return pulumi.get(self, "monitor_id")
 
     @monitor_id.setter
-    def monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLogEnabled")
-    def subscription_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """
         return pulumi.get(self, "subscription_log_enabled")
 
     @subscription_log_enabled.setter
-    def subscription_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_log_enabled", value)
 
 
@@ -265,13 +265,13 @@ class TagRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activity_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_active_directory_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
-                 metric_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
+                 metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an Azure Native New Relic Tag Rule.
@@ -422,13 +422,13 @@ class TagRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activity_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_active_directory_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
-                 metric_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
+                 metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,13 +457,13 @@ class TagRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activity_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            azure_active_directory_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
-            metric_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
-            monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'TagRule':
+            activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict']]]]] = None,
+            metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict']]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'TagRule':
         """
         Get an existing TagRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

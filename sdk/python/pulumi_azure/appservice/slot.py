@@ -24,20 +24,20 @@ class SlotArgs:
                  app_service_name: pulumi.Input[_builtins.str],
                  app_service_plan_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['SlotAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['SlotAuthSettingsArgs']] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['SlotIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['SlotLogsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['SlotSiteConfigArgs']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Slot resource.
 
@@ -129,195 +129,195 @@ class SlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of App Settings.
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['SlotAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['SlotAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['SlotAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['SlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the App Service Slot Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SlotIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SlotIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SlotIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SlotIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['SlotLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['SlotLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['SlotLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['SlotLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['SlotSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['SlotSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['SlotSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['SlotSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SlotState:
     def __init__(__self__, *,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['SlotAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
-                 default_site_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['SlotAuthSettingsArgs']] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
+                 default_site_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['SlotIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['SlotLogsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['SlotSiteConfigArgs']] = None,
+                 site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Slot resources.
 
@@ -382,230 +382,230 @@ class _SlotState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_name")
 
     @app_service_name.setter
-    def app_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_plan_id")
 
     @app_service_plan_id.setter
-    def app_service_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of App Settings.
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['SlotAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['SlotAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['SlotAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['SlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSiteHostname")
-    def default_site_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_site_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
         """
         return pulumi.get(self, "default_site_hostname")
 
     @default_site_hostname.setter
-    def default_site_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_site_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_site_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the App Service Slot Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SlotIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SlotIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SlotIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SlotIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['SlotLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['SlotLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['SlotLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['SlotLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['SlotSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['SlotSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['SlotSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['SlotSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]]:
+    def site_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]]):
+    def site_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -615,23 +615,23 @@ class Slot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an App Service Slot (within an App Service).
@@ -918,23 +918,23 @@ class Slot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -979,25 +979,25 @@ class Slot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
-            client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
-            default_site_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
-            key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotSiteCredentialArgs', 'SlotSiteCredentialArgsDict']]]]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Slot':
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
+            default_site_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotSiteCredentialArgs', 'SlotSiteCredentialArgsDict']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Slot':
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

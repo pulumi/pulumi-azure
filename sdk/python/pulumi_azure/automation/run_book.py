@@ -26,16 +26,16 @@ class RunBookArgs:
                  log_verbose: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
                  runbook_type: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
-                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional['RunBookDraftArgs']] = None,
+                 job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_content_link: pulumi.Input[Optional['RunBookPublishContentLinkArgs']] = None,
+                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunBook resource.
 
@@ -149,7 +149,7 @@ class RunBookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired content of the runbook.
 
@@ -158,36 +158,36 @@ class RunBookArgs:
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the runbook.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
+    def draft(self) -> pulumi.Input[Optional['RunBookDraftArgs']]:
         """
         A `draft` block as defined below.
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input['RunBookDraftArgs']]):
+    def draft(self, value: pulumi.Input[Optional['RunBookDraftArgs']]):
         pulumi.set(self, "draft", value)
 
     @_builtins.property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+    def job_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
         """
         One or more `job_schedule` block as defined below.
 
@@ -196,60 +196,60 @@ class RunBookArgs:
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
-    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
+    def job_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
         pulumi.set(self, "job_schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logActivityTraceLevel")
-    def log_activity_trace_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def log_activity_trace_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         """
         return pulumi.get(self, "log_activity_trace_level")
 
     @log_activity_trace_level.setter
-    def log_activity_trace_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def log_activity_trace_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "log_activity_trace_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Runbook. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArgs']]:
+    def publish_content_link(self) -> pulumi.Input[Optional['RunBookPublishContentLinkArgs']]:
         """
         One `publish_content_link` block as defined below.
         """
         return pulumi.get(self, "publish_content_link")
 
     @publish_content_link.setter
-    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArgs']]):
+    def publish_content_link(self, value: pulumi.Input[Optional['RunBookPublishContentLinkArgs']]):
         pulumi.set(self, "publish_content_link", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentName")
-    def runtime_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime environment name for the runbook.
 
@@ -258,40 +258,40 @@ class RunBookArgs:
         return pulumi.get(self, "runtime_environment_name")
 
     @runtime_environment_name.setter
-    def runtime_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RunBookState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional['RunBookDraftArgs']] = None,
+                 job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_content_link: pulumi.Input[Optional['RunBookPublishContentLinkArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RunBook resources.
 
@@ -350,19 +350,19 @@ class _RunBookState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired content of the runbook.
 
@@ -371,36 +371,36 @@ class _RunBookState:
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the runbook.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
+    def draft(self) -> pulumi.Input[Optional['RunBookDraftArgs']]:
         """
         A `draft` block as defined below.
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input['RunBookDraftArgs']]):
+    def draft(self, value: pulumi.Input[Optional['RunBookDraftArgs']]):
         pulumi.set(self, "draft", value)
 
     @_builtins.property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+    def job_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
         """
         One or more `job_schedule` block as defined below.
 
@@ -409,108 +409,108 @@ class _RunBookState:
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
-    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
+    def job_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
         pulumi.set(self, "job_schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logActivityTraceLevel")
-    def log_activity_trace_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def log_activity_trace_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         """
         return pulumi.get(self, "log_activity_trace_level")
 
     @log_activity_trace_level.setter
-    def log_activity_trace_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def log_activity_trace_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "log_activity_trace_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logProgress")
-    def log_progress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_progress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Progress log option.
         """
         return pulumi.get(self, "log_progress")
 
     @log_progress.setter
-    def log_progress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_progress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_progress", value)
 
     @_builtins.property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_verbose(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Verbose log option.
         """
         return pulumi.get(self, "log_verbose")
 
     @log_verbose.setter
-    def log_verbose(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_verbose(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_verbose", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Runbook. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArgs']]:
+    def publish_content_link(self) -> pulumi.Input[Optional['RunBookPublishContentLinkArgs']]:
         """
         One `publish_content_link` block as defined below.
         """
         return pulumi.get(self, "publish_content_link")
 
     @publish_content_link.setter
-    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArgs']]):
+    def publish_content_link(self, value: pulumi.Input[Optional['RunBookPublishContentLinkArgs']]):
         pulumi.set(self, "publish_content_link", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookType")
-    def runbook_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 
     @runbook_type.setter
-    def runbook_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentName")
-    def runtime_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime environment name for the runbook.
 
@@ -519,19 +519,19 @@ class _RunBookState:
         return pulumi.get(self, "runtime_environment_name")
 
     @runtime_environment_name.setter
-    def runtime_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -541,21 +541,21 @@ class RunBook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
+                 job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_content_link: pulumi.Input[Optional[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Automation Runbook.
@@ -682,21 +682,21 @@ class RunBook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
+                 job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_content_link: pulumi.Input[Optional[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -741,21 +741,21 @@ class RunBook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            draft: Optional[pulumi.Input[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
-            job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
-            log_progress: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_verbose: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RunBook':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']]] = None,
+            job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+            log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_content_link: pulumi.Input[Optional[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RunBook':
         """
         Get an existing RunBook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -144,23 +144,23 @@ export interface EncryptionScopeState {
     /**
      * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionRequired?: pulumi.Input<boolean>;
+    infrastructureEncryptionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,15 +170,15 @@ export interface EncryptionScopeArgs {
     /**
      * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionRequired?: pulumi.Input<boolean>;
+    infrastructureEncryptionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      */

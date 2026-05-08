@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Compute
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
     ///                 {
     ///                     Path = "/home/myadmin/.ssh/authorized_keys",
-    ///                     KeyData = Std.Index.File.Invoke(new()
+    ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
     ///                     }).Apply(invoke =&gt; invoke.Result),
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Compute
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
     ///                 {
     ///                     Path = "/home/myadmin/.ssh/authorized_keys",
-    ///                     KeyData = Std.Index.File.Invoke(new()
+    ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
     ///                     }).Apply(invoke =&gt; invoke.Result),

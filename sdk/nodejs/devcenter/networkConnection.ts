@@ -181,43 +181,43 @@ export interface NetworkConnectionState {
     /**
      * The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
      */
-    domainJoinType?: pulumi.Input<string>;
+    domainJoinType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Active Directory domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The password for the account used to join domain.
      */
-    domainPassword?: pulumi.Input<string>;
+    domainPassword?: pulumi.Input<string | undefined>;
     /**
      * The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
      */
-    domainUsername?: pulumi.Input<string>;
+    domainUsername?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Network Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Azure Active Directory domain Organization Unit (OU).
      */
-    organizationUnit?: pulumi.Input<string>;
+    organizationUnit?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet that is used to attach Virtual Machines.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Network Connection.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -231,27 +231,27 @@ export interface NetworkConnectionArgs {
     /**
      * The name of the Azure Active Directory domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The password for the account used to join domain.
      */
-    domainPassword?: pulumi.Input<string>;
+    domainPassword?: pulumi.Input<string | undefined>;
     /**
      * The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
      */
-    domainUsername?: pulumi.Input<string>;
+    domainUsername?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Network Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Azure Active Directory domain Organization Unit (OU).
      */
-    organizationUnit?: pulumi.Input<string>;
+    organizationUnit?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
@@ -263,5 +263,5 @@ export interface NetworkConnectionArgs {
     /**
      * A mapping of tags which should be assigned to the Dev Center Network Connection.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -105,7 +105,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
         cloud_vm_cluster_id=pulumi.get(__ret__, 'cloud_vm_cluster_id'),
         db_nodes=pulumi.get(__ret__, 'db_nodes'),
         id=pulumi.get(__ret__, 'id'))
-def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodesResult]:
     """
     Lists the database nodes for the specified Cloud VM Cluster.

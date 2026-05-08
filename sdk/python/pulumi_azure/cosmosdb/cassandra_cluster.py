@@ -24,17 +24,17 @@ class CassandraClusterArgs:
                  default_admin_password: pulumi.Input[_builtins.str],
                  delegated_management_subnet_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional['CassandraClusterIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CassandraCluster resource.
 
@@ -119,55 +119,55 @@ class CassandraClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
-    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
-    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePems")
-    def client_certificate_pems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_certificate_pems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         """
         return pulumi.get(self, "client_certificate_pems")
 
     @client_certificate_pems.setter
-    def client_certificate_pems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_certificate_pems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_certificate_pems", value)
 
     @_builtins.property
     @pulumi.getter(name="externalGossipCertificatePems")
-    def external_gossip_certificate_pems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_gossip_certificate_pems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         """
         return pulumi.get(self, "external_gossip_certificate_pems")
 
     @external_gossip_certificate_pems.setter
-    def external_gossip_certificate_pems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_gossip_certificate_pems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_gossip_certificate_pems", value)
 
     @_builtins.property
     @pulumi.getter(name="externalSeedNodeIpAddresses")
-    def external_seed_node_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_seed_node_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
         """
         return pulumi.get(self, "external_seed_node_ip_addresses")
 
     @external_seed_node_ip_addresses.setter
-    def external_seed_node_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_seed_node_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_seed_node_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursBetweenBackups")
-    def hours_between_backups(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hours_between_backups(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
 
@@ -176,99 +176,99 @@ class CassandraClusterArgs:
         return pulumi.get(self, "hours_between_backups")
 
     @hours_between_backups.setter
-    def hours_between_backups(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hours_between_backups(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hours_between_backups", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CassandraClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CassandraClusterIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CassandraClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CassandraClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="repairEnabled")
-    def repair_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def repair_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         """
         return pulumi.get(self, "repair_enabled")
 
     @repair_enabled.setter
-    def repair_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def repair_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "repair_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _CassandraClusterState:
     def __init__(__self__, *,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional['CassandraClusterIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CassandraCluster resources.
 
@@ -320,79 +320,79 @@ class _CassandraClusterState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
-    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
-    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePems")
-    def client_certificate_pems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_certificate_pems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         """
         return pulumi.get(self, "client_certificate_pems")
 
     @client_certificate_pems.setter
-    def client_certificate_pems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_certificate_pems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_certificate_pems", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAdminPassword")
-    def default_admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_admin_password")
 
     @default_admin_password.setter
-    def default_admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedManagementSubnetId")
-    def delegated_management_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_management_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "delegated_management_subnet_id")
 
     @delegated_management_subnet_id.setter
-    def delegated_management_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_management_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_management_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="externalGossipCertificatePems")
-    def external_gossip_certificate_pems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_gossip_certificate_pems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         """
         return pulumi.get(self, "external_gossip_certificate_pems")
 
     @external_gossip_certificate_pems.setter
-    def external_gossip_certificate_pems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_gossip_certificate_pems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_gossip_certificate_pems", value)
 
     @_builtins.property
     @pulumi.getter(name="externalSeedNodeIpAddresses")
-    def external_seed_node_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_seed_node_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
         """
         return pulumi.get(self, "external_seed_node_ip_addresses")
 
     @external_seed_node_ip_addresses.setter
-    def external_seed_node_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_seed_node_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_seed_node_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursBetweenBackups")
-    def hours_between_backups(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hours_between_backups(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
 
@@ -401,91 +401,91 @@ class _CassandraClusterState:
         return pulumi.get(self, "hours_between_backups")
 
     @hours_between_backups.setter
-    def hours_between_backups(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hours_between_backups(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hours_between_backups", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CassandraClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CassandraClusterIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CassandraClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CassandraClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="repairEnabled")
-    def repair_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def repair_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         """
         return pulumi.get(self, "repair_enabled")
 
     @repair_enabled.setter
-    def repair_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def repair_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "repair_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Cassandra what the Cluster converges to run. Possible values are `3.11`, `4.0`, `4.1` and `5.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -495,20 +495,20 @@ class CassandraCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cassandra Cluster.
@@ -578,20 +578,20 @@ class CassandraCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -633,20 +633,20 @@ class CassandraCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-            client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
-            identity: Optional[pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'CassandraCluster':
+            authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+            identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CassandraCluster':
         """
         Get an existing CassandraCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

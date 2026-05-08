@@ -317,79 +317,79 @@ export interface SlotState {
     /**
      * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      */
-    appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
      */
-    appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings | undefined>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[] | undefined>;
     /**
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      */
-    defaultSiteHostname?: pulumi.Input<string>;
+    defaultSiteHostname?: pulumi.Input<string | undefined>;
     /**
      * Is the App Service Slot Enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.SlotIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.SlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.SlotLogs | undefined>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteCredential>[] | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -407,47 +407,47 @@ export interface SlotArgs {
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings | undefined>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[] | undefined>;
     /**
      * Is the App Service Slot Enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.SlotIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.SlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.SlotLogs | undefined>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
      */
@@ -455,13 +455,13 @@ export interface SlotArgs {
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

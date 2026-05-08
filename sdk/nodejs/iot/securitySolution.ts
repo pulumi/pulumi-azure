@@ -201,63 +201,63 @@ export interface SecuritySolutionState {
     /**
      * A `additionalWorkspace` block as defined below.
      */
-    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[]>;
+    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[] | undefined>;
     /**
      * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
      */
-    disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledDataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Display Name for this Iot Security Solution.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Is the Iot Security Solution enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
      */
-    eventsToExports?: pulumi.Input<pulumi.Input<string>[]>;
+    eventsToExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
      */
-    iothubIds?: pulumi.Input<pulumi.Input<string>[]>;
+    iothubIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Log Analytics Workspace ID to which the security data will be sent.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
-    logUnmaskedIpsEnabled?: pulumi.Input<boolean>;
+    logUnmaskedIpsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An Azure Resource Graph query used to set the resources monitored.
      */
-    queryForResources?: pulumi.Input<string>;
+    queryForResources?: pulumi.Input<string | undefined>;
     /**
      * A list of subscription Ids on which the user defined resources query should be executed.
      */
-    querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `recommendationsEnabled` block of options to enable or disable as defined below.
      */
-    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled>;
+    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -267,11 +267,11 @@ export interface SecuritySolutionArgs {
     /**
      * A `additionalWorkspace` block as defined below.
      */
-    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[]>;
+    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[] | undefined>;
     /**
      * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
      */
-    disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledDataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Display Name for this Iot Security Solution.
      */
@@ -279,11 +279,11 @@ export interface SecuritySolutionArgs {
     /**
      * Is the Iot Security Solution enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
      */
-    eventsToExports?: pulumi.Input<pulumi.Input<string>[]>;
+    eventsToExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
      */
@@ -291,31 +291,31 @@ export interface SecuritySolutionArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Log Analytics Workspace ID to which the security data will be sent.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
-    logUnmaskedIpsEnabled?: pulumi.Input<boolean>;
+    logUnmaskedIpsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An Azure Resource Graph query used to set the resources monitored.
      */
-    queryForResources?: pulumi.Input<string>;
+    queryForResources?: pulumi.Input<string | undefined>;
     /**
      * A list of subscription Ids on which the user defined resources query should be executed.
      */
-    querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `recommendationsEnabled` block of options to enable or disable as defined below.
      */
-    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled>;
+    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */
@@ -323,5 +323,5 @@ export interface SecuritySolutionArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

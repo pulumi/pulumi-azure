@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition;
  * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs;
  * import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  *             .tenantId(current.tenantId())
  *             .adminObjectIds(current.objectId())
  *             .purgeProtectionEnabled(false)
- *             .activeConfig(List.of(Map.ofEntries(
- *                 Map.entry("securityDomainCertificate", List.of(                
+ *             .activeConfig(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("securityDomainCertificate", Arrays.asList(                
  *                     cert[0].id(),
  *                     cert[1].id(),
  *                     cert[2].id())),

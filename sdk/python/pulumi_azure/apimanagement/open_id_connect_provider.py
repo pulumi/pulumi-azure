@@ -25,8 +25,8 @@ class OpenIdConnectProviderArgs:
                  display_name: pulumi.Input[_builtins.str],
                  metadata_endpoint: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
 
@@ -124,40 +124,40 @@ class OpenIdConnectProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this OpenID Connect Provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OpenIdConnectProviderState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenIdConnectProvider resources.
 
@@ -189,98 +189,98 @@ class _OpenIdConnectProviderState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID used for the Client Application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Secret used for the Client Application.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this OpenID Connect Provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-friendly name for this OpenID Connect Provider.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataEndpoint")
-    def metadata_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Metadata endpoint.
         """
         return pulumi.get(self, "metadata_endpoint")
 
     @metadata_endpoint.setter
-    def metadata_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -290,14 +290,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an OpenID Connect Provider within a API Management Service.
@@ -421,14 +421,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -470,14 +470,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'OpenIdConnectProvider':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'OpenIdConnectProvider':
         """
         Get an existing OpenIdConnectProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

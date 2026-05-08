@@ -24,15 +24,15 @@ class MonitorArgs:
                  plan: pulumi.Input['MonitorPlanArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user: pulumi.Input['MonitorUserArgs'],
-                 account_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
-                 ingestion_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['MonitorIdentityArgs']] = None,
+                 ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -113,19 +113,19 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountCreationSource")
-    def account_creation_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_creation_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "account_creation_source")
 
     @account_creation_source.setter
-    def account_creation_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_creation_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_creation_source", value)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
@@ -134,72 +134,72 @@ class MonitorArgs:
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MonitorIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MonitorIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionKey")
-    def ingestion_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingestion_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "ingestion_key")
 
     @ingestion_key.setter
-    def ingestion_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingestion_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingestion_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orgCreationSource")
-    def org_creation_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_creation_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "org_creation_source")
 
     @org_creation_source.setter
-    def org_creation_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_creation_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_creation_source", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
@@ -208,37 +208,37 @@ class MonitorArgs:
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 account_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
-                 ingestion_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input['MonitorUserArgs']] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['MonitorIdentityArgs']] = None,
+                 ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['MonitorPlanArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional['MonitorUserArgs']] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -286,19 +286,19 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="accountCreationSource")
-    def account_creation_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_creation_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "account_creation_source")
 
     @account_creation_source.setter
-    def account_creation_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_creation_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_creation_source", value)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
@@ -307,72 +307,72 @@ class _MonitorState:
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MonitorIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MonitorIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionKey")
-    def ingestion_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingestion_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "ingestion_key")
 
     @ingestion_key.setter
-    def ingestion_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingestion_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingestion_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orgCreationSource")
-    def org_creation_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_creation_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "org_creation_source")
 
     @org_creation_source.setter
-    def org_creation_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_creation_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_creation_source", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
@@ -381,55 +381,55 @@ class _MonitorState:
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['MonitorPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['MonitorPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['MonitorPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['MonitorPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['MonitorUserArgs']]:
+    def user(self) -> pulumi.Input[Optional['MonitorUserArgs']]:
         """
         A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['MonitorUserArgs']]):
+    def user(self, value: pulumi.Input[Optional['MonitorUserArgs']]):
         pulumi.set(self, "user", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -439,18 +439,18 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 ingestion_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Native New Relic Monitor.
@@ -620,18 +620,18 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 ingestion_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -671,18 +671,18 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-            ingestion_key: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            org_creation_source: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Monitor':
+            account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+            ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

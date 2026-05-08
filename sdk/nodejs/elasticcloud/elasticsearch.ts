@@ -197,51 +197,51 @@ export interface ElasticsearchState {
     /**
      * The ID of the Deployment within Elastic Cloud.
      */
-    elasticCloudDeploymentId?: pulumi.Input<string>;
+    elasticCloudDeploymentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
      */
-    elasticCloudEmailAddress?: pulumi.Input<string>;
+    elasticCloudEmailAddress?: pulumi.Input<string | undefined>;
     /**
      * The Default URL used for Single Sign On (SSO) to Elastic Cloud.
      */
-    elasticCloudSsoDefaultUrl?: pulumi.Input<string>;
+    elasticCloudSsoDefaultUrl?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User Account within Elastic Cloud.
      */
-    elasticCloudUserId?: pulumi.Input<string>;
+    elasticCloudUserId?: pulumi.Input<string | undefined>;
     /**
      * The URL to the Elasticsearch Service associated with this Elasticsearch.
      */
-    elasticsearchServiceUrl?: pulumi.Input<string>;
+    elasticsearchServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * The URL to the Kibana Dashboard associated with this Elasticsearch.
      */
-    kibanaServiceUrl?: pulumi.Input<string>;
+    kibanaServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
      */
-    kibanaSsoUri?: pulumi.Input<string>;
+    kibanaSsoUri?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.elasticcloud.ElasticsearchLogs>;
+    logs?: pulumi.Input<inputs.elasticcloud.ElasticsearchLogs | undefined>;
     /**
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      *
@@ -249,11 +249,11 @@ export interface ElasticsearchState {
      * Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
      * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Elasticsearch resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -267,19 +267,19 @@ export interface ElasticsearchArgs {
     /**
      * The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.elasticcloud.ElasticsearchLogs>;
+    logs?: pulumi.Input<inputs.elasticcloud.ElasticsearchLogs | undefined>;
     /**
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
@@ -295,5 +295,5 @@ export interface ElasticsearchArgs {
     /**
      * A mapping of tags which should be assigned to the Elasticsearch resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

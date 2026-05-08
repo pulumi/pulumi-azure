@@ -175,124 +175,124 @@ export interface ProviderArgs {
     /**
      * The Azure DevOps Pipeline Service Connection ID.
      */
-    adoPipelineServiceConnectionId?: pulumi.Input<string>;
-    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    adoPipelineServiceConnectionId?: pulumi.Input<string | undefined>;
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
      */
-    clientCertificate?: pulumi.Input<string>;
+    clientCertificate?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      */
-    clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      */
-    clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string | undefined>;
     /**
      * The Client ID which should be used.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The path to a file containing the Client ID which should be used.
      */
-    clientIdFilePath?: pulumi.Input<string>;
+    clientIdFilePath?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    clientSecretFilePath?: pulumi.Input<string>;
+    clientSecretFilePath?: pulumi.Input<string | undefined>;
     /**
      * This will disable the x-ms-correlation-request-id header.
      */
-    disableCorrelationRequestId?: pulumi.Input<boolean>;
+    disableCorrelationRequestId?: pulumi.Input<boolean | undefined>;
     /**
      * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
      */
-    disableTerraformPartnerId?: pulumi.Input<boolean>;
-    enhancedValidation?: pulumi.Input<inputs.ProviderEnhancedValidation>;
+    disableTerraformPartnerId?: pulumi.Input<boolean | undefined>;
+    enhancedValidation?: pulumi.Input<inputs.ProviderEnhancedValidation | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      */
-    environment?: pulumi.Input<string>;
-    features?: pulumi.Input<inputs.ProviderFeatures>;
+    environment?: pulumi.Input<string | undefined>;
+    features?: pulumi.Input<inputs.ProviderFeatures | undefined>;
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */
-    metadataHost?: pulumi.Input<string>;
+    metadataHost?: pulumi.Input<string | undefined>;
     /**
      * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      */
-    msiApiVersion?: pulumi.Input<string>;
+    msiApiVersion?: pulumi.Input<string | undefined>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
-    msiEndpoint?: pulumi.Input<string>;
+    msiEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcRequestToken?: pulumi.Input<string>;
+    oidcRequestToken?: pulumi.Input<string | undefined>;
     /**
      * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcRequestUrl?: pulumi.Input<string>;
+    oidcRequestUrl?: pulumi.Input<string | undefined>;
     /**
      * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcToken?: pulumi.Input<string>;
+    oidcToken?: pulumi.Input<string | undefined>;
     /**
      * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcTokenFilePath?: pulumi.Input<string>;
+    oidcTokenFilePath?: pulumi.Input<string | undefined>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string | undefined>;
     /**
      * The set of Resource Providers which should be automatically registered for the subscription.
      */
-    resourceProviderRegistrations?: pulumi.Input<string>;
+    resourceProviderRegistrations?: pulumi.Input<string | undefined>;
     /**
      * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
      */
-    resourceProvidersToRegisters?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceProvidersToRegisters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
      *
      * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      */
-    skipProviderRegistration?: pulumi.Input<boolean>;
+    skipProviderRegistration?: pulumi.Input<boolean | undefined>;
     /**
      * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
      */
-    storageUseAzuread?: pulumi.Input<boolean>;
+    storageUseAzuread?: pulumi.Input<boolean | undefined>;
     /**
      * The Subscription ID which should be used.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID which should be used.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * Allow Azure AKS Workload Identity to be used for Authentication.
      */
-    useAksWorkloadIdentity?: pulumi.Input<boolean>;
+    useAksWorkloadIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Allow Azure CLI to be used for Authentication.
      */
-    useCli?: pulumi.Input<boolean>;
+    useCli?: pulumi.Input<boolean | undefined>;
     /**
      * Allow Managed Service Identity to be used for Authentication.
      */
-    useMsi?: pulumi.Input<boolean>;
+    useMsi?: pulumi.Input<boolean | undefined>;
     /**
      * Allow OpenID Connect to be used for authentication
      */
-    useOidc?: pulumi.Input<boolean>;
+    useOidc?: pulumi.Input<boolean | undefined>;
 }
 
 export namespace Provider {

@@ -36,14 +36,14 @@ class AutonomousDatabaseArgs:
                  mtls_connection_required: pulumi.Input[_builtins.bool],
                  national_character_set: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_backup_schedule: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_backup_schedule: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutonomousDatabase resource.
 
@@ -292,118 +292,118 @@ class AutonomousDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedIps")
-    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         """
         return pulumi.get(self, "allowed_ips")
 
     @allowed_ips.setter
-    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="customerContacts")
-    def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def customer_contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "customer_contacts")
 
     @customer_contacts.setter
-    def customer_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def customer_contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "customer_contacts", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="longTermBackupSchedule")
-    def long_term_backup_schedule(self) -> Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]:
+    def long_term_backup_schedule(self) -> pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']]:
         return pulumi.get(self, "long_term_backup_schedule")
 
     @long_term_backup_schedule.setter
-    def long_term_backup_schedule(self, value: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]):
+    def long_term_backup_schedule(self, value: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']]):
         pulumi.set(self, "long_term_backup_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 @pulumi.input_type
 class _AutonomousDatabaseState:
     def __init__(__self__, *,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_count: Optional[pulumi.Input[_builtins.float]] = None,
-                 compute_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_workload: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_backup_schedule: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
-                 mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+                 compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_workload: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_backup_schedule: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
+                 mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutonomousDatabase resources.
 
@@ -482,136 +482,136 @@ class _AutonomousDatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedIps")
-    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         """
         return pulumi.get(self, "allowed_ips")
 
     @allowed_ips.setter
-    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
-    def auto_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_scaling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         """
         return pulumi.get(self, "auto_scaling_enabled")
 
     @auto_scaling_enabled.setter
-    def auto_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_scaling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoScalingForStorageEnabled")
-    def auto_scaling_for_storage_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_scaling_for_storage_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if auto scaling is enabled for the Autonomous Database storage.
         """
         return pulumi.get(self, "auto_scaling_for_storage_enabled")
 
     @auto_scaling_for_storage_enabled.setter
-    def auto_scaling_for_storage_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_scaling_for_storage_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_scaling_for_storage_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriodInDays")
-    def backup_retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention period, in days, for backups.
         """
         return pulumi.get(self, "backup_retention_period_in_days")
 
     @backup_retention_period_in_days.setter
-    def backup_retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="characterSet")
-    def character_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def character_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The character set for the autonomous database. Allowed values are: `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "character_set")
 
     @character_set.setter
-    def character_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def character_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "character_set", value)
 
     @_builtins.property
     @pulumi.getter(name="computeCount")
-    def compute_count(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def compute_count(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure. For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
         """
         return pulumi.get(self, "compute_count")
 
     @compute_count.setter
-    def compute_count(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def compute_count(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "compute_count", value)
 
     @_builtins.property
     @pulumi.getter(name="computeModel")
-    def compute_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "compute_model")
 
     @compute_model.setter
-    def compute_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_model", value)
 
     @_builtins.property
     @pulumi.getter(name="customerContacts")
-    def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def customer_contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "customer_contacts")
 
     @customer_contacts.setter
-    def customer_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def customer_contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "customer_contacts", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStorageSizeInTbs")
-    def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_storage_size_in_tbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum storage that can be allocated for the database, in terabytes.
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
     @data_storage_size_in_tbs.setter
-    def data_storage_size_in_tbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_storage_size_in_tbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbVersion")
-    def db_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "db_version")
 
     @db_version.setter
-    def db_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_version", value)
 
     @_builtins.property
     @pulumi.getter(name="dbWorkload")
-    def db_workload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_workload(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
 
@@ -621,57 +621,57 @@ class _AutonomousDatabaseState:
         return pulumi.get(self, "db_workload")
 
     @db_workload.setter
-    def db_workload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_workload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_workload", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         """
         return pulumi.get(self, "license_model")
 
     @license_model.setter
-    def license_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_model", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="longTermBackupSchedule")
-    def long_term_backup_schedule(self) -> Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]:
+    def long_term_backup_schedule(self) -> pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']]:
         return pulumi.get(self, "long_term_backup_schedule")
 
     @long_term_backup_schedule.setter
-    def long_term_backup_schedule(self, value: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]):
+    def long_term_backup_schedule(self, value: pulumi.Input[Optional['AutonomousDatabaseLongTermBackupScheduleArgs']]):
         pulumi.set(self, "long_term_backup_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="mtlsConnectionRequired")
-    def mtls_connection_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mtls_connection_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
 
@@ -680,76 +680,76 @@ class _AutonomousDatabaseState:
         return pulumi.get(self, "mtls_connection_required")
 
     @mtls_connection_required.setter
-    def mtls_connection_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mtls_connection_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mtls_connection_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nationalCharacterSet")
-    def national_character_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def national_character_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         """
         return pulumi.get(self, "national_character_set")
 
     @national_character_set.setter
-    def national_character_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def national_character_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "national_character_set", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -759,29 +759,29 @@ class AutonomousDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_count: Optional[pulumi.Input[_builtins.float]] = None,
-                 compute_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_workload: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
-                 mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+                 compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_workload: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
+                 mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Autonomous Database.
@@ -806,7 +806,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             auto_scaling_for_storage_enabled=False,
             virtual_network_id="example",
             admin_password="example",
-            auto_scaling_enabled="example",
+            auto_scaling_enabled="example" == "true",
             character_set="example",
             compute_count=1.23456,
             national_character_set="example",
@@ -912,7 +912,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             auto_scaling_for_storage_enabled=False,
             virtual_network_id="example",
             admin_password="example",
-            auto_scaling_enabled="example",
+            auto_scaling_enabled="example" == "true",
             character_set="example",
             compute_count=1.23456,
             national_character_set="example",
@@ -976,29 +976,29 @@ class AutonomousDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_count: Optional[pulumi.Input[_builtins.float]] = None,
-                 compute_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_workload: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
-                 mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+                 compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_workload: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
+                 mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1073,29 +1073,29 @@ class AutonomousDatabase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            character_set: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_count: Optional[pulumi.Input[_builtins.float]] = None,
-            compute_model: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.int]] = None,
-            db_version: Optional[pulumi.Input[_builtins.str]] = None,
-            db_workload: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            license_model: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
-            mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutonomousDatabase':
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+            compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.int]] = None,
+            db_version: pulumi.Input[Optional[_builtins.str]] = None,
+            db_workload: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
+            mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutonomousDatabase':
         """
         Get an existing AutonomousDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

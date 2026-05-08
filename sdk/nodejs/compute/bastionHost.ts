@@ -251,91 +251,91 @@ export interface BastionHostState {
     /**
      * Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
      */
-    copyPasteEnabled?: pulumi.Input<boolean>;
+    copyPasteEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The FQDN for the Bastion Host.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    fileCopyEnabled?: pulumi.Input<boolean>;
+    fileCopyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration | undefined>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    ipConnectEnabled?: pulumi.Input<boolean>;
+    ipConnectEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    kerberosEnabled?: pulumi.Input<boolean>;
+    kerberosEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether Private-Only deployment is enabled for the Bastion Host.
      */
-    privateOnlyEnabled?: pulumi.Input<boolean>;
+    privateOnlyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      *
      * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard` or `Premium`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
-    scaleUnits?: pulumi.Input<number>;
+    scaleUnits?: pulumi.Input<number | undefined>;
     /**
      * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
      */
-    sessionRecordingEnabled?: pulumi.Input<boolean>;
+    sessionRecordingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    shareableLinkEnabled?: pulumi.Input<boolean>;
+    shareableLinkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
      * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    tunnelingEnabled?: pulumi.Input<boolean>;
+    tunnelingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -345,37 +345,37 @@ export interface BastionHostArgs {
     /**
      * Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
      */
-    copyPasteEnabled?: pulumi.Input<boolean>;
+    copyPasteEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    fileCopyEnabled?: pulumi.Input<boolean>;
+    fileCopyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration | undefined>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    ipConnectEnabled?: pulumi.Input<boolean>;
+    ipConnectEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    kerberosEnabled?: pulumi.Input<boolean>;
+    kerberosEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
@@ -385,41 +385,41 @@ export interface BastionHostArgs {
      *
      * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard` or `Premium`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
-    scaleUnits?: pulumi.Input<number>;
+    scaleUnits?: pulumi.Input<number | undefined>;
     /**
      * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
      */
-    sessionRecordingEnabled?: pulumi.Input<boolean>;
+    sessionRecordingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    shareableLinkEnabled?: pulumi.Input<boolean>;
+    shareableLinkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
      * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
-    tunnelingEnabled?: pulumi.Input<boolean>;
+    tunnelingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -154,39 +154,39 @@ export interface AvailabilitySetState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
-    managed?: pulumi.Input<boolean>;
+    managed?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the availability set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    platformUpdateDomainCount?: pulumi.Input<number>;
+    platformUpdateDomainCount?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -196,31 +196,31 @@ export interface AvailabilitySetArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
-    managed?: pulumi.Input<boolean>;
+    managed?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the availability set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    platformUpdateDomainCount?: pulumi.Input<number>;
+    platformUpdateDomainCount?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
@@ -228,5 +228,5 @@ export interface AvailabilitySetArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -136,19 +136,19 @@ export interface WorkspaceState {
     /**
      * Specifies the ID of the API Management Service in which the API Management Workspace should be created. Changing this forces a new resource to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Management Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API Management Workspace.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this API Management Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface WorkspaceArgs {
     /**
      * The description of the API Management Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the API Management Workspace.
      */
@@ -170,5 +170,5 @@ export interface WorkspaceArgs {
     /**
      * Specifies the name which should be used for this API Management Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

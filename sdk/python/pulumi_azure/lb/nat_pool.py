@@ -26,10 +26,10 @@ class NatPoolArgs:
                  loadbalancer_id: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NatPool resource.
 
@@ -147,68 +147,68 @@ class NatPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="floatingIpEnabled")
-    def floating_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def floating_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
         """
         return pulumi.get(self, "floating_ip_enabled")
 
     @floating_ip_enabled.setter
-    def floating_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def floating_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "floating_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
-    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is TCP Reset enabled for this Load Balancer Rule?
         """
         return pulumi.get(self, "tcp_reset_enabled")
 
     @tcp_reset_enabled.setter
-    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
 @pulumi.input_type
 class _NatPoolState:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_port_end: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port_start: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_port_end: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port_start: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering NatPool resources.
 
@@ -251,143 +251,143 @@ class _NatPoolState:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="floatingIpEnabled")
-    def floating_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def floating_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
         """
         return pulumi.get(self, "floating_ip_enabled")
 
     @floating_ip_enabled.setter
-    def floating_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def floating_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "floating_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationId")
-    def frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "frontend_ip_configuration_id")
 
     @frontend_ip_configuration_id.setter
-    def frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationName")
-    def frontend_ip_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_ip_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the frontend IP configuration exposing this rule.
         """
         return pulumi.get(self, "frontend_ip_configuration_name")
 
     @frontend_ip_configuration_name.setter
-    def frontend_ip_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_ip_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_ip_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortEnd")
-    def frontend_port_end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port_end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         """
         return pulumi.get(self, "frontend_port_end")
 
     @frontend_port_end.setter
-    def frontend_port_end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port_end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port_end", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortStart")
-    def frontend_port_start(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port_start(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         """
         return pulumi.get(self, "frontend_port_start")
 
     @frontend_port_start.setter
-    def frontend_port_start(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port_start(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port_start", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loadbalancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
     @loadbalancer_id.setter
-    def loadbalancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loadbalancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loadbalancer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
-    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is TCP Reset enabled for this Load Balancer Rule?
         """
         return pulumi.get(self, "tcp_reset_enabled")
 
     @tcp_reset_enabled.setter
-    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
@@ -397,17 +397,17 @@ class NatPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_port_end: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port_start: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_port_end: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port_start: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Load Balancer NAT pool.
@@ -556,17 +556,17 @@ class NatPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_port_end: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port_start: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_port_end: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port_start: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -612,18 +612,18 @@ class NatPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-            floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            frontend_port_end: Optional[pulumi.Input[_builtins.int]] = None,
-            frontend_port_start: Optional[pulumi.Input[_builtins.int]] = None,
-            idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'NatPool':
+            backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+            floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_port_end: pulumi.Input[Optional[_builtins.int]] = None,
+            frontend_port_start: pulumi.Input[Optional[_builtins.int]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'NatPool':
         """
         Get an existing NatPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

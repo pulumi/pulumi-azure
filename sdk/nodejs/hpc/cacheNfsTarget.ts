@@ -255,35 +255,35 @@ export interface CacheNfsTargetState {
     /**
      * The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
      */
-    cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      */
-    namespaceJunctions?: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
+    namespaceJunctions?: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[] | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
      */
-    targetHostName?: pulumi.Input<string>;
+    targetHostName?: pulumi.Input<string | undefined>;
     /**
      * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
-    usageModel?: pulumi.Input<string>;
+    usageModel?: pulumi.Input<string | undefined>;
     /**
      * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
      */
-    verificationTimerInSeconds?: pulumi.Input<number>;
+    verificationTimerInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
      */
-    writeBackTimerInSeconds?: pulumi.Input<number>;
+    writeBackTimerInSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -297,7 +297,7 @@ export interface CacheNfsTargetArgs {
     /**
      * The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      */
@@ -317,9 +317,9 @@ export interface CacheNfsTargetArgs {
     /**
      * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
      */
-    verificationTimerInSeconds?: pulumi.Input<number>;
+    verificationTimerInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
      */
-    writeBackTimerInSeconds?: pulumi.Input<number>;
+    writeBackTimerInSeconds?: pulumi.Input<number | undefined>;
 }

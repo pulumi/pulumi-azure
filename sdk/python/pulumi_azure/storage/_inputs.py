@@ -124,11 +124,11 @@ class AccountAzureFilesAuthenticationArgsDict(TypedDict):
     """
     Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
     """
-    active_directory: NotRequired[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgsDict']]
+    active_directory: NotRequired[pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgs']]]
     """
     A `active_directory` block as defined below. Required when `directory_type` is `AD`.
     """
-    default_share_level_permission: NotRequired[pulumi.Input[_builtins.str]]
+    default_share_level_permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
     """
@@ -137,8 +137,8 @@ class AccountAzureFilesAuthenticationArgsDict(TypedDict):
 class AccountAzureFilesAuthenticationArgs:
     def __init__(__self__, *,
                  directory_type: pulumi.Input[_builtins.str],
-                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None,
-                 default_share_level_permission: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory: pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None,
+                 default_share_level_permission: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
@@ -164,26 +164,26 @@ class AccountAzureFilesAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]:
+    def active_directory(self) -> pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgs']]:
         """
         A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
+    def active_directory(self, value: pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultShareLevelPermission")
-    def default_share_level_permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_share_level_permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`. Defaults to `None`.
         """
         return pulumi.get(self, "default_share_level_permission")
 
     @default_share_level_permission.setter
-    def default_share_level_permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_share_level_permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_share_level_permission", value)
 
 
@@ -196,19 +196,19 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgsDict(TypedDict):
     """
     Specifies the primary domain that the AD DNS server is authoritative for.
     """
-    domain_sid: NotRequired[pulumi.Input[_builtins.str]]
+    domain_sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
     """
-    forest_name: NotRequired[pulumi.Input[_builtins.str]]
+    forest_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
     """
-    netbios_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    netbios_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
     """
-    storage_sid: NotRequired[pulumi.Input[_builtins.str]]
+    storage_sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
     """
@@ -218,10 +218,10 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
     def __init__(__self__, *,
                  domain_guid: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
-                 domain_sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 forest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 netbios_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sid: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 forest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 netbios_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] domain_guid: Specifies the domain GUID.
         :param pulumi.Input[_builtins.str] domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
@@ -267,89 +267,89 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainSid")
-    def domain_sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "domain_sid")
 
     @domain_sid.setter
-    def domain_sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_sid", value)
 
     @_builtins.property
     @pulumi.getter(name="forestName")
-    def forest_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "forest_name")
 
     @forest_name.setter
-    def forest_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="netbiosDomainName")
-    def netbios_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def netbios_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "netbios_domain_name")
 
     @netbios_domain_name.setter
-    def netbios_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def netbios_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "netbios_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSid")
-    def storage_sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "storage_sid")
 
     @storage_sid.setter
-    def storage_sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sid", value)
 
 
 class AccountBlobPropertiesArgsDict(TypedDict):
-    change_feed_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    change_feed_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the blob service properties for change feed events enabled? Default to `false`.
 
     > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
     """
-    change_feed_retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    change_feed_retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 
     > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
     """
-    container_delete_retention_policy: NotRequired[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict']]
+    container_delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]]
     """
     A `container_delete_retention_policy` block as defined below.
     """
-    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgsDict']]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]]
     """
     A `cors_rule` block as defined below.
     """
-    default_service_version: NotRequired[pulumi.Input[_builtins.str]]
+    default_service_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
     """
-    delete_retention_policy: NotRequired[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgsDict']]
+    delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgs']]]
     """
     A `delete_retention_policy` block as defined below.
     """
-    last_access_time_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    last_access_time_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the last access time based tracking enabled? Default to `false`.
 
     > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
     """
-    restore_policy: NotRequired[pulumi.Input['AccountBlobPropertiesRestorePolicyArgsDict']]
+    restore_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgs']]]
     """
     A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
@@ -357,7 +357,7 @@ class AccountBlobPropertiesArgsDict(TypedDict):
 
     > **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
     """
-    versioning_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    versioning_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is versioning enabled? Default to `false`.
 
@@ -367,15 +367,15 @@ class AccountBlobPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AccountBlobPropertiesArgs:
     def __init__(__self__, *,
-                 change_feed_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 change_feed_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
-                 default_service_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None,
-                 last_access_time_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore_policy: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']] = None,
-                 versioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 change_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 change_feed_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 container_delete_retention_policy: pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
+                 default_service_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_retention_policy: pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None,
+                 last_access_time_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restore_policy: pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgs']] = None,
+                 versioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
                
@@ -420,7 +420,7 @@ class AccountBlobPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="changeFeedEnabled")
-    def change_feed_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def change_feed_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the blob service properties for change feed events enabled? Default to `false`.
 
@@ -429,12 +429,12 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "change_feed_enabled")
 
     @change_feed_enabled.setter
-    def change_feed_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def change_feed_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "change_feed_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="changeFeedRetentionInDays")
-    def change_feed_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_feed_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 
@@ -443,60 +443,60 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "change_feed_retention_in_days")
 
     @change_feed_retention_in_days.setter
-    def change_feed_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_feed_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_feed_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
-    def container_delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]:
+    def container_delete_retention_policy(self) -> pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]:
         """
         A `container_delete_retention_policy` block as defined below.
         """
         return pulumi.get(self, "container_delete_retention_policy")
 
     @container_delete_retention_policy.setter
-    def container_delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]):
+    def container_delete_retention_policy(self, value: pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]):
         pulumi.set(self, "container_delete_retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]:
         """
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultServiceVersion")
-    def default_service_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_service_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
         """
         return pulumi.get(self, "default_service_version")
 
     @default_service_version.setter
-    def default_service_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_service_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_service_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteRetentionPolicy")
-    def delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]:
+    def delete_retention_policy(self) -> pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgs']]:
         """
         A `delete_retention_policy` block as defined below.
         """
         return pulumi.get(self, "delete_retention_policy")
 
     @delete_retention_policy.setter
-    def delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]):
+    def delete_retention_policy(self, value: pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgs']]):
         pulumi.set(self, "delete_retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="lastAccessTimeEnabled")
-    def last_access_time_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def last_access_time_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the last access time based tracking enabled? Default to `false`.
 
@@ -505,12 +505,12 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "last_access_time_enabled")
 
     @last_access_time_enabled.setter
-    def last_access_time_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def last_access_time_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "last_access_time_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePolicy")
-    def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]:
+    def restore_policy(self) -> pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgs']]:
         """
         A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
@@ -521,12 +521,12 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "restore_policy")
 
     @restore_policy.setter
-    def restore_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]):
+    def restore_policy(self, value: pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgs']]):
         pulumi.set(self, "restore_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningEnabled")
-    def versioning_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def versioning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is versioning enabled? Default to `false`.
 
@@ -535,12 +535,12 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "versioning_enabled")
 
     @versioning_enabled.setter
-    def versioning_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def versioning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "versioning_enabled", value)
 
 
 class AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
     """
@@ -548,7 +548,7 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[_builtins.int]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days: Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
         """
@@ -557,14 +557,14 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
 
@@ -676,11 +676,11 @@ class AccountBlobPropertiesCorsRuleArgs:
 
 
 class AccountBlobPropertiesDeleteRetentionPolicyArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
     """
-    permanent_delete_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    permanent_delete_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 
@@ -690,8 +690,8 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class AccountBlobPropertiesDeleteRetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[_builtins.int]] = None,
-                 permanent_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None,
+                 permanent_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         :param pulumi.Input[_builtins.bool] permanent_delete_enabled: Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
@@ -705,19 +705,19 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
     @_builtins.property
     @pulumi.getter(name="permanentDeleteEnabled")
-    def permanent_delete_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permanent_delete_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 
@@ -726,7 +726,7 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
         return pulumi.get(self, "permanent_delete_enabled")
 
     @permanent_delete_enabled.setter
-    def permanent_delete_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permanent_delete_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permanent_delete_enabled", value)
 
 
@@ -763,7 +763,7 @@ class AccountCustomDomainArgsDict(TypedDict):
     """
     The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
     """
-    use_subdomain: NotRequired[pulumi.Input[_builtins.bool]]
+    use_subdomain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Custom Domain Name be validated by using indirect CNAME validation?
 
@@ -774,7 +774,7 @@ class AccountCustomDomainArgsDict(TypedDict):
 class AccountCustomDomainArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 use_subdomain: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_subdomain: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         :param pulumi.Input[_builtins.bool] use_subdomain: Should the Custom Domain Name be validated by using indirect CNAME validation?
@@ -799,7 +799,7 @@ class AccountCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="useSubdomain")
-    def use_subdomain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_subdomain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Custom Domain Name be validated by using indirect CNAME validation?
 
@@ -808,7 +808,7 @@ class AccountCustomDomainArgs:
         return pulumi.get(self, "use_subdomain")
 
     @use_subdomain.setter
-    def use_subdomain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_subdomain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_subdomain", value)
 
 
@@ -819,18 +819,18 @@ class AccountCustomerManagedKeyArgsDict(TypedDict):
 
     > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
     """
-    managed_hsm_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    managed_hsm_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AccountCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  user_assigned_identity_id: pulumi.Input[_builtins.str],
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
                
@@ -862,24 +862,24 @@ class AccountCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
     @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
 
@@ -888,7 +888,7 @@ class AccountIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 
@@ -896,11 +896,11 @@ class AccountIdentityArgsDict(TypedDict):
 
     > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Identity of this Storage Account.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
     """
@@ -909,9 +909,9 @@ class AccountIdentityArgsDict(TypedDict):
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
@@ -944,7 +944,7 @@ class AccountIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 
@@ -955,31 +955,31 @@ class AccountIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1054,15 +1054,15 @@ class AccountNetworkRulesArgsDict(TypedDict):
     """
     Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
     """
-    bypasses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    bypasses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
     """
-    private_link_accesses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgsDict']]]]
+    private_link_accesses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]]
     """
     One or more `private_link_access` block as defined below.
 
@@ -1072,7 +1072,7 @@ class AccountNetworkRulesArgsDict(TypedDict):
 
     > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
     """
-    virtual_network_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    virtual_network_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of resource ids for subnets.
     """
@@ -1081,10 +1081,10 @@ class AccountNetworkRulesArgsDict(TypedDict):
 class AccountNetworkRulesArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[_builtins.str],
-                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_link_accesses: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -1122,31 +1122,31 @@ class AccountNetworkRulesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bypasses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         """
         return pulumi.get(self, "bypasses")
 
     @bypasses.setter
-    def bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bypasses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bypasses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccesses")
-    def private_link_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]:
+    def private_link_accesses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]:
         """
         One or more `private_link_access` block as defined below.
 
@@ -1159,19 +1159,19 @@ class AccountNetworkRulesArgs:
         return pulumi.get(self, "private_link_accesses")
 
     @private_link_accesses.setter
-    def private_link_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]):
+    def private_link_accesses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]):
         pulumi.set(self, "private_link_accesses", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_network_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of resource ids for subnets.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
     @virtual_network_subnet_ids.setter
-    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_network_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
@@ -1180,7 +1180,7 @@ class AccountNetworkRulesPrivateLinkAccessArgsDict(TypedDict):
     """
     The ID of the Azure resource that should be allowed access to the target storage account.
     """
-    endpoint_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
     """
@@ -1189,7 +1189,7 @@ class AccountNetworkRulesPrivateLinkAccessArgsDict(TypedDict):
 class AccountNetworkRulesPrivateLinkAccessArgs:
     def __init__(__self__, *,
                  endpoint_resource_id: pulumi.Input[_builtins.str],
-                 endpoint_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint_resource_id: The ID of the Azure resource that should be allowed access to the target storage account.
         :param pulumi.Input[_builtins.str] endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
@@ -1212,14 +1212,14 @@ class AccountNetworkRulesPrivateLinkAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointTenantId")
-    def endpoint_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         return pulumi.get(self, "endpoint_tenant_id")
 
     @endpoint_tenant_id.setter
-    def endpoint_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_tenant_id", value)
 
 
@@ -1228,7 +1228,7 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgsDict(TypedDict):
     """
     The resource id of the resource access rule to be granted access.
     """
-    endpoint_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
     """
@@ -1237,7 +1237,7 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgsDict(TypedDict):
 class AccountNetworkRulesPrivateLinkAccessRuleArgs:
     def __init__(__self__, *,
                  endpoint_resource_id: pulumi.Input[_builtins.str],
-                 endpoint_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint_resource_id: The resource id of the resource access rule to be granted access.
         :param pulumi.Input[_builtins.str] endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
@@ -1260,31 +1260,31 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointTenantId")
-    def endpoint_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         return pulumi.get(self, "endpoint_tenant_id")
 
     @endpoint_tenant_id.setter
-    def endpoint_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_tenant_id", value)
 
 
 class AccountQueuePropertiesArgsDict(TypedDict):
-    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgsDict']]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]]
     """
     A `cors_rule` block as defined above.
     """
-    hour_metrics: NotRequired[pulumi.Input['AccountQueuePropertiesHourMetricsArgsDict']]
+    hour_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]]
     """
     A `hour_metrics` block as defined below.
     """
-    logging: NotRequired[pulumi.Input['AccountQueuePropertiesLoggingArgsDict']]
+    logging: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]]
     """
     A `logging` block as defined below.
     """
-    minute_metrics: NotRequired[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgsDict']]
+    minute_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]]
     """
     A `minute_metrics` block as defined below.
     """
@@ -1292,10 +1292,10 @@ class AccountQueuePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AccountQueuePropertiesArgs:
     def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
-                 hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']] = None,
-                 logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']] = None,
-                 minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None):
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
+                 hour_metrics: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']] = None,
+                 logging: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']] = None,
+                 minute_metrics: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
@@ -1313,50 +1313,50 @@ class AccountQueuePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
         """
         A `cors_rule` block as defined above.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="hourMetrics")
-    def hour_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]:
+    def hour_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]:
         """
         A `hour_metrics` block as defined below.
         """
         return pulumi.get(self, "hour_metrics")
 
     @hour_metrics.setter
-    def hour_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]):
+    def hour_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]):
         pulumi.set(self, "hour_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]:
+    def logging(self) -> pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]:
         """
         A `logging` block as defined below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]):
+    def logging(self, value: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter(name="minuteMetrics")
-    def minute_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]:
+    def minute_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]:
         """
         A `minute_metrics` block as defined below.
         """
         return pulumi.get(self, "minute_metrics")
 
     @minute_metrics.setter
-    def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]):
+    def minute_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]):
         pulumi.set(self, "minute_metrics", value)
 
 
@@ -1469,11 +1469,11 @@ class AccountQueuePropertiesHourMetricsArgsDict(TypedDict):
     """
     The version of storage analytics to configure.
     """
-    include_apis: NotRequired[pulumi.Input[_builtins.bool]]
+    include_apis: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether metrics should generate summary statistics for called API operations.
     """
-    retention_policy_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_policy_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that logs will be retained.
     """
@@ -1482,8 +1482,8 @@ class AccountQueuePropertiesHourMetricsArgsDict(TypedDict):
 class AccountQueuePropertiesHourMetricsArgs:
     def __init__(__self__, *,
                  version: pulumi.Input[_builtins.str],
-                 include_apis: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_policy_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 include_apis: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_policy_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] version: The version of storage analytics to configure.
         :param pulumi.Input[_builtins.bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
@@ -1509,26 +1509,26 @@ class AccountQueuePropertiesHourMetricsArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeApis")
-    def include_apis(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_apis(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether metrics should generate summary statistics for called API operations.
         """
         return pulumi.get(self, "include_apis")
 
     @include_apis.setter
-    def include_apis(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_apis(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_apis", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicyDays")
-    def retention_policy_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_policy_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
     @retention_policy_days.setter
-    def retention_policy_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_policy_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_policy_days", value)
 
 
@@ -1549,7 +1549,7 @@ class AccountQueuePropertiesLoggingArgsDict(TypedDict):
     """
     Indicates whether all write requests should be logged.
     """
-    retention_policy_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_policy_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that logs will be retained.
     """
@@ -1561,7 +1561,7 @@ class AccountQueuePropertiesLoggingArgs:
                  read: pulumi.Input[_builtins.bool],
                  version: pulumi.Input[_builtins.str],
                  write: pulumi.Input[_builtins.bool],
-                 retention_policy_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 retention_policy_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] delete: Indicates whether all delete requests should be logged.
         :param pulumi.Input[_builtins.bool] read: Indicates whether all read requests should be logged.
@@ -1626,14 +1626,14 @@ class AccountQueuePropertiesLoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicyDays")
-    def retention_policy_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_policy_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
     @retention_policy_days.setter
-    def retention_policy_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_policy_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_policy_days", value)
 
 
@@ -1642,11 +1642,11 @@ class AccountQueuePropertiesMinuteMetricsArgsDict(TypedDict):
     """
     The version of storage analytics to configure.
     """
-    include_apis: NotRequired[pulumi.Input[_builtins.bool]]
+    include_apis: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether metrics should generate summary statistics for called API operations.
     """
-    retention_policy_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_policy_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that logs will be retained.
     """
@@ -1655,8 +1655,8 @@ class AccountQueuePropertiesMinuteMetricsArgsDict(TypedDict):
 class AccountQueuePropertiesMinuteMetricsArgs:
     def __init__(__self__, *,
                  version: pulumi.Input[_builtins.str],
-                 include_apis: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_policy_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 include_apis: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_policy_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] version: The version of storage analytics to configure.
         :param pulumi.Input[_builtins.bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
@@ -1682,39 +1682,39 @@ class AccountQueuePropertiesMinuteMetricsArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeApis")
-    def include_apis(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_apis(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether metrics should generate summary statistics for called API operations.
         """
         return pulumi.get(self, "include_apis")
 
     @include_apis.setter
-    def include_apis(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_apis(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_apis", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicyDays")
-    def retention_policy_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_policy_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
     @retention_policy_days.setter
-    def retention_policy_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_policy_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_policy_days", value)
 
 
 class AccountRoutingArgsDict(TypedDict):
-    choice: NotRequired[pulumi.Input[_builtins.str]]
+    choice: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
     """
-    publish_internet_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    publish_internet_endpoints: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should internet routing storage endpoints be published? Defaults to `false`.
     """
-    publish_microsoft_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    publish_microsoft_endpoints: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Microsoft routing storage endpoints be published? Defaults to `false`.
     """
@@ -1722,9 +1722,9 @@ class AccountRoutingArgsDict(TypedDict):
 @pulumi.input_type
 class AccountRoutingArgs:
     def __init__(__self__, *,
-                 choice: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_internet_endpoints: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publish_microsoft_endpoints: Optional[pulumi.Input[_builtins.bool]] = None):
+                 choice: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_internet_endpoints: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publish_microsoft_endpoints: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] choice: Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
         :param pulumi.Input[_builtins.bool] publish_internet_endpoints: Should internet routing storage endpoints be published? Defaults to `false`.
@@ -1739,38 +1739,38 @@ class AccountRoutingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def choice(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def choice(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
         """
         return pulumi.get(self, "choice")
 
     @choice.setter
-    def choice(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def choice(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "choice", value)
 
     @_builtins.property
     @pulumi.getter(name="publishInternetEndpoints")
-    def publish_internet_endpoints(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_internet_endpoints(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should internet routing storage endpoints be published? Defaults to `false`.
         """
         return pulumi.get(self, "publish_internet_endpoints")
 
     @publish_internet_endpoints.setter
-    def publish_internet_endpoints(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_internet_endpoints(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_internet_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="publishMicrosoftEndpoints")
-    def publish_microsoft_endpoints(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_microsoft_endpoints(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Microsoft routing storage endpoints be published? Defaults to `false`.
         """
         return pulumi.get(self, "publish_microsoft_endpoints")
 
     @publish_microsoft_endpoints.setter
-    def publish_microsoft_endpoints(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_microsoft_endpoints(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_microsoft_endpoints", value)
 
 
@@ -1779,7 +1779,7 @@ class AccountSasPolicyArgsDict(TypedDict):
     """
     The SAS expiration period in format of `DD.HH:MM:SS`.
     """
-    expiration_action: NotRequired[pulumi.Input[_builtins.str]]
+    expiration_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
     """
@@ -1788,7 +1788,7 @@ class AccountSasPolicyArgsDict(TypedDict):
 class AccountSasPolicyArgs:
     def __init__(__self__, *,
                  expiration_period: pulumi.Input[_builtins.str],
-                 expiration_action: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expiration_period: The SAS expiration period in format of `DD.HH:MM:SS`.
         :param pulumi.Input[_builtins.str] expiration_action: The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
@@ -1811,27 +1811,27 @@ class AccountSasPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="expirationAction")
-    def expiration_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
         return pulumi.get(self, "expiration_action")
 
     @expiration_action.setter
-    def expiration_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_action", value)
 
 
 class AccountSharePropertiesArgsDict(TypedDict):
-    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgsDict']]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]]
     """
     A `cors_rule` block as defined below.
     """
-    retention_policy: NotRequired[pulumi.Input['AccountSharePropertiesRetentionPolicyArgsDict']]
+    retention_policy: NotRequired[pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgs']]]
     """
     A `retention_policy` block as defined below.
     """
-    smb: NotRequired[pulumi.Input['AccountSharePropertiesSmbArgsDict']]
+    smb: NotRequired[pulumi.Input[Optional['AccountSharePropertiesSmbArgs']]]
     """
     A `smb` block as defined below.
     """
@@ -1839,9 +1839,9 @@ class AccountSharePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AccountSharePropertiesArgs:
     def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
-                 retention_policy: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']] = None,
-                 smb: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']] = None):
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
+                 retention_policy: pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgs']] = None,
+                 smb: pulumi.Input[Optional['AccountSharePropertiesSmbArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
         :param pulumi.Input['AccountSharePropertiesRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
@@ -1856,38 +1856,38 @@ class AccountSharePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]:
         """
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgs']]:
         """
         A `retention_policy` block as defined below.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def smb(self) -> Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]:
+    def smb(self) -> pulumi.Input[Optional['AccountSharePropertiesSmbArgs']]:
         """
         A `smb` block as defined below.
         """
         return pulumi.get(self, "smb")
 
     @smb.setter
-    def smb(self, value: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]):
+    def smb(self, value: pulumi.Input[Optional['AccountSharePropertiesSmbArgs']]):
         pulumi.set(self, "smb", value)
 
 
@@ -1999,7 +1999,7 @@ class AccountSharePropertiesCorsRuleArgs:
 
 
 class AccountSharePropertiesRetentionPolicyArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
     """
@@ -2007,7 +2007,7 @@ class AccountSharePropertiesRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class AccountSharePropertiesRetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[_builtins.int]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days: Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         """
@@ -2016,35 +2016,35 @@ class AccountSharePropertiesRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
 
 class AccountSharePropertiesSmbArgsDict(TypedDict):
-    authentication_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    authentication_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
     """
-    channel_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    channel_encryption_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
     """
-    kerberos_ticket_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kerberos_ticket_encryption_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
     """
-    multichannel_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    multichannel_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
     """
-    versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
     """
@@ -2052,11 +2052,11 @@ class AccountSharePropertiesSmbArgsDict(TypedDict):
 @pulumi.input_type
 class AccountSharePropertiesSmbArgs:
     def __init__(__self__, *,
-                 authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 channel_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kerberos_ticket_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 multichannel_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authentication_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 channel_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kerberos_ticket_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 multichannel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_types: A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_encryption_types: A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
@@ -2077,71 +2077,71 @@ class AccountSharePropertiesSmbArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationTypes")
-    def authentication_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         """
         return pulumi.get(self, "authentication_types")
 
     @authentication_types.setter
-    def authentication_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_types", value)
 
     @_builtins.property
     @pulumi.getter(name="channelEncryptionTypes")
-    def channel_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def channel_encryption_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
         """
         return pulumi.get(self, "channel_encryption_types")
 
     @channel_encryption_types.setter
-    def channel_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def channel_encryption_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosTicketEncryptionTypes")
-    def kerberos_ticket_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kerberos_ticket_encryption_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
         """
         return pulumi.get(self, "kerberos_ticket_encryption_types")
 
     @kerberos_ticket_encryption_types.setter
-    def kerberos_ticket_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kerberos_ticket_encryption_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kerberos_ticket_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter(name="multichannelEnabled")
-    def multichannel_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multichannel_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
         """
         return pulumi.get(self, "multichannel_enabled")
 
     @multichannel_enabled.setter
-    def multichannel_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multichannel_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multichannel_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "versions", value)
 
 
 class AccountStaticWebsiteArgsDict(TypedDict):
-    error404_document: NotRequired[pulumi.Input[_builtins.str]]
+    error404_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
     """
-    index_document: NotRequired[pulumi.Input[_builtins.str]]
+    index_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
     """
@@ -2149,8 +2149,8 @@ class AccountStaticWebsiteArgsDict(TypedDict):
 @pulumi.input_type
 class AccountStaticWebsiteArgs:
     def __init__(__self__, *,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None):
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         :param pulumi.Input[_builtins.str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
@@ -2162,26 +2162,26 @@ class AccountStaticWebsiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="error404Document")
-    def error404_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error404_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         """
         return pulumi.get(self, "error404_document")
 
     @error404_document.setter
-    def error404_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error404_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error404_document", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_document", value)
 
 
@@ -2210,7 +2210,7 @@ class BlobInventoryPolicyRuleArgsDict(TypedDict):
     """
     The storage container name to store the blob inventory files for this rule.
     """
-    filter: NotRequired[pulumi.Input['BlobInventoryPolicyRuleFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgs']]]
     """
     A `filter` block as defined above.
     """
@@ -2224,7 +2224,7 @@ class BlobInventoryPolicyRuleArgs:
                  schema_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope: pulumi.Input[_builtins.str],
                  storage_container_name: pulumi.Input[_builtins.str],
-                 filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']] = None):
+                 filter: pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] format: The format of the inventory files. Possible values are `Csv` and `Parquet`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Blob Inventory Policy Rule.
@@ -2317,14 +2317,14 @@ class BlobInventoryPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgs']]:
         """
         A `filter` block as defined above.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgs']]):
         pulumi.set(self, "filter", value)
 
 
@@ -2335,29 +2335,29 @@ class BlobInventoryPolicyRuleFilterArgsDict(TypedDict):
 
     > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
     """
-    exclude_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
     """
-    include_blob_versions: NotRequired[pulumi.Input[_builtins.bool]]
+    include_blob_versions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes blob versions in blob inventory or not? Defaults to `false`.
 
     > **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
     """
-    include_deleted: NotRequired[pulumi.Input[_builtins.bool]]
+    include_deleted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes deleted blobs in blob inventory or not? Defaults to `false`.
 
     > **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
     """
-    include_snapshots: NotRequired[pulumi.Input[_builtins.bool]]
+    include_snapshots: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes blob snapshots in blob inventory or not? Defaults to `false`.
 
     > **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
     """
-    prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
     """
@@ -2366,11 +2366,11 @@ class BlobInventoryPolicyRuleFilterArgsDict(TypedDict):
 class BlobInventoryPolicyRuleFilterArgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 exclude_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_blob_versions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_blob_versions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
                
@@ -2415,19 +2415,19 @@ class BlobInventoryPolicyRuleFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludePrefixes")
-    def exclude_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         """
         return pulumi.get(self, "exclude_prefixes")
 
     @exclude_prefixes.setter
-    def exclude_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="includeBlobVersions")
-    def include_blob_versions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_blob_versions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes blob versions in blob inventory or not? Defaults to `false`.
 
@@ -2436,12 +2436,12 @@ class BlobInventoryPolicyRuleFilterArgs:
         return pulumi.get(self, "include_blob_versions")
 
     @include_blob_versions.setter
-    def include_blob_versions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_blob_versions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_blob_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDeleted")
-    def include_deleted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_deleted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes deleted blobs in blob inventory or not? Defaults to `false`.
 
@@ -2450,12 +2450,12 @@ class BlobInventoryPolicyRuleFilterArgs:
         return pulumi.get(self, "include_deleted")
 
     @include_deleted.setter
-    def include_deleted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_deleted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_deleted", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSnapshots")
-    def include_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes blob snapshots in blob inventory or not? Defaults to `false`.
 
@@ -2464,19 +2464,19 @@ class BlobInventoryPolicyRuleFilterArgs:
         return pulumi.get(self, "include_snapshots")
 
     @include_snapshots.setter
-    def include_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixMatches")
-    def prefix_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         return pulumi.get(self, "prefix_matches")
 
     @prefix_matches.setter
-    def prefix_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_matches", value)
 
 
@@ -2491,11 +2491,11 @@ class DataLakeGen2FilesystemAceArgsDict(TypedDict):
     """
     Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
     """
@@ -2505,8 +2505,8 @@ class DataLakeGen2FilesystemAceArgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
                
@@ -2550,26 +2550,26 @@ class DataLakeGen2FilesystemAceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -2588,11 +2588,11 @@ class DataLakeGen2PathAceArgsDict(TypedDict):
     """
     Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
     """
@@ -2602,8 +2602,8 @@ class DataLakeGen2PathAceArgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
                
@@ -2655,26 +2655,26 @@ class DataLakeGen2PathAceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -2745,23 +2745,23 @@ class LocalUserPermissionScopeArgs:
 
 
 class LocalUserPermissionScopePermissionsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.bool]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Local User has the create permission for this scope. Defaults to `false`.
     """
-    delete: NotRequired[pulumi.Input[_builtins.bool]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
     """
-    list: NotRequired[pulumi.Input[_builtins.bool]]
+    list: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Local User has the list permission for this scope. Defaults to `false`.
     """
-    read: NotRequired[pulumi.Input[_builtins.bool]]
+    read: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Local User has the read permission for this scope. Defaults to `false`.
     """
-    write: NotRequired[pulumi.Input[_builtins.bool]]
+    write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Local User has the write permission for this scope. Defaults to `false`.
     """
@@ -2769,11 +2769,11 @@ class LocalUserPermissionScopePermissionsArgsDict(TypedDict):
 @pulumi.input_type
 class LocalUserPermissionScopePermissionsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 list: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 list: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] create: Specifies if the Local User has the create permission for this scope. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] delete: Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
@@ -2794,62 +2794,62 @@ class LocalUserPermissionScopePermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Local User has the create permission for this scope. Defaults to `false`.
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def list(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def list(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Local User has the list permission for this scope. Defaults to `false`.
         """
         return pulumi.get(self, "list")
 
     @list.setter
-    def list(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def list(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "list", value)
 
     @_builtins.property
     @pulumi.getter
-    def read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Local User has the read permission for this scope. Defaults to `false`.
         """
         return pulumi.get(self, "read")
 
     @read.setter
-    def read(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read", value)
 
     @_builtins.property
     @pulumi.getter
-    def write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Local User has the write permission for this scope. Defaults to `false`.
         """
         return pulumi.get(self, "write")
 
     @write.setter
-    def write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "write", value)
 
 
@@ -2858,7 +2858,7 @@ class LocalUserSshAuthorizedKeyArgsDict(TypedDict):
     """
     The public key value of this SSH authorized key.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of this SSH authorized key.
     """
@@ -2867,7 +2867,7 @@ class LocalUserSshAuthorizedKeyArgsDict(TypedDict):
 class LocalUserSshAuthorizedKeyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The public key value of this SSH authorized key.
         :param pulumi.Input[_builtins.str] description: The description of this SSH authorized key.
@@ -2890,14 +2890,14 @@ class LocalUserSshAuthorizedKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this SSH authorized key.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2987,15 +2987,15 @@ class ManagementPolicyRuleArgs:
 
 
 class ManagementPolicyRuleActionsArgsDict(TypedDict):
-    base_blob: NotRequired[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgsDict']]
+    base_blob: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']]]
     """
     A `base_blob` block as documented below.
     """
-    snapshot: NotRequired[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgsDict']]
+    snapshot: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']]]
     """
     A `snapshot` block as documented below.
     """
-    version: NotRequired[pulumi.Input['ManagementPolicyRuleActionsVersionArgsDict']]
+    version: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']]]
     """
     A `version` block as documented below.
     """
@@ -3003,9 +3003,9 @@ class ManagementPolicyRuleActionsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyRuleActionsArgs:
     def __init__(__self__, *,
-                 base_blob: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']] = None,
-                 snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']] = None,
-                 version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']] = None):
+                 base_blob: pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']] = None,
+                 snapshot: pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']] = None,
+                 version: pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']] = None):
         """
         :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs'] base_blob: A `base_blob` block as documented below.
         :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs'] snapshot: A `snapshot` block as documented below.
@@ -3020,49 +3020,49 @@ class ManagementPolicyRuleActionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseBlob")
-    def base_blob(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']]:
+    def base_blob(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']]:
         """
         A `base_blob` block as documented below.
         """
         return pulumi.get(self, "base_blob")
 
     @base_blob.setter
-    def base_blob(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']]):
+    def base_blob(self, value: pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']]):
         pulumi.set(self, "base_blob", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']]:
+    def snapshot(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']]:
         """
         A `snapshot` block as documented below.
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']]):
+    def snapshot(self, value: pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']]):
         pulumi.set(self, "snapshot", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]:
+    def version(self) -> pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']]:
         """
         A `version` block as documented below.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]):
+    def version(self, value: pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']]):
         pulumi.set(self, "version", value)
 
 
 class ManagementPolicyRuleActionsBaseBlobArgsDict(TypedDict):
-    auto_tier_to_hot_from_cool_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_tier_to_hot_from_cool_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
 
     > **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
     """
-    delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 
@@ -3070,57 +3070,57 @@ class ManagementPolicyRuleActionsBaseBlobArgsDict(TypedDict):
 
     > **Note:** The `last_access_time_enabled` must be set to `true` in the `storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
     """
-    delete_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    delete_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    delete_after_days_since_modification_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    delete_after_days_since_modification_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_archive_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
 
     > **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
     """
-    tier_to_archive_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_archive_after_days_since_modification_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_modification_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 
     > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
     """
-    tier_to_cold_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cold_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cold_after_days_since_modification_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cold_after_days_since_modification_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cool_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cool_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 
     > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
     """
-    tier_to_cool_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cool_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cool_after_days_since_modification_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cool_after_days_since_modification_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
@@ -3128,20 +3128,20 @@ class ManagementPolicyRuleActionsBaseBlobArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyRuleActionsBaseBlobArgs:
     def __init__(__self__, *,
-                 auto_tier_to_hot_from_cool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_after_days_since_modification_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_modification_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cold_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cold_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cold_after_days_since_modification_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cool_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cool_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[_builtins.int]] = None):
+                 auto_tier_to_hot_from_cool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_after_days_since_last_access_time_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_after_days_since_modification_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_last_access_time_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_modification_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cold_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cold_after_days_since_last_access_time_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cold_after_days_since_modification_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cool_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cool_after_days_since_last_access_time_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cool_after_days_since_modification_greater_than: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] auto_tier_to_hot_from_cool_enabled: Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
                
@@ -3201,7 +3201,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoTierToHotFromCoolEnabled")
-    def auto_tier_to_hot_from_cool_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_tier_to_hot_from_cool_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
 
@@ -3210,12 +3210,12 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         return pulumi.get(self, "auto_tier_to_hot_from_cool_enabled")
 
     @auto_tier_to_hot_from_cool_enabled.setter
-    def auto_tier_to_hot_from_cool_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_tier_to_hot_from_cool_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_tier_to_hot_from_cool_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")
-    def delete_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delete_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 
@@ -3226,36 +3226,36 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
     @delete_after_days_since_creation_greater_than.setter
-    def delete_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delete_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delete_after_days_since_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAfterDaysSinceLastAccessTimeGreaterThan")
-    def delete_after_days_since_last_access_time_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delete_after_days_since_last_access_time_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "delete_after_days_since_last_access_time_greater_than")
 
     @delete_after_days_since_last_access_time_greater_than.setter
-    def delete_after_days_since_last_access_time_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delete_after_days_since_last_access_time_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delete_after_days_since_last_access_time_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAfterDaysSinceModificationGreaterThan")
-    def delete_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delete_after_days_since_modification_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "delete_after_days_since_modification_greater_than")
 
     @delete_after_days_since_modification_greater_than.setter
-    def delete_after_days_since_modification_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delete_after_days_since_modification_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delete_after_days_since_modification_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceCreationGreaterThan")
-    def tier_to_archive_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
 
@@ -3264,48 +3264,48 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         return pulumi.get(self, "tier_to_archive_after_days_since_creation_greater_than")
 
     @tier_to_archive_after_days_since_creation_greater_than.setter
-    def tier_to_archive_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
-    def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
 
     @tier_to_archive_after_days_since_last_access_time_greater_than.setter
-    def tier_to_archive_after_days_since_last_access_time_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_last_access_time_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_last_access_time_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
 
     @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
-    def tier_to_archive_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_modification_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_modification_greater_than")
 
     @tier_to_archive_after_days_since_modification_greater_than.setter
-    def tier_to_archive_after_days_since_modification_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_modification_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_modification_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToColdAfterDaysSinceCreationGreaterThan")
-    def tier_to_cold_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cold_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 
@@ -3314,36 +3314,36 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         return pulumi.get(self, "tier_to_cold_after_days_since_creation_greater_than")
 
     @tier_to_cold_after_days_since_creation_greater_than.setter
-    def tier_to_cold_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cold_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToColdAfterDaysSinceLastAccessTimeGreaterThan")
-    def tier_to_cold_after_days_since_last_access_time_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cold_after_days_since_last_access_time_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cold_after_days_since_last_access_time_greater_than")
 
     @tier_to_cold_after_days_since_last_access_time_greater_than.setter
-    def tier_to_cold_after_days_since_last_access_time_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cold_after_days_since_last_access_time_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_last_access_time_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToColdAfterDaysSinceModificationGreaterThan")
-    def tier_to_cold_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cold_after_days_since_modification_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cold_after_days_since_modification_greater_than")
 
     @tier_to_cold_after_days_since_modification_greater_than.setter
-    def tier_to_cold_after_days_since_modification_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cold_after_days_since_modification_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_modification_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCoolAfterDaysSinceCreationGreaterThan")
-    def tier_to_cool_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cool_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 
@@ -3352,52 +3352,52 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         return pulumi.get(self, "tier_to_cool_after_days_since_creation_greater_than")
 
     @tier_to_cool_after_days_since_creation_greater_than.setter
-    def tier_to_cool_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cool_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cool_after_days_since_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCoolAfterDaysSinceLastAccessTimeGreaterThan")
-    def tier_to_cool_after_days_since_last_access_time_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cool_after_days_since_last_access_time_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cool_after_days_since_last_access_time_greater_than")
 
     @tier_to_cool_after_days_since_last_access_time_greater_than.setter
-    def tier_to_cool_after_days_since_last_access_time_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cool_after_days_since_last_access_time_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cool_after_days_since_last_access_time_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToCoolAfterDaysSinceModificationGreaterThan")
-    def tier_to_cool_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cool_after_days_since_modification_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cool_after_days_since_modification_greater_than")
 
     @tier_to_cool_after_days_since_modification_greater_than.setter
-    def tier_to_cool_after_days_since_modification_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cool_after_days_since_modification_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cool_after_days_since_modification_greater_than", value)
 
 
 class ManagementPolicyRuleActionsSnapshotArgsDict(TypedDict):
-    change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[_builtins.int]]
+    change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to tier blob snapshot to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[_builtins.int]]
+    change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to tier blob snapshot to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to delete the blob snapshot. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
@@ -3405,11 +3405,11 @@ class ManagementPolicyRuleActionsSnapshotArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyRuleActionsSnapshotArgs:
     def __init__(__self__, *,
-                 change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[_builtins.int]] = None,
-                 change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cold_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None):
+                 change_tier_to_archive_after_days_since_creation: pulumi.Input[Optional[_builtins.int]] = None,
+                 change_tier_to_cool_after_days_since_creation: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cold_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob snapshot to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
         :param pulumi.Input[_builtins.int] change_tier_to_cool_after_days_since_creation: The age in days after creation to tier blob snapshot to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
@@ -3430,83 +3430,83 @@ class ManagementPolicyRuleActionsSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
-    def change_tier_to_archive_after_days_since_creation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_tier_to_archive_after_days_since_creation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to tier blob snapshot to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "change_tier_to_archive_after_days_since_creation")
 
     @change_tier_to_archive_after_days_since_creation.setter
-    def change_tier_to_archive_after_days_since_creation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_tier_to_archive_after_days_since_creation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_tier_to_archive_after_days_since_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="changeTierToCoolAfterDaysSinceCreation")
-    def change_tier_to_cool_after_days_since_creation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_tier_to_cool_after_days_since_creation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to tier blob snapshot to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "change_tier_to_cool_after_days_since_creation")
 
     @change_tier_to_cool_after_days_since_creation.setter
-    def change_tier_to_cool_after_days_since_creation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_tier_to_cool_after_days_since_creation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_tier_to_cool_after_days_since_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")
-    def delete_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delete_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to delete the blob snapshot. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
     @delete_after_days_since_creation_greater_than.setter
-    def delete_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delete_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delete_after_days_since_creation_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
 
     @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToColdAfterDaysSinceCreationGreaterThan")
-    def tier_to_cold_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cold_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cold_after_days_since_creation_greater_than")
 
     @tier_to_cold_after_days_since_creation_greater_than.setter
-    def tier_to_cold_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cold_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_creation_greater_than", value)
 
 
 class ManagementPolicyRuleActionsVersionArgsDict(TypedDict):
-    change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[_builtins.int]]
+    change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[_builtins.int]]
+    change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    delete_after_days_since_creation: NotRequired[pulumi.Input[_builtins.int]]
+    delete_after_days_since_creation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
     """
-    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
     """
@@ -3514,11 +3514,11 @@ class ManagementPolicyRuleActionsVersionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementPolicyRuleActionsVersionArgs:
     def __init__(__self__, *,
-                 change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[_builtins.int]] = None,
-                 change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_after_days_since_creation: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier_to_cold_after_days_since_creation_greater_than: Optional[pulumi.Input[_builtins.int]] = None):
+                 change_tier_to_archive_after_days_since_creation: pulumi.Input[Optional[_builtins.int]] = None,
+                 change_tier_to_cool_after_days_since_creation: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_after_days_since_creation: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier_to_cold_after_days_since_creation_greater_than: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
         :param pulumi.Input[_builtins.int] change_tier_to_cool_after_days_since_creation: The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
@@ -3539,62 +3539,62 @@ class ManagementPolicyRuleActionsVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
-    def change_tier_to_archive_after_days_since_creation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_tier_to_archive_after_days_since_creation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "change_tier_to_archive_after_days_since_creation")
 
     @change_tier_to_archive_after_days_since_creation.setter
-    def change_tier_to_archive_after_days_since_creation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_tier_to_archive_after_days_since_creation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_tier_to_archive_after_days_since_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="changeTierToCoolAfterDaysSinceCreation")
-    def change_tier_to_cool_after_days_since_creation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def change_tier_to_cool_after_days_since_creation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "change_tier_to_cool_after_days_since_creation")
 
     @change_tier_to_cool_after_days_since_creation.setter
-    def change_tier_to_cool_after_days_since_creation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def change_tier_to_cool_after_days_since_creation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "change_tier_to_cool_after_days_since_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAfterDaysSinceCreation")
-    def delete_after_days_since_creation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delete_after_days_since_creation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "delete_after_days_since_creation")
 
     @delete_after_days_since_creation.setter
-    def delete_after_days_since_creation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delete_after_days_since_creation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delete_after_days_since_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
 
     @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
-    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="tierToColdAfterDaysSinceCreationGreaterThan")
-    def tier_to_cold_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_to_cold_after_days_since_creation_greater_than(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         """
         return pulumi.get(self, "tier_to_cold_after_days_since_creation_greater_than")
 
     @tier_to_cold_after_days_since_creation_greater_than.setter
-    def tier_to_cold_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_to_cold_after_days_since_creation_greater_than(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_creation_greater_than", value)
 
 
@@ -3603,13 +3603,13 @@ class ManagementPolicyRuleFiltersArgsDict(TypedDict):
     """
     An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
     """
-    match_blob_index_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict']]]]
+    match_blob_index_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]]
     """
     A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
     > **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
     """
-    prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings for prefixes to be matched.
     """
@@ -3618,8 +3618,8 @@ class ManagementPolicyRuleFiltersArgsDict(TypedDict):
 class ManagementPolicyRuleFiltersArgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
-                 prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_blob_index_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
+                 prefix_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
@@ -3647,7 +3647,7 @@ class ManagementPolicyRuleFiltersArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchBlobIndexTags")
-    def match_blob_index_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]:
+    def match_blob_index_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
@@ -3656,19 +3656,19 @@ class ManagementPolicyRuleFiltersArgs:
         return pulumi.get(self, "match_blob_index_tags")
 
     @match_blob_index_tags.setter
-    def match_blob_index_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]):
+    def match_blob_index_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]):
         pulumi.set(self, "match_blob_index_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixMatches")
-    def prefix_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings for prefixes to be matched.
         """
         return pulumi.get(self, "prefix_matches")
 
     @prefix_matches.setter
-    def prefix_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_matches", value)
 
 
@@ -3681,7 +3681,7 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict(TypedDict):
     """
     The filter tag value used for tag based filtering for blob objects.
     """
-    operation: NotRequired[pulumi.Input[_builtins.str]]
+    operation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
     """
@@ -3691,7 +3691,7 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 operation: Optional[pulumi.Input[_builtins.str]] = None):
+                 operation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The filter tag name used for tag based filtering for blob objects.
         :param pulumi.Input[_builtins.str] value: The filter tag value used for tag based filtering for blob objects.
@@ -3728,14 +3728,14 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation", value)
 
 
@@ -3748,24 +3748,24 @@ class ObjectReplicationRuleArgsDict(TypedDict):
     """
     The source storage container name.
     """
-    copy_blobs_created_after: NotRequired[pulumi.Input[_builtins.str]]
+    copy_blobs_created_after: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
     """
-    filter_out_blobs_with_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    filter_out_blobs_with_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ObjectReplicationRuleArgs:
     def __init__(__self__, *,
                  destination_container_name: pulumi.Input[_builtins.str],
                  source_container_name: pulumi.Input[_builtins.str],
-                 copy_blobs_created_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_out_blobs_with_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 copy_blobs_created_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_out_blobs_with_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] destination_container_name: The destination storage container name.
         :param pulumi.Input[_builtins.str] source_container_name: The source storage container name.
@@ -3807,35 +3807,35 @@ class ObjectReplicationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="copyBlobsCreatedAfter")
-    def copy_blobs_created_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_blobs_created_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
         """
         return pulumi.get(self, "copy_blobs_created_after")
 
     @copy_blobs_created_after.setter
-    def copy_blobs_created_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_blobs_created_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_blobs_created_after", value)
 
     @_builtins.property
     @pulumi.getter(name="filterOutBlobsWithPrefixes")
-    def filter_out_blobs_with_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filter_out_blobs_with_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
         """
         return pulumi.get(self, "filter_out_blobs_with_prefixes")
 
     @filter_out_blobs_with_prefixes.setter
-    def filter_out_blobs_with_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filter_out_blobs_with_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filter_out_blobs_with_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -3844,7 +3844,7 @@ class ShareAclArgsDict(TypedDict):
     """
     The ID which should be used for this Shared Identifier.
     """
-    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgsDict']]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]]
     """
     An `access_policy` block as defined below.
     """
@@ -3853,7 +3853,7 @@ class ShareAclArgsDict(TypedDict):
 class ShareAclArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID which should be used for this Shared Identifier.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]] access_policies: An `access_policy` block as defined below.
@@ -3876,14 +3876,14 @@ class ShareAclArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]:
         """
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
 
@@ -3894,11 +3894,11 @@ class ShareAclAccessPolicyArgsDict(TypedDict):
 
     > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
     """
-    expiry: NotRequired[pulumi.Input[_builtins.str]]
+    expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     """
@@ -3907,8 +3907,8 @@ class ShareAclAccessPolicyArgsDict(TypedDict):
 class ShareAclAccessPolicyArgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[_builtins.str],
-                 expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
                
@@ -3938,26 +3938,26 @@ class ShareAclAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -3966,7 +3966,7 @@ class TableAclArgsDict(TypedDict):
     """
     The ID which should be used for this Shared Identifier.
     """
-    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgsDict']]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]]
     """
     An `access_policy` block as defined below.
     """
@@ -3975,7 +3975,7 @@ class TableAclArgsDict(TypedDict):
 class TableAclArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID which should be used for this Shared Identifier.
         :param pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]] access_policies: An `access_policy` block as defined below.
@@ -3998,14 +3998,14 @@ class TableAclArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]:
         """
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
 

@@ -23,12 +23,12 @@ class AlertRuleMsSecurityIncidentArgs:
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  product_filter: pulumi.Input[_builtins.str],
                  severity_filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertRuleMsSecurityIncident resource.
 
@@ -114,90 +114,90 @@ class AlertRuleMsSecurityIncidentArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
-    def alert_rule_template_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
         return pulumi.get(self, "alert_rule_template_guid")
 
     @alert_rule_template_guid.setter
-    def alert_rule_template_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Sentinel MS Security Incident Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameExcludeFilters")
-    def display_name_exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_name_exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Only create incidents when the alert display name doesn't contain text from this list.
         """
         return pulumi.get(self, "display_name_exclude_filters")
 
     @display_name_exclude_filters.setter
-    def display_name_exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_name_exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name_exclude_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameFilters")
-    def display_name_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_name_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         """
         return pulumi.get(self, "display_name_filters")
 
     @display_name_filters.setter
-    def display_name_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_name_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AlertRuleMsSecurityIncidentState:
     def __init__(__self__, *,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleMsSecurityIncident resources.
 
@@ -237,115 +237,115 @@ class _AlertRuleMsSecurityIncidentState:
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
-    def alert_rule_template_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
         return pulumi.get(self, "alert_rule_template_guid")
 
     @alert_rule_template_guid.setter
-    def alert_rule_template_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Sentinel MS Security Incident Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of this Sentinel MS Security Incident Alert Rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameExcludeFilters")
-    def display_name_exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_name_exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Only create incidents when the alert display name doesn't contain text from this list.
         """
         return pulumi.get(self, "display_name_exclude_filters")
 
     @display_name_exclude_filters.setter
-    def display_name_exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_name_exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name_exclude_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNameFilters")
-    def display_name_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_name_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         """
         return pulumi.get(self, "display_name_filters")
 
     @display_name_filters.setter
-    def display_name_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_name_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="productFilter")
-    def product_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         """
         return pulumi.get(self, "product_filter")
 
     @product_filter.setter
-    def product_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="severityFilters")
-    def severity_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def severity_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 
@@ -354,7 +354,7 @@ class _AlertRuleMsSecurityIncidentState:
         return pulumi.get(self, "severity_filters")
 
     @severity_filters.setter
-    def severity_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def severity_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "severity_filters", value)
 
 
@@ -364,16 +364,16 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
@@ -495,16 +495,16 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -542,16 +542,16 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            product_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AlertRuleMsSecurityIncident':
+            alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            severity_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AlertRuleMsSecurityIncident':
         """
         Get an existing AlertRuleMsSecurityIncident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

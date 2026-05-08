@@ -73,9 +73,9 @@ class NetworkInterfaceNatRuleAssociationArgs:
 @pulumi.input_type
 class _NetworkInterfaceNatRuleAssociationState:
     def __init__(__self__, *,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceNatRuleAssociation resources.
 
@@ -92,38 +92,38 @@ class _NetworkInterfaceNatRuleAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationName")
-    def ip_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configuration_name")
 
     @ip_configuration_name.setter
-    def ip_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="natRuleId")
-    def nat_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_rule_id")
 
     @nat_rule_id.setter
-    def nat_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
 
@@ -133,9 +133,9 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the association between a Network Interface and a Load Balancer's NAT Rule.
@@ -316,9 +316,9 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,9 +347,9 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            nat_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkInterfaceNatRuleAssociation':
+            ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkInterfaceNatRuleAssociation':
         """
         Get an existing NetworkInterfaceNatRuleAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

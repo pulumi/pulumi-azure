@@ -155,27 +155,27 @@ export interface RouteState {
     /**
      * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      */
-    addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the route. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      */
-    nextHopInIpAddress?: pulumi.Input<string>;
+    nextHopInIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
      */
-    nextHopType?: pulumi.Input<string>;
+    nextHopType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the route. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the route table within which create the route. Changing this forces a new resource to be created.
      */
-    routeTableName?: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,11 +189,11 @@ export interface RouteArgs {
     /**
      * The name of the route. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      */
-    nextHopInIpAddress?: pulumi.Input<string>;
+    nextHopInIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
      */

@@ -137,19 +137,19 @@ export interface SpringCloudStorageState {
     /**
      * The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * The access key of the Azure Storage Account.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The account name of the Azure Storage Account.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface SpringCloudStorageArgs {
     /**
      * The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
      */

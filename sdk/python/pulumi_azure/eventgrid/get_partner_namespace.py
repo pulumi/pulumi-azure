@@ -210,8 +210,8 @@ def get_partner_namespace(name: Optional[_builtins.str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_partner_namespace_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_partner_namespace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
     Use this data source to access information about an existing Event Grid Partner Namespace

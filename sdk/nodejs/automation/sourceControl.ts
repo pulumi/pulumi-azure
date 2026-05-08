@@ -186,43 +186,43 @@ export interface SourceControlState {
     /**
      * Whether auto async the Source Control.
      */
-    automaticSync?: pulumi.Input<boolean>;
+    automaticSync?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    automationAccountId?: pulumi.Input<string>;
+    automationAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * A short description of the Source Control.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder path of the source control. This Path must be relative.
      */
-    folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether auto publish the Source Control. Defaults to `true`.
      */
-    publishRunbookEnabled?: pulumi.Input<boolean>;
+    publishRunbookEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Repository URL of the source control.
      */
-    repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string | undefined>;
     /**
      * A `security` block as defined below.
      */
-    security?: pulumi.Input<inputs.automation.SourceControlSecurity>;
+    security?: pulumi.Input<inputs.automation.SourceControlSecurity | undefined>;
     /**
      * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      */
-    sourceControlType?: pulumi.Input<string>;
+    sourceControlType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface SourceControlArgs {
     /**
      * Whether auto async the Source Control.
      */
-    automaticSync?: pulumi.Input<boolean>;
+    automaticSync?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      */
@@ -240,11 +240,11 @@ export interface SourceControlArgs {
     /**
      * Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * A short description of the Source Control.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder path of the source control. This Path must be relative.
      */
@@ -252,11 +252,11 @@ export interface SourceControlArgs {
     /**
      * The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether auto publish the Source Control. Defaults to `true`.
      */
-    publishRunbookEnabled?: pulumi.Input<boolean>;
+    publishRunbookEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Repository URL of the source control.
      */

@@ -133,15 +133,15 @@ export interface FleetUpdateStrategyState {
     /**
      * The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
      */
-    kubernetesFleetManagerId?: pulumi.Input<string>;
+    kubernetesFleetManagerId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `stage` blocks as defined below.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateStrategyStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateStrategyStage>[] | undefined>;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface FleetUpdateStrategyArgs {
     /**
      * The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `stage` blocks as defined below.
      */

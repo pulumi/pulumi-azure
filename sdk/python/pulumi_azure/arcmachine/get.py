@@ -460,8 +460,8 @@ def get(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         vm_uuid=pulumi.get(__ret__, 'vm_uuid'))
-def get_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResult]:
     """
     Use this data source to access information about an existing Azure Arc machine.

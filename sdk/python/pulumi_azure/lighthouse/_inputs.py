@@ -36,11 +36,11 @@ class DefinitionAuthorizationArgsDict(TypedDict):
     """
     The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
     """
-    delegated_role_definition_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    delegated_role_definition_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of role definition ids which define all the permissions that the principal id can assign.
     """
-    principal_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    principal_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
     """
@@ -50,8 +50,8 @@ class DefinitionAuthorizationArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
-                 delegated_role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delegated_role_definition_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
@@ -91,26 +91,26 @@ class DefinitionAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedRoleDefinitionIds")
-    def delegated_role_definition_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def delegated_role_definition_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of role definition ids which define all the permissions that the principal id can assign.
         """
         return pulumi.get(self, "delegated_role_definition_ids")
 
     @delegated_role_definition_ids.setter
-    def delegated_role_definition_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def delegated_role_definition_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "delegated_role_definition_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalDisplayName")
-    def principal_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         return pulumi.get(self, "principal_display_name")
 
     @principal_display_name.setter
-    def principal_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_display_name", value)
 
 
@@ -123,11 +123,11 @@ class DefinitionEligibleAuthorizationArgsDict(TypedDict):
     """
     The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
     """
-    just_in_time_access_policy: NotRequired[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict']]
+    just_in_time_access_policy: NotRequired[pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]]
     """
     A `just_in_time_access_policy` block as defined below.
     """
-    principal_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    principal_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of the Azure Active Directory Principal.
     """
@@ -137,8 +137,8 @@ class DefinitionEligibleAuthorizationArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
-                 just_in_time_access_policy: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']] = None,
-                 principal_display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 just_in_time_access_policy: pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']] = None,
+                 principal_display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param pulumi.Input[_builtins.str] role_definition_id: The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
@@ -178,39 +178,39 @@ class DefinitionEligibleAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="justInTimeAccessPolicy")
-    def just_in_time_access_policy(self) -> Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]:
+    def just_in_time_access_policy(self) -> pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]:
         """
         A `just_in_time_access_policy` block as defined below.
         """
         return pulumi.get(self, "just_in_time_access_policy")
 
     @just_in_time_access_policy.setter
-    def just_in_time_access_policy(self, value: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]):
+    def just_in_time_access_policy(self, value: pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]):
         pulumi.set(self, "just_in_time_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="principalDisplayName")
-    def principal_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the Azure Active Directory Principal.
         """
         return pulumi.get(self, "principal_display_name")
 
     @principal_display_name.setter
-    def principal_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_display_name", value)
 
 
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict(TypedDict):
-    approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict']]]]
+    approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]]
     """
     An `approver` block as defined below.
     """
-    maximum_activation_duration: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_activation_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
     """
-    multi_factor_auth_provider: NotRequired[pulumi.Input[_builtins.str]]
+    multi_factor_auth_provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
 
@@ -220,9 +220,9 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
     def __init__(__self__, *,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]] = None,
-                 maximum_activation_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_factor_auth_provider: Optional[pulumi.Input[_builtins.str]] = None):
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]] = None,
+                 maximum_activation_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_factor_auth_provider: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]] approvers: An `approver` block as defined below.
         :param pulumi.Input[_builtins.str] maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
@@ -239,31 +239,31 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]:
+    def approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]:
         """
         An `approver` block as defined below.
         """
         return pulumi.get(self, "approvers")
 
     @approvers.setter
-    def approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]):
+    def approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]):
         pulumi.set(self, "approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumActivationDuration")
-    def maximum_activation_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_activation_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
         """
         return pulumi.get(self, "maximum_activation_duration")
 
     @maximum_activation_duration.setter
-    def maximum_activation_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_activation_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_activation_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="multiFactorAuthProvider")
-    def multi_factor_auth_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_factor_auth_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
 
@@ -272,7 +272,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
         return pulumi.get(self, "multi_factor_auth_provider")
 
     @multi_factor_auth_provider.setter
-    def multi_factor_auth_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_factor_auth_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_factor_auth_provider", value)
 
 
@@ -281,7 +281,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict(Type
     """
     The Principal ID of the Azure Active Directory principal for the approver.
     """
-    principal_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    principal_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of the Azure Active Directory Principal for the approver.
     """
@@ -290,7 +290,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict(Type
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
-                 principal_display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID of the Azure Active Directory principal for the approver.
         :param pulumi.Input[_builtins.str] principal_display_name: The display name of the Azure Active Directory Principal for the approver.
@@ -313,14 +313,14 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalDisplayName")
-    def principal_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the Azure Active Directory Principal for the approver.
         """
         return pulumi.get(self, "principal_display_name")
 
     @principal_display_name.setter
-    def principal_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_display_name", value)
 
 

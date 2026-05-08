@@ -190,27 +190,27 @@ export interface CollectorPolicyState {
     /**
      * An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      */
-    ipfxEmission?: pulumi.Input<inputs.networkfunction.CollectorPolicyIpfxEmission>;
+    ipfxEmission?: pulumi.Input<inputs.networkfunction.CollectorPolicyIpfxEmission | undefined>;
     /**
      * An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      */
-    ipfxIngestion?: pulumi.Input<inputs.networkfunction.CollectorPolicyIpfxIngestion>;
+    ipfxIngestion?: pulumi.Input<inputs.networkfunction.CollectorPolicyIpfxIngestion | undefined>;
     /**
      * Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Function Collector Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */
-    trafficCollectorId?: pulumi.Input<string>;
+    trafficCollectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,15 +228,15 @@ export interface CollectorPolicyArgs {
     /**
      * Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Function Collector Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */

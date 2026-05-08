@@ -169,29 +169,29 @@ export interface SharedPrivateLinkResourceState {
     /**
      * The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      */
-    signalrServiceId?: pulumi.Input<string>;
+    signalrServiceId?: pulumi.Input<string | undefined>;
     /**
      * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
      */
-    subResourceName?: pulumi.Input<string>;
+    subResourceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,11 +201,11 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      */

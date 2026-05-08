@@ -24,12 +24,12 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
                  network_profile: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rulestack_id: pulumi.Input[_builtins.str],
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
-                 marketplace_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
+                 dns_settings: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualNetworkLocalRulestack resource.
 
@@ -99,55 +99,55 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
+    def destination_nats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
         """
         One or more `destination_nat` blocks as defined below.
         """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
+    def destination_nats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
+    def dns_settings(self) -> pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
         """
         A `dns_settings` block as defined below.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
+    def dns_settings(self, value: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceOfferId")
-    def marketplace_offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_offer_id")
 
     @marketplace_offer_id.setter
-    def marketplace_offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_offer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
 
@@ -156,34 +156,34 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
     def __init__(__self__, *,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
-                 marketplace_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
+                 dns_settings: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualNetworkLocalRulestack resources.
 
@@ -220,67 +220,67 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
 
     @_builtins.property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
+    def destination_nats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
         """
         One or more `destination_nat` blocks as defined below.
         """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
+    def destination_nats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
+    def dns_settings(self) -> pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
         """
         A `dns_settings` block as defined below.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
+    def dns_settings(self, value: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceOfferId")
-    def marketplace_offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_offer_id")
 
     @marketplace_offer_id.setter
-    def marketplace_offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_offer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
 
@@ -289,43 +289,43 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rulestackId")
-    def rulestack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rulestack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         """
         return pulumi.get(self, "rulestack_id")
 
     @rulestack_id.setter
-    def rulestack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rulestack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rulestack_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -335,15 +335,15 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
-                 marketplace_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+                 marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
@@ -592,15 +592,15 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
-                 marketplace_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+                 marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -635,15 +635,15 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
-            dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
-            marketplace_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
-            plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NextGenerationFirewallVirtualNetworkLocalRulestack':
+            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
+            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+            marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+            plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NextGenerationFirewallVirtualNetworkLocalRulestack':
         """
         Get an existing NextGenerationFirewallVirtualNetworkLocalRulestack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

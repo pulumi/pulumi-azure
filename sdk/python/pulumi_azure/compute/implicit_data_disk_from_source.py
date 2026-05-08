@@ -24,9 +24,9 @@ class ImplicitDataDiskFromSourceArgs:
                  lun: pulumi.Input[_builtins.int],
                  source_resource_id: pulumi.Input[_builtins.str],
                  virtual_machine_id: pulumi.Input[_builtins.str],
-                 caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ImplicitDataDiskFromSource resource.
 
@@ -129,52 +129,52 @@ class ImplicitDataDiskFromSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caching(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caching(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caching", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
-    def write_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def write_accelerator_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
     @write_accelerator_enabled.setter
-    def write_accelerator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def write_accelerator_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
 @pulumi.input_type
 class _ImplicitDataDiskFromSourceState:
     def __init__(__self__, *,
-                 caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 lun: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 lun: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ImplicitDataDiskFromSource resources.
 
@@ -214,31 +214,31 @@ class _ImplicitDataDiskFromSourceState:
 
     @_builtins.property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caching(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caching(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caching", value)
 
     @_builtins.property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_option", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the Data Disk in gigabytes.
 
@@ -253,67 +253,67 @@ class _ImplicitDataDiskFromSourceState:
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def lun(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lun(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lun(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lun", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
-    def write_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def write_accelerator_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
     @write_accelerator_enabled.setter
-    def write_accelerator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def write_accelerator_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
@@ -323,14 +323,14 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 lun: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 lun: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an implicit Data Disk of a Virtual Machine.
@@ -582,14 +582,14 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 lun: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 lun: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -627,14 +627,14 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            caching: Optional[pulumi.Input[_builtins.str]] = None,
-            create_option: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            lun: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ImplicitDataDiskFromSource':
+            caching: pulumi.Input[Optional[_builtins.str]] = None,
+            create_option: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            lun: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ImplicitDataDiskFromSource':
         """
         Get an existing ImplicitDataDiskFromSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

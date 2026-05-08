@@ -187,49 +187,49 @@ export interface ServerState {
     /**
      * List of email addresses of admin users.
      */
-    adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * URI and SAS token for a blob container to store backups.
      */
-    backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
-    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
+    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[] | undefined>;
     /**
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      *
      * > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      */
-    powerBiServiceEnabled?: pulumi.Input<boolean>;
+    powerBiServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      */
-    querypoolConnectionMode?: pulumi.Input<string>;
+    querypoolConnectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The full name of the Analysis Services Server.
      */
-    serverFullName?: pulumi.Input<string>;
+    serverFullName?: pulumi.Input<string | undefined>;
     /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -239,33 +239,33 @@ export interface ServerArgs {
     /**
      * List of email addresses of admin users.
      */
-    adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * URI and SAS token for a blob container to store backups.
      */
-    backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
-    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
+    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[] | undefined>;
     /**
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      *
      * > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      */
-    powerBiServiceEnabled?: pulumi.Input<boolean>;
+    powerBiServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      */
-    querypoolConnectionMode?: pulumi.Input<string>;
+    querypoolConnectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
@@ -277,5 +277,5 @@ export interface ServerArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

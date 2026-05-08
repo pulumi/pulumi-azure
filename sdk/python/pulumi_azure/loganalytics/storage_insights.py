@@ -23,9 +23,9 @@ class StorageInsightsArgs:
                  storage_account_id: pulumi.Input[_builtins.str],
                  storage_account_key: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageInsights resource.
 
@@ -98,51 +98,51 @@ class StorageInsightsArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobContainerNames")
-    def blob_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_container_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the blob containers that the workspace should read.
         """
         return pulumi.get(self, "blob_container_names")
 
     @blob_container_names.setter
-    def blob_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_container_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_container_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def table_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the Azure tables that the workspace should read.
         """
         return pulumi.get(self, "table_names")
 
     @table_names.setter
-    def table_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def table_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_names", value)
 
 
 @pulumi.input_type
 class _StorageInsightsState:
     def __init__(__self__, *,
-                 blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageInsights resources.
 
@@ -171,86 +171,86 @@ class _StorageInsightsState:
 
     @_builtins.property
     @pulumi.getter(name="blobContainerNames")
-    def blob_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blob_container_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the blob containers that the workspace should read.
         """
         return pulumi.get(self, "blob_container_names")
 
     @blob_container_names.setter
-    def blob_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blob_container_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blob_container_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account used by this Log Analytics Storage Insights.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage access key to be used to connect to the storage account.
         """
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def table_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the Azure tables that the workspace should read.
         """
         return pulumi.get(self, "table_names")
 
     @table_names.setter
-    def table_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def table_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_names", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -260,13 +260,13 @@ class StorageInsights(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Storage Insights resource.
@@ -395,13 +395,13 @@ class StorageInsights(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -438,13 +438,13 @@ class StorageInsights(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'StorageInsights':
+            blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'StorageInsights':
         """
         Get an existing StorageInsights resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

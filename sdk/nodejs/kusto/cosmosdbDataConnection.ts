@@ -243,35 +243,35 @@ export interface CosmosdbDataConnectionState {
     /**
      * The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    cosmosdbContainerId?: pulumi.Input<string>;
+    cosmosdbContainerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    kustoDatabaseId?: pulumi.Input<string>;
+    kustoDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    managedIdentityId?: pulumi.Input<string>;
+    managedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface CosmosdbDataConnectionArgs {
     /**
      * The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
@@ -297,15 +297,15 @@ export interface CosmosdbDataConnectionArgs {
     /**
      * The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */

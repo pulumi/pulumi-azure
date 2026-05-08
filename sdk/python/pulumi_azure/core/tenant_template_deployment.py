@@ -19,13 +19,13 @@ __all__ = ['TenantTemplateDeploymentArgs', 'TenantTemplateDeployment']
 @pulumi.input_type
 class TenantTemplateDeploymentArgs:
     def __init__(__self__, *,
-                 debug_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TenantTemplateDeployment resource.
 
@@ -54,100 +54,100 @@ class TenantTemplateDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="debugLevel")
-    def debug_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def debug_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         """
         return pulumi.get(self, "debug_level")
 
     @debug_level.setter
-    def debug_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def debug_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "debug_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Template should exist. Changing this forces a new Template to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Template. Changing this forces a new Template to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parametersContent")
-    def parameters_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the ARM Template parameters file - containing a JSON list of parameters.
         """
         return pulumi.get(self, "parameters_content")
 
     @parameters_content.setter
-    def parameters_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters_content", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateContent")
-    def template_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         """
         return pulumi.get(self, "template_content")
 
     @template_content.setter
-    def template_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_content", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSpecVersionId")
-    def template_spec_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_spec_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         """
         return pulumi.get(self, "template_spec_version_id")
 
     @template_spec_version_id.setter
-    def template_spec_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_spec_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_spec_version_id", value)
 
 
 @pulumi.input_type
 class _TenantTemplateDeploymentState:
     def __init__(__self__, *,
-                 debug_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TenantTemplateDeployment resources.
 
@@ -179,98 +179,98 @@ class _TenantTemplateDeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="debugLevel")
-    def debug_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def debug_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         """
         return pulumi.get(self, "debug_level")
 
     @debug_level.setter
-    def debug_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def debug_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "debug_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Template should exist. Changing this forces a new Template to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Template. Changing this forces a new Template to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputContent")
-    def output_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON Content of the Outputs of the ARM Template Deployment.
         """
         return pulumi.get(self, "output_content")
 
     @output_content.setter
-    def output_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_content", value)
 
     @_builtins.property
     @pulumi.getter(name="parametersContent")
-    def parameters_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the ARM Template parameters file - containing a JSON list of parameters.
         """
         return pulumi.get(self, "parameters_content")
 
     @parameters_content.setter
-    def parameters_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters_content", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateContent")
-    def template_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         """
         return pulumi.get(self, "template_content")
 
     @template_content.setter
-    def template_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_content", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSpecVersionId")
-    def template_spec_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_spec_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         """
         return pulumi.get(self, "template_spec_version_id")
 
     @template_spec_version_id.setter
-    def template_spec_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_spec_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_spec_version_id", value)
 
 
@@ -280,13 +280,13 @@ class TenantTemplateDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 debug_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Template Deployment at the Tenant Scope.
@@ -385,13 +385,13 @@ class TenantTemplateDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 debug_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,14 +419,14 @@ class TenantTemplateDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            debug_level: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            output_content: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters_content: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            template_content: Optional[pulumi.Input[_builtins.str]] = None,
-            template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TenantTemplateDeployment':
+            debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_content: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_content: pulumi.Input[Optional[_builtins.str]] = None,
+            template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TenantTemplateDeployment':
         """
         Get an existing TenantTemplateDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

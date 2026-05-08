@@ -22,7 +22,7 @@ class NamespaceSchemaGroupArgs:
                  namespace_id: pulumi.Input[_builtins.str],
                  schema_compatibility: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceSchemaGroup resource.
 
@@ -79,24 +79,24 @@ class NamespaceSchemaGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this schema group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NamespaceSchemaGroupState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceSchemaGroup resources.
 
@@ -118,43 +118,43 @@ class _NamespaceSchemaGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this schema group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaCompatibility")
-    def schema_compatibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_compatibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_compatibility")
 
     @schema_compatibility.setter
-    def schema_compatibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_compatibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_compatibility", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
-    def schema_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
 
@@ -163,7 +163,7 @@ class _NamespaceSchemaGroupState:
         return pulumi.get(self, "schema_type")
 
     @schema_type.setter
-    def schema_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_type", value)
 
 
@@ -173,10 +173,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -284,10 +284,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,10 +317,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceSchemaGroup':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceSchemaGroup':
         """
         Get an existing NamespaceSchemaGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

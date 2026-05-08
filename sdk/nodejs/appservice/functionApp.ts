@@ -384,99 +384,99 @@ export interface FunctionAppState {
     /**
      * The ID of the App Service Plan within which to create this Function App.
      */
-    appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      *
      * > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
-    clientCertMode?: pulumi.Input<string>;
+    clientCertMode?: pulumi.Input<string | undefined>;
     /**
      * An `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[] | undefined>;
     /**
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
-    dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number | undefined>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      */
-    enableBuiltinLogging?: pulumi.Input<boolean>;
+    enableBuiltinLogging?: pulumi.Input<boolean | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
+    identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
      *
      * > **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteCredential>[] | undefined>;
     /**
      * A `sourceControl` block, as defined below.
      */
-    sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl>;
+    sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      *
@@ -484,19 +484,19 @@ export interface FunctionAppState {
      *
      * > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -512,57 +512,57 @@ export interface FunctionAppArgs {
      *
      * > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
-    clientCertMode?: pulumi.Input<string>;
+    clientCertMode?: pulumi.Input<string | undefined>;
     /**
      * An `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[] | undefined>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
-    dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number | undefined>;
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      */
-    enableBuiltinLogging?: pulumi.Input<boolean>;
+    enableBuiltinLogging?: pulumi.Input<boolean | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
+    identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
      *
      * > **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      */
@@ -570,11 +570,11 @@ export interface FunctionAppArgs {
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig | undefined>;
     /**
      * A `sourceControl` block, as defined below.
      */
-    sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl>;
+    sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      *
@@ -590,9 +590,9 @@ export interface FunctionAppArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

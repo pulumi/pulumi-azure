@@ -23,12 +23,12 @@ class ProjectArgs:
     def __init__(__self__, *,
                  dev_center_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ProjectIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -82,89 +82,89 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the project. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ProjectIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ProjectIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumDevBoxesPerUser")
-    def maximum_dev_boxes_per_user(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_dev_boxes_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         """
         return pulumi.get(self, "maximum_dev_boxes_per_user")
 
     @maximum_dev_boxes_per_user.setter
-    def maximum_dev_boxes_per_user(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_dev_boxes_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_dev_boxes_per_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ProjectIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -199,110 +199,110 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the project. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterUri")
-    def dev_center_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Dev Center resource this project is associated with.
         """
         return pulumi.get(self, "dev_center_uri")
 
     @dev_center_uri.setter
-    def dev_center_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ProjectIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ProjectIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumDevBoxesPerUser")
-    def maximum_dev_boxes_per_user(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_dev_boxes_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         """
         return pulumi.get(self, "maximum_dev_boxes_per_user")
 
     @maximum_dev_boxes_per_user.setter
-    def maximum_dev_boxes_per_user(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_dev_boxes_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_dev_boxes_per_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -312,14 +312,14 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dev Center Project.
@@ -445,14 +445,14 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,15 +485,15 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dev_center_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,9 +20,9 @@ __all__ = ['SpringCloudCustomDomainArgs', 'SpringCloudCustomDomain']
 class SpringCloudCustomDomainArgs:
     def __init__(__self__, *,
                  spring_cloud_app_id: pulumi.Input[_builtins.str],
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudCustomDomain resource.
 
@@ -53,48 +53,48 @@ class SpringCloudCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
 @pulumi.input_type
 class _SpringCloudCustomDomainState:
     def __init__(__self__, *,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudCustomDomain resources.
 
@@ -114,50 +114,50 @@ class _SpringCloudCustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -167,10 +167,10 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Spring Cloud Custom Domain.
@@ -298,10 +298,10 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,10 +327,10 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudCustomDomain':
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudCustomDomain':
         """
         Get an existing SpringCloudCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

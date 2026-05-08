@@ -179,43 +179,43 @@ export interface VpnSiteState {
      *
      * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
-    addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    addressCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The model of the VPN device.
      */
-    deviceModel?: pulumi.Input<string>;
+    deviceModel?: pulumi.Input<string | undefined>;
     /**
      * The name of the VPN device vendor.
      */
-    deviceVendor?: pulumi.Input<string>;
+    deviceVendor?: pulumi.Input<string | undefined>;
     /**
      * One or more `link` blocks as defined below.
      */
-    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[] | undefined>;
     /**
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `o365Policy` block as defined below.
      */
-    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy>;
+    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy | undefined>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the VPN Site.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      */
-    virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,31 +227,31 @@ export interface VpnSiteArgs {
      *
      * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
-    addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    addressCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The model of the VPN device.
      */
-    deviceModel?: pulumi.Input<string>;
+    deviceModel?: pulumi.Input<string | undefined>;
     /**
      * The name of the VPN device vendor.
      */
-    deviceVendor?: pulumi.Input<string>;
+    deviceVendor?: pulumi.Input<string | undefined>;
     /**
      * One or more `link` blocks as defined below.
      */
-    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[] | undefined>;
     /**
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `o365Policy` block as defined below.
      */
-    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy>;
+    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy | undefined>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
@@ -259,7 +259,7 @@ export interface VpnSiteArgs {
     /**
      * A mapping of tags which should be assigned to the VPN Site.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      */

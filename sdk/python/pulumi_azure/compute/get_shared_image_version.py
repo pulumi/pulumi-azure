@@ -247,12 +247,12 @@ def get_shared_image_version(gallery_name: Optional[_builtins.str] = None,
         sort_versions_by_semver=pulumi.get(__ret__, 'sort_versions_by_semver'),
         tags=pulumi.get(__ret__, 'tags'),
         target_regions=pulumi.get(__ret__, 'target_regions'))
-def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    sort_versions_by_semver: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_shared_image_version_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    sort_versions_by_semver: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedImageVersionResult]:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.

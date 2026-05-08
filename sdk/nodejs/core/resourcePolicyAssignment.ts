@@ -212,63 +212,63 @@ export interface ResourcePolicyAssignmentState {
     /**
      * A description which should be used for this Policy Assignment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name for this Policy Assignment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
-    enforce?: pulumi.Input<boolean>;
+    enforce?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      *
      * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
-    identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity>;
+    identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity | undefined>;
     /**
      * The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A JSON mapping of any Metadata for this Policy.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nonComplianceMessage` blocks as defined below.
      */
-    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[]>;
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[] | undefined>;
     /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */
-    notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    notScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      */
-    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[]>;
+    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[] | undefined>;
     /**
      * A JSON mapping of any Parameters for this Policy.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
-    policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
      *
      * > **Note:** To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      */
-    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[]>;
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[] | undefined>;
 }
 
 /**
@@ -278,49 +278,49 @@ export interface ResourcePolicyAssignmentArgs {
     /**
      * A description which should be used for this Policy Assignment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name for this Policy Assignment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
-    enforce?: pulumi.Input<boolean>;
+    enforce?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      *
      * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
-    identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity>;
+    identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity | undefined>;
     /**
      * The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A JSON mapping of any Metadata for this Policy.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nonComplianceMessage` blocks as defined below.
      */
-    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[]>;
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[] | undefined>;
     /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */
-    notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    notScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      */
-    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[]>;
+    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[] | undefined>;
     /**
      * A JSON mapping of any Parameters for this Policy.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
@@ -334,5 +334,5 @@ export interface ResourcePolicyAssignmentArgs {
     /**
      * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      */
-    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[]>;
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[] | undefined>;
 }

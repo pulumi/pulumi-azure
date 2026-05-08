@@ -21,7 +21,7 @@ class AttachedNetworkArgs:
     def __init__(__self__, *,
                  dev_center_id: pulumi.Input[_builtins.str],
                  network_connection_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AttachedNetwork resource.
 
@@ -60,23 +60,23 @@ class AttachedNetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AttachedNetworkState:
     def __init__(__self__, *,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachedNetwork resources.
 
@@ -93,38 +93,38 @@ class _AttachedNetworkState:
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Dev Center. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnectionId")
-    def network_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_connection_id")
 
     @network_connection_id.setter
-    def network_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection_id", value)
 
 
@@ -134,9 +134,9 @@ class AttachedNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Dev Center Attached Network.
@@ -279,9 +279,9 @@ class AttachedNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -308,9 +308,9 @@ class AttachedNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_connection_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AttachedNetwork':
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AttachedNetwork':
         """
         Get an existing AttachedNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

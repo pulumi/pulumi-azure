@@ -170,37 +170,37 @@ export interface FrontdoorProfileState {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
+    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity | undefined>;
     /**
      * One or more `logScrubbingRule` blocks as defined below.
      *
      * > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      */
-    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[]>;
+    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[] | undefined>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      */
-    resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
      */
-    responseTimeoutSeconds?: pulumi.Input<number>;
+    responseTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -210,17 +210,17 @@ export interface FrontdoorProfileArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
+    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity | undefined>;
     /**
      * One or more `logScrubbingRule` blocks as defined below.
      *
      * > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      */
-    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[]>;
+    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[] | undefined>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
@@ -228,7 +228,7 @@ export interface FrontdoorProfileArgs {
     /**
      * Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
      */
-    responseTimeoutSeconds?: pulumi.Input<number>;
+    responseTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
@@ -236,5 +236,5 @@ export interface FrontdoorProfileArgs {
     /**
      * Specifies a mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

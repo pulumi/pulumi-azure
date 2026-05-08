@@ -24,11 +24,11 @@ class ProductArgs:
                  product_id: pulumi.Input[_builtins.str],
                  published: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Product resource.
 
@@ -125,7 +125,7 @@ class ProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalRequired")
-    def approval_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def approval_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
 
@@ -134,36 +134,36 @@ class ProductArgs:
         return pulumi.get(self, "approval_required")
 
     @approval_required.setter
-    def approval_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def approval_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "approval_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this Product, which may include HTML formatting tags.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is a Subscription required to access API's included in this Product? Defaults to `true`.
         """
         return pulumi.get(self, "subscription_required")
 
     @subscription_required.setter
-    def subscription_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_required", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def subscriptions_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
 
@@ -172,35 +172,35 @@ class ProductArgs:
         return pulumi.get(self, "subscriptions_limit")
 
     @subscriptions_limit.setter
-    def subscriptions_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def subscriptions_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "subscriptions_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
 @pulumi.input_type
 class _ProductState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Product resources.
 
@@ -242,19 +242,19 @@ class _ProductState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="approvalRequired")
-    def approval_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def approval_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
 
@@ -263,84 +263,84 @@ class _ProductState:
         return pulumi.get(self, "approval_required")
 
     @approval_required.setter
-    def approval_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def approval_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "approval_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this Product, which may include HTML formatting tags.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Display Name for this API Management Product.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def published(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def published(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Product Published?
         """
         return pulumi.get(self, "published")
 
     @published.setter
-    def published(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def published(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "published", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is a Subscription required to access API's included in this Product? Defaults to `true`.
         """
         return pulumi.get(self, "subscription_required")
 
     @subscription_required.setter
-    def subscription_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_required", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def subscriptions_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
 
@@ -349,19 +349,19 @@ class _ProductState:
         return pulumi.get(self, "subscriptions_limit")
 
     @subscriptions_limit.setter
-    def subscriptions_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def subscriptions_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "subscriptions_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
@@ -371,16 +371,16 @@ class Product(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Product.
@@ -510,16 +510,16 @@ class Product(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,16 +559,16 @@ class Product(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            product_id: Optional[pulumi.Input[_builtins.str]] = None,
-            published: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            subscriptions_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            terms: Optional[pulumi.Input[_builtins.str]] = None) -> 'Product':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            published: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            terms: pulumi.Input[Optional[_builtins.str]] = None) -> 'Product':
         """
         Get an existing Product resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -153,19 +153,19 @@ export interface SubscriptionPricingState {
     /**
      * One or more `extension` blocks as defined below.
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[] | undefined>;
     /**
      * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
-    subplan?: pulumi.Input<string>;
+    subplan?: pulumi.Input<string | undefined>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,15 +175,15 @@ export interface SubscriptionPricingArgs {
     /**
      * One or more `extension` blocks as defined below.
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[] | undefined>;
     /**
      * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
-    subplan?: pulumi.Input<string>;
+    subplan?: pulumi.Input<string | undefined>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */

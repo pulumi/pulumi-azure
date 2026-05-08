@@ -202,21 +202,21 @@ export interface JobScheduleState {
     /**
      * The time at which the Stream Analytics job last produced an output.
      */
-    lastOutputTime?: pulumi.Input<string>;
+    lastOutputTime?: pulumi.Input<string | undefined>;
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      *
      * > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      */
-    startMode?: pulumi.Input<string>;
+    startMode?: pulumi.Input<string | undefined>;
     /**
      * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobId?: pulumi.Input<string>;
+    streamAnalyticsJobId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface JobScheduleArgs {
     /**
      * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
      */

@@ -120,5 +120,5 @@ export interface GetDbSystemShapesOutputArgs {
     /**
      * The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

@@ -247,77 +247,77 @@ export interface InsightsState {
     /**
      * The App ID associated with this Application Insights component.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
-    applicationType?: pulumi.Input<string>;
+    applicationType?: pulumi.Input<string | undefined>;
     /**
      * The Connection String for this Application Insights component. (Sensitive)
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
-    dailyDataCapInGb?: pulumi.Input<number>;
+    dailyDataCapInGb?: pulumi.Input<number | undefined>;
     /**
      * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
-    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
-    disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
-    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean | undefined>;
     /**
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
-    instrumentationKey?: pulumi.Input<string>;
+    instrumentationKey?: pulumi.Input<string | undefined>;
     /**
      * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean>;
+    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
      */
-    internetQueryEnabled?: pulumi.Input<boolean>;
+    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of a log analytics workspace resource.
      *
      * > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -331,39 +331,39 @@ export interface InsightsArgs {
     /**
      * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
-    dailyDataCapInGb?: pulumi.Input<number>;
+    dailyDataCapInGb?: pulumi.Input<number | undefined>;
     /**
      * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
-    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
-    disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
-    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean>;
+    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
      */
-    internetQueryEnabled?: pulumi.Input<boolean>;
+    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
@@ -371,19 +371,19 @@ export interface InsightsArgs {
     /**
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of a log analytics workspace resource.
      *
      * > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }

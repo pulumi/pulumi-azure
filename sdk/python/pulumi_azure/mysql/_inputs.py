@@ -28,25 +28,25 @@ __all__ = [
 ]
 
 class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
-    geo_backup_key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
     """
-    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
 
     > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Key.
     """
-    managed_hsm_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    managed_hsm_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Managed HSM Key.
     """
-    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
     """
@@ -54,11 +54,11 @@ class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
 @pulumi.input_type
 class FlexibleServerCustomerManagedKeyArgs:
     def __init__(__self__, *,
-                 geo_backup_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_backup_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 geo_backup_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_backup_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
         :param pulumi.Input[_builtins.str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
@@ -81,19 +81,19 @@ class FlexibleServerCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyVaultKeyId")
-    def geo_backup_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
         """
         return pulumi.get(self, "geo_backup_key_vault_key_id")
 
     @geo_backup_key_vault_key_id.setter
-    def geo_backup_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
-    def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
 
@@ -102,43 +102,43 @@ class FlexibleServerCustomerManagedKeyArgs:
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
     @geo_backup_user_assigned_identity_id.setter
-    def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed HSM Key.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
 
@@ -149,7 +149,7 @@ class FlexibleServerHighAvailabilityArgsDict(TypedDict):
 
     > **Note:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
     """
-    standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    standby_availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
 
@@ -162,7 +162,7 @@ class FlexibleServerHighAvailabilityArgsDict(TypedDict):
 class FlexibleServerHighAvailabilityArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 standby_availability_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
                
@@ -193,7 +193,7 @@ class FlexibleServerHighAvailabilityArgs:
 
     @_builtins.property
     @pulumi.getter(name="standbyAvailabilityZone")
-    def standby_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standby_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
 
@@ -204,7 +204,7 @@ class FlexibleServerHighAvailabilityArgs:
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter
-    def standby_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standby_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standby_availability_zone", value)
 
 
@@ -256,15 +256,15 @@ class FlexibleServerIdentityArgs:
 
 
 class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The day of week for maintenance window. Defaults to `0`.
     """
-    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start hour for maintenance window. Defaults to `0`.
     """
-    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start minute for maintenance window. Defaults to `0`.
     """
@@ -272,9 +272,9 @@ class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class FlexibleServerMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] day_of_week: The day of week for maintenance window. Defaults to `0`.
         :param pulumi.Input[_builtins.int] start_hour: The start hour for maintenance window. Defaults to `0`.
@@ -289,59 +289,59 @@ class FlexibleServerMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The day of week for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start hour for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start minute for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
 
 
 class FlexibleServerStorageArgsDict(TypedDict):
-    auto_grow_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_grow_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Storage Auto Grow be enabled? Defaults to `true`.
     """
-    io_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    io_scaling_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
     """
-    iops: NotRequired[pulumi.Input[_builtins.int]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
     """
-    log_on_disk_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    log_on_disk_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Storage Log On Disk be enabled? Defaults to `false`.
     """
-    size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
 
@@ -351,11 +351,11 @@ class FlexibleServerStorageArgsDict(TypedDict):
 @pulumi.input_type
 class FlexibleServerStorageArgs:
     def __init__(__self__, *,
-                 auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 io_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_on_disk_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 size_gb: Optional[pulumi.Input[_builtins.int]] = None):
+                 auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 io_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_on_disk_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 size_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Should Storage Auto Grow be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] io_scaling_enabled: Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
@@ -378,55 +378,55 @@ class FlexibleServerStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoGrowEnabled")
-    def auto_grow_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_grow_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Storage Auto Grow be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "auto_grow_enabled")
 
     @auto_grow_enabled.setter
-    def auto_grow_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_grow_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_grow_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ioScalingEnabled")
-    def io_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def io_scaling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
         """
         return pulumi.get(self, "io_scaling_enabled")
 
     @io_scaling_enabled.setter
-    def io_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def io_scaling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "io_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="logOnDiskEnabled")
-    def log_on_disk_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_on_disk_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Storage Log On Disk be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "log_on_disk_enabled")
 
     @log_on_disk_enabled.setter
-    def log_on_disk_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_on_disk_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_on_disk_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
 
@@ -435,7 +435,7 @@ class FlexibleServerStorageArgs:
         return pulumi.get(self, "size_gb")
 
     @size_gb.setter
-    def size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_gb", value)
 
 

@@ -21,8 +21,8 @@ class SlotCustomHostnameBindingArgs:
     def __init__(__self__, *,
                  app_service_slot_id: pulumi.Input[_builtins.str],
                  hostname: pulumi.Input[_builtins.str],
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlotCustomHostnameBinding resource.
 
@@ -70,19 +70,19 @@ class SlotCustomHostnameBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssl_state")
 
     @ssl_state.setter
-    def ssl_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
 
@@ -91,18 +91,18 @@ class SlotCustomHostnameBindingArgs:
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
 @pulumi.input_type
 class _SlotCustomHostnameBindingState:
     def __init__(__self__, *,
-                 app_service_slot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_slot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotCustomHostnameBinding resources.
 
@@ -129,19 +129,19 @@ class _SlotCustomHostnameBindingState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceSlotId")
-    def app_service_slot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_slot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_slot_id")
 
     @app_service_slot_id.setter
-    def app_service_slot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_slot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_slot_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 
@@ -150,24 +150,24 @@ class _SlotCustomHostnameBindingState:
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssl_state")
 
     @ssl_state.setter
-    def ssl_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
 
@@ -176,19 +176,19 @@ class _SlotCustomHostnameBindingState:
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualIp")
-    def virtual_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         return pulumi.get(self, "virtual_ip")
 
     @virtual_ip.setter
-    def virtual_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_ip", value)
 
 
@@ -198,10 +198,10 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_slot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_slot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Hostname Binding within an App Service Slot.
@@ -325,10 +325,10 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_slot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_slot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,11 +357,11 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_slot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_state: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_ip: Optional[pulumi.Input[_builtins.str]] = None) -> 'SlotCustomHostnameBinding':
+            app_service_slot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_ip: pulumi.Input[Optional[_builtins.str]] = None) -> 'SlotCustomHostnameBinding':
         """
         Get an existing SlotCustomHostnameBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

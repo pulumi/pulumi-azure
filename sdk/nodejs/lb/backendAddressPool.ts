@@ -173,41 +173,41 @@ export interface BackendAddressPoolState {
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
-    backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
+    backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
      */
-    inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>;
+    inboundNatRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */
-    loadBalancingRules?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
      */
-    outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
-    synchronousMode?: pulumi.Input<string>;
+    synchronousMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `tunnelInterface` blocks as defined below.
      */
-    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[] | undefined>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,19 +221,19 @@ export interface BackendAddressPoolArgs {
     /**
      * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
-    synchronousMode?: pulumi.Input<string>;
+    synchronousMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `tunnelInterface` blocks as defined below.
      */
-    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[] | undefined>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }

@@ -22,13 +22,13 @@ __all__ = ['ShareArgs', 'Share']
 class ShareArgs:
     def __init__(__self__, *,
                  quota: pulumi.Input[_builtins.int],
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
-                 enabled_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+                 enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
 
@@ -90,7 +90,7 @@ class ShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 
@@ -99,24 +99,24 @@ class ShareArgs:
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]:
+    def acls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]):
+    def acls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]]):
         pulumi.set(self, "acls", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledProtocol")
-    def enabled_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
@@ -125,36 +125,36 @@ class ShareArgs:
         return pulumi.get(self, "enabled_protocol")
 
     @enabled_protocol.setter
-    def enabled_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of MetaData for this File Share.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the share.
 
@@ -163,13 +163,13 @@ class ShareArgs:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
     @_utilities.deprecated("""This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.""")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the share. This property is deprecated in favour of `storage_account_id`.
 
@@ -178,24 +178,24 @@ class ShareArgs:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
 @pulumi.input_type
 class _ShareState:
     def __init__(__self__, *,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
-                 enabled_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 rbac_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+                 enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 rbac_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
 
@@ -254,7 +254,7 @@ class _ShareState:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 
@@ -263,24 +263,24 @@ class _ShareState:
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]:
+    def acls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]):
+    def acls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclArgs']]]]):
         pulumi.set(self, "acls", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledProtocol")
-    def enabled_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
@@ -289,36 +289,36 @@ class _ShareState:
         return pulumi.get(self, "enabled_protocol")
 
     @enabled_protocol.setter
-    def enabled_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of MetaData for this File Share.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum size of the share, in gigabytes.
 
@@ -329,37 +329,37 @@ class _ShareState:
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "quota", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacScopeId")
-    def rbac_scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rbac_scope_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
         """
         return pulumi.get(self, "rbac_scope_id")
 
     @rbac_scope_id.setter
-    def rbac_scope_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rbac_scope_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rbac_scope_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
     @_utilities.deprecated("""this property is deprecated and will be removed 5.0 and replaced by the `id` property.""")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of this File Share.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the share.
 
@@ -368,13 +368,13 @@ class _ShareState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
     @_utilities.deprecated("""This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.""")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the share. This property is deprecated in favour of `storage_account_id`.
 
@@ -383,19 +383,19 @@ class _ShareState:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the File Share
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -405,14 +405,14 @@ class Share(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
-                 enabled_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+                 enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a File Share within Azure Storage.
@@ -562,14 +562,14 @@ class Share(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
-                 enabled_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+                 enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -602,17 +602,17 @@ class Share(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
-            enabled_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            quota: Optional[pulumi.Input[_builtins.int]] = None,
-            rbac_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Share':
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+            enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota: pulumi.Input[Optional[_builtins.int]] = None,
+            rbac_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

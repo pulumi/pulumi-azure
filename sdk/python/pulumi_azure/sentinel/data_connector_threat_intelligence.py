@@ -20,9 +20,9 @@ __all__ = ['DataConnectorThreatIntelligenceArgs', 'DataConnectorThreatIntelligen
 class DataConnectorThreatIntelligenceArgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorThreatIntelligence resource.
 
@@ -55,31 +55,31 @@ class DataConnectorThreatIntelligenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="lookbackDate")
-    def lookback_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lookback_date")
 
     @lookback_date.setter
-    def lookback_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
 
@@ -88,17 +88,17 @@ class DataConnectorThreatIntelligenceArgs:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
 class _DataConnectorThreatIntelligenceState:
     def __init__(__self__, *,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorThreatIntelligence resources.
 
@@ -120,43 +120,43 @@ class _DataConnectorThreatIntelligenceState:
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lookbackDate")
-    def lookback_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lookback_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lookback_date")
 
     @lookback_date.setter
-    def lookback_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lookback_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lookback_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
 
@@ -165,7 +165,7 @@ class _DataConnectorThreatIntelligenceState:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -175,10 +175,10 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Threat Intelligence Data Connector.
@@ -274,10 +274,10 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,10 +303,10 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            lookback_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataConnectorThreatIntelligence':
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataConnectorThreatIntelligence':
         """
         Get an existing DataConnectorThreatIntelligence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

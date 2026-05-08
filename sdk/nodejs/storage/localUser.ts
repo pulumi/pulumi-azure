@@ -190,39 +190,39 @@ export interface LocalUserState {
     /**
      * The home directory of the Storage Account Local User.
      */
-    homeDirectory?: pulumi.Input<string>;
+    homeDirectory?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the password, which is only available when `sshPasswordEnabled` is set to `true`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * One or more `permissionScope` blocks as defined below.
      */
-    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserPermissionScope>[]>;
+    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserPermissionScope>[] | undefined>;
     /**
      * The unique Security Identifier of this Storage Account Local User.
      */
-    sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string | undefined>;
     /**
      * One or more `sshAuthorizedKey` blocks as defined below.
      */
-    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[]>;
+    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[] | undefined>;
     /**
      * Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
      */
-    sshKeyEnabled?: pulumi.Input<boolean>;
+    sshKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
      */
-    sshPasswordEnabled?: pulumi.Input<boolean>;
+    sshPasswordEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,27 +232,27 @@ export interface LocalUserArgs {
     /**
      * The home directory of the Storage Account Local User.
      */
-    homeDirectory?: pulumi.Input<string>;
+    homeDirectory?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `permissionScope` blocks as defined below.
      */
-    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserPermissionScope>[]>;
+    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserPermissionScope>[] | undefined>;
     /**
      * One or more `sshAuthorizedKey` blocks as defined below.
      */
-    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[]>;
+    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[] | undefined>;
     /**
      * Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
      */
-    sshKeyEnabled?: pulumi.Input<boolean>;
+    sshKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
      */
-    sshPasswordEnabled?: pulumi.Input<boolean>;
+    sshPasswordEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
      */

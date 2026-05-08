@@ -342,41 +342,41 @@ export interface ManagedInstanceSecurityAlertPolicyState {
     /**
      * Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
      */
-    disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    emailAccountAdminsEnabled?: pulumi.Input<boolean>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    managedInstanceName?: pulumi.Input<string>;
+    managedInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
      * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -386,19 +386,19 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
     /**
      * Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
      */
-    disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    emailAccountAdminsEnabled?: pulumi.Input<boolean>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
@@ -410,15 +410,15 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
      * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

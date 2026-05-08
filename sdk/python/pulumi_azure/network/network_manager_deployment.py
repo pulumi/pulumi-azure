@@ -22,8 +22,8 @@ class NetworkManagerDeploymentArgs:
                  configuration_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  network_manager_id: pulumi.Input[_builtins.str],
                  scope_access: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManagerDeployment resource.
 
@@ -79,37 +79,37 @@ class NetworkManagerDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def triggers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def triggers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "triggers", value)
 
 
 @pulumi.input_type
 class _NetworkManagerDeploymentState:
     def __init__(__self__, *,
-                 configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerDeployment resources.
 
@@ -132,62 +132,62 @@ class _NetworkManagerDeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="configurationIds")
-    def configuration_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def configuration_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         """
         return pulumi.get(self, "configuration_ids")
 
     @configuration_ids.setter
-    def configuration_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def configuration_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
-    def network_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
     @network_manager_id.setter
-    def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeAccess")
-    def scope_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "scope_access")
 
     @scope_access.setter
-    def scope_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def triggers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def triggers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "triggers", value)
 
 
@@ -197,11 +197,11 @@ class NetworkManagerDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Network Manager Deployment.
@@ -512,11 +512,11 @@ class NetworkManagerDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -547,11 +547,11 @@ class NetworkManagerDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_access: Optional[pulumi.Input[_builtins.str]] = None,
-            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkManagerDeployment':
+            configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_access: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkManagerDeployment':
         """
         Get an existing NetworkManagerDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

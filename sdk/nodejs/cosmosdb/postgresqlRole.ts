@@ -131,15 +131,15 @@ export interface PostgresqlRoleState {
     /**
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface PostgresqlRoleArgs {
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */

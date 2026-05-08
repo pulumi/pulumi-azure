@@ -190,35 +190,35 @@ export interface WorkspaceSecurityAlertPolicyState {
     /**
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      */
-    disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    emailAccountAdminsEnabled?: pulumi.Input<boolean>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
-    policyState?: pulumi.Input<string>;
+    policyState?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,15 +228,15 @@ export interface WorkspaceSecurityAlertPolicyArgs {
     /**
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      */
-    disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    emailAccountAdminsEnabled?: pulumi.Input<boolean>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
@@ -244,15 +244,15 @@ export interface WorkspaceSecurityAlertPolicyArgs {
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
      */

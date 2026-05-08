@@ -154,31 +154,31 @@ export interface NetworkSecurityPerimeterAccessRuleState {
     /**
      * Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `serviceTags`, `subscriptionIds`.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction of the rule. Possible values are `Inbound` and `Outbound`. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
-    direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of fully qualified domain names. Can only be specified when direction is set to `Outbound`. Conflicts with `addressPrefixes`, `serviceTags`, and `subscriptionIds`.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Network Security Perimeter Access Rule. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Security Perimeter Profile within which this Access Rule is created. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
-    networkSecurityPerimeterProfileId?: pulumi.Input<string>;
+    networkSecurityPerimeterProfileId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of service tags. Can only be specified when direction is set to `Inbound`. Conflicts with `addressPrefixes`, `fqdns`, and `subscriptionIds`.
      */
-    serviceTags?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of subscription IDs this rule applies to. Can only be specified when direction is set to `Inbound`. Conflicts with `addressPrefixes`, `fqdns`, and `serviceTags`.
      */
-    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -188,7 +188,7 @@ export interface NetworkSecurityPerimeterAccessRuleArgs {
     /**
      * Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `serviceTags`, `subscriptionIds`.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction of the rule. Possible values are `Inbound` and `Outbound`. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
@@ -196,11 +196,11 @@ export interface NetworkSecurityPerimeterAccessRuleArgs {
     /**
      * Specifies a list of fully qualified domain names. Can only be specified when direction is set to `Outbound`. Conflicts with `addressPrefixes`, `serviceTags`, and `subscriptionIds`.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Network Security Perimeter Access Rule. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Security Perimeter Profile within which this Access Rule is created. Changing this forces a new Network Security Perimeter Access Rule to be created.
      */
@@ -208,9 +208,9 @@ export interface NetworkSecurityPerimeterAccessRuleArgs {
     /**
      * Specifies a list of service tags. Can only be specified when direction is set to `Inbound`. Conflicts with `addressPrefixes`, `fqdns`, and `subscriptionIds`.
      */
-    serviceTags?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of subscription IDs this rule applies to. Can only be specified when direction is set to `Inbound`. Conflicts with `addressPrefixes`, `fqdns`, and `serviceTags`.
      */
-    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -217,37 +217,37 @@ export interface VolumeState {
     /**
      * A `createSource` block as defined below. Changing this forces a new resource to be created.
      */
-    createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource>;
+    createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *
      * > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
      */
-    sizeInGib?: pulumi.Input<number>;
+    sizeInGib?: pulumi.Input<number | undefined>;
     /**
      * The iSCSI Target IQN of the Elastic SAN Volume.
      */
-    targetIqn?: pulumi.Input<string>;
+    targetIqn?: pulumi.Input<string | undefined>;
     /**
      * The iSCSI Target Portal Host Name of the Elastic SAN Volume.
      */
-    targetPortalHostname?: pulumi.Input<string>;
+    targetPortalHostname?: pulumi.Input<string | undefined>;
     /**
      * The iSCSI Target Portal Port of the Elastic SAN Volume.
      */
-    targetPortalPort?: pulumi.Input<number>;
+    targetPortalPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
      */
-    volumeGroupId?: pulumi.Input<string>;
+    volumeGroupId?: pulumi.Input<string | undefined>;
     /**
      * The UUID of the Elastic SAN Volume.
      */
-    volumeId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -257,11 +257,11 @@ export interface VolumeArgs {
     /**
      * A `createSource` block as defined below. Changing this forces a new resource to be created.
      */
-    createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource>;
+    createSource?: pulumi.Input<inputs.elasticsan.VolumeCreateSource | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *

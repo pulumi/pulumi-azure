@@ -123,19 +123,19 @@ export interface NetworkSecurityPerimeterState {
     /**
      * The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Security Perimeter. Changing this forces a new Network Security Perimeter to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Network Security Perimeter should exist.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Security Perimeter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -145,11 +145,11 @@ export interface NetworkSecurityPerimeterArgs {
     /**
      * The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Security Perimeter. Changing this forces a new Network Security Perimeter to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Network Security Perimeter should exist.
      */
@@ -157,5 +157,5 @@ export interface NetworkSecurityPerimeterArgs {
     /**
      * A mapping of tags which should be assigned to the Network Security Perimeter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -149,25 +149,25 @@ export interface ManagedPrivateEndpointState {
     /**
      * The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      *
      * > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    subresourceName?: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,15 +183,15 @@ export interface ManagedPrivateEndpointArgs {
      *
      * > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    subresourceName?: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */

@@ -88,10 +88,10 @@ class EnvironmentCustomDomainArgs:
 @pulumi.input_type
 class _EnvironmentCustomDomainState:
     def __init__(__self__, *,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentCustomDomain resources.
 
@@ -111,50 +111,50 @@ class _EnvironmentCustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
-    def certificate_blob_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_blob_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
         """
         return pulumi.get(self, "certificate_blob_base64")
 
     @certificate_blob_base64.setter
-    def certificate_blob_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_blob_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_blob_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the Certificate bundle.
         """
         return pulumi.get(self, "certificate_password")
 
     @certificate_password.setter
-    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
-    def container_app_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_environment_id")
 
     @container_app_environment_id.setter
-    def container_app_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSuffix")
-    def dns_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom DNS Suffix for the Container App Environment.
         """
         return pulumi.get(self, "dns_suffix")
 
     @dns_suffix.setter
-    def dns_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_suffix", value)
 
 
@@ -164,10 +164,10 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Container App Environment Custom Domain Suffix.
@@ -295,10 +295,10 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,10 +332,10 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_suffix: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnvironmentCustomDomain':
+            certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_suffix: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnvironmentCustomDomain':
         """
         Get an existing EnvironmentCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

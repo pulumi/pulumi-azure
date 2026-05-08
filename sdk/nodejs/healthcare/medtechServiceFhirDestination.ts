@@ -214,27 +214,27 @@ export interface MedtechServiceFhirDestinationState {
     /**
      * Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
      */
-    destinationFhirMappingJson?: pulumi.Input<string>;
+    destinationFhirMappingJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
      */
-    destinationFhirServiceId?: pulumi.Input<string>;
+    destinationFhirServiceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      */
-    destinationIdentityResolutionType?: pulumi.Input<string>;
+    destinationIdentityResolutionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    medtechServiceId?: pulumi.Input<string>;
+    medtechServiceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface MedtechServiceFhirDestinationArgs {
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
@@ -264,5 +264,5 @@ export interface MedtechServiceFhirDestinationArgs {
     /**
      * Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

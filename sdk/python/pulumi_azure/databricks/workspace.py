@@ -23,24 +23,24 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 access_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_storage_firewall_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enhanced_security_compliance: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_rules_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameters: pulumi.Input[Optional['WorkspaceCustomParametersArgs']] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enhanced_security_compliance: pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -146,7 +146,7 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessConnectorId")
-    def access_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Connector ID to use when default storage account firewall is enabled. 
 
@@ -155,96 +155,96 @@ class WorkspaceArgs:
         return pulumi.get(self, "access_connector_id")
 
     @access_connector_id.setter
-    def access_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customParameters")
-    def custom_parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
+    def custom_parameters(self) -> pulumi.Input[Optional['WorkspaceCustomParametersArgs']]:
         """
         A `custom_parameters` block as documented below.
         """
         return pulumi.get(self, "custom_parameters")
 
     @custom_parameters.setter
-    def custom_parameters(self, value: Optional[pulumi.Input['WorkspaceCustomParametersArgs']]):
+    def custom_parameters(self, value: pulumi.Input[Optional['WorkspaceCustomParametersArgs']]):
         pulumi.set(self, "custom_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageFirewallEnabled")
-    def default_storage_firewall_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_storage_firewall_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disallow public access to default storage account. Defaults to `false`.
         """
         return pulumi.get(self, "default_storage_firewall_enabled")
 
     @default_storage_firewall_enabled.setter
-    def default_storage_firewall_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_storage_firewall_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_storage_firewall_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedSecurityCompliance")
-    def enhanced_security_compliance(self) -> Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]:
+    def enhanced_security_compliance(self) -> pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]:
         """
         An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
     @enhanced_security_compliance.setter
-    def enhanced_security_compliance(self, value: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]):
+    def enhanced_security_compliance(self, value: pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]):
         pulumi.set(self, "enhanced_security_compliance", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
-    def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
     @load_balancer_backend_address_pool_id.setter
-    def load_balancer_backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkKeyVaultId")
-    def managed_disk_cmk_key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_cmk_key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Key Vault which contains the `managed_disk_cmk_key_vault_key_id` key.
 
@@ -255,36 +255,36 @@ class WorkspaceArgs:
         return pulumi.get(self, "managed_disk_cmk_key_vault_id")
 
     @managed_disk_cmk_key_vault_id.setter
-    def managed_disk_cmk_key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_cmk_key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_cmk_key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkKeyVaultKeyId")
-    def managed_disk_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_cmk_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer managed encryption properties for the Databricks Workspace managed disks.
         """
         return pulumi.get(self, "managed_disk_cmk_key_vault_key_id")
 
     @managed_disk_cmk_key_vault_key_id.setter
-    def managed_disk_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_cmk_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_cmk_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkRotationToLatestVersionEnabled")
-    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
         """
         return pulumi.get(self, "managed_disk_cmk_rotation_to_latest_version_enabled")
 
     @managed_disk_cmk_rotation_to_latest_version_enabled.setter
-    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed_disk_cmk_rotation_to_latest_version_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 
@@ -293,12 +293,12 @@ class WorkspaceArgs:
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServicesCmkKeyVaultId")
-    def managed_services_cmk_key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_services_cmk_key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Key Vault which contains the `managed_services_cmk_key_vault_key_id` key.
 
@@ -309,99 +309,99 @@ class WorkspaceArgs:
         return pulumi.get(self, "managed_services_cmk_key_vault_id")
 
     @managed_services_cmk_key_vault_id.setter
-    def managed_services_cmk_key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_services_cmk_key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_services_cmk_key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServicesCmkKeyVaultKeyId")
-    def managed_services_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_services_cmk_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         """
         return pulumi.get(self, "managed_services_cmk_key_vault_key_id")
 
     @managed_services_cmk_key_vault_key_id.setter
-    def managed_services_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_services_cmk_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_services_cmk_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
-    def network_security_group_rules_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_group_rules_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """
         return pulumi.get(self, "network_security_group_rules_required")
 
     @network_security_group_rules_required.setter
-    def network_security_group_rules_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_group_rules_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_group_rules_required", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
-                 access_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_storage_firewall_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enhanced_security_compliance: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_disk_identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]] = None,
-                 managed_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_rules_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameters: pulumi.Input[Optional['WorkspaceCustomParametersArgs']] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enhanced_security_compliance: pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_disk_identities: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]] = None,
+                 managed_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_identities: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
 
@@ -501,7 +501,7 @@ class _WorkspaceState:
 
     @_builtins.property
     @pulumi.getter(name="accessConnectorId")
-    def access_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Connector ID to use when default storage account firewall is enabled. 
 
@@ -510,108 +510,108 @@ class _WorkspaceState:
         return pulumi.get(self, "access_connector_id")
 
     @access_connector_id.setter
-    def access_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customParameters")
-    def custom_parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
+    def custom_parameters(self) -> pulumi.Input[Optional['WorkspaceCustomParametersArgs']]:
         """
         A `custom_parameters` block as documented below.
         """
         return pulumi.get(self, "custom_parameters")
 
     @custom_parameters.setter
-    def custom_parameters(self, value: Optional[pulumi.Input['WorkspaceCustomParametersArgs']]):
+    def custom_parameters(self, value: pulumi.Input[Optional['WorkspaceCustomParametersArgs']]):
         pulumi.set(self, "custom_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageFirewallEnabled")
-    def default_storage_firewall_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_storage_firewall_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disallow public access to default storage account. Defaults to `false`.
         """
         return pulumi.get(self, "default_storage_firewall_enabled")
 
     @default_storage_firewall_enabled.setter
-    def default_storage_firewall_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_storage_firewall_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_storage_firewall_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedSecurityCompliance")
-    def enhanced_security_compliance(self) -> Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]:
+    def enhanced_security_compliance(self) -> pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]:
         """
         An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
     @enhanced_security_compliance.setter
-    def enhanced_security_compliance(self, value: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]):
+    def enhanced_security_compliance(self, value: pulumi.Input[Optional['WorkspaceEnhancedSecurityComplianceArgs']]):
         pulumi.set(self, "enhanced_security_compliance", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
-    def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
     @load_balancer_backend_address_pool_id.setter
-    def load_balancer_backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkKeyVaultId")
-    def managed_disk_cmk_key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_cmk_key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Key Vault which contains the `managed_disk_cmk_key_vault_key_id` key.
 
@@ -622,60 +622,60 @@ class _WorkspaceState:
         return pulumi.get(self, "managed_disk_cmk_key_vault_id")
 
     @managed_disk_cmk_key_vault_id.setter
-    def managed_disk_cmk_key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_cmk_key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_cmk_key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkKeyVaultKeyId")
-    def managed_disk_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_cmk_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer managed encryption properties for the Databricks Workspace managed disks.
         """
         return pulumi.get(self, "managed_disk_cmk_key_vault_key_id")
 
     @managed_disk_cmk_key_vault_key_id.setter
-    def managed_disk_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_cmk_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_cmk_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCmkRotationToLatestVersionEnabled")
-    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
         """
         return pulumi.get(self, "managed_disk_cmk_rotation_to_latest_version_enabled")
 
     @managed_disk_cmk_rotation_to_latest_version_enabled.setter
-    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed_disk_cmk_rotation_to_latest_version_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskIdentities")
-    def managed_disk_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]:
+    def managed_disk_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]:
         """
         A `managed_disk_identity` block as documented below.
         """
         return pulumi.get(self, "managed_disk_identities")
 
     @managed_disk_identities.setter
-    def managed_disk_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]):
+    def managed_disk_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]):
         pulumi.set(self, "managed_disk_identities", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Resource Group created by the Databricks Workspace.
         """
         return pulumi.get(self, "managed_resource_group_id")
 
     @managed_resource_group_id.setter
-    def managed_resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 
@@ -684,12 +684,12 @@ class _WorkspaceState:
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServicesCmkKeyVaultId")
-    def managed_services_cmk_key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_services_cmk_key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the Key Vault which contains the `managed_services_cmk_key_vault_key_id` key.
 
@@ -700,72 +700,72 @@ class _WorkspaceState:
         return pulumi.get(self, "managed_services_cmk_key_vault_id")
 
     @managed_services_cmk_key_vault_id.setter
-    def managed_services_cmk_key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_services_cmk_key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_services_cmk_key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServicesCmkKeyVaultKeyId")
-    def managed_services_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_services_cmk_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         """
         return pulumi.get(self, "managed_services_cmk_key_vault_key_id")
 
     @managed_services_cmk_key_vault_key_id.setter
-    def managed_services_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_services_cmk_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_services_cmk_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
-    def network_security_group_rules_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_group_rules_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """
         return pulumi.get(self, "network_security_group_rules_required")
 
     @network_security_group_rules_required.setter
-    def network_security_group_rules_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_group_rules_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_group_rules_required", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 
@@ -774,55 +774,55 @@ class _WorkspaceState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountIdentities")
-    def storage_account_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]]:
+    def storage_account_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]]:
         """
         A `storage_account_identity` block as documented below.
         """
         return pulumi.get(self, "storage_account_identities")
 
     @storage_account_identities.setter
-    def storage_account_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]]):
+    def storage_account_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]]):
         pulumi.set(self, "storage_account_identities", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the databricks workspace in Databricks control plane.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceUrl")
-    def workspace_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """
         return pulumi.get(self, "workspace_url")
 
     @workspace_url.setter
-    def workspace_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_url", value)
 
 
@@ -832,26 +832,26 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_storage_firewall_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_rules_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameters: pulumi.Input[Optional[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enhanced_security_compliance: pulumi.Input[Optional[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Databricks Workspace
@@ -1017,26 +1017,26 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_storage_firewall_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_rules_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parameters: pulumi.Input[Optional[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enhanced_security_compliance: pulumi.Input[Optional[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1086,32 +1086,32 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
-            customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_storage_firewall_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
-            infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            load_balancer_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_disk_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            managed_disk_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceManagedDiskIdentityArgs', 'WorkspaceManagedDiskIdentityArgsDict']]]]] = None,
-            managed_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_services_cmk_key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_security_group_rules_required: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceStorageAccountIdentityArgs', 'WorkspaceStorageAccountIdentityArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workspace':
+            access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_parameters: pulumi.Input[Optional[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
+            customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enhanced_security_compliance: pulumi.Input[Optional[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_disk_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceManagedDiskIdentityArgs', 'WorkspaceManagedDiskIdentityArgsDict']]]]] = None,
+            managed_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceStorageAccountIdentityArgs', 'WorkspaceStorageAccountIdentityArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

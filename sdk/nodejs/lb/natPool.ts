@@ -210,48 +210,48 @@ export interface NatPoolState {
     /**
      * The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    backendPort?: pulumi.Input<number>;
+    backendPort?: pulumi.Input<number | undefined>;
     /**
      * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
-    floatingIpEnabled?: pulumi.Input<boolean>;
-    frontendIpConfigurationId?: pulumi.Input<string>;
+    floatingIpEnabled?: pulumi.Input<boolean | undefined>;
+    frontendIpConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    frontendIpConfigurationName?: pulumi.Input<string>;
+    frontendIpConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    frontendPortEnd?: pulumi.Input<number>;
+    frontendPortEnd?: pulumi.Input<number | undefined>;
     /**
      * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    frontendPortStart?: pulumi.Input<number>;
+    frontendPortStart?: pulumi.Input<number | undefined>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
-    loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface NatPoolArgs {
     /**
      * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
-    floatingIpEnabled?: pulumi.Input<boolean>;
+    floatingIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
@@ -281,7 +281,7 @@ export interface NatPoolArgs {
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
@@ -289,7 +289,7 @@ export interface NatPoolArgs {
     /**
      * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
@@ -301,5 +301,5 @@ export interface NatPoolArgs {
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }

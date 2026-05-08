@@ -184,9 +184,9 @@ def get_user(api_management_name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         state=pulumi.get(__ret__, 'state'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_user_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    user_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to access information about an existing API Management User.

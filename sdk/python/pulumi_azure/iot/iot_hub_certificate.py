@@ -22,8 +22,8 @@ class IotHubCertificateArgs:
                  certificate_content: pulumi.Input[_builtins.str],
                  iot_dps_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 is_verified: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IotHubCertificate resource.
 
@@ -79,37 +79,37 @@ class IotHubCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="isVerified")
-    def is_verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_verified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_verified")
 
     @is_verified.setter
-    def is_verified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_verified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_verified", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IotHubCertificateState:
     def __init__(__self__, *,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_dps_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_verified: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IotHubCertificate resources.
 
@@ -132,62 +132,62 @@ class _IotHubCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="certificateContent")
-    def certificate_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         """
         return pulumi.get(self, "certificate_content")
 
     @certificate_content.setter
-    def certificate_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_content", value)
 
     @_builtins.property
     @pulumi.getter(name="iotDpsName")
-    def iot_dps_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iot_dps_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iot_dps_name")
 
     @iot_dps_name.setter
-    def iot_dps_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iot_dps_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iot_dps_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isVerified")
-    def is_verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_verified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_verified")
 
     @is_verified.setter
-    def is_verified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_verified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_verified", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -197,11 +197,11 @@ class IotHubCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_dps_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_verified: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IotHub Device Provisioning Service Certificate.
@@ -320,11 +320,11 @@ class IotHubCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_dps_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_verified: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,11 +357,11 @@ class IotHubCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-            iot_dps_name: Optional[pulumi.Input[_builtins.str]] = None,
-            is_verified: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IotHubCertificate':
+            certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+            iot_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IotHubCertificate':
         """
         Get an existing IotHubCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

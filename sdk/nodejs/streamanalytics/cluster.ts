@@ -133,23 +133,23 @@ export interface ClusterState {
     /**
      * The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Stream Analytics Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The number of streaming units supported by the Cluster. Accepted values are multiples of `36` in the range of `36` to `216`.
      */
-    streamingCapacity?: pulumi.Input<number>;
+    streamingCapacity?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Stream Analytics.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface ClusterArgs {
     /**
      * The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Stream Analytics Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -175,5 +175,5 @@ export interface ClusterArgs {
     /**
      * A mapping of tags which should be assigned to the Stream Analytics.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

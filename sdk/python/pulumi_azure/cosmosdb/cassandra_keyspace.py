@@ -23,9 +23,9 @@ class CassandraKeyspaceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 autoscale_settings: pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CassandraKeyspace resource.
 
@@ -72,7 +72,7 @@ class CassandraKeyspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -81,42 +81,42 @@ class CassandraKeyspaceArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
 @pulumi.input_type
 class _CassandraKeyspaceState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CassandraKeyspace resources.
 
@@ -141,19 +141,19 @@ class _CassandraKeyspaceState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -162,43 +162,43 @@ class _CassandraKeyspaceState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['CassandraKeyspaceAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
@@ -208,11 +208,11 @@ class CassandraKeyspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
@@ -331,11 +331,11 @@ class CassandraKeyspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,11 +364,11 @@ class CassandraKeyspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            autoscale_settings: Optional[pulumi.Input[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            throughput: Optional[pulumi.Input[_builtins.int]] = None) -> 'CassandraKeyspace':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> 'CassandraKeyspace':
         """
         Get an existing CassandraKeyspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

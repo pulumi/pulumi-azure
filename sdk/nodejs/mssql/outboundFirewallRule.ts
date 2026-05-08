@@ -119,11 +119,11 @@ export interface OutboundFirewallRuleState {
     /**
      * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface OutboundFirewallRuleArgs {
     /**
      * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */

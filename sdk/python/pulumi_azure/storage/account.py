@@ -24,42 +24,42 @@ class AccountArgs:
                  account_replication_type: pulumi.Input[_builtins.str],
                  account_tier: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_nested_items_to_be_public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_copy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
-                 blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
-                 cross_tenant_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
-                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-                 default_to_oauth_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_traffic_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_hns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 large_file_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
-                 nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
-                 routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
-                 sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
-                 sftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
-                 shared_access_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
-                 table_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_files_authentication: pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']] = None,
+                 blob_properties: pulumi.Input[Optional['AccountBlobPropertiesArgs']] = None,
+                 cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_domain: pulumi.Input[Optional['AccountCustomDomainArgs']] = None,
+                 customer_managed_key: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']] = None,
+                 default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 immutability_policy: pulumi.Input[Optional['AccountImmutabilityPolicyArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional['AccountNetworkRulesArgs']] = None,
+                 nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_properties: pulumi.Input[Optional['AccountQueuePropertiesArgs']] = None,
+                 routing: pulumi.Input[Optional['AccountRoutingArgs']] = None,
+                 sas_policy: pulumi.Input[Optional['AccountSasPolicyArgs']] = None,
+                 sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
+                 shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 static_website: pulumi.Input[Optional['AccountStaticWebsiteArgs']] = None,
+                 table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -261,19 +261,19 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="accountKind")
-    def account_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 
@@ -282,12 +282,12 @@ class AccountArgs:
         return pulumi.get(self, "account_kind")
 
     @account_kind.setter
-    def account_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="allowNestedItemsToBePublic")
-    def allow_nested_items_to_be_public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_nested_items_to_be_public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 
@@ -296,72 +296,72 @@ class AccountArgs:
         return pulumi.get(self, "allow_nested_items_to_be_public")
 
     @allow_nested_items_to_be_public.setter
-    def allow_nested_items_to_be_public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_nested_items_to_be_public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_nested_items_to_be_public", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedCopyScope")
-    def allowed_copy_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_copy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         """
         return pulumi.get(self, "allowed_copy_scope")
 
     @allowed_copy_scope.setter
-    def allowed_copy_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_copy_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_copy_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="azureFilesAuthentication")
-    def azure_files_authentication(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]:
+    def azure_files_authentication(self) -> pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']]:
         """
         A `azure_files_authentication` block as defined below.
         """
         return pulumi.get(self, "azure_files_authentication")
 
     @azure_files_authentication.setter
-    def azure_files_authentication(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]):
+    def azure_files_authentication(self, value: pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']]):
         pulumi.set(self, "azure_files_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="blobProperties")
-    def blob_properties(self) -> Optional[pulumi.Input['AccountBlobPropertiesArgs']]:
+    def blob_properties(self) -> pulumi.Input[Optional['AccountBlobPropertiesArgs']]:
         """
         A `blob_properties` block as defined below.
         """
         return pulumi.get(self, "blob_properties")
 
     @blob_properties.setter
-    def blob_properties(self, value: Optional[pulumi.Input['AccountBlobPropertiesArgs']]):
+    def blob_properties(self, value: pulumi.Input[Optional['AccountBlobPropertiesArgs']]):
         pulumi.set(self, "blob_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="crossTenantReplicationEnabled")
-    def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_tenant_replication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should cross Tenant replication be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cross_tenant_replication_enabled")
 
     @cross_tenant_replication_enabled.setter
-    def cross_tenant_replication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_tenant_replication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_tenant_replication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional[pulumi.Input['AccountCustomDomainArgs']]:
+    def custom_domain(self) -> pulumi.Input[Optional['AccountCustomDomainArgs']]:
         """
         A `custom_domain` block as documented below.
         """
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter
-    def custom_domain(self, value: Optional[pulumi.Input['AccountCustomDomainArgs']]):
+    def custom_domain(self, value: pulumi.Input[Optional['AccountCustomDomainArgs']]):
         pulumi.set(self, "custom_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
 
@@ -370,24 +370,24 @@ class AccountArgs:
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultToOauthAuthentication")
-    def default_to_oauth_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_to_oauth_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
         """
         return pulumi.get(self, "default_to_oauth_authentication")
 
     @default_to_oauth_authentication.setter
-    def default_to_oauth_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_to_oauth_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_to_oauth_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsEndpointType")
-    def dns_endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
@@ -396,60 +396,60 @@ class AccountArgs:
         return pulumi.get(self, "dns_endpoint_type")
 
     @dns_endpoint_type.setter
-    def dns_endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsTrafficOnlyEnabled")
-    def https_traffic_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_traffic_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         """
         return pulumi.get(self, "https_traffic_only_enabled")
 
     @https_traffic_only_enabled.setter
-    def https_traffic_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_traffic_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_traffic_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPolicy")
-    def immutability_policy(self) -> Optional[pulumi.Input['AccountImmutabilityPolicyArgs']]:
+    def immutability_policy(self) -> pulumi.Input[Optional['AccountImmutabilityPolicyArgs']]:
         """
         An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "immutability_policy")
 
     @immutability_policy.setter
-    def immutability_policy(self, value: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']]):
+    def immutability_policy(self, value: pulumi.Input[Optional['AccountImmutabilityPolicyArgs']]):
         pulumi.set(self, "immutability_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 
@@ -458,12 +458,12 @@ class AccountArgs:
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isHnsEnabled")
-    def is_hns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_hns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 
@@ -472,12 +472,12 @@ class AccountArgs:
         return pulumi.get(self, "is_hns_enabled")
 
     @is_hns_enabled.setter
-    def is_hns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_hns_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_hns_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="largeFileShareEnabled")
-    def large_file_share_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def large_file_share_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are Large File Shares Enabled? Defaults to `false`.
 
@@ -486,36 +486,36 @@ class AccountArgs:
         return pulumi.get(self, "large_file_share_enabled")
 
     @large_file_share_enabled.setter
-    def large_file_share_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def large_file_share_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "large_file_share_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localUserEnabled")
-    def local_user_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_user_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Local User Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "local_user_enabled")
 
     @local_user_enabled.setter
-    def local_user_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_user_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_user_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
@@ -526,36 +526,36 @@ class AccountArgs:
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
-    def min_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input['AccountNetworkRulesArgs']]:
+    def network_rules(self) -> pulumi.Input[Optional['AccountNetworkRulesArgs']]:
         """
         A `network_rules` block as documented below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input['AccountNetworkRulesArgs']]):
+    def network_rules(self, value: pulumi.Input[Optional['AccountNetworkRulesArgs']]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsv3Enabled")
-    def nfsv3_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def nfsv3_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 
@@ -564,49 +564,49 @@ class AccountArgs:
         return pulumi.get(self, "nfsv3_enabled")
 
     @nfsv3_enabled.setter
-    def nfsv3_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def nfsv3_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "nfsv3_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedBillingModelVersion")
-    def provisioned_billing_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_billing_model_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provisioned_billing_model_version")
 
     @provisioned_billing_model_version.setter
-    def provisioned_billing_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_billing_model_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_billing_model_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the public network access is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="queueEncryptionKeyType")
-    def queue_encryption_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         """
         return pulumi.get(self, "queue_encryption_key_type")
 
     @queue_encryption_key_type.setter
-    def queue_encryption_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_encryption_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="queueProperties")
     @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-    def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
+    def queue_properties(self) -> pulumi.Input[Optional['AccountQueuePropertiesArgs']]:
         """
         A `queue_properties` block as defined below.
 
@@ -615,36 +615,36 @@ class AccountArgs:
         return pulumi.get(self, "queue_properties")
 
     @queue_properties.setter
-    def queue_properties(self, value: Optional[pulumi.Input['AccountQueuePropertiesArgs']]):
+    def queue_properties(self, value: pulumi.Input[Optional['AccountQueuePropertiesArgs']]):
         pulumi.set(self, "queue_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def routing(self) -> Optional[pulumi.Input['AccountRoutingArgs']]:
+    def routing(self) -> pulumi.Input[Optional['AccountRoutingArgs']]:
         """
         A `routing` block as defined below.
         """
         return pulumi.get(self, "routing")
 
     @routing.setter
-    def routing(self, value: Optional[pulumi.Input['AccountRoutingArgs']]):
+    def routing(self, value: pulumi.Input[Optional['AccountRoutingArgs']]):
         pulumi.set(self, "routing", value)
 
     @_builtins.property
     @pulumi.getter(name="sasPolicy")
-    def sas_policy(self) -> Optional[pulumi.Input['AccountSasPolicyArgs']]:
+    def sas_policy(self) -> pulumi.Input[Optional['AccountSasPolicyArgs']]:
         """
         A `sas_policy` block as defined below.
         """
         return pulumi.get(self, "sas_policy")
 
     @sas_policy.setter
-    def sas_policy(self, value: Optional[pulumi.Input['AccountSasPolicyArgs']]):
+    def sas_policy(self, value: pulumi.Input[Optional['AccountSasPolicyArgs']]):
         pulumi.set(self, "sas_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="sftpEnabled")
-    def sftp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sftp_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, enable SFTP for the storage account
 
@@ -653,12 +653,12 @@ class AccountArgs:
         return pulumi.get(self, "sftp_enabled")
 
     @sftp_enabled.setter
-    def sftp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sftp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sftp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="shareProperties")
-    def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+    def share_properties(self) -> pulumi.Input[Optional['AccountSharePropertiesArgs']]:
         """
         A `share_properties` block as defined below.
 
@@ -667,12 +667,12 @@ class AccountArgs:
         return pulumi.get(self, "share_properties")
 
     @share_properties.setter
-    def share_properties(self, value: Optional[pulumi.Input['AccountSharePropertiesArgs']]):
+    def share_properties(self, value: pulumi.Input[Optional['AccountSharePropertiesArgs']]):
         pulumi.set(self, "share_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessKeyEnabled")
-    def shared_access_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shared_access_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
 
@@ -681,13 +681,13 @@ class AccountArgs:
         return pulumi.get(self, "shared_access_key_enabled")
 
     @shared_access_key_enabled.setter
-    def shared_access_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shared_access_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shared_access_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="staticWebsite")
     @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-    def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
+    def static_website(self) -> pulumi.Input[Optional['AccountStaticWebsiteArgs']]:
         """
         A `static_website` block as defined below.
 
@@ -698,12 +698,12 @@ class AccountArgs:
         return pulumi.get(self, "static_website")
 
     @static_website.setter
-    def static_website(self, value: Optional[pulumi.Input['AccountStaticWebsiteArgs']]):
+    def static_website(self, value: pulumi.Input[Optional['AccountStaticWebsiteArgs']]):
         pulumi.set(self, "static_website", value)
 
     @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
-    def table_encryption_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 
@@ -712,136 +712,136 @@ class AccountArgs:
         return pulumi.get(self, "table_encryption_key_type")
 
     @table_encryption_key_type.setter
-    def table_encryption_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_encryption_key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_replication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_nested_items_to_be_public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_copy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
-                 blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
-                 cross_tenant_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
-                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-                 default_to_oauth_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_traffic_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_hns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 large_file_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
-                 nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_blob_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_dfs_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_file_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_queue_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_queue_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_queue_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_queue_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_table_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_table_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_table_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_table_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
-                 sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_blob_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_dfs_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_file_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_queue_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_queue_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_queue_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_queue_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_table_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_table_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_table_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_table_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 sftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
-                 shared_access_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
-                 table_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_files_authentication: pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']] = None,
+                 blob_properties: pulumi.Input[Optional['AccountBlobPropertiesArgs']] = None,
+                 cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_domain: pulumi.Input[Optional['AccountCustomDomainArgs']] = None,
+                 customer_managed_key: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']] = None,
+                 default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 immutability_policy: pulumi.Input[Optional['AccountImmutabilityPolicyArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional['AccountNetworkRulesArgs']] = None,
+                 nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_blob_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_dfs_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_file_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_queue_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_queue_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_queue_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_queue_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_table_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_table_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_table_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_table_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_properties: pulumi.Input[Optional['AccountQueuePropertiesArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing: pulumi.Input[Optional['AccountRoutingArgs']] = None,
+                 sas_policy: pulumi.Input[Optional['AccountSasPolicyArgs']] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_blob_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_dfs_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_file_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_queue_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_queue_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_queue_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_queue_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_table_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_table_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_table_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_table_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
+                 shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 static_website: pulumi.Input[Optional['AccountStaticWebsiteArgs']] = None,
+                 table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -1224,19 +1224,19 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="accountKind")
-    def account_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 
@@ -1245,24 +1245,24 @@ class _AccountState:
         return pulumi.get(self, "account_kind")
 
     @account_kind.setter
-    def account_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="accountReplicationType")
-    def account_replication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_replication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         """
         return pulumi.get(self, "account_replication_type")
 
     @account_replication_type.setter
-    def account_replication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_replication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_replication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="accountTier")
-    def account_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 
@@ -1271,12 +1271,12 @@ class _AccountState:
         return pulumi.get(self, "account_tier")
 
     @account_tier.setter
-    def account_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="allowNestedItemsToBePublic")
-    def allow_nested_items_to_be_public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_nested_items_to_be_public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 
@@ -1285,72 +1285,72 @@ class _AccountState:
         return pulumi.get(self, "allow_nested_items_to_be_public")
 
     @allow_nested_items_to_be_public.setter
-    def allow_nested_items_to_be_public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_nested_items_to_be_public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_nested_items_to_be_public", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedCopyScope")
-    def allowed_copy_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_copy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         """
         return pulumi.get(self, "allowed_copy_scope")
 
     @allowed_copy_scope.setter
-    def allowed_copy_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_copy_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_copy_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="azureFilesAuthentication")
-    def azure_files_authentication(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]:
+    def azure_files_authentication(self) -> pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']]:
         """
         A `azure_files_authentication` block as defined below.
         """
         return pulumi.get(self, "azure_files_authentication")
 
     @azure_files_authentication.setter
-    def azure_files_authentication(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]):
+    def azure_files_authentication(self, value: pulumi.Input[Optional['AccountAzureFilesAuthenticationArgs']]):
         pulumi.set(self, "azure_files_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="blobProperties")
-    def blob_properties(self) -> Optional[pulumi.Input['AccountBlobPropertiesArgs']]:
+    def blob_properties(self) -> pulumi.Input[Optional['AccountBlobPropertiesArgs']]:
         """
         A `blob_properties` block as defined below.
         """
         return pulumi.get(self, "blob_properties")
 
     @blob_properties.setter
-    def blob_properties(self, value: Optional[pulumi.Input['AccountBlobPropertiesArgs']]):
+    def blob_properties(self, value: pulumi.Input[Optional['AccountBlobPropertiesArgs']]):
         pulumi.set(self, "blob_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="crossTenantReplicationEnabled")
-    def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_tenant_replication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should cross Tenant replication be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cross_tenant_replication_enabled")
 
     @cross_tenant_replication_enabled.setter
-    def cross_tenant_replication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_tenant_replication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_tenant_replication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional[pulumi.Input['AccountCustomDomainArgs']]:
+    def custom_domain(self) -> pulumi.Input[Optional['AccountCustomDomainArgs']]:
         """
         A `custom_domain` block as documented below.
         """
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter
-    def custom_domain(self, value: Optional[pulumi.Input['AccountCustomDomainArgs']]):
+    def custom_domain(self, value: pulumi.Input[Optional['AccountCustomDomainArgs']]):
         pulumi.set(self, "custom_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
 
@@ -1359,24 +1359,24 @@ class _AccountState:
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultToOauthAuthentication")
-    def default_to_oauth_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_to_oauth_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
         """
         return pulumi.get(self, "default_to_oauth_authentication")
 
     @default_to_oauth_authentication.setter
-    def default_to_oauth_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_to_oauth_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_to_oauth_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsEndpointType")
-    def dns_endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
@@ -1385,60 +1385,60 @@ class _AccountState:
         return pulumi.get(self, "dns_endpoint_type")
 
     @dns_endpoint_type.setter
-    def dns_endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsTrafficOnlyEnabled")
-    def https_traffic_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_traffic_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         """
         return pulumi.get(self, "https_traffic_only_enabled")
 
     @https_traffic_only_enabled.setter
-    def https_traffic_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_traffic_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_traffic_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPolicy")
-    def immutability_policy(self) -> Optional[pulumi.Input['AccountImmutabilityPolicyArgs']]:
+    def immutability_policy(self) -> pulumi.Input[Optional['AccountImmutabilityPolicyArgs']]:
         """
         An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "immutability_policy")
 
     @immutability_policy.setter
-    def immutability_policy(self, value: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']]):
+    def immutability_policy(self, value: pulumi.Input[Optional['AccountImmutabilityPolicyArgs']]):
         pulumi.set(self, "immutability_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 
@@ -1447,12 +1447,12 @@ class _AccountState:
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isHnsEnabled")
-    def is_hns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_hns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 
@@ -1461,12 +1461,12 @@ class _AccountState:
         return pulumi.get(self, "is_hns_enabled")
 
     @is_hns_enabled.setter
-    def is_hns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_hns_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_hns_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="largeFileShareEnabled")
-    def large_file_share_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def large_file_share_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are Large File Shares Enabled? Defaults to `false`.
 
@@ -1475,36 +1475,36 @@ class _AccountState:
         return pulumi.get(self, "large_file_share_enabled")
 
     @large_file_share_enabled.setter
-    def large_file_share_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def large_file_share_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "large_file_share_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localUserEnabled")
-    def local_user_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_user_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Local User Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "local_user_enabled")
 
     @local_user_enabled.setter
-    def local_user_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_user_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_user_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
@@ -1515,36 +1515,36 @@ class _AccountState:
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
-    def min_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input['AccountNetworkRulesArgs']]:
+    def network_rules(self) -> pulumi.Input[Optional['AccountNetworkRulesArgs']]:
         """
         A `network_rules` block as documented below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input['AccountNetworkRulesArgs']]):
+    def network_rules(self, value: pulumi.Input[Optional['AccountNetworkRulesArgs']]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsv3Enabled")
-    def nfsv3_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def nfsv3_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 
@@ -1553,481 +1553,481 @@ class _AccountState:
         return pulumi.get(self, "nfsv3_enabled")
 
     @nfsv3_enabled.setter
-    def nfsv3_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def nfsv3_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "nfsv3_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the storage account.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobConnectionString")
-    def primary_blob_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string associated with the primary blob location.
         """
         return pulumi.get(self, "primary_blob_connection_string")
 
     @primary_blob_connection_string.setter
-    def primary_blob_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobEndpoint")
-    def primary_blob_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_endpoint")
 
     @primary_blob_endpoint.setter
-    def primary_blob_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobHost")
-    def primary_blob_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_host")
 
     @primary_blob_host.setter
-    def primary_blob_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobInternetEndpoint")
-    def primary_blob_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_internet_endpoint")
 
     @primary_blob_internet_endpoint.setter
-    def primary_blob_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobInternetHost")
-    def primary_blob_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_internet_host")
 
     @primary_blob_internet_host.setter
-    def primary_blob_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobMicrosoftEndpoint")
-    def primary_blob_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_microsoft_endpoint")
 
     @primary_blob_microsoft_endpoint.setter
-    def primary_blob_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryBlobMicrosoftHost")
-    def primary_blob_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_blob_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for blob storage in the primary location.
         """
         return pulumi.get(self, "primary_blob_microsoft_host")
 
     @primary_blob_microsoft_host.setter
-    def primary_blob_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_blob_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_blob_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string associated with the primary location.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsEndpoint")
-    def primary_dfs_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_endpoint")
 
     @primary_dfs_endpoint.setter
-    def primary_dfs_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsHost")
-    def primary_dfs_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_host")
 
     @primary_dfs_host.setter
-    def primary_dfs_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsInternetEndpoint")
-    def primary_dfs_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_internet_endpoint")
 
     @primary_dfs_internet_endpoint.setter
-    def primary_dfs_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsInternetHost")
-    def primary_dfs_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_internet_host")
 
     @primary_dfs_internet_host.setter
-    def primary_dfs_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsMicrosoftEndpoint")
-    def primary_dfs_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_microsoft_endpoint")
 
     @primary_dfs_microsoft_endpoint.setter
-    def primary_dfs_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDfsMicrosoftHost")
-    def primary_dfs_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_dfs_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for DFS storage in the primary location.
         """
         return pulumi.get(self, "primary_dfs_microsoft_host")
 
     @primary_dfs_microsoft_host.setter
-    def primary_dfs_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_dfs_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_dfs_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileEndpoint")
-    def primary_file_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_endpoint")
 
     @primary_file_endpoint.setter
-    def primary_file_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileHost")
-    def primary_file_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_host")
 
     @primary_file_host.setter
-    def primary_file_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileInternetEndpoint")
-    def primary_file_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_internet_endpoint")
 
     @primary_file_internet_endpoint.setter
-    def primary_file_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileInternetHost")
-    def primary_file_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_internet_host")
 
     @primary_file_internet_host.setter
-    def primary_file_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileMicrosoftEndpoint")
-    def primary_file_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_microsoft_endpoint")
 
     @primary_file_microsoft_endpoint.setter
-    def primary_file_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFileMicrosoftHost")
-    def primary_file_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_file_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_microsoft_host")
 
     @primary_file_microsoft_host.setter
-    def primary_file_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_file_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_file_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryLocation")
-    def primary_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary location of the storage account.
         """
         return pulumi.get(self, "primary_location")
 
     @primary_location.setter
-    def primary_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_location", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryQueueEndpoint")
-    def primary_queue_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_queue_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for queue storage in the primary location.
         """
         return pulumi.get(self, "primary_queue_endpoint")
 
     @primary_queue_endpoint.setter
-    def primary_queue_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_queue_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_queue_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryQueueHost")
-    def primary_queue_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_queue_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for queue storage in the primary location.
         """
         return pulumi.get(self, "primary_queue_host")
 
     @primary_queue_host.setter
-    def primary_queue_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_queue_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_queue_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryQueueMicrosoftEndpoint")
-    def primary_queue_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_queue_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for queue storage in the primary location.
         """
         return pulumi.get(self, "primary_queue_microsoft_endpoint")
 
     @primary_queue_microsoft_endpoint.setter
-    def primary_queue_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_queue_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_queue_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryQueueMicrosoftHost")
-    def primary_queue_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_queue_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for queue storage in the primary location.
         """
         return pulumi.get(self, "primary_queue_microsoft_host")
 
     @primary_queue_microsoft_host.setter
-    def primary_queue_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_queue_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_queue_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryTableEndpoint")
-    def primary_table_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_table_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for table storage in the primary location.
         """
         return pulumi.get(self, "primary_table_endpoint")
 
     @primary_table_endpoint.setter
-    def primary_table_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_table_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_table_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryTableHost")
-    def primary_table_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_table_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for table storage in the primary location.
         """
         return pulumi.get(self, "primary_table_host")
 
     @primary_table_host.setter
-    def primary_table_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_table_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_table_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryTableMicrosoftEndpoint")
-    def primary_table_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_table_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for table storage in the primary location.
         """
         return pulumi.get(self, "primary_table_microsoft_endpoint")
 
     @primary_table_microsoft_endpoint.setter
-    def primary_table_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_table_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_table_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryTableMicrosoftHost")
-    def primary_table_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_table_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for table storage in the primary location.
         """
         return pulumi.get(self, "primary_table_microsoft_host")
 
     @primary_table_microsoft_host.setter
-    def primary_table_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_table_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_table_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebEndpoint")
-    def primary_web_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_endpoint")
 
     @primary_web_endpoint.setter
-    def primary_web_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebHost")
-    def primary_web_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_host")
 
     @primary_web_host.setter
-    def primary_web_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebInternetEndpoint")
-    def primary_web_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_internet_endpoint")
 
     @primary_web_internet_endpoint.setter
-    def primary_web_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebInternetHost")
-    def primary_web_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_internet_host")
 
     @primary_web_internet_host.setter
-    def primary_web_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebMicrosoftEndpoint")
-    def primary_web_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_microsoft_endpoint")
 
     @primary_web_microsoft_endpoint.setter
-    def primary_web_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryWebMicrosoftHost")
-    def primary_web_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_web_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_microsoft_host")
 
     @primary_web_microsoft_host.setter
-    def primary_web_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_web_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_web_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedBillingModelVersion")
-    def provisioned_billing_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_billing_model_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provisioned_billing_model_version")
 
     @provisioned_billing_model_version.setter
-    def provisioned_billing_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_billing_model_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_billing_model_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the public network access is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="queueEncryptionKeyType")
-    def queue_encryption_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         """
         return pulumi.get(self, "queue_encryption_key_type")
 
     @queue_encryption_key_type.setter
-    def queue_encryption_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_encryption_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="queueProperties")
     @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-    def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
+    def queue_properties(self) -> pulumi.Input[Optional['AccountQueuePropertiesArgs']]:
         """
         A `queue_properties` block as defined below.
 
@@ -2036,480 +2036,480 @@ class _AccountState:
         return pulumi.get(self, "queue_properties")
 
     @queue_properties.setter
-    def queue_properties(self, value: Optional[pulumi.Input['AccountQueuePropertiesArgs']]):
+    def queue_properties(self, value: pulumi.Input[Optional['AccountQueuePropertiesArgs']]):
         pulumi.set(self, "queue_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routing(self) -> Optional[pulumi.Input['AccountRoutingArgs']]:
+    def routing(self) -> pulumi.Input[Optional['AccountRoutingArgs']]:
         """
         A `routing` block as defined below.
         """
         return pulumi.get(self, "routing")
 
     @routing.setter
-    def routing(self, value: Optional[pulumi.Input['AccountRoutingArgs']]):
+    def routing(self, value: pulumi.Input[Optional['AccountRoutingArgs']]):
         pulumi.set(self, "routing", value)
 
     @_builtins.property
     @pulumi.getter(name="sasPolicy")
-    def sas_policy(self) -> Optional[pulumi.Input['AccountSasPolicyArgs']]:
+    def sas_policy(self) -> pulumi.Input[Optional['AccountSasPolicyArgs']]:
         """
         A `sas_policy` block as defined below.
         """
         return pulumi.get(self, "sas_policy")
 
     @sas_policy.setter
-    def sas_policy(self, value: Optional[pulumi.Input['AccountSasPolicyArgs']]):
+    def sas_policy(self, value: pulumi.Input[Optional['AccountSasPolicyArgs']]):
         pulumi.set(self, "sas_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the storage account.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobConnectionString")
-    def secondary_blob_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string associated with the secondary blob location.
         """
         return pulumi.get(self, "secondary_blob_connection_string")
 
     @secondary_blob_connection_string.setter
-    def secondary_blob_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobEndpoint")
-    def secondary_blob_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_endpoint")
 
     @secondary_blob_endpoint.setter
-    def secondary_blob_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobHost")
-    def secondary_blob_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_host")
 
     @secondary_blob_host.setter
-    def secondary_blob_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobInternetEndpoint")
-    def secondary_blob_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_internet_endpoint")
 
     @secondary_blob_internet_endpoint.setter
-    def secondary_blob_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobInternetHost")
-    def secondary_blob_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_internet_host")
 
     @secondary_blob_internet_host.setter
-    def secondary_blob_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobMicrosoftEndpoint")
-    def secondary_blob_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_microsoft_endpoint")
 
     @secondary_blob_microsoft_endpoint.setter
-    def secondary_blob_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryBlobMicrosoftHost")
-    def secondary_blob_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_blob_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for blob storage in the secondary location.
         """
         return pulumi.get(self, "secondary_blob_microsoft_host")
 
     @secondary_blob_microsoft_host.setter
-    def secondary_blob_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_blob_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_blob_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string associated with the secondary location.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsEndpoint")
-    def secondary_dfs_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_endpoint")
 
     @secondary_dfs_endpoint.setter
-    def secondary_dfs_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsHost")
-    def secondary_dfs_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_host")
 
     @secondary_dfs_host.setter
-    def secondary_dfs_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsInternetEndpoint")
-    def secondary_dfs_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_internet_endpoint")
 
     @secondary_dfs_internet_endpoint.setter
-    def secondary_dfs_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsInternetHost")
-    def secondary_dfs_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_internet_host")
 
     @secondary_dfs_internet_host.setter
-    def secondary_dfs_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsMicrosoftEndpoint")
-    def secondary_dfs_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_microsoft_endpoint")
 
     @secondary_dfs_microsoft_endpoint.setter
-    def secondary_dfs_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryDfsMicrosoftHost")
-    def secondary_dfs_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_dfs_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
         """
         return pulumi.get(self, "secondary_dfs_microsoft_host")
 
     @secondary_dfs_microsoft_host.setter
-    def secondary_dfs_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_dfs_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_dfs_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileEndpoint")
-    def secondary_file_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_endpoint")
 
     @secondary_file_endpoint.setter
-    def secondary_file_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileHost")
-    def secondary_file_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_host")
 
     @secondary_file_host.setter
-    def secondary_file_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileInternetEndpoint")
-    def secondary_file_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_internet_endpoint")
 
     @secondary_file_internet_endpoint.setter
-    def secondary_file_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileInternetHost")
-    def secondary_file_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_internet_host")
 
     @secondary_file_internet_host.setter
-    def secondary_file_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileMicrosoftEndpoint")
-    def secondary_file_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_microsoft_endpoint")
 
     @secondary_file_microsoft_endpoint.setter
-    def secondary_file_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryFileMicrosoftHost")
-    def secondary_file_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_file_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_microsoft_host")
 
     @secondary_file_microsoft_host.setter
-    def secondary_file_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_file_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_file_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryLocation")
-    def secondary_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary location of the storage account.
         """
         return pulumi.get(self, "secondary_location")
 
     @secondary_location.setter
-    def secondary_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_location", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryQueueEndpoint")
-    def secondary_queue_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_queue_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for queue storage in the secondary location.
         """
         return pulumi.get(self, "secondary_queue_endpoint")
 
     @secondary_queue_endpoint.setter
-    def secondary_queue_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_queue_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_queue_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryQueueHost")
-    def secondary_queue_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_queue_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for queue storage in the secondary location.
         """
         return pulumi.get(self, "secondary_queue_host")
 
     @secondary_queue_host.setter
-    def secondary_queue_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_queue_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_queue_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryQueueMicrosoftEndpoint")
-    def secondary_queue_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_queue_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for queue storage in the secondary location.
         """
         return pulumi.get(self, "secondary_queue_microsoft_endpoint")
 
     @secondary_queue_microsoft_endpoint.setter
-    def secondary_queue_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_queue_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_queue_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryQueueMicrosoftHost")
-    def secondary_queue_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_queue_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for queue storage in the secondary location.
         """
         return pulumi.get(self, "secondary_queue_microsoft_host")
 
     @secondary_queue_microsoft_host.setter
-    def secondary_queue_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_queue_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_queue_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryTableEndpoint")
-    def secondary_table_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_table_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for table storage in the secondary location.
         """
         return pulumi.get(self, "secondary_table_endpoint")
 
     @secondary_table_endpoint.setter
-    def secondary_table_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_table_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_table_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryTableHost")
-    def secondary_table_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_table_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for table storage in the secondary location.
         """
         return pulumi.get(self, "secondary_table_host")
 
     @secondary_table_host.setter
-    def secondary_table_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_table_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_table_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryTableMicrosoftEndpoint")
-    def secondary_table_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_table_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for table storage in the secondary location.
         """
         return pulumi.get(self, "secondary_table_microsoft_endpoint")
 
     @secondary_table_microsoft_endpoint.setter
-    def secondary_table_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_table_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_table_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryTableMicrosoftHost")
-    def secondary_table_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_table_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for table storage in the secondary location.
         """
         return pulumi.get(self, "secondary_table_microsoft_host")
 
     @secondary_table_microsoft_host.setter
-    def secondary_table_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_table_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_table_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebEndpoint")
-    def secondary_web_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint URL for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_endpoint")
 
     @secondary_web_endpoint.setter
-    def secondary_web_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebHost")
-    def secondary_web_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_host")
 
     @secondary_web_host.setter
-    def secondary_web_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebInternetEndpoint")
-    def secondary_web_internet_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_internet_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing endpoint URL for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_internet_endpoint")
 
     @secondary_web_internet_endpoint.setter
-    def secondary_web_internet_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_internet_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_internet_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebInternetHost")
-    def secondary_web_internet_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_internet_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The internet routing hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_internet_host")
 
     @secondary_web_internet_host.setter
-    def secondary_web_internet_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_internet_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_internet_host", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebMicrosoftEndpoint")
-    def secondary_web_microsoft_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_microsoft_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing endpoint URL for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_microsoft_endpoint")
 
     @secondary_web_microsoft_endpoint.setter
-    def secondary_web_microsoft_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_microsoft_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_microsoft_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryWebMicrosoftHost")
-    def secondary_web_microsoft_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_web_microsoft_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The microsoft routing hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_microsoft_host")
 
     @secondary_web_microsoft_host.setter
-    def secondary_web_microsoft_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_web_microsoft_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_web_microsoft_host", value)
 
     @_builtins.property
     @pulumi.getter(name="sftpEnabled")
-    def sftp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sftp_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, enable SFTP for the storage account
 
@@ -2518,12 +2518,12 @@ class _AccountState:
         return pulumi.get(self, "sftp_enabled")
 
     @sftp_enabled.setter
-    def sftp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sftp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sftp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="shareProperties")
-    def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+    def share_properties(self) -> pulumi.Input[Optional['AccountSharePropertiesArgs']]:
         """
         A `share_properties` block as defined below.
 
@@ -2532,12 +2532,12 @@ class _AccountState:
         return pulumi.get(self, "share_properties")
 
     @share_properties.setter
-    def share_properties(self, value: Optional[pulumi.Input['AccountSharePropertiesArgs']]):
+    def share_properties(self, value: pulumi.Input[Optional['AccountSharePropertiesArgs']]):
         pulumi.set(self, "share_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessKeyEnabled")
-    def shared_access_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shared_access_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
 
@@ -2546,13 +2546,13 @@ class _AccountState:
         return pulumi.get(self, "shared_access_key_enabled")
 
     @shared_access_key_enabled.setter
-    def shared_access_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shared_access_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shared_access_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="staticWebsite")
     @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-    def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
+    def static_website(self) -> pulumi.Input[Optional['AccountStaticWebsiteArgs']]:
         """
         A `static_website` block as defined below.
 
@@ -2563,12 +2563,12 @@ class _AccountState:
         return pulumi.get(self, "static_website")
 
     @static_website.setter
-    def static_website(self, value: Optional[pulumi.Input['AccountStaticWebsiteArgs']]):
+    def static_website(self, value: pulumi.Input[Optional['AccountStaticWebsiteArgs']]):
         pulumi.set(self, "static_website", value)
 
     @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
-    def table_encryption_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 
@@ -2577,19 +2577,19 @@ class _AccountState:
         return pulumi.get(self, "table_encryption_key_type")
 
     @table_encryption_key_type.setter
-    def table_encryption_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_encryption_key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -2599,45 +2599,45 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_replication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_nested_items_to_be_public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_copy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_files_authentication: Optional[pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-                 blob_properties: Optional[pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
-                 cross_tenant_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_domain: Optional[pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-                 default_to_oauth_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_traffic_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_hns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 large_file_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
-                 nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing: Optional[pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-                 sas_policy: Optional[pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
-                 sftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_properties: Optional[pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
-                 shared_access_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_website: Optional[pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
-                 table_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
+                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+                 cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+                 nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
+                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+                 sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+                 shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+                 table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Storage Account.
@@ -2894,45 +2894,45 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_replication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_nested_items_to_be_public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_copy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_files_authentication: Optional[pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-                 blob_properties: Optional[pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
-                 cross_tenant_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_domain: Optional[pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-                 default_to_oauth_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_traffic_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_hns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 large_file_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
-                 nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing: Optional[pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-                 sas_policy: Optional[pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
-                 sftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_properties: Optional[pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
-                 shared_access_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_website: Optional[pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
-                 table_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
+                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+                 cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+                 nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
+                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+                 sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+                 shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+                 table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -3071,117 +3071,117 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            account_kind: Optional[pulumi.Input[_builtins.str]] = None,
-            account_replication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            account_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_nested_items_to_be_public: Optional[pulumi.Input[_builtins.bool]] = None,
-            allowed_copy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_files_authentication: Optional[pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-            blob_properties: Optional[pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
-            cross_tenant_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_domain: Optional[pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-            default_to_oauth_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            https_traffic_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
-            infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_hns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            large_file_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rules: Optional[pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
-            nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_blob_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_dfs_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_file_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_location: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_queue_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_queue_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_queue_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_queue_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_table_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_table_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_table_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_table_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-            queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing: Optional[pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-            sas_policy: Optional[pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_blob_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_dfs_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_file_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_location: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_queue_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_queue_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_queue_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_queue_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_table_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_table_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_table_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_table_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_internet_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
-            sftp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            share_properties: Optional[pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
-            shared_access_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            static_website: Optional[pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
-            table_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            account_kind: pulumi.Input[Optional[_builtins.str]] = None,
+            account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            account_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
+            allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
+            blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+            cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+            default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+            nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_blob_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_dfs_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_file_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_location: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_queue_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_queue_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_queue_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_queue_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_table_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_table_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_table_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_table_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
+            sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_blob_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_dfs_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_file_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_location: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_queue_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_queue_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_queue_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_queue_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_table_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_table_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_table_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_table_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_internet_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_internet_host: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
+            sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+            shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+            table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

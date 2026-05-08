@@ -58,8 +58,8 @@ class SettingArgs:
 @pulumi.input_type
 class _SettingState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 setting_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 setting_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Setting resources.
 
@@ -73,26 +73,26 @@ class _SettingState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to enable/disable data access.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="settingName")
-    def setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "setting_name")
 
     @setting_name.setter
-    def setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setting_name", value)
 
 
@@ -102,8 +102,8 @@ class Setting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Data Access Settings for Azure Security Center.
@@ -199,8 +199,8 @@ class Setting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,8 +226,8 @@ class Setting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            setting_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Setting':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            setting_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Setting':
         """
         Get an existing Setting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

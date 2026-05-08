@@ -26,11 +26,11 @@ class MonitorArgs:
                  plan: pulumi.Input['MonitorPlanArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user: pulumi.Input['MonitorUserArgs'],
-                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -123,78 +123,78 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentProperties")
-    def environment_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
+    def environment_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
         """
         Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         """
         return pulumi.get(self, "environment_properties")
 
     @environment_properties.setter
-    def environment_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
+    def environment_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
         pulumi.set(self, "environment_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
-                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input['MonitorUserArgs']] = None):
+                 environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
+                 identity: pulumi.Input[Optional['MonitorIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['MonitorPlanArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional['MonitorUserArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -232,122 +232,122 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="environmentProperties")
-    def environment_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
+    def environment_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
         """
         Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         """
         return pulumi.get(self, "environment_properties")
 
     @environment_properties.setter
-    def environment_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
+    def environment_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
         pulumi.set(self, "environment_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MonitorIdentityArgs']]:
         """
         The kind of managed identity assigned to this resource. A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MonitorIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceSubscription")
-    def marketplace_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "marketplace_subscription")
 
     @marketplace_subscription.setter
-    def marketplace_subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['MonitorPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['MonitorPlanArgs']]:
         """
         Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['MonitorPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['MonitorPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['MonitorUserArgs']]:
+    def user(self) -> pulumi.Input[Optional['MonitorUserArgs']]:
         """
         User's information. A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['MonitorUserArgs']]):
+    def user(self, value: pulumi.Input[Optional['MonitorUserArgs']]):
         pulumi.set(self, "user", value)
 
 
@@ -357,16 +357,16 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Dynatrace monitor.
@@ -506,16 +506,16 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,16 +555,16 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
-            identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-            monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None) -> 'Monitor':
+            environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

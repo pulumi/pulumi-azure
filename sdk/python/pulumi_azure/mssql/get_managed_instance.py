@@ -362,8 +362,8 @@ def get_managed_instance(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timezone_id=pulumi.get(__ret__, 'timezone_id'),
         vcores=pulumi.get(__ret__, 'vcores'))
-def get_managed_instance_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_instance_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.

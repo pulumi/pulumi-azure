@@ -158,31 +158,31 @@ export interface DatabaseState {
     /**
      * Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Database to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The size of the database in bytes.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    softDeletePeriod?: pulumi.Input<string>;
+    softDeletePeriod?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,15 +196,15 @@ export interface DatabaseArgs {
     /**
      * The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Database to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
@@ -212,5 +212,5 @@ export interface DatabaseArgs {
     /**
      * The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    softDeletePeriod?: pulumi.Input<string>;
+    softDeletePeriod?: pulumi.Input<string | undefined>;
 }

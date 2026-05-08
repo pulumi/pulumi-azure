@@ -204,35 +204,35 @@ export interface VirtualNetworkGatewayNatRuleState {
     /**
      * One or more `externalMapping` blocks as documented below.
      */
-    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleExternalMapping>[]>;
+    externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleExternalMapping>[] | undefined>;
     /**
      * One or more `internalMapping` blocks as documented below.
      */
-    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleInternalMapping>[]>;
+    internalMappings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleInternalMapping>[] | undefined>;
     /**
      * The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
      */
-    ipConfigurationId?: pulumi.Input<string>;
+    ipConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
      */
-    virtualNetworkGatewayId?: pulumi.Input<string>;
+    virtualNetworkGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -250,15 +250,15 @@ export interface VirtualNetworkGatewayNatRuleArgs {
     /**
      * The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
      */
-    ipConfigurationId?: pulumi.Input<string>;
+    ipConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
      */
@@ -266,7 +266,7 @@ export interface VirtualNetworkGatewayNatRuleArgs {
     /**
      * The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
      */

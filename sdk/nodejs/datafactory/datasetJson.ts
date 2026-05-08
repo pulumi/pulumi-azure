@@ -192,53 +192,53 @@ export interface DatasetJsonState {
      *
      * The following supported arguments are specific to JSON Dataset:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[] | undefined>;
 }
 
 /**
@@ -250,17 +250,17 @@ export interface DatasetJsonArgs {
      *
      * The following supported arguments are specific to JSON Dataset:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -268,19 +268,19 @@ export interface DatasetJsonArgs {
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
@@ -288,13 +288,13 @@ export interface DatasetJsonArgs {
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[] | undefined>;
 }

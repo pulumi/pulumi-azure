@@ -23,11 +23,11 @@ class RouteServerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteServer resource.
 
@@ -110,80 +110,80 @@ class RouteServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchToBranchTrafficEnabled")
-    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def branch_to_branch_traffic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable route exchange between Azure Route Server and the gateway(s).
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
-    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def branch_to_branch_traffic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hubRoutingPreference")
-    def hub_routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         """
         return pulumi.get(self, "hub_routing_preference")
 
     @hub_routing_preference.setter
-    def hub_routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_routing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Route Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RouteServerState:
     def __init__(__self__, *,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_router_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RouteServer resources.
 
@@ -226,100 +226,100 @@ class _RouteServerState:
 
     @_builtins.property
     @pulumi.getter(name="branchToBranchTrafficEnabled")
-    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def branch_to_branch_traffic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable route exchange between Azure Route Server and the gateway(s).
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
-    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def branch_to_branch_traffic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hubRoutingPreference")
-    def hub_routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         """
         return pulumi.get(self, "hub_routing_preference")
 
     @hub_routing_preference.setter
-    def hub_routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_routing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Route Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingState")
-    def routing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "routing_state")
 
     @routing_state.setter
-    def routing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
@@ -328,37 +328,37 @@ class _RouteServerState:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def virtual_router_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "virtual_router_asn")
 
     @virtual_router_asn.setter
-    def virtual_router_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def virtual_router_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "virtual_router_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_router_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "virtual_router_ips")
 
     @virtual_router_ips.setter
-    def virtual_router_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_router_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_router_ips", value)
 
 
@@ -368,15 +368,15 @@ class RouteServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Route Server
@@ -529,15 +529,15 @@ class RouteServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -577,18 +577,18 @@ class RouteServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_state: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_router_asn: Optional[pulumi.Input[_builtins.int]] = None,
-            virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RouteServer':
+            branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_state: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RouteServer':
         """
         Get an existing RouteServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

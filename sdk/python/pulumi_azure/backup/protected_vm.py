@@ -21,11 +21,11 @@ class ProtectedVMArgs:
     def __init__(__self__, *,
                  recovery_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProtectedVM resource.
 
@@ -84,7 +84,7 @@ class ProtectedVMArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the backup policy to use.
 
@@ -95,36 +95,36 @@ class ProtectedVMArgs:
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
-    def backup_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeDiskLuns")
-    def exclude_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def exclude_disk_luns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         """
         return pulumi.get(self, "exclude_disk_luns")
 
     @exclude_disk_luns.setter
-    def exclude_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def exclude_disk_luns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "exclude_disk_luns", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDiskLuns")
-    def include_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def include_disk_luns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         """
         return pulumi.get(self, "include_disk_luns")
 
     @include_disk_luns.setter
-    def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def include_disk_luns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "include_disk_luns", value)
 
     @_builtins.property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protection_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
 
@@ -133,12 +133,12 @@ class ProtectedVMArgs:
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protection_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 
@@ -147,20 +147,20 @@ class ProtectedVMArgs:
         return pulumi.get(self, "source_vm_id")
 
     @source_vm_id.setter
-    def source_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_vm_id", value)
 
 
 @pulumi.input_type
 class _ProtectedVMState:
     def __init__(__self__, *,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectedVM resources.
 
@@ -197,7 +197,7 @@ class _ProtectedVMState:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the backup policy to use.
 
@@ -208,36 +208,36 @@ class _ProtectedVMState:
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
-    def backup_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeDiskLuns")
-    def exclude_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def exclude_disk_luns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         """
         return pulumi.get(self, "exclude_disk_luns")
 
     @exclude_disk_luns.setter
-    def exclude_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def exclude_disk_luns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "exclude_disk_luns", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDiskLuns")
-    def include_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def include_disk_luns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         """
         return pulumi.get(self, "include_disk_luns")
 
     @include_disk_luns.setter
-    def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def include_disk_luns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "include_disk_luns", value)
 
     @_builtins.property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protection_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
 
@@ -246,36 +246,36 @@ class _ProtectedVMState:
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protection_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 
@@ -284,7 +284,7 @@ class _ProtectedVMState:
         return pulumi.get(self, "source_vm_id")
 
     @source_vm_id.setter
-    def source_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_vm_id", value)
 
 
@@ -294,13 +294,13 @@ class ProtectedVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Backup Protected Virtual Machine.
@@ -447,13 +447,13 @@ class ProtectedVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -484,13 +484,13 @@ class ProtectedVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_vm_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProtectedVM':
+            backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProtectedVM':
         """
         Get an existing ProtectedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -186,49 +186,49 @@ export interface NamespaceAuthorizationRuleState {
     /**
      * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      */
-    primaryConnectionStringAlias?: pulumi.Input<string>;
+    primaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    secondaryConnectionStringAlias?: pulumi.Input<string>;
+    secondaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Grants send access to this Authorization Rule. Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -238,15 +238,15 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
-    listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
     /**
      * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
@@ -256,5 +256,5 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Grants send access to this Authorization Rule. Defaults to `false`.
      */
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }

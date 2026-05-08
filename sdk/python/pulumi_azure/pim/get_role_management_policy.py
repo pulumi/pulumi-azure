@@ -201,8 +201,8 @@ def get_role_management_policy(role_definition_id: Optional[_builtins.str] = Non
         notification_rules=pulumi.get(__ret__, 'notification_rules'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_management_policy_output(role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleManagementPolicyResult]:
     """
     Use this data source to get information on a role policy for an Azure Management Group, Subscription, Resource Group or resource.

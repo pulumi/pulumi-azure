@@ -26,10 +26,10 @@ class MedtechServiceArgs:
                  eventhub_name: pulumi.Input[_builtins.str],
                  eventhub_namespace_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['MedtechServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MedtechService resource.
 
@@ -119,65 +119,65 @@ class MedtechServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MedtechServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MedtechServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MedtechServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MedtechServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Healthcare Med Tech Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MedtechServiceState:
     def __init__(__self__, *,
-                 device_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 device_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['MedtechServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MedtechService resources.
 
@@ -212,110 +212,110 @@ class _MedtechServiceState:
 
     @_builtins.property
     @pulumi.getter(name="deviceMappingJson")
-    def device_mapping_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_mapping_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Device Mappings of the Med Tech Service.
         """
         return pulumi.get(self, "device_mapping_json")
 
     @device_mapping_json.setter
-    def device_mapping_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_mapping_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_mapping_json", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
-    def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Consumer Group of the Event Hub to connect to.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
     @eventhub_consumer_group_name.setter
-    def eventhub_consumer_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Event Hub to connect to.
         """
         return pulumi.get(self, "eventhub_name")
 
     @eventhub_name.setter
-    def eventhub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubNamespaceName")
-    def eventhub_namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the namespace name of the Event Hub to connect to.
         """
         return pulumi.get(self, "eventhub_namespace_name")
 
     @eventhub_namespace_name.setter
-    def eventhub_namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MedtechServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MedtechServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MedtechServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MedtechServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Healthcare Med Tech Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -325,15 +325,15 @@ class MedtechService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Healthcare Med Tech Service.
@@ -492,15 +492,15 @@ class MedtechService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -539,15 +539,15 @@ class MedtechService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            device_mapping_json: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MedtechService':
+            device_mapping_json: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['MedtechServiceIdentityArgs', 'MedtechServiceIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MedtechService':
         """
         Get an existing MedtechService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

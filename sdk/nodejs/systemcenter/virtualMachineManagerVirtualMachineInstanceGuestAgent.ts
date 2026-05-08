@@ -188,19 +188,19 @@ export interface VirtualMachineManagerVirtualMachineInstanceGuestAgentState {
     /**
      * The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
      */
-    scopedResourceId?: pulumi.Input<string>;
+    scopedResourceId?: pulumi.Input<string | undefined>;
     /**
      * The username that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs {
     /**
      * The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
      */

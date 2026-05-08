@@ -217,25 +217,25 @@ export interface SubnetState {
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
      */
-    defaultOutboundAccessEnabled?: pulumi.Input<boolean>;
+    defaultOutboundAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `delegation` blocks as defined below.
      */
-    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[] | undefined>;
     /**
      * An `ipAddressPool` block as defined below.
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool>;
+    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool | undefined>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
@@ -245,27 +245,27 @@ export interface SubnetState {
      *
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
-    privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    privateEndpointNetworkPolicies?: pulumi.Input<string | undefined>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *
      * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      */
-    privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean>;
+    privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
-    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
      *
      * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
      */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      *
@@ -273,11 +273,11 @@ export interface SubnetState {
      *
      * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      */
-    sharingScope?: pulumi.Input<string>;
+    sharingScope?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
-    virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,25 +289,25 @@ export interface SubnetArgs {
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
      */
-    defaultOutboundAccessEnabled?: pulumi.Input<boolean>;
+    defaultOutboundAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `delegation` blocks as defined below.
      */
-    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[] | undefined>;
     /**
      * An `ipAddressPool` block as defined below.
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool>;
+    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool | undefined>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
@@ -317,13 +317,13 @@ export interface SubnetArgs {
      *
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
-    privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    privateEndpointNetworkPolicies?: pulumi.Input<string | undefined>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *
      * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      */
-    privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean>;
+    privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
@@ -331,13 +331,13 @@ export interface SubnetArgs {
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
-    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
      *
      * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
      */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      *
@@ -345,7 +345,7 @@ export interface SubnetArgs {
      *
      * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      */
-    sharingScope?: pulumi.Input<string>;
+    sharingScope?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */

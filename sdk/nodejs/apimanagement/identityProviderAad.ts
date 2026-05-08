@@ -165,31 +165,31 @@ export interface IdentityProviderAadState {
     /**
      * List of allowed AAD Tenants.
      */
-    allowedTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedTenants?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * Client Id of the Application in the AAD Identity Provider.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The client library to be used in the AAD Identity Provider.
      */
-    clientLibrary?: pulumi.Input<string>;
+    clientLibrary?: pulumi.Input<string | undefined>;
     /**
      * Client secret of the Application in the AAD Identity Provider.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
-    signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface IdentityProviderAadArgs {
     /**
      * The client library to be used in the AAD Identity Provider.
      */
-    clientLibrary?: pulumi.Input<string>;
+    clientLibrary?: pulumi.Input<string | undefined>;
     /**
      * Client secret of the Application in the AAD Identity Provider.
      */
@@ -223,5 +223,5 @@ export interface IdentityProviderAadArgs {
     /**
      * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
-    signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string | undefined>;
 }

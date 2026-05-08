@@ -140,19 +140,19 @@ export interface PrivateLinkScopedServiceState {
     /**
      * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      */
-    linkedResourceId?: pulumi.Input<string>;
+    linkedResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      */
-    scopeName?: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface PrivateLinkScopedServiceArgs {
     /**
      * The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
      */

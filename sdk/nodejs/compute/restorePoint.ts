@@ -175,19 +175,19 @@ export interface RestorePointState {
     /**
      * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    crashConsistencyModeEnabled?: pulumi.Input<boolean>;
+    crashConsistencyModeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    excludedDisks?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedDisks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
      */
-    virtualMachineRestorePointCollectionId?: pulumi.Input<string>;
+    virtualMachineRestorePointCollectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,15 +197,15 @@ export interface RestorePointArgs {
     /**
      * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    crashConsistencyModeEnabled?: pulumi.Input<boolean>;
+    crashConsistencyModeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    excludedDisks?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedDisks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
      */

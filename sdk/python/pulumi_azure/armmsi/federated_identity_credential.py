@@ -22,10 +22,10 @@ class FederatedIdentityCredentialArgs:
                  audience: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input[_builtins.str],
                  subject: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FederatedIdentityCredential resource.
 
@@ -91,59 +91,59 @@ class FederatedIdentityCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
     @_utilities.deprecated("""`parent_id` has been renamed to `user_assigned_identity_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
 class _FederatedIdentityCredentialState:
     def __init__(__self__, *,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FederatedIdentityCredential resources.
 
@@ -176,82 +176,82 @@ class _FederatedIdentityCredentialState:
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the audience for this Federated Identity Credential.
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the issuer of this Federated Identity Credential.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
     @_utilities.deprecated("""`parent_id` has been renamed to `user_assigned_identity_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subject for this Federated Identity Credential.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -261,13 +261,13 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Federated Identity Credential.
@@ -378,13 +378,13 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,13 +417,13 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            audience: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subject: Optional[pulumi.Input[_builtins.str]] = None,
-            user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FederatedIdentityCredential':
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FederatedIdentityCredential':
         """
         Get an existing FederatedIdentityCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

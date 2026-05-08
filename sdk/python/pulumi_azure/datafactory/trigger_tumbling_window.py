@@ -26,16 +26,16 @@ class TriggerTumblingWindowArgs:
                  interval: pulumi.Input[_builtins.int],
                  pipeline: pulumi.Input['TriggerTumblingWindowPipelineArgs'],
                  start_time: pulumi.Input[_builtins.str],
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry: pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']] = None,
+                 trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
         """
         The set of arguments for constructing a TriggerTumblingWindow resource.
 
@@ -143,143 +143,143 @@ class TriggerTumblingWindowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
         """
         return pulumi.get(self, "delay")
 
     @delay.setter
-    def delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delay", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]:
+    def retry(self) -> pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']]:
         """
         A `retry` block as defined below.
         """
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]):
+    def retry(self, value: pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']]):
         pulumi.set(self, "retry", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerDependencies")
-    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
+    def trigger_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
         """
         One or more `trigger_dependency` block as defined below.
         """
         return pulumi.get(self, "trigger_dependencies")
 
     @trigger_dependencies.setter
-    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
+    def trigger_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
         pulumi.set(self, "trigger_dependencies", value)
 
 
 @pulumi.input_type
 class _TriggerTumblingWindowState:
     def __init__(__self__, *,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']] = None,
-                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline: pulumi.Input[Optional['TriggerTumblingWindowPipelineArgs']] = None,
+                 retry: pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
         """
         Input properties used for looking up and filtering TriggerTumblingWindow resources.
 
@@ -332,182 +332,182 @@ class _TriggerTumblingWindowState:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
         """
         return pulumi.get(self, "delay")
 
     @delay.setter
-    def delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delay", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Tumbling Window Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval of Tumbling Window. Changing this forces a new resource.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pipeline(self) -> Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']]:
+    def pipeline(self) -> pulumi.Input[Optional['TriggerTumblingWindowPipelineArgs']]:
         """
         A `pipeline` block as defined below.
         """
         return pulumi.get(self, "pipeline")
 
     @pipeline.setter
-    def pipeline(self, value: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']]):
+    def pipeline(self, value: pulumi.Input[Optional['TriggerTumblingWindowPipelineArgs']]):
         pulumi.set(self, "pipeline", value)
 
     @_builtins.property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]:
+    def retry(self) -> pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']]:
         """
         A `retry` block as defined below.
         """
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]):
+    def retry(self, value: pulumi.Input[Optional['TriggerTumblingWindowRetryArgs']]):
         pulumi.set(self, "retry", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerDependencies")
-    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
+    def trigger_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
         """
         One or more `trigger_dependency` block as defined below.
         """
         return pulumi.get(self, "trigger_dependencies")
 
     @trigger_dependencies.setter
-    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
+    def trigger_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
         pulumi.set(self, "trigger_dependencies", value)
 
 
@@ -517,21 +517,21 @@ class TriggerTumblingWindow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline: Optional[pulumi.Input[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
-                 retry: Optional[pulumi.Input[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline: pulumi.Input[Optional[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
+                 retry: pulumi.Input[Optional[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
@@ -696,21 +696,21 @@ class TriggerTumblingWindow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline: Optional[pulumi.Input[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
-                 retry: Optional[pulumi.Input[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline: pulumi.Input[Optional[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
+                 retry: pulumi.Input[Optional[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -755,21 +755,21 @@ class TriggerTumblingWindow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activated: Optional[pulumi.Input[_builtins.bool]] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            delay: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pipeline: Optional[pulumi.Input[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
-            retry: Optional[pulumi.Input[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None) -> 'TriggerTumblingWindow':
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delay: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline: pulumi.Input[Optional[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict']]] = None,
+            retry: pulumi.Input[Optional[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict']]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict']]]]] = None) -> 'TriggerTumblingWindow':
         """
         Get an existing TriggerTumblingWindow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

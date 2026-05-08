@@ -26,9 +26,9 @@ class CacheNfsTargetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_host_name: pulumi.Input[_builtins.str],
                  usage_model: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CacheNfsTarget resource.
 
@@ -115,52 +115,52 @@ class CacheNfsTargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationTimerInSeconds")
-    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def verification_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "verification_timer_in_seconds")
 
     @verification_timer_in_seconds.setter
-    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def verification_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "verification_timer_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="writeBackTimerInSeconds")
-    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_back_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "write_back_timer_in_seconds")
 
     @write_back_timer_in_seconds.setter
-    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_back_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_back_timer_in_seconds", value)
 
 
 @pulumi.input_type
 class _CacheNfsTargetState:
     def __init__(__self__, *,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_junctions: pulumi.Input[Optional[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CacheNfsTarget resources.
 
@@ -192,98 +192,98 @@ class _CacheNfsTargetState:
 
     @_builtins.property
     @pulumi.getter(name="cacheName")
-    def cache_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_name")
 
     @cache_name.setter
-    def cache_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceJunctions")
-    def namespace_junctions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]:
+    def namespace_junctions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]:
         """
         Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         """
         return pulumi.get(self, "namespace_junctions")
 
     @namespace_junctions.setter
-    def namespace_junctions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]):
+    def namespace_junctions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]):
         pulumi.set(self, "namespace_junctions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetHostName")
-    def target_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_host_name")
 
     @target_host_name.setter
-    def target_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         return pulumi.get(self, "usage_model")
 
     @usage_model.setter
-    def usage_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_model", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationTimerInSeconds")
-    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def verification_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "verification_timer_in_seconds")
 
     @verification_timer_in_seconds.setter
-    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def verification_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "verification_timer_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="writeBackTimerInSeconds")
-    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_back_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "write_back_timer_in_seconds")
 
     @write_back_timer_in_seconds.setter
-    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_back_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_back_timer_in_seconds", value)
 
 
@@ -293,14 +293,14 @@ class CacheNfsTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_junctions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a NFS Target within a HPC Cache.
@@ -570,14 +570,14 @@ class CacheNfsTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_junctions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,14 +615,14 @@ class CacheNfsTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-            verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'CacheNfsTarget':
+            cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_junctions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheNfsTargetNamespaceJunctionArgs', 'CacheNfsTargetNamespaceJunctionArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'CacheNfsTarget':
         """
         Get an existing CacheNfsTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

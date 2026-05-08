@@ -22,12 +22,12 @@ class ResourceGroupPolicyExemptionArgs:
                  exemption_category: pulumi.Input[_builtins.str],
                  policy_assignment_id: pulumi.Input[_builtins.str],
                  resource_group_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGroupPolicyExemption resource.
 
@@ -95,89 +95,89 @@ class ResourceGroupPolicyExemptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description to use for this Policy Exemption.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly display name to use for this Policy Exemption.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date and time in UTC ISO 8601 format of this policy exemption.
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Policy Exemption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_definition_reference_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_ids")
 
     @policy_definition_reference_ids.setter
-    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_definition_reference_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_definition_reference_ids", value)
 
 
 @pulumi.input_type
 class _ResourceGroupPolicyExemptionState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exemption_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exemption_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupPolicyExemption resources.
 
@@ -212,110 +212,110 @@ class _ResourceGroupPolicyExemptionState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description to use for this Policy Exemption.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly display name to use for this Policy Exemption.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="exemptionCategory")
-    def exemption_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exemption_category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
         """
         return pulumi.get(self, "exemption_category")
 
     @exemption_category.setter
-    def exemption_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exemption_category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exemption_category", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date and time in UTC ISO 8601 format of this policy exemption.
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Policy Exemption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_assignment_id")
 
     @policy_assignment_id.setter
-    def policy_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_definition_reference_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_ids")
 
     @policy_definition_reference_ids.setter
-    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_definition_reference_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_definition_reference_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_id")
 
     @resource_group_id.setter
-    def resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_id", value)
 
 
@@ -325,15 +325,15 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exemption_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exemption_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Resource Group Policy Exemption.
@@ -446,15 +446,15 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exemption_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exemption_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -489,15 +489,15 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            exemption_category: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResourceGroupPolicyExemption':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            exemption_category: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_reference_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceGroupPolicyExemption':
         """
         Get an existing ResourceGroupPolicyExemption resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

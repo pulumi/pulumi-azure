@@ -133,17 +133,17 @@ export interface ContainerStorageAccountState {
     /**
      * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      *
      * > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**

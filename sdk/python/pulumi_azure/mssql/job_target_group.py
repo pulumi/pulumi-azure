@@ -22,8 +22,8 @@ __all__ = ['JobTargetGroupArgs', 'JobTargetGroup']
 class JobTargetGroupArgs:
     def __init__(__self__, *,
                  job_agent_id: pulumi.Input[_builtins.str],
-                 job_targets: Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobTargetGroup resource.
 
@@ -51,35 +51,35 @@ class JobTargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobTargets")
-    def job_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]:
+    def job_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]:
         """
         One or more `job_target` blocks as defined below.
         """
         return pulumi.get(self, "job_targets")
 
     @job_targets.setter
-    def job_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]):
+    def job_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]):
         pulumi.set(self, "job_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _JobTargetGroupState:
     def __init__(__self__, *,
-                 job_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_targets: Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobTargetGroup resources.
 
@@ -96,38 +96,38 @@ class _JobTargetGroupState:
 
     @_builtins.property
     @pulumi.getter(name="jobAgentId")
-    def job_agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_agent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
         """
         return pulumi.get(self, "job_agent_id")
 
     @job_agent_id.setter
-    def job_agent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_agent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_agent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTargets")
-    def job_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]:
+    def job_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]:
         """
         One or more `job_target` blocks as defined below.
         """
         return pulumi.get(self, "job_targets")
 
     @job_targets.setter
-    def job_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]):
+    def job_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]]]):
         pulumi.set(self, "job_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -137,9 +137,9 @@ class JobTargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Job Target Group.
@@ -284,9 +284,9 @@ class JobTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,9 +311,9 @@ class JobTargetGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            job_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            job_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'JobTargetGroup':
+            job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'JobTargetGroup':
         """
         Get an existing JobTargetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

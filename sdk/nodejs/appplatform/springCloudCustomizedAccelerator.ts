@@ -175,35 +175,35 @@ export interface SpringCloudCustomizedAcceleratorState {
     /**
      * Specifies a list of accelerator tags.
      */
-    acceleratorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    acceleratorTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
      */
-    acceleratorType?: pulumi.Input<string>;
+    acceleratorType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the display name of the Spring Cloud Customized Accelerator..
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
-    gitRepository?: pulumi.Input<inputs.appplatform.SpringCloudCustomizedAcceleratorGitRepository>;
+    gitRepository?: pulumi.Input<inputs.appplatform.SpringCloudCustomizedAcceleratorGitRepository | undefined>;
     /**
      * Specifies the icon URL of the Spring Cloud Customized Accelerator..
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */
-    springCloudAcceleratorId?: pulumi.Input<string>;
+    springCloudAcceleratorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,19 +213,19 @@ export interface SpringCloudCustomizedAcceleratorArgs {
     /**
      * Specifies a list of accelerator tags.
      */
-    acceleratorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    acceleratorTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
      */
-    acceleratorType?: pulumi.Input<string>;
+    acceleratorType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the display name of the Spring Cloud Customized Accelerator..
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
@@ -233,11 +233,11 @@ export interface SpringCloudCustomizedAcceleratorArgs {
     /**
      * Specifies the icon URL of the Spring Cloud Customized Accelerator..
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */

@@ -142,19 +142,19 @@ export interface FirewallRuleState {
     /**
      * The end IP address of the Mongo Cluster Firewall Rule.
      */
-    endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Mongo Cluster. Changing this forces a new resource to be created.
      */
-    mongoClusterId?: pulumi.Input<string>;
+    mongoClusterId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Mongo Cluster Firewall Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The start IP address of the Mongo Cluster Firewall Rule.
      */
-    startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the Mongo Cluster Firewall Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The start IP address of the Mongo Cluster Firewall Rule.
      */

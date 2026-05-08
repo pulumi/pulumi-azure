@@ -127,11 +127,11 @@ export interface GetRoleAssignmentsOutputArgs {
     /**
      * Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `false`.
      */
-    limitAtScope?: pulumi.Input<boolean>;
+    limitAtScope?: pulumi.Input<boolean | undefined>;
     /**
      * The principal ID to filter the list of Role Assignments against.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The scope at which to list Role Assignments.
      */
@@ -139,5 +139,5 @@ export interface GetRoleAssignmentsOutputArgs {
     /**
      * The tenant ID for cross-tenant requests.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

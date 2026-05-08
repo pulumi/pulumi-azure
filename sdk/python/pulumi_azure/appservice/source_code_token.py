@@ -21,7 +21,7 @@ class SourceCodeTokenArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 token_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 token_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceCodeToken resource.
 
@@ -60,23 +60,23 @@ class SourceCodeTokenArgs:
 
     @_builtins.property
     @pulumi.getter(name="tokenSecret")
-    def token_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth access token secret.
         """
         return pulumi.get(self, "token_secret")
 
     @token_secret.setter
-    def token_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_secret", value)
 
 
 @pulumi.input_type
 class _SourceCodeTokenState:
     def __init__(__self__, *,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceCodeToken resources.
 
@@ -93,38 +93,38 @@ class _SourceCodeTokenState:
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth access token.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenSecret")
-    def token_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth access token secret.
         """
         return pulumi.get(self, "token_secret")
 
     @token_secret.setter
-    def token_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -134,9 +134,9 @@ class SourceCodeToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Service source control token.
@@ -219,9 +219,9 @@ class SourceCodeToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,9 +250,9 @@ class SourceCodeToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            token: Optional[pulumi.Input[_builtins.str]] = None,
-            token_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'SourceCodeToken':
+            token: pulumi.Input[Optional[_builtins.str]] = None,
+            token_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'SourceCodeToken':
         """
         Get an existing SourceCodeToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

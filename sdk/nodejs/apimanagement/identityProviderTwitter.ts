@@ -143,19 +143,19 @@ export interface IdentityProviderTwitterState {
     /**
      * App Consumer API key for Twitter.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * App Consumer API secret key for Twitter.
      */
-    apiSecretKey?: pulumi.Input<string>;
+    apiSecretKey?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**

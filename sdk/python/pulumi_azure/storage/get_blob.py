@@ -205,10 +205,10 @@ def get_blob(metadata: Optional[Mapping[str, _builtins.str]] = None,
         storage_container_name=pulumi.get(__ret__, 'storage_container_name'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
-def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                    storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blob_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                    storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobResult]:
     """
     Use this data source to access information about an existing Storage Blob.

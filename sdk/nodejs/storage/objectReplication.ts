@@ -176,23 +176,23 @@ export interface ObjectReplicationState {
     /**
      * The ID of the Object Replication in the destination storage account.
      */
-    destinationObjectReplicationId?: pulumi.Input<string>;
+    destinationObjectReplicationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
      */
-    destinationStorageAccountId?: pulumi.Input<string>;
+    destinationStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * One or more `rules` blocks as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationRule>[] | undefined>;
     /**
      * The ID of the Object Replication in the source storage account.
      */
-    sourceObjectReplicationId?: pulumi.Input<string>;
+    sourceObjectReplicationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
      */
-    sourceStorageAccountId?: pulumi.Input<string>;
+    sourceStorageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**

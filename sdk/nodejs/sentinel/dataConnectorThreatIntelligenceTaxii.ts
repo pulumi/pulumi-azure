@@ -181,45 +181,45 @@ export interface DataConnectorThreatIntelligenceTaxiiState {
     /**
      * The API root URI of the TAXII server.
      */
-    apiRootUrl?: pulumi.Input<string>;
+    apiRootUrl?: pulumi.Input<string | undefined>;
     /**
      * The collection ID of the TAXII server.
      */
-    collectionId?: pulumi.Input<string>;
+    collectionId?: pulumi.Input<string | undefined>;
     /**
      * The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      */
-    lookbackDate?: pulumi.Input<string>;
+    lookbackDate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password for the TAXII server.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
      */
-    pollingFrequency?: pulumi.Input<string>;
+    pollingFrequency?: pulumi.Input<string | undefined>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The user name for the TAXII server.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -245,27 +245,27 @@ export interface DataConnectorThreatIntelligenceTaxiiArgs {
     /**
      * The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      */
-    lookbackDate?: pulumi.Input<string>;
+    lookbackDate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password for the TAXII server.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
      */
-    pollingFrequency?: pulumi.Input<string>;
+    pollingFrequency?: pulumi.Input<string | undefined>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The user name for the TAXII server.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

@@ -166,35 +166,35 @@ export interface Python3PackageState {
     /**
      * The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
      */
-    contentUri?: pulumi.Input<string>;
+    contentUri?: pulumi.Input<string | undefined>;
     /**
      * Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
      */
-    contentVersion?: pulumi.Input<string>;
+    contentVersion?: pulumi.Input<string | undefined>;
     /**
      * Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
      */
-    hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
      */
-    hashValue?: pulumi.Input<string>;
+    hashValue?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Automation Python3 Package.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -212,19 +212,19 @@ export interface Python3PackageArgs {
     /**
      * Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
      */
-    contentVersion?: pulumi.Input<string>;
+    contentVersion?: pulumi.Input<string | undefined>;
     /**
      * Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
      */
-    hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
      */
-    hashValue?: pulumi.Input<string>;
+    hashValue?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
      */
@@ -232,5 +232,5 @@ export interface Python3PackageArgs {
     /**
      * A mapping of tags which should be assigned to the Automation Python3 Package.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

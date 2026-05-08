@@ -248,8 +248,8 @@ def get_service_plan(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'),
         zone_balancing_enabled=pulumi.get(__ret__, 'zone_balancing_enabled'))
-def get_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicePlanResult]:
     """
     Use this data source to access information about an existing Service Plan.

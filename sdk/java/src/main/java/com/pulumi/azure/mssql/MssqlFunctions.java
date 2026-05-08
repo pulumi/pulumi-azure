@@ -48,8 +48,8 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -115,8 +115,8 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -249,8 +249,8 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -316,8 +316,8 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -379,8 +379,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -429,8 +429,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -479,8 +479,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -579,8 +579,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -629,8 +629,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -678,8 +678,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -727,8 +727,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -776,8 +776,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -825,8 +825,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -954,8 +954,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1002,8 +1002,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1050,8 +1050,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1098,8 +1098,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1146,8 +1146,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1194,8 +1194,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1243,8 +1243,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1292,8 +1292,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1341,8 +1341,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1390,8 +1390,8 @@ public final class MssqlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mssql.MssqlFunctions;
      * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

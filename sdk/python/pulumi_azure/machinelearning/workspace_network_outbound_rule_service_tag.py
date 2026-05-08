@@ -23,7 +23,7 @@ class WorkspaceNetworkOutboundRuleServiceTagArgs:
                  protocol: pulumi.Input[_builtins.str],
                  service_tag: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceNetworkOutboundRuleServiceTag resource.
 
@@ -90,25 +90,25 @@ class WorkspaceNetworkOutboundRuleServiceTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _WorkspaceNetworkOutboundRuleServiceTagState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_ranges: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_ranges: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceNetworkOutboundRuleServiceTag resources.
 
@@ -131,62 +131,62 @@ class _WorkspaceNetworkOutboundRuleServiceTagState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_ranges(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) , a port range (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
         """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_ranges(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTag")
-    def service_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the fully qualified domain name to allow for outbound traffic. Possible values are `AppConfiguration`,`AppService`,`AzureActiveDirectory`,`AzureAdvancedThreatProtection`,`AzureArcInfrastructure`,`AzureAttestation`,`AzureBackup`,`AzureBotService`,`AzureContainerRegistry`,`AzureCosmosDB`,`AzureDataLake`,`AzureDevSpaces`,`AzureInformationProtection`,`AzureIoTHub`,`AzureKeyVault`,`AzureManagedGrafana`,`AzureMonitor`,`AzureOpenDatasets`,`AzurePlatformDNS`,`AzurePlatformIMDS`,`AzurePlatformLKM`,`AzureResourceManager`,`AzureSignalR`,`AzureSiteRecovery`,`AzureSpringCloud`,`AzureStack`,`AzureUpdateDelivery`,`DataFactoryManagement`,`EventHub`,`GuestAndHybridManagement`,`M365ManagementActivityApi`,`M365ManagementActivityApi`,`MicrosoftAzureFluidRelay`,`MicrosoftCloudAppSecurity`,`MicrosoftContainerRegistry`,`PowerPlatformInfra`,`ServiceBus`,`Sql`,`Storage`,`WindowsAdminCenter`,`AppServiceManagement`,`AutonomousDevelopmentPlatform`,`AzureActiveDirectoryDomainServices`,`AzureCloud`,`AzureConnectors`,`AzureContainerAppsService`,`AzureDatabricks`,`AzureDeviceUpdate`,`AzureEventGrid`,`AzureFrontDoor.Frontend`,`AzureFrontDoor.Backend`,`AzureFrontDoor.FirstParty`,`AzureHealthcareAPIs`,`AzureLoadBalancer`,`AzureMachineLearning`,`AzureSphere`,`AzureWebPubSub`,`BatchNodeManagement`,`ChaosStudio`,`CognitiveServicesFrontend`,`CognitiveServicesManagement`,`DataFactory`,`Dynamics365ForMarketingEmail`,`Dynamics365BusinessCentral`,`EOPExternalPublishedIPs`,`Internet`,`LogicApps`,`Marketplace`,`MicrosoftDefenderForEndpoint`,`PowerBI`,`PowerQueryOnline`,`ServiceFabric`,`SqlManagement`,`StorageSyncService`,`WindowsVirtualDesktop` and `VirtualNetwork`.
         """
         return pulumi.get(self, "service_tag")
 
     @service_tag.setter
-    def service_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -196,11 +196,11 @@ class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_ranges: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_ranges: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Machine Learning Workspace Network Outbound Rule Service Tag.
@@ -365,11 +365,11 @@ class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_ranges: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_ranges: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,11 +402,11 @@ class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            port_ranges: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceNetworkOutboundRuleServiceTag':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port_ranges: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceNetworkOutboundRuleServiceTag':
         """
         Get an existing WorkspaceNetworkOutboundRuleServiceTag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

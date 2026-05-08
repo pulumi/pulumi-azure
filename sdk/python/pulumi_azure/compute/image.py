@@ -22,14 +22,14 @@ __all__ = ['ImageArgs', 'Image']
 class ImageArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk: Optional[pulumi.Input['ImageOsDiskArgs']] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk: pulumi.Input[Optional['ImageOsDiskArgs']] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Image resource.
 
@@ -83,7 +83,7 @@ class ImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
 
@@ -92,48 +92,48 @@ class ImageArgs:
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['ImageOsDiskArgs']]:
         """
         One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -142,36 +142,36 @@ class ImageArgs:
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['ImageOsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['ImageOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVirtualMachineId")
-    def source_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Machine ID from which to create the image.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
     @source_virtual_machine_id.setter
-    def source_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneResilient")
-    def zone_resilient(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_resilient(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -182,22 +182,22 @@ class ImageArgs:
         return pulumi.get(self, "zone_resilient")
 
     @zone_resilient.setter
-    def zone_resilient(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_resilient(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_resilient", value)
 
 
 @pulumi.input_type
 class _ImageState:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk: Optional[pulumi.Input['ImageOsDiskArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk: pulumi.Input[Optional['ImageOsDiskArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Image resources.
 
@@ -240,7 +240,7 @@ class _ImageState:
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
 
@@ -249,48 +249,48 @@ class _ImageState:
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['ImageOsDiskArgs']]:
         """
         One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -299,48 +299,48 @@ class _ImageState:
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['ImageOsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['ImageOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVirtualMachineId")
-    def source_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Machine ID from which to create the image.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
     @source_virtual_machine_id.setter
-    def source_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneResilient")
-    def zone_resilient(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_resilient(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -351,7 +351,7 @@ class _ImageState:
         return pulumi.get(self, "zone_resilient")
 
     @zone_resilient.setter
-    def zone_resilient(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_resilient(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_resilient", value)
 
 
@@ -361,15 +361,15 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk: pulumi.Input[Optional[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
@@ -484,15 +484,15 @@ class Image(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk: pulumi.Input[Optional[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -523,15 +523,15 @@ class Image(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
-            hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_disk: Optional[pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Image':
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_disk: pulumi.Input[Optional[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Image':
         """
         Get an existing Image resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

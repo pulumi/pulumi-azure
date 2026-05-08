@@ -164,36 +164,36 @@ export interface DscConfigurationState {
     /**
      * The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The PowerShell DSC Configuration script.
      */
-    contentEmbedded?: pulumi.Input<string>;
+    contentEmbedded?: pulumi.Input<string | undefined>;
     /**
      * Description to go with DSC Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Verbose log option.
      */
-    logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -211,19 +211,19 @@ export interface DscConfigurationArgs {
     /**
      * Description to go with DSC Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Verbose log option.
      */
-    logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
@@ -231,5 +231,5 @@ export interface DscConfigurationArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

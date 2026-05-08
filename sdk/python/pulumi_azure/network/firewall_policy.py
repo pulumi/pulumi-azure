@@ -22,22 +22,22 @@ __all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
 class FirewallPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_learn_private_ranges_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
-                 explicit_proxy: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']] = None,
-                 identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
-                 insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
-                 intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_redirect_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intelligence_allowlist: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
-                 threat_intelligence_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None):
+                 auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns: pulumi.Input[Optional['FirewallPolicyDnsArgs']] = None,
+                 explicit_proxy: pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']] = None,
+                 identity: pulumi.Input[Optional['FirewallPolicyIdentityArgs']] = None,
+                 insights: pulumi.Input[Optional['FirewallPolicyInsightsArgs']] = None,
+                 intrusion_detection: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intelligence_allowlist: pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
+                 threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_certificate: pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
 
@@ -107,220 +107,220 @@ class FirewallPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
-    def auto_learn_private_ranges_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_learn_private_ranges_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enable auto learn private ip range.
         """
         return pulumi.get(self, "auto_learn_private_ranges_enabled")
 
     @auto_learn_private_ranges_enabled.setter
-    def auto_learn_private_ranges_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_learn_private_ranges_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_learn_private_ranges_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="basePolicyId")
-    def base_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the base Firewall Policy.
         """
         return pulumi.get(self, "base_policy_id")
 
     @base_policy_id.setter
-    def base_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['FirewallPolicyDnsArgs']]:
+    def dns(self) -> pulumi.Input[Optional['FirewallPolicyDnsArgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['FirewallPolicyDnsArgs']]):
+    def dns(self, value: pulumi.Input[Optional['FirewallPolicyDnsArgs']]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitProxy")
-    def explicit_proxy(self) -> Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']]:
+    def explicit_proxy(self) -> pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']]:
         """
         A `explicit_proxy` block as defined below.
         """
         return pulumi.get(self, "explicit_proxy")
 
     @explicit_proxy.setter
-    def explicit_proxy(self, value: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']]):
+    def explicit_proxy(self, value: pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']]):
         pulumi.set(self, "explicit_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FirewallPolicyIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FirewallPolicyIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FirewallPolicyIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FirewallPolicyIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def insights(self) -> Optional[pulumi.Input['FirewallPolicyInsightsArgs']]:
+    def insights(self) -> pulumi.Input[Optional['FirewallPolicyInsightsArgs']]:
         """
         An `insights` block as defined below.
         """
         return pulumi.get(self, "insights")
 
     @insights.setter
-    def insights(self, value: Optional[pulumi.Input['FirewallPolicyInsightsArgs']]):
+    def insights(self, value: pulumi.Input[Optional['FirewallPolicyInsightsArgs']]):
         pulumi.set(self, "insights", value)
 
     @_builtins.property
     @pulumi.getter(name="intrusionDetection")
-    def intrusion_detection(self) -> Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]:
+    def intrusion_detection(self) -> pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]:
         """
         A `intrusion_detection` block as defined below.
         """
         return pulumi.get(self, "intrusion_detection")
 
     @intrusion_detection.setter
-    def intrusion_detection(self, value: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]):
+    def intrusion_detection(self, value: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]):
         pulumi.set(self, "intrusion_detection", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpRanges")
-    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of private IP ranges to which traffic will not be SNAT.
         """
         return pulumi.get(self, "private_ip_ranges")
 
     @private_ip_ranges.setter
-    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlRedirectAllowed")
-    def sql_redirect_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sql_redirect_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         """
         return pulumi.get(self, "sql_redirect_allowed")
 
     @sql_redirect_allowed.setter
-    def sql_redirect_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sql_redirect_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sql_redirect_allowed", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelligenceAllowlist")
-    def threat_intelligence_allowlist(self) -> Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']]:
+    def threat_intelligence_allowlist(self) -> pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']]:
         """
         A `threat_intelligence_allowlist` block as defined below.
         """
         return pulumi.get(self, "threat_intelligence_allowlist")
 
     @threat_intelligence_allowlist.setter
-    def threat_intelligence_allowlist(self, value: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']]):
+    def threat_intelligence_allowlist(self, value: pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']]):
         pulumi.set(self, "threat_intelligence_allowlist", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelligenceMode")
-    def threat_intelligence_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threat_intelligence_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intelligence_mode")
 
     @threat_intelligence_mode.setter
-    def threat_intelligence_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threat_intelligence_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threat_intelligence_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsCertificate")
-    def tls_certificate(self) -> Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']]:
+    def tls_certificate(self) -> pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']]:
         """
         A `tls_certificate` block as defined below.
         """
         return pulumi.get(self, "tls_certificate")
 
     @tls_certificate.setter
-    def tls_certificate(self, value: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']]):
+    def tls_certificate(self, value: pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']]):
         pulumi.set(self, "tls_certificate", value)
 
 
 @pulumi.input_type
 class _FirewallPolicyState:
     def __init__(__self__, *,
-                 auto_learn_private_ranges_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 child_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
-                 explicit_proxy: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']] = None,
-                 firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
-                 insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
-                 intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_redirect_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intelligence_allowlist: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
-                 threat_intelligence_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None):
+                 auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 child_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns: pulumi.Input[Optional['FirewallPolicyDnsArgs']] = None,
+                 explicit_proxy: pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']] = None,
+                 firewalls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['FirewallPolicyIdentityArgs']] = None,
+                 insights: pulumi.Input[Optional['FirewallPolicyInsightsArgs']] = None,
+                 intrusion_detection: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intelligence_allowlist: pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
+                 threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_certificate: pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']] = None):
         """
         Input properties used for looking up and filtering FirewallPolicy resources.
 
@@ -388,242 +388,242 @@ class _FirewallPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
-    def auto_learn_private_ranges_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_learn_private_ranges_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enable auto learn private ip range.
         """
         return pulumi.get(self, "auto_learn_private_ranges_enabled")
 
     @auto_learn_private_ranges_enabled.setter
-    def auto_learn_private_ranges_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_learn_private_ranges_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_learn_private_ranges_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="basePolicyId")
-    def base_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the base Firewall Policy.
         """
         return pulumi.get(self, "base_policy_id")
 
     @base_policy_id.setter
-    def base_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="childPolicies")
-    def child_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def child_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of reference to child Firewall Policies of this Firewall Policy.
         """
         return pulumi.get(self, "child_policies")
 
     @child_policies.setter
-    def child_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def child_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "child_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['FirewallPolicyDnsArgs']]:
+    def dns(self) -> pulumi.Input[Optional['FirewallPolicyDnsArgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['FirewallPolicyDnsArgs']]):
+    def dns(self, value: pulumi.Input[Optional['FirewallPolicyDnsArgs']]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitProxy")
-    def explicit_proxy(self) -> Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']]:
+    def explicit_proxy(self) -> pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']]:
         """
         A `explicit_proxy` block as defined below.
         """
         return pulumi.get(self, "explicit_proxy")
 
     @explicit_proxy.setter
-    def explicit_proxy(self, value: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']]):
+    def explicit_proxy(self, value: pulumi.Input[Optional['FirewallPolicyExplicitProxyArgs']]):
         pulumi.set(self, "explicit_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def firewalls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def firewalls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of references to Azure Firewalls that this Firewall Policy is associated with.
         """
         return pulumi.get(self, "firewalls")
 
     @firewalls.setter
-    def firewalls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def firewalls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "firewalls", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FirewallPolicyIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FirewallPolicyIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FirewallPolicyIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FirewallPolicyIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def insights(self) -> Optional[pulumi.Input['FirewallPolicyInsightsArgs']]:
+    def insights(self) -> pulumi.Input[Optional['FirewallPolicyInsightsArgs']]:
         """
         An `insights` block as defined below.
         """
         return pulumi.get(self, "insights")
 
     @insights.setter
-    def insights(self, value: Optional[pulumi.Input['FirewallPolicyInsightsArgs']]):
+    def insights(self, value: pulumi.Input[Optional['FirewallPolicyInsightsArgs']]):
         pulumi.set(self, "insights", value)
 
     @_builtins.property
     @pulumi.getter(name="intrusionDetection")
-    def intrusion_detection(self) -> Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]:
+    def intrusion_detection(self) -> pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]:
         """
         A `intrusion_detection` block as defined below.
         """
         return pulumi.get(self, "intrusion_detection")
 
     @intrusion_detection.setter
-    def intrusion_detection(self, value: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]):
+    def intrusion_detection(self, value: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]):
         pulumi.set(self, "intrusion_detection", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpRanges")
-    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of private IP ranges to which traffic will not be SNAT.
         """
         return pulumi.get(self, "private_ip_ranges")
 
     @private_ip_ranges.setter
-    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionGroups")
-    def rule_collection_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rule_collection_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
         """
         return pulumi.get(self, "rule_collection_groups")
 
     @rule_collection_groups.setter
-    def rule_collection_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rule_collection_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rule_collection_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlRedirectAllowed")
-    def sql_redirect_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sql_redirect_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         """
         return pulumi.get(self, "sql_redirect_allowed")
 
     @sql_redirect_allowed.setter
-    def sql_redirect_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sql_redirect_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sql_redirect_allowed", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelligenceAllowlist")
-    def threat_intelligence_allowlist(self) -> Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']]:
+    def threat_intelligence_allowlist(self) -> pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']]:
         """
         A `threat_intelligence_allowlist` block as defined below.
         """
         return pulumi.get(self, "threat_intelligence_allowlist")
 
     @threat_intelligence_allowlist.setter
-    def threat_intelligence_allowlist(self, value: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']]):
+    def threat_intelligence_allowlist(self, value: pulumi.Input[Optional['FirewallPolicyThreatIntelligenceAllowlistArgs']]):
         pulumi.set(self, "threat_intelligence_allowlist", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelligenceMode")
-    def threat_intelligence_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threat_intelligence_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intelligence_mode")
 
     @threat_intelligence_mode.setter
-    def threat_intelligence_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threat_intelligence_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threat_intelligence_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsCertificate")
-    def tls_certificate(self) -> Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']]:
+    def tls_certificate(self) -> pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']]:
         """
         A `tls_certificate` block as defined below.
         """
         return pulumi.get(self, "tls_certificate")
 
     @tls_certificate.setter
-    def tls_certificate(self, value: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']]):
+    def tls_certificate(self, value: pulumi.Input[Optional['FirewallPolicyTlsCertificateArgs']]):
         pulumi.set(self, "tls_certificate", value)
 
 
@@ -633,23 +633,23 @@ class FirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_learn_private_ranges_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns: Optional[pulumi.Input[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
-                 explicit_proxy: Optional[pulumi.Input[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
-                 insights: Optional[pulumi.Input[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
-                 intrusion_detection: Optional[pulumi.Input[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_redirect_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intelligence_allowlist: Optional[pulumi.Input[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
-                 threat_intelligence_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_certificate: Optional[pulumi.Input[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None,
+                 auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns: pulumi.Input[Optional[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
+                 explicit_proxy: pulumi.Input[Optional[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
+                 insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
+                 intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intelligence_allowlist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
+                 threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_certificate: pulumi.Input[Optional[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Firewall Policy.
@@ -760,23 +760,23 @@ class FirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_learn_private_ranges_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns: Optional[pulumi.Input[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
-                 explicit_proxy: Optional[pulumi.Input[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
-                 insights: Optional[pulumi.Input[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
-                 intrusion_detection: Optional[pulumi.Input[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_redirect_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intelligence_allowlist: Optional[pulumi.Input[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
-                 threat_intelligence_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_certificate: Optional[pulumi.Input[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None,
+                 auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns: pulumi.Input[Optional[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
+                 explicit_proxy: pulumi.Input[Optional[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
+                 insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
+                 intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intelligence_allowlist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
+                 threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_certificate: pulumi.Input[Optional[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -818,26 +818,26 @@ class FirewallPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_learn_private_ranges_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            base_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            child_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dns: Optional[pulumi.Input[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
-            explicit_proxy: Optional[pulumi.Input[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
-            firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identity: Optional[pulumi.Input[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
-            insights: Optional[pulumi.Input[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
-            intrusion_detection: Optional[pulumi.Input[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            sql_redirect_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            threat_intelligence_allowlist: Optional[pulumi.Input[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
-            threat_intelligence_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            tls_certificate: Optional[pulumi.Input[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None) -> 'FirewallPolicy':
+            auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            child_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dns: pulumi.Input[Optional[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict']]] = None,
+            explicit_proxy: pulumi.Input[Optional[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict']]] = None,
+            firewalls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict']]] = None,
+            insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
+            intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_collection_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_intelligence_allowlist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict']]] = None,
+            threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_certificate: pulumi.Input[Optional[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict']]] = None) -> 'FirewallPolicy':
         """
         Get an existing FirewallPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

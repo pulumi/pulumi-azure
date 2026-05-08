@@ -22,7 +22,7 @@ __all__ = ['ManagementPolicyArgs', 'ManagementPolicy']
 class ManagementPolicyArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementPolicy resource.
 
@@ -47,22 +47,22 @@ class ManagementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]:
         """
         A `rule` block as documented below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class _ManagementPolicyState:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagementPolicy resources.
 
@@ -76,26 +76,26 @@ class _ManagementPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]:
         """
         A `rule` block as documented below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -105,8 +105,8 @@ class ManagementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Storage Account Management Policy.
@@ -318,8 +318,8 @@ class ManagementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,8 +343,8 @@ class ManagementPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagementPolicy':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagementPolicy':
         """
         Get an existing ManagementPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

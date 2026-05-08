@@ -23,8 +23,8 @@ class GatewayArgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[_builtins.str],
                  location_data: pulumi.Input['GatewayLocationDataArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -66,36 +66,36 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the API Management Gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _GatewayState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional['GatewayLocationDataArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
 
@@ -115,50 +115,50 @@ class _GatewayState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the API Management Gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional[pulumi.Input['GatewayLocationDataArgs']]:
+    def location_data(self) -> pulumi.Input[Optional['GatewayLocationDataArgs']]:
         """
         A `location_data` block as documented below.
         """
         return pulumi.get(self, "location_data")
 
     @location_data.setter
-    def location_data(self, value: Optional[pulumi.Input['GatewayLocationDataArgs']]):
+    def location_data(self, value: pulumi.Input[Optional['GatewayLocationDataArgs']]):
         pulumi.set(self, "location_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -168,10 +168,10 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Gateway.
@@ -295,10 +295,10 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,10 +326,10 @@ class Gateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            location_data: Optional[pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Gateway':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

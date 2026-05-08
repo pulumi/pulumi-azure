@@ -21,11 +21,11 @@ class ChannelTeamsArgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelTeams resource.
 
@@ -78,73 +78,73 @@ class ChannelTeamsArgs:
 
     @_builtins.property
     @pulumi.getter(name="callingEnabled")
-    def calling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def calling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         """
         return pulumi.get(self, "calling_enabled")
 
     @calling_enabled.setter
-    def calling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def calling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "calling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="callingWebHook")
-    def calling_web_hook(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def calling_web_hook(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the webhook for Microsoft Teams channel calls.
         """
         return pulumi.get(self, "calling_web_hook")
 
     @calling_web_hook.setter
-    def calling_web_hook(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def calling_web_hook(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "calling_web_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentEnvironment")
-    def deployment_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         """
         return pulumi.get(self, "deployment_environment")
 
     @deployment_environment.setter
-    def deployment_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCalling")
     @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-    def enable_calling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_calling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_calling")
 
     @enable_calling.setter
-    def enable_calling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_calling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_calling", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ChannelTeamsState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelTeams resources.
 
@@ -175,84 +175,84 @@ class _ChannelTeamsState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="callingEnabled")
-    def calling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def calling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         """
         return pulumi.get(self, "calling_enabled")
 
     @calling_enabled.setter
-    def calling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def calling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "calling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="callingWebHook")
-    def calling_web_hook(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def calling_web_hook(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the webhook for Microsoft Teams channel calls.
         """
         return pulumi.get(self, "calling_web_hook")
 
     @calling_web_hook.setter
-    def calling_web_hook(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def calling_web_hook(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "calling_web_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentEnvironment")
-    def deployment_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         """
         return pulumi.get(self, "deployment_environment")
 
     @deployment_environment.setter
-    def deployment_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCalling")
     @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-    def enable_calling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_calling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_calling")
 
     @enable_calling.setter
-    def enable_calling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_calling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_calling", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -262,13 +262,13 @@ class ChannelTeams(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MS Teams integration for a Bot Channel
@@ -372,13 +372,13 @@ class ChannelTeams(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -409,13 +409,13 @@ class ChannelTeams(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            calling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            calling_web_hook: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_environment: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_calling: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelTeams':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelTeams':
         """
         Get an existing ChannelTeams resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

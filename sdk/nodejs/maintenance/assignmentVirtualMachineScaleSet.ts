@@ -245,15 +245,15 @@ export interface AssignmentVirtualMachineScaleSetState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */
-    maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      */
-    virtualMachineScaleSetId?: pulumi.Input<string>;
+    virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -263,7 +263,7 @@ export interface AssignmentVirtualMachineScaleSetArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */

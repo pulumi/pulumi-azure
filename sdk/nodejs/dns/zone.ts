@@ -142,31 +142,31 @@ export interface ZoneState {
     /**
      * Maximum number of Records in the zone.
      */
-    maxNumberOfRecordSets?: pulumi.Input<number>;
+    maxNumberOfRecordSets?: pulumi.Input<number | undefined>;
     /**
      * The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of values that make up the NS record for the zone.
      */
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of records already in the zone.
      */
-    numberOfRecordSets?: pulumi.Input<number>;
+    numberOfRecordSets?: pulumi.Input<number | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `soaRecord` block as defined below.
      */
-    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface ZoneArgs {
     /**
      * The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -184,9 +184,9 @@ export interface ZoneArgs {
     /**
      * A `soaRecord` block as defined below.
      */
-    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

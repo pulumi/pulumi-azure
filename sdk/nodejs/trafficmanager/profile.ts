@@ -206,37 +206,37 @@ export interface ProfileState {
     /**
      * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      */
-    dnsConfig?: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig | undefined>;
     /**
      * The FQDN of the created Profile.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      *
      * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
-    maxReturn?: pulumi.Input<number>;
+    maxReturn?: pulumi.Input<number | undefined>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
-    monitorConfig?: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
+    monitorConfig?: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig | undefined>;
     /**
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    profileStatus?: pulumi.Input<string>;
+    profileStatus?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -246,11 +246,11 @@ export interface ProfileState {
      * * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
      * * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
-    trafficRoutingMethod?: pulumi.Input<string>;
+    trafficRoutingMethod?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    trafficViewEnabled?: pulumi.Input<boolean>;
+    trafficViewEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -266,7 +266,7 @@ export interface ProfileArgs {
      *
      * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
-    maxReturn?: pulumi.Input<number>;
+    maxReturn?: pulumi.Input<number | undefined>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
@@ -274,11 +274,11 @@ export interface ProfileArgs {
     /**
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    profileStatus?: pulumi.Input<string>;
+    profileStatus?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
@@ -286,7 +286,7 @@ export interface ProfileArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -300,5 +300,5 @@ export interface ProfileArgs {
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    trafficViewEnabled?: pulumi.Input<boolean>;
+    trafficViewEnabled?: pulumi.Input<boolean | undefined>;
 }

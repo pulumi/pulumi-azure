@@ -23,23 +23,23 @@ class RegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
-                 export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 quarantine_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_policy_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['RegistryEncryptionArgs']] = None,
+                 export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 georeplications: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
+                 identity: pulumi.Input[Optional['RegistryIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
@@ -134,55 +134,55 @@ class RegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminEnabled")
-    def admin_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the admin user is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
-    def admin_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="anonymousPullEnabled")
-    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def anonymous_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
     @anonymous_pull_enabled.setter
-    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def anonymous_pull_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "anonymous_pull_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
-    def data_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "data_endpoint_enabled")
 
     @data_endpoint_enabled.setter
-    def data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['RegistryEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['RegistryEncryptionArgs']]:
         """
         An `encryption` block as documented below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['RegistryEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['RegistryEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicyEnabled")
-    def export_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
 
@@ -191,12 +191,12 @@ class RegistryArgs:
         return pulumi.get(self, "export_policy_enabled")
 
     @export_policy_enabled.setter
-    def export_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
+    def georeplications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
         One or more `georeplications` blocks as documented below.
 
@@ -209,168 +209,168 @@ class RegistryArgs:
         return pulumi.get(self, "georeplications")
 
     @georeplications.setter
-    def georeplications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
+    def georeplications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
         pulumi.set(self, "georeplications", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['RegistryIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['RegistryIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['RegistryIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['RegistryIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
-    def network_rule_bypass_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
     @network_rule_bypass_option.setter
-    def network_rule_bypass_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_rule_bypass_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_rule_bypass_option", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]:
         """
         A `network_rule_set` block as documented below.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the container registry. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="quarantinePolicyEnabled")
-    def quarantine_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def quarantine_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether quarantine policy is enabled.
         """
         return pulumi.get(self, "quarantine_policy_enabled")
 
     @quarantine_policy_enabled.setter
-    def quarantine_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def quarantine_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "quarantine_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicyInDays")
-    def retention_policy_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_policy_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain and untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "retention_policy_in_days")
 
     @retention_policy_in_days.setter
-    def retention_policy_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_policy_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_policy_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustPolicyEnabled")
-    def trust_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "trust_policy_enabled")
 
     @trust_policy_enabled.setter
-    def trust_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
-    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundancy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
     @zone_redundancy_enabled.setter
-    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundancy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
 @pulumi.input_type
 class _RegistryState:
     def __init__(__self__, *,
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
-                 export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 quarantine_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional['RegistryEncryptionArgs']] = None,
+                 export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 georeplications: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
+                 identity: pulumi.Input[Optional['RegistryIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Registry resources.
 
@@ -455,91 +455,91 @@ class _RegistryState:
 
     @_builtins.property
     @pulumi.getter(name="adminEnabled")
-    def admin_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the admin user is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
-    def admin_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the Container Registry Admin account - if the admin account is enabled.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Username associated with the Container Registry Admin account - if the admin account is enabled.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="anonymousPullEnabled")
-    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def anonymous_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
     @anonymous_pull_enabled.setter
-    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def anonymous_pull_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "anonymous_pull_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
-    def data_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "data_endpoint_enabled")
 
     @data_endpoint_enabled.setter
-    def data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEndpointHostNames")
-    def data_endpoint_host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_endpoint_host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
         """
         return pulumi.get(self, "data_endpoint_host_names")
 
     @data_endpoint_host_names.setter
-    def data_endpoint_host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_endpoint_host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_endpoint_host_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['RegistryEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['RegistryEncryptionArgs']]:
         """
         An `encryption` block as documented below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['RegistryEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['RegistryEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicyEnabled")
-    def export_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
 
@@ -548,12 +548,12 @@ class _RegistryState:
         return pulumi.get(self, "export_policy_enabled")
 
     @export_policy_enabled.setter
-    def export_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
+    def georeplications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
         One or more `georeplications` blocks as documented below.
 
@@ -566,175 +566,175 @@ class _RegistryState:
         return pulumi.get(self, "georeplications")
 
     @georeplications.setter
-    def georeplications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
+    def georeplications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
         pulumi.set(self, "georeplications", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['RegistryIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['RegistryIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['RegistryIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['RegistryIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL that can be used to log into the container registry.
         """
         return pulumi.get(self, "login_server")
 
     @login_server.setter
-    def login_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_server", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
-    def network_rule_bypass_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
     @network_rule_bypass_option.setter
-    def network_rule_bypass_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_rule_bypass_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_rule_bypass_option", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]:
         """
         A `network_rule_set` block as documented below.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the container registry. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="quarantinePolicyEnabled")
-    def quarantine_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def quarantine_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether quarantine policy is enabled.
         """
         return pulumi.get(self, "quarantine_policy_enabled")
 
     @quarantine_policy_enabled.setter
-    def quarantine_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def quarantine_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "quarantine_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicyInDays")
-    def retention_policy_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_policy_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain and untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "retention_policy_in_days")
 
     @retention_policy_in_days.setter
-    def retention_policy_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_policy_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_policy_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustPolicyEnabled")
-    def trust_policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "trust_policy_enabled")
 
     @trust_policy_enabled.setter
-    def trust_policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
-    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundancy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
     @zone_redundancy_enabled.setter
-    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundancy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
@@ -744,25 +744,25 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
-                 export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 quarantine_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
+                 export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 georeplications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an Azure Container Registry.
@@ -1045,25 +1045,25 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
-                 export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 quarantine_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
+                 export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 georeplications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1112,29 +1112,29 @@ class Registry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-            anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_endpoint_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            encryption: Optional[pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
-            export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
-            identity: Optional[pulumi.Input[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            login_server: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rule_bypass_option: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rule_set: Optional[pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            quarantine_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_policy_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trust_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Registry':
+            admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_endpoint_host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
+            export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            georeplications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            login_server: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

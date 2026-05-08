@@ -40,15 +40,15 @@ class HubEventHandlerArgsDict(TypedDict):
     """
     The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
     """
-    auth: NotRequired[pulumi.Input['HubEventHandlerAuthArgsDict']]
+    auth: NotRequired[pulumi.Input[Optional['HubEventHandlerAuthArgs']]]
     """
     An `auth` block as defined below.
     """
-    system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    system_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
     """
-    user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    user_event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
     """
@@ -57,9 +57,9 @@ class HubEventHandlerArgsDict(TypedDict):
 class HubEventHandlerArgs:
     def __init__(__self__, *,
                  url_template: pulumi.Input[_builtins.str],
-                 auth: Optional[pulumi.Input['HubEventHandlerAuthArgs']] = None,
-                 system_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth: pulumi.Input[Optional['HubEventHandlerAuthArgs']] = None,
+                 system_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_event_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] url_template: The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
         :param pulumi.Input['HubEventHandlerAuthArgs'] auth: An `auth` block as defined below.
@@ -88,38 +88,38 @@ class HubEventHandlerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def auth(self) -> Optional[pulumi.Input['HubEventHandlerAuthArgs']]:
+    def auth(self) -> pulumi.Input[Optional['HubEventHandlerAuthArgs']]:
         """
         An `auth` block as defined below.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: Optional[pulumi.Input['HubEventHandlerAuthArgs']]):
+    def auth(self, value: pulumi.Input[Optional['HubEventHandlerAuthArgs']]):
         pulumi.set(self, "auth", value)
 
     @_builtins.property
     @pulumi.getter(name="systemEvents")
-    def system_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def system_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         """
         return pulumi.get(self, "system_events")
 
     @system_events.setter
-    def system_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def system_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_events", value)
 
     @_builtins.property
     @pulumi.getter(name="userEventPattern")
-    def user_event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
         return pulumi.get(self, "user_event_pattern")
 
     @user_event_pattern.setter
-    def user_event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_event_pattern", value)
 
 
@@ -166,11 +166,11 @@ class HubEventListenerArgsDict(TypedDict):
     """
     Specifies the event hub namespace name to receive the events.
     """
-    system_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    system_event_name_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the list of system events. Supported values are `connected` and `disconnected`.
     """
-    user_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_event_name_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the list of matching user event names. `["*"]` can be used to match all events.
     """
@@ -180,8 +180,8 @@ class HubEventListenerArgs:
     def __init__(__self__, *,
                  eventhub_name: pulumi.Input[_builtins.str],
                  eventhub_namespace_name: pulumi.Input[_builtins.str],
-                 system_event_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_event_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 system_event_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_event_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] eventhub_name: Specifies the event hub name to receive the events.
         :param pulumi.Input[_builtins.str] eventhub_namespace_name: Specifies the event hub namespace name to receive the events.
@@ -221,26 +221,26 @@ class HubEventListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="systemEventNameFilters")
-    def system_event_name_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def system_event_name_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of system events. Supported values are `connected` and `disconnected`.
         """
         return pulumi.get(self, "system_event_name_filters")
 
     @system_event_name_filters.setter
-    def system_event_name_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def system_event_name_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_event_name_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="userEventNameFilters")
-    def user_event_name_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_event_name_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of matching user event names. `["*"]` can be used to match all events.
         """
         return pulumi.get(self, "user_event_name_filters")
 
     @user_event_name_filters.setter
-    def user_event_name_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_event_name_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_event_name_filters", value)
 
 
@@ -249,11 +249,11 @@ class NetworkAclPrivateEndpointArgsDict(TypedDict):
     """
     The ID of the Private Endpoint which is based on the Web Pubsub service.
     """
-    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
     """
-    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    denied_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -264,8 +264,8 @@ class NetworkAclPrivateEndpointArgsDict(TypedDict):
 class NetworkAclPrivateEndpointArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 denied_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Private Endpoint which is based on the Web Pubsub service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -293,19 +293,19 @@ class NetworkAclPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedRequestTypes")
-    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         """
         return pulumi.get(self, "allowed_request_types")
 
     @allowed_request_types.setter
-    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_request_types", value)
 
     @_builtins.property
     @pulumi.getter(name="deniedRequestTypes")
-    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def denied_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -314,16 +314,16 @@ class NetworkAclPrivateEndpointArgs:
         return pulumi.get(self, "denied_request_types")
 
     @denied_request_types.setter
-    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def denied_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "denied_request_types", value)
 
 
 class NetworkAclPublicNetworkArgsDict(TypedDict):
-    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
     """
-    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    denied_request_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -333,8 +333,8 @@ class NetworkAclPublicNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkAclPublicNetworkArgs:
     def __init__(__self__, *,
-                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 denied_request_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -348,19 +348,19 @@ class NetworkAclPublicNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedRequestTypes")
-    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         """
         return pulumi.get(self, "allowed_request_types")
 
     @allowed_request_types.setter
-    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_request_types", value)
 
     @_builtins.property
     @pulumi.getter(name="deniedRequestTypes")
-    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def denied_request_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
@@ -369,7 +369,7 @@ class NetworkAclPublicNetworkArgs:
         return pulumi.get(self, "denied_request_types")
 
     @denied_request_types.setter
-    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def denied_request_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "denied_request_types", value)
 
 
@@ -378,17 +378,17 @@ class ServiceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
     > **Note:** This is required when `type` is set to `UserAssigned`
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -397,9 +397,9 @@ class ServiceIdentityArgsDict(TypedDict):
 class ServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
@@ -430,7 +430,7 @@ class ServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
@@ -439,48 +439,48 @@ class ServiceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ServiceLiveTraceArgsDict(TypedDict):
-    connectivity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    connectivity_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the live trace is enabled? Defaults to `true`.
     """
-    http_request_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    http_request_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
     """
-    messaging_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    messaging_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the log category `MessagingLogs` is enabled? Defaults to `true`
     """
@@ -488,10 +488,10 @@ class ServiceLiveTraceArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLiveTraceArgs:
     def __init__(__self__, *,
-                 connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
         :param pulumi.Input[_builtins.bool] enabled: Whether the live trace is enabled? Defaults to `true`.
@@ -509,50 +509,50 @@ class ServiceLiveTraceArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectivityLogsEnabled")
-    def connectivity_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def connectivity_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "connectivity_logs_enabled")
 
     @connectivity_logs_enabled.setter
-    def connectivity_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def connectivity_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "connectivity_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the live trace is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpRequestLogsEnabled")
-    def http_request_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_request_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "http_request_logs_enabled")
 
     @http_request_logs_enabled.setter
-    def http_request_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_request_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_request_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="messagingLogsEnabled")
-    def messaging_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def messaging_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the log category `MessagingLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "messaging_logs_enabled")
 
     @messaging_logs_enabled.setter
-    def messaging_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def messaging_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "messaging_logs_enabled", value)
 
 
@@ -561,22 +561,22 @@ class SocketioIdentityArgsDict(TypedDict):
     """
     The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
 
     > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SocketioIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
@@ -605,7 +605,7 @@ class SocketioIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
 
@@ -614,25 +614,25 @@ class SocketioIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -641,7 +641,7 @@ class SocketioSkuArgsDict(TypedDict):
     """
     The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
@@ -652,7 +652,7 @@ class SocketioSkuArgsDict(TypedDict):
 class SocketioSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
         :param pulumi.Input[_builtins.int] capacity: The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
@@ -677,7 +677,7 @@ class SocketioSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
@@ -686,7 +686,7 @@ class SocketioSkuArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 

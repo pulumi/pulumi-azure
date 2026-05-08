@@ -221,15 +221,15 @@ export interface VolumeQuotaRuleState {
     /**
      * The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Quota size in kibibytes.
      */
-    quotaSizeInKib?: pulumi.Input<number>;
+    quotaSizeInKib?: pulumi.Input<number | undefined>;
     /**
      * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      *
@@ -237,15 +237,15 @@ export interface VolumeQuotaRuleState {
      *
      * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
-    quotaTarget?: pulumi.Input<string>;
+    quotaTarget?: pulumi.Input<string | undefined>;
     /**
      * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      */
-    quotaType?: pulumi.Input<string>;
+    quotaType?: pulumi.Input<string | undefined>;
     /**
      * The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      */
-    volumeId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,11 +255,11 @@ export interface VolumeQuotaRuleArgs {
     /**
      * The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Quota size in kibibytes.
      */
@@ -271,7 +271,7 @@ export interface VolumeQuotaRuleArgs {
      *
      * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
-    quotaTarget?: pulumi.Input<string>;
+    quotaTarget?: pulumi.Input<string | undefined>;
     /**
      * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      */

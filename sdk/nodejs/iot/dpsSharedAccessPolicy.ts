@@ -197,57 +197,57 @@ export interface DpsSharedAccessPolicyState {
      *
      * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    enrollmentRead?: pulumi.Input<boolean>;
+    enrollmentRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
-    enrollmentWrite?: pulumi.Input<boolean>;
+    enrollmentWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    iothubDpsName?: pulumi.Input<string>;
+    iothubDpsName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The primary key used to create the authentication token.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
      */
-    registrationRead?: pulumi.Input<boolean>;
+    registrationRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
-    registrationWrite?: pulumi.Input<boolean>;
+    registrationWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The secondary key used to create the authentication token.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      *
      * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
-    serviceConfig?: pulumi.Input<boolean>;
+    serviceConfig?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -259,13 +259,13 @@ export interface DpsSharedAccessPolicyArgs {
      *
      * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    enrollmentRead?: pulumi.Input<boolean>;
+    enrollmentRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
-    enrollmentWrite?: pulumi.Input<boolean>;
+    enrollmentWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
@@ -273,17 +273,17 @@ export interface DpsSharedAccessPolicyArgs {
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
      */
-    registrationRead?: pulumi.Input<boolean>;
+    registrationRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
-    registrationWrite?: pulumi.Input<boolean>;
+    registrationWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
@@ -293,5 +293,5 @@ export interface DpsSharedAccessPolicyArgs {
      *
      * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
-    serviceConfig?: pulumi.Input<boolean>;
+    serviceConfig?: pulumi.Input<boolean | undefined>;
 }

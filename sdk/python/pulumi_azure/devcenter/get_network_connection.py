@@ -196,8 +196,8 @@ def get_network_connection(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Use this data source to access information about an existing Dev Center Network Connection.

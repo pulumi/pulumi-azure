@@ -173,47 +173,47 @@ export interface DatasetAzureSqlTableState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset Azure SQL Table.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset Azure SQL Table.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset Azure SQL Table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service ID in which to associate the Dataset with.
      */
-    linkedServiceId?: pulumi.Input<string>;
+    linkedServiceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset Azure SQL Table.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The schema name of the table in the Azure SQL Database.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureSqlTableSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureSqlTableSchemaColumn>[] | undefined>;
     /**
      * The table name of the table in the Azure SQL Database.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,11 +223,11 @@ export interface DatasetAzureSqlTableArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset Azure SQL Table.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset Azure SQL Table.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -235,11 +235,11 @@ export interface DatasetAzureSqlTableArgs {
     /**
      * The description for the Data Factory Dataset Azure SQL Table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service ID in which to associate the Dataset with.
      */
@@ -247,21 +247,21 @@ export interface DatasetAzureSqlTableArgs {
     /**
      * Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset Azure SQL Table.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The schema name of the table in the Azure SQL Database.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureSqlTableSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureSqlTableSchemaColumn>[] | undefined>;
     /**
      * The table name of the table in the Azure SQL Database.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
 }

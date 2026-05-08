@@ -20,14 +20,14 @@ __all__ = ['SecretArgs', 'Secret']
 class SecretArgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Secret resource.
 
@@ -78,79 +78,79 @@ class SecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the content type for the Key Vault Secret.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWo")
-    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
@@ -160,12 +160,12 @@ class SecretArgs:
         return pulumi.get(self, "value_wo")
 
     @value_wo.setter
-    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
-    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
 
@@ -174,26 +174,26 @@ class SecretArgs:
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
-    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value_wo_version", value)
 
 
 @pulumi.input_type
 class _SecretState:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versionless_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versionless_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
 
@@ -245,115 +245,115 @@ class _SecretState:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the content type for the Key Vault Secret.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceVersionlessId")
-    def resource_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         """
         return pulumi.get(self, "resource_versionless_id")
 
     @resource_versionless_id.setter
-    def resource_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWo")
-    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
@@ -363,12 +363,12 @@ class _SecretState:
         return pulumi.get(self, "value_wo")
 
     @value_wo.setter
-    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
-    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
 
@@ -377,31 +377,31 @@ class _SecretState:
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
-    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value_wo_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the Key Vault Secret.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="versionlessId")
-    def versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base ID of the Key Vault Secret.
         """
         return pulumi.get(self, "versionless_id")
 
     @versionless_id.setter
-    def versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versionless_id", value)
 
 
@@ -411,15 +411,15 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Key Vault Secret.
@@ -559,15 +559,15 @@ class Secret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -604,19 +604,19 @@ class Secret(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content_type: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-            value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            versionless_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Secret':
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Secret':
         """
         Get an existing Secret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

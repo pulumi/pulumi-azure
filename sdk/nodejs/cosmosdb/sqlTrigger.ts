@@ -146,23 +146,23 @@ export interface SqlTriggerState {
     /**
      * Body of the Trigger.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
      */
-    containerId?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      */
-    operation?: pulumi.Input<string>;
+    operation?: pulumi.Input<string | undefined>;
     /**
      * Type of the Trigger. Possible values are `Pre` and `Post`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface SqlTriggerArgs {
     /**
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      */

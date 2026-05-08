@@ -136,8 +136,8 @@ def get_gateway(api_management_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location_datas=pulumi.get(__ret__, 'location_datas'),
         name=pulumi.get(__ret__, 'name'))
-def get_gateway_output(api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Use this data source to access information about an existing API Management Gateway.

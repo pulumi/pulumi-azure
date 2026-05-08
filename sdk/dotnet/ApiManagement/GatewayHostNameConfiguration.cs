@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Name = "example-cert",
     ///         ApiManagementName = exampleService.Name,
     ///         ResourceGroupName = example.Name,
-    ///         Data = Std.Index.Filebase64.Invoke(new()
+    ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

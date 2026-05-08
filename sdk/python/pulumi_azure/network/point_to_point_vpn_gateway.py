@@ -26,11 +26,11 @@ class PointToPointVpnGatewayArgs:
                  scale_unit: pulumi.Input[_builtins.int],
                  virtual_hub_id: pulumi.Input[_builtins.str],
                  vpn_server_configuration_id: pulumi.Input[_builtins.str],
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference_internet_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PointToPointVpnGateway resource.
 
@@ -123,78 +123,78 @@ class PointToPointVpnGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPreferenceInternetEnabled")
-    def routing_preference_internet_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def routing_preference_internet_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routing_preference_internet_enabled")
 
     @routing_preference_internet_enabled.setter
-    def routing_preference_internet_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def routing_preference_internet_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "routing_preference_internet_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PointToPointVpnGatewayState:
     def __init__(__self__, *,
-                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference_internet_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PointToPointVpnGateway resources.
 
@@ -232,122 +232,122 @@ class _PointToPointVpnGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="connectionConfigurations")
-    def connection_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]:
+    def connection_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]:
         """
         A `connection_configuration` block as defined below.
         """
         return pulumi.get(self, "connection_configurations")
 
     @connection_configurations.setter
-    def connection_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]):
+    def connection_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]):
         pulumi.set(self, "connection_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPreferenceInternetEnabled")
-    def routing_preference_internet_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def routing_preference_internet_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routing_preference_internet_enabled")
 
     @routing_preference_internet_enabled.setter
-    def routing_preference_internet_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def routing_preference_internet_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "routing_preference_internet_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         """
         return pulumi.get(self, "scale_unit")
 
     @scale_unit.setter
-    def scale_unit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubId")
-    def virtual_hub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_hub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
-    def virtual_hub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_hub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_hub_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnServerConfigurationId")
-    def vpn_server_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_server_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_server_configuration_id")
 
     @vpn_server_configuration_id.setter
-    def vpn_server_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_server_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_server_configuration_id", value)
 
 
@@ -357,16 +357,16 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference_internet_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Point-to-Site VPN Gateway.
@@ -566,16 +566,16 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference_internet_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,16 +615,16 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
-            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_preference_internet_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            scale_unit: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'PointToPointVpnGateway':
+            connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'PointToPointVpnGateway':
         """
         Get an existing PointToPointVpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

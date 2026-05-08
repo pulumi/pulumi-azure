@@ -155,15 +155,15 @@ export interface WorkspaceNetworkOutboundRuleFqdnState {
     /**
      * Specifies the fully qualified domain name to allow for outbound traffic.
      */
-    destinationFqdn?: pulumi.Input<string>;
+    destinationFqdn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Machine Learning Workspace FQDN Network Outbound Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface WorkspaceNetworkOutboundRuleFqdnArgs {
     /**
      * Specifies the name of the Machine Learning Workspace FQDN Network Outbound Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */

@@ -21,7 +21,7 @@ class PostgresqlCoordinatorConfigurationArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PostgresqlCoordinatorConfiguration resource.
 
@@ -60,23 +60,23 @@ class PostgresqlCoordinatorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PostgresqlCoordinatorConfigurationState:
     def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PostgresqlCoordinatorConfiguration resources.
 
@@ -93,38 +93,38 @@ class _PostgresqlCoordinatorConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -134,9 +134,9 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
@@ -253,9 +253,9 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,9 +282,9 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'PostgresqlCoordinatorConfiguration':
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'PostgresqlCoordinatorConfiguration':
         """
         Get an existing PostgresqlCoordinatorConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

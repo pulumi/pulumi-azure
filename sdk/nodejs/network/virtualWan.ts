@@ -147,35 +147,35 @@ export interface VirtualWanState {
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      */
-    allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    allowBranchToBranchTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */
-    disableVpnEncryption?: pulumi.Input<boolean>;
+    disableVpnEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
      */
-    office365LocalBreakoutCategory?: pulumi.Input<string>;
+    office365LocalBreakoutCategory?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,23 +185,23 @@ export interface VirtualWanArgs {
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      */
-    allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    allowBranchToBranchTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */
-    disableVpnEncryption?: pulumi.Input<boolean>;
+    disableVpnEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
      */
-    office365LocalBreakoutCategory?: pulumi.Input<string>;
+    office365LocalBreakoutCategory?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
@@ -209,9 +209,9 @@ export interface VirtualWanArgs {
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

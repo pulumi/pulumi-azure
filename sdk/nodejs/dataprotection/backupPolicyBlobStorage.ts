@@ -191,35 +191,35 @@ export interface BackupPolicyBlobStorageState {
     /**
      * Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[]>;
+    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    operationalDefaultRetentionDuration?: pulumi.Input<string>;
+    operationalDefaultRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      *
      * > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      *
      * > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration` or `vaultDefaultRetentionDuration` must be specified.
      */
-    vaultDefaultRetentionDuration?: pulumi.Input<string>;
+    vaultDefaultRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -229,31 +229,31 @@ export interface BackupPolicyBlobStorageArgs {
     /**
      * Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[]>;
+    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    operationalDefaultRetentionDuration?: pulumi.Input<string>;
+    operationalDefaultRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      *
      * > **Note:** Setting `retentionRule` also requires setting `vaultDefaultRetentionDuration`.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyBlobStorageRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      *
      * > **Note:** Setting `vaultDefaultRetentionDuration` also requires setting `backupRepeatingTimeIntervals`. At least one of `operationalDefaultRetentionDuration` or `vaultDefaultRetentionDuration` must be specified.
      */
-    vaultDefaultRetentionDuration?: pulumi.Input<string>;
+    vaultDefaultRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
      */

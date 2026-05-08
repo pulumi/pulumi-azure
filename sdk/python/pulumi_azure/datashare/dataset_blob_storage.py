@@ -24,9 +24,9 @@ class DatasetBlobStorageArgs:
                  container_name: pulumi.Input[_builtins.str],
                  data_share_id: pulumi.Input[_builtins.str],
                  storage_account: pulumi.Input['DatasetBlobStorageStorageAccountArgs'],
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetBlobStorage resource.
 
@@ -85,51 +85,51 @@ class DatasetBlobStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DatasetBlobStorageState:
     def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_share_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account: pulumi.Input[Optional['DatasetBlobStorageStorageAccountArgs']] = None):
         """
         Input properties used for looking up and filtering DatasetBlobStorage resources.
 
@@ -158,86 +158,86 @@ class _DatasetBlobStorageState:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataShareId")
-    def data_share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_share_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "data_share_id")
 
     @data_share_id.setter
-    def data_share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_share_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_share_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Share Dataset.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']]:
+    def storage_account(self) -> pulumi.Input[Optional['DatasetBlobStorageStorageAccountArgs']]:
         """
         A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']]):
+    def storage_account(self, value: pulumi.Input[Optional['DatasetBlobStorageStorageAccountArgs']]):
         pulumi.set(self, "storage_account", value)
 
 
@@ -247,12 +247,12 @@ class DatasetBlobStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_share_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Data Share Blob Storage Dataset.
@@ -308,12 +308,12 @@ class DatasetBlobStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_share_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,13 +346,13 @@ class DatasetBlobStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            data_share_id: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            file_path: Optional[pulumi.Input[_builtins.str]] = None,
-            folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None) -> 'DatasetBlobStorage':
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            data_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_path: pulumi.Input[Optional[_builtins.str]] = None,
+            folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None) -> 'DatasetBlobStorage':
         """
         Get an existing DatasetBlobStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -191,51 +191,51 @@ export interface ScheduleState {
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * A description for this Schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The end time of the schedule.
      */
-    expiryTime?: pulumi.Input<string>;
+    expiryTime?: pulumi.Input<string | undefined>;
     /**
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
      */
-    monthDays?: pulumi.Input<pulumi.Input<number>[]>;
+    monthDays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>;
+    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
-    weekDays?: pulumi.Input<pulumi.Input<string>[]>;
+    weekDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -249,11 +249,11 @@ export interface ScheduleArgs {
     /**
      * A description for this Schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The end time of the schedule.
      */
-    expiryTime?: pulumi.Input<string>;
+    expiryTime?: pulumi.Input<string | undefined>;
     /**
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      */
@@ -261,19 +261,19 @@ export interface ScheduleArgs {
     /**
      * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
      */
-    monthDays?: pulumi.Input<pulumi.Input<number>[]>;
+    monthDays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>;
+    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
      */
@@ -281,13 +281,13 @@ export interface ScheduleArgs {
     /**
      * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
-    weekDays?: pulumi.Input<pulumi.Input<string>[]>;
+    weekDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

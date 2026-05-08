@@ -222,11 +222,11 @@ export interface VirtualNetworkSwiftConnectionState {
     /**
      * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
-    appServiceId?: pulumi.Input<string>;
+    appServiceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**

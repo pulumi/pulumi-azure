@@ -165,13 +165,13 @@ export interface GetTopicOutputArgs {
     /**
      * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }

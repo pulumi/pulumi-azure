@@ -151,8 +151,8 @@ export interface GetAuthorizationRuleOutputArgs {
      * Specifies the name of the EventHub.
      */
     eventhubName: pulumi.Input<string>;
-    listen?: pulumi.Input<boolean>;
-    manage?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean | undefined>;
+    manage?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the EventHub Authorization Rule resource. be created.
      */
@@ -165,5 +165,5 @@ export interface GetAuthorizationRuleOutputArgs {
      * The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean | undefined>;
 }

@@ -21,9 +21,9 @@ class WorkspacePolicyFragmentArgs:
     def __init__(__self__, *,
                  api_management_workspace_id: pulumi.Input[_builtins.str],
                  xml_content: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspacePolicyFragment resource.
 
@@ -68,49 +68,49 @@ class WorkspacePolicyFragmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description for the API Management Workspace Policy Fragment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace Policy Fragment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlFormat")
-    def xml_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the XML format of the API Management Workspace Policy Fragment. Possible values are `xml` or `rawxml`. Defaults to `xml`.
         """
         return pulumi.get(self, "xml_format")
 
     @xml_format.setter
-    def xml_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_format", value)
 
 
 @pulumi.input_type
 class _WorkspacePolicyFragmentState:
     def __init__(__self__, *,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspacePolicyFragment resources.
 
@@ -133,62 +133,62 @@ class _WorkspacePolicyFragmentState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
-    def api_management_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_workspace_id")
 
     @api_management_workspace_id.setter
-    def api_management_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description for the API Management Workspace Policy Fragment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace Policy Fragment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the XML content of the API Management Workspace Policy Fragment.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlFormat")
-    def xml_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the XML format of the API Management Workspace Policy Fragment. Possible values are `xml` or `rawxml`. Defaults to `xml`.
         """
         return pulumi.get(self, "xml_format")
 
     @xml_format.setter
-    def xml_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_format", value)
 
 
@@ -198,11 +198,11 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Workspace Policy Fragment.
@@ -333,11 +333,11 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,11 +366,11 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_format: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspacePolicyFragment':
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_format: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspacePolicyFragment':
         """
         Get an existing WorkspacePolicyFragment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

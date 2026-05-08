@@ -23,9 +23,9 @@ class MongoDatabaseArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 autoscale_settings: Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 autoscale_settings: pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a MongoDatabase resource.
 
@@ -74,7 +74,7 @@ class MongoDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -83,24 +83,24 @@ class MongoDatabaseArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 
@@ -109,18 +109,18 @@ class MongoDatabaseArgs:
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
 @pulumi.input_type
 class _MongoDatabaseState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering MongoDatabase resources.
 
@@ -147,19 +147,19 @@ class _MongoDatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -168,36 +168,36 @@ class _MongoDatabaseState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoDatabaseAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['MongoDatabaseAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 
@@ -206,7 +206,7 @@ class _MongoDatabaseState:
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
@@ -216,11 +216,11 @@ class MongoDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Mongo Database within a Cosmos DB Account.
@@ -309,11 +309,11 @@ class MongoDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,11 +342,11 @@ class MongoDatabase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            autoscale_settings: Optional[pulumi.Input[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            throughput: Optional[pulumi.Input[_builtins.int]] = None) -> 'MongoDatabase':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['MongoDatabaseAutoscaleSettingsArgs', 'MongoDatabaseAutoscaleSettingsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> 'MongoDatabase':
         """
         Get an existing MongoDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

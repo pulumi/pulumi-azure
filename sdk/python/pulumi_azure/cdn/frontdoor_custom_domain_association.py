@@ -62,8 +62,8 @@ class FrontdoorCustomDomainAssociationArgs:
 @pulumi.input_type
 class _FrontdoorCustomDomainAssociationState:
     def __init__(__self__, *,
-                 cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cdn_frontdoor_custom_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_route_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorCustomDomainAssociation resources.
 
@@ -79,19 +79,19 @@ class _FrontdoorCustomDomainAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
-    def cdn_frontdoor_custom_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_custom_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_id")
 
     @cdn_frontdoor_custom_domain_id.setter
-    def cdn_frontdoor_custom_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_custom_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_custom_domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRouteIds")
-    def cdn_frontdoor_route_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_route_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 
@@ -100,7 +100,7 @@ class _FrontdoorCustomDomainAssociationState:
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 
     @cdn_frontdoor_route_ids.setter
-    def cdn_frontdoor_route_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_route_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_route_ids", value)
 
 
@@ -110,8 +110,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_custom_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_route_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
@@ -333,8 +333,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_custom_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_route_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,8 +360,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorCustomDomainAssociation':
+            cdn_frontdoor_custom_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_route_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorCustomDomainAssociation':
         """
         Get an existing FrontdoorCustomDomainAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

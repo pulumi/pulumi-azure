@@ -137,19 +137,19 @@ export interface ExpressRouteAuthorizationState {
     /**
      * The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      */
-    expressRouteAuthorizationId?: pulumi.Input<string>;
+    expressRouteAuthorizationId?: pulumi.Input<string | undefined>;
     /**
      * The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      */
-    expressRouteAuthorizationKey?: pulumi.Input<string>;
+    expressRouteAuthorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */
-    privateCloudId?: pulumi.Input<string>;
+    privateCloudId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface ExpressRouteAuthorizationArgs {
     /**
      * The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */

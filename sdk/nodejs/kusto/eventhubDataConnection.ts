@@ -244,63 +244,63 @@ export interface EventhubDataConnectionState {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    consumerGroup?: pulumi.Input<string>;
+    consumerGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of system properties for the Event Hub.
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    eventhubId?: pulumi.Input<string>;
+    eventhubId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -314,7 +314,7 @@ export interface EventhubDataConnectionArgs {
     /**
      * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -322,7 +322,7 @@ export interface EventhubDataConnectionArgs {
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -330,11 +330,11 @@ export interface EventhubDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of system properties for the Event Hub.
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -342,19 +342,19 @@ export interface EventhubDataConnectionArgs {
     /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
@@ -362,9 +362,9 @@ export interface EventhubDataConnectionArgs {
     /**
      * Specifies the date after which data should be retrieved from Event Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the Event Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

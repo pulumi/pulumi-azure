@@ -22,7 +22,7 @@ class ApiKeyArgs:
                  end_date_time: pulumi.Input[_builtins.str],
                  nginx_deployment_id: pulumi.Input[_builtins.str],
                  secret_text: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
 
@@ -75,25 +75,25 @@ class ApiKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ApiKeyState:
     def __init__(__self__, *,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 hint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 hint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -116,62 +116,62 @@ class _ApiKeyState:
 
     @_builtins.property
     @pulumi.getter(name="endDateTime")
-    def end_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
         """
         return pulumi.get(self, "end_date_time")
 
     @end_date_time.setter
-    def end_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def hint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first three characters of the secret text to help identify it in use.
         """
         return pulumi.get(self, "hint")
 
     @hint.setter
-    def hint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hint", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nginxDeploymentId")
-    def nginx_deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nginx_deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the NGINX Deployment that the API key is associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nginx_deployment_id")
 
     @nginx_deployment_id.setter
-    def nginx_deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nginx_deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nginx_deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretText")
-    def secret_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value used as the Dataplane API Key. The API key requirements can be found in the [NGINXaaS Documentation](https://docs.nginx.com/nginxaas/azure/quickstart/loadbalancer-kubernetes/#create-an-nginxaas-data-plane-api-key).
         """
         return pulumi.get(self, "secret_text")
 
     @secret_text.setter
-    def secret_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_text", value)
 
 
@@ -181,10 +181,10 @@ class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Dataplane API Key for an Nginx Deployment.
@@ -364,10 +364,10 @@ class ApiKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,11 +400,11 @@ class ApiKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            hint: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_text: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiKey':
+            end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            hint: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_text: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

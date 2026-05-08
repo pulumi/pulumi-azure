@@ -183,52 +183,52 @@ export interface DicomServiceState {
     /**
      * The `authentication` block as defined below.
      */
-    authentications?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServiceAuthentication>[]>;
+    authentications?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServiceAuthentication>[] | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors>;
+    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors | undefined>;
     /**
      * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    dataPartitionsEnabled?: pulumi.Input<boolean>;
+    dataPartitionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
      */
-    encryptionKeyUrl?: pulumi.Input<string>;
+    encryptionKeyUrl?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.DicomServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.DicomServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    name?: pulumi.Input<string>;
-    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServicePrivateEndpoint>[]>;
+    name?: pulumi.Input<string | undefined>;
+    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServicePrivateEndpoint>[] | undefined>;
     /**
      * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The url of the Healthcare DICOM Services.
      */
-    serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string | undefined>;
     /**
      * A `storage` block as defined below. Changing this forces a new resource to be created.
      */
-    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
+    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -238,39 +238,39 @@ export interface DicomServiceArgs {
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors>;
+    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors | undefined>;
     /**
      * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    dataPartitionsEnabled?: pulumi.Input<boolean>;
+    dataPartitionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
      */
-    encryptionKeyUrl?: pulumi.Input<string>;
+    encryptionKeyUrl?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.DicomServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.DicomServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `storage` block as defined below. Changing this forces a new resource to be created.
      */
-    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
+    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */

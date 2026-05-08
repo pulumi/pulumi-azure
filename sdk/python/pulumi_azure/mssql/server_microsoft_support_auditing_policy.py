@@ -20,11 +20,11 @@ __all__ = ['ServerMicrosoftSupportAuditingPolicyArgs', 'ServerMicrosoftSupportAu
 class ServerMicrosoftSupportAuditingPolicyArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.str],
-                 blob_storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerMicrosoftSupportAuditingPolicy resource.
 
@@ -63,19 +63,19 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobStorageEndpoint")
-    def blob_storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         """
         return pulumi.get(self, "blob_storage_endpoint")
 
     @blob_storage_endpoint.setter
-    def blob_storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_storage_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -84,55 +84,55 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key to use for the auditing storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
 
 @pulumi.input_type
 class _ServerMicrosoftSupportAuditingPolicyState:
     def __init__(__self__, *,
-                 blob_storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerMicrosoftSupportAuditingPolicy resources.
 
@@ -160,19 +160,19 @@ class _ServerMicrosoftSupportAuditingPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="blobStorageEndpoint")
-    def blob_storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         """
         return pulumi.get(self, "blob_storage_endpoint")
 
     @blob_storage_endpoint.setter
-    def blob_storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_storage_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -181,55 +181,55 @@ class _ServerMicrosoftSupportAuditingPolicyState:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key to use for the auditing storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
 
@@ -239,12 +239,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MS SQL Server Microsoft Support Auditing Policy.
@@ -532,12 +532,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -567,12 +567,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blob_storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerMicrosoftSupportAuditingPolicy':
+            blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerMicrosoftSupportAuditingPolicy':
         """
         Get an existing ServerMicrosoftSupportAuditingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

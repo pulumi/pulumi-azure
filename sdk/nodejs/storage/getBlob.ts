@@ -125,7 +125,7 @@ export interface GetBlobOutputArgs {
     /**
      * A map of custom blob metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Blob.
      */

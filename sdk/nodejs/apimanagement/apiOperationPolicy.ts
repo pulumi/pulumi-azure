@@ -174,27 +174,27 @@ export interface ApiOperationPolicyState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      */
-    apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      */
-    operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The XML Content for this Policy.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -220,9 +220,9 @@ export interface ApiOperationPolicyArgs {
     /**
      * The XML Content for this Policy.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }

@@ -21,12 +21,12 @@ __all__ = ['AadDiagnosticSettingArgs', 'AadDiagnosticSetting']
 @pulumi.input_type
 class AadDiagnosticSettingArgs:
     def __init__(__self__, *,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
-                 eventhub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
+                 eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AadDiagnosticSetting resource.
 
@@ -56,19 +56,19 @@ class AadDiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="enabledLogs")
-    def enabled_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]:
+    def enabled_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]:
         """
         One or more `enabled_log` blocks as defined below.
         """
         return pulumi.get(self, "enabled_logs")
 
     @enabled_logs.setter
-    def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]):
+    def enabled_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]):
         pulumi.set(self, "enabled_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
-    def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_authorization_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 
@@ -77,48 +77,48 @@ class AadDiagnosticSettingArgs:
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
     @eventhub_authorization_rule_id.setter
-    def eventhub_authorization_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_authorization_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_authorization_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_name")
 
     @eventhub_name.setter
-    def eventhub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 
@@ -127,19 +127,19 @@ class AadDiagnosticSettingArgs:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
 @pulumi.input_type
 class _AadDiagnosticSettingState:
     def __init__(__self__, *,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
-                 eventhub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
+                 eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AadDiagnosticSetting resources.
 
@@ -169,19 +169,19 @@ class _AadDiagnosticSettingState:
 
     @_builtins.property
     @pulumi.getter(name="enabledLogs")
-    def enabled_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]:
+    def enabled_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]:
         """
         One or more `enabled_log` blocks as defined below.
         """
         return pulumi.get(self, "enabled_logs")
 
     @enabled_logs.setter
-    def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]):
+    def enabled_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]]):
         pulumi.set(self, "enabled_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
-    def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_authorization_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 
@@ -190,48 +190,48 @@ class _AadDiagnosticSettingState:
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
     @eventhub_authorization_rule_id.setter
-    def eventhub_authorization_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_authorization_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_authorization_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_name")
 
     @eventhub_name.setter
-    def eventhub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 
@@ -240,7 +240,7 @@ class _AadDiagnosticSettingState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -250,12 +250,12 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
-                 eventhub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
@@ -403,12 +403,12 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
-                 eventhub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -434,12 +434,12 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
-            eventhub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AadDiagnosticSetting':
+            enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+            eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AadDiagnosticSetting':
         """
         Get an existing AadDiagnosticSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

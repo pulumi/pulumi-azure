@@ -65,8 +65,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -106,8 +106,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -147,8 +147,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -188,8 +188,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -229,8 +229,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -271,8 +271,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -319,8 +319,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -463,8 +463,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -513,8 +513,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -563,8 +563,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -613,8 +613,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -713,8 +713,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -761,8 +761,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -809,8 +809,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -905,8 +905,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -953,8 +953,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1080,8 +1080,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1122,8 +1122,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1164,8 +1164,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1206,8 +1206,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1248,8 +1248,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1290,8 +1290,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1332,8 +1332,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1374,8 +1374,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1416,8 +1416,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1458,8 +1458,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1500,8 +1500,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1549,8 +1549,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1598,8 +1598,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1647,8 +1647,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1696,8 +1696,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1748,8 +1748,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1793,8 +1793,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1838,8 +1838,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1883,8 +1883,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1928,8 +1928,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1970,8 +1970,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2012,8 +2012,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2054,8 +2054,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2096,8 +2096,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2138,8 +2138,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2180,8 +2180,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2222,8 +2222,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2264,8 +2264,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2306,8 +2306,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2348,8 +2348,8 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -73,9 +73,9 @@ class NotificationRecipientUserArgs:
 @pulumi.input_type
 class _NotificationRecipientUserState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationRecipientUser resources.
 
@@ -92,38 +92,38 @@ class _NotificationRecipientUserState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Notification Name to be received. Changing this forces a new API Management Notification Recipient User to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
         """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recipient user ID. Changing this forces a new API Management Notification Recipient User to be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -133,9 +133,9 @@ class NotificationRecipientUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management Notification Recipient User.
@@ -262,9 +262,9 @@ class NotificationRecipientUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,9 +293,9 @@ class NotificationRecipientUser(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NotificationRecipientUser':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationRecipientUser':
         """
         Get an existing NotificationRecipientUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

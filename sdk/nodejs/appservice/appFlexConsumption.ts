@@ -423,7 +423,7 @@ export interface AppFlexConsumptionState {
     /**
      * One or more `alwaysReady` blocks as defined below.
      */
-    alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[]>;
+    alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[] | undefined>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      *
@@ -435,159 +435,159 @@ export interface AppFlexConsumptionState {
      *
      * > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettingsV2 | undefined>;
     /**
      * Should the function app use Client Certificates.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionConnectionString>[] | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The default hostname of the Linux Function App.
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by Function App.
      */
-    hostingEnvironmentId?: pulumi.Input<string>;
+    hostingEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      *
      * > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      */
-    httpConcurrency?: pulumi.Input<number>;
+    httpConcurrency?: pulumi.Input<number | undefined>;
     /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity>;
+    identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity | undefined>;
     /**
      * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
-    instanceMemoryInMb?: pulumi.Input<number>;
+    instanceMemoryInMb?: pulumi.Input<number | undefined>;
     /**
      * The Kind value for this Linux Function App.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      */
-    maximumInstanceCount?: pulumi.Input<number>;
+    maximumInstanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
      */
-    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
      */
-    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      */
-    runtimeName?: pulumi.Input<string>;
+    runtimeName?: pulumi.Input<string | undefined>;
     /**
      * The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
      *
      * > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      */
-    runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.AppFlexConsumptionSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.AppFlexConsumptionSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionSiteCredential>[] | undefined>;
     /**
      * A `stickySettings` block as defined below.
      */
-    stickySettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionStickySettings>;
+    stickySettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionStickySettings | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      *
      * > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      */
-    storageAccessKey?: pulumi.Input<string>;
+    storageAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      */
-    storageAuthenticationType?: pulumi.Input<string>;
+    storageAuthenticationType?: pulumi.Input<string | undefined>;
     /**
      * The backend storage container endpoint which will be used by this Function App.
      */
-    storageContainerEndpoint?: pulumi.Input<string>;
+    storageContainerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The storage container type used for the Function App. The current supported type is `blobContainer`.
      */
-    storageContainerType?: pulumi.Input<string>;
+    storageContainerType?: pulumi.Input<string | undefined>;
     /**
      * The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      *
      * > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      */
-    storageUserAssignedIdentityId?: pulumi.Input<string>;
+    storageUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -595,19 +595,19 @@ export interface AppFlexConsumptionState {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      *
      * > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -617,7 +617,7 @@ export interface AppFlexConsumptionArgs {
     /**
      * One or more `alwaysReady` blocks as defined below.
      */
-    alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[]>;
+    alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[] | undefined>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      *
@@ -629,69 +629,69 @@ export interface AppFlexConsumptionArgs {
      *
      * > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.AppFlexConsumptionAuthSettingsV2 | undefined>;
     /**
      * Should the function app use Client Certificates.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionConnectionString>[] | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      *
      * > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      */
-    httpConcurrency?: pulumi.Input<number>;
+    httpConcurrency?: pulumi.Input<number | undefined>;
     /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity>;
+    identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity | undefined>;
     /**
      * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
-    instanceMemoryInMb?: pulumi.Input<number>;
+    instanceMemoryInMb?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
      */
-    maximumInstanceCount?: pulumi.Input<number>;
+    maximumInstanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
      */
@@ -717,13 +717,13 @@ export interface AppFlexConsumptionArgs {
     /**
      * A `stickySettings` block as defined below.
      */
-    stickySettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionStickySettings>;
+    stickySettings?: pulumi.Input<inputs.appservice.AppFlexConsumptionStickySettings | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      *
      * > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      */
-    storageAccessKey?: pulumi.Input<string>;
+    storageAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      */
@@ -741,11 +741,11 @@ export interface AppFlexConsumptionArgs {
      *
      * > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      */
-    storageUserAssignedIdentityId?: pulumi.Input<string>;
+    storageUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -753,17 +753,17 @@ export interface AppFlexConsumptionArgs {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      *
      * > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }

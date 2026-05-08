@@ -153,27 +153,27 @@ export interface CapacityState {
      *
      * > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      */
-    administrationMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    administrationMembers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.fabric.CapacitySku>;
+    sku?: pulumi.Input<inputs.fabric.CapacitySku | undefined>;
     /**
      * A mapping of tags to assign to the Fabric Capacity.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -185,15 +185,15 @@ export interface CapacityArgs {
      *
      * > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      */
-    administrationMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    administrationMembers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
      */
@@ -205,5 +205,5 @@ export interface CapacityArgs {
     /**
      * A mapping of tags to assign to the Fabric Capacity.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

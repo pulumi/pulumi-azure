@@ -73,9 +73,9 @@ class ActiveSlotArgs:
 @pulumi.input_type
 class _ActiveSlotState:
     def __init__(__self__, *,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActiveSlot resources.
 
@@ -92,38 +92,38 @@ class _ActiveSlotState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_name")
 
     @app_service_name.setter
-    def app_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="appServiceSlotName")
-    def app_service_slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         """
         return pulumi.get(self, "app_service_slot_name")
 
     @app_service_slot_name.setter
-    def app_service_slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_slot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -133,9 +133,9 @@ class ActiveSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Promotes an App Service Slot to Production within an App Service.
@@ -216,9 +216,9 @@ class ActiveSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,9 +247,9 @@ class ActiveSlot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            app_service_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActiveSlot':
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActiveSlot':
         """
         Get an existing ActiveSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

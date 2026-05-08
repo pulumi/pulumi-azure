@@ -205,43 +205,43 @@ export interface MonitorState {
     /**
      * A `datadogOrganization` block as defined below.
      */
-    datadogOrganization?: pulumi.Input<inputs.datadog.MonitorDatadogOrganization>;
+    datadogOrganization?: pulumi.Input<inputs.datadog.MonitorDatadogOrganization | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.datadog.MonitorIdentity>;
+    identity?: pulumi.Input<inputs.datadog.MonitorIdentity | undefined>;
     /**
      * The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
      */
-    marketplaceSubscriptionStatus?: pulumi.Input<string>;
+    marketplaceSubscriptionStatus?: pulumi.Input<string | undefined>;
     /**
      * Is monitoring enabled? Defaults to `true`.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this sku.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Datadog Monitor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `user` block as defined below.
      */
-    user?: pulumi.Input<inputs.datadog.MonitorUser>;
+    user?: pulumi.Input<inputs.datadog.MonitorUser | undefined>;
 }
 
 /**
@@ -255,19 +255,19 @@ export interface MonitorArgs {
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.datadog.MonitorIdentity>;
+    identity?: pulumi.Input<inputs.datadog.MonitorIdentity | undefined>;
     /**
      * The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Is monitoring enabled? Defaults to `true`.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
@@ -279,7 +279,7 @@ export interface MonitorArgs {
     /**
      * A mapping of tags which should be assigned to the Datadog Monitor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `user` block as defined below.
      */

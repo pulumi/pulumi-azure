@@ -256,23 +256,23 @@ export interface NetworkManagerDeploymentState {
     /**
      * A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      */
-    configurationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    configurationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      */
-    scopeAccess?: pulumi.Input<string>;
+    scopeAccess?: pulumi.Input<string | undefined>;
     /**
      * A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -286,7 +286,7 @@ export interface NetworkManagerDeploymentArgs {
     /**
      * Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
      */
@@ -298,5 +298,5 @@ export interface NetworkManagerDeploymentArgs {
     /**
      * A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

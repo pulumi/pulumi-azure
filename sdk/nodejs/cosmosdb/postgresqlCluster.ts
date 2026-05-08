@@ -264,107 +264,107 @@ export interface PostgresqlClusterState {
     /**
      * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
-    citusVersion?: pulumi.Input<string>;
+    citusVersion?: pulumi.Input<string | undefined>;
     /**
      * Is public access enabled on coordinator? Defaults to `true`.
      */
-    coordinatorPublicIpAccessEnabled?: pulumi.Input<boolean>;
+    coordinatorPublicIpAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
      *
      * > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
      */
-    coordinatorServerEdition?: pulumi.Input<string>;
+    coordinatorServerEdition?: pulumi.Input<string | undefined>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
      *
      * > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
-    coordinatorStorageQuotaInMb?: pulumi.Input<number>;
+    coordinatorStorageQuotaInMb?: pulumi.Input<number | undefined>;
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      */
-    coordinatorVcoreCount?: pulumi.Input<number>;
+    coordinatorVcoreCount?: pulumi.Input<number | undefined>;
     /**
      * The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
      */
-    earliestRestoreTime?: pulumi.Input<string>;
+    earliestRestoreTime?: pulumi.Input<string | undefined>;
     /**
      * Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
      */
-    haEnabled?: pulumi.Input<boolean>;
+    haEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    maintenanceWindow?: pulumi.Input<inputs.cosmosdb.PostgresqlClusterMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.cosmosdb.PostgresqlClusterMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
      */
-    nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number | undefined>;
     /**
      * Is public access enabled on worker nodes. Defaults to `false`.
      */
-    nodePublicIpAccessEnabled?: pulumi.Input<boolean>;
+    nodePublicIpAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
      */
-    nodeServerEdition?: pulumi.Input<string>;
+    nodeServerEdition?: pulumi.Input<string | undefined>;
     /**
      * The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
      */
-    nodeStorageQuotaInMb?: pulumi.Input<number>;
+    nodeStorageQuotaInMb?: pulumi.Input<number | undefined>;
     /**
      * The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
      */
-    nodeVcores?: pulumi.Input<number>;
+    nodeVcores?: pulumi.Input<number | undefined>;
     /**
      * The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
      */
-    pointInTimeInUtc?: pulumi.Input<string>;
+    pointInTimeInUtc?: pulumi.Input<string | undefined>;
     /**
      * The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    preferredPrimaryZone?: pulumi.Input<string>;
+    preferredPrimaryZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `servers` block as defined below.
      */
-    servers?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PostgresqlClusterServer>[]>;
+    servers?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PostgresqlClusterServer>[] | undefined>;
     /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    shardsOnCoordinatorEnabled?: pulumi.Input<boolean>;
+    shardsOnCoordinatorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    sourceLocation?: pulumi.Input<string>;
+    sourceLocation?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
-    sqlVersion?: pulumi.Input<string>;
+    sqlVersion?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -374,47 +374,47 @@ export interface PostgresqlClusterArgs {
     /**
      * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
-    citusVersion?: pulumi.Input<string>;
+    citusVersion?: pulumi.Input<string | undefined>;
     /**
      * Is public access enabled on coordinator? Defaults to `true`.
      */
-    coordinatorPublicIpAccessEnabled?: pulumi.Input<boolean>;
+    coordinatorPublicIpAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, and `MemoryOptimized`. Defaults to `GeneralPurpose`.
      *
      * > **Note:** When using `BurstableGeneralPurpose`, the minimum supported value for `coordinatorVcoreCount` is `2`. Setting `coordinatorVcoreCount = 1` with this edition will result in an error from the Azure API. See [Azure Cosmos DB for PostgreSQL compute documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) for more details.
      */
-    coordinatorServerEdition?: pulumi.Input<string>;
+    coordinatorServerEdition?: pulumi.Input<string | undefined>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
      *
      * > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
-    coordinatorStorageQuotaInMb?: pulumi.Input<number>;
+    coordinatorStorageQuotaInMb?: pulumi.Input<number | undefined>;
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      */
-    coordinatorVcoreCount?: pulumi.Input<number>;
+    coordinatorVcoreCount?: pulumi.Input<number | undefined>;
     /**
      * Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
      */
-    haEnabled?: pulumi.Input<boolean>;
+    haEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    maintenanceWindow?: pulumi.Input<inputs.cosmosdb.PostgresqlClusterMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.cosmosdb.PostgresqlClusterMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
      */
@@ -422,27 +422,27 @@ export interface PostgresqlClusterArgs {
     /**
      * Is public access enabled on worker nodes. Defaults to `false`.
      */
-    nodePublicIpAccessEnabled?: pulumi.Input<boolean>;
+    nodePublicIpAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
      */
-    nodeServerEdition?: pulumi.Input<string>;
+    nodeServerEdition?: pulumi.Input<string | undefined>;
     /**
      * The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
      */
-    nodeStorageQuotaInMb?: pulumi.Input<number>;
+    nodeStorageQuotaInMb?: pulumi.Input<number | undefined>;
     /**
      * The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
      */
-    nodeVcores?: pulumi.Input<number>;
+    nodeVcores?: pulumi.Input<number | undefined>;
     /**
      * The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
      */
-    pointInTimeInUtc?: pulumi.Input<string>;
+    pointInTimeInUtc?: pulumi.Input<string | undefined>;
     /**
      * The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    preferredPrimaryZone?: pulumi.Input<string>;
+    preferredPrimaryZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -450,21 +450,21 @@ export interface PostgresqlClusterArgs {
     /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    shardsOnCoordinatorEnabled?: pulumi.Input<boolean>;
+    shardsOnCoordinatorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    sourceLocation?: pulumi.Input<string>;
+    sourceLocation?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
-    sqlVersion?: pulumi.Input<string>;
+    sqlVersion?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

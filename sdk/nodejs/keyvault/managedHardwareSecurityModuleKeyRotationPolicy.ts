@@ -122,19 +122,19 @@ export interface ManagedHardwareSecurityModuleKeyRotationPolicyState {
     /**
      * Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
      */
-    expireAfter?: pulumi.Input<string>;
+    expireAfter?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    timeAfterCreation?: pulumi.Input<string>;
+    timeAfterCreation?: pulumi.Input<string | undefined>;
     /**
      * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    timeBeforeExpiry?: pulumi.Input<string>;
+    timeBeforeExpiry?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,9 +152,9 @@ export interface ManagedHardwareSecurityModuleKeyRotationPolicyArgs {
     /**
      * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    timeAfterCreation?: pulumi.Input<string>;
+    timeAfterCreation?: pulumi.Input<string | undefined>;
     /**
      * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    timeBeforeExpiry?: pulumi.Input<string>;
+    timeBeforeExpiry?: pulumi.Input<string | undefined>;
 }

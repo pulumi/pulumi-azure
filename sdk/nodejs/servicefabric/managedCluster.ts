@@ -238,75 +238,75 @@ export interface ManagedClusterState {
     /**
      * Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.servicefabric.ManagedClusterAuthentication>;
+    authentication?: pulumi.Input<inputs.servicefabric.ManagedClusterAuthentication | undefined>;
     /**
      * If true, backup service is enabled.
      */
-    backupServiceEnabled?: pulumi.Input<boolean>;
+    backupServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Port to use when connecting to the cluster.
      */
-    clientConnectionPort?: pulumi.Input<number>;
+    clientConnectionPort?: pulumi.Input<number | undefined>;
     /**
      * One or more `customFabricSetting` blocks as defined below.
      */
-    customFabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterCustomFabricSetting>[]>;
+    customFabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterCustomFabricSetting>[] | undefined>;
     /**
      * Hostname for the cluster. If unset the cluster's name will be used..
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * If true, DNS service is enabled.
      */
-    dnsServiceEnabled?: pulumi.Input<boolean>;
+    dnsServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
      */
-    httpGatewayPort?: pulumi.Input<number>;
+    httpGatewayPort?: pulumi.Input<number | undefined>;
     /**
      * One or more `lbRule` blocks as defined below.
      */
-    lbRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterLbRule>[]>;
+    lbRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterLbRule>[] | undefined>;
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeType>[]>;
+    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeType>[] | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
      */
-    upgradeWave?: pulumi.Input<string>;
+    upgradeWave?: pulumi.Input<string | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -316,11 +316,11 @@ export interface ManagedClusterArgs {
     /**
      * Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.servicefabric.ManagedClusterAuthentication>;
+    authentication?: pulumi.Input<inputs.servicefabric.ManagedClusterAuthentication | undefined>;
     /**
      * If true, backup service is enabled.
      */
-    backupServiceEnabled?: pulumi.Input<boolean>;
+    backupServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Port to use when connecting to the cluster.
      */
@@ -328,15 +328,15 @@ export interface ManagedClusterArgs {
     /**
      * One or more `customFabricSetting` blocks as defined below.
      */
-    customFabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterCustomFabricSetting>[]>;
+    customFabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterCustomFabricSetting>[] | undefined>;
     /**
      * Hostname for the cluster. If unset the cluster's name will be used..
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * If true, DNS service is enabled.
      */
-    dnsServiceEnabled?: pulumi.Input<boolean>;
+    dnsServiceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
      */
@@ -348,19 +348,19 @@ export interface ManagedClusterArgs {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeType>[]>;
+    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeType>[] | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
@@ -368,21 +368,21 @@ export interface ManagedClusterArgs {
     /**
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
      */
-    upgradeWave?: pulumi.Input<string>;
+    upgradeWave?: pulumi.Input<string | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

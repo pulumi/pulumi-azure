@@ -24,9 +24,9 @@ class BackupPolicyDataLakeStorageArgs:
                  backup_schedules: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  data_protection_backup_vault_id: pulumi.Input[_builtins.str],
                  default_retention_duration: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicyDataLakeStorage resource.
 
@@ -85,50 +85,50 @@ class BackupPolicyDataLakeStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy for the Azure Backup Policy Data Lake Storage. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. The priority of each rule is determined by its order in the list, where the first rule has the highest priority. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created. Possible values are `Afghanistan Standard Time`,`Alaskan Standard Time`,`Aleutian Standard Time`,`Altai Standard Time`,`Arab Standard Time`,`Arabian Standard Time`,`Arabic Standard Time`,`Argentina Standard Time`,`Astrakhan Standard Time`,`Atlantic Standard Time`,`AUS Central Standard Time`,`Aus Central W. Standard Time`,`AUS Eastern Standard Time`,`Azerbaijan Standard Time`,`Azores Standard Time`,`Bahia Standard Time`,`Bangladesh Standard Time`,`Belarus Standard Time`,`Bougainville Standard Time`,`Canada Central Standard Time`,`Cape Verde Standard Time`,`Caucasus Standard Time`,`Cen. Australia Standard Time`,`Central America Standard Time`,`Central Asia Standard Time`,`Central Brazilian Standard Time`,`Central Europe Standard Time`,`Central European Standard Time`,`Central Pacific Standard Time`,`Central Standard Time`,`Central Standard Time (Mexico)`,`Chatham Islands Standard Time`,`China Standard Time`,`Coordinated Universal Time`,`Cuba Standard Time`,`Dateline Standard Time`,`E. Africa Standard Time`,`E. Australia Standard Time`,`E. Europe Standard Time`,`E. South America Standard Time`,`Easter Island Standard Time`,`Eastern Standard Time`,`Eastern Standard Time (Mexico)`,`Egypt Standard Time`,`Ekaterinburg Standard Time`,`Fiji Standard Time`,`FLE Standard Time`,`Georgian Standard Time`,`GMT Standard Time`,`Greenland Standard Time`,`Greenwich Standard Time`,`GTB Standard Time`,`Haiti Standard Time`,`Hawaiian Standard Time`,`India Standard Time`,`Iran Standard Time`,`Israel Standard Time`,`Jordan Standard Time`,`Kaliningrad Standard Time`,`Kamchatka Standard Time`,`Korea Standard Time`,`Libya Standard Time`,`Line Islands Standard Time`,`Lord Howe Standard Time`,`Magadan Standard Time`,`Magallanes Standard Time`,`Marquesas Standard Time`,`Mauritius Standard Time`,`Mid-Atlantic Standard Time`,`Middle East Standard Time`,`Montevideo Standard Time`,`Morocco Standard Time`,`Mountain Standard Time`,`Mountain Standard Time (Mexico)`,`Myanmar Standard Time`,`N. Central Asia Standard Time`,`Namibia Standard Time`,`Nepal Standard Time`,`New Zealand Standard Time`,`Newfoundland Standard Time`,`Norfolk Standard Time`,`North Asia East Standard Time`,`North Asia Standard Time`,`North Korea Standard Time`,`Omsk Standard Time`,`Pacific SA Standard Time`,`Pacific Standard Time`,`Pacific Standard Time (Mexico)`,`Pakistan Standard Time`,`Paraguay Standard Time`,`Qyzylorda Standard Time`,`Romance Standard Time`,`Russia Time Zone 10`,`Russia Time Zone 11`,`Russia Time Zone 3`,`Russian Standard Time`,`SA Eastern Standard Time`,`SA Pacific Standard Time`,`SA Western Standard Time`,`Saint Pierre Standard Time`,`Sakhalin Standard Time`,`Samoa Standard Time`,`Sao Tome Standard Time`,`Saratov Standard Time`,`SE Asia Standard Time`,`Singapore Standard Time`,`South Africa Standard Time`,`South Sudan Standard Time`,`Sri Lanka Standard Time`,`Sudan Standard Time`,`Syria Standard Time`,`Taipei Standard Time`,`Tasmania Standard Time`,`Tocantins Standard Time`,`Tokyo Standard Time`,`Tomsk Standard Time`,`Tonga Standard Time`,`Transbaikal Standard Time`,`Turkey Standard Time`,`Turks And Caicos Standard Time`,`Ulaanbaatar Standard Time`,`US Eastern Standard Time`,`US Mountain Standard Time`,`UTC`,`UTC-02`,`UTC-08`,`UTC-09`,`UTC-11`,`UTC+12`,`UTC+13`,`Venezuela Standard Time`,`Vladivostok Standard Time`,`Volgograd Standard Time`,`W. Australia Standard Time`,`W. Central Africa Standard Time`,`W. Europe Standard Time`,`W. Mongolia Standard Time`,`West Asia Standard Time`,`West Bank Standard Time`,`West Pacific Standard Time`,`Yakutsk Standard Time` and `Yukon Standard Time`.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
 class _BackupPolicyDataLakeStorageState:
     def __init__(__self__, *,
-                 backup_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyDataLakeStorage resources.
 
@@ -154,74 +154,74 @@ class _BackupPolicyDataLakeStorageState:
 
     @_builtins.property
     @pulumi.getter(name="backupSchedules")
-    def backup_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of repeating time interval, also known as the backup schedule. It supports daily & weekly backup. It should follow [`ISO 8601` recurring time interval format](https://en.wikipedia.org/wiki/ISO_8601#Recurring_intervals), for example: `R/2021-05-23T02:30:00+00:00/P1W`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backup_schedules")
 
     @backup_schedules.setter
-    def backup_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_schedules", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionBackupVaultId")
-    def data_protection_backup_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_protection_backup_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Vault where the Azure Backup Policy Data Lake Storage should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_protection_backup_vault_id")
 
     @data_protection_backup_vault_id.setter
-    def data_protection_backup_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_protection_backup_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_protection_backup_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRetentionDuration")
-    def default_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_retention_duration")
 
     @default_retention_duration.setter
-    def default_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy for the Azure Backup Policy Data Lake Storage. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]:
+    def retention_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. The priority of each rule is determined by its order in the list, where the first rule has the highest priority. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]):
+    def retention_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackupPolicyDataLakeStorageRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created. Possible values are `Afghanistan Standard Time`,`Alaskan Standard Time`,`Aleutian Standard Time`,`Altai Standard Time`,`Arab Standard Time`,`Arabian Standard Time`,`Arabic Standard Time`,`Argentina Standard Time`,`Astrakhan Standard Time`,`Atlantic Standard Time`,`AUS Central Standard Time`,`Aus Central W. Standard Time`,`AUS Eastern Standard Time`,`Azerbaijan Standard Time`,`Azores Standard Time`,`Bahia Standard Time`,`Bangladesh Standard Time`,`Belarus Standard Time`,`Bougainville Standard Time`,`Canada Central Standard Time`,`Cape Verde Standard Time`,`Caucasus Standard Time`,`Cen. Australia Standard Time`,`Central America Standard Time`,`Central Asia Standard Time`,`Central Brazilian Standard Time`,`Central Europe Standard Time`,`Central European Standard Time`,`Central Pacific Standard Time`,`Central Standard Time`,`Central Standard Time (Mexico)`,`Chatham Islands Standard Time`,`China Standard Time`,`Coordinated Universal Time`,`Cuba Standard Time`,`Dateline Standard Time`,`E. Africa Standard Time`,`E. Australia Standard Time`,`E. Europe Standard Time`,`E. South America Standard Time`,`Easter Island Standard Time`,`Eastern Standard Time`,`Eastern Standard Time (Mexico)`,`Egypt Standard Time`,`Ekaterinburg Standard Time`,`Fiji Standard Time`,`FLE Standard Time`,`Georgian Standard Time`,`GMT Standard Time`,`Greenland Standard Time`,`Greenwich Standard Time`,`GTB Standard Time`,`Haiti Standard Time`,`Hawaiian Standard Time`,`India Standard Time`,`Iran Standard Time`,`Israel Standard Time`,`Jordan Standard Time`,`Kaliningrad Standard Time`,`Kamchatka Standard Time`,`Korea Standard Time`,`Libya Standard Time`,`Line Islands Standard Time`,`Lord Howe Standard Time`,`Magadan Standard Time`,`Magallanes Standard Time`,`Marquesas Standard Time`,`Mauritius Standard Time`,`Mid-Atlantic Standard Time`,`Middle East Standard Time`,`Montevideo Standard Time`,`Morocco Standard Time`,`Mountain Standard Time`,`Mountain Standard Time (Mexico)`,`Myanmar Standard Time`,`N. Central Asia Standard Time`,`Namibia Standard Time`,`Nepal Standard Time`,`New Zealand Standard Time`,`Newfoundland Standard Time`,`Norfolk Standard Time`,`North Asia East Standard Time`,`North Asia Standard Time`,`North Korea Standard Time`,`Omsk Standard Time`,`Pacific SA Standard Time`,`Pacific Standard Time`,`Pacific Standard Time (Mexico)`,`Pakistan Standard Time`,`Paraguay Standard Time`,`Qyzylorda Standard Time`,`Romance Standard Time`,`Russia Time Zone 10`,`Russia Time Zone 11`,`Russia Time Zone 3`,`Russian Standard Time`,`SA Eastern Standard Time`,`SA Pacific Standard Time`,`SA Western Standard Time`,`Saint Pierre Standard Time`,`Sakhalin Standard Time`,`Samoa Standard Time`,`Sao Tome Standard Time`,`Saratov Standard Time`,`SE Asia Standard Time`,`Singapore Standard Time`,`South Africa Standard Time`,`South Sudan Standard Time`,`Sri Lanka Standard Time`,`Sudan Standard Time`,`Syria Standard Time`,`Taipei Standard Time`,`Tasmania Standard Time`,`Tocantins Standard Time`,`Tokyo Standard Time`,`Tomsk Standard Time`,`Tonga Standard Time`,`Transbaikal Standard Time`,`Turkey Standard Time`,`Turks And Caicos Standard Time`,`Ulaanbaatar Standard Time`,`US Eastern Standard Time`,`US Mountain Standard Time`,`UTC`,`UTC-02`,`UTC-08`,`UTC-09`,`UTC-11`,`UTC+12`,`UTC+13`,`Venezuela Standard Time`,`Vladivostok Standard Time`,`Volgograd Standard Time`,`W. Australia Standard Time`,`W. Central Africa Standard Time`,`W. Europe Standard Time`,`W. Mongolia Standard Time`,`West Asia Standard Time`,`West Bank Standard Time`,`West Pacific Standard Time`,`Yakutsk Standard Time` and `Yukon Standard Time`.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -231,12 +231,12 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backup Policy to Azure Data Lake Storage.
@@ -404,12 +404,12 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,12 +441,12 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupPolicyDataLakeStorage':
+            backup_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyDataLakeStorage':
         """
         Get an existing BackupPolicyDataLakeStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

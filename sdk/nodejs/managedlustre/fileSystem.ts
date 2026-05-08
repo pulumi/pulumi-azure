@@ -224,59 +224,59 @@ export interface FileSystemState {
      *
      * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
-    encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey>;
+    encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey | undefined>;
     /**
      * A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      */
-    hsmSetting?: pulumi.Input<inputs.managedlustre.FileSystemHsmSetting>;
+    hsmSetting?: pulumi.Input<inputs.managedlustre.FileSystemHsmSetting | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.managedlustre.FileSystemIdentity>;
+    identity?: pulumi.Input<inputs.managedlustre.FileSystemIdentity | undefined>;
     /**
      * The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    maintenanceWindow?: pulumi.Input<inputs.managedlustre.FileSystemMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.managedlustre.FileSystemMaintenanceWindow | undefined>;
     /**
      * IP Address of Managed Lustre File System Services.
      */
-    mgsAddress?: pulumi.Input<string>;
+    mgsAddress?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `rootSquash` block as defined below.
      */
-    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash>;
+    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash | undefined>;
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      */
-    storageCapacityInTb?: pulumi.Input<number>;
+    storageCapacityInTb?: pulumi.Input<number | undefined>;
     /**
      * The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Managed Lustre File System.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -288,19 +288,19 @@ export interface FileSystemArgs {
      *
      * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
-    encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey>;
+    encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey | undefined>;
     /**
      * A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      */
-    hsmSetting?: pulumi.Input<inputs.managedlustre.FileSystemHsmSetting>;
+    hsmSetting?: pulumi.Input<inputs.managedlustre.FileSystemHsmSetting | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.managedlustre.FileSystemIdentity>;
+    identity?: pulumi.Input<inputs.managedlustre.FileSystemIdentity | undefined>;
     /**
      * The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
@@ -308,7 +308,7 @@ export interface FileSystemArgs {
     /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
@@ -316,7 +316,7 @@ export interface FileSystemArgs {
     /**
      * A `rootSquash` block as defined below.
      */
-    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash>;
+    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash | undefined>;
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */
@@ -332,7 +332,7 @@ export interface FileSystemArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Managed Lustre File System.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */

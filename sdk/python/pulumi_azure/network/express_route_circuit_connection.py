@@ -22,9 +22,9 @@ class ExpressRouteCircuitConnectionArgs:
                  address_prefix_ipv4: pulumi.Input[_builtins.str],
                  peer_peering_id: pulumi.Input[_builtins.str],
                  peering_id: pulumi.Input[_builtins.str],
-                 address_prefix_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitConnection resource.
 
@@ -85,7 +85,7 @@ class ExpressRouteCircuitConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixIpv6")
-    def address_prefix_ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address space from which to allocate customer addresses for global reach.
 
@@ -94,43 +94,43 @@ class ExpressRouteCircuitConnectionArgs:
         return pulumi.get(self, "address_prefix_ipv6")
 
     @address_prefix_ipv6.setter
-    def address_prefix_ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization key which is associated with the Express Route Circuit Connection.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExpressRouteCircuitConnectionState:
     def __init__(__self__, *,
-                 address_prefix_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefix_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuitConnection resources.
 
@@ -158,19 +158,19 @@ class _ExpressRouteCircuitConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixIpv4")
-    def address_prefix_ipv4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix_ipv4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         """
         return pulumi.get(self, "address_prefix_ipv4")
 
     @address_prefix_ipv4.setter
-    def address_prefix_ipv4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix_ipv4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixIpv6")
-    def address_prefix_ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address space from which to allocate customer addresses for global reach.
 
@@ -179,55 +179,55 @@ class _ExpressRouteCircuitConnectionState:
         return pulumi.get(self, "address_prefix_ipv6")
 
     @address_prefix_ipv6.setter
-    def address_prefix_ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization key which is associated with the Express Route Circuit Connection.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerPeeringId")
-    def peer_peering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_peering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
         """
         return pulumi.get(self, "peer_peering_id")
 
     @peer_peering_id.setter
-    def peer_peering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_peering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_peering_id", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringId")
-    def peering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
         """
         return pulumi.get(self, "peering_id")
 
     @peering_id.setter
-    def peering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_id", value)
 
 
@@ -237,12 +237,12 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefix_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Express Route Circuit Connection.
@@ -268,7 +268,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -285,7 +285,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -373,7 +373,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -390,7 +390,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -452,12 +452,12 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_prefix_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,12 +491,12 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_prefix_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-            address_prefix_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-            authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            peer_peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-            peering_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExpressRouteCircuitConnection':
+            address_prefix_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            peering_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExpressRouteCircuitConnection':
         """
         Get an existing ExpressRouteCircuitConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

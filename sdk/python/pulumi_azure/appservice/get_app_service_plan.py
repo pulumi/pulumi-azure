@@ -244,8 +244,8 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServicePlanResult]:
     """
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).

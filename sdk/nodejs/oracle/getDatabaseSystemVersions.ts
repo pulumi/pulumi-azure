@@ -130,11 +130,11 @@ export interface GetDatabaseSystemVersionsOutputArgs {
     /**
      * Whether to filter the results to the set of Oracle Database versions that are supported for the database software images.
      */
-    databaseSoftwareImageSupported?: pulumi.Input<boolean>;
+    databaseSoftwareImageSupported?: pulumi.Input<boolean | undefined>;
     /**
      * If provided, filters the results to the set of database versions which are supported for the given shape. The only possible value is `VM.Standard.x86`.
      */
-    databaseSystemShape?: pulumi.Input<string>;
+    databaseSystemShape?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region to query for the Oracle Database Systems Versions.
      */
@@ -142,13 +142,13 @@ export interface GetDatabaseSystemVersionsOutputArgs {
     /**
      * If provided, filters the results to the set of database versions which are supported for the given shape family. Possible values are `EXADATA`, `EXADB_XS`, `SINGLENODE` and `VIRTUALMACHINE`.
      */
-    shapeFamily?: pulumi.Input<string>;
+    shapeFamily?: pulumi.Input<string | undefined>;
     /**
      * The database system storage management option. Used to list database versions available for that storage manager. The only possible value is `LVM`.
      */
-    storageManagement?: pulumi.Input<string>;
+    storageManagement?: pulumi.Input<string | undefined>;
     /**
      * Whether to filter the results to the set of database versions which are supported for upgrade.
      */
-    upgradeSupported?: pulumi.Input<boolean>;
+    upgradeSupported?: pulumi.Input<boolean | undefined>;
 }

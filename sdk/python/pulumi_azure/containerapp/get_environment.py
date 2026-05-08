@@ -262,8 +262,8 @@ def get_environment(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         static_ip_address=pulumi.get(__ret__, 'static_ip_address'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Use this data source to access information about an existing Container App Environment.

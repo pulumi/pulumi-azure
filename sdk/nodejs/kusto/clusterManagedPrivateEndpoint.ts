@@ -171,31 +171,31 @@ export interface ClusterManagedPrivateEndpointState {
     /**
      * The name of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string | undefined>;
     /**
      * The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    privateLinkResourceRegion?: pulumi.Input<string>;
+    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * The user request message.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface ClusterManagedPrivateEndpointArgs {
     /**
      * The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
@@ -221,11 +221,11 @@ export interface ClusterManagedPrivateEndpointArgs {
     /**
      * The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    privateLinkResourceRegion?: pulumi.Input<string>;
+    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * The user request message.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */

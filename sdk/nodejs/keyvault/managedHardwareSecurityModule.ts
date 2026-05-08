@@ -213,63 +213,63 @@ export interface ManagedHardwareSecurityModuleState {
     /**
      * Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    adminObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    adminObjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
      */
-    hsmUri?: pulumi.Input<string>;
+    hsmUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below.
      */
-    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls | undefined>;
     /**
      * Whether traffic from public networks is permitted. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
      */
-    securityDomainEncryptedData?: pulumi.Input<string>;
+    securityDomainEncryptedData?: pulumi.Input<string | undefined>;
     /**
      * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
      */
-    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      */
-    securityDomainQuorum?: pulumi.Input<number>;
+    securityDomainQuorum?: pulumi.Input<number | undefined>;
     /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -283,23 +283,23 @@ export interface ManagedHardwareSecurityModuleArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below.
      */
-    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls | undefined>;
     /**
      * Whether traffic from public networks is permitted. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
@@ -307,11 +307,11 @@ export interface ManagedHardwareSecurityModuleArgs {
     /**
      * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
      */
-    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      */
-    securityDomainQuorum?: pulumi.Input<number>;
+    securityDomainQuorum?: pulumi.Input<number | undefined>;
     /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */
@@ -319,11 +319,11 @@ export interface ManagedHardwareSecurityModuleArgs {
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */

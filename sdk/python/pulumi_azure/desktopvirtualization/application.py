@@ -22,13 +22,13 @@ class ApplicationArgs:
                  application_group_id: pulumi.Input[_builtins.str],
                  command_line_argument_policy: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None):
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -99,102 +99,102 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
-    def command_line_arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command_line_arguments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Command Line Arguments for Virtual Desktop Application.
         """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
-    def command_line_arguments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command_line_arguments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command_line_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to set a description for the Virtual Desktop Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to set a friendly name for the Virtual Desktop Application.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconIndex")
-    def icon_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icon_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The index of the icon you wish to use.
         """
         return pulumi.get(self, "icon_index")
 
     @icon_index.setter
-    def icon_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icon_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icon_index", value)
 
     @_builtins.property
     @pulumi.getter(name="iconPath")
-    def icon_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path for an icon which will be used for this Virtual Desktop Application.
         """
         return pulumi.get(self, "icon_path")
 
     @icon_path.setter
-    def icon_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showInPortal")
-    def show_in_portal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_in_portal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
         return pulumi.get(self, "show_in_portal")
 
     @show_in_portal.setter
-    def show_in_portal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_in_portal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_in_portal", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_argument_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None):
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_argument_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -232,122 +232,122 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationGroupId")
-    def application_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
     @application_group_id.setter
-    def application_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="commandLineArgumentPolicy")
-    def command_line_argument_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command_line_argument_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         """
         return pulumi.get(self, "command_line_argument_policy")
 
     @command_line_argument_policy.setter
-    def command_line_argument_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command_line_argument_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command_line_argument_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
-    def command_line_arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command_line_arguments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Command Line Arguments for Virtual Desktop Application.
         """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
-    def command_line_arguments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command_line_arguments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command_line_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to set a description for the Virtual Desktop Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Option to set a friendly name for the Virtual Desktop Application.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconIndex")
-    def icon_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icon_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The index of the icon you wish to use.
         """
         return pulumi.get(self, "icon_index")
 
     @icon_index.setter
-    def icon_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icon_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icon_index", value)
 
     @_builtins.property
     @pulumi.getter(name="iconPath")
-    def icon_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path for an icon which will be used for this Virtual Desktop Application.
         """
         return pulumi.get(self, "icon_path")
 
     @icon_path.setter
-    def icon_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file path location of the app on the Virtual Desktop OS.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="showInPortal")
-    def show_in_portal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_in_portal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
         return pulumi.get(self, "show_in_portal")
 
     @show_in_portal.setter
-    def show_in_portal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_in_portal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_in_portal", value)
 
 
@@ -357,16 +357,16 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_argument_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None,
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_argument_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Application.
@@ -526,16 +526,16 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_argument_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None,
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_argument_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,16 +571,16 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            command_line_argument_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            command_line_arguments: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            icon_index: Optional[pulumi.Input[_builtins.int]] = None,
-            icon_path: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Application':
+            application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            command_line_argument_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+            icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

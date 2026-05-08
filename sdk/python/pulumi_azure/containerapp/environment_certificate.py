@@ -22,11 +22,11 @@ __all__ = ['EnvironmentCertificateArgs', 'EnvironmentCertificate']
 class EnvironmentCertificateArgs:
     def __init__(__self__, *,
                  container_app_environment_id: pulumi.Input[_builtins.str],
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_key_vault: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_key_vault: pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentCertificate resource.
 
@@ -69,7 +69,7 @@ class EnvironmentCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
-    def certificate_blob_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_blob_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
 
@@ -78,12 +78,12 @@ class EnvironmentCertificateArgs:
         return pulumi.get(self, "certificate_blob_base64")
 
     @certificate_blob_base64.setter
-    def certificate_blob_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_blob_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_blob_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateKeyVault")
-    def certificate_key_vault(self) -> Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]:
+    def certificate_key_vault(self) -> pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']]:
         """
         A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
 
@@ -92,12 +92,12 @@ class EnvironmentCertificateArgs:
         return pulumi.get(self, "certificate_key_vault")
 
     @certificate_key_vault.setter
-    def certificate_key_vault(self, value: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]):
+    def certificate_key_vault(self, value: pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']]):
         pulumi.set(self, "certificate_key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the Certificate. Changing this forces a new resource to be created.
 
@@ -106,48 +106,48 @@ class EnvironmentCertificateArgs:
         return pulumi.get(self, "certificate_password")
 
     @certificate_password.setter
-    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EnvironmentCertificateState:
     def __init__(__self__, *,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_key_vault: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 issue_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_key_vault: pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 issue_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentCertificate resources.
 
@@ -194,7 +194,7 @@ class _EnvironmentCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
-    def certificate_blob_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_blob_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
 
@@ -203,12 +203,12 @@ class _EnvironmentCertificateState:
         return pulumi.get(self, "certificate_blob_base64")
 
     @certificate_blob_base64.setter
-    def certificate_blob_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_blob_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_blob_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateKeyVault")
-    def certificate_key_vault(self) -> Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]:
+    def certificate_key_vault(self) -> pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']]:
         """
         A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
 
@@ -217,12 +217,12 @@ class _EnvironmentCertificateState:
         return pulumi.get(self, "certificate_key_vault")
 
     @certificate_key_vault.setter
-    def certificate_key_vault(self, value: Optional[pulumi.Input['EnvironmentCertificateCertificateKeyVaultArgs']]):
+    def certificate_key_vault(self, value: pulumi.Input[Optional['EnvironmentCertificateCertificateKeyVaultArgs']]):
         pulumi.set(self, "certificate_key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the Certificate. Changing this forces a new resource to be created.
 
@@ -231,103 +231,103 @@ class _EnvironmentCertificateState:
         return pulumi.get(self, "certificate_password")
 
     @certificate_password.setter
-    def certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
-    def container_app_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_environment_id")
 
     @container_app_environment_id.setter
-    def container_app_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date for the Certificate.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="issueDate")
-    def issue_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issue_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date of issue for the Certificate.
         """
         return pulumi.get(self, "issue_date")
 
     @issue_date.setter
-    def issue_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issue_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issue_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Issuer.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Subject Name for the Certificate.
         """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
-    def subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Thumbprint of the Certificate.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -337,12 +337,12 @@ class EnvironmentCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Container App Environment Certificate.
@@ -610,12 +610,12 @@ class EnvironmentCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
-                 certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+                 certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -650,17 +650,17 @@ class EnvironmentCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_blob_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_key_vault: Optional[pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
-            certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-            issue_date: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnvironmentCertificate':
+            certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+            certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issue_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnvironmentCertificate':
         """
         Get an existing EnvironmentCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

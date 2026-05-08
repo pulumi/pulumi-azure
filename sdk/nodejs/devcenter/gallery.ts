@@ -144,15 +144,15 @@ export interface GalleryState {
     /**
      * Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */
-    sharedGalleryId?: pulumi.Input<string>;
+    sharedGalleryId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface GalleryArgs {
     /**
      * Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */

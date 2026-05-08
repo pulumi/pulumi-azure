@@ -23,8 +23,8 @@ class ChannelWebChatArgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None):
         """
         The set of arguments for constructing a ChannelWebChat resource.
 
@@ -66,36 +66,36 @@ class ChannelWebChatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
+    def sites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
         """
         A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]):
+    def sites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]):
         pulumi.set(self, "sites", value)
 
 
 @pulumi.input_type
 class _ChannelWebChatState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None):
         """
         Input properties used for looking up and filtering ChannelWebChat resources.
 
@@ -115,50 +115,50 @@ class _ChannelWebChatState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
+    def sites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
         """
         A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]):
+    def sites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]):
         pulumi.set(self, "sites", value)
 
 
@@ -168,10 +168,10 @@ class ChannelWebChat(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Web Chat integration for a Bot Channel
@@ -275,10 +275,10 @@ class ChannelWebChat(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,10 +306,10 @@ class ChannelWebChat(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None) -> 'ChannelWebChat':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None) -> 'ChannelWebChat':
         """
         Get an existing ChannelWebChat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

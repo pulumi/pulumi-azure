@@ -22,8 +22,8 @@ class NetworkManagerScopeConnectionArgs:
                  network_manager_id: pulumi.Input[_builtins.str],
                  target_scope_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerScopeConnection resource.
 
@@ -79,38 +79,38 @@ class NetworkManagerScopeConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Network Manager Scope Connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerScopeConnectionState:
     def __init__(__self__, *,
-                 connection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerScopeConnection resources.
 
@@ -136,74 +136,74 @@ class _NetworkManagerScopeConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="connectionState")
-    def connection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Connection state of the Network Manager Scope Connection.
         """
         return pulumi.get(self, "connection_state")
 
     @connection_state.setter
-    def connection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Network Manager Scope Connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
-    def network_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
     @network_manager_id.setter
-    def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetScopeId")
-    def target_scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_scope_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Resource ID of the target scope which the Network Manager is connected to. It should be either Subscription ID or Management Group ID.
         """
         return pulumi.get(self, "target_scope_id")
 
     @target_scope_id.setter
-    def target_scope_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_scope_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_scope_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Tenant ID of the Resource which the Network Manager is connected to.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -213,11 +213,11 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
@@ -342,11 +342,11 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -378,12 +378,12 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_state: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerScopeConnection':
+            connection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerScopeConnection':
         """
         Get an existing NetworkManagerScopeConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

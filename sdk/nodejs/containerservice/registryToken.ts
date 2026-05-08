@@ -160,23 +160,23 @@ export interface RegistryTokenState {
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    containerRegistryName?: pulumi.Input<string>;
+    containerRegistryName?: pulumi.Input<string | undefined>;
     /**
      * Should the Container Registry token be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the token. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container Registry Scope Map associated with the token.
      */
-    scopeMapId?: pulumi.Input<string>;
+    scopeMapId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,11 +190,11 @@ export interface RegistryTokenArgs {
     /**
      * Should the Container Registry token be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the token. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */

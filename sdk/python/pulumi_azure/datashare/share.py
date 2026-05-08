@@ -23,10 +23,10 @@ class ShareArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_schedule: pulumi.Input[Optional['ShareSnapshotScheduleArgs']] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
 
@@ -74,62 +74,62 @@ class ShareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Share's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotSchedule")
-    def snapshot_schedule(self) -> Optional[pulumi.Input['ShareSnapshotScheduleArgs']]:
+    def snapshot_schedule(self) -> pulumi.Input[Optional['ShareSnapshotScheduleArgs']]:
         """
         A `snapshot_schedule` block as defined below.
         """
         return pulumi.get(self, "snapshot_schedule")
 
     @snapshot_schedule.setter
-    def snapshot_schedule(self, value: Optional[pulumi.Input['ShareSnapshotScheduleArgs']]):
+    def snapshot_schedule(self, value: pulumi.Input[Optional['ShareSnapshotScheduleArgs']]):
         pulumi.set(self, "snapshot_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The terms of the Data Share.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
 @pulumi.input_type
 class _ShareState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_schedule: pulumi.Input[Optional['ShareSnapshotScheduleArgs']] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
 
@@ -155,74 +155,74 @@ class _ShareState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Share's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotSchedule")
-    def snapshot_schedule(self) -> Optional[pulumi.Input['ShareSnapshotScheduleArgs']]:
+    def snapshot_schedule(self) -> pulumi.Input[Optional['ShareSnapshotScheduleArgs']]:
         """
         A `snapshot_schedule` block as defined below.
         """
         return pulumi.get(self, "snapshot_schedule")
 
     @snapshot_schedule.setter
-    def snapshot_schedule(self, value: Optional[pulumi.Input['ShareSnapshotScheduleArgs']]):
+    def snapshot_schedule(self, value: pulumi.Input[Optional['ShareSnapshotScheduleArgs']]):
         pulumi.set(self, "snapshot_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The terms of the Data Share.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms", value)
 
 
@@ -232,12 +232,12 @@ class Share(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Share.
@@ -371,12 +371,12 @@ class Share(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
-                 terms: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+                 terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -406,12 +406,12 @@ class Share(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_schedule: Optional[pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
-            terms: Optional[pulumi.Input[_builtins.str]] = None) -> 'Share':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+            terms: pulumi.Input[Optional[_builtins.str]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

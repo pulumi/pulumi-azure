@@ -215,41 +215,41 @@ export interface PoolState {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
      *
      * > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
      */
-    coolAccessEnabled?: pulumi.Input<boolean>;
+    coolAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
      */
-    customThroughputMibps?: pulumi.Input<number>;
+    customThroughputMibps?: pulumi.Input<number | undefined>;
     /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
-    encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
      */
-    qosType?: pulumi.Input<string>;
+    qosType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      */
-    serviceLevel?: pulumi.Input<string>;
+    serviceLevel?: pulumi.Input<string | undefined>;
     /**
      * Provisioned size of the pool in TB. Value must be between `1` and `2048`.
      *
@@ -257,11 +257,11 @@ export interface PoolState {
      *
      * > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      */
-    sizeInTb?: pulumi.Input<number>;
+    sizeInTb?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -277,27 +277,27 @@ export interface PoolArgs {
      *
      * > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
      */
-    coolAccessEnabled?: pulumi.Input<boolean>;
+    coolAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
      */
-    customThroughputMibps?: pulumi.Input<number>;
+    customThroughputMibps?: pulumi.Input<number | undefined>;
     /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
-    encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
      */
-    qosType?: pulumi.Input<string>;
+    qosType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
@@ -317,5 +317,5 @@ export interface PoolArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

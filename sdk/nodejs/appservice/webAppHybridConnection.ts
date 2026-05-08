@@ -198,43 +198,43 @@ export interface WebAppHybridConnectionState {
     /**
      * The hostname of the endpoint.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * The name of the Relay Namespace.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The port to use for the endpoint.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
      */
-    relayId?: pulumi.Input<string>;
+    relayId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Relay in use.
      */
-    relayName?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
      */
-    sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string | undefined>;
     /**
      * The Primary Access Key for the `sendKeyName`
      */
-    sendKeyValue?: pulumi.Input<string>;
+    sendKeyValue?: pulumi.Input<string | undefined>;
     /**
      * The Service Bus Namespace.
      */
-    serviceBusNamespace?: pulumi.Input<string>;
+    serviceBusNamespace?: pulumi.Input<string | undefined>;
     /**
      * The suffix for the endpoint.
      */
-    serviceBusSuffix?: pulumi.Input<string>;
+    serviceBusSuffix?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Web App for this Hybrid Connection. Changing this forces a new resource to be created.
      */
-    webAppId?: pulumi.Input<string>;
+    webAppId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface WebAppHybridConnectionArgs {
     /**
      * The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
      */
-    sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Web App for this Hybrid Connection. Changing this forces a new resource to be created.
      */

@@ -32,8 +32,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -130,8 +130,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -228,8 +228,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -277,8 +277,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -427,8 +427,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -477,8 +477,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -527,8 +527,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class MaintenanceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maintenance.MaintenanceFunctions;
      * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

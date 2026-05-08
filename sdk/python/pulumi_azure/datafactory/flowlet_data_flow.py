@@ -22,15 +22,15 @@ __all__ = ['FlowletDataFlowArgs', 'FlowletDataFlow']
 class FlowletDataFlowArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
         """
         The set of arguments for constructing a FlowletDataFlow resource.
 
@@ -79,126 +79,126 @@ class FlowletDataFlowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLines")
-    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def script_lines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The script lines for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "script_lines")
 
     @script_lines.setter
-    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def script_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "script_lines", value)
 
     @_builtins.property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
+    def sinks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
         """
         One or more `sink` blocks as defined below.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
+    def sinks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
         pulumi.set(self, "sinks", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
+    def transformations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
         """
         One or more `transformation` blocks as defined below.
         """
         return pulumi.get(self, "transformations")
 
     @transformations.setter
-    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
+    def transformations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
         pulumi.set(self, "transformations", value)
 
 
 @pulumi.input_type
 class _FlowletDataFlowState:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
         """
         Input properties used for looking up and filtering FlowletDataFlow resources.
 
@@ -236,122 +236,122 @@ class _FlowletDataFlowState:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLines")
-    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def script_lines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The script lines for the Data Factory Flowlet Data Flow.
         """
         return pulumi.get(self, "script_lines")
 
     @script_lines.setter
-    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def script_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "script_lines", value)
 
     @_builtins.property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
+    def sinks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
         """
         One or more `sink` blocks as defined below.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
+    def sinks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
         pulumi.set(self, "sinks", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
+    def transformations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
         """
         One or more `transformation` blocks as defined below.
         """
         return pulumi.get(self, "transformations")
 
     @transformations.setter
-    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
+    def transformations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
         pulumi.set(self, "transformations", value)
 
 
@@ -361,16 +361,16 @@ class FlowletDataFlow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Flowlet Data Flow inside an Azure Data Factory.
@@ -716,16 +716,16 @@ class FlowletDataFlow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -757,16 +757,16 @@ class FlowletDataFlow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            folder: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            script: Optional[pulumi.Input[_builtins.str]] = None,
-            script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-            transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None) -> 'FlowletDataFlow':
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
+            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None) -> 'FlowletDataFlow':
         """
         Get an existing FlowletDataFlow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

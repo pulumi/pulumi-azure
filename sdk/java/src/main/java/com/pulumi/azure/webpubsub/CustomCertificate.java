@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.CustomCertificate;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  *             .name("example-webpubsub")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .sku(List.of(Map.ofEntries(
+ *             .sku(Arrays.asList(Map.ofEntries(
  *                 Map.entry("name", "Premium_P1"),
  *                 Map.entry("capacity", 1)
  *             )))
- *             .identity(List.of(Map.of("type", "SystemAssigned")))
+ *             .identity(Arrays.asList(Map.of("type", "SystemAssigned")))
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()

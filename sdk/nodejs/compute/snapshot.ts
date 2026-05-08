@@ -210,65 +210,65 @@ export interface SnapshotState {
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
-    createOption?: pulumi.Input<string>;
+    createOption?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      */
-    diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string | undefined>;
     /**
      * The size of the Snapshotted Disk in GB.
      */
-    diskSizeGb?: pulumi.Input<number>;
+    diskSizeGb?: pulumi.Input<number | undefined>;
     /**
      * A `encryptionSettings` block as defined below.
      *
      * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
-    encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
+    encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
      * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
-    incrementalEnabled?: pulumi.Input<boolean>;
+    incrementalEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
      */
-    networkAccessPolicy?: pulumi.Input<string>;
+    networkAccessPolicy?: pulumi.Input<string | undefined>;
     /**
      * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
      */
-    sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether Trusted Launch is enabled for the Snapshot.
      */
-    trustedLaunchEnabled?: pulumi.Input<boolean>;
+    trustedLaunchEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -284,37 +284,37 @@ export interface SnapshotArgs {
     /**
      * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      */
-    diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string | undefined>;
     /**
      * The size of the Snapshotted Disk in GB.
      */
-    diskSizeGb?: pulumi.Input<number>;
+    diskSizeGb?: pulumi.Input<number | undefined>;
     /**
      * A `encryptionSettings` block as defined below.
      *
      * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
-    encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
+    encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
      * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
-    incrementalEnabled?: pulumi.Input<boolean>;
+    incrementalEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
      */
-    networkAccessPolicy?: pulumi.Input<string>;
+    networkAccessPolicy?: pulumi.Input<string | undefined>;
     /**
      * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */
@@ -322,17 +322,17 @@ export interface SnapshotArgs {
     /**
      * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
      */
-    sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -472,125 +472,125 @@ export interface ManagedInstanceState {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      *
      * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An `azureActiveDirectoryAdministrator` block as defined below.
      */
-    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
+    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
      *
      * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
      */
-    databaseFormat?: pulumi.Input<string>;
+    databaseFormat?: pulumi.Input<string | undefined>;
     /**
      * The Dns Zone where the SQL Managed Instance is located.
      */
-    dnsZone?: pulumi.Input<string>;
+    dnsZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
-    dnsZonePartnerId?: pulumi.Input<string>;
+    dnsZonePartnerId?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
      *
      * > **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
      */
-    generalPurposeV2Enabled?: pulumi.Input<boolean>;
+    generalPurposeV2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
-    hybridSecondaryUsage?: pulumi.Input<string>;
+    hybridSecondaryUsage?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.ManagedInstanceIdentity>;
+    identity?: pulumi.Input<inputs.mssql.ManagedInstanceIdentity | undefined>;
     /**
      * What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      */
-    maintenanceConfigurationName?: pulumi.Input<string>;
+    maintenanceConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
-    proxyOverride?: pulumi.Input<string>;
+    proxyOverride?: pulumi.Input<string | undefined>;
     /**
      * Is the public data endpoint enabled? Defaults to `false`.
      */
-    publicDataEndpointEnabled?: pulumi.Input<boolean>;
+    publicDataEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The service principal type. The only possible value is `SystemAssigned`.
      */
-    servicePrincipalType?: pulumi.Input<string>;
+    servicePrincipalType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
      */
-    storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string | undefined>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      *
      * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      */
-    storageSizeInGb?: pulumi.Input<number>;
+    storageSizeInGb?: pulumi.Input<number | undefined>;
     /**
      * The subnet resource id that the SQL Managed Instance will be associated with.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
-    timezoneId?: pulumi.Input<string>;
+    timezoneId?: pulumi.Input<string | undefined>;
     /**
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
-    vcores?: pulumi.Input<number>;
+    vcores?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
-    zoneRedundantEnabled?: pulumi.Input<boolean>;
+    zoneRedundantEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -600,45 +600,45 @@ export interface ManagedInstanceArgs {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      *
      * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An `azureActiveDirectoryAdministrator` block as defined below.
      */
-    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
+    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
      *
      * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
      */
-    databaseFormat?: pulumi.Input<string>;
+    databaseFormat?: pulumi.Input<string | undefined>;
     /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
-    dnsZonePartnerId?: pulumi.Input<string>;
+    dnsZonePartnerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
      *
      * > **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
      */
-    generalPurposeV2Enabled?: pulumi.Input<boolean>;
+    generalPurposeV2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
-    hybridSecondaryUsage?: pulumi.Input<string>;
+    hybridSecondaryUsage?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.ManagedInstanceIdentity>;
+    identity?: pulumi.Input<inputs.mssql.ManagedInstanceIdentity | undefined>;
     /**
      * What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -646,29 +646,29 @@ export interface ManagedInstanceArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      */
-    maintenanceConfigurationName?: pulumi.Input<string>;
+    maintenanceConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
-    proxyOverride?: pulumi.Input<string>;
+    proxyOverride?: pulumi.Input<string | undefined>;
     /**
      * Is the public data endpoint enabled? Defaults to `false`.
      */
-    publicDataEndpointEnabled?: pulumi.Input<boolean>;
+    publicDataEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
@@ -676,7 +676,7 @@ export interface ManagedInstanceArgs {
     /**
      * The service principal type. The only possible value is `SystemAssigned`.
      */
-    servicePrincipalType?: pulumi.Input<string>;
+    servicePrincipalType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
@@ -684,7 +684,7 @@ export interface ManagedInstanceArgs {
     /**
      * Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
      */
-    storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string | undefined>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      *
@@ -698,11 +698,11 @@ export interface ManagedInstanceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
-    timezoneId?: pulumi.Input<string>;
+    timezoneId?: pulumi.Input<string | undefined>;
     /**
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
@@ -710,5 +710,5 @@ export interface ManagedInstanceArgs {
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
-    zoneRedundantEnabled?: pulumi.Input<boolean>;
+    zoneRedundantEnabled?: pulumi.Input<boolean | undefined>;
 }

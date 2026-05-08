@@ -175,47 +175,47 @@ export interface DatasetSnowflakeState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset Snowflake.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset Snowflake.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset Snowflake.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset Snowflake.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[] | undefined>;
     /**
      * The schema name of the Data Factory Dataset Snowflake.
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,11 +225,11 @@ export interface DatasetSnowflakeArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset Snowflake.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset Snowflake.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -237,11 +237,11 @@ export interface DatasetSnowflakeArgs {
     /**
      * The description for the Data Factory Dataset Snowflake.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
@@ -249,21 +249,21 @@ export interface DatasetSnowflakeArgs {
     /**
      * Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset Snowflake.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[] | undefined>;
     /**
      * The schema name of the Data Factory Dataset Snowflake.
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

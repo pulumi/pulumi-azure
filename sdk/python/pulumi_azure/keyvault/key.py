@@ -24,13 +24,13 @@ class KeyArgs:
                  key_opts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  key_type: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[_builtins.str],
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_policy: pulumi.Input[Optional['KeyRotationPolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
 
@@ -105,19 +105,19 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -126,36 +126,36 @@ class KeyArgs:
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -164,57 +164,57 @@ class KeyArgs:
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArgs']]:
+    def rotation_policy(self) -> pulumi.Input[Optional['KeyRotationPolicyArgs']]:
         """
         A `rotation_policy` block as defined below.
         """
         return pulumi.get(self, "rotation_policy")
 
     @rotation_policy.setter
-    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArgs']]):
+    def rotation_policy(self, value: pulumi.Input[Optional['KeyRotationPolicyArgs']]):
         pulumi.set(self, "rotation_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _KeyState:
     def __init__(__self__, *,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 e: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 n: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_openssh: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 x: Optional[pulumi.Input[_builtins.str]] = None,
-                 y: Optional[pulumi.Input[_builtins.str]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 e: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 n: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_policy: pulumi.Input[Optional['KeyRotationPolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 x: pulumi.Input[Optional[_builtins.str]] = None,
+                 y: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
 
@@ -286,31 +286,31 @@ class _KeyState:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter
-    def e(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RSA public exponent of this Key Vault Key.
         """
         return pulumi.get(self, "e")
 
     @e.setter
-    def e(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -319,84 +319,84 @@ class _KeyState:
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="keyOpts")
-    def key_opts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_opts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "key_opts")
 
     @key_opts.setter
-    def key_opts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_opts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_opts", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def n(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def n(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RSA modulus of this Key Vault Key.
         """
         return pulumi.get(self, "n")
 
     @n.setter
-    def n(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def n(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "n", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -405,127 +405,127 @@ class _KeyState:
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyOpenssh")
-    def public_key_openssh(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_openssh(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenSSH encoded public key of this Key Vault Key.
         """
         return pulumi.get(self, "public_key_openssh")
 
     @public_key_openssh.setter
-    def public_key_openssh(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_openssh(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_openssh", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyPem")
-    def public_key_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The PEM encoded public key of this Key Vault Key.
         """
         return pulumi.get(self, "public_key_pem")
 
     @public_key_pem.setter
-    def public_key_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceVersionlessId")
-    def resource_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
         """
         return pulumi.get(self, "resource_versionless_id")
 
     @resource_versionless_id.setter
-    def resource_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArgs']]:
+    def rotation_policy(self) -> pulumi.Input[Optional['KeyRotationPolicyArgs']]:
         """
         A `rotation_policy` block as defined below.
         """
         return pulumi.get(self, "rotation_policy")
 
     @rotation_policy.setter
-    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArgs']]):
+    def rotation_policy(self, value: pulumi.Input[Optional['KeyRotationPolicyArgs']]):
         pulumi.set(self, "rotation_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the Key Vault Key.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="versionlessId")
-    def versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base ID of the Key Vault Key.
         """
         return pulumi.get(self, "versionless_id")
 
     @versionless_id.setter
-    def versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versionless_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def x(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC X component of this Key Vault Key.
         """
         return pulumi.get(self, "x")
 
     @x.setter
-    def x(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x", value)
 
     @_builtins.property
     @pulumi.getter
-    def y(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def y(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC Y component of this Key Vault Key.
         """
         return pulumi.get(self, "y")
 
     @y.setter
-    def y(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def y(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "y", value)
 
 
@@ -535,16 +535,16 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Key Vault Key.
@@ -728,16 +728,16 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -783,26 +783,26 @@ class Key(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            curve: Optional[pulumi.Input[_builtins.str]] = None,
-            e: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-            key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key_size: Optional[pulumi.Input[_builtins.int]] = None,
-            key_type: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            n: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key_openssh: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            rotation_policy: Optional[pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            x: Optional[pulumi.Input[_builtins.str]] = None,
-            y: Optional[pulumi.Input[_builtins.str]] = None) -> 'Key':
+            curve: pulumi.Input[Optional[_builtins.str]] = None,
+            e: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            n: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            x: pulumi.Input[Optional[_builtins.str]] = None,
+            y: pulumi.Input[Optional[_builtins.str]] = None) -> 'Key':
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

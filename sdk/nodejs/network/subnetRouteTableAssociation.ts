@@ -140,11 +140,11 @@ export interface SubnetRouteTableAssociationState {
      *
      * > **Note:** Use this resource only when the subnet is managed as a standalone `azure.network.Subnet`. If the subnet is declared inline inside `azure.network.VirtualNetwork`, set `routeTableId` in the inline `subnet` block and do not create this association for the same subnet.
      */
-    routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**

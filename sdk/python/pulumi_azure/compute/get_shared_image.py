@@ -353,9 +353,9 @@ def get_shared_image(gallery_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trusted_launch_enabled=pulumi.get(__ret__, 'trusted_launch_enabled'),
         trusted_launch_supported=pulumi.get(__ret__, 'trusted_launch_supported'))
-def get_shared_image_output(gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_shared_image_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedImageResult]:
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.

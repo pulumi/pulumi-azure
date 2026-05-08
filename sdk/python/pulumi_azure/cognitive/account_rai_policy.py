@@ -24,9 +24,9 @@ class AccountRaiPolicyArgs:
                  base_policy_name: pulumi.Input[_builtins.str],
                  cognitive_account_id: pulumi.Input[_builtins.str],
                  content_filters: pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]],
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountRaiPolicy resource.
 
@@ -85,50 +85,50 @@ class AccountRaiPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountRaiPolicyState:
     def __init__(__self__, *,
-                 base_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_filters: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 base_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_filters: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountRaiPolicy resources.
 
@@ -154,74 +154,74 @@ class _AccountRaiPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="basePolicyName")
-    def base_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "base_policy_name")
 
     @base_policy_name.setter
-    def base_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cognitiveAccountId")
-    def cognitive_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cognitive_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 
     @cognitive_account_id.setter
-    def cognitive_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cognitive_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cognitive_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentFilters")
-    def content_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]]:
+    def content_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]]:
         """
         A `content_filter` block as defined below.
         """
         return pulumi.get(self, "content_filters")
 
     @content_filters.setter
-    def content_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]]):
+    def content_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]]):
         pulumi.set(self, "content_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -231,12 +231,12 @@ class AccountRaiPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 base_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Cognitive Services Account RAI Policy.
@@ -362,12 +362,12 @@ class AccountRaiPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 base_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,12 +399,12 @@ class AccountRaiPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            base_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            content_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AccountRaiPolicy':
+            base_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AccountRaiPolicy':
         """
         Get an existing AccountRaiPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

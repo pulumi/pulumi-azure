@@ -193,37 +193,37 @@ export interface CNameRecordState {
     /**
      * The FQDN of the DNS CName Record.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The target of the CNAME.
      */
-    record?: pulumi.Input<string>;
+    record?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure resource id of the target object. Conflicts with `record`.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -233,11 +233,11 @@ export interface CNameRecordArgs {
     /**
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The target of the CNAME.
      */
-    record?: pulumi.Input<string>;
+    record?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
@@ -247,11 +247,11 @@ export interface CNameRecordArgs {
      *
      * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Azure resource id of the target object. Conflicts with `record`.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

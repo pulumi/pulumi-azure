@@ -26,7 +26,7 @@ class FirewallNetworkRuleCollectionArgs:
                  priority: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallNetworkRuleCollection resource.
 
@@ -107,26 +107,26 @@ class FirewallNetworkRuleCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FirewallNetworkRuleCollectionState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering FirewallNetworkRuleCollection resources.
 
@@ -152,74 +152,74 @@ class _FirewallNetworkRuleCollectionState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="azureFirewallName")
-    def azure_firewall_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "azure_firewall_name")
 
     @azure_firewall_name.setter
-    def azure_firewall_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_firewall_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]]:
         """
         One or more `rule` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -229,12 +229,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Network Rule Collection within an Azure Firewall.
@@ -418,12 +418,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,12 +459,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None) -> 'FirewallNetworkRuleCollection':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None) -> 'FirewallNetworkRuleCollection':
         """
         Get an existing FirewallNetworkRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

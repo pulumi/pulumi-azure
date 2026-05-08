@@ -266,87 +266,87 @@ export interface MetadataState {
     /**
      * An `author` blocks as defined below.
      */
-    author?: pulumi.Input<inputs.sentinel.MetadataAuthor>;
+    author?: pulumi.Input<inputs.sentinel.MetadataAuthor | undefined>;
     /**
      * A `category` block as defined below.
      */
-    category?: pulumi.Input<inputs.sentinel.MetadataCategory>;
+    category?: pulumi.Input<inputs.sentinel.MetadataCategory | undefined>;
     /**
      * The ID of the content. Used to identify dependencies and content from solutions or community.
      */
-    contentId?: pulumi.Input<string>;
+    contentId?: pulumi.Input<string | undefined>;
     /**
      * Schema version of the content. Can be used to distinguish between flow based on the schema version.
      */
-    contentSchemaVersion?: pulumi.Input<string>;
+    contentSchemaVersion?: pulumi.Input<string | undefined>;
     /**
      * The Custom version of the content.
      */
-    customVersion?: pulumi.Input<string>;
+    customVersion?: pulumi.Input<string | undefined>;
     /**
      * A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
      */
-    dependency?: pulumi.Input<string>;
+    dependency?: pulumi.Input<string | undefined>;
     /**
      * The first publish date of solution content item.
      */
-    firstPublishDate?: pulumi.Input<string>;
+    firstPublishDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the icon, this id can be fetched from the solution template.
      */
-    iconId?: pulumi.Input<string>;
+    iconId?: pulumi.Input<string | undefined>;
     /**
      * The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The last publish date of solution content item.
      */
-    lastPublishDate?: pulumi.Input<string>;
+    lastPublishDate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of preview image file names. These will be taken from solution artifacts.
      */
-    previewImages?: pulumi.Input<pulumi.Input<string>[]>;
+    previewImages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
      */
-    previewImagesDarks?: pulumi.Input<pulumi.Input<string>[]>;
+    previewImagesDarks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of providers for the solution content item.
      */
-    providers?: pulumi.Input<pulumi.Input<string>[]>;
+    providers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `source` block as defined below.
      */
-    source?: pulumi.Input<inputs.sentinel.MetadataSource>;
+    source?: pulumi.Input<inputs.sentinel.MetadataSource | undefined>;
     /**
      * A `support` block as defined below.
      */
-    support?: pulumi.Input<inputs.sentinel.MetadataSupport>;
+    support?: pulumi.Input<inputs.sentinel.MetadataSupport | undefined>;
     /**
      * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
-    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
+    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of techniques the resource covers.
      */
-    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[]>;
+    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Version of the content.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -356,11 +356,11 @@ export interface MetadataArgs {
     /**
      * An `author` blocks as defined below.
      */
-    author?: pulumi.Input<inputs.sentinel.MetadataAuthor>;
+    author?: pulumi.Input<inputs.sentinel.MetadataAuthor | undefined>;
     /**
      * A `category` block as defined below.
      */
-    category?: pulumi.Input<inputs.sentinel.MetadataCategory>;
+    category?: pulumi.Input<inputs.sentinel.MetadataCategory | undefined>;
     /**
      * The ID of the content. Used to identify dependencies and content from solutions or community.
      */
@@ -368,23 +368,23 @@ export interface MetadataArgs {
     /**
      * Schema version of the content. Can be used to distinguish between flow based on the schema version.
      */
-    contentSchemaVersion?: pulumi.Input<string>;
+    contentSchemaVersion?: pulumi.Input<string | undefined>;
     /**
      * The Custom version of the content.
      */
-    customVersion?: pulumi.Input<string>;
+    customVersion?: pulumi.Input<string | undefined>;
     /**
      * A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
      */
-    dependency?: pulumi.Input<string>;
+    dependency?: pulumi.Input<string | undefined>;
     /**
      * The first publish date of solution content item.
      */
-    firstPublishDate?: pulumi.Input<string>;
+    firstPublishDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the icon, this id can be fetched from the solution template.
      */
-    iconId?: pulumi.Input<string>;
+    iconId?: pulumi.Input<string | undefined>;
     /**
      * The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
      */
@@ -392,11 +392,11 @@ export interface MetadataArgs {
     /**
      * The last publish date of solution content item.
      */
-    lastPublishDate?: pulumi.Input<string>;
+    lastPublishDate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
@@ -404,35 +404,35 @@ export interface MetadataArgs {
     /**
      * Specifies a list of preview image file names. These will be taken from solution artifacts.
      */
-    previewImages?: pulumi.Input<pulumi.Input<string>[]>;
+    previewImages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
      */
-    previewImagesDarks?: pulumi.Input<pulumi.Input<string>[]>;
+    previewImagesDarks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of providers for the solution content item.
      */
-    providers?: pulumi.Input<pulumi.Input<string>[]>;
+    providers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `source` block as defined below.
      */
-    source?: pulumi.Input<inputs.sentinel.MetadataSource>;
+    source?: pulumi.Input<inputs.sentinel.MetadataSource | undefined>;
     /**
      * A `support` block as defined below.
      */
-    support?: pulumi.Input<inputs.sentinel.MetadataSupport>;
+    support?: pulumi.Input<inputs.sentinel.MetadataSupport | undefined>;
     /**
      * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
-    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
+    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of techniques the resource covers.
      */
-    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[]>;
+    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Version of the content.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
      */

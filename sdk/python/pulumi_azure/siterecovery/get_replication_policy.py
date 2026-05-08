@@ -144,9 +144,9 @@ def get_replication_policy(name: Optional[_builtins.str] = None,
         recovery_point_retention_in_minutes=pulumi.get(__ret__, 'recovery_point_retention_in_minutes'),
         recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_replication_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationPolicyResult]:
     """
     Use this data source to access information about an existing Azure Site Recovery replication policy.

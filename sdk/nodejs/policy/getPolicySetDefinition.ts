@@ -131,13 +131,13 @@ export interface GetPolicySetDefinitionOutputArgs {
      *
      * **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Only retrieve Policy Set Definitions from this Management Group.
      */
-    managementGroupName?: pulumi.Input<string>;
+    managementGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

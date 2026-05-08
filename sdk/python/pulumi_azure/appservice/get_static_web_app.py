@@ -287,8 +287,8 @@ def get_static_web_app(name: Optional[_builtins.str] = None,
         sku_size=pulumi.get(__ret__, 'sku_size'),
         sku_tier=pulumi.get(__ret__, 'sku_tier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_static_web_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_web_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticWebAppResult]:
     """
     Use this data source to access information about an existing Static Web App.

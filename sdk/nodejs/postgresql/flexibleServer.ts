@@ -374,107 +374,107 @@ export interface FlexibleServerState {
      *
      * > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      */
-    administratorPassword?: pulumi.Input<string>;
+    administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */
-    administratorPasswordWoVersion?: pulumi.Input<number>;
+    administratorPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
+    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication | undefined>;
     /**
      * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
      */
-    autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
-    backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A `cluster` block as defined below.
      */
-    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster>;
+    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster | undefined>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
     /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    delegatedSubnetId?: pulumi.Input<string>;
+    delegatedSubnetId?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the PostgreSQL Flexible Server.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `highAvailability` block as defined below.
      */
-    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
+    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity>;
+    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity | undefined>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    maintenanceWindow?: pulumi.Input<inputs.postgresql.FlexibleServerMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.postgresql.FlexibleServerMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** This must be unique across the entire Azure service, not just within the resource group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
+    pointInTimeRestoreTimeInUtc?: pulumi.Input<string | undefined>;
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
-    privateDnsZoneId?: pulumi.Input<string>;
+    privateDnsZoneId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      *
      * > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
      */
-    replicationRole?: pulumi.Input<string>;
+    replicationRole?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    sourceServerId?: pulumi.Input<string>;
+    sourceServerId?: pulumi.Input<string | undefined>;
     /**
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      *
@@ -482,17 +482,17 @@ export interface FlexibleServerState {
      *
      * > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
      */
-    storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number | undefined>;
     /**
      * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      *
      * > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
      */
-    storageTier?: pulumi.Input<string>;
+    storageTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
      *
@@ -502,7 +502,7 @@ export interface FlexibleServerState {
      *
      * > **Note:** Major version upgrades are not supported when `cluster` is specified.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      *
@@ -510,7 +510,7 @@ export interface FlexibleServerState {
      *
      * > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -524,91 +524,91 @@ export interface FlexibleServerArgs {
      *
      * > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      */
-    administratorPassword?: pulumi.Input<string>;
+    administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */
-    administratorPasswordWoVersion?: pulumi.Input<number>;
+    administratorPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
+    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication | undefined>;
     /**
      * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
      */
-    autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
-    backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A `cluster` block as defined below.
      */
-    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster>;
+    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster | undefined>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
     /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    delegatedSubnetId?: pulumi.Input<string>;
+    delegatedSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `highAvailability` block as defined below.
      */
-    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
+    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity>;
+    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity | undefined>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    maintenanceWindow?: pulumi.Input<inputs.postgresql.FlexibleServerMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.postgresql.FlexibleServerMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** This must be unique across the entire Azure service, not just within the resource group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
+    pointInTimeRestoreTimeInUtc?: pulumi.Input<string | undefined>;
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
-    privateDnsZoneId?: pulumi.Input<string>;
+    privateDnsZoneId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      *
      * > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
      */
-    replicationRole?: pulumi.Input<string>;
+    replicationRole?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
@@ -616,11 +616,11 @@ export interface FlexibleServerArgs {
     /**
      * The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    sourceServerId?: pulumi.Input<string>;
+    sourceServerId?: pulumi.Input<string | undefined>;
     /**
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      *
@@ -628,17 +628,17 @@ export interface FlexibleServerArgs {
      *
      * > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
      */
-    storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number | undefined>;
     /**
      * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      *
      * > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
      */
-    storageTier?: pulumi.Input<string>;
+    storageTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
      *
@@ -648,7 +648,7 @@ export interface FlexibleServerArgs {
      *
      * > **Note:** Major version upgrades are not supported when `cluster` is specified.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      *
@@ -656,5 +656,5 @@ export interface FlexibleServerArgs {
      *
      * > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

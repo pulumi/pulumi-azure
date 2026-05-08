@@ -25,18 +25,18 @@ class NetworkSecurityRuleArgs:
                  priority: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityRule resource.
 
@@ -168,43 +168,43 @@ class NetworkSecurityRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this rule. Restricted to 140 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
         """
         return pulumi.get(self, "destination_address_prefix")
 
     @destination_address_prefix.setter
-    def destination_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination address prefixes. Tags may not be used.
         """
         return pulumi.get(self, "destination_address_prefixes")
 
     @destination_address_prefixes.setter
-    def destination_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_application_security_group_ids(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A List of destination Application Security Group IDs
 
@@ -213,72 +213,72 @@ class NetworkSecurityRuleArgs:
         return pulumi.get(self, "destination_application_security_group_ids")
 
     @destination_application_security_group_ids.setter
-    def destination_application_security_group_ids(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_application_security_group_ids(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         """
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
         """
         return pulumi.get(self, "source_address_prefix")
 
     @source_address_prefix.setter
-    def source_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source address prefixes. Tags may not be used.
         """
         return pulumi.get(self, "source_address_prefixes")
 
     @source_address_prefixes.setter
-    def source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_application_security_group_ids(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A List of source Application Security Group IDs
 
@@ -287,55 +287,55 @@ class NetworkSecurityRuleArgs:
         return pulumi.get(self, "source_application_security_group_ids")
 
     @source_application_security_group_ids.setter
-    def source_application_security_group_ids(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_application_security_group_ids(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
 @pulumi.input_type
 class _NetworkSecurityRuleState:
     def __init__(__self__, *,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityRule resources.
 
@@ -401,55 +401,55 @@ class _NetworkSecurityRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this rule. Restricted to 140 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
         """
         return pulumi.get(self, "destination_address_prefix")
 
     @destination_address_prefix.setter
-    def destination_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination address prefixes. Tags may not be used.
         """
         return pulumi.get(self, "destination_address_prefixes")
 
     @destination_address_prefixes.setter
-    def destination_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_application_security_group_ids(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A List of destination Application Security Group IDs
 
@@ -458,132 +458,132 @@ class _NetworkSecurityRuleState:
         return pulumi.get(self, "destination_application_security_group_ids")
 
     @destination_application_security_group_ids.setter
-    def destination_application_security_group_ids(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_application_security_group_ids(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         """
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupName")
-    def network_security_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_security_group_name")
 
     @network_security_group_name.setter
-    def network_security_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
         """
         return pulumi.get(self, "source_address_prefix")
 
     @source_address_prefix.setter
-    def source_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source address prefixes. Tags may not be used.
         """
         return pulumi.get(self, "source_address_prefixes")
 
     @source_address_prefixes.setter
-    def source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_application_security_group_ids(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A List of source Application Security Group IDs
 
@@ -592,31 +592,31 @@ class _NetworkSecurityRuleState:
         return pulumi.get(self, "source_application_security_group_ids")
 
     @source_application_security_group_ids.setter
-    def source_application_security_group_ids(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_application_security_group_ids(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
@@ -626,24 +626,24 @@ class NetworkSecurityRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Network Security Rule.
@@ -791,24 +791,24 @@ class NetworkSecurityRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -858,24 +858,24 @@ class NetworkSecurityRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            destination_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            direction: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            source_application_security_group_ids: Optional[pulumi.Input[_builtins.str]] = None,
-            source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-            source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetworkSecurityRule':
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetworkSecurityRule':
         """
         Get an existing NetworkSecurityRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

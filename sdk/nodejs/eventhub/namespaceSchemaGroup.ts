@@ -136,21 +136,21 @@ export interface NamespaceSchemaGroupState {
     /**
      * Specifies the name of this schema group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      */
-    schemaCompatibility?: pulumi.Input<string>;
+    schemaCompatibility?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
      *
      * > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      */
-    schemaType?: pulumi.Input<string>;
+    schemaType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,7 +160,7 @@ export interface NamespaceSchemaGroupArgs {
     /**
      * Specifies the name of this schema group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */

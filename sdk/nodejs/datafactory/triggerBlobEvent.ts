@@ -216,53 +216,53 @@ export interface TriggerBlobEventState {
     /**
      * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Blob Event Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The pattern that blob path starts with for trigger to fire.
      */
-    blobPathBeginsWith?: pulumi.Input<string>;
+    blobPathBeginsWith?: pulumi.Input<string | undefined>;
     /**
      * The pattern that blob path ends with for trigger to fire.
      *
      * > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      */
-    blobPathEndsWith?: pulumi.Input<string>;
+    blobPathEndsWith?: pulumi.Input<string | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Blob Event Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
      */
-    events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * are blobs with zero bytes ignored?
      */
-    ignoreEmptyBlobs?: pulumi.Input<boolean>;
+    ignoreEmptyBlobs?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pipeline` blocks as defined below.
      */
-    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerBlobEventPipeline>[]>;
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerBlobEventPipeline>[] | undefined>;
     /**
      * The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -272,25 +272,25 @@ export interface TriggerBlobEventArgs {
     /**
      * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Blob Event Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The pattern that blob path starts with for trigger to fire.
      */
-    blobPathBeginsWith?: pulumi.Input<string>;
+    blobPathBeginsWith?: pulumi.Input<string | undefined>;
     /**
      * The pattern that blob path ends with for trigger to fire.
      *
      * > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      */
-    blobPathEndsWith?: pulumi.Input<string>;
+    blobPathEndsWith?: pulumi.Input<string | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
@@ -298,7 +298,7 @@ export interface TriggerBlobEventArgs {
     /**
      * The description for the Data Factory Blob Event Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
      */
@@ -306,11 +306,11 @@ export interface TriggerBlobEventArgs {
     /**
      * are blobs with zero bytes ignored?
      */
-    ignoreEmptyBlobs?: pulumi.Input<boolean>;
+    ignoreEmptyBlobs?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pipeline` blocks as defined below.
      */

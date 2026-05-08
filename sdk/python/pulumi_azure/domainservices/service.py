@@ -25,14 +25,14 @@ class ServiceArgs:
                  initial_replica_set: pulumi.Input['ServiceInitialReplicaSetArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 domain_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filtered_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input['ServiceNotificationsArgs']] = None,
-                 secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
-                 security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional['ServiceNotificationsArgs']] = None,
+                 secure_ldap: pulumi.Input[Optional['ServiceSecureLdapArgs']] = None,
+                 security: pulumi.Input[Optional['ServiceSecurityArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -120,121 +120,121 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainConfigurationType")
-    def domain_configuration_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_configuration_type")
 
     @domain_configuration_type.setter
-    def domain_configuration_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_configuration_type", value)
 
     @_builtins.property
     @pulumi.getter(name="filteredSyncEnabled")
-    def filtered_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def filtered_sync_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         """
         return pulumi.get(self, "filtered_sync_enabled")
 
     @filtered_sync_enabled.setter
-    def filtered_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def filtered_sync_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "filtered_sync_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['ServiceNotificationsArgs']]:
+    def notifications(self) -> pulumi.Input[Optional['ServiceNotificationsArgs']]:
         """
         A `notifications` block as defined below.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['ServiceNotificationsArgs']]):
+    def notifications(self, value: pulumi.Input[Optional['ServiceNotificationsArgs']]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="secureLdap")
-    def secure_ldap(self) -> Optional[pulumi.Input['ServiceSecureLdapArgs']]:
+    def secure_ldap(self) -> pulumi.Input[Optional['ServiceSecureLdapArgs']]:
         """
         A `secure_ldap` block as defined below.
         """
         return pulumi.get(self, "secure_ldap")
 
     @secure_ldap.setter
-    def secure_ldap(self, value: Optional[pulumi.Input['ServiceSecureLdapArgs']]):
+    def secure_ldap(self, value: pulumi.Input[Optional['ServiceSecureLdapArgs']]):
         pulumi.set(self, "secure_ldap", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['ServiceSecurityArgs']]:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['ServiceSecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['ServiceSecurityArgs']]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filtered_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input['ServiceNotificationsArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
-                 security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_replica_set: pulumi.Input[Optional['ServiceInitialReplicaSetArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional['ServiceNotificationsArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_ldap: pulumi.Input[Optional['ServiceSecureLdapArgs']] = None,
+                 security: pulumi.Input[Optional['ServiceSecurityArgs']] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -290,197 +290,197 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID for the managed domain deployment.
         """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainConfigurationType")
-    def domain_configuration_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_configuration_type")
 
     @domain_configuration_type.setter
-    def domain_configuration_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_configuration_type", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filteredSyncEnabled")
-    def filtered_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def filtered_sync_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         """
         return pulumi.get(self, "filtered_sync_enabled")
 
     @filtered_sync_enabled.setter
-    def filtered_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def filtered_sync_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "filtered_sync_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="initialReplicaSet")
-    def initial_replica_set(self) -> Optional[pulumi.Input['ServiceInitialReplicaSetArgs']]:
+    def initial_replica_set(self) -> pulumi.Input[Optional['ServiceInitialReplicaSetArgs']]:
         """
         An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         """
         return pulumi.get(self, "initial_replica_set")
 
     @initial_replica_set.setter
-    def initial_replica_set(self, value: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']]):
+    def initial_replica_set(self, value: pulumi.Input[Optional['ServiceInitialReplicaSetArgs']]):
         pulumi.set(self, "initial_replica_set", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['ServiceNotificationsArgs']]:
+    def notifications(self) -> pulumi.Input[Optional['ServiceNotificationsArgs']]:
         """
         A `notifications` block as defined below.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['ServiceNotificationsArgs']]):
+    def notifications(self, value: pulumi.Input[Optional['ServiceNotificationsArgs']]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource ID for the domain service.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secureLdap")
-    def secure_ldap(self) -> Optional[pulumi.Input['ServiceSecureLdapArgs']]:
+    def secure_ldap(self) -> pulumi.Input[Optional['ServiceSecureLdapArgs']]:
         """
         A `secure_ldap` block as defined below.
         """
         return pulumi.get(self, "secure_ldap")
 
     @secure_ldap.setter
-    def secure_ldap(self, value: Optional[pulumi.Input['ServiceSecureLdapArgs']]):
+    def secure_ldap(self, value: pulumi.Input[Optional['ServiceSecureLdapArgs']]):
         pulumi.set(self, "secure_ldap", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['ServiceSecurityArgs']]:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['ServiceSecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['ServiceSecurityArgs']]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="syncOwner")
-    def sync_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sync_owner")
 
     @sync_owner.setter
-    def sync_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -490,18 +490,18 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filtered_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Active Directory Domain Service.
@@ -823,18 +823,18 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filtered_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -879,23 +879,23 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            filtered_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-            security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            sync_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'Service':
+            deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+            security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

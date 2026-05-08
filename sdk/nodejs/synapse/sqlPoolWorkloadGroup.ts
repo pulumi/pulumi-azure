@@ -180,35 +180,35 @@ export interface SqlPoolWorkloadGroupState {
     /**
      * The workload group importance level. Defaults to `normal`.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * The workload group cap percentage resource.
      */
-    maxResourcePercent?: pulumi.Input<number>;
+    maxResourcePercent?: pulumi.Input<number | undefined>;
     /**
      * The workload group request maximum grant percentage. Defaults to `3`.
      */
-    maxResourcePercentPerRequest?: pulumi.Input<number>;
+    maxResourcePercentPerRequest?: pulumi.Input<number | undefined>;
     /**
      * The workload group minimum percentage resource.
      */
-    minResourcePercent?: pulumi.Input<number>;
+    minResourcePercent?: pulumi.Input<number | undefined>;
     /**
      * The workload group request minimum grant percentage.
      */
-    minResourcePercentPerRequest?: pulumi.Input<number>;
+    minResourcePercentPerRequest?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The workload group query execution timeout.
      */
-    queryExecutionTimeoutInSeconds?: pulumi.Input<number>;
+    queryExecutionTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
-    sqlPoolId?: pulumi.Input<string>;
+    sqlPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group importance level. Defaults to `normal`.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * The workload group cap percentage resource.
      */
@@ -226,7 +226,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group request maximum grant percentage. Defaults to `3`.
      */
-    maxResourcePercentPerRequest?: pulumi.Input<number>;
+    maxResourcePercentPerRequest?: pulumi.Input<number | undefined>;
     /**
      * The workload group minimum percentage resource.
      */
@@ -234,15 +234,15 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group request minimum grant percentage.
      */
-    minResourcePercentPerRequest?: pulumi.Input<number>;
+    minResourcePercentPerRequest?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The workload group query execution timeout.
      */
-    queryExecutionTimeoutInSeconds?: pulumi.Input<number>;
+    queryExecutionTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */

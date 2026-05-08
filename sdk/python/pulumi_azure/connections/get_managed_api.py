@@ -115,8 +115,8 @@ def get_managed_api(location: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_managed_api_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                           name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_api_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                           name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedApiResult]:
     """
     Uses this data source to access information about an existing Managed API.

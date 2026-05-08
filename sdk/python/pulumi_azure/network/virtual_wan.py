@@ -20,13 +20,13 @@ __all__ = ['VirtualWanArgs', 'VirtualWan']
 class VirtualWanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 office365_local_breakout_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualWan resource.
 
@@ -69,100 +69,100 @@ class VirtualWanArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowBranchToBranchTraffic")
-    def allow_branch_to_branch_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_branch_to_branch_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         """
         return pulumi.get(self, "allow_branch_to_branch_traffic")
 
     @allow_branch_to_branch_traffic.setter
-    def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_branch_to_branch_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_branch_to_branch_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="disableVpnEncryption")
-    def disable_vpn_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_vpn_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disable_vpn_encryption")
 
     @disable_vpn_encryption.setter
-    def disable_vpn_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_vpn_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_vpn_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def office365_local_breakout_category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         """
         return pulumi.get(self, "office365_local_breakout_category")
 
     @office365_local_breakout_category.setter
-    def office365_local_breakout_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def office365_local_breakout_category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "office365_local_breakout_category", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Virtual WAN.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _VirtualWanState:
     def __init__(__self__, *,
-                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 office365_local_breakout_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualWan resources.
 
@@ -194,98 +194,98 @@ class _VirtualWanState:
 
     @_builtins.property
     @pulumi.getter(name="allowBranchToBranchTraffic")
-    def allow_branch_to_branch_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_branch_to_branch_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         """
         return pulumi.get(self, "allow_branch_to_branch_traffic")
 
     @allow_branch_to_branch_traffic.setter
-    def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_branch_to_branch_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_branch_to_branch_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="disableVpnEncryption")
-    def disable_vpn_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_vpn_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disable_vpn_encryption")
 
     @disable_vpn_encryption.setter
-    def disable_vpn_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_vpn_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_vpn_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def office365_local_breakout_category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         """
         return pulumi.get(self, "office365_local_breakout_category")
 
     @office365_local_breakout_category.setter
-    def office365_local_breakout_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def office365_local_breakout_category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "office365_local_breakout_category", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Virtual WAN.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -295,14 +295,14 @@ class VirtualWan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 office365_local_breakout_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual WAN.
@@ -404,14 +404,14 @@ class VirtualWan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 office365_local_breakout_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,14 +441,14 @@ class VirtualWan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            office365_local_breakout_category: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualWan':
+            allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualWan':
         """
         Get an existing VirtualWan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

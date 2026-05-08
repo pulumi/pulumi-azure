@@ -150,10 +150,10 @@ def get_role_assignments(limit_at_scope: Optional[_builtins.bool] = None,
         role_assignments=pulumi.get(__ret__, 'role_assignments'),
         scope=pulumi.get(__ret__, 'scope'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-def get_role_assignments_output(limit_at_scope: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                principal_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                tenant_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_role_assignments_output(limit_at_scope: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                principal_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                tenant_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentsResult]:
     """
     Use this data source to access information about existing Role Assignments.

@@ -43,7 +43,7 @@ class LocalRulestackOutboundUntrustCertificateAssociationArgs:
 @pulumi.input_type
 class _LocalRulestackOutboundUntrustCertificateAssociationState:
     def __init__(__self__, *,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackOutboundUntrustCertificateAssociation resources.
 
@@ -54,14 +54,14 @@ class _LocalRulestackOutboundUntrustCertificateAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Certificate to use as the Outbound Untrust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Untrust Certificate Association to be created.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
 
@@ -71,7 +71,7 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Palo Alto Networks Rulestack Outbound Untrust Certificate Association.
@@ -160,7 +160,7 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,7 +183,7 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocalRulestackOutboundUntrustCertificateAssociation':
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalRulestackOutboundUntrustCertificateAssociation':
         """
         Get an existing LocalRulestackOutboundUntrustCertificateAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

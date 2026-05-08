@@ -22,9 +22,9 @@ class BackupInstanceBlogStorageArgs:
                  backup_policy_id: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
                  vault_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupInstanceBlogStorage resource.
 
@@ -85,31 +85,31 @@ class BackupInstanceBlogStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountContainerNames")
-    def storage_account_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_account_container_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the container names of the source Storage Account.
 
@@ -118,20 +118,20 @@ class BackupInstanceBlogStorageArgs:
         return pulumi.get(self, "storage_account_container_names")
 
     @storage_account_container_names.setter
-    def storage_account_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_account_container_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_account_container_names", value)
 
 
 @pulumi.input_type
 class _BackupInstanceBlogStorageState:
     def __init__(__self__, *,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstanceBlogStorage resources.
 
@@ -162,55 +162,55 @@ class _BackupInstanceBlogStorageState:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Policy.
         """
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
-    def backup_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protection_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protection state of the Backup Instance Blob Storage.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protection_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountContainerNames")
-    def storage_account_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_account_container_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the container names of the source Storage Account.
 
@@ -219,31 +219,31 @@ class _BackupInstanceBlogStorageState:
         return pulumi.get(self, "storage_account_container_names")
 
     @storage_account_container_names.setter
-    def storage_account_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_account_container_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_account_container_names", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         return pulumi.get(self, "vault_id")
 
     @vault_id.setter
-    def vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_id", value)
 
 
@@ -253,12 +253,12 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backup Instance Blob Storage.
@@ -412,12 +412,12 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -450,13 +450,13 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protection_state: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupInstanceBlogStorage':
+            backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupInstanceBlogStorage':
         """
         Get an existing BackupInstanceBlogStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

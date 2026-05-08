@@ -24,16 +24,16 @@ class PolicyVMArgs:
                  backup: pulumi.Input['PolicyVMBackupArgs'],
                  recovery_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
-                 instant_restore_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
-                 retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
-                 retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
-                 retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-                 tiering_policy: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 instant_restore_resource_group: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']] = None,
+                 instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_daily: pulumi.Input[Optional['PolicyVMRetentionDailyArgs']] = None,
+                 retention_monthly: pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']] = None,
+                 retention_weekly: pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']] = None,
+                 retention_yearly: pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']] = None,
+                 tiering_policy: pulumi.Input[Optional['PolicyVMTieringPolicyArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyVM resource.
 
@@ -115,19 +115,19 @@ class PolicyVMArgs:
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreResourceGroup")
-    def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+    def instant_restore_resource_group(self) -> pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']]:
         """
         Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         """
         return pulumi.get(self, "instant_restore_resource_group")
 
     @instant_restore_resource_group.setter
-    def instant_restore_resource_group(self, value: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]):
+    def instant_restore_resource_group(self, value: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']]):
         pulumi.set(self, "instant_restore_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreRetentionDays")
-    def instant_restore_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instant_restore_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
 
@@ -136,122 +136,122 @@ class PolicyVMArgs:
         return pulumi.get(self, "instant_restore_retention_days")
 
     @instant_restore_retention_days.setter
-    def instant_restore_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instant_restore_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instant_restore_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDaily")
-    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]:
+    def retention_daily(self) -> pulumi.Input[Optional['PolicyVMRetentionDailyArgs']]:
         """
         Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
         """
         return pulumi.get(self, "retention_daily")
 
     @retention_daily.setter
-    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]):
+    def retention_daily(self, value: pulumi.Input[Optional['PolicyVMRetentionDailyArgs']]):
         pulumi.set(self, "retention_daily", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionMonthly")
-    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]:
+    def retention_monthly(self) -> pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']]:
         """
         Configures the policy monthly retention as documented in the `retention_monthly` block below.
         """
         return pulumi.get(self, "retention_monthly")
 
     @retention_monthly.setter
-    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]):
+    def retention_monthly(self, value: pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']]):
         pulumi.set(self, "retention_monthly", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionWeekly")
-    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]:
+    def retention_weekly(self) -> pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']]:
         """
         Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         """
         return pulumi.get(self, "retention_weekly")
 
     @retention_weekly.setter
-    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]):
+    def retention_weekly(self, value: pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']]):
         pulumi.set(self, "retention_weekly", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionYearly")
-    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]:
+    def retention_yearly(self) -> pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']]:
         """
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
 
     @retention_yearly.setter
-    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]):
+    def retention_yearly(self, value: pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']]):
         pulumi.set(self, "retention_yearly", value)
 
     @_builtins.property
     @pulumi.getter(name="tieringPolicy")
-    def tiering_policy(self) -> Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]:
+    def tiering_policy(self) -> pulumi.Input[Optional['PolicyVMTieringPolicyArgs']]:
         """
         A `tiering_policy` block as defined below.
         """
         return pulumi.get(self, "tiering_policy")
 
     @tiering_policy.setter
-    def tiering_policy(self, value: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]):
+    def tiering_policy(self, value: pulumi.Input[Optional['PolicyVMTieringPolicyArgs']]):
         pulumi.set(self, "tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
 @pulumi.input_type
 class _PolicyVMState:
     def __init__(__self__, *,
-                 backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
-                 instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
-                 instant_restore_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
-                 retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
-                 retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
-                 retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-                 tiering_policy: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup: pulumi.Input[Optional['PolicyVMBackupArgs']] = None,
+                 instant_restore_resource_group: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']] = None,
+                 instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_daily: pulumi.Input[Optional['PolicyVMRetentionDailyArgs']] = None,
+                 retention_monthly: pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']] = None,
+                 retention_weekly: pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']] = None,
+                 retention_yearly: pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']] = None,
+                 tiering_policy: pulumi.Input[Optional['PolicyVMTieringPolicyArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyVM resources.
 
@@ -300,31 +300,31 @@ class _PolicyVMState:
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['PolicyVMBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['PolicyVMBackupArgs']]:
         """
         Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['PolicyVMBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['PolicyVMBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreResourceGroup")
-    def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+    def instant_restore_resource_group(self) -> pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']]:
         """
         Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         """
         return pulumi.get(self, "instant_restore_resource_group")
 
     @instant_restore_resource_group.setter
-    def instant_restore_resource_group(self, value: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]):
+    def instant_restore_resource_group(self, value: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']]):
         pulumi.set(self, "instant_restore_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreRetentionDays")
-    def instant_restore_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instant_restore_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
 
@@ -333,127 +333,127 @@ class _PolicyVMState:
         return pulumi.get(self, "instant_restore_retention_days")
 
     @instant_restore_retention_days.setter
-    def instant_restore_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instant_restore_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instant_restore_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDaily")
-    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]:
+    def retention_daily(self) -> pulumi.Input[Optional['PolicyVMRetentionDailyArgs']]:
         """
         Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
         """
         return pulumi.get(self, "retention_daily")
 
     @retention_daily.setter
-    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]):
+    def retention_daily(self, value: pulumi.Input[Optional['PolicyVMRetentionDailyArgs']]):
         pulumi.set(self, "retention_daily", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionMonthly")
-    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]:
+    def retention_monthly(self) -> pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']]:
         """
         Configures the policy monthly retention as documented in the `retention_monthly` block below.
         """
         return pulumi.get(self, "retention_monthly")
 
     @retention_monthly.setter
-    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]):
+    def retention_monthly(self, value: pulumi.Input[Optional['PolicyVMRetentionMonthlyArgs']]):
         pulumi.set(self, "retention_monthly", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionWeekly")
-    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]:
+    def retention_weekly(self) -> pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']]:
         """
         Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         """
         return pulumi.get(self, "retention_weekly")
 
     @retention_weekly.setter
-    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]):
+    def retention_weekly(self, value: pulumi.Input[Optional['PolicyVMRetentionWeeklyArgs']]):
         pulumi.set(self, "retention_weekly", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionYearly")
-    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]:
+    def retention_yearly(self) -> pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']]:
         """
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
 
     @retention_yearly.setter
-    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]):
+    def retention_yearly(self, value: pulumi.Input[Optional['PolicyVMRetentionYearlyArgs']]):
         pulumi.set(self, "retention_yearly", value)
 
     @_builtins.property
     @pulumi.getter(name="tieringPolicy")
-    def tiering_policy(self) -> Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]:
+    def tiering_policy(self) -> pulumi.Input[Optional['PolicyVMTieringPolicyArgs']]:
         """
         A `tiering_policy` block as defined below.
         """
         return pulumi.get(self, "tiering_policy")
 
     @tiering_policy.setter
-    def tiering_policy(self, value: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]):
+    def tiering_policy(self, value: pulumi.Input[Optional['PolicyVMTieringPolicyArgs']]):
         pulumi.set(self, "tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
@@ -463,19 +463,19 @@ class PolicyVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
-                 instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
-                 instant_restore_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
-                 retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
-                 retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
-                 retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
-                 tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
+                 instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_daily: pulumi.Input[Optional[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+                 retention_monthly: pulumi.Input[Optional[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+                 retention_weekly: pulumi.Input[Optional[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+                 retention_yearly: pulumi.Input[Optional[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+                 tiering_policy: pulumi.Input[Optional[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Backup VM Backup Policy.
@@ -648,19 +648,19 @@ class PolicyVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
-                 instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
-                 instant_restore_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
-                 retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
-                 retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
-                 retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
-                 tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
+                 instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_daily: pulumi.Input[Optional[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+                 retention_monthly: pulumi.Input[Optional[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+                 retention_weekly: pulumi.Input[Optional[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+                 retention_yearly: pulumi.Input[Optional[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+                 tiering_policy: pulumi.Input[Optional[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -699,19 +699,19 @@ class PolicyVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
-            instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
-            instant_restore_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
-            retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
-            retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
-            retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
-            tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyVM':
+            backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+            instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
+            instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_daily: pulumi.Input[Optional[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+            retention_monthly: pulumi.Input[Optional[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+            retention_weekly: pulumi.Input[Optional[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+            retention_yearly: pulumi.Input[Optional[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+            tiering_policy: pulumi.Input[Optional[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyVM':
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

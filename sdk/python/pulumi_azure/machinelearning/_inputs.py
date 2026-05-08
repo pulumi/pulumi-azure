@@ -50,17 +50,17 @@ class ComputeClusterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
     """
@@ -69,9 +69,9 @@ class ComputeClusterIdentityArgsDict(TypedDict):
 class ComputeClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
@@ -102,7 +102,7 @@ class ComputeClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
 
@@ -111,31 +111,31 @@ class ComputeClusterIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -210,11 +210,11 @@ class ComputeClusterSshArgsDict(TypedDict):
     """
     Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
     """
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
     """
-    key_value: NotRequired[pulumi.Input[_builtins.str]]
+    key_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 
@@ -225,8 +225,8 @@ class ComputeClusterSshArgsDict(TypedDict):
 class ComputeClusterSshArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[_builtins.str],
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] admin_username: Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] admin_password: Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -254,19 +254,19 @@ class ComputeClusterSshArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="keyValue")
-    def key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 
@@ -275,16 +275,16 @@ class ComputeClusterSshArgs:
         return pulumi.get(self, "key_value")
 
     @key_value.setter
-    def key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_value", value)
 
 
 class ComputeInstanceAssignToUserArgsDict(TypedDict):
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User’s AAD Object Id.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User’s AAD Tenant Id.
     """
@@ -292,8 +292,8 @@ class ComputeInstanceAssignToUserArgsDict(TypedDict):
 @pulumi.input_type
 class ComputeInstanceAssignToUserArgs:
     def __init__(__self__, *,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] object_id: User’s AAD Object Id.
         :param pulumi.Input[_builtins.str] tenant_id: User’s AAD Tenant Id.
@@ -305,26 +305,26 @@ class ComputeInstanceAssignToUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User’s AAD Object Id.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User’s AAD Tenant Id.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -333,17 +333,17 @@ class ComputeInstanceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
     """
@@ -352,9 +352,9 @@ class ComputeInstanceIdentityArgsDict(TypedDict):
 class ComputeInstanceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
@@ -385,7 +385,7 @@ class ComputeInstanceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 
@@ -394,31 +394,31 @@ class ComputeInstanceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -427,11 +427,11 @@ class ComputeInstanceSshArgsDict(TypedDict):
     """
     Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Describes the port for connecting through SSH.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The admin username of this Machine Learning Compute Instance.
     """
@@ -440,8 +440,8 @@ class ComputeInstanceSshArgsDict(TypedDict):
 class ComputeInstanceSshArgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[_builtins.str],
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
         :param pulumi.Input[_builtins.int] port: Describes the port for connecting through SSH.
@@ -467,26 +467,26 @@ class ComputeInstanceSshArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Describes the port for connecting through SSH.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The admin username of this Machine Learning Compute Instance.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -495,17 +495,17 @@ class InferenceClusterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
     """
@@ -514,9 +514,9 @@ class InferenceClusterIdentityArgsDict(TypedDict):
 class InferenceClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
@@ -547,7 +547,7 @@ class InferenceClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 
@@ -556,52 +556,52 @@ class InferenceClusterIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class InferenceClusterSslArgsDict(TypedDict):
-    cert: NotRequired[pulumi.Input[_builtins.str]]
+    cert: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
     """
-    cname: NotRequired[pulumi.Input[_builtins.str]]
+    cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
     """
-    leaf_domain_label: NotRequired[pulumi.Input[_builtins.str]]
+    leaf_domain_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
     """
-    overwrite_existing_domain: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite_existing_domain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
     """
@@ -609,11 +609,11 @@ class InferenceClusterSslArgsDict(TypedDict):
 @pulumi.input_type
 class InferenceClusterSslArgs:
     def __init__(__self__, *,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 leaf_domain_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_existing_domain: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 leaf_domain_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_existing_domain: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] cert: The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         :param pulumi.Input[_builtins.str] cname: The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
@@ -634,62 +634,62 @@ class InferenceClusterSslArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cert")
 
     @cert.setter
-    def cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="leafDomainLabel")
-    def leaf_domain_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def leaf_domain_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "leaf_domain_label")
 
     @leaf_domain_label.setter
-    def leaf_domain_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def leaf_domain_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "leaf_domain_label", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteExistingDomain")
-    def overwrite_existing_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_existing_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "overwrite_existing_domain")
 
     @overwrite_existing_domain.setter
-    def overwrite_existing_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_existing_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_existing_domain", value)
 
 
@@ -698,17 +698,17 @@ class SynapseSparkIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
     """
@@ -717,9 +717,9 @@ class SynapseSparkIdentityArgsDict(TypedDict):
 class SynapseSparkIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
@@ -750,7 +750,7 @@ class SynapseSparkIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 
@@ -759,31 +759,31 @@ class SynapseSparkIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -796,7 +796,7 @@ class WorkspaceEncryptionArgsDict(TypedDict):
     """
     The ID of the keyVault where the customer owned encryption key is present.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Key Vault URI to access the encryption key.
 
@@ -808,7 +808,7 @@ class WorkspaceEncryptionArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[_builtins.str],
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_id: The Key Vault URI to access the encryption key.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
@@ -847,7 +847,7 @@ class WorkspaceEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Key Vault URI to access the encryption key.
 
@@ -856,20 +856,20 @@ class WorkspaceEncryptionArgs:
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
 class WorkspaceFeatureStoreArgsDict(TypedDict):
-    computer_spark_runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    computer_spark_runtime_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of Spark runtime.
     """
-    offline_connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    offline_connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of offline store connection.
     """
-    online_connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    online_connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of online store connection.
 
@@ -879,9 +879,9 @@ class WorkspaceFeatureStoreArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceFeatureStoreArgs:
     def __init__(__self__, *,
-                 computer_spark_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 online_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 computer_spark_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 online_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] computer_spark_runtime_version: The version of Spark runtime.
         :param pulumi.Input[_builtins.str] offline_connection_name: The name of offline store connection.
@@ -898,31 +898,31 @@ class WorkspaceFeatureStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="computerSparkRuntimeVersion")
-    def computer_spark_runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_spark_runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Spark runtime.
         """
         return pulumi.get(self, "computer_spark_runtime_version")
 
     @computer_spark_runtime_version.setter
-    def computer_spark_runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_spark_runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_spark_runtime_version", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineConnectionName")
-    def offline_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offline_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of offline store connection.
         """
         return pulumi.get(self, "offline_connection_name")
 
     @offline_connection_name.setter
-    def offline_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offline_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offline_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="onlineConnectionName")
-    def online_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def online_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of online store connection.
 
@@ -931,7 +931,7 @@ class WorkspaceFeatureStoreArgs:
         return pulumi.get(self, "online_connection_name")
 
     @online_connection_name.setter
-    def online_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def online_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "online_connection_name", value)
 
 
@@ -940,17 +940,17 @@ class WorkspaceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -959,9 +959,9 @@ class WorkspaceIdentityArgsDict(TypedDict):
 class WorkspaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
@@ -992,7 +992,7 @@ class WorkspaceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 
@@ -1001,40 +1001,40 @@ class WorkspaceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class WorkspaceManagedNetworkArgsDict(TypedDict):
-    isolation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    isolation_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
     """
-    provision_on_creation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    provision_on_creation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -1042,8 +1042,8 @@ class WorkspaceManagedNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceManagedNetworkArgs:
     def __init__(__self__, *,
-                 isolation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_on_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 isolation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_on_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] isolation_mode: The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         :param pulumi.Input[_builtins.bool] provision_on_creation_enabled: Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
@@ -1055,37 +1055,37 @@ class WorkspaceManagedNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="isolationMode")
-    def isolation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def isolation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         """
         return pulumi.get(self, "isolation_mode")
 
     @isolation_mode.setter
-    def isolation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def isolation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "isolation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionOnCreationEnabled")
-    def provision_on_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_on_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provision_on_creation_enabled")
 
     @provision_on_creation_enabled.setter
-    def provision_on_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_on_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_on_creation_enabled", value)
 
 
 class WorkspaceServerlessComputeArgsDict(TypedDict):
-    public_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_ip_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
 
     > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
     """
@@ -1093,8 +1093,8 @@ class WorkspaceServerlessComputeArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceServerlessComputeArgs:
     def __init__(__self__, *,
-                 public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] public_ip_enabled: Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
                
@@ -1108,7 +1108,7 @@ class WorkspaceServerlessComputeArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicIpEnabled")
-    def public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
 
@@ -1117,19 +1117,19 @@ class WorkspaceServerlessComputeArgs:
         return pulumi.get(self, "public_ip_enabled")
 
     @public_ip_enabled.setter
-    def public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 

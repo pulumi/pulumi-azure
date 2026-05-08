@@ -24,9 +24,9 @@ class ActiveRoleAssignmentArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']] = None,
-                 ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None):
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']] = None,
+                 ticket: pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']] = None):
         """
         The set of arguments for constructing a ActiveRoleAssignment resource.
 
@@ -85,51 +85,51 @@ class ActiveRoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The justification for the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']]:
         """
         A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def ticket(self) -> Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']]:
+    def ticket(self) -> pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']]:
         """
         A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
     @ticket.setter
-    def ticket(self, value: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']]):
+    def ticket(self, value: pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']]):
         pulumi.set(self, "ticket", value)
 
 
 @pulumi.input_type
 class _ActiveRoleAssignmentState:
     def __init__(__self__, *,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None):
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering ActiveRoleAssignment resources.
 
@@ -158,86 +158,86 @@ class _ActiveRoleAssignmentState:
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The justification for the role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of principal to which the role will be assigned.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role definition ID for this role assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']]:
         """
         A `schedule` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['ActiveRoleAssignmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def ticket(self) -> Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']]:
+    def ticket(self) -> pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']]:
         """
         A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ticket")
 
     @ticket.setter
-    def ticket(self, value: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']]):
+    def ticket(self, value: pulumi.Input[Optional['ActiveRoleAssignmentTicketArgs']]):
         pulumi.set(self, "ticket", value)
 
 
@@ -247,12 +247,12 @@ class ActiveRoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         """
         Manages a PIM Active Role Assignment.
@@ -442,12 +442,12 @@ class ActiveRoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket: pulumi.Input[Optional[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,13 +480,13 @@ class ActiveRoleAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            justification: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-            schedule: Optional[pulumi.Input[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            ticket: Optional[pulumi.Input[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None) -> 'ActiveRoleAssignment':
+            justification: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict']]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            ticket: pulumi.Input[Optional[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict']]] = None) -> 'ActiveRoleAssignment':
         """
         Get an existing ActiveRoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

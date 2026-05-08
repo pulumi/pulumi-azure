@@ -353,125 +353,125 @@ export interface PoolState {
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      *
      * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
-    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale | undefined>;
     /**
      * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[] | undefined>;
     /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
-    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
+    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration | undefined>;
     /**
      * A `dataDisks` block describes the data disk settings as defined below.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[] | undefined>;
     /**
      * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
-    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
+    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[] | undefined>;
     /**
      * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * An `extensions` block as defined below.
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[] | undefined>;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
-    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.batch.PoolIdentity>;
+    identity?: pulumi.Input<inputs.batch.PoolIdentity | undefined>;
     /**
      * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
-    interNodeCommunication?: pulumi.Input<string>;
+    interNodeCommunication?: pulumi.Input<string | undefined>;
     /**
      * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    maxTasksPerNode?: pulumi.Input<number>;
+    maxTasksPerNode?: pulumi.Input<number | undefined>;
     /**
      * A map of custom batch pool metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `mount` block defined as below.
      */
-    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[]>;
+    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[] | undefined>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration | undefined>;
     /**
      * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
-    nodeAgentSkuId?: pulumi.Input<string>;
+    nodeAgentSkuId?: pulumi.Input<string | undefined>;
     /**
      * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
-    nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[]>;
+    nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[] | undefined>;
     /**
      * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
      */
-    osDiskPlacement?: pulumi.Input<string>;
+    osDiskPlacement?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile>;
+    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile | undefined>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
-    startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    startTask?: pulumi.Input<inputs.batch.PoolStartTask | undefined>;
     /**
      * Whether to stop if there is a pending resize operation on this pool.
      */
-    stopPendingResizeOperation?: pulumi.Input<boolean>;
+    stopPendingResizeOperation?: pulumi.Input<boolean | undefined>;
     /**
      * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
+    storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference | undefined>;
     /**
      * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
-    targetNodeCommunicationMode?: pulumi.Input<string>;
+    targetNodeCommunicationMode?: pulumi.Input<string | undefined>;
     /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
-    taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
+    taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[] | undefined>;
     /**
      * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
-    userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
+    userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[] | undefined>;
     /**
      * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
-    vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string | undefined>;
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      */
-    windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
+    windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[] | undefined>;
 }
 
 /**
@@ -487,67 +487,67 @@ export interface PoolArgs {
      *
      * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
-    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale | undefined>;
     /**
      * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[] | undefined>;
     /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
-    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
+    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration | undefined>;
     /**
      * A `dataDisks` block describes the data disk settings as defined below.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[] | undefined>;
     /**
      * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
-    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
+    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[] | undefined>;
     /**
      * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * An `extensions` block as defined below.
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[] | undefined>;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
-    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.batch.PoolIdentity>;
+    identity?: pulumi.Input<inputs.batch.PoolIdentity | undefined>;
     /**
      * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
-    interNodeCommunication?: pulumi.Input<string>;
+    interNodeCommunication?: pulumi.Input<string | undefined>;
     /**
      * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    maxTasksPerNode?: pulumi.Input<number>;
+    maxTasksPerNode?: pulumi.Input<number | undefined>;
     /**
      * A map of custom batch pool metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `mount` block defined as below.
      */
-    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[]>;
+    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[] | undefined>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration | undefined>;
     /**
      * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
@@ -555,11 +555,11 @@ export interface PoolArgs {
     /**
      * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
-    nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[]>;
+    nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[] | undefined>;
     /**
      * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
      */
-    osDiskPlacement?: pulumi.Input<string>;
+    osDiskPlacement?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
@@ -567,15 +567,15 @@ export interface PoolArgs {
     /**
      * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile>;
+    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile | undefined>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
-    startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    startTask?: pulumi.Input<inputs.batch.PoolStartTask | undefined>;
     /**
      * Whether to stop if there is a pending resize operation on this pool.
      */
-    stopPendingResizeOperation?: pulumi.Input<boolean>;
+    stopPendingResizeOperation?: pulumi.Input<boolean | undefined>;
     /**
      * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
@@ -583,15 +583,15 @@ export interface PoolArgs {
     /**
      * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
-    targetNodeCommunicationMode?: pulumi.Input<string>;
+    targetNodeCommunicationMode?: pulumi.Input<string | undefined>;
     /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
-    taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
+    taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[] | undefined>;
     /**
      * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
-    userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
+    userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[] | undefined>;
     /**
      * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
@@ -599,5 +599,5 @@ export interface PoolArgs {
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      */
-    windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
+    windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[] | undefined>;
 }

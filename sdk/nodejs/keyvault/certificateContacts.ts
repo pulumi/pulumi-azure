@@ -132,11 +132,11 @@ export interface CertificateContactsState {
     /**
      * One or more `contact` blocks as defined below.
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[] | undefined>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface CertificateContactsArgs {
     /**
      * One or more `contact` blocks as defined below.
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[] | undefined>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */

@@ -22,7 +22,7 @@ class ChannelAlexaArgs:
                  bot_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  skill_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelAlexa resource.
 
@@ -75,24 +75,24 @@ class ChannelAlexaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ChannelAlexaState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skill_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skill_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelAlexa resources.
 
@@ -112,50 +112,50 @@ class _ChannelAlexaState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skillId")
-    def skill_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skill_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Alexa skill ID for the Alexa Channel.
         """
         return pulumi.get(self, "skill_id")
 
     @skill_id.setter
-    def skill_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skill_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skill_id", value)
 
 
@@ -165,10 +165,10 @@ class ChannelAlexa(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skill_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skill_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Alexa integration for a Bot Channel
@@ -272,10 +272,10 @@ class ChannelAlexa(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skill_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skill_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,10 +305,10 @@ class ChannelAlexa(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            skill_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelAlexa':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            skill_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelAlexa':
         """
         Get an existing ChannelAlexa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

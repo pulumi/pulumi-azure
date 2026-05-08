@@ -253,59 +253,59 @@ export interface ComputeClusterState {
     /**
      * The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    machineLearningWorkspaceId?: pulumi.Input<string>;
+    machineLearningWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    nodePublicIpEnabled?: pulumi.Input<boolean>;
+    nodePublicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `scaleSettings` block as defined below.
      */
-    scaleSettings?: pulumi.Input<inputs.machinelearning.ComputeClusterScaleSettings>;
+    scaleSettings?: pulumi.Input<inputs.machinelearning.ComputeClusterScaleSettings | undefined>;
     /**
      * Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh>;
+    ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh | undefined>;
     /**
      * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    sshPublicAccessEnabled?: pulumi.Input<boolean>;
+    sshPublicAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */
-    vmPriority?: pulumi.Input<string>;
+    vmPriority?: pulumi.Input<string | undefined>;
     /**
      * The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -315,19 +315,19 @@ export interface ComputeClusterArgs {
     /**
      * The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
@@ -335,11 +335,11 @@ export interface ComputeClusterArgs {
     /**
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    nodePublicIpEnabled?: pulumi.Input<boolean>;
+    nodePublicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `scaleSettings` block as defined below.
      */
@@ -347,19 +347,19 @@ export interface ComputeClusterArgs {
     /**
      * Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh>;
+    ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh | undefined>;
     /**
      * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    sshPublicAccessEnabled?: pulumi.Input<boolean>;
+    sshPublicAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */

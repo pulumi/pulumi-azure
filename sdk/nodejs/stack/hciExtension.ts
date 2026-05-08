@@ -167,41 +167,41 @@ export interface HciExtensionState {
     /**
      * The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
      */
-    arcSettingId?: pulumi.Input<string>;
+    arcSettingId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
      */
-    autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
      */
-    automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    automaticUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Extension. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The json formatted protected settings for the extension.
      */
-    protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new resource to be created.
      */
-    publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string | undefined>;
     /**
      * The json formatted public settings for the extension.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the script handler.
      *
      * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
-    typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,19 +215,19 @@ export interface HciExtensionArgs {
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
      */
-    autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
      */
-    automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    automaticUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Extension. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The json formatted protected settings for the extension.
      */
-    protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new resource to be created.
      */
@@ -235,7 +235,7 @@ export interface HciExtensionArgs {
     /**
      * The json formatted public settings for the extension.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
      */
@@ -245,5 +245,5 @@ export interface HciExtensionArgs {
      *
      * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
-    typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string | undefined>;
 }

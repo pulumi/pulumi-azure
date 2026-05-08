@@ -276,63 +276,63 @@ export interface EnvironmentV3State {
     /**
      * Should new Private Endpoint Connections be allowed. Defaults to `true`.
      */
-    allowNewPrivateEndpointConnections?: pulumi.Input<boolean>;
+    allowNewPrivateEndpointConnections?: pulumi.Input<boolean | undefined>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[] | undefined>;
     /**
      * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
-    dedicatedHostCount?: pulumi.Input<number>;
+    dedicatedHostCount?: pulumi.Input<number | undefined>;
     /**
      * the DNS suffix for this App Service Environment V3.
      */
-    dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string | undefined>;
     /**
      * The external inbound IP addresses of the App Service Environment V3.
      */
-    externalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    externalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `inboundNetworkDependencies` block as defined below.
      */
-    inboundNetworkDependencies?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3InboundNetworkDependency>[]>;
+    inboundNetworkDependencies?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3InboundNetworkDependency>[] | undefined>;
     /**
      * The internal inbound IP addresses of the App Service Environment V3.
      */
-    internalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    internalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      */
-    internalLoadBalancingMode?: pulumi.Input<string>;
+    internalLoadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * The number of IP SSL addresses reserved for the App Service Environment V3.
      */
-    ipSslAddressCount?: pulumi.Input<number>;
+    ipSslAddressCount?: pulumi.Input<number | undefined>;
     /**
      * Outbound addresses of Linux based Apps in this App Service Environment V3
      */
-    linuxOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    linuxOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The location where the App Service Environment exists.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Pricing tier for the front end instances.
      */
-    pricingTier?: pulumi.Input<string>;
+    pricingTier?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable remote debug. Defaults to `false`.
      */
-    remoteDebuggingEnabled?: pulumi.Input<boolean>;
+    remoteDebuggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      *
@@ -340,23 +340,23 @@ export interface EnvironmentV3State {
      *
      * > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
      */
-    windowsOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    windowsOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      *
      * > **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
-    zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -366,27 +366,27 @@ export interface EnvironmentV3Args {
     /**
      * Should new Private Endpoint Connections be allowed. Defaults to `true`.
      */
-    allowNewPrivateEndpointConnections?: pulumi.Input<boolean>;
+    allowNewPrivateEndpointConnections?: pulumi.Input<boolean | undefined>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[] | undefined>;
     /**
      * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
-    dedicatedHostCount?: pulumi.Input<number>;
+    dedicatedHostCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      */
-    internalLoadBalancingMode?: pulumi.Input<string>;
+    internalLoadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable remote debug. Defaults to `false`.
      */
-    remoteDebuggingEnabled?: pulumi.Input<boolean>;
+    remoteDebuggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */
@@ -404,11 +404,11 @@ export interface EnvironmentV3Args {
      *
      * > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      *
      * > **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
-    zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean | undefined>;
 }

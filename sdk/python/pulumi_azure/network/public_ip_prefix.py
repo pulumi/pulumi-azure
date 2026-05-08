@@ -20,15 +20,15 @@ __all__ = ['PublicIpPrefixArgs', 'PublicIpPrefix']
 class PublicIpPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIpPrefix resource.
 
@@ -85,7 +85,7 @@ class PublicIpPrefixArgs:
 
     @_builtins.property
     @pulumi.getter(name="customIpPrefixId")
-    def custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 
@@ -94,48 +94,48 @@ class PublicIpPrefixArgs:
         return pulumi.get(self, "custom_ip_prefix_id")
 
     @custom_ip_prefix_id.setter
-    def custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         """
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def prefix_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 
@@ -144,24 +144,24 @@ class PublicIpPrefixArgs:
         return pulumi.get(self, "prefix_length")
 
     @prefix_length.setter
-    def prefix_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def prefix_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "prefix_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 
@@ -170,24 +170,24 @@ class PublicIpPrefixArgs:
         return pulumi.get(self, "sku_tier")
 
     @sku_tier.setter
-    def sku_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
 
@@ -196,24 +196,24 @@ class PublicIpPrefixArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _PublicIpPrefixState:
     def __init__(__self__, *,
-                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIpPrefix resources.
 
@@ -262,7 +262,7 @@ class _PublicIpPrefixState:
 
     @_builtins.property
     @pulumi.getter(name="customIpPrefixId")
-    def custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 
@@ -271,60 +271,60 @@ class _PublicIpPrefixState:
         return pulumi.get(self, "custom_ip_prefix_id")
 
     @custom_ip_prefix_id.setter
-    def custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipPrefix")
-    def ip_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address prefix value that was allocated.
         """
         return pulumi.get(self, "ip_prefix")
 
     @ip_prefix.setter
-    def ip_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         """
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def prefix_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 
@@ -333,36 +333,36 @@ class _PublicIpPrefixState:
         return pulumi.get(self, "prefix_length")
 
     @prefix_length.setter
-    def prefix_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def prefix_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "prefix_length", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 
@@ -371,24 +371,24 @@ class _PublicIpPrefixState:
         return pulumi.get(self, "sku_tier")
 
     @sku_tier.setter
-    def sku_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
 
@@ -397,7 +397,7 @@ class _PublicIpPrefixState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -407,16 +407,16 @@ class PublicIpPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Public IP Prefix.
@@ -536,16 +536,16 @@ class PublicIpPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -578,17 +578,17 @@ class PublicIpPrefix(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            prefix_length: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PublicIpPrefix':
+            custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_length: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PublicIpPrefix':
         """
         Get an existing PublicIpPrefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

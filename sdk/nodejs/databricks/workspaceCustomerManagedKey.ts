@@ -127,11 +127,11 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkspaceCustomerManagedKey resources.
  */
 export interface WorkspaceCustomerManagedKeyState {
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the databricks workspace in Databricks control plane.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**

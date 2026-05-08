@@ -190,45 +190,45 @@ export interface UserState {
     /**
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    confirmation?: pulumi.Input<string>;
+    confirmation?: pulumi.Input<string | undefined>;
     /**
      * The email address associated with this user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The first name for this user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The last name for this user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * A note about this user.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * The password associated with this user.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      *
      * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -242,7 +242,7 @@ export interface UserArgs {
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    confirmation?: pulumi.Input<string>;
+    confirmation?: pulumi.Input<string | undefined>;
     /**
      * The email address associated with this user.
      */
@@ -258,11 +258,11 @@ export interface UserArgs {
     /**
      * A note about this user.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * The password associated with this user.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -272,7 +272,7 @@ export interface UserArgs {
      *
      * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */

@@ -118,8 +118,8 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[_builti
         inventory_items=pulumi.get(__ret__, 'inventory_items'),
         inventory_type=pulumi.get(__ret__, 'inventory_type'),
         system_center_virtual_machine_manager_server_id=pulumi.get(__ret__, 'system_center_virtual_machine_manager_server_id'))
-def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       system_center_virtual_machine_manager_server_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_manager_inventory_items_output(inventory_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       system_center_virtual_machine_manager_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineManagerInventoryItemsResult]:
     """
     Use this data source to access information about existing System Center Virtual Machine Manager Inventory Items.

@@ -23,14 +23,14 @@ class KubernetesClusterExtensionArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
                  extension_type: pulumi.Input[_builtins.str],
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']] = None,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']] = None,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KubernetesClusterExtension resource.
 
@@ -90,116 +90,116 @@ class KubernetesClusterExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
-    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_protected_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_protected_settings")
 
     @configuration_protected_settings.setter
-    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSettings")
-    def configuration_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_settings")
 
     @configuration_settings.setter
-    def configuration_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNamespace")
-    def release_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "release_namespace")
 
     @release_namespace.setter
-    def release_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseTrain")
-    def release_train(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_train(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "release_train")
 
     @release_train.setter
-    def release_train(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_train(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_train", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
     @target_namespace.setter
-    def target_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _KubernetesClusterExtensionState:
     def __init__(__self__, *,
-                 aks_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']] = None,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 aks_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']] = None,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KubernetesClusterExtension resources.
 
@@ -243,146 +243,146 @@ class _KubernetesClusterExtensionState:
 
     @_builtins.property
     @pulumi.getter(name="aksAssignedIdentities")
-    def aks_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]]:
+    def aks_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]]:
         """
         An `aks_assigned_identity` block as defined below.
         """
         return pulumi.get(self, "aks_assigned_identities")
 
     @aks_assigned_identities.setter
-    def aks_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]]):
+    def aks_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterExtensionAksAssignedIdentityArgs']]]]):
         pulumi.set(self, "aks_assigned_identities", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
-    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_protected_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_protected_settings")
 
     @configuration_protected_settings.setter
-    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSettings")
-    def configuration_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_settings")
 
     @configuration_settings.setter
-    def configuration_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the extension.
         """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_version", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionType")
-    def extension_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "extension_type")
 
     @extension_type.setter
-    def extension_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['KubernetesClusterExtensionPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNamespace")
-    def release_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "release_namespace")
 
     @release_namespace.setter
-    def release_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseTrain")
-    def release_train(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_train(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "release_train")
 
     @release_train.setter
-    def release_train(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_train(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_train", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
     @target_namespace.setter
-    def target_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -392,16 +392,16 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Cluster Extension.
@@ -531,16 +531,16 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
-                 release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+                 release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -576,18 +576,18 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aks_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict']]]]] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            current_version: Optional[pulumi.Input[_builtins.str]] = None,
-            extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
-            release_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            release_train: Optional[pulumi.Input[_builtins.str]] = None,
-            target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'KubernetesClusterExtension':
+            aks_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict']]]]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+            release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            release_train: pulumi.Input[Optional[_builtins.str]] = None,
+            target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'KubernetesClusterExtension':
         """
         Get an existing KubernetesClusterExtension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

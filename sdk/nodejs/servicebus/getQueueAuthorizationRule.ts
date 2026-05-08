@@ -151,14 +151,14 @@ export interface GetQueueAuthorizationRuleOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName?: pulumi.Input<string>;
-    queueId?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
+    queueId?: pulumi.Input<string | undefined>;
     /**
      * The name of the ServiceBus Queue.
      */
-    queueName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }

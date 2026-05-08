@@ -23,10 +23,10 @@ class VirtualNetworkArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional['VirtualNetworkSubnetArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
@@ -74,63 +74,63 @@ class VirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Virtual Network.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['VirtualNetworkSubnetArgs']]:
         """
         A `subnet` block as defined below.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['VirtualNetworkSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VirtualNetworkState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional['VirtualNetworkSubnetArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unique_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetwork resources.
 
@@ -159,86 +159,86 @@ class _VirtualNetworkState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Virtual Network.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lab_name")
 
     @lab_name.setter
-    def lab_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['VirtualNetworkSubnetArgs']]:
         """
         A `subnet` block as defined below.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['VirtualNetworkSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique immutable identifier of the Dev Test Virtual Network.
         """
         return pulumi.get(self, "unique_identifier")
 
     @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique_identifier", value)
 
 
@@ -248,12 +248,12 @@ class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Virtual Network within a DevTest Lab.
@@ -375,12 +375,12 @@ class VirtualNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -411,13 +411,13 @@ class VirtualNetwork(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet: Optional[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            unique_identifier: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualNetwork':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualNetwork':
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

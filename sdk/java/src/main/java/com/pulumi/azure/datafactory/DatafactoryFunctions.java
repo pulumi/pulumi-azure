@@ -35,8 +35,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -231,8 +231,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -280,8 +280,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -322,8 +322,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -406,8 +406,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -448,8 +448,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -490,8 +490,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -531,8 +531,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -572,8 +572,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -613,8 +613,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -654,8 +654,8 @@ public final class DatafactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datafactory.DatafactoryFunctions;
      * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

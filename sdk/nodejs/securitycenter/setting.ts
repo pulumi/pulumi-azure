@@ -113,11 +113,11 @@ export interface SettingState {
     /**
      * Boolean flag to enable/disable data access.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
      */
-    settingName?: pulumi.Input<string>;
+    settingName?: pulumi.Input<string | undefined>;
 }
 
 /**

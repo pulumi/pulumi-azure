@@ -112,9 +112,9 @@ export interface GetRecommendationsOutputArgs {
     /**
      * Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
      */
-    filterByCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    filterByCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      */
-    filterByResourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    filterByResourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

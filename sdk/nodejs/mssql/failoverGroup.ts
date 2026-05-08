@@ -185,31 +185,31 @@ export interface FailoverGroupState {
     /**
      * A set of database names to include in the failover group.
      */
-    databases?: pulumi.Input<pulumi.Input<string>[]>;
+    databases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Failover Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `partnerServer` block as defined below.
      */
-    partnerServers?: pulumi.Input<pulumi.Input<inputs.mssql.FailoverGroupPartnerServer>[]>;
+    partnerServers?: pulumi.Input<pulumi.Input<inputs.mssql.FailoverGroupPartnerServer>[] | undefined>;
     /**
      * A `readWriteEndpointFailoverPolicy` block as defined below.
      */
-    readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.mssql.FailoverGroupReadWriteEndpointFailoverPolicy>;
+    readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.mssql.FailoverGroupReadWriteEndpointFailoverPolicy | undefined>;
     /**
      * Whether failover is enabled for the readonly endpoint. Defaults to `false`.
      */
-    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
+    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -219,11 +219,11 @@ export interface FailoverGroupArgs {
     /**
      * A set of database names to include in the failover group.
      */
-    databases?: pulumi.Input<pulumi.Input<string>[]>;
+    databases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Failover Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `partnerServer` block as defined below.
      */
@@ -235,7 +235,7 @@ export interface FailoverGroupArgs {
     /**
      * Whether failover is enabled for the readonly endpoint. Defaults to `false`.
      */
-    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
+    readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
      */
@@ -243,5 +243,5 @@ export interface FailoverGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

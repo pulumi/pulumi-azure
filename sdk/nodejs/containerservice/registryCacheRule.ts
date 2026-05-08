@@ -146,23 +146,23 @@ export interface RegistryCacheRuleState {
     /**
      * The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the Credential Store which is associated with the Cache Rule.
      */
-    credentialSetId?: pulumi.Input<string>;
+    credentialSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the source repository path. Changing this forces a new resource to be created.
      */
-    sourceRepo?: pulumi.Input<string>;
+    sourceRepo?: pulumi.Input<string | undefined>;
     /**
      * The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
      */
-    targetRepo?: pulumi.Input<string>;
+    targetRepo?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,11 +176,11 @@ export interface RegistryCacheRuleArgs {
     /**
      * The ARM resource ID of the Credential Store which is associated with the Cache Rule.
      */
-    credentialSetId?: pulumi.Input<string>;
+    credentialSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the source repository path. Changing this forces a new resource to be created.
      */

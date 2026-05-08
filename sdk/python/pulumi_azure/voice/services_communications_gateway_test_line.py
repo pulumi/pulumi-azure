@@ -22,9 +22,9 @@ class ServicesCommunicationsGatewayTestLineArgs:
                  phone_number: pulumi.Input[_builtins.str],
                  purpose: pulumi.Input[_builtins.str],
                  voice_services_communications_gateway_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServicesCommunicationsGatewayTestLine resource.
 
@@ -83,50 +83,50 @@ class ServicesCommunicationsGatewayTestLineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServicesCommunicationsGatewayTestLineState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 voice_services_communications_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 voice_services_communications_gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServicesCommunicationsGatewayTestLine resources.
 
@@ -152,74 +152,74 @@ class _ServicesCommunicationsGatewayTestLineState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the phone number.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def purpose(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def purpose(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
         """
         return pulumi.get(self, "purpose")
 
     @purpose.setter
-    def purpose(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def purpose(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "purpose", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceServicesCommunicationsGatewayId")
-    def voice_services_communications_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_services_communications_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "voice_services_communications_gateway_id")
 
     @voice_services_communications_gateway_id.setter
-    def voice_services_communications_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_services_communications_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_services_communications_gateway_id", value)
 
 
@@ -229,12 +229,12 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 voice_services_communications_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 voice_services_communications_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Voice Services Communications Gateway Test Line.
@@ -350,12 +350,12 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 purpose: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 voice_services_communications_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 purpose: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 voice_services_communications_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -387,12 +387,12 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            purpose: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            voice_services_communications_gateway_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServicesCommunicationsGatewayTestLine':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            purpose: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            voice_services_communications_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServicesCommunicationsGatewayTestLine':
         """
         Get an existing ServicesCommunicationsGatewayTestLine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,10 +24,10 @@ class SpringCloudConnectionArgs:
                  authentication: pulumi.Input['SpringCloudConnectionAuthenticationArgs'],
                  spring_cloud_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudConnection resource.
 
@@ -86,54 +86,54 @@ class SpringCloudConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_type")
 
     @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+    def secret_store(self) -> pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']]:
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+    def secret_store(self, value: pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']]):
         pulumi.set(self, "secret_store", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSolution")
-    def vnet_solution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_solution(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vnet_solution")
 
     @vnet_solution.setter
-    def vnet_solution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_solution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_solution", value)
 
 
 @pulumi.input_type
 class _SpringCloudConnectionState:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
-                 spring_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['SpringCloudConnectionAuthenticationArgs']] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']] = None,
+                 spring_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConnection resources.
 
@@ -159,77 +159,77 @@ class _SpringCloudConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['SpringCloudConnectionAuthenticationArgs']]:
         """
         The authentication info. An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['SpringCloudConnectionAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_type")
 
     @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+    def secret_store(self) -> pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']]:
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+    def secret_store(self, value: pulumi.Input[Optional['SpringCloudConnectionSecretStoreArgs']]):
         pulumi.set(self, "secret_store", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudId")
-    def spring_cloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the data source spring cloud. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_id")
 
     @spring_cloud_id.setter
-    def spring_cloud_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSolution")
-    def vnet_solution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_solution(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vnet_solution")
 
     @vnet_solution.setter
-    def vnet_solution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_solution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_solution", value)
 
 
@@ -239,13 +239,13 @@ class SpringCloudConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
-                 spring_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
+                 spring_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a service connector for spring cloud app.
@@ -433,13 +433,13 @@ class SpringCloudConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
-                 spring_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
+                 spring_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -472,13 +472,13 @@ class SpringCloudConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
-            client_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
-            spring_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vnet_solution: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudConnection':
+            authentication: pulumi.Input[Optional[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
+            client_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_store: pulumi.Input[Optional[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
+            spring_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_solution: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudConnection':
         """
         Get an existing SpringCloudConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

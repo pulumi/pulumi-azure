@@ -20,9 +20,9 @@ __all__ = ['LabArgs', 'Lab']
 class LabArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
 
@@ -53,54 +53,54 @@ class LabArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LabState:
     def __init__(__self__, *,
-                 artifacts_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_premium_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 premium_data_disk_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifacts_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_premium_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 premium_data_disk_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unique_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Lab resources.
 
@@ -138,122 +138,122 @@ class _LabState:
 
     @_builtins.property
     @pulumi.getter(name="artifactsStorageAccountId")
-    def artifacts_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifacts_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account used for Artifact Storage.
         """
         return pulumi.get(self, "artifacts_storage_account_id")
 
     @artifacts_storage_account_id.setter
-    def artifacts_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifacts_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifacts_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPremiumStorageAccountId")
-    def default_premium_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_premium_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Default Premium Storage Account for this Dev Test Lab.
         """
         return pulumi.get(self, "default_premium_storage_account_id")
 
     @default_premium_storage_account_id.setter
-    def default_premium_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_premium_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_premium_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageAccountId")
-    def default_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Default Storage Account for this Dev Test Lab.
         """
         return pulumi.get(self, "default_storage_account_id")
 
     @default_storage_account_id.setter
-    def default_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key used for this Dev Test Lab.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumDataDiskStorageAccountId")
-    def premium_data_disk_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def premium_data_disk_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account used for Storage of Premium Data Disk.
         """
         return pulumi.get(self, "premium_data_disk_storage_account_id")
 
     @premium_data_disk_storage_account_id.setter
-    def premium_data_disk_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def premium_data_disk_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "premium_data_disk_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique immutable identifier of the Dev Test Lab.
         """
         return pulumi.get(self, "unique_identifier")
 
     @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique_identifier", value)
 
 
@@ -263,10 +263,10 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dev Test Lab.
@@ -370,10 +370,10 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -405,16 +405,16 @@ class Lab(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            artifacts_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_premium_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            premium_data_disk_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            unique_identifier: Optional[pulumi.Input[_builtins.str]] = None) -> 'Lab':
+            artifacts_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_premium_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            premium_data_disk_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'Lab':
         """
         Get an existing Lab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

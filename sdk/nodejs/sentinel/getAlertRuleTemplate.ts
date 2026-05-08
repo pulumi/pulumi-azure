@@ -109,7 +109,7 @@ export interface GetAlertRuleTemplateOutputArgs {
      *
      * > **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace.
      */
@@ -117,5 +117,5 @@ export interface GetAlertRuleTemplateOutputArgs {
     /**
      * The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

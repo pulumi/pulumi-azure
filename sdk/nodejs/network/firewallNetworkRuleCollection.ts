@@ -195,27 +195,27 @@ export interface FirewallNetworkRuleCollectionState {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    azureFirewallName?: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallNetworkRuleCollectionRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallNetworkRuleCollectionRule>[] | undefined>;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface FirewallNetworkRuleCollectionArgs {
     /**
      * Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */

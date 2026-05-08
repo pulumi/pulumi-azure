@@ -265,73 +265,73 @@ export interface JobState {
     /**
      * The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The endpoint for the Container App Job event stream.
      */
-    eventStreamEndpoint?: pulumi.Input<string>;
+    eventStreamEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig>;
+    eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerapp.JobIdentity>;
+    identity?: pulumi.Input<inputs.containerapp.JobIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig>;
+    manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig | undefined>;
     /**
      * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of the Public IP Addresses which the Container App uses for outbound network access.
      */
-    outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `registry` blocks as defined below.
      */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[] | undefined>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
-    replicaRetryLimit?: pulumi.Input<number>;
+    replicaRetryLimit?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of seconds a replica is allowed to run.
      */
-    replicaTimeoutInSeconds?: pulumi.Input<number>;
+    replicaTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `scheduleTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
-    scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
+    scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `template` block as defined below.
      */
-    template?: pulumi.Input<inputs.containerapp.JobTemplate>;
+    template?: pulumi.Input<inputs.containerapp.JobTemplate | undefined>;
     /**
      * The name of the workload profile to use for the Container App Job.
      */
-    workloadProfileName?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -345,31 +345,31 @@ export interface JobArgs {
     /**
      * A `eventTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig>;
+    eventTriggerConfig?: pulumi.Input<inputs.containerapp.JobEventTriggerConfig | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerapp.JobIdentity>;
+    identity?: pulumi.Input<inputs.containerapp.JobIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `manualTriggerConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig>;
+    manualTriggerConfig?: pulumi.Input<inputs.containerapp.JobManualTriggerConfig | undefined>;
     /**
      * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `registry` blocks as defined below.
      */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[] | undefined>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
-    replicaRetryLimit?: pulumi.Input<number>;
+    replicaRetryLimit?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of seconds a replica is allowed to run.
      */
@@ -383,15 +383,15 @@ export interface JobArgs {
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
-    scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
+    scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `template` block as defined below.
      */
@@ -399,5 +399,5 @@ export interface JobArgs {
     /**
      * The name of the workload profile to use for the Container App Job.
      */
-    workloadProfileName?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string | undefined>;
 }

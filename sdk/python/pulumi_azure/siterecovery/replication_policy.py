@@ -23,7 +23,7 @@ class ReplicationPolicyArgs:
                  recovery_point_retention_in_minutes: pulumi.Input[_builtins.int],
                  recovery_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationPolicy resource.
 
@@ -94,25 +94,25 @@ class ReplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ReplicationPolicyState:
     def __init__(__self__, *,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationPolicy resources.
 
@@ -137,7 +137,7 @@ class _ReplicationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
-    def application_consistent_snapshot_frequency_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
 
@@ -146,55 +146,55 @@ class _ReplicationPolicyState:
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_minutes")
 
     @application_consistent_snapshot_frequency_in_minutes.setter
-    def application_consistent_snapshot_frequency_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_consistent_snapshot_frequency_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointRetentionInMinutes")
-    def recovery_point_retention_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_point_retention_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration in minutes for which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_retention_in_minutes")
 
     @recovery_point_retention_in_minutes.setter
-    def recovery_point_retention_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_point_retention_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_point_retention_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -204,11 +204,11 @@ class ReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
@@ -231,8 +231,8 @@ class ReplicationPolicy(pulumi.CustomResource):
             name="policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+            recovery_point_retention_in_minutes=int(24 * 60),
+            application_consistent_snapshot_frequency_in_minutes=int(4 * 60))
         ```
 
         ## API Providers
@@ -288,8 +288,8 @@ class ReplicationPolicy(pulumi.CustomResource):
             name="policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+            recovery_point_retention_in_minutes=int(24 * 60),
+            application_consistent_snapshot_frequency_in_minutes=int(4 * 60))
         ```
 
         ## API Providers
@@ -323,11 +323,11 @@ class ReplicationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,11 +360,11 @@ class ReplicationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReplicationPolicy':
+            application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReplicationPolicy':
         """
         Get an existing ReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

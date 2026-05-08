@@ -20,7 +20,7 @@ __all__ = ['SpringCloudAcceleratorArgs', 'SpringCloudAccelerator']
 class SpringCloudAcceleratorArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAccelerator resource.
 
@@ -45,22 +45,22 @@ class SpringCloudAcceleratorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudAcceleratorState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAccelerator resources.
 
@@ -74,26 +74,26 @@ class _SpringCloudAcceleratorState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
@@ -103,8 +103,8 @@ class SpringCloudAccelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -202,8 +202,8 @@ class SpringCloudAccelerator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,8 +227,8 @@ class SpringCloudAccelerator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudAccelerator':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudAccelerator':
         """
         Get an existing SpringCloudAccelerator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

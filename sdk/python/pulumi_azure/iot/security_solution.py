@@ -24,18 +24,18 @@ class SecuritySolutionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  iothub_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
-                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_unmasked_ips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_for_resources: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+                 disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_to_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_unmasked_ips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recommendations_enabled: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecuritySolution resource.
 
@@ -121,167 +121,167 @@ class SecuritySolutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalWorkspaces")
-    def additional_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
+    def additional_workspaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
         """
         A `additional_workspace` block as defined below.
         """
         return pulumi.get(self, "additional_workspaces")
 
     @additional_workspaces.setter
-    def additional_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
+    def additional_workspaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
         pulumi.set(self, "additional_workspaces", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledDataSources")
-    def disabled_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         """
         return pulumi.get(self, "disabled_data_sources")
 
     @disabled_data_sources.setter
-    def disabled_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Iot Security Solution enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventsToExports")
-    def events_to_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events_to_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         """
         return pulumi.get(self, "events_to_exports")
 
     @events_to_exports.setter
-    def events_to_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events_to_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events_to_exports", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Log Analytics Workspace ID to which the security data will be sent.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logUnmaskedIpsEnabled")
-    def log_unmasked_ips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_unmasked_ips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should IP addressed be unmasked in the log? Defaults to `false`.
         """
         return pulumi.get(self, "log_unmasked_ips_enabled")
 
     @log_unmasked_ips_enabled.setter
-    def log_unmasked_ips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_unmasked_ips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_unmasked_ips_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryForResources")
-    def query_for_resources(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_for_resources(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Azure Resource Graph query used to set the resources monitored.
         """
         return pulumi.get(self, "query_for_resources")
 
     @query_for_resources.setter
-    def query_for_resources(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_for_resources(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_for_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="querySubscriptionIds")
-    def query_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def query_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subscription Ids on which the user defined resources query should be executed.
         """
         return pulumi.get(self, "query_subscription_ids")
 
     @query_subscription_ids.setter
-    def query_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def query_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "query_subscription_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']]:
+    def recommendations_enabled(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]:
         """
         A `recommendations_enabled` block of options to enable or disable as defined below.
         """
         return pulumi.get(self, "recommendations_enabled")
 
     @recommendations_enabled.setter
-    def recommendations_enabled(self, value: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']]):
+    def recommendations_enabled(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]):
         pulumi.set(self, "recommendations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SecuritySolutionState:
     def __init__(__self__, *,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
-                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_unmasked_ips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_for_resources: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+                 disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_to_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_unmasked_ips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recommendations_enabled: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SecuritySolution resources.
 
@@ -334,182 +334,182 @@ class _SecuritySolutionState:
 
     @_builtins.property
     @pulumi.getter(name="additionalWorkspaces")
-    def additional_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
+    def additional_workspaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
         """
         A `additional_workspace` block as defined below.
         """
         return pulumi.get(self, "additional_workspaces")
 
     @additional_workspaces.setter
-    def additional_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
+    def additional_workspaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
         pulumi.set(self, "additional_workspaces", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledDataSources")
-    def disabled_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         """
         return pulumi.get(self, "disabled_data_sources")
 
     @disabled_data_sources.setter
-    def disabled_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_data_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Display Name for this Iot Security Solution.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Iot Security Solution enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventsToExports")
-    def events_to_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events_to_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         """
         return pulumi.get(self, "events_to_exports")
 
     @events_to_exports.setter
-    def events_to_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events_to_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events_to_exports", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubIds")
-    def iothub_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iothub_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         """
         return pulumi.get(self, "iothub_ids")
 
     @iothub_ids.setter
-    def iothub_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iothub_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iothub_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Log Analytics Workspace ID to which the security data will be sent.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logUnmaskedIpsEnabled")
-    def log_unmasked_ips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_unmasked_ips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should IP addressed be unmasked in the log? Defaults to `false`.
         """
         return pulumi.get(self, "log_unmasked_ips_enabled")
 
     @log_unmasked_ips_enabled.setter
-    def log_unmasked_ips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_unmasked_ips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_unmasked_ips_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryForResources")
-    def query_for_resources(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_for_resources(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Azure Resource Graph query used to set the resources monitored.
         """
         return pulumi.get(self, "query_for_resources")
 
     @query_for_resources.setter
-    def query_for_resources(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_for_resources(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_for_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="querySubscriptionIds")
-    def query_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def query_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subscription Ids on which the user defined resources query should be executed.
         """
         return pulumi.get(self, "query_subscription_ids")
 
     @query_subscription_ids.setter
-    def query_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def query_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "query_subscription_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']]:
+    def recommendations_enabled(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]:
         """
         A `recommendations_enabled` block of options to enable or disable as defined below.
         """
         return pulumi.get(self, "recommendations_enabled")
 
     @recommendations_enabled.setter
-    def recommendations_enabled(self, value: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']]):
+    def recommendations_enabled(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]):
         pulumi.set(self, "recommendations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -519,21 +519,21 @@ class SecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
-                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_unmasked_ips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_for_resources: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
+                 disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_to_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_unmasked_ips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an iot security solution.
@@ -648,21 +648,21 @@ class SecuritySolution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
-                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_unmasked_ips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_for_resources: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
+                 disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_to_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_unmasked_ips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -703,21 +703,21 @@ class SecuritySolution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
-            disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            log_unmasked_ips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_for_resources: Optional[pulumi.Input[_builtins.str]] = None,
-            query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            recommendations_enabled: Optional[pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SecuritySolution':
+            additional_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]]] = None,
+            disabled_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            events_to_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iothub_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_unmasked_ips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
+            query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SecuritySolution':
         """
         Get an existing SecuritySolution resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

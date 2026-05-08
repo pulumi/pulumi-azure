@@ -167,33 +167,33 @@ export interface SqlRoleDefinitionState {
     /**
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
      *
      * > **Note:** The resources referenced in assignable scopes need not exist.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `permissions` block as defined below.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlRoleDefinitionPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlRoleDefinitionPermission>[] | undefined>;
     /**
      * The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface SqlRoleDefinitionArgs {
     /**
      * An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `permissions` block as defined below.
      */
@@ -225,9 +225,9 @@ export interface SqlRoleDefinitionArgs {
     /**
      * The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

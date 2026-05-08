@@ -22,10 +22,10 @@ __all__ = ['IntegrationRuntimeSelfHostedArgs', 'IntegrationRuntimeSelfHosted']
 class IntegrationRuntimeSelfHostedArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-                 self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
+                 self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
 
@@ -59,63 +59,63 @@ class IntegrationRuntimeSelfHostedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacAuthorizations")
-    def rbac_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
+    def rbac_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
         """
         A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rbac_authorizations")
 
     @rbac_authorizations.setter
-    def rbac_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]):
+    def rbac_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]):
         pulumi.set(self, "rbac_authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="selfContainedInteractiveAuthoringEnabled")
-    def self_contained_interactive_authoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def self_contained_interactive_authoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """
         return pulumi.get(self, "self_contained_interactive_authoring_enabled")
 
     @self_contained_interactive_authoring_enabled.setter
-    def self_contained_interactive_authoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def self_contained_interactive_authoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "self_contained_interactive_authoring_enabled", value)
 
 
 @pulumi.input_type
 class _IntegrationRuntimeSelfHostedState:
     def __init__(__self__, *,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-                 secondary_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
+                 secondary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSelfHosted resources.
 
@@ -144,86 +144,86 @@ class _IntegrationRuntimeSelfHostedState:
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAuthorizationKey")
-    def primary_authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary integration runtime authentication key.
         """
         return pulumi.get(self, "primary_authorization_key")
 
     @primary_authorization_key.setter
-    def primary_authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_authorization_key", value)
 
     @_builtins.property
     @pulumi.getter(name="rbacAuthorizations")
-    def rbac_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
+    def rbac_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
         """
         A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rbac_authorizations")
 
     @rbac_authorizations.setter
-    def rbac_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]):
+    def rbac_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]):
         pulumi.set(self, "rbac_authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAuthorizationKey")
-    def secondary_authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary integration runtime authentication key.
         """
         return pulumi.get(self, "secondary_authorization_key")
 
     @secondary_authorization_key.setter
-    def secondary_authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_authorization_key", value)
 
     @_builtins.property
     @pulumi.getter(name="selfContainedInteractiveAuthoringEnabled")
-    def self_contained_interactive_authoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def self_contained_interactive_authoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """
         return pulumi.get(self, "self_contained_interactive_authoring_enabled")
 
     @self_contained_interactive_authoring_enabled.setter
-    def self_contained_interactive_authoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def self_contained_interactive_authoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "self_contained_interactive_authoring_enabled", value)
 
 
@@ -233,11 +233,11 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
-                 self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+                 self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
@@ -342,11 +342,11 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
-                 self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+                 self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,13 +375,13 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-            rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
-            secondary_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-            self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'IntegrationRuntimeSelfHosted':
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+            secondary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'IntegrationRuntimeSelfHosted':
         """
         Get an existing IntegrationRuntimeSelfHosted resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

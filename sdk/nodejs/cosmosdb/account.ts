@@ -419,214 +419,214 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
-    accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
+    accessKeyMetadataWritesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `analyticalStorage` block as defined below.
      */
-    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
-    analyticalStorageEnabled?: pulumi.Input<boolean>;
-    automaticFailoverEnabled?: pulumi.Input<boolean>;
-    backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
-    burstCapacityEnabled?: pulumi.Input<boolean>;
-    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
+    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage | undefined>;
+    analyticalStorageEnabled?: pulumi.Input<boolean | undefined>;
+    automaticFailoverEnabled?: pulumi.Input<boolean | undefined>;
+    backup?: pulumi.Input<inputs.cosmosdb.AccountBackup | undefined>;
+    burstCapacityEnabled?: pulumi.Input<boolean | undefined>;
+    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[] | undefined>;
     /**
      * A `capacity` block as defined below.
      */
-    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
-    consistencyPolicy?: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
-    corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity | undefined>;
+    consistencyPolicy?: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy | undefined>;
+    corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule | undefined>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      *
      * > **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
-    defaultIdentityType?: pulumi.Input<string>;
+    defaultIdentityType?: pulumi.Input<string | undefined>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
-    endpoint?: pulumi.Input<string>;
-    freeTierEnabled?: pulumi.Input<boolean>;
-    geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
-    identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
-    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
-    keyVaultKeyId?: pulumi.Input<string>;
-    kind?: pulumi.Input<string>;
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string | undefined>;
+    freeTierEnabled?: pulumi.Input<boolean | undefined>;
+    geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[] | undefined>;
+    identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity | undefined>;
+    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean | undefined>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
-    minimalTlsVersion?: pulumi.Input<string>;
-    mongoServerVersion?: pulumi.Input<string>;
-    multipleWriteLocationsEnabled?: pulumi.Input<boolean>;
+    minimalTlsVersion?: pulumi.Input<string | undefined>;
+    mongoServerVersion?: pulumi.Input<string | undefined>;
+    multipleWriteLocationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    networkAclBypassForAzureServices?: pulumi.Input<boolean>;
-    networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
+    name?: pulumi.Input<string | undefined>;
+    networkAclBypassForAzureServices?: pulumi.Input<boolean | undefined>;
+    networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
-    offerType?: pulumi.Input<string>;
-    partitionMergeEnabled?: pulumi.Input<boolean>;
+    offerType?: pulumi.Input<string | undefined>;
+    partitionMergeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Primary key for the CosmosDB Account.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * Primary Mongodb connection string for the CosmosDB Account.
      */
-    primaryMongodbConnectionString?: pulumi.Input<string>;
+    primaryMongodbConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The Primary read-only Key for the CosmosDB Account.
      */
-    primaryReadonlyKey?: pulumi.Input<string>;
+    primaryReadonlyKey?: pulumi.Input<string | undefined>;
     /**
      * Primary readonly Mongodb connection string for the CosmosDB Account.
      */
-    primaryReadonlyMongodbConnectionString?: pulumi.Input<string>;
+    primaryReadonlyMongodbConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Primary readonly SQL connection string for the CosmosDB Account.
      */
-    primaryReadonlySqlConnectionString?: pulumi.Input<string>;
+    primaryReadonlySqlConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Primary SQL connection string for the CosmosDB Account.
      */
-    primarySqlConnectionString?: pulumi.Input<string>;
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    primarySqlConnectionString?: pulumi.Input<string | undefined>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of read endpoints available for this CosmosDB account.
      */
-    readEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    readEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
-    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
+    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore | undefined>;
     /**
      * The Secondary key for the CosmosDB Account.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Secondary Mongodb connection string for the CosmosDB Account.
      */
-    secondaryMongodbConnectionString?: pulumi.Input<string>;
+    secondaryMongodbConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The Secondary read-only key for the CosmosDB Account.
      */
-    secondaryReadonlyKey?: pulumi.Input<string>;
+    secondaryReadonlyKey?: pulumi.Input<string | undefined>;
     /**
      * Secondary readonly Mongodb connection string for the CosmosDB Account.
      */
-    secondaryReadonlyMongodbConnectionString?: pulumi.Input<string>;
+    secondaryReadonlyMongodbConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Secondary readonly SQL connection string for the CosmosDB Account.
      */
-    secondaryReadonlySqlConnectionString?: pulumi.Input<string>;
+    secondaryReadonlySqlConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Secondary SQL connection string for the CosmosDB Account.
      */
-    secondarySqlConnectionString?: pulumi.Input<string>;
+    secondarySqlConnectionString?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[] | undefined>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
-    writeEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    writeEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
-    accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
+    accessKeyMetadataWritesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `analyticalStorage` block as defined below.
      */
-    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
-    analyticalStorageEnabled?: pulumi.Input<boolean>;
-    automaticFailoverEnabled?: pulumi.Input<boolean>;
-    backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
-    burstCapacityEnabled?: pulumi.Input<boolean>;
-    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
+    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage | undefined>;
+    analyticalStorageEnabled?: pulumi.Input<boolean | undefined>;
+    automaticFailoverEnabled?: pulumi.Input<boolean | undefined>;
+    backup?: pulumi.Input<inputs.cosmosdb.AccountBackup | undefined>;
+    burstCapacityEnabled?: pulumi.Input<boolean | undefined>;
+    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[] | undefined>;
     /**
      * A `capacity` block as defined below.
      */
-    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
+    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity | undefined>;
     consistencyPolicy: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
-    corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule | undefined>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      *
      * > **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
-    defaultIdentityType?: pulumi.Input<string>;
-    freeTierEnabled?: pulumi.Input<boolean>;
+    defaultIdentityType?: pulumi.Input<string | undefined>;
+    freeTierEnabled?: pulumi.Input<boolean | undefined>;
     geoLocations: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
-    identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
-    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
-    keyVaultKeyId?: pulumi.Input<string>;
-    kind?: pulumi.Input<string>;
-    localAuthenticationDisabled?: pulumi.Input<boolean>;
+    identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity | undefined>;
+    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean | undefined>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
-    minimalTlsVersion?: pulumi.Input<string>;
-    mongoServerVersion?: pulumi.Input<string>;
-    multipleWriteLocationsEnabled?: pulumi.Input<boolean>;
+    minimalTlsVersion?: pulumi.Input<string | undefined>;
+    mongoServerVersion?: pulumi.Input<string | undefined>;
+    multipleWriteLocationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    networkAclBypassForAzureServices?: pulumi.Input<boolean>;
-    networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
+    name?: pulumi.Input<string | undefined>;
+    networkAclBypassForAzureServices?: pulumi.Input<boolean | undefined>;
+    networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     offerType: pulumi.Input<string>;
-    partitionMergeEnabled?: pulumi.Input<boolean>;
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    partitionMergeEnabled?: pulumi.Input<boolean | undefined>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
+    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[] | undefined>;
 }

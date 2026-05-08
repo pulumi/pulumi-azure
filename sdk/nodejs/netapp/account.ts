@@ -159,27 +159,27 @@ export interface AccountState {
     /**
      * A `activeDirectory` block as defined below.
      */
-    activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
+    activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory | undefined>;
     /**
      * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      */
-    identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
+    identity?: pulumi.Input<inputs.netapp.AccountIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -189,19 +189,19 @@ export interface AccountArgs {
     /**
      * A `activeDirectory` block as defined below.
      */
-    activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
+    activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory | undefined>;
     /**
      * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      */
-    identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
+    identity?: pulumi.Input<inputs.netapp.AccountIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NetApp Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      */
@@ -209,5 +209,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

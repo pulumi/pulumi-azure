@@ -62,8 +62,8 @@ class NatGatewayPublicIpAssociationArgs:
 @pulumi.input_type
 class _NatGatewayPublicIpAssociationState:
     def __init__(__self__, *,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NatGatewayPublicIpAssociation resources.
 
@@ -79,19 +79,19 @@ class _NatGatewayPublicIpAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the NAT Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
-    def nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 
@@ -100,7 +100,7 @@ class _NatGatewayPublicIpAssociationState:
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
 
@@ -110,8 +110,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the association between a NAT Gateway and a Public IP.
@@ -233,8 +233,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,8 +260,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NatGatewayPublicIpAssociation':
+            nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NatGatewayPublicIpAssociation':
         """
         Get an existing NatGatewayPublicIpAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

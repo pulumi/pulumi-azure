@@ -151,25 +151,25 @@ export interface NetworkSecurityGroupState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the security rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of objects representing security rules, as defined below.
      *
      * > **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -179,11 +179,11 @@ export interface NetworkSecurityGroupArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the security rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
      */
@@ -193,9 +193,9 @@ export interface NetworkSecurityGroupArgs {
      *
      * > **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -41,8 +41,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -90,8 +90,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -139,8 +139,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -188,8 +188,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -237,8 +237,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -419,8 +419,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -468,8 +468,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -517,8 +517,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -566,8 +566,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -616,8 +616,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -666,8 +666,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -716,8 +716,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -766,8 +766,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -816,8 +816,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -865,8 +865,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -914,8 +914,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -963,8 +963,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1012,8 +1012,8 @@ public final class HealthcareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
      * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -277,63 +277,63 @@ export interface ApiDiagnosticState {
     /**
      * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
      */
-    alwaysLogErrors?: pulumi.Input<boolean>;
+    alwaysLogErrors?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (name) of the Diagnostics Logger.
      */
-    apiManagementLoggerId?: pulumi.Input<string>;
+    apiManagementLoggerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * A `backendRequest` block as defined below.
      */
-    backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest>;
+    backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest | undefined>;
     /**
      * A `backendResponse` block as defined below.
      */
-    backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse>;
+    backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse | undefined>;
     /**
      * A `frontendRequest` block as defined below.
      */
-    frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest | undefined>;
     /**
      * A `frontendResponse` block as defined below.
      */
-    frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse | undefined>;
     /**
      * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
      */
-    httpCorrelationProtocol?: pulumi.Input<string>;
+    httpCorrelationProtocol?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Log client IP address.
      */
-    logClientIp?: pulumi.Input<boolean>;
+    logClientIp?: pulumi.Input<boolean | undefined>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
      */
-    operationNameFormat?: pulumi.Input<string>;
+    operationNameFormat?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */
-    verbosity?: pulumi.Input<string>;
+    verbosity?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -343,7 +343,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
      */
-    alwaysLogErrors?: pulumi.Input<boolean>;
+    alwaysLogErrors?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (name) of the Diagnostics Logger.
      */
@@ -359,23 +359,23 @@ export interface ApiDiagnosticArgs {
     /**
      * A `backendRequest` block as defined below.
      */
-    backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest>;
+    backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest | undefined>;
     /**
      * A `backendResponse` block as defined below.
      */
-    backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse>;
+    backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse | undefined>;
     /**
      * A `frontendRequest` block as defined below.
      */
-    frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest | undefined>;
     /**
      * A `frontendResponse` block as defined below.
      */
-    frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse | undefined>;
     /**
      * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
      */
-    httpCorrelationProtocol?: pulumi.Input<string>;
+    httpCorrelationProtocol?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
@@ -383,11 +383,11 @@ export interface ApiDiagnosticArgs {
     /**
      * Log client IP address.
      */
-    logClientIp?: pulumi.Input<boolean>;
+    logClientIp?: pulumi.Input<boolean | undefined>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
      */
-    operationNameFormat?: pulumi.Input<string>;
+    operationNameFormat?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
@@ -395,9 +395,9 @@ export interface ApiDiagnosticArgs {
     /**
      * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */
-    verbosity?: pulumi.Input<string>;
+    verbosity?: pulumi.Input<string | undefined>;
 }

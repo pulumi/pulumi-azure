@@ -163,31 +163,31 @@ export interface SpringCloudJavaDeploymentState {
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the jvm option of the Spring Cloud Deployment.
      */
-    jvmOptions?: pulumi.Input<string>;
+    jvmOptions?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota | undefined>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
      */
-    runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,27 +197,27 @@ export interface SpringCloudJavaDeploymentArgs {
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the jvm option of the Spring Cloud Deployment.
      */
-    jvmOptions?: pulumi.Input<string>;
+    jvmOptions?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota | undefined>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
      */
-    runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      */

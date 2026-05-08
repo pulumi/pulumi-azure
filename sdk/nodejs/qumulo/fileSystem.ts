@@ -215,51 +215,51 @@ export interface FileSystemState {
     /**
      * The initial administrator password of the Azure Native Qumulo Scalable File System. Changing this forces a new resource to be created.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * The email address used for the Azure Native Qumulo Scalable File System. Changing this forces a new resource to be created.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Azure Native Qumulo Scalable File System resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace offer ID. Defaults to `qumulo-saas-mpp`. Changing this forces a new resource to be created.
      */
-    offerId?: pulumi.Input<string>;
+    offerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace plan ID. Defaults to `azure-native-qumulo-v3`. Changing this forces a new resource to be created.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
      */
-    publisherId?: pulumi.Input<string>;
+    publisherId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The storage Sku. Possible values are `Cold_LRS`, `Hot_LRS` and `Hot_ZRS`. Changing this forces a new resource to be created.
      */
-    storageSku?: pulumi.Input<string>;
+    storageSku?: pulumi.Input<string | undefined>;
     /**
      * The delegated subnet ID for Vnet injection. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the File System.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Availability Zone in which the Azure Native Qumulo Scalable File system is located. Changing this forces a new resource to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -277,23 +277,23 @@ export interface FileSystemArgs {
     /**
      * The Azure Region where the Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Azure Native Qumulo Scalable File System resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace offer ID. Defaults to `qumulo-saas-mpp`. Changing this forces a new resource to be created.
      */
-    offerId?: pulumi.Input<string>;
+    offerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace plan ID. Defaults to `azure-native-qumulo-v3`. Changing this forces a new resource to be created.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
      */
-    publisherId?: pulumi.Input<string>;
+    publisherId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
@@ -309,7 +309,7 @@ export interface FileSystemArgs {
     /**
      * A mapping of tags which should be assigned to the File System.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Availability Zone in which the Azure Native Qumulo Scalable File system is located. Changing this forces a new resource to be created.
      */

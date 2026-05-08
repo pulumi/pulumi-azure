@@ -179,31 +179,31 @@ export interface BackupPolicyKubernetesClusterState {
     /**
      * Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
      */
-    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[]>;
+    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      */
-    defaultRetentionRule?: pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRule>;
+    defaultRetentionRule?: pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRule | undefined>;
     /**
      * The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,7 +221,7 @@ export interface BackupPolicyKubernetesClusterArgs {
     /**
      * The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -229,11 +229,11 @@ export interface BackupPolicyKubernetesClusterArgs {
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyKubernetesClusterRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */

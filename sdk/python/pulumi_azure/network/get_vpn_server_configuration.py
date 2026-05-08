@@ -226,8 +226,8 @@ def get_vpn_server_configuration(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpn_authentication_types=pulumi.get(__ret__, 'vpn_authentication_types'),
         vpn_protocols=pulumi.get(__ret__, 'vpn_protocols'))
-def get_vpn_server_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_server_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
     Use this data source to access information about an existing VPN Server Configuration.

@@ -22,13 +22,13 @@ __all__ = ['SourceControlArgs', 'SourceControl']
 class SourceControlArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_action_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_local_git: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_action_configuration: pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
 
@@ -77,43 +77,43 @@ class SourceControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name to use for deployments. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="githubActionConfiguration")
-    def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]:
+    def github_action_configuration(self) -> pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']]:
         """
         A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
     @github_action_configuration.setter
-    def github_action_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]):
+    def github_action_configuration(self, value: pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']]):
         pulumi.set(self, "github_action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the repository. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "repo_url")
 
     @repo_url.setter
-    def repo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
 
     @_builtins.property
     @pulumi.getter(name="rollbackEnabled")
-    def rollback_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rollback_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -122,59 +122,59 @@ class SourceControlArgs:
         return pulumi.get(self, "rollback_enabled")
 
     @rollback_enabled.setter
-    def rollback_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rollback_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rollback_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="useLocalGit")
-    def use_local_git(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_local_git(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the App use local Git configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_local_git")
 
     @use_local_git.setter
-    def use_local_git(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_local_git(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_local_git", value)
 
     @_builtins.property
     @pulumi.getter(name="useManualIntegration")
-    def use_manual_integration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_manual_integration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_manual_integration")
 
     @use_manual_integration.setter
-    def use_manual_integration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_manual_integration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_manual_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="useMercurial")
-    def use_mercurial(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_mercurial(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_mercurial")
 
     @use_mercurial.setter
-    def use_mercurial(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_mercurial(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_mercurial", value)
 
 
 @pulumi.input_type
 class _SourceControlState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_action_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scm_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_local_git: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
-                 uses_github_action: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_action_configuration: pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scm_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+                 uses_github_action: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SourceControl resources.
 
@@ -216,7 +216,7 @@ class _SourceControlState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 
@@ -225,48 +225,48 @@ class _SourceControlState:
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name to use for deployments. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="githubActionConfiguration")
-    def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]:
+    def github_action_configuration(self) -> pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']]:
         """
         A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
     @github_action_configuration.setter
-    def github_action_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]):
+    def github_action_configuration(self, value: pulumi.Input[Optional['SourceControlGithubActionConfigurationArgs']]):
         pulumi.set(self, "github_action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the repository. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "repo_url")
 
     @repo_url.setter
-    def repo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
 
     @_builtins.property
     @pulumi.getter(name="rollbackEnabled")
-    def rollback_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rollback_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -275,67 +275,67 @@ class _SourceControlState:
         return pulumi.get(self, "rollback_enabled")
 
     @rollback_enabled.setter
-    def rollback_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rollback_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rollback_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="scmType")
-    def scm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scm_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SCM Type in use. This value is decoded by the service from the repository information supplied.
         """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
-    def scm_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scm_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scm_type", value)
 
     @_builtins.property
     @pulumi.getter(name="useLocalGit")
-    def use_local_git(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_local_git(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the App use local Git configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_local_git")
 
     @use_local_git.setter
-    def use_local_git(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_local_git(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_local_git", value)
 
     @_builtins.property
     @pulumi.getter(name="useManualIntegration")
-    def use_manual_integration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_manual_integration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_manual_integration")
 
     @use_manual_integration.setter
-    def use_manual_integration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_manual_integration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_manual_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="useMercurial")
-    def use_mercurial(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_mercurial(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "use_mercurial")
 
     @use_mercurial.setter
-    def use_mercurial(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_mercurial(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_mercurial", value)
 
     @_builtins.property
     @pulumi.getter(name="usesGithubAction")
-    def uses_github_action(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def uses_github_action(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
         """
         return pulumi.get(self, "uses_github_action")
 
     @uses_github_action.setter
-    def uses_github_action(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def uses_github_action(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "uses_github_action", value)
 
 
@@ -345,14 +345,14 @@ class SourceControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_local_git: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an App Service Web App or Function App Source Control Configuration.
@@ -482,14 +482,14 @@ class SourceControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_local_git: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,16 +521,16 @@ class SourceControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            branch: Optional[pulumi.Input[_builtins.str]] = None,
-            github_action_configuration: Optional[pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
-            repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            scm_type: Optional[pulumi.Input[_builtins.str]] = None,
-            use_local_git: Optional[pulumi.Input[_builtins.bool]] = None,
-            use_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-            use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
-            uses_github_action: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SourceControl':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+            repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scm_type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+            uses_github_action: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SourceControl':
         """
         Get an existing SourceControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

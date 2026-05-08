@@ -22,48 +22,48 @@ __all__ = ['KubernetesClusterNodePoolArgs', 'KubernetesClusterNodePool']
 class KubernetesClusterNodePoolArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[_builtins.str],
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
-                 kubelet_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 os_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_name_for_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 ultra_ssd_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
-                 workload_runtime: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gpu_driver: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubelet_config: pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+                 kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 linux_os_config: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 node_network_profile: pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 os_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upgrade_settings: pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_profile: pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+                 workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubernetesClusterNodePool resource.
 
@@ -234,31 +234,31 @@ class KubernetesClusterNodePoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
-    def auto_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_scaling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         """
         return pulumi.get(self, "auto_scaling_enabled")
 
     @auto_scaling_enabled.setter
-    def auto_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_scaling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -267,12 +267,12 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
-    def fips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -281,36 +281,36 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "fips_enabled")
 
     @fips_enabled.setter
-    def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuDriver")
-    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpu_driver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gpu_driver")
 
     @gpu_driver.setter
-    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpu_driver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")
-    def gpu_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpu_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gpu_instance")
 
     @gpu_instance.setter
-    def gpu_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpu_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpu_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="hostEncryptionEnabled")
-    def host_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def host_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -319,102 +319,102 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "host_encryption_enabled")
 
     @host_encryption_enabled.setter
-    def host_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def host_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "host_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+    def kubelet_config(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']]:
         """
         A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+    def kubelet_config(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletDiskType")
-    def kubelet_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubelet_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
     @kubelet_disk_type.setter
-    def kubelet_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubelet_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubelet_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxOsConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+    def linux_os_config(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
         """
         A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+    def linux_os_config(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_pods(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "max_pods")
 
     @max_pods.setter
-    def max_pods(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_pods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_pods", value)
 
     @_builtins.property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 
@@ -423,81 +423,81 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def node_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         """
         return pulumi.get(self, "node_labels")
 
     @node_labels.setter
-    def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def node_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeNetworkProfile")
-    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+    def node_network_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
         """
         A `node_network_profile` block as documented below.
         """
         return pulumi.get(self, "node_network_profile")
 
     @node_network_profile.setter
-    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+    def node_network_profile(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
         pulumi.set(self, "node_network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpEnabled")
-    def node_public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def node_public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "node_public_ip_enabled")
 
     @node_public_ip_enabled.setter
-    def node_public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def node_public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "node_public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpPrefixId")
-    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
     @node_public_ip_prefix_id.setter
-    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def node_taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def node_taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_taints", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestrator_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
@@ -506,36 +506,36 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "orchestrator_version")
 
     @orchestrator_version.setter
-    def orchestrator_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestrator_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestrator_version", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def os_disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def os_disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskType")
-    def os_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "os_disk_type")
 
     @os_disk_type.setter
-    def os_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="osSku")
-    def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 
@@ -544,48 +544,48 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "os_sku")
 
     @os_sku.setter
-    def os_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="podSubnetId")
-    def pod_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "pod_subnet_id")
 
     @pod_subnet_id.setter
-    def pod_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 
@@ -594,36 +594,36 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownMode")
-    def scale_down_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
 
     @scale_down_mode.setter
-    def scale_down_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="spotMaxPrice")
-    def spot_max_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def spot_max_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 
@@ -632,12 +632,12 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "spot_max_price")
 
     @spot_max_price.setter
-    def spot_max_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def spot_max_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "spot_max_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -646,60 +646,60 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryNameForRotation")
-    def temporary_name_for_rotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def temporary_name_for_rotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         """
         return pulumi.get(self, "temporary_name_for_rotation")
 
     @temporary_name_for_rotation.setter
-    def temporary_name_for_rotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def temporary_name_for_rotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "temporary_name_for_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdEnabled")
-    def ultra_ssd_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ultra_ssd_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
     @ultra_ssd_enabled.setter
-    def ultra_ssd_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ultra_ssd_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ultra_ssd_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSubnetId")
-    def vnet_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -708,24 +708,24 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "vnet_subnet_id")
 
     @vnet_subnet_id.setter
-    def vnet_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+    def windows_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
         A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+    def windows_profile(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadRuntime")
-    def workload_runtime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 
@@ -734,69 +734,69 @@ class KubernetesClusterNodePoolArgs:
         return pulumi.get(self, "workload_runtime")
 
     @workload_runtime.setter
-    def workload_runtime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_runtime", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _KubernetesClusterNodePoolState:
     def __init__(__self__, *,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
-                 kubelet_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 os_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_name_for_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 ultra_ssd_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
-                 workload_runtime: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gpu_driver: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubelet_config: pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+                 kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linux_os_config: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 node_network_profile: pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 os_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upgrade_settings: pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_profile: pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+                 workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 
@@ -957,31 +957,31 @@ class _KubernetesClusterNodePoolState:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
-    def auto_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_scaling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         """
         return pulumi.get(self, "auto_scaling_enabled")
 
     @auto_scaling_enabled.setter
-    def auto_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_scaling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -990,12 +990,12 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
-    def fips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -1004,36 +1004,36 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "fips_enabled")
 
     @fips_enabled.setter
-    def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuDriver")
-    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpu_driver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gpu_driver")
 
     @gpu_driver.setter
-    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpu_driver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")
-    def gpu_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpu_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gpu_instance")
 
     @gpu_instance.setter
-    def gpu_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpu_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpu_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="hostEncryptionEnabled")
-    def host_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def host_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -1042,48 +1042,48 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "host_encryption_enabled")
 
     @host_encryption_enabled.setter
-    def host_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def host_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "host_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+    def kubelet_config(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']]:
         """
         A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+    def kubelet_config(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolKubeletConfigArgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletDiskType")
-    def kubelet_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubelet_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
     @kubelet_disk_type.setter
-    def kubelet_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubelet_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubelet_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 
@@ -1092,66 +1092,66 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "kubernetes_cluster_id")
 
     @kubernetes_cluster_id.setter
-    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxOsConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+    def linux_os_config(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
         """
         A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+    def linux_os_config(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_pods(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "max_pods")
 
     @max_pods.setter
-    def max_pods(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_pods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_pods", value)
 
     @_builtins.property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 
@@ -1160,93 +1160,93 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeImageVersion")
-    def node_image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_image_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current node image version running on this Node Pool.
         """
         return pulumi.get(self, "node_image_version")
 
     @node_image_version.setter
-    def node_image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_image_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_image_version", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def node_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         """
         return pulumi.get(self, "node_labels")
 
     @node_labels.setter
-    def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def node_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeNetworkProfile")
-    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+    def node_network_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
         """
         A `node_network_profile` block as documented below.
         """
         return pulumi.get(self, "node_network_profile")
 
     @node_network_profile.setter
-    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+    def node_network_profile(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
         pulumi.set(self, "node_network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpEnabled")
-    def node_public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def node_public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "node_public_ip_enabled")
 
     @node_public_ip_enabled.setter
-    def node_public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def node_public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "node_public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpPrefixId")
-    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
     @node_public_ip_prefix_id.setter
-    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def node_taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def node_taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_taints", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestrator_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
@@ -1255,36 +1255,36 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "orchestrator_version")
 
     @orchestrator_version.setter
-    def orchestrator_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestrator_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestrator_version", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def os_disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def os_disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskType")
-    def os_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "os_disk_type")
 
     @os_disk_type.setter
-    def os_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="osSku")
-    def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 
@@ -1293,48 +1293,48 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "os_sku")
 
     @os_sku.setter
-    def os_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="podSubnetId")
-    def pod_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "pod_subnet_id")
 
     @pod_subnet_id.setter
-    def pod_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 
@@ -1343,36 +1343,36 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownMode")
-    def scale_down_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
 
     @scale_down_mode.setter
-    def scale_down_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="spotMaxPrice")
-    def spot_max_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def spot_max_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 
@@ -1381,12 +1381,12 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "spot_max_price")
 
     @spot_max_price.setter
-    def spot_max_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def spot_max_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "spot_max_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -1395,60 +1395,60 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryNameForRotation")
-    def temporary_name_for_rotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def temporary_name_for_rotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         """
         return pulumi.get(self, "temporary_name_for_rotation")
 
     @temporary_name_for_rotation.setter
-    def temporary_name_for_rotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def temporary_name_for_rotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "temporary_name_for_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdEnabled")
-    def ultra_ssd_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ultra_ssd_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
     @ultra_ssd_enabled.setter
-    def ultra_ssd_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ultra_ssd_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ultra_ssd_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSubnetId")
-    def vnet_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
 
@@ -1457,24 +1457,24 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "vnet_subnet_id")
 
     @vnet_subnet_id.setter
-    def vnet_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+    def windows_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
         A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+    def windows_profile(self, value: pulumi.Input[Optional['KubernetesClusterNodePoolWindowsProfileArgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadRuntime")
-    def workload_runtime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 
@@ -1483,19 +1483,19 @@ class _KubernetesClusterNodePoolState:
         return pulumi.get(self, "workload_runtime")
 
     @workload_runtime.setter
-    def workload_runtime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_runtime", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -1505,49 +1505,49 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
-                 kubelet_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 os_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_name_for_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 ultra_ssd_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
-                 workload_runtime: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gpu_driver: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+                 kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 os_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+                 workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Node Pool within a Kubernetes Cluster
@@ -1753,49 +1753,49 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
-                 kubelet_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 os_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_name_for_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 ultra_ssd_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
-                 workload_runtime: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gpu_driver: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+                 kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 os_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+                 workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1861,50 +1861,50 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
-            gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
-            host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
-            kubelet_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
-            max_count: Optional[pulumi.Input[_builtins.int]] = None,
-            max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-            min_count: Optional[pulumi.Input[_builtins.int]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_count: Optional[pulumi.Input[_builtins.int]] = None,
-            node_image_version: Optional[pulumi.Input[_builtins.str]] = None,
-            node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
-            node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-            node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-            os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            os_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-            os_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            os_type: Optional[pulumi.Input[_builtins.str]] = None,
-            pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scale_down_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            temporary_name_for_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-            ultra_ssd_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            upgrade_settings: Optional[pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
-            vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-            vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            windows_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
-            workload_runtime: Optional[pulumi.Input[_builtins.str]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'KubernetesClusterNodePool':
+            auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            gpu_driver: pulumi.Input[Optional[_builtins.str]] = None,
+            gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
+            host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+            kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+            max_count: pulumi.Input[Optional[_builtins.int]] = None,
+            max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+            min_count: pulumi.Input[Optional[_builtins.int]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            node_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+            node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+            os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            os_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            os_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_down_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+            ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+            vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+            workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'KubernetesClusterNodePool':
         """
         Get an existing KubernetesClusterNodePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

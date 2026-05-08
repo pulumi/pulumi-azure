@@ -140,23 +140,23 @@ export interface AlertRuleFusionState {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[] | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface AlertRuleFusionArgs {
     /**
      * Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
@@ -178,9 +178,9 @@ export interface AlertRuleFusionArgs {
     /**
      * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[] | undefined>;
 }

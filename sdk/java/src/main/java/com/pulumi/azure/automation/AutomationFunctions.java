@@ -50,8 +50,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -99,8 +99,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -148,8 +148,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -197,8 +197,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -338,8 +338,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -381,8 +381,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -424,8 +424,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -467,8 +467,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -510,8 +510,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -553,8 +553,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -596,8 +596,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -639,8 +639,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -725,8 +725,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -768,8 +768,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -811,8 +811,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -854,8 +854,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -897,8 +897,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -940,8 +940,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -990,8 +990,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1040,8 +1040,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1090,8 +1090,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1140,8 +1140,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1190,8 +1190,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1233,8 +1233,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1276,8 +1276,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1319,8 +1319,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1362,8 +1362,8 @@ public final class AutomationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1407,8 +1407,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1454,8 +1454,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1501,8 +1501,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1548,8 +1548,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1595,8 +1595,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1641,8 +1641,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1695,8 +1695,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1749,8 +1749,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1803,8 +1803,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1857,8 +1857,8 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -21,8 +21,8 @@ class NamespaceCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  eventhub_namespace_id: pulumi.Input[_builtins.str],
                  key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
 
@@ -68,19 +68,19 @@ class NamespaceCustomerManagedKeyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
 
@@ -91,17 +91,17 @@ class NamespaceCustomerManagedKeyInitArgs:
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
 class _NamespaceCustomerManagedKeyState:
     def __init__(__self__, *,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
 
@@ -125,43 +125,43 @@ class _NamespaceCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="eventhubNamespaceId")
-    def eventhub_namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_namespace_id")
 
     @eventhub_namespace_id.setter
-    def eventhub_namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyIds")
-    def key_vault_key_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_vault_key_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of keys of Key Vault.
         """
         return pulumi.get(self, "key_vault_key_ids")
 
     @key_vault_key_ids.setter
-    def key_vault_key_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_vault_key_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_vault_key_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
 
@@ -172,7 +172,7 @@ class _NamespaceCustomerManagedKeyState:
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -182,10 +182,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a EventHub Namespace.
@@ -577,10 +577,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,10 +608,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceCustomerManagedKey':
+            eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceCustomerManagedKey':
         """
         Get an existing NamespaceCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,9 +20,9 @@ __all__ = ['ApiKeyArgs', 'ApiKey']
 class ApiKeyArgs:
     def __init__(__self__, *,
                  application_insights_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
 
@@ -55,31 +55,31 @@ class ApiKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="readPermissions")
-    def read_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "read_permissions")
 
     @read_permissions.setter
-    def read_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="writePermissions")
-    def write_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def write_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 
@@ -88,18 +88,18 @@ class ApiKeyArgs:
         return pulumi.get(self, "write_permissions")
 
     @write_permissions.setter
-    def write_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def write_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "write_permissions", value)
 
 
 @pulumi.input_type
 class _ApiKeyState:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -124,55 +124,55 @@ class _ApiKeyState:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API Key secret (Sensitive).
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_insights_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_insights_id")
 
     @application_insights_id.setter
-    def application_insights_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_insights_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_insights_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="readPermissions")
-    def read_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "read_permissions")
 
     @read_permissions.setter
-    def read_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="writePermissions")
-    def write_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def write_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 
@@ -181,7 +181,7 @@ class _ApiKeyState:
         return pulumi.get(self, "write_permissions")
 
     @write_permissions.setter
-    def write_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def write_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "write_permissions", value)
 
 
@@ -191,10 +191,10 @@ class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Application Insights API key.
@@ -368,10 +368,10 @@ class ApiKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,11 +400,11 @@ class ApiKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ApiKey':
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            read_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            write_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

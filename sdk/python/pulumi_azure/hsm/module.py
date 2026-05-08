@@ -24,12 +24,12 @@ class ModuleArgs:
                  network_profile: pulumi.Input['ModuleNetworkProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_profile: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stamp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_profile: pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Module resource.
 
@@ -99,19 +99,19 @@ class ModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementNetworkProfile")
-    def management_network_profile(self) -> Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']]:
+    def management_network_profile(self) -> pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']]:
         """
         A `management_network_profile` block as defined below.
 
@@ -120,70 +120,70 @@ class ModuleArgs:
         return pulumi.get(self, "management_network_profile")
 
     @management_network_profile.setter
-    def management_network_profile(self, value: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']]):
+    def management_network_profile(self, value: pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']]):
         pulumi.set(self, "management_network_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="stampId")
-    def stamp_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stamp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "stamp_id")
 
     @stamp_id.setter
-    def stamp_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stamp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stamp_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _ModuleState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_profile: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['ModuleNetworkProfileArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stamp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_profile: pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['ModuleNetworkProfileArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Module resources.
 
@@ -220,19 +220,19 @@ class _ModuleState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementNetworkProfile")
-    def management_network_profile(self) -> Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']]:
+    def management_network_profile(self) -> pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']]:
         """
         A `management_network_profile` block as defined below.
 
@@ -241,91 +241,91 @@ class _ModuleState:
         return pulumi.get(self, "management_network_profile")
 
     @management_network_profile.setter
-    def management_network_profile(self, value: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']]):
+    def management_network_profile(self, value: pulumi.Input[Optional['ModuleManagementNetworkProfileArgs']]):
         pulumi.set(self, "management_network_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['ModuleNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['ModuleNetworkProfileArgs']]:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['ModuleNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['ModuleNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stampId")
-    def stamp_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stamp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "stamp_id")
 
     @stamp_id.setter
-    def stamp_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stamp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stamp_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -335,15 +335,15 @@ class Module(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stamp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dedicated Hardware Security Module.
@@ -578,15 +578,15 @@ class Module(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stamp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -621,15 +621,15 @@ class Module(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            management_network_profile: Optional[pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_profile: Optional[pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stamp_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Module':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Module':
         """
         Get an existing Module resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

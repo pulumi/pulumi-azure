@@ -22,11 +22,11 @@ class SqlPoolWorkloadGroupArgs:
                  max_resource_percent: pulumi.Input[_builtins.int],
                  min_resource_percent: pulumi.Input[_builtins.int],
                  sql_pool_id: pulumi.Input[_builtins.str],
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadGroup resource.
 
@@ -91,76 +91,76 @@ class SqlPoolWorkloadGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload group importance level. Defaults to `normal`.
         """
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter(name="maxResourcePercentPerRequest")
-    def max_resource_percent_per_request(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_resource_percent_per_request(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workload group request maximum grant percentage. Defaults to `3`.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 
     @max_resource_percent_per_request.setter
-    def max_resource_percent_per_request(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_resource_percent_per_request(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_resource_percent_per_request", value)
 
     @_builtins.property
     @pulumi.getter(name="minResourcePercentPerRequest")
-    def min_resource_percent_per_request(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_resource_percent_per_request(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workload group request minimum grant percentage.
         """
         return pulumi.get(self, "min_resource_percent_per_request")
 
     @min_resource_percent_per_request.setter
-    def min_resource_percent_per_request(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_resource_percent_per_request(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_resource_percent_per_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryExecutionTimeoutInSeconds")
-    def query_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_execution_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workload group query execution timeout.
         """
         return pulumi.get(self, "query_execution_timeout_in_seconds")
 
     @query_execution_timeout_in_seconds.setter
-    def query_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_execution_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_execution_timeout_in_seconds", value)
 
 
 @pulumi.input_type
 class _SqlPoolWorkloadGroupState:
     def __init__(__self__, *,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sql_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sql_pool_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolWorkloadGroup resources.
 
@@ -192,98 +192,98 @@ class _SqlPoolWorkloadGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload group importance level. Defaults to `normal`.
         """
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter(name="maxResourcePercent")
-    def max_resource_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_resource_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workload group cap percentage resource.
         """
         return pulumi.get(self, "max_resource_percent")
 
     @max_resource_percent.setter
-    def max_resource_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_resource_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_resource_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxResourcePercentPerRequest")
-    def max_resource_percent_per_request(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_resource_percent_per_request(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workload group request maximum grant percentage. Defaults to `3`.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 
     @max_resource_percent_per_request.setter
-    def max_resource_percent_per_request(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_resource_percent_per_request(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_resource_percent_per_request", value)
 
     @_builtins.property
     @pulumi.getter(name="minResourcePercent")
-    def min_resource_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_resource_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workload group minimum percentage resource.
         """
         return pulumi.get(self, "min_resource_percent")
 
     @min_resource_percent.setter
-    def min_resource_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_resource_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_resource_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="minResourcePercentPerRequest")
-    def min_resource_percent_per_request(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_resource_percent_per_request(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The workload group request minimum grant percentage.
         """
         return pulumi.get(self, "min_resource_percent_per_request")
 
     @min_resource_percent_per_request.setter
-    def min_resource_percent_per_request(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_resource_percent_per_request(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_resource_percent_per_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryExecutionTimeoutInSeconds")
-    def query_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_execution_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The workload group query execution timeout.
         """
         return pulumi.get(self, "query_execution_timeout_in_seconds")
 
     @query_execution_timeout_in_seconds.setter
-    def query_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_execution_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_execution_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlPoolId")
-    def sql_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "sql_pool_id")
 
     @sql_pool_id.setter
-    def sql_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_pool_id", value)
 
 
@@ -293,14 +293,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sql_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sql_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Synapse SQL Pool Workload Group.
@@ -345,8 +345,8 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         ```
 
@@ -419,8 +419,8 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         ```
 
@@ -448,14 +448,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sql_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sql_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -489,14 +489,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            importance: Optional[pulumi.Input[_builtins.str]] = None,
-            max_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-            max_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-            min_resource_percent: Optional[pulumi.Input[_builtins.int]] = None,
-            min_resource_percent_per_request: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            sql_pool_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SqlPoolWorkloadGroup':
+            importance: pulumi.Input[Optional[_builtins.str]] = None,
+            max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+            min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            sql_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SqlPoolWorkloadGroup':
         """
         Get an existing SqlPoolWorkloadGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

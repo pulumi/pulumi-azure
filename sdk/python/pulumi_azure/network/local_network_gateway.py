@@ -22,13 +22,13 @@ __all__ = ['LocalNetworkGatewayArgs', 'LocalNetworkGateway']
 class LocalNetworkGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
-                 gateway_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bgp_settings: pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']] = None,
+                 gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalNetworkGateway resource.
 
@@ -73,43 +73,43 @@ class LocalNetworkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_spaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of string CIDRs representing the address spaces the gateway exposes.
         """
         return pulumi.get(self, "address_spaces")
 
     @address_spaces.setter
-    def address_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_spaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']]:
         """
         A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayAddress")
-    def gateway_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway IP address to connect with.
         """
         return pulumi.get(self, "gateway_address")
 
     @gateway_address.setter
-    def gateway_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_address", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayFqdn")
-    def gateway_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway FQDN to connect with.
 
@@ -118,57 +118,57 @@ class LocalNetworkGatewayArgs:
         return pulumi.get(self, "gateway_fqdn")
 
     @gateway_fqdn.setter
-    def gateway_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the local network gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LocalNetworkGatewayState:
     def __init__(__self__, *,
-                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
-                 gateway_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bgp_settings: pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']] = None,
+                 gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LocalNetworkGateway resources.
 
@@ -202,43 +202,43 @@ class _LocalNetworkGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_spaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of string CIDRs representing the address spaces the gateway exposes.
         """
         return pulumi.get(self, "address_spaces")
 
     @address_spaces.setter
-    def address_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_spaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']]:
         """
         A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: pulumi.Input[Optional['LocalNetworkGatewayBgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayAddress")
-    def gateway_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway IP address to connect with.
         """
         return pulumi.get(self, "gateway_address")
 
     @gateway_address.setter
-    def gateway_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_address", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayFqdn")
-    def gateway_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway FQDN to connect with.
 
@@ -247,55 +247,55 @@ class _LocalNetworkGatewayState:
         return pulumi.get(self, "gateway_fqdn")
 
     @gateway_fqdn.setter
-    def gateway_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the local network gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -305,14 +305,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
-                 gateway_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
+                 gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
@@ -420,14 +420,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
-                 gateway_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
+                 gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,14 +457,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            bgp_settings: Optional[pulumi.Input[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
-            gateway_address: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LocalNetworkGateway':
+            address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict']]] = None,
+            gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LocalNetworkGateway':
         """
         Get an existing LocalNetworkGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

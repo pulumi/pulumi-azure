@@ -150,35 +150,35 @@ export interface WorkspaceState {
     /**
      * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
      */
-    defaultDataCollectionEndpointId?: pulumi.Input<string>;
+    defaultDataCollectionEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
      */
-    defaultDataCollectionRuleId?: pulumi.Input<string>;
+    defaultDataCollectionRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is public network access enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The query endpoint for the Azure Monitor Workspace.
      */
-    queryEndpoint?: pulumi.Input<string>;
+    queryEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Monitor Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -188,15 +188,15 @@ export interface WorkspaceArgs {
     /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is public network access enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -204,5 +204,5 @@ export interface WorkspaceArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Monitor Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

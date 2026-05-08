@@ -21,9 +21,9 @@ class MonitorSsoConfigurationArgs:
     def __init__(__self__, *,
                  datadog_monitor_id: pulumi.Input[_builtins.str],
                  enterprise_application_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorSsoConfiguration resource.
 
@@ -70,48 +70,48 @@ class MonitorSsoConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SingleSignOn configuration. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOn")
-    def single_sign_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         """
         return pulumi.get(self, "single_sign_on")
 
     @single_sign_on.setter
-    def single_sign_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnEnabled")
     @_utilities.deprecated("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "single_sign_on_enabled")
 
     @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_enabled", value)
 
 
 @pulumi.input_type
 class _MonitorSsoConfigurationState:
     def __init__(__self__, *,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorSsoConfiguration resources.
 
@@ -139,72 +139,72 @@ class _MonitorSsoConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
-    def datadog_monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datadog_monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         """
         return pulumi.get(self, "datadog_monitor_id")
 
     @datadog_monitor_id.setter
-    def datadog_monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datadog_monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datadog_monitor_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseApplicationId")
-    def enterprise_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application Id to perform SSO operation.
         """
         return pulumi.get(self, "enterprise_application_id")
 
     @enterprise_application_id.setter
-    def enterprise_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loginUrl")
-    def login_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SingleSignOn URL to login to Datadog org.
         """
         return pulumi.get(self, "login_url")
 
     @login_url.setter
-    def login_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SingleSignOn configuration. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOn")
-    def single_sign_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         """
         return pulumi.get(self, "single_sign_on")
 
     @single_sign_on.setter
-    def single_sign_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnEnabled")
     @_utilities.deprecated("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "single_sign_on_enabled")
 
     @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_enabled", value)
 
 
@@ -214,11 +214,11 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None,
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages SingleSignOn on the datadog Monitor.
@@ -350,11 +350,11 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None,
+                 datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,12 +384,12 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datadog_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enterprise_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            login_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None) -> 'MonitorSsoConfiguration':
+            datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            login_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None) -> 'MonitorSsoConfiguration':
         """
         Get an existing MonitorSsoConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

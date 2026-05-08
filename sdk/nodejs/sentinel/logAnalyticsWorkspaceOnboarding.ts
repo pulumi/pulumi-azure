@@ -124,11 +124,11 @@ export interface LogAnalyticsWorkspaceOnboardingState {
      *
      * > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      */
-    customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    customerManagedKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface LogAnalyticsWorkspaceOnboardingArgs {
      *
      * > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      */
-    customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    customerManagedKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */

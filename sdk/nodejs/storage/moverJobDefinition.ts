@@ -207,39 +207,39 @@ export interface MoverJobDefinitionState {
     /**
      * Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
      */
-    copyMode?: pulumi.Input<string>;
+    copyMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies a description for this Storage Mover Job Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    sourceName?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    sourceSubPath?: pulumi.Input<string>;
+    sourceSubPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
      */
-    storageMoverProjectId?: pulumi.Input<string>;
+    storageMoverProjectId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
      */
-    targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    targetSubPath?: pulumi.Input<string>;
+    targetSubPath?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface MoverJobDefinitionArgs {
     /**
      * Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
      */
@@ -257,11 +257,11 @@ export interface MoverJobDefinitionArgs {
     /**
      * Specifies a description for this Storage Mover Job Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
@@ -269,7 +269,7 @@ export interface MoverJobDefinitionArgs {
     /**
      * Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    sourceSubPath?: pulumi.Input<string>;
+    sourceSubPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
      */
@@ -281,5 +281,5 @@ export interface MoverJobDefinitionArgs {
     /**
      * Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    targetSubPath?: pulumi.Input<string>;
+    targetSubPath?: pulumi.Input<string | undefined>;
 }

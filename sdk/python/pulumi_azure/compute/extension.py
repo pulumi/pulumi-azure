@@ -25,15 +25,15 @@ class ExtensionArgs:
                  type: pulumi.Input[_builtins.str],
                  type_handler_version: pulumi.Input[_builtins.str],
                  virtual_machine_id: pulumi.Input[_builtins.str],
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -144,31 +144,31 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeEnabled")
-    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
-    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="failureSuppressionEnabled")
-    def failure_suppression_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def failure_suppression_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
@@ -177,24 +177,24 @@ class ExtensionArgs:
         return pulumi.get(self, "failure_suppression_enabled")
 
     @failure_suppression_enabled.setter
-    def failure_suppression_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def failure_suppression_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "failure_suppression_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protected_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
 
@@ -203,12 +203,12 @@ class ExtensionArgs:
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protected_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']]:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
@@ -217,24 +217,24 @@ class ExtensionArgs:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def provision_after_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the collection of extension names after which this extension needs to be provisioned.
         """
         return pulumi.get(self, "provision_after_extensions")
 
     @provision_after_extensions.setter
-    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def provision_after_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provision_after_extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The settings passed to the extension, these are specified as a JSON object in a string.
 
@@ -243,38 +243,38 @@ class ExtensionArgs:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ExtensionState:
     def __init__(__self__, *,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
 
@@ -335,31 +335,31 @@ class _ExtensionState:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeEnabled")
-    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
-    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="failureSuppressionEnabled")
-    def failure_suppression_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def failure_suppression_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
@@ -368,24 +368,24 @@ class _ExtensionState:
         return pulumi.get(self, "failure_suppression_enabled")
 
     @failure_suppression_enabled.setter
-    def failure_suppression_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def failure_suppression_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "failure_suppression_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protected_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
 
@@ -394,12 +394,12 @@ class _ExtensionState:
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protected_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']]:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
@@ -408,36 +408,36 @@ class _ExtensionState:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: pulumi.Input[Optional['ExtensionProtectedSettingsFromKeyVaultArgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def provision_after_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the collection of extension names after which this extension needs to be provisioned.
         """
         return pulumi.get(self, "provision_after_extensions")
 
     @provision_after_extensions.setter
-    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def provision_after_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provision_after_extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The settings passed to the extension, these are specified as a JSON object in a string.
 
@@ -446,24 +446,24 @@ class _ExtensionState:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
@@ -476,31 +476,31 @@ class _ExtensionState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         """
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
 
@@ -510,19 +510,19 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+                 provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
@@ -753,19 +753,19 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+                 provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -808,19 +808,19 @@ class Extension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            failure_suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-            protected_settings_from_key_vault: Optional[pulumi.Input[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
-            provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            publisher: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Extension':
+            auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings_from_key_vault: pulumi.Input[Optional[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+            provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Extension':
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

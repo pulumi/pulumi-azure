@@ -24,11 +24,11 @@ class NamedValueArgs:
                  api_management_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']] = None):
         """
         The set of arguments for constructing a NamedValue resource.
 
@@ -95,19 +95,19 @@ class NamedValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Named Value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
 
@@ -116,57 +116,57 @@ class NamedValueArgs:
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to be applied to the API Management Named Value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of this API Management Named Value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueFromKeyVault")
-    def value_from_key_vault(self) -> Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]:
+    def value_from_key_vault(self) -> pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']]:
         """
         A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         """
         return pulumi.get(self, "value_from_key_vault")
 
     @value_from_key_vault.setter
-    def value_from_key_vault(self, value: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]):
+    def value_from_key_vault(self, value: pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']]):
         pulumi.set(self, "value_from_key_vault", value)
 
 
 @pulumi.input_type
 class _NamedValueState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']] = None):
         """
         Input properties used for looking up and filtering NamedValue resources.
 
@@ -200,55 +200,55 @@ class _NamedValueState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this API Management Named Value.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Named Value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
 
@@ -257,43 +257,43 @@ class _NamedValueState:
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to be applied to the API Management Named Value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of this API Management Named Value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueFromKeyVault")
-    def value_from_key_vault(self) -> Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]:
+    def value_from_key_vault(self) -> pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']]:
         """
         A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         """
         return pulumi.get(self, "value_from_key_vault")
 
     @value_from_key_vault.setter
-    def value_from_key_vault(self, value: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]):
+    def value_from_key_vault(self, value: pulumi.Input[Optional['NamedValueValueFromKeyVaultArgs']]):
         pulumi.set(self, "value_from_key_vault", value)
 
 
@@ -303,14 +303,14 @@ class NamedValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
                  __props__=None):
         """
         Manages an API Management Named Value.
@@ -432,14 +432,14 @@ class NamedValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,14 +475,14 @@ class NamedValue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_from_key_vault: Optional[pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None) -> 'NamedValue':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None) -> 'NamedValue':
         """
         Get an existing NamedValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -60,8 +60,8 @@ class BlobInventoryPolicyArgs:
 @pulumi.input_type
 class _BlobInventoryPolicyState:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BlobInventoryPolicy resources.
 
@@ -75,26 +75,26 @@ class _BlobInventoryPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]]:
         """
         One or more `rules` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -104,8 +104,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Blob Inventory Policy.
@@ -245,8 +245,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,8 +272,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BlobInventoryPolicy':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BlobInventoryPolicy':
         """
         Get an existing BlobInventoryPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

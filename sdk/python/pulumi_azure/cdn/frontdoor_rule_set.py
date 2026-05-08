@@ -20,7 +20,7 @@ __all__ = ['FrontdoorRuleSetArgs', 'FrontdoorRuleSet']
 class FrontdoorRuleSetArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRuleSet resource.
 
@@ -45,22 +45,22 @@ class FrontdoorRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FrontdoorRuleSetState:
     def __init__(__self__, *,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRuleSet resources.
 
@@ -74,26 +74,26 @@ class _FrontdoorRuleSetState:
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorProfileId")
-    def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
     @cdn_frontdoor_profile_id.setter
-    def cdn_frontdoor_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -103,8 +103,8 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Rule Set.
@@ -206,8 +206,8 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,8 +231,8 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'FrontdoorRuleSet':
+            cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'FrontdoorRuleSet':
         """
         Get an existing FrontdoorRuleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

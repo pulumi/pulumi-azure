@@ -22,14 +22,14 @@ class ExtensionArgs:
                  arc_machine_id: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -109,7 +109,7 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeEnabled")
-    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 
@@ -120,84 +120,84 @@ class ExtensionArgs:
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
-    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protected_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Json formatted protected settings for the extension.
         """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protected_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protected_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the script handler.
 
@@ -206,24 +206,24 @@ class ExtensionArgs:
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
 
 @pulumi.input_type
 class _ExtensionState:
     def __init__(__self__, *,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
 
@@ -270,19 +270,19 @@ class _ExtensionState:
 
     @_builtins.property
     @pulumi.getter(name="arcMachineId")
-    def arc_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "arc_machine_id")
 
     @arc_machine_id.setter
-    def arc_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeEnabled")
-    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 
@@ -293,108 +293,108 @@ class _ExtensionState:
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
-    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protected_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Json formatted protected settings for the extension.
         """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protected_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protected_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the script handler.
 
@@ -403,7 +403,7 @@ class _ExtensionState:
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
 
@@ -413,17 +413,17 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Hybrid Compute Machine Extension.
@@ -542,17 +542,17 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -591,17 +591,17 @@ class Extension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protected_settings: Optional[pulumi.Input[_builtins.str]] = None,
-            publisher: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            type_handler_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Extension':
+            arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_handler_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Extension':
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

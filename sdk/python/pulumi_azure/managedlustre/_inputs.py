@@ -83,7 +83,7 @@ class FileSystemHsmSettingArgsDict(TypedDict):
     """
     The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
     """
-    import_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    import_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 
@@ -95,7 +95,7 @@ class FileSystemHsmSettingArgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[_builtins.str],
                  logging_container_id: pulumi.Input[_builtins.str],
-                 import_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 import_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_id: The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] logging_container_id: The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ class FileSystemHsmSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="importPrefix")
-    def import_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 
@@ -143,7 +143,7 @@ class FileSystemHsmSettingArgs:
         return pulumi.get(self, "import_prefix")
 
     @import_prefix.setter
-    def import_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_prefix", value)
 
 
@@ -250,11 +250,11 @@ class FileSystemRootSquashArgsDict(TypedDict):
     """
     NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
     """
-    squash_gid: NotRequired[pulumi.Input[_builtins.int]]
+    squash_gid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The GID to be used for the root squash. Defaults to `0`.
     """
-    squash_uid: NotRequired[pulumi.Input[_builtins.int]]
+    squash_uid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The UID to be used for the root squash. Defaults to `0`.
     """
@@ -264,8 +264,8 @@ class FileSystemRootSquashArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
                  no_squash_nids: pulumi.Input[_builtins.str],
-                 squash_gid: Optional[pulumi.Input[_builtins.int]] = None,
-                 squash_uid: Optional[pulumi.Input[_builtins.int]] = None):
+                 squash_gid: pulumi.Input[Optional[_builtins.int]] = None,
+                 squash_uid: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
         :param pulumi.Input[_builtins.str] no_squash_nids: NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
@@ -305,26 +305,26 @@ class FileSystemRootSquashArgs:
 
     @_builtins.property
     @pulumi.getter(name="squashGid")
-    def squash_gid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def squash_gid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The GID to be used for the root squash. Defaults to `0`.
         """
         return pulumi.get(self, "squash_gid")
 
     @squash_gid.setter
-    def squash_gid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def squash_gid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "squash_gid", value)
 
     @_builtins.property
     @pulumi.getter(name="squashUid")
-    def squash_uid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def squash_uid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The UID to be used for the root squash. Defaults to `0`.
         """
         return pulumi.get(self, "squash_uid")
 
     @squash_uid.setter
-    def squash_uid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def squash_uid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "squash_uid", value)
 
 

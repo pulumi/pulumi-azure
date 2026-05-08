@@ -24,13 +24,13 @@ class ScalingPlanArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedules: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]],
                  time_zone: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
 
@@ -101,102 +101,102 @@ class ScalingPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Scaling Plan.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionTag")
-    def exclusion_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusion_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tag associated with the VMs you want to exclude from autoscaling.
         """
         return pulumi.get(self, "exclusion_tag")
 
     @exclusion_tag.setter
-    def exclusion_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusion_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusion_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the Scaling Plan.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPools")
-    def host_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
+    def host_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
         """
         One or more `host_pool` blocks as defined below.
         """
         return pulumi.get(self, "host_pools")
 
     @host_pools.setter
-    def host_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]):
+    def host_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]):
         pulumi.set(self, "host_pools", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ScalingPlanState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
 
@@ -234,122 +234,122 @@ class _ScalingPlanState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Scaling Plan.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionTag")
-    def exclusion_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusion_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tag associated with the VMs you want to exclude from autoscaling.
         """
         return pulumi.get(self, "exclusion_tag")
 
     @exclusion_tag.setter
-    def exclusion_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusion_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusion_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the Scaling Plan.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPools")
-    def host_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
+    def host_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
         """
         One or more `host_pool` blocks as defined below.
         """
         return pulumi.get(self, "host_pools")
 
     @host_pools.setter
-    def host_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]):
+    def host_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]):
         pulumi.set(self, "host_pools", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]]:
         """
         One or more `schedule` blocks as defined below.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -359,16 +359,16 @@ class ScalingPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Scaling Plan.
@@ -440,16 +440,16 @@ class ScalingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,16 +485,16 @@ class ScalingPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            exclusion_tag: Optional[pulumi.Input[_builtins.str]] = None,
-            friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScalingPlan':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScalingPlan':
         """
         Get an existing ScalingPlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

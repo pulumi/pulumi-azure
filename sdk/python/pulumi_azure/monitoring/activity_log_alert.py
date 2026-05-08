@@ -24,12 +24,12 @@ class ActivityLogAlertArgs:
                  criteria: pulumi.Input['ActivityLogAlertCriteriaArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActivityLogAlert resource.
 
@@ -97,89 +97,89 @@ class ActivityLogAlertArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this activity log alert.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Activity Log Alert be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the activity log alert. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ActivityLogAlertState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
-                 criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
+                 criteria: pulumi.Input[Optional['ActivityLogAlertCriteriaArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ActivityLogAlert resources.
 
@@ -214,110 +214,110 @@ class _ActivityLogAlertState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']]:
+    def criteria(self) -> pulumi.Input[Optional['ActivityLogAlertCriteriaArgs']]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']]):
+    def criteria(self, value: pulumi.Input[Optional['ActivityLogAlertCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this activity log alert.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Activity Log Alert be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the activity log alert. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -327,15 +327,15 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Activity Log Alert within Azure Monitor.
@@ -492,15 +492,15 @@ class ActivityLogAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,15 +535,15 @@ class ActivityLogAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-            criteria: Optional[pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ActivityLogAlert':
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
+            criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ActivityLogAlert':
         """
         Get an existing ActivityLogAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

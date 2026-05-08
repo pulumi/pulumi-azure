@@ -191,39 +191,39 @@ export interface FluxConfigurationState {
     /**
      * An `blobStorage` block as defined below.
      */
-    blobStorage?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBlobStorage>;
+    blobStorage?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBlobStorage | undefined>;
     /**
      * A `bucket` block as defined below.
      */
-    bucket?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBucket>;
+    bucket?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBucket | undefined>;
     /**
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
      */
-    continuousReconciliationEnabled?: pulumi.Input<boolean>;
+    continuousReconciliationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
-    gitRepository?: pulumi.Input<inputs.arckubernetes.FluxConfigurationGitRepository>;
+    gitRepository?: pulumi.Input<inputs.arckubernetes.FluxConfigurationGitRepository | undefined>;
     /**
      * A `kustomizations` block as defined below.
      */
-    kustomizations?: pulumi.Input<pulumi.Input<inputs.arckubernetes.FluxConfigurationKustomization>[]>;
+    kustomizations?: pulumi.Input<pulumi.Input<inputs.arckubernetes.FluxConfigurationKustomization>[] | undefined>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -233,11 +233,11 @@ export interface FluxConfigurationArgs {
     /**
      * An `blobStorage` block as defined below.
      */
-    blobStorage?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBlobStorage>;
+    blobStorage?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBlobStorage | undefined>;
     /**
      * A `bucket` block as defined below.
      */
-    bucket?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBucket>;
+    bucket?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBucket | undefined>;
     /**
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
@@ -245,11 +245,11 @@ export interface FluxConfigurationArgs {
     /**
      * Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
      */
-    continuousReconciliationEnabled?: pulumi.Input<boolean>;
+    continuousReconciliationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
-    gitRepository?: pulumi.Input<inputs.arckubernetes.FluxConfigurationGitRepository>;
+    gitRepository?: pulumi.Input<inputs.arckubernetes.FluxConfigurationGitRepository | undefined>;
     /**
      * A `kustomizations` block as defined below.
      */
@@ -257,7 +257,7 @@ export interface FluxConfigurationArgs {
     /**
      * Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
@@ -265,5 +265,5 @@ export interface FluxConfigurationArgs {
     /**
      * Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }

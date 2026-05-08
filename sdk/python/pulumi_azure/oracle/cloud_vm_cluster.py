@@ -32,25 +32,25 @@ class CloudVmClusterArgs:
                  ssh_public_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_id: pulumi.Input[_builtins.str],
                  virtual_network_id: pulumi.Input[_builtins.str],
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_options: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']] = None,
-                 data_storage_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
-                 local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_tcp: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[_builtins.int]] = None,
-                 sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_collection_options: pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']] = None,
+                 data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
+                 local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+                 sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudVmCluster resource.
 
@@ -269,268 +269,268 @@ class CloudVmClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
-    def backup_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @backup_subnet_cidr.setter
-    def backup_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionOptions")
-    def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
+    def data_collection_options(self) -> pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']]:
         """
         A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "data_collection_options")
 
     @data_collection_options.setter
-    def data_collection_options(self, value: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]):
+    def data_collection_options(self, value: pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']]):
         pulumi.set(self, "data_collection_options", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStoragePercentage")
-    def data_storage_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_storage_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         """
         return pulumi.get(self, "data_storage_percentage")
 
     @data_storage_percentage.setter
-    def data_storage_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_storage_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_storage_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStorageSizeInTbs")
-    def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def data_storage_size_in_tbs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
     @data_storage_size_in_tbs.setter
-    def data_storage_size_in_tbs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def data_storage_size_in_tbs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
-    def db_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def db_node_storage_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
     @db_node_storage_size_in_gbs.setter
-    def db_node_storage_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def db_node_storage_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "db_node_storage_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemConfigurations")
-    def file_system_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
+    def file_system_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
         """
         A `file_system_configuration` block as defined below.
         """
         return pulumi.get(self, "file_system_configurations")
 
     @file_system_configurations.setter
-    def file_system_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
+    def file_system_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
         pulumi.set(self, "file_system_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="localBackupEnabled")
-    def local_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "local_backup_enabled")
 
     @local_backup_enabled.setter
-    def local_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInGbs")
-    def memory_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
     @memory_size_in_gbs.setter
-    def memory_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortTcp")
-    def scan_listener_port_tcp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_tcp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "scan_listener_port_tcp")
 
     @scan_listener_port_tcp.setter
-    def scan_listener_port_tcp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_tcp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_tcp", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortTcpSsl")
-    def scan_listener_port_tcp_ssl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_tcp_ssl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "scan_listener_port_tcp_ssl")
 
     @scan_listener_port_tcp_ssl.setter
-    def scan_listener_port_tcp_ssl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_tcp_ssl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_tcp_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="sparseDiskgroupEnabled")
-    def sparse_diskgroup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sparse_diskgroup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "sparse_diskgroup_enabled")
 
     @sparse_diskgroup_enabled.setter
-    def sparse_diskgroup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sparse_diskgroup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sparse_diskgroup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="systemVersion")
-    def system_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_version")
 
     @system_version.setter
-    def system_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Cloud VM Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
 @pulumi.input_type
 class _CloudVmClusterState:
     def __init__(__self__, *,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_collection_options: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']] = None,
-                 data_storage_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
-                 gi_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_actual: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_tcp: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[_builtins.int]] = None,
-                 sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_collection_options: pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']] = None,
+                 data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
+                 gi_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_actual: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+                 sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudVmCluster resources.
 
@@ -634,386 +634,386 @@ class _CloudVmClusterState:
 
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
-    def backup_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @backup_subnet_cidr.setter
-    def backup_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
-    def cloud_exadata_infrastructure_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_exadata_infrastructure_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
     @cloud_exadata_infrastructure_id.setter
-    def cloud_exadata_infrastructure_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_exadata_infrastructure_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_exadata_infrastructure_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCount")
-    def cpu_core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionOptions")
-    def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
+    def data_collection_options(self) -> pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']]:
         """
         A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "data_collection_options")
 
     @data_collection_options.setter
-    def data_collection_options(self, value: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]):
+    def data_collection_options(self, value: pulumi.Input[Optional['CloudVmClusterDataCollectionOptionsArgs']]):
         pulumi.set(self, "data_collection_options", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStoragePercentage")
-    def data_storage_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_storage_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         """
         return pulumi.get(self, "data_storage_percentage")
 
     @data_storage_percentage.setter
-    def data_storage_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_storage_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_storage_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStorageSizeInTbs")
-    def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def data_storage_size_in_tbs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
     @data_storage_size_in_tbs.setter
-    def data_storage_size_in_tbs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def data_storage_size_in_tbs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
-    def db_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def db_node_storage_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
     @db_node_storage_size_in_gbs.setter
-    def db_node_storage_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def db_node_storage_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "db_node_storage_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbServers")
-    def db_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def db_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "db_servers")
 
     @db_servers.setter
-    def db_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def db_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemConfigurations")
-    def file_system_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
+    def file_system_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
         """
         A `file_system_configuration` block as defined below.
         """
         return pulumi.get(self, "file_system_configurations")
 
     @file_system_configurations.setter
-    def file_system_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
+    def file_system_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
         pulumi.set(self, "file_system_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="giVersion")
-    def gi_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gi_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "gi_version")
 
     @gi_version.setter
-    def gi_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gi_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gi_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnameActual")
-    def hostname_actual(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname_actual(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname for the Cloud VM Cluster with suffix.
         """
         return pulumi.get(self, "hostname_actual")
 
     @hostname_actual.setter
-    def hostname_actual(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname_actual(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname_actual", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "license_model")
 
     @license_model.setter
-    def license_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_model", value)
 
     @_builtins.property
     @pulumi.getter(name="localBackupEnabled")
-    def local_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "local_backup_enabled")
 
     @local_backup_enabled.setter
-    def local_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInGbs")
-    def memory_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
     @memory_size_in_gbs.setter
-    def memory_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
         """
         return pulumi.get(self, "ocid")
 
     @ocid.setter
-    def ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortTcp")
-    def scan_listener_port_tcp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_tcp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "scan_listener_port_tcp")
 
     @scan_listener_port_tcp.setter
-    def scan_listener_port_tcp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_tcp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_tcp", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortTcpSsl")
-    def scan_listener_port_tcp_ssl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_tcp_ssl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "scan_listener_port_tcp_ssl")
 
     @scan_listener_port_tcp_ssl.setter
-    def scan_listener_port_tcp_ssl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_tcp_ssl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_tcp_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="sparseDiskgroupEnabled")
-    def sparse_diskgroup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sparse_diskgroup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "sparse_diskgroup_enabled")
 
     @sparse_diskgroup_enabled.setter
-    def sparse_diskgroup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sparse_diskgroup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sparse_diskgroup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPublicKeys")
-    def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "ssh_public_keys")
 
     @ssh_public_keys.setter
-    def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_public_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="systemVersion")
-    def system_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_version")
 
     @system_version.setter
-    def system_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Cloud VM Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -1023,36 +1023,36 @@ class CloudVmCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_collection_options: Optional[pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
-                 data_storage_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
-                 gi_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_tcp: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[_builtins.int]] = None,
-                 sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+                 gi_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+                 sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cloud VM Cluster.
@@ -1270,36 +1270,36 @@ class CloudVmCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_collection_options: Optional[pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
-                 data_storage_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
-                 gi_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_tcp: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[_builtins.int]] = None,
-                 sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+                 gi_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+                 sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1373,38 +1373,38 @@ class CloudVmCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-            data_collection_options: Optional[pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
-            data_storage_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-            data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-            db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-            db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
-            gi_version: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname_actual: Optional[pulumi.Input[_builtins.str]] = None,
-            license_model: Optional[pulumi.Input[_builtins.str]] = None,
-            local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ocid: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scan_listener_port_tcp: Optional[pulumi.Input[_builtins.int]] = None,
-            scan_listener_port_tcp_ssl: Optional[pulumi.Input[_builtins.int]] = None,
-            sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            system_version: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CloudVmCluster':
+            backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+            data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+            db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+            gi_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+            scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+            sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            system_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CloudVmCluster':
         """
         Get an existing CloudVmCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

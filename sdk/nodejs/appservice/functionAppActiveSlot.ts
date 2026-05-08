@@ -184,15 +184,15 @@ export interface FunctionAppActiveSlotState {
     /**
      * The timestamp of the last successful swap with `Production`
      */
-    lastSuccessfulSwap?: pulumi.Input<string>;
+    lastSuccessfulSwap?: pulumi.Input<string | undefined>;
     /**
      * The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    overwriteNetworkConfig?: pulumi.Input<boolean>;
+    overwriteNetworkConfig?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Slot to swap with `Production`.
      */
-    slotId?: pulumi.Input<string>;
+    slotId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface FunctionAppActiveSlotArgs {
     /**
      * The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    overwriteNetworkConfig?: pulumi.Input<boolean>;
+    overwriteNetworkConfig?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Slot to swap with `Production`.
      */

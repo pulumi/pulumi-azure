@@ -246,71 +246,71 @@ export interface SpringCloudGatewayState {
     /**
      * A `apiMetadata` block as defined below.
      */
-    apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
+    apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `clientAuthorization` block as defined below.
      */
-    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization>;
+    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
+    cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors | undefined>;
     /**
      * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * is only https is allowed?
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance>;
+    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance | undefined>;
     /**
      * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute>;
+    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute | undefined>;
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Spring Cloud Gateway exposes endpoint.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota | undefined>;
     /**
      * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudGatewaySso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudGatewaySso | undefined>;
     /**
      * URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -320,59 +320,59 @@ export interface SpringCloudGatewayArgs {
     /**
      * A `apiMetadata` block as defined below.
      */
-    apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
+    apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `clientAuthorization` block as defined below.
      */
-    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization>;
+    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
+    cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors | undefined>;
     /**
      * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * is only https is allowed?
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance>;
+    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance | undefined>;
     /**
      * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute>;
+    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute | undefined>;
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Spring Cloud Gateway exposes endpoint.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota | undefined>;
     /**
      * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */
@@ -380,5 +380,5 @@ export interface SpringCloudGatewayArgs {
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudGatewaySso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudGatewaySso | undefined>;
 }

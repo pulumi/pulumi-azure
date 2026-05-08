@@ -20,11 +20,11 @@ __all__ = ['WorkspaceCertificateArgs', 'WorkspaceCertificate']
 class WorkspaceCertificateArgs:
     def __init__(__self__, *,
                  api_management_workspace_id: pulumi.Input[_builtins.str],
-                 certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceCertificate resource.
 
@@ -65,7 +65,7 @@ class WorkspaceCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateDataBase64")
-    def certificate_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_data_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64-encoded string containing the certificate in PKCS#12 (.pfx) format.
 
@@ -74,12 +74,12 @@ class WorkspaceCertificateArgs:
         return pulumi.get(self, "certificate_data_base64")
 
     @certificate_data_base64.setter
-    def certificate_data_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_data_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_data_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the key vault secret.
 
@@ -88,58 +88,58 @@ class WorkspaceCertificateArgs:
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password used to access the `certificate_data_base64`.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityClientId")
-    def user_assigned_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client ID of user-assigned identity to be used for accessing the `key_vault_secret_id`.
         """
         return pulumi.get(self, "user_assigned_identity_client_id")
 
     @user_assigned_identity_client_id.setter
-    def user_assigned_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_client_id", value)
 
 
 @pulumi.input_type
 class _WorkspaceCertificateState:
     def __init__(__self__, *,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceCertificate resources.
 
@@ -178,19 +178,19 @@ class _WorkspaceCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
-    def api_management_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_workspace_id")
 
     @api_management_workspace_id.setter
-    def api_management_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateDataBase64")
-    def certificate_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_data_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64-encoded string containing the certificate in PKCS#12 (.pfx) format.
 
@@ -199,24 +199,24 @@ class _WorkspaceCertificateState:
         return pulumi.get(self, "certificate_data_base64")
 
     @certificate_data_base64.setter
-    def certificate_data_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_data_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_data_base64", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date of the API Management Workspace Certificate.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the key vault secret.
 
@@ -225,67 +225,67 @@ class _WorkspaceCertificateState:
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password used to access the `certificate_data_base64`.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject name of the API Management Workspace Certificate.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the API Management Workspace Certificate.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityClientId")
-    def user_assigned_identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client ID of user-assigned identity to be used for accessing the `key_vault_secret_id`.
         """
         return pulumi.get(self, "user_assigned_identity_client_id")
 
     @user_assigned_identity_client_id.setter
-    def user_assigned_identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_client_id", value)
 
 
@@ -295,12 +295,12 @@ class WorkspaceCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Certificate within an API Management Workspace.
@@ -430,12 +430,12 @@ class WorkspaceCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -468,15 +468,15 @@ class WorkspaceCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            subject: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-            user_assigned_identity_client_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceCertificate':
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceCertificate':
         """
         Get an existing WorkspaceCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -162,31 +162,31 @@ export interface AccountState {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.videoindexer.AccountIdentity>;
+    identity?: pulumi.Input<inputs.videoindexer.AccountIdentity | undefined>;
     /**
      * The Azure location where the Video Indexer Account exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Video Indexer Account. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `storage` block as defined below.
      */
-    storage?: pulumi.Input<inputs.videoindexer.AccountStorage>;
+    storage?: pulumi.Input<inputs.videoindexer.AccountStorage | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -200,15 +200,15 @@ export interface AccountArgs {
     /**
      * The Azure location where the Video Indexer Account exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Video Indexer Account. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
      */
@@ -220,5 +220,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

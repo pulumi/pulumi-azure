@@ -27,12 +27,12 @@ class ThreeTierVirtualInstanceArgs:
                  sap_fqdn: pulumi.Input[_builtins.str],
                  sap_product: pulumi.Input[_builtins.str],
                  three_tier_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationArgs'],
-                 identity: Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThreeTierVirtualInstance resource.
 
@@ -142,92 +142,92 @@ class ThreeTierVirtualInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourcesNetworkAccessType")
-    def managed_resources_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resources_network_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         """
         return pulumi.get(self, "managed_resources_network_access_type")
 
     @managed_resources_network_access_type.setter
-    def managed_resources_network_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resources_network_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resources_network_access_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ThreeTierVirtualInstanceState:
     def __init__(__self__, *,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_product: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 three_tier_configuration: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationArgs']] = None):
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_product: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 three_tier_configuration: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ThreeTierVirtualInstance resources.
 
@@ -271,146 +271,146 @@ class _ThreeTierVirtualInstanceState:
 
     @_builtins.property
     @pulumi.getter(name="appLocation")
-    def app_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_location")
 
     @app_location.setter
-    def app_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourcesNetworkAccessType")
-    def managed_resources_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resources_network_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         """
         return pulumi.get(self, "managed_resources_network_access_type")
 
     @managed_resources_network_access_type.setter
-    def managed_resources_network_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resources_network_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resources_network_access_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sapFqdn")
-    def sap_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sap_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the SAP system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sap_fqdn")
 
     @sap_fqdn.setter
-    def sap_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sap_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sap_fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="sapProduct")
-    def sap_product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sap_product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAP Product type for the SAP Three Tier Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sap_product")
 
     @sap_product.setter
-    def sap_product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sap_product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sap_product", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threeTierConfiguration")
-    def three_tier_configuration(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationArgs']]:
+    def three_tier_configuration(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationArgs']]:
         """
         A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "three_tier_configuration")
 
     @three_tier_configuration.setter
-    def three_tier_configuration(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationArgs']]):
+    def three_tier_configuration(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationArgs']]):
         pulumi.set(self, "three_tier_configuration", value)
 
 
@@ -420,18 +420,18 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_product: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 three_tier_configuration: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_product: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Manages an SAP Three Tier Virtual Instance with a new SAP System.
@@ -999,18 +999,18 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_product: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 three_tier_configuration: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_product: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1054,18 +1054,18 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_location: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_resources_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sap_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            sap_product: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            three_tier_configuration: Optional[pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None) -> 'ThreeTierVirtualInstance':
+            app_location: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            sap_product: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None) -> 'ThreeTierVirtualInstance':
         """
         Get an existing ThreeTierVirtualInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -140,19 +140,19 @@ export interface ModuleState {
     /**
      * The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * A `moduleLink` block as defined below.
      */
-    moduleLink?: pulumi.Input<inputs.automation.ModuleModuleLink>;
+    moduleLink?: pulumi.Input<inputs.automation.ModuleModuleLink | undefined>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface ModuleArgs {
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      */

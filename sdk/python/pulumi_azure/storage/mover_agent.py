@@ -22,8 +22,8 @@ class MoverAgentArgs:
                  arc_virtual_machine_id: pulumi.Input[_builtins.str],
                  arc_virtual_machine_uuid: pulumi.Input[_builtins.str],
                  storage_mover_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverAgent resource.
 
@@ -79,37 +79,37 @@ class MoverAgentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Agent.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _MoverAgentState:
     def __init__(__self__, *,
-                 arc_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_virtual_machine_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arc_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_virtual_machine_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverAgent resources.
 
@@ -132,62 +132,62 @@ class _MoverAgentState:
 
     @_builtins.property
     @pulumi.getter(name="arcVirtualMachineId")
-    def arc_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "arc_virtual_machine_id")
 
     @arc_virtual_machine_id.setter
-    def arc_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="arcVirtualMachineUuid")
-    def arc_virtual_machine_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_virtual_machine_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "arc_virtual_machine_uuid")
 
     @arc_virtual_machine_uuid.setter
-    def arc_virtual_machine_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_virtual_machine_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_virtual_machine_uuid", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Agent.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMoverId")
-    def storage_mover_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mover_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_mover_id")
 
     @storage_mover_id.setter
-    def storage_mover_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mover_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mover_id", value)
 
 
@@ -197,11 +197,11 @@ class MoverAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_virtual_machine_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_virtual_machine_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Mover Agent.
@@ -310,11 +310,11 @@ class MoverAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_virtual_machine_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_virtual_machine_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -345,11 +345,11 @@ class MoverAgent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arc_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arc_virtual_machine_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MoverAgent':
+            arc_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arc_virtual_machine_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MoverAgent':
         """
         Get an existing MoverAgent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

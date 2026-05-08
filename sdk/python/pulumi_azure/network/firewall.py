@@ -24,18 +24,18 @@ class FirewallArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  sku_tier: pulumi.Input[_builtins.str],
-                 dns_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_ip_configuration: pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub: pulumi.Input[Optional['FirewallVirtualHubArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
 
@@ -123,139 +123,139 @@ class FirewallArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsProxyEnabled")
-    def dns_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         """
         return pulumi.get(self, "dns_proxy_enabled")
 
     @dns_proxy_enabled.setter
-    def dns_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_proxy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Firewall Policy applied to this Firewall.
         """
         return pulumi.get(self, "firewall_policy_id")
 
     @firewall_policy_id.setter
-    def firewall_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]:
         """
         An `ip_configuration` block as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementIpConfiguration")
-    def management_ip_configuration(self) -> Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]:
+    def management_ip_configuration(self) -> pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']]:
         """
         A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_ip_configuration")
 
     @management_ip_configuration.setter
-    def management_ip_configuration(self, value: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]):
+    def management_ip_configuration(self, value: pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']]):
         pulumi.set(self, "management_ip_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Firewall. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpRanges")
-    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         """
         return pulumi.get(self, "private_ip_ranges")
 
     @private_ip_ranges.setter
-    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelMode")
-    def threat_intel_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threat_intel_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
 
     @threat_intel_mode.setter
-    def threat_intel_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threat_intel_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threat_intel_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional[pulumi.Input['FirewallVirtualHubArgs']]:
+    def virtual_hub(self) -> pulumi.Input[Optional['FirewallVirtualHubArgs']]:
         """
         A `virtual_hub` block as documented below.
         """
         return pulumi.get(self, "virtual_hub")
 
     @virtual_hub.setter
-    def virtual_hub(self, value: Optional[pulumi.Input['FirewallVirtualHubArgs']]):
+    def virtual_hub(self, value: pulumi.Input[Optional['FirewallVirtualHubArgs']]):
         pulumi.set(self, "virtual_hub", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 
@@ -264,28 +264,28 @@ class FirewallArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _FirewallState:
     def __init__(__self__, *,
-                 dns_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_ip_configuration: pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub: pulumi.Input[Optional['FirewallVirtualHubArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
 
@@ -340,175 +340,175 @@ class _FirewallState:
 
     @_builtins.property
     @pulumi.getter(name="dnsProxyEnabled")
-    def dns_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         """
         return pulumi.get(self, "dns_proxy_enabled")
 
     @dns_proxy_enabled.setter
-    def dns_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_proxy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Firewall Policy applied to this Firewall.
         """
         return pulumi.get(self, "firewall_policy_id")
 
     @firewall_policy_id.setter
-    def firewall_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]:
         """
         An `ip_configuration` block as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementIpConfiguration")
-    def management_ip_configuration(self) -> Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]:
+    def management_ip_configuration(self) -> pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']]:
         """
         A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_ip_configuration")
 
     @management_ip_configuration.setter
-    def management_ip_configuration(self, value: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]):
+    def management_ip_configuration(self, value: pulumi.Input[Optional['FirewallManagementIpConfigurationArgs']]):
         pulumi.set(self, "management_ip_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Firewall. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpRanges")
-    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         """
         return pulumi.get(self, "private_ip_ranges")
 
     @private_ip_ranges.setter
-    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         """
         return pulumi.get(self, "sku_tier")
 
     @sku_tier.setter
-    def sku_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelMode")
-    def threat_intel_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threat_intel_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
 
     @threat_intel_mode.setter
-    def threat_intel_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threat_intel_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threat_intel_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional[pulumi.Input['FirewallVirtualHubArgs']]:
+    def virtual_hub(self) -> pulumi.Input[Optional['FirewallVirtualHubArgs']]:
         """
         A `virtual_hub` block as documented below.
         """
         return pulumi.get(self, "virtual_hub")
 
     @virtual_hub.setter
-    def virtual_hub(self, value: Optional[pulumi.Input['FirewallVirtualHubArgs']]):
+    def virtual_hub(self, value: pulumi.Input[Optional['FirewallVirtualHubArgs']]):
         pulumi.set(self, "virtual_hub", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 
@@ -517,7 +517,7 @@ class _FirewallState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -527,21 +527,21 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_ip_configuration: pulumi.Input[Optional[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Firewall.
@@ -698,21 +698,21 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_ip_configuration: pulumi.Input[Optional[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_hub: pulumi.Input[Optional[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -753,21 +753,21 @@ class Firewall(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            management_ip_configuration: Optional[pulumi.Input[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            threat_intel_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_hub: Optional[pulumi.Input[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Firewall':
+            dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_ip_configuration: pulumi.Input[Optional[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_hub: pulumi.Input[Optional[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict']]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Firewall':
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

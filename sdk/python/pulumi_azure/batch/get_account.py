@@ -226,8 +226,8 @@ def get_account(name: Optional[_builtins.str] = None,
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Batch Account.

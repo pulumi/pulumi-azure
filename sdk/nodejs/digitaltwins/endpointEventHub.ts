@@ -164,23 +164,23 @@ export interface EndpointEventHubState {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
-    digitalTwinsId?: pulumi.Input<string>;
+    digitalTwinsId?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      */
-    eventhubPrimaryConnectionString?: pulumi.Input<string>;
+    eventhubPrimaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      */
-    eventhubSecondaryConnectionString?: pulumi.Input<string>;
+    eventhubSecondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface EndpointEventHubArgs {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
@@ -206,5 +206,5 @@ export interface EndpointEventHubArgs {
     /**
      * The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

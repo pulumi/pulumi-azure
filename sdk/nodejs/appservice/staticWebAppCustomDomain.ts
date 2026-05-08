@@ -182,15 +182,15 @@ export interface StaticWebAppCustomDomainState {
     /**
      * The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    staticWebAppId?: pulumi.Input<string>;
+    staticWebAppId?: pulumi.Input<string | undefined>;
     /**
      * Token to be used with `dns-txt-token` validation.
      */
-    validationToken?: pulumi.Input<string>;
+    validationToken?: pulumi.Input<string | undefined>;
     /**
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      *
@@ -198,7 +198,7 @@ export interface StaticWebAppCustomDomainState {
      *
      * > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
      */
-    validationType?: pulumi.Input<string>;
+    validationType?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -22,7 +22,7 @@ class ClusterArgs:
                  cluster_node_count: pulumi.Input[_builtins.int],
                  sku_name: pulumi.Input[_builtins.str],
                  vmware_cloud_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -75,26 +75,26 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
-                 cluster_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cloud_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cloud_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -120,74 +120,74 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter(name="clusterNodeCount")
-    def cluster_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cluster_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The count of the Azure VMware Solution Cluster nodes.
         """
         return pulumi.get(self, "cluster_node_count")
 
     @cluster_node_count.setter
-    def cluster_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cluster_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cluster_node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterNumber")
-    def cluster_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cluster_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "cluster_number")
 
     @cluster_number.setter
-    def cluster_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cluster_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cluster_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of hosts in the Azure VMware Solution Cluster.
         """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
-    def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmwareCloudId")
-    def vmware_cloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vmware_cloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "vmware_cloud_id")
 
     @vmware_cloud_id.setter
-    def vmware_cloud_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vmware_cloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vmware_cloud_id", value)
 
 
@@ -197,10 +197,10 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure VMware Solution Cluster.
@@ -324,10 +324,10 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,12 +359,12 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-            cluster_number: Optional[pulumi.Input[_builtins.int]] = None,
-            hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            vmware_cloud_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Cluster':
+            cluster_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_number: pulumi.Input[Optional[_builtins.int]] = None,
+            hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vmware_cloud_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

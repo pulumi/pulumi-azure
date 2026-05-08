@@ -21,11 +21,11 @@ class NetworkSecurityPerimeterAccessRuleArgs:
     def __init__(__self__, *,
                  direction: pulumi.Input[_builtins.str],
                  network_security_perimeter_profile_id: pulumi.Input[_builtins.str],
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAccessRule resource.
 
@@ -76,75 +76,75 @@ class NetworkSecurityPerimeterAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `service_tags`, `subscription_ids`.
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified domain names. Can only be specified when direction is set to `Outbound`. Conflicts with `address_prefixes`, `service_tags`, and `subscription_ids`.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Security Perimeter Access Rule. Changing this forces a new Network Security Perimeter Access Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTags")
-    def service_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of service tags. Can only be specified when direction is set to `Inbound`. Conflicts with `address_prefixes`, `fqdns`, and `subscription_ids`.
         """
         return pulumi.get(self, "service_tags")
 
     @service_tags.setter
-    def service_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of subscription IDs this rule applies to. Can only be specified when direction is set to `Inbound`. Conflicts with `address_prefixes`, `fqdns`, and `service_tags`.
         """
         return pulumi.get(self, "subscription_ids")
 
     @subscription_ids.setter
-    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscription_ids", value)
 
 
 @pulumi.input_type
 class _NetworkSecurityPerimeterAccessRuleState:
     def __init__(__self__, *,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeterAccessRule resources.
 
@@ -173,86 +173,86 @@ class _NetworkSecurityPerimeterAccessRuleState:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `service_tags`, `subscription_ids`.
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the rule. Possible values are `Inbound` and `Outbound`. Changing this forces a new Network Security Perimeter Access Rule to be created.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified domain names. Can only be specified when direction is set to `Outbound`. Conflicts with `address_prefixes`, `service_tags`, and `subscription_ids`.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Security Perimeter Access Rule. Changing this forces a new Network Security Perimeter Access Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityPerimeterProfileId")
-    def network_security_perimeter_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_perimeter_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Security Perimeter Profile within which this Access Rule is created. Changing this forces a new Network Security Perimeter Access Rule to be created.
         """
         return pulumi.get(self, "network_security_perimeter_profile_id")
 
     @network_security_perimeter_profile_id.setter
-    def network_security_perimeter_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_perimeter_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_perimeter_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTags")
-    def service_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of service tags. Can only be specified when direction is set to `Inbound`. Conflicts with `address_prefixes`, `fqdns`, and `subscription_ids`.
         """
         return pulumi.get(self, "service_tags")
 
     @service_tags.setter
-    def service_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of subscription IDs this rule applies to. Can only be specified when direction is set to `Inbound`. Conflicts with `address_prefixes`, `fqdns`, and `service_tags`.
         """
         return pulumi.get(self, "subscription_ids")
 
     @subscription_ids.setter
-    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscription_ids", value)
 
 
@@ -262,13 +262,13 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Network Security Perimeter Access Rule.
@@ -385,13 +385,13 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -422,13 +422,13 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            direction: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetworkSecurityPerimeterAccessRule':
+            address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetworkSecurityPerimeterAccessRule':
         """
         Get an existing NetworkSecurityPerimeterAccessRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

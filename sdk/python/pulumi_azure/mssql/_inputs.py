@@ -169,7 +169,7 @@ class DatabaseImportArgsDict(TypedDict):
     """
     Specifies the blob URI of the .bacpac file.
     """
-    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
     """
@@ -183,7 +183,7 @@ class DatabaseImportArgs:
                  storage_key: pulumi.Input[_builtins.str],
                  storage_key_type: pulumi.Input[_builtins.str],
                  storage_uri: pulumi.Input[_builtins.str],
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] administrator_login: Specifies the name of the SQL administrator.
         :param pulumi.Input[_builtins.str] administrator_login_password: Specifies the password of the SQL administrator.
@@ -276,35 +276,35 @@ class DatabaseImportArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
 class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-    immutable_backups_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    immutable_backups_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the backups are immutable. Defaults to `false`.
     """
-    monthly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    monthly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
     """
-    week_of_year: NotRequired[pulumi.Input[_builtins.int]]
+    week_of_year: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The week of year to take the yearly backup. Value has to be between `1` and `52`.
     """
-    weekly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    weekly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
     """
-    yearly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    yearly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
     """
@@ -312,11 +312,11 @@ class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None):
+                 immutable_backups_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
         :param pulumi.Input[_builtins.str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -337,62 +337,62 @@ class DatabaseLongTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="immutableBackupsEnabled")
-    def immutable_backups_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immutable_backups_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the backups are immutable. Defaults to `false`.
         """
         return pulumi.get(self, "immutable_backups_enabled")
 
     @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immutable_backups_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immutable_backups_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
-    def monthly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monthly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "monthly_retention")
 
     @monthly_retention.setter
-    def monthly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monthly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monthly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="weekOfYear")
-    def week_of_year(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def week_of_year(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The week of year to take the yearly backup. Value has to be between `1` and `52`.
         """
         return pulumi.get(self, "week_of_year")
 
     @week_of_year.setter
-    def week_of_year(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def week_of_year(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "week_of_year", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRetention")
-    def weekly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "weekly_retention")
 
     @weekly_retention.setter
-    def weekly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="yearlyRetention")
-    def yearly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yearly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "yearly_retention")
 
     @yearly_retention.setter
-    def yearly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yearly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yearly_retention", value)
 
 
@@ -401,7 +401,7 @@ class DatabaseShortTermRetentionPolicyArgsDict(TypedDict):
     """
     Point In Time Restore configuration. Value has to be between `1` and `35`.
     """
-    backup_interval_in_hours: NotRequired[pulumi.Input[_builtins.int]]
+    backup_interval_in_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
     """
@@ -410,7 +410,7 @@ class DatabaseShortTermRetentionPolicyArgsDict(TypedDict):
 class DatabaseShortTermRetentionPolicyArgs:
     def __init__(__self__, *,
                  retention_days: pulumi.Input[_builtins.int],
-                 backup_interval_in_hours: Optional[pulumi.Input[_builtins.int]] = None):
+                 backup_interval_in_hours: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] retention_days: Point In Time Restore configuration. Value has to be between `1` and `35`.
         :param pulumi.Input[_builtins.int] backup_interval_in_hours: The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
@@ -433,43 +433,43 @@ class DatabaseShortTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupIntervalInHours")
-    def backup_interval_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_interval_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
         """
         return pulumi.get(self, "backup_interval_in_hours")
 
     @backup_interval_in_hours.setter
-    def backup_interval_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_interval_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_interval_in_hours", value)
 
 
 class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
-    disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled_alerts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
     """
-    email_account_admins: NotRequired[pulumi.Input[_builtins.str]]
+    email_account_admins: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
     """
-    email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    email_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of email addresses which alerts should be sent to.
     """
-    retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days to keep in the Threat Detection audit logs.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
     """
-    storage_account_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
     """
-    storage_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    storage_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
     """
@@ -477,13 +477,13 @@ class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseThreatDetectionPolicyArgs:
     def __init__(__self__, *,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         :param pulumi.Input[_builtins.str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
@@ -510,86 +510,86 @@ class DatabaseThreatDetectionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
     @email_account_admins.setter
-    def email_account_admins(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_account_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email addresses which alerts should be sent to.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
@@ -681,7 +681,7 @@ class ElasticPoolSkuArgsDict(TypedDict):
     """
     The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `Hyperscale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
     """
@@ -692,7 +692,7 @@ class ElasticPoolSkuArgs:
                  capacity: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[_builtins.str],
-                 family: Optional[pulumi.Input[_builtins.str]] = None):
+                 family: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] capacity: The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param pulumi.Input[_builtins.str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
@@ -743,14 +743,14 @@ class ElasticPoolSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
 
@@ -759,11 +759,11 @@ class FailoverGroupPartnerServerArgsDict(TypedDict):
     """
     The ID of a partner SQL server to include in the failover group.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the partner server.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The replication role of the partner server. Possible values include `Primary` or `Secondary`.
     """
@@ -772,8 +772,8 @@ class FailoverGroupPartnerServerArgsDict(TypedDict):
 class FailoverGroupPartnerServerArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of a partner SQL server to include in the failover group.
         :param pulumi.Input[_builtins.str] location: The location of the partner server.
@@ -799,26 +799,26 @@ class FailoverGroupPartnerServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the partner server.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication role of the partner server. Possible values include `Primary` or `Secondary`.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -827,7 +827,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
     """
     The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
     """
-    grace_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    grace_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
     """
@@ -836,7 +836,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
 class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 grace_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 grace_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[_builtins.int] grace_minutes: The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
@@ -859,14 +859,14 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="graceMinutes")
-    def grace_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def grace_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
         return pulumi.get(self, "grace_minutes")
 
     @grace_minutes.setter
-    def grace_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def grace_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "grace_minutes", value)
 
 
@@ -926,11 +926,11 @@ class JobStepOutputTargetArgsDict(TypedDict):
     """
     The name of the output table.
     """
-    job_credential_id: NotRequired[pulumi.Input[_builtins.str]]
+    job_credential_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Elastic Job Credential to use when connecting to the output destination.
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the output schema. Defaults to `dbo`.
     """
@@ -940,8 +940,8 @@ class JobStepOutputTargetArgs:
     def __init__(__self__, *,
                  mssql_database_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mssql_database_id: The ID of the output database.
         :param pulumi.Input[_builtins.str] table_name: The name of the output table.
@@ -981,26 +981,26 @@ class JobStepOutputTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job Credential to use when connecting to the output destination.
         """
         return pulumi.get(self, "job_credential_id")
 
     @job_credential_id.setter
-    def job_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the output schema. Defaults to `dbo`.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
 
@@ -1009,29 +1009,29 @@ class JobTargetGroupJobTargetArgsDict(TypedDict):
     """
     The name of the MS SQL Server.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the MS SQL Database.
 
     > **Note:** This cannot be set in combination with `elastic_pool_name`.
     """
-    elastic_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the MS SQL Elastic Pool.
 
     > **Note:** This cannot be set in combination with `database_name`.
     """
-    job_credential_id: NotRequired[pulumi.Input[_builtins.str]]
+    job_credential_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the job credential to use during execution of jobs.
 
     > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set or the target resource is configured to use a managed identity for authentication.
     """
-    membership_type: NotRequired[pulumi.Input[_builtins.str]]
+    membership_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
     """
@@ -1040,11 +1040,11 @@ class JobTargetGroupJobTargetArgsDict(TypedDict):
 class JobTargetGroupJobTargetArgs:
     def __init__(__self__, *,
                  server_name: pulumi.Input[_builtins.str],
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 membership_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 membership_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] server_name: The name of the MS SQL Server.
         :param pulumi.Input[_builtins.str] database_name: The name of the MS SQL Database.
@@ -1085,7 +1085,7 @@ class JobTargetGroupJobTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MS SQL Database.
 
@@ -1094,12 +1094,12 @@ class JobTargetGroupJobTargetArgs:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MS SQL Elastic Pool.
 
@@ -1108,12 +1108,12 @@ class JobTargetGroupJobTargetArgs:
         return pulumi.get(self, "elastic_pool_name")
 
     @elastic_pool_name.setter
-    def elastic_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the job credential to use during execution of jobs.
 
@@ -1122,52 +1122,52 @@ class JobTargetGroupJobTargetArgs:
         return pulumi.get(self, "job_credential_id")
 
     @job_credential_id.setter
-    def job_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="membershipType")
-    def membership_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def membership_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
         """
         return pulumi.get(self, "membership_type")
 
     @membership_type.setter
-    def membership_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def membership_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "membership_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-    immutable_backups_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    immutable_backups_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the backups are immutable. Defaults to `false`.
     """
-    monthly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    monthly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
     """
-    week_of_year: NotRequired[pulumi.Input[_builtins.int]]
+    week_of_year: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The week of year to take the yearly backup. Value has to be between `1` and `52`.
     """
-    weekly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    weekly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
     """
-    yearly_retention: NotRequired[pulumi.Input[_builtins.str]]
+    yearly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
     """
@@ -1175,11 +1175,11 @@ class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedDatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None):
+                 immutable_backups_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
         :param pulumi.Input[_builtins.str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -1200,62 +1200,62 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="immutableBackupsEnabled")
-    def immutable_backups_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def immutable_backups_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the backups are immutable. Defaults to `false`.
         """
         return pulumi.get(self, "immutable_backups_enabled")
 
     @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def immutable_backups_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "immutable_backups_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
-    def monthly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monthly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "monthly_retention")
 
     @monthly_retention.setter
-    def monthly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monthly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monthly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="weekOfYear")
-    def week_of_year(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def week_of_year(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The week of year to take the yearly backup. Value has to be between `1` and `52`.
         """
         return pulumi.get(self, "week_of_year")
 
     @week_of_year.setter
-    def week_of_year(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def week_of_year(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "week_of_year", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRetention")
-    def weekly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "weekly_retention")
 
     @weekly_retention.setter
-    def weekly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="yearlyRetention")
-    def yearly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yearly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "yearly_retention")
 
     @yearly_retention.setter
-    def yearly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yearly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yearly_retention", value)
 
 
@@ -1319,11 +1319,11 @@ class ManagedInstanceAzureActiveDirectoryAdministratorArgsDict(TypedDict):
     """
     The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
     """
-    azuread_authentication_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    azuread_authentication_only_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
     """
@@ -1334,8 +1334,8 @@ class ManagedInstanceAzureActiveDirectoryAdministratorArgs:
                  login_username: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[_builtins.str],
-                 azuread_authentication_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azuread_authentication_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] login_username: The login username of the Azure AD Administrator of this SQL Managed Instance.
         :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this SQL Managed Instance.
@@ -1389,35 +1389,35 @@ class ManagedInstanceAzureActiveDirectoryAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureadAuthenticationOnlyEnabled")
-    def azuread_authentication_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azuread_authentication_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
         """
         return pulumi.get(self, "azuread_authentication_only_enabled")
 
     @azuread_authentication_only_enabled.setter
-    def azuread_authentication_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azuread_authentication_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azuread_authentication_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ManagedInstanceFailoverGroupPartnerRegionArgsDict(TypedDict):
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The partner replication role of the Managed Instance Failover Group.
     """
@@ -1425,8 +1425,8 @@ class ManagedInstanceFailoverGroupPartnerRegionArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedInstanceFailoverGroupPartnerRegionArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role: The partner replication role of the Managed Instance Failover Group.
@@ -1438,26 +1438,26 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partner replication role of the Managed Instance Failover Group.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -1466,7 +1466,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedD
     """
     The failover mode. Possible values are `Automatic` or `Manual`.
     """
-    grace_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    grace_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
     """
@@ -1475,7 +1475,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedD
 class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 grace_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 grace_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The failover mode. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[_builtins.int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
@@ -1498,14 +1498,14 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="graceMinutes")
-    def grace_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def grace_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         """
         return pulumi.get(self, "grace_minutes")
 
     @grace_minutes.setter
-    def grace_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def grace_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "grace_minutes", value)
 
 
@@ -1514,17 +1514,17 @@ class ManagedInstanceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 
     > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
     """
@@ -1533,9 +1533,9 @@ class ManagedInstanceIdentityArgsDict(TypedDict):
 class ManagedInstanceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
@@ -1566,7 +1566,7 @@ class ManagedInstanceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 
@@ -1575,31 +1575,31 @@ class ManagedInstanceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1689,15 +1689,15 @@ class ManagedInstanceStartStopScheduleScheduleArgs:
 
 
 class ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of e-mail addresses to which the scan notification is sent.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
     """
@@ -1705,9 +1705,9 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
-                 email_subscription_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
@@ -1722,38 +1722,38 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdmins")
-    def email_subscription_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         """
         return pulumi.get(self, "email_subscription_admins")
 
     @email_subscription_admins.setter
-    def email_subscription_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -1766,11 +1766,11 @@ class ServerAzureadAdministratorArgsDict(TypedDict):
     """
     The object id of the Azure AD Administrator of this SQL Server.
     """
-    azuread_authentication_only: NotRequired[pulumi.Input[_builtins.bool]]
+    azuread_authentication_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of the Azure AD Administrator of this SQL Server.
     """
@@ -1780,8 +1780,8 @@ class ServerAzureadAdministratorArgs:
     def __init__(__self__, *,
                  login_username: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
-                 azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] login_username: The login username of the Azure AD Administrator of this SQL Server.
         :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this SQL Server.
@@ -1821,26 +1821,26 @@ class ServerAzureadAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureadAuthenticationOnly")
-    def azuread_authentication_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azuread_authentication_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
     @azuread_authentication_only.setter
-    def azuread_authentication_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azuread_authentication_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azuread_authentication_only", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1849,7 +1849,7 @@ class ServerIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 
@@ -1857,11 +1857,11 @@ class ServerIdentityArgsDict(TypedDict):
 
     > **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Identity of this SQL Server.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
     """
@@ -1870,9 +1870,9 @@ class ServerIdentityArgsDict(TypedDict):
 class ServerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
@@ -1905,7 +1905,7 @@ class ServerIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 
@@ -1916,44 +1916,44 @@ class ServerIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ServerVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of email addresses to which the scan notification is sent.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
     """
@@ -1961,9 +1961,9 @@ class ServerVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
 @pulumi.input_type
 class ServerVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
-                 email_subscription_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
@@ -1978,51 +1978,51 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdmins")
-    def email_subscription_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
         """
         return pulumi.get(self, "email_subscription_admins")
 
     @email_subscription_admins.setter
-    def email_subscription_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class VirtualMachineAssessmentArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Assessment be enabled? Defaults to `true`.
     """
-    run_immediately: NotRequired[pulumi.Input[_builtins.bool]]
+    run_immediately: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Assessment be run immediately? Defaults to `false`.
     """
-    schedule: NotRequired[pulumi.Input['VirtualMachineAssessmentScheduleArgsDict']]
+    schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgs']]]
     """
     An `schedule` block as defined below.
     """
@@ -2030,9 +2030,9 @@ class VirtualMachineAssessmentArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineAssessmentArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 run_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedule: pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Should Assessment be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] run_immediately: Should Assessment be run immediately? Defaults to `false`.
@@ -2047,38 +2047,38 @@ class VirtualMachineAssessmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Assessment be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="runImmediately")
-    def run_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def run_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Assessment be run immediately? Defaults to `false`.
         """
         return pulumi.get(self, "run_immediately")
 
     @run_immediately.setter
-    def run_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def run_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "run_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgs']]:
         """
         An `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -2091,13 +2091,13 @@ class VirtualMachineAssessmentScheduleArgsDict(TypedDict):
     """
     What time the assessment will be run. Must be in the format `HH:mm`.
     """
-    monthly_occurrence: NotRequired[pulumi.Input[_builtins.int]]
+    monthly_occurrence: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How many months between assessment runs. Valid values are between `1` and `5`.
 
     > **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
     """
-    weekly_interval: NotRequired[pulumi.Input[_builtins.int]]
+    weekly_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How many weeks between assessment runs. Valid values are between `1` and `6`.
     """
@@ -2107,8 +2107,8 @@ class VirtualMachineAssessmentScheduleArgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
-                 monthly_occurrence: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 monthly_occurrence: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] day_of_week: What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[_builtins.str] start_time: What time the assessment will be run. Must be in the format `HH:mm`.
@@ -2150,7 +2150,7 @@ class VirtualMachineAssessmentScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="monthlyOccurrence")
-    def monthly_occurrence(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monthly_occurrence(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many months between assessment runs. Valid values are between `1` and `5`.
 
@@ -2159,19 +2159,19 @@ class VirtualMachineAssessmentScheduleArgs:
         return pulumi.get(self, "monthly_occurrence")
 
     @monthly_occurrence.setter
-    def monthly_occurrence(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monthly_occurrence(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monthly_occurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyInterval")
-    def weekly_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weekly_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many weeks between assessment runs. Valid values are between `1` and `6`.
         """
         return pulumi.get(self, "weekly_interval")
 
     @weekly_interval.setter
-    def weekly_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weekly_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weekly_interval", value)
 
 
@@ -2188,16 +2188,16 @@ class VirtualMachineAutoBackupArgsDict(TypedDict):
     """
     Blob endpoint for the storage account where backups will be kept.
     """
-    encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    encryption_password: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    encryption_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption password to use. Setting a password will enable encryption.
     """
-    manual_schedule: NotRequired[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgsDict']]
+    manual_schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']]]
     """
     A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
     """
-    system_databases_backup_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    system_databases_backup_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include or exclude system databases from auto backup.
     """
@@ -2208,10 +2208,10 @@ class VirtualMachineAutoBackupArgs:
                  retention_period_in_days: pulumi.Input[_builtins.int],
                  storage_account_access_key: pulumi.Input[_builtins.str],
                  storage_blob_endpoint: pulumi.Input[_builtins.str],
-                 encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
-                 system_databases_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_schedule: pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']] = None,
+                 system_databases_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] retention_period_in_days: Retention period of backups, in days. Valid values are from `1` to `30`.
         :param pulumi.Input[_builtins.str] storage_account_access_key: Access key for the storage account where backups will be kept.
@@ -2274,47 +2274,47 @@ class VirtualMachineAutoBackupArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionEnabled")
     @_utilities.deprecated("""`encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""")
-    def encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "encryption_enabled")
 
     @encryption_enabled.setter
-    def encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionPassword")
-    def encryption_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encryption password to use. Setting a password will enable encryption.
         """
         return pulumi.get(self, "encryption_password")
 
     @encryption_password.setter
-    def encryption_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_password", value)
 
     @_builtins.property
     @pulumi.getter(name="manualSchedule")
-    def manual_schedule(self) -> Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]:
+    def manual_schedule(self) -> pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']]:
         """
         A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         """
         return pulumi.get(self, "manual_schedule")
 
     @manual_schedule.setter
-    def manual_schedule(self, value: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]):
+    def manual_schedule(self, value: pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']]):
         pulumi.set(self, "manual_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="systemDatabasesBackupEnabled")
-    def system_databases_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system_databases_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include or exclude system databases from auto backup.
         """
         return pulumi.get(self, "system_databases_backup_enabled")
 
     @system_databases_backup_enabled.setter
-    def system_databases_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system_databases_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system_databases_backup_enabled", value)
 
 
@@ -2335,7 +2335,7 @@ class VirtualMachineAutoBackupManualScheduleArgsDict(TypedDict):
     """
     Frequency of log backups, in minutes. Valid values are from `5` to `60`.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 
@@ -2349,7 +2349,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
                  full_backup_start_hour: pulumi.Input[_builtins.int],
                  full_backup_window_in_hours: pulumi.Input[_builtins.int],
                  log_backup_frequency_in_minutes: pulumi.Input[_builtins.int],
-                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`.
         :param pulumi.Input[_builtins.int] full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
@@ -2416,7 +2416,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeeks")
-    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 
@@ -2425,7 +2425,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
-    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def days_of_weeks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "days_of_weeks", value)
 
 
@@ -2790,27 +2790,27 @@ class VirtualMachineGroupWsfcDomainProfileArgsDict(TypedDict):
     """
     The fully qualified name of the domain. Changing this forces a new resource to be created.
     """
-    cluster_bootstrap_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_bootstrap_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account name used for creating cluster. Changing this forces a new resource to be created.
     """
-    cluster_operator_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_operator_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account name used for operating cluster. Changing this forces a new resource to be created.
     """
-    organizational_unit_path: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
     """
-    sql_service_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    sql_service_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
     """
-    storage_account_primary_key: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_primary_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The primary key of the Storage Account.
     """
-    storage_account_url: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
     """
@@ -2820,12 +2820,12 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
     def __init__(__self__, *,
                  cluster_subnet_type: pulumi.Input[_builtins.str],
                  fqdn: pulumi.Input[_builtins.str],
-                 cluster_bootstrap_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_operator_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_service_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_bootstrap_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_operator_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_service_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_subnet_type: The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified name of the domain. Changing this forces a new resource to be created.
@@ -2877,74 +2877,74 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterBootstrapAccountName")
-    def cluster_bootstrap_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_bootstrap_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account name used for creating cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_bootstrap_account_name")
 
     @cluster_bootstrap_account_name.setter
-    def cluster_bootstrap_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_bootstrap_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_bootstrap_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterOperatorAccountName")
-    def cluster_operator_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_operator_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account name used for operating cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_operator_account_name")
 
     @cluster_operator_account_name.setter
-    def cluster_operator_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_operator_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_operator_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitPath")
-    def organizational_unit_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "organizational_unit_path")
 
     @organizational_unit_path.setter
-    def organizational_unit_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_path", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlServiceAccountName")
-    def sql_service_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_service_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_service_account_name")
 
     @sql_service_account_name.setter
-    def sql_service_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_service_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_service_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountPrimaryKey")
-    def storage_account_primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key of the Storage Account.
         """
         return pulumi.get(self, "storage_account_primary_key")
 
     @storage_account_primary_key.setter
-    def storage_account_primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountUrl")
-    def storage_account_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_url")
 
     @storage_account_url.setter
-    def storage_account_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_url", value)
 
 
@@ -3034,31 +3034,31 @@ class VirtualMachineKeyVaultCredentialArgs:
 
 
 class VirtualMachineSqlInstanceArgsDict(TypedDict):
-    adhoc_workloads_optimization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    adhoc_workloads_optimization_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
     """
-    collation: NotRequired[pulumi.Input[_builtins.str]]
+    collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
     """
-    instant_file_initialization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    instant_file_initialization_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    lock_pages_in_memory_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    lock_pages_in_memory_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    max_dop: NotRequired[pulumi.Input[_builtins.int]]
+    max_dop: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
     """
-    max_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    max_server_memory_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
     """
-    min_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    min_server_memory_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 
@@ -3068,13 +3068,13 @@ class VirtualMachineSqlInstanceArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineSqlInstanceArgs:
     def __init__(__self__, *,
-                 adhoc_workloads_optimization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 instant_file_initialization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lock_pages_in_memory_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_dop: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_server_memory_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_server_memory_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 adhoc_workloads_optimization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 instant_file_initialization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lock_pages_in_memory_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_dop: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_server_memory_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_server_memory_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] adhoc_workloads_optimization_enabled: Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] collation: Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -3103,79 +3103,79 @@ class VirtualMachineSqlInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="adhocWorkloadsOptimizationEnabled")
-    def adhoc_workloads_optimization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def adhoc_workloads_optimization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
         """
         return pulumi.get(self, "adhoc_workloads_optimization_enabled")
 
     @adhoc_workloads_optimization_enabled.setter
-    def adhoc_workloads_optimization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def adhoc_workloads_optimization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "adhoc_workloads_optimization_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="instantFileInitializationEnabled")
-    def instant_file_initialization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def instant_file_initialization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "instant_file_initialization_enabled")
 
     @instant_file_initialization_enabled.setter
-    def instant_file_initialization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def instant_file_initialization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "instant_file_initialization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lockPagesInMemoryEnabled")
-    def lock_pages_in_memory_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def lock_pages_in_memory_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lock_pages_in_memory_enabled")
 
     @lock_pages_in_memory_enabled.setter
-    def lock_pages_in_memory_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def lock_pages_in_memory_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "lock_pages_in_memory_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDop")
-    def max_dop(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_dop(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
         """
         return pulumi.get(self, "max_dop")
 
     @max_dop.setter
-    def max_dop(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_dop(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_dop", value)
 
     @_builtins.property
     @pulumi.getter(name="maxServerMemoryMb")
-    def max_server_memory_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_server_memory_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
         """
         return pulumi.get(self, "max_server_memory_mb")
 
     @max_server_memory_mb.setter
-    def max_server_memory_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_server_memory_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_server_memory_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="minServerMemoryMb")
-    def min_server_memory_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_server_memory_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 
@@ -3184,7 +3184,7 @@ class VirtualMachineSqlInstanceArgs:
         return pulumi.get(self, "min_server_memory_mb")
 
     @min_server_memory_mb.setter
-    def min_server_memory_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_server_memory_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_server_memory_mb", value)
 
 
@@ -3197,19 +3197,19 @@ class VirtualMachineStorageConfigurationArgsDict(TypedDict):
     """
     The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
     """
-    data_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgsDict']]
+    data_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgs']]]
     """
     A `storage_settings` block as defined below.
     """
-    log_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgsDict']]
+    log_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgs']]]
     """
     A `storage_settings` block as defined below.
     """
-    system_db_on_data_disk_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    system_db_on_data_disk_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
     """
-    temp_db_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgsDict']]
+    temp_db_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgs']]]
     """
     An `temp_db_settings` block as defined below.
     """
@@ -3219,10 +3219,10 @@ class VirtualMachineStorageConfigurationArgs:
     def __init__(__self__, *,
                  disk_type: pulumi.Input[_builtins.str],
                  storage_workload_type: pulumi.Input[_builtins.str],
-                 data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
-                 log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
-                 system_db_on_data_disk_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None):
+                 data_settings: pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
+                 log_settings: pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
+                 system_db_on_data_disk_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 temp_db_settings: pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param pulumi.Input[_builtins.str] storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
@@ -3268,50 +3268,50 @@ class VirtualMachineStorageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSettings")
-    def data_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]:
+    def data_settings(self) -> pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgs']]:
         """
         A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "data_settings")
 
     @data_settings.setter
-    def data_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]):
+    def data_settings(self, value: pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgs']]):
         pulumi.set(self, "data_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="logSettings")
-    def log_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]:
+    def log_settings(self) -> pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgs']]:
         """
         A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "log_settings")
 
     @log_settings.setter
-    def log_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]):
+    def log_settings(self, value: pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgs']]):
         pulumi.set(self, "log_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="systemDbOnDataDiskEnabled")
-    def system_db_on_data_disk_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system_db_on_data_disk_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         """
         return pulumi.get(self, "system_db_on_data_disk_enabled")
 
     @system_db_on_data_disk_enabled.setter
-    def system_db_on_data_disk_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system_db_on_data_disk_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system_db_on_data_disk_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tempDbSettings")
-    def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
+    def temp_db_settings(self) -> pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
         """
         An `temp_db_settings` block as defined below.
         """
         return pulumi.get(self, "temp_db_settings")
 
     @temp_db_settings.setter
-    def temp_db_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]):
+    def temp_db_settings(self, value: pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgs']]):
         pulumi.set(self, "temp_db_settings", value)
 
 
@@ -3386,23 +3386,23 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgsDict(TypedDict):
     """
     A list of Logical Unit Numbers for the disks.
     """
-    data_file_count: NotRequired[pulumi.Input[_builtins.int]]
+    data_file_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SQL Server default file count. This value defaults to `8`
     """
-    data_file_growth_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    data_file_growth_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SQL Server default file size - This value defaults to `512`
     """
-    data_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    data_file_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SQL Server default file size - This value defaults to `256`
     """
-    log_file_growth_mb: NotRequired[pulumi.Input[_builtins.int]]
+    log_file_growth_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SQL Server default file size - This value defaults to `512`
     """
-    log_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    log_file_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SQL Server default file size - This value defaults to `256`
     """
@@ -3412,11 +3412,11 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     def __init__(__self__, *,
                  default_file_path: pulumi.Input[_builtins.str],
                  luns: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]],
-                 data_file_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_file_growth_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_file_size_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_file_growth_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 log_file_size_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 data_file_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_file_growth_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_file_growth_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] default_file_path: The SQL Server default path
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] luns: A list of Logical Unit Numbers for the disks.
@@ -3465,62 +3465,62 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataFileCount")
-    def data_file_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_file_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SQL Server default file count. This value defaults to `8`
         """
         return pulumi.get(self, "data_file_count")
 
     @data_file_count.setter
-    def data_file_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_file_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_file_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFileGrowthInMb")
-    def data_file_growth_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_file_growth_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SQL Server default file size - This value defaults to `512`
         """
         return pulumi.get(self, "data_file_growth_in_mb")
 
     @data_file_growth_in_mb.setter
-    def data_file_growth_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_file_growth_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_file_growth_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFileSizeMb")
-    def data_file_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_file_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SQL Server default file size - This value defaults to `256`
         """
         return pulumi.get(self, "data_file_size_mb")
 
     @data_file_size_mb.setter
-    def data_file_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_file_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_file_size_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="logFileGrowthMb")
-    def log_file_growth_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def log_file_growth_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SQL Server default file size - This value defaults to `512`
         """
         return pulumi.get(self, "log_file_growth_mb")
 
     @log_file_growth_mb.setter
-    def log_file_growth_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def log_file_growth_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "log_file_growth_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="logFileSizeMb")
-    def log_file_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def log_file_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SQL Server default file size - This value defaults to `256`
         """
         return pulumi.get(self, "log_file_size_mb")
 
     @log_file_size_mb.setter
-    def log_file_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def log_file_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "log_file_size_mb", value)
 
 

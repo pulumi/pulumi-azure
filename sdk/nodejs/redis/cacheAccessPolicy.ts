@@ -134,15 +134,15 @@ export interface CacheAccessPolicyState {
     /**
      * The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
      */
-    redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface CacheAccessPolicyArgs {
     /**
      * The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */

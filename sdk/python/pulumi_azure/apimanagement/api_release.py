@@ -20,8 +20,8 @@ __all__ = ['ApiReleaseArgs', 'ApiRelease']
 class ApiReleaseArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiRelease resource.
 
@@ -49,35 +49,35 @@ class ApiReleaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Release Notes.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
 
 @pulumi.input_type
 class _ApiReleaseState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiRelease resources.
 
@@ -94,38 +94,38 @@ class _ApiReleaseState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management API. Changing this forces a new API Management API Release to be created.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Release Notes.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
 
@@ -135,9 +135,9 @@ class ApiRelease(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management API Release.
@@ -270,9 +270,9 @@ class ApiRelease(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,9 +297,9 @@ class ApiRelease(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiRelease':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiRelease':
         """
         Get an existing ApiRelease resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

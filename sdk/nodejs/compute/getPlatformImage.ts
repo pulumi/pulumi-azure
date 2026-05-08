@@ -139,5 +139,5 @@ export interface GetPlatformImageOutputArgs {
     /**
      * The version of the Platform Image.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

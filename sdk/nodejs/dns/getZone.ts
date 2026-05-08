@@ -122,5 +122,5 @@ export interface GetZoneOutputArgs {
      * If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
      * in your subscription that matches `name` will be returned.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }

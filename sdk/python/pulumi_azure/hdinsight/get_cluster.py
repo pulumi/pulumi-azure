@@ -279,8 +279,8 @@ def get_cluster(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         tls_min_version=pulumi.get(__ret__, 'tls_min_version'))
-def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Use this data source to access information about an existing HDInsight Cluster.

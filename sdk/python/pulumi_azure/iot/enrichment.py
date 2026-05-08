@@ -103,11 +103,11 @@ class EnrichmentArgs:
 @pulumi.input_type
 class _EnrichmentState:
     def __init__(__self__, *,
-                 endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Enrichment resources.
 
@@ -130,62 +130,62 @@ class _EnrichmentState:
 
     @_builtins.property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def endpoint_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of endpoints which will be enriched.
         """
         return pulumi.get(self, "endpoint_names")
 
     @endpoint_names.setter
-    def endpoint_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def endpoint_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "endpoint_names", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IoTHub name of the enrichment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_name")
 
     @iothub_name.setter
-    def iothub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the enrichment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -195,11 +195,11 @@ class Enrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IotHub Enrichment
@@ -370,11 +370,11 @@ class Enrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -409,11 +409,11 @@ class Enrichment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'Enrichment':
+            endpoint_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'Enrichment':
         """
         Get an existing Enrichment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

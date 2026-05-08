@@ -32,11 +32,11 @@ __all__ = [
 ]
 
 class EndpointCustomDnsConfigArgsDict(TypedDict):
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified domain name to the `private_dns_zone`.
     """
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of all IP Addresses that map to the `private_dns_zone` fqdn.
     """
@@ -44,8 +44,8 @@ class EndpointCustomDnsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointCustomDnsConfigArgs:
     def __init__(__self__, *,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name to the `private_dns_zone`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
@@ -57,26 +57,26 @@ class EndpointCustomDnsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name to the `private_dns_zone`.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
 
@@ -89,13 +89,13 @@ class EndpointIpConfigurationArgsDict(TypedDict):
     """
     Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
     """
-    member_name: NotRequired[pulumi.Input[_builtins.str]]
+    member_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
 
     > **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
     """
-    subresource_name: NotRequired[pulumi.Input[_builtins.str]]
+    subresource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
     """
@@ -105,8 +105,8 @@ class EndpointIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  private_ip_address: pulumi.Input[_builtins.str],
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_ip_address: Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
@@ -148,7 +148,7 @@ class EndpointIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="memberName")
-    def member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
 
@@ -157,28 +157,28 @@ class EndpointIpConfigurationArgs:
         return pulumi.get(self, "member_name")
 
     @member_name.setter
-    def member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subresourceName")
-    def subresource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_name")
 
     @subresource_name.setter
-    def subresource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subresource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subresource_name", value)
 
 
 class EndpointNetworkInterfaceArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Private DNS Zone Config.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
     """
@@ -186,8 +186,8 @@ class EndpointNetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointNetworkInterfaceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Private DNS Zone Config.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -199,43 +199,43 @@ class EndpointNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private DNS Zone Config.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class EndpointPrivateDnsZoneConfigArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Private DNS Zone Config.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
     """
-    private_dns_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_dns_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Private DNS Zone that the config belongs to.
     """
-    record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgsDict']]]]
+    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]]
     """
     A `record_sets` block as defined below.
     """
@@ -243,10 +243,10 @@ class EndpointPrivateDnsZoneConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointPrivateDnsZoneConfigArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_sets: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Private DNS Zone Config.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -264,71 +264,71 @@ class EndpointPrivateDnsZoneConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private DNS Zone Config.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneId")
-    def private_dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private DNS Zone that the config belongs to.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
     @private_dns_zone_id.setter
-    def private_dns_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recordSets")
-    def record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]:
+    def record_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]:
         """
         A `record_sets` block as defined below.
         """
         return pulumi.get(self, "record_sets")
 
     @record_sets.setter
-    def record_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]):
+    def record_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]):
         pulumi.set(self, "record_sets", value)
 
 
 class EndpointPrivateDnsZoneConfigRecordSetArgsDict(TypedDict):
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified domain name to the `private_dns_zone`.
     """
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of all IP Addresses that map to the `private_dns_zone` fqdn.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time to live for each connection to the `private_dns_zone`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of DNS record.
     """
@@ -336,11 +336,11 @@ class EndpointPrivateDnsZoneConfigRecordSetArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointPrivateDnsZoneConfigRecordSetArgs:
     def __init__(__self__, *,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name to the `private_dns_zone`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
@@ -361,62 +361,62 @@ class EndpointPrivateDnsZoneConfigRecordSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name to the `private_dns_zone`.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time to live for each connection to the `private_dns_zone`.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of DNS record.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -429,7 +429,7 @@ class EndpointPrivateDnsZoneGroupArgsDict(TypedDict):
     """
     Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Private DNS Zone Config.
     """
@@ -439,7 +439,7 @@ class EndpointPrivateDnsZoneGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  private_dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private DNS Zone Group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
@@ -476,14 +476,14 @@ class EndpointPrivateDnsZoneGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private DNS Zone Config.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -498,25 +498,25 @@ class EndpointPrivateServiceConnectionArgsDict(TypedDict):
     """
     Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
     """
-    private_connection_resource_alias: NotRequired[pulumi.Input[_builtins.str]]
+    private_connection_resource_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
     """
-    private_connection_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_connection_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
     """
-    request_message: NotRequired[pulumi.Input[_builtins.str]]
+    request_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
 
     > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
     """
-    subresource_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subresource_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
 
@@ -530,11 +530,11 @@ class EndpointPrivateServiceConnectionArgs:
     def __init__(__self__, *,
                  is_manual_connection: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
-                 private_connection_resource_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_connection_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 subresource_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 private_connection_resource_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_connection_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 subresource_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
                
@@ -593,43 +593,43 @@ class EndpointPrivateServiceConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateConnectionResourceAlias")
-    def private_connection_resource_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_connection_resource_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_connection_resource_alias")
 
     @private_connection_resource_alias.setter
-    def private_connection_resource_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_connection_resource_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_connection_resource_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="privateConnectionResourceId")
-    def private_connection_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_connection_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
         """
         return pulumi.get(self, "private_connection_resource_id")
 
     @private_connection_resource_id.setter
-    def private_connection_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_connection_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_connection_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
 
@@ -638,12 +638,12 @@ class EndpointPrivateServiceConnectionArgs:
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter(name="subresourceNames")
-    def subresource_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subresource_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
 
@@ -654,7 +654,7 @@ class EndpointPrivateServiceConnectionArgs:
         return pulumi.get(self, "subresource_names")
 
     @subresource_names.setter
-    def subresource_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subresource_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subresource_names", value)
 
 

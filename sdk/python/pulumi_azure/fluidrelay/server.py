@@ -22,12 +22,12 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 customer_managed_key: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 customer_managed_key: pulumi.Input[Optional['ServerCustomerManagedKeyArgs']] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -67,93 +67,93 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['ServerCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['ServerCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSku")
-    def storage_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "storage_sku")
 
     @storage_sku.setter
-    def storage_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Fluid Relay Server.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
-                 customer_managed_key: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']] = None,
-                 frs_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 customer_managed_key: pulumi.Input[Optional['ServerCustomerManagedKeyArgs']] = None,
+                 frs_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 orderer_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Server resources.
 
@@ -200,158 +200,158 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['ServerCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['ServerCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="frsTenantId")
-    def frs_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frs_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Fluid tenantId for this server.
         """
         return pulumi.get(self, "frs_tenant_id")
 
     @frs_tenant_id.setter
-    def frs_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frs_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frs_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ordererEndpoints")
-    def orderer_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def orderer_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "orderer_endpoints")
 
     @orderer_endpoints.setter
-    def orderer_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def orderer_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "orderer_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key for this server.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key for this server.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of service endpoints for this Fluid Relay Server.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoints")
-    def storage_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "storage_endpoints")
 
     @storage_endpoints.setter
-    def storage_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSku")
-    def storage_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "storage_sku")
 
     @storage_sku.setter
-    def storage_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Fluid Relay Server.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -361,13 +361,13 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Fluid Relay Server.
@@ -468,13 +468,13 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,19 +511,19 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
-            frs_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Server':
+            customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
+            frs_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            orderer_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -242,77 +242,77 @@ export interface MetricAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[] | undefined>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
+    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
-    autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean | undefined>;
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[] | undefined>;
     /**
      * The description of this Metric Alert.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `dynamicCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
+    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria | undefined>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A set of strings of resource IDs at which the metric criteria should be applied.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The location of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    targetResourceLocation?: pulumi.Input<string>;
+    targetResourceLocation?: pulumi.Input<string | undefined>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    windowSize?: pulumi.Input<string>;
+    windowSize?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -322,45 +322,45 @@ export interface MetricAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[] | undefined>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
+    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
-    autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean | undefined>;
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[] | undefined>;
     /**
      * The description of this Metric Alert.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `dynamicCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
+    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria | undefined>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
@@ -372,25 +372,25 @@ export interface MetricAlertArgs {
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The location of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    targetResourceLocation?: pulumi.Input<string>;
+    targetResourceLocation?: pulumi.Input<string | undefined>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    windowSize?: pulumi.Input<string>;
+    windowSize?: pulumi.Input<string | undefined>;
 }

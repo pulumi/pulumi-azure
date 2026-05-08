@@ -199,8 +199,8 @@ def get_server(name: Optional[_builtins.str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.

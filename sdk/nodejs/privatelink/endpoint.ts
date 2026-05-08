@@ -335,51 +335,51 @@ export interface EndpointState {
     /**
      * A `customDnsConfigs` block as defined below.
      */
-    customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointCustomDnsConfig>[]>;
+    customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointCustomDnsConfig>[] | undefined>;
     /**
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      */
-    customNetworkInterfaceName?: pulumi.Input<string>;
+    customNetworkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[] | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkInterface` block as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointNetworkInterface>[] | undefined>;
     /**
      * A `privateDnsZoneConfigs` block as defined below.
      */
-    privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfig>[]>;
+    privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfig>[] | undefined>;
     /**
      * A `privateDnsZoneGroup` block as defined below.
      */
-    privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup>;
+    privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup | undefined>;
     /**
      * A `privateServiceConnection` block as defined below.
      */
-    privateServiceConnection?: pulumi.Input<inputs.privatelink.EndpointPrivateServiceConnection>;
+    privateServiceConnection?: pulumi.Input<inputs.privatelink.EndpointPrivateServiceConnection | undefined>;
     /**
      * Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -389,23 +389,23 @@ export interface EndpointArgs {
     /**
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      */
-    customNetworkInterfaceName?: pulumi.Input<string>;
+    customNetworkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[] | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `privateDnsZoneGroup` block as defined below.
      */
-    privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup>;
+    privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup | undefined>;
     /**
      * A `privateServiceConnection` block as defined below.
      */
@@ -421,5 +421,5 @@ export interface EndpointArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

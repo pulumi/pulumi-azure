@@ -204,35 +204,35 @@ export interface BudgetResourceGroupState {
     /**
      * The total amount of cost to track with the budget.
      */
-    amount?: pulumi.Input<number>;
+    amount?: pulumi.Input<number | undefined>;
     /**
      * (Optional) The ETag of the Resource Group Consumption Budget
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A `filter` block as defined below.
      */
-    filter?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilter | undefined>;
     /**
      * The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetResourceGroupNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetResourceGroupNotification>[] | undefined>;
     /**
      * The ID of the Resource Group to create the consumption budget for in the form of /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1. Changing this forces a new Resource Group Consumption Budget to be created.
      */
-    resourceGroupId?: pulumi.Input<string>;
+    resourceGroupId?: pulumi.Input<string | undefined>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */
-    timePeriod?: pulumi.Input<inputs.consumption.BudgetResourceGroupTimePeriod>;
+    timePeriod?: pulumi.Input<inputs.consumption.BudgetResourceGroupTimePeriod | undefined>;
 }
 
 /**
@@ -246,15 +246,15 @@ export interface BudgetResourceGroupArgs {
     /**
      * (Optional) The ETag of the Resource Group Consumption Budget
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A `filter` block as defined below.
      */
-    filter?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilter | undefined>;
     /**
      * The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
@@ -266,7 +266,7 @@ export interface BudgetResourceGroupArgs {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */

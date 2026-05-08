@@ -156,27 +156,27 @@ export interface EndpointEventGridState {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    digitalTwinsId?: pulumi.Input<string>;
+    digitalTwinsId?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the Event Grid Topic.
      */
-    eventgridTopicEndpoint?: pulumi.Input<string>;
+    eventgridTopicEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The primary access key of the Event Grid Topic.
      */
-    eventgridTopicPrimaryAccessKey?: pulumi.Input<string>;
+    eventgridTopicPrimaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key of the Event Grid Topic.
      */
-    eventgridTopicSecondaryAccessKey?: pulumi.Input<string>;
+    eventgridTopicSecondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface EndpointEventGridArgs {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
@@ -206,5 +206,5 @@ export interface EndpointEventGridArgs {
     /**
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

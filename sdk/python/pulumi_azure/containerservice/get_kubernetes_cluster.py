@@ -625,8 +625,8 @@ def get_kubernetes_cluster(name: Optional[_builtins.str] = None,
         storage_profiles=pulumi.get(__ret__, 'storage_profiles'),
         tags=pulumi.get(__ret__, 'tags'),
         windows_profiles=pulumi.get(__ret__, 'windows_profiles'))
-def get_kubernetes_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kubernetes_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterResult]:
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).

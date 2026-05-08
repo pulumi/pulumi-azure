@@ -22,9 +22,9 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional['ZoneSoaRecordArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -57,7 +57,7 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 
@@ -66,45 +66,45 @@ class ZoneArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
+    def soa_record(self) -> pulumi.Input[Optional['ZoneSoaRecordArgs']]:
         """
         An `soa_record` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soa_record")
 
     @soa_record.setter
-    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArgs']]):
+    def soa_record(self, value: pulumi.Input[Optional['ZoneSoaRecordArgs']]):
         pulumi.set(self, "soa_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
-                 max_number_of_record_sets: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_number_of_virtual_network_links: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_number_of_virtual_network_links_with_registration: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_record_sets: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 max_number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_number_of_virtual_network_links: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_number_of_virtual_network_links_with_registration: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional['ZoneSoaRecordArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
 
@@ -138,43 +138,43 @@ class _ZoneState:
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_number_of_record_sets(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of record sets that can be created in this Private DNS zone.
         """
         return pulumi.get(self, "max_number_of_record_sets")
 
     @max_number_of_record_sets.setter
-    def max_number_of_record_sets(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_number_of_record_sets(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_number_of_record_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
-    def max_number_of_virtual_network_links(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_number_of_virtual_network_links(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone.
         """
         return pulumi.get(self, "max_number_of_virtual_network_links")
 
     @max_number_of_virtual_network_links.setter
-    def max_number_of_virtual_network_links(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_number_of_virtual_network_links(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_number_of_virtual_network_links", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
-    def max_number_of_virtual_network_links_with_registration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_number_of_virtual_network_links_with_registration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
         """
         return pulumi.get(self, "max_number_of_virtual_network_links_with_registration")
 
     @max_number_of_virtual_network_links_with_registration.setter
-    def max_number_of_virtual_network_links_with_registration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_number_of_virtual_network_links_with_registration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_number_of_virtual_network_links_with_registration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 
@@ -183,55 +183,55 @@ class _ZoneState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_record_sets(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The current number of record sets in this Private DNS zone.
         """
         return pulumi.get(self, "number_of_record_sets")
 
     @number_of_record_sets.setter
-    def number_of_record_sets(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_record_sets(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_record_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
+    def soa_record(self) -> pulumi.Input[Optional['ZoneSoaRecordArgs']]:
         """
         An `soa_record` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soa_record")
 
     @soa_record.setter
-    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArgs']]):
+    def soa_record(self, value: pulumi.Input[Optional['ZoneSoaRecordArgs']]):
         pulumi.set(self, "soa_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -241,10 +241,10 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
@@ -342,10 +342,10 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 soa_record: Optional[pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,14 +375,14 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            max_number_of_record_sets: Optional[pulumi.Input[_builtins.int]] = None,
-            max_number_of_virtual_network_links: Optional[pulumi.Input[_builtins.int]] = None,
-            max_number_of_virtual_network_links_with_registration: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_record_sets: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            soa_record: Optional[pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Zone':
+            max_number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+            max_number_of_virtual_network_links: pulumi.Input[Optional[_builtins.int]] = None,
+            max_number_of_virtual_network_links_with_registration: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

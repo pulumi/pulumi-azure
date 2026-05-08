@@ -117,8 +117,8 @@ def get_images(resource_group_name: Optional[_builtins.str] = None,
         images=pulumi.get(__ret__, 'images'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags_filter=pulumi.get(__ret__, 'tags_filter'))
-def get_images_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      tags_filter: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_images_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      tags_filter: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     Use this data source to access information about existing Images within a Resource Group.

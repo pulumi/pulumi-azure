@@ -198,8 +198,8 @@ def get_function_app_host_keys(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         signalr_extension_key=pulumi.get(__ret__, 'signalr_extension_key'),
         webpubsub_extension_key=pulumi.get(__ret__, 'webpubsub_extension_key'))
-def get_function_app_host_keys_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_app_host_keys_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionAppHostKeysResult]:
     """
     Use this data source to fetch the Host Keys of an existing Function App

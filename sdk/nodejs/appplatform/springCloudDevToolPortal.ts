@@ -153,27 +153,27 @@ export interface SpringCloudDevToolPortalState {
     /**
      * Should the Accelerator plugin be enabled?
      */
-    applicationAcceleratorEnabled?: pulumi.Input<boolean>;
+    applicationAcceleratorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Live View be enabled?
      */
-    applicationLiveViewEnabled?: pulumi.Input<boolean>;
+    applicationLiveViewEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is public network access enabled?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudDevToolPortalSso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudDevToolPortalSso | undefined>;
 }
 
 /**
@@ -183,19 +183,19 @@ export interface SpringCloudDevToolPortalArgs {
     /**
      * Should the Accelerator plugin be enabled?
      */
-    applicationAcceleratorEnabled?: pulumi.Input<boolean>;
+    applicationAcceleratorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Live View be enabled?
      */
-    applicationLiveViewEnabled?: pulumi.Input<boolean>;
+    applicationLiveViewEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is public network access enabled?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
@@ -203,5 +203,5 @@ export interface SpringCloudDevToolPortalArgs {
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudDevToolPortalSso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudDevToolPortalSso | undefined>;
 }

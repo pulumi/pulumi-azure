@@ -160,35 +160,35 @@ export interface DefinitionState {
     /**
      * An `authorization` block as defined below.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[] | undefined>;
     /**
      * A description of the Lighthouse Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `eligibleAuthorization` block as defined below.
      */
-    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[]>;
+    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    lighthouseDefinitionId?: pulumi.Input<string>;
+    lighthouseDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
-    managingTenantId?: pulumi.Input<string>;
+    managingTenantId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below.
      */
-    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan>;
+    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan | undefined>;
     /**
      * The ID of the managed subscription. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,15 +202,15 @@ export interface DefinitionArgs {
     /**
      * A description of the Lighthouse Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `eligibleAuthorization` block as defined below.
      */
-    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[]>;
+    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    lighthouseDefinitionId?: pulumi.Input<string>;
+    lighthouseDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
@@ -218,11 +218,11 @@ export interface DefinitionArgs {
     /**
      * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below.
      */
-    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan>;
+    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan | undefined>;
     /**
      * The ID of the managed subscription. Changing this forces a new resource to be created.
      */

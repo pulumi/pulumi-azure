@@ -152,39 +152,39 @@ export interface AssessmentPolicyState {
     /**
      * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
      */
-    categories?: pulumi.Input<pulumi.Input<string>[]>;
+    categories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Security Center Assessment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly display name of the Security Center Assessment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    implementationEffort?: pulumi.Input<string>;
+    implementationEffort?: pulumi.Input<string | undefined>;
     /**
      * The GUID as the name of the Security Center Assessment Policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The description which is used to mitigate the security issue.
      */
-    remediationDescription?: pulumi.Input<string>;
+    remediationDescription?: pulumi.Input<string | undefined>;
     /**
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      */
-    threats?: pulumi.Input<pulumi.Input<string>[]>;
+    threats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    userImpact?: pulumi.Input<string>;
+    userImpact?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface AssessmentPolicyArgs {
     /**
      * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
      */
-    categories?: pulumi.Input<pulumi.Input<string>[]>;
+    categories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Security Center Assessment.
      */
@@ -206,21 +206,21 @@ export interface AssessmentPolicyArgs {
     /**
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    implementationEffort?: pulumi.Input<string>;
+    implementationEffort?: pulumi.Input<string | undefined>;
     /**
      * The description which is used to mitigate the security issue.
      */
-    remediationDescription?: pulumi.Input<string>;
+    remediationDescription?: pulumi.Input<string | undefined>;
     /**
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      */
-    threats?: pulumi.Input<pulumi.Input<string>[]>;
+    threats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    userImpact?: pulumi.Input<string>;
+    userImpact?: pulumi.Input<string | undefined>;
 }

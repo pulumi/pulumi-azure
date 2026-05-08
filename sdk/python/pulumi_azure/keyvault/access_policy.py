@@ -22,11 +22,11 @@ class AccessPolicyArgs:
                  key_vault_id: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
 
@@ -91,76 +91,76 @@ class AccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         """
         return pulumi.get(self, "certificate_permissions")
 
     @certificate_permissions.setter
-    def certificate_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         """
         return pulumi.get(self, "key_permissions")
 
     @key_permissions.setter
-    def key_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secret_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
     @secret_permissions.setter
-    def secret_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secret_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secret_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         return pulumi.get(self, "storage_permissions")
 
     @storage_permissions.setter
-    def storage_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_permissions", value)
 
 
 @pulumi.input_type
 class _AccessPolicyState:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicy resources.
 
@@ -192,98 +192,98 @@ class _AccessPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         """
         return pulumi.get(self, "certificate_permissions")
 
     @certificate_permissions.setter
-    def certificate_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         """
         return pulumi.get(self, "key_permissions")
 
     @key_permissions.setter
-    def key_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secret_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
     @secret_permissions.setter
-    def secret_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secret_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secret_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def storage_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         return pulumi.get(self, "storage_permissions")
 
     @storage_permissions.setter
-    def storage_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def storage_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -293,14 +293,14 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Key Vault Access Policy.
@@ -398,14 +398,14 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -439,14 +439,14 @@ class AccessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccessPolicy':
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccessPolicy':
         """
         Get an existing AccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

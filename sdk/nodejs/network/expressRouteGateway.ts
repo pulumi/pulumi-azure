@@ -164,31 +164,31 @@ export interface ExpressRouteGatewayState {
     /**
      * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
      */
-    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
      */
-    scaleUnits?: pulumi.Input<number>;
+    scaleUnits?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,15 +198,15 @@ export interface ExpressRouteGatewayArgs {
     /**
      * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
      */
-    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
@@ -218,7 +218,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */

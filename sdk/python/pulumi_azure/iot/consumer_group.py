@@ -22,7 +22,7 @@ class ConsumerGroupArgs:
                  eventhub_endpoint_name: pulumi.Input[_builtins.str],
                  iothub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsumerGroup resource.
 
@@ -75,24 +75,24 @@ class ConsumerGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this Consumer Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ConsumerGroupState:
     def __init__(__self__, *,
-                 eventhub_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 eventhub_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConsumerGroup resources.
 
@@ -112,50 +112,50 @@ class _ConsumerGroupState:
 
     @_builtins.property
     @pulumi.getter(name="eventhubEndpointName")
-    def eventhub_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_endpoint_name")
 
     @eventhub_endpoint_name.setter
-    def eventhub_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IoT Hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_name")
 
     @iothub_name.setter
-    def iothub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this Consumer Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -165,10 +165,10 @@ class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 eventhub_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 eventhub_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Consumer Group within an IotHub
@@ -276,10 +276,10 @@ class ConsumerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 eventhub_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 eventhub_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,10 +309,10 @@ class ConsumerGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            eventhub_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ConsumerGroup':
+            eventhub_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConsumerGroup':
         """
         Get an existing ConsumerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

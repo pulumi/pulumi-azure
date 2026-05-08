@@ -23,8 +23,8 @@ class RouteArgs:
                  next_hop_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  route_table_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -94,38 +94,38 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nextHopInIpAddress")
-    def next_hop_in_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_in_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
         return pulumi.get(self, "next_hop_in_ip_address")
 
     @next_hop_in_ip_address.setter
-    def next_hop_in_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_in_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_in_ip_address", value)
 
 
 @pulumi.input_type
 class _RouteState:
     def __init__(__self__, *,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
 
@@ -151,74 +151,74 @@ class _RouteState:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         """
         return pulumi.get(self, "address_prefix")
 
     @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nextHopInIpAddress")
-    def next_hop_in_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_in_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
         return pulumi.get(self, "next_hop_in_ip_address")
 
     @next_hop_in_ip_address.setter
-    def next_hop_in_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_in_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_in_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="nextHopType")
-    def next_hop_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         """
         return pulumi.get(self, "next_hop_type")
 
     @next_hop_type.setter
-    def next_hop_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableName")
-    def route_table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route table within which create the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "route_table_name")
 
     @route_table_name.setter
-    def route_table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_table_name", value)
 
 
@@ -228,12 +228,12 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Route within a Route Table.
@@ -353,12 +353,12 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -392,12 +392,12 @@ class Route(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            next_hop_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            route_table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Route':
+            address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

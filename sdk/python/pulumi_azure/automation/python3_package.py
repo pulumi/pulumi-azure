@@ -22,11 +22,11 @@ class Python3PackageArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  content_uri: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Python3Package resource.
 
@@ -91,76 +91,76 @@ class Python3PackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "hash_algorithm")
 
     @hash_algorithm.setter
-    def hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="hashValue")
-    def hash_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "hash_value")
 
     @hash_value.setter
-    def hash_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Automation Python3 Package.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _Python3PackageState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Python3Package resources.
 
@@ -192,98 +192,98 @@ class _Python3PackageState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contentUri")
-    def content_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "content_uri")
 
     @content_uri.setter
-    def content_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "hash_algorithm")
 
     @hash_algorithm.setter
-    def hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="hashValue")
-    def hash_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "hash_value")
 
     @hash_value.setter
-    def hash_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Automation Python3 Package.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -293,14 +293,14 @@ class Python3Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Automation Python3 Package.
@@ -426,14 +426,14 @@ class Python3Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,14 +467,14 @@ class Python3Package(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            content_version: Optional[pulumi.Input[_builtins.str]] = None,
-            hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Python3Package':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            content_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Python3Package':
         """
         Get an existing Python3Package resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

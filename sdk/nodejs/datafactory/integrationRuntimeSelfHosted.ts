@@ -147,31 +147,31 @@ export interface IntegrationRuntimeSelfHostedState {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary integration runtime authentication key.
      */
-    primaryAuthorizationKey?: pulumi.Input<string>;
+    primaryAuthorizationKey?: pulumi.Input<string | undefined>;
     /**
      * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
-    rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
+    rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[] | undefined>;
     /**
      * The secondary integration runtime authentication key.
      */
-    secondaryAuthorizationKey?: pulumi.Input<string>;
+    secondaryAuthorizationKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
      */
-    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean>;
+    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -185,17 +185,17 @@ export interface IntegrationRuntimeSelfHostedArgs {
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
-    rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
+    rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[] | undefined>;
     /**
      * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
      */
-    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean>;
+    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean | undefined>;
 }

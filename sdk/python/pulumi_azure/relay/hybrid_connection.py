@@ -21,9 +21,9 @@ class HybridConnectionArgs:
     def __init__(__self__, *,
                  relay_namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridConnection resource.
 
@@ -68,49 +68,49 @@ class HybridConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_client_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "requires_client_authorization")
 
     @requires_client_authorization.setter
-    def requires_client_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_client_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_client_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         return pulumi.get(self, "user_metadata")
 
     @user_metadata.setter
-    def user_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_metadata", value)
 
 
 @pulumi.input_type
 class _HybridConnectionState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridConnection resources.
 
@@ -133,62 +133,62 @@ class _HybridConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="relayNamespaceName")
-    def relay_namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "relay_namespace_name")
 
     @relay_namespace_name.setter
-    def relay_namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_client_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "requires_client_authorization")
 
     @requires_client_authorization.setter
-    def requires_client_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_client_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_client_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         return pulumi.get(self, "user_metadata")
 
     @user_metadata.setter
-    def user_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_metadata", value)
 
 
@@ -198,11 +198,11 @@ class HybridConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Relay Hybrid Connection.
@@ -321,11 +321,11 @@ class HybridConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,11 +354,11 @@ class HybridConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            relay_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            requires_client_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_metadata: Optional[pulumi.Input[_builtins.str]] = None) -> 'HybridConnection':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_metadata: pulumi.Input[Optional[_builtins.str]] = None) -> 'HybridConnection':
         """
         Get an existing HybridConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

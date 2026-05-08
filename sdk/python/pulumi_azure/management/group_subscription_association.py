@@ -58,8 +58,8 @@ class GroupSubscriptionAssociationArgs:
 @pulumi.input_type
 class _GroupSubscriptionAssociationState:
     def __init__(__self__, *,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupSubscriptionAssociation resources.
 
@@ -73,26 +73,26 @@ class _GroupSubscriptionAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         """
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
-    def management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -102,8 +102,8 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Management Group Subscription Association.
@@ -199,8 +199,8 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,8 +226,8 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GroupSubscriptionAssociation':
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GroupSubscriptionAssociation':
         """
         Get an existing GroupSubscriptionAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

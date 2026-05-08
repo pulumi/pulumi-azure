@@ -167,35 +167,35 @@ export interface ApiSchemaState {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
      */
-    apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
      */
-    components?: pulumi.Input<string>;
+    components?: pulumi.Input<string | undefined>;
     /**
      * The content type of the API Schema.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
      */
-    definitions?: pulumi.Input<string>;
+    definitions?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for this API Schema. Changing this forces a new resource to be created.
      */
-    schemaId?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string | undefined>;
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface ApiSchemaArgs {
     /**
      * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
      */
-    components?: pulumi.Input<string>;
+    components?: pulumi.Input<string | undefined>;
     /**
      * The content type of the API Schema.
      */
@@ -221,7 +221,7 @@ export interface ApiSchemaArgs {
     /**
      * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
      */
-    definitions?: pulumi.Input<string>;
+    definitions?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -233,5 +233,5 @@ export interface ApiSchemaArgs {
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }

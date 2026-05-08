@@ -180,49 +180,49 @@ export interface SharedAccessPolicyState {
      *
      * > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
-    deviceConnect?: pulumi.Input<boolean>;
+    deviceConnect?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The primary key used to create the authentication token.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    registryRead?: pulumi.Input<boolean>;
+    registryRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      *
      * > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    registryWrite?: pulumi.Input<boolean>;
+    registryWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The secondary key used to create the authentication token.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    serviceConnect?: pulumi.Input<boolean>;
+    serviceConnect?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -234,7 +234,7 @@ export interface SharedAccessPolicyArgs {
      *
      * > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
-    deviceConnect?: pulumi.Input<boolean>;
+    deviceConnect?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
@@ -242,17 +242,17 @@ export interface SharedAccessPolicyArgs {
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    registryRead?: pulumi.Input<boolean>;
+    registryRead?: pulumi.Input<boolean | undefined>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      *
      * > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    registryWrite?: pulumi.Input<boolean>;
+    registryWrite?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
@@ -260,5 +260,5 @@ export interface SharedAccessPolicyArgs {
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    serviceConnect?: pulumi.Input<boolean>;
+    serviceConnect?: pulumi.Input<boolean | undefined>;
 }

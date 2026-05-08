@@ -139,8 +139,8 @@ def get_service_endpoint_connections(resource_group_name: Optional[_builtins.str
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_id=pulumi.get(__ret__, 'service_id'),
         service_name=pulumi.get(__ret__, 'service_name'))
-def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            service_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_endpoint_connections_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            service_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointConnectionsResult]:
     """
     Use this data source to access endpoint connection information about an existing Private Link Service.

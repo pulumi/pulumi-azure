@@ -147,31 +147,31 @@ export interface ChannelTeamsState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
-    callingEnabled?: pulumi.Input<boolean>;
+    callingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
-    callingWebHook?: pulumi.Input<string>;
+    callingWebHook?: pulumi.Input<string | undefined>;
     /**
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
-    deploymentEnvironment?: pulumi.Input<string>;
+    deploymentEnvironment?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    enableCalling?: pulumi.Input<boolean>;
+    enableCalling?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,23 +185,23 @@ export interface ChannelTeamsArgs {
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
-    callingEnabled?: pulumi.Input<boolean>;
+    callingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
-    callingWebHook?: pulumi.Input<string>;
+    callingWebHook?: pulumi.Input<string | undefined>;
     /**
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
-    deploymentEnvironment?: pulumi.Input<string>;
+    deploymentEnvironment?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    enableCalling?: pulumi.Input<boolean>;
+    enableCalling?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */

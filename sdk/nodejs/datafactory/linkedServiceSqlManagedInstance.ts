@@ -184,53 +184,53 @@ export interface LinkedServiceSqlManagedInstanceState {
     /**
      * List of tags that can be used for describing the Data Factory Linked Service SQL Managed Instance.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with the SQL Managed Instance. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      *
      * > **Note:** When using service principal authentication, the connection string must not contain authentication values like `User Id`.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service SQL Managed Instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Managed Instance.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Managed Instance connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultConnectionString>;
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Managed Instance password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Managed Instance. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service SQL Managed Instance.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Managed Instance.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Azure SQL Managed Instance.
      */
-    servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
     /**
      * The tenant id or name in which to authenticate against the Azure SQL Managed Instance.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -240,13 +240,13 @@ export interface LinkedServiceSqlManagedInstanceArgs {
     /**
      * List of tags that can be used for describing the Data Factory Linked Service SQL Managed Instance.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string in which to authenticate with the SQL Managed Instance. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      *
      * > **Note:** When using service principal authentication, the connection string must not contain authentication values like `User Id`.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
@@ -254,37 +254,37 @@ export interface LinkedServiceSqlManagedInstanceArgs {
     /**
      * The description for the Data Factory Linked Service SQL Managed Instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Managed Instance.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Managed Instance connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultConnectionString>;
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Managed Instance password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlManagedInstanceKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Managed Instance. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service SQL Managed Instance.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Managed Instance.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Azure SQL Managed Instance.
      */
-    servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
     /**
      * The tenant id or name in which to authenticate against the Azure SQL Managed Instance.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
 }

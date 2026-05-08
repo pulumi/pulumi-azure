@@ -151,27 +151,27 @@ export interface IntegrationAccountSchemaState {
     /**
      * The content of the Logic App Integration Account Schema.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The file name of the Logic App Integration Account Schema.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The metadata of the Logic App Integration Account Schema.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The file name of the Logic App Integration Account Schema.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created.
      */
@@ -193,11 +193,11 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The metadata of the Logic App Integration Account Schema.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created.
      */

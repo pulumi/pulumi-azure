@@ -21,9 +21,9 @@ class EnvironmentManagedCertificateArgs:
     def __init__(__self__, *,
                  container_app_environment_id: pulumi.Input[_builtins.str],
                  subject_name: pulumi.Input[_builtins.str],
-                 domain_control_validation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentManagedCertificate resource.
 
@@ -70,7 +70,7 @@ class EnvironmentManagedCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainControlValidation")
-    def domain_control_validation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_control_validation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain control validation type for the managed certificate. Possible values are `CNAME` and `HTTP`. Defaults to `HTTP`. Changing this forces a new resource to be created.
 
@@ -79,43 +79,43 @@ class EnvironmentManagedCertificateArgs:
         return pulumi.get(self, "domain_control_validation")
 
     @domain_control_validation.setter
-    def domain_control_validation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_control_validation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_control_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Environment Managed Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EnvironmentManagedCertificateState:
     def __init__(__self__, *,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_control_validation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentManagedCertificate resources.
 
@@ -143,19 +143,19 @@ class _EnvironmentManagedCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
-    def container_app_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Container App Managed Environment ID to configure this Managed Certificate on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_environment_id")
 
     @container_app_environment_id.setter
-    def container_app_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainControlValidation")
-    def domain_control_validation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_control_validation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain control validation type for the managed certificate. Possible values are `CNAME` and `HTTP`. Defaults to `HTTP`. Changing this forces a new resource to be created.
 
@@ -164,55 +164,55 @@ class _EnvironmentManagedCertificateState:
         return pulumi.get(self, "domain_control_validation")
 
     @domain_control_validation.setter
-    def domain_control_validation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_control_validation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_control_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container Apps Environment Managed Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Subject Name of the Certificate. Must be a valid domain name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
-    def subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validationToken")
-    def validation_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The validation token for the managed certificate.
         """
         return pulumi.get(self, "validation_token")
 
     @validation_token.setter
-    def validation_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_token", value)
 
 
@@ -222,11 +222,11 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_control_validation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Container App Environment Managed Certificate.
@@ -403,11 +403,11 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_control_validation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -437,12 +437,12 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_control_validation: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            validation_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnvironmentManagedCertificate':
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validation_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnvironmentManagedCertificate':
         """
         Get an existing EnvironmentManagedCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -176,43 +176,43 @@ export interface WorkspaceCertificateState {
     /**
      * Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
      */
-    apiManagementWorkspaceId?: pulumi.Input<string>;
+    apiManagementWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base64-encoded string containing the certificate in PKCS#12 (.pfx) format.
      *
      * > **Note:** This is required when `password` is specified. Exactly one of `certificateDataBase64` or `keyVaultSecretId` must be specified.
      */
-    certificateDataBase64?: pulumi.Input<string>;
+    certificateDataBase64?: pulumi.Input<string | undefined>;
     /**
      * The expiration date of the API Management Workspace Certificate.
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the key vault secret.
      *
      * > **Note:** This is required when `userAssignedIdentityClientId` is specified. Exactly one of `certificateDataBase64` or `keyVaultSecretId` must be specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API Management Workspace Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password used to access the `certificateDataBase64`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The subject name of the API Management Workspace Certificate.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * The thumbprint of the API Management Workspace Certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client ID of user-assigned identity to be used for accessing the `keyVaultSecretId`.
      */
-    userAssignedIdentityClientId?: pulumi.Input<string>;
+    userAssignedIdentityClientId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,23 +228,23 @@ export interface WorkspaceCertificateArgs {
      *
      * > **Note:** This is required when `password` is specified. Exactly one of `certificateDataBase64` or `keyVaultSecretId` must be specified.
      */
-    certificateDataBase64?: pulumi.Input<string>;
+    certificateDataBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the key vault secret.
      *
      * > **Note:** This is required when `userAssignedIdentityClientId` is specified. Exactly one of `certificateDataBase64` or `keyVaultSecretId` must be specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API Management Workspace Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password used to access the `certificateDataBase64`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client ID of user-assigned identity to be used for accessing the `keyVaultSecretId`.
      */
-    userAssignedIdentityClientId?: pulumi.Input<string>;
+    userAssignedIdentityClientId?: pulumi.Input<string | undefined>;
 }

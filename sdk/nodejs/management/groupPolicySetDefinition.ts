@@ -181,39 +181,39 @@ export interface GroupPolicySetDefinitionState {
     /**
      * The description of this Policy Set Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Policy Set Definition.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Management Group where this Policy Set Definition should be created. Changing this forces a new Policy Set Definition to be created.
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyDefinitionGroup` blocks as defined below.
      */
-    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup>[] | undefined>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
-    policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionReference>[]>;
+    policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionReference>[] | undefined>;
     /**
      * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,7 +223,7 @@ export interface GroupPolicySetDefinitionArgs {
     /**
      * The description of this Policy Set Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Policy Set Definition.
      */
@@ -235,19 +235,19 @@ export interface GroupPolicySetDefinitionArgs {
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyDefinitionGroup` blocks as defined below.
      */
-    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup>[] | undefined>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */

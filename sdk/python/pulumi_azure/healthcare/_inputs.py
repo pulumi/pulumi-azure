@@ -46,11 +46,11 @@ __all__ = [
 ]
 
 class DicomServiceAuthenticationArgsDict(TypedDict):
-    audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
     """
-    authority: NotRequired[pulumi.Input[_builtins.str]]
+    authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
     Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
@@ -59,8 +59,8 @@ class DicomServiceAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class DicomServiceAuthenticationArgs:
     def __init__(__self__, *,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None):
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         :param pulumi.Input[_builtins.str] authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
@@ -73,19 +73,19 @@ class DicomServiceAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
         Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
@@ -93,28 +93,28 @@ class DicomServiceAuthenticationArgs:
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
 
 class DicomServiceCorsArgsDict(TypedDict):
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to allow credentials in CORS. Defaults to `false`.
     """
-    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed headers for CORS.
     """
-    allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed methods for CORS.
     """
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed origins for CORS.
     """
-    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
     """
@@ -122,11 +122,11 @@ class DicomServiceCorsArgsDict(TypedDict):
 @pulumi.input_type
 class DicomServiceCorsArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_credentials: Whether to allow credentials in CORS. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: A list of allowed headers for CORS.
@@ -147,62 +147,62 @@ class DicomServiceCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow credentials in CORS. Defaults to `false`.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedHeaders")
-    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed headers for CORS.
         """
         return pulumi.get(self, "allowed_headers")
 
     @allowed_headers.setter
-    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed methods for CORS.
         """
         return pulumi.get(self, "allowed_methods")
 
     @allowed_methods.setter
-    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed origins for CORS.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -211,20 +211,20 @@ class DicomServiceIdentityArgsDict(TypedDict):
     """
     The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DicomServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
@@ -251,41 +251,41 @@ class DicomServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class DicomServicePrivateEndpointArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Healthcare DICOM Service.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
     """
@@ -293,8 +293,8 @@ class DicomServicePrivateEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class DicomServicePrivateEndpointArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Healthcare DICOM Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -306,26 +306,26 @@ class DicomServicePrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Healthcare DICOM Service.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -392,7 +392,7 @@ class FhirServiceAuthenticationArgsDict(TypedDict):
     The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
     Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
     """
-    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    smart_proxy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether smart proxy is enabled.
     """
@@ -402,7 +402,7 @@ class FhirServiceAuthenticationArgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[_builtins.str],
                  authority: pulumi.Input[_builtins.str],
-                 smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 smart_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] audience: The intended audience to receive authentication tokens for the service.
         :param pulumi.Input[_builtins.str] authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
@@ -441,14 +441,14 @@ class FhirServiceAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="smartProxyEnabled")
-    def smart_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smart_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether smart proxy is enabled.
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
     @smart_proxy_enabled.setter
-    def smart_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smart_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
@@ -465,11 +465,11 @@ class FhirServiceCorsArgsDict(TypedDict):
     """
     A set of origins to be allowed via CORS.
     """
-    credentials_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    credentials_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If credentials are allowed via CORS.
     """
-    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max age to be allowed via CORS.
     """
@@ -480,8 +480,8 @@ class FhirServiceCorsArgs:
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 credentials_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 credentials_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: A set of headers to be allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
@@ -535,26 +535,26 @@ class FhirServiceCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialsAllowed")
-    def credentials_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def credentials_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If credentials are allowed via CORS.
         """
         return pulumi.get(self, "credentials_allowed")
 
     @credentials_allowed.setter
-    def credentials_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def credentials_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "credentials_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -563,20 +563,20 @@ class FhirServiceIdentityArgsDict(TypedDict):
     """
     The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FhirServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
@@ -603,32 +603,32 @@ class FhirServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -637,11 +637,11 @@ class FhirServiceOciArtifactArgsDict(TypedDict):
     """
     An Azure container registry used for export operations of the service instance.
     """
-    digest: NotRequired[pulumi.Input[_builtins.str]]
+    digest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
     """
-    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An image within Azure container registry used for export operations of the service instance.
     """
@@ -650,8 +650,8 @@ class FhirServiceOciArtifactArgsDict(TypedDict):
 class FhirServiceOciArtifactArgs:
     def __init__(__self__, *,
                  login_server: pulumi.Input[_builtins.str],
-                 digest: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 digest: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] login_server: An Azure container registry used for export operations of the service instance.
         :param pulumi.Input[_builtins.str] digest: A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
@@ -677,26 +677,26 @@ class FhirServiceOciArtifactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def digest(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
         """
         return pulumi.get(self, "digest")
 
     @digest.setter
-    def digest(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An image within Azure container registry used for export operations of the service instance.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
 
@@ -705,15 +705,15 @@ class MedtechServiceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this System Assigned Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this System Assigned Managed Service Identity.
     """
@@ -722,9 +722,9 @@ class MedtechServiceIdentityArgsDict(TypedDict):
 class MedtechServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
@@ -753,52 +753,52 @@ class MedtechServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this System Assigned Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this System Assigned Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ServiceAuthenticationConfigurationArgsDict(TypedDict):
-    audience: NotRequired[pulumi.Input[_builtins.str]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
     """
-    authority: NotRequired[pulumi.Input[_builtins.str]]
+    authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
     Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
     """
-    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    smart_proxy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
     """
@@ -806,9 +806,9 @@ class ServiceAuthenticationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceAuthenticationConfigurationArgs:
     def __init__(__self__, *,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 smart_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] audience: The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
         :param pulumi.Input[_builtins.str] authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
@@ -824,19 +824,19 @@ class ServiceAuthenticationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
         Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
@@ -844,40 +844,40 @@ class ServiceAuthenticationConfigurationArgs:
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
     @_builtins.property
     @pulumi.getter(name="smartProxyEnabled")
-    def smart_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smart_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
     @smart_proxy_enabled.setter
-    def smart_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smart_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
 class ServiceCorsConfigurationArgsDict(TypedDict):
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) If credentials are allowed via CORS.
     """
-    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of headers to be allowed via CORS.
     """
-    allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
     """
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of origins to be allowed via CORS.
     """
-    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max age to be allowed via CORS.
     """
@@ -885,11 +885,11 @@ class ServiceCorsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceCorsConfigurationArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_credentials: (Boolean) If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: A set of headers to be allowed via CORS.
@@ -910,62 +910,62 @@ class ServiceCorsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) If credentials are allowed via CORS.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedHeaders")
-    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of headers to be allowed via CORS.
         """
         return pulumi.get(self, "allowed_headers")
 
     @allowed_headers.setter
-    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 
     @allowed_methods.setter
-    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of origins to be allowed via CORS.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -974,15 +974,15 @@ class ServiceIdentityArgsDict(TypedDict):
     """
     The type of managed identity to assign. The only possible value is `SystemAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of managed identity to assign. The only possible value is `SystemAssigned`.
         """
@@ -1006,29 +1006,29 @@ class ServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class WorkspacePrivateEndpointConnectionArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Healthcare Workspace.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
     """
@@ -1036,8 +1036,8 @@ class WorkspacePrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspacePrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Healthcare Workspace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
@@ -1049,26 +1049,26 @@ class WorkspacePrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Healthcare Workspace.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

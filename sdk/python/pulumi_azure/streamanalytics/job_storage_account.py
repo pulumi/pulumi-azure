@@ -22,7 +22,7 @@ class JobStorageAccountArgs:
                  authentication_mode: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
                  stream_analytics_job_id: pulumi.Input[_builtins.str],
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobStorageAccount resource.
 
@@ -70,21 +70,21 @@ class JobStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
 
 @pulumi.input_type
 class _JobStorageAccountState:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobStorageAccount resources.
 
@@ -102,44 +102,44 @@ class _JobStorageAccountState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the Stream Analytics Job's Storage Account. Possible values are `ConnectionString`, and `Msi`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobId")
-    def stream_analytics_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_id")
 
     @stream_analytics_job_id.setter
-    def stream_analytics_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
@@ -149,10 +149,10 @@ class JobStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Job Storage Account. Use this resource for managing the Job Storage Account using `Msi` authentication with a `SystemAssigned` identity.
@@ -308,10 +308,10 @@ class JobStorageAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,10 +343,10 @@ class JobStorageAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'JobStorageAccount':
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'JobStorageAccount':
         """
         Get an existing JobStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

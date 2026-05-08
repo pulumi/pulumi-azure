@@ -24,13 +24,13 @@ class MongoCollectionArgs:
                  account_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
-                 default_ttl_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']] = None,
+                 default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a MongoCollection resource.
 
@@ -103,19 +103,19 @@ class MongoCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
 
@@ -124,84 +124,84 @@ class MongoCollectionArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtlSeconds")
-    def default_ttl_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
     @default_ttl_seconds.setter
-    def default_ttl_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+    def indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
+    def indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
         pulumi.set(self, "indices", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="shardKey")
-    def shard_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shard_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_key")
 
     @shard_key.setter
-    def shard_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shard_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shard_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
 @pulumi.input_type
 class _MongoCollectionState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering MongoCollection resources.
 
@@ -244,31 +244,31 @@ class _MongoCollectionState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
 
@@ -277,103 +277,103 @@ class _MongoCollectionState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['MongoCollectionAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtlSeconds")
-    def default_ttl_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
     @default_ttl_seconds.setter
-    def default_ttl_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+    def indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
+    def indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
         pulumi.set(self, "indices", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shardKey")
-    def shard_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shard_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_key")
 
     @shard_key.setter
-    def shard_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shard_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shard_key", value)
 
     @_builtins.property
     @pulumi.getter(name="systemIndexes")
-    def system_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]:
+    def system_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]:
         """
         One or more `system_indexes` blocks as defined below.
         """
         return pulumi.get(self, "system_indexes")
 
     @system_indexes.setter
-    def system_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]):
+    def system_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]):
         pulumi.set(self, "system_indexes", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
@@ -383,16 +383,16 @@ class MongoCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
@@ -506,16 +506,16 @@ class MongoCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,17 +552,17 @@ class MongoCollection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            autoscale_settings: Optional[pulumi.Input[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_ttl_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            shard_key: Optional[pulumi.Input[_builtins.str]] = None,
-            system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionSystemIndexArgs', 'MongoCollectionSystemIndexArgsDict']]]]] = None,
-            throughput: Optional[pulumi.Input[_builtins.int]] = None) -> 'MongoCollection':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+            system_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionSystemIndexArgs', 'MongoCollectionSystemIndexArgsDict']]]]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> 'MongoCollection':
         """
         Get an existing MongoCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

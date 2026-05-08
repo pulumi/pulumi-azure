@@ -25,9 +25,9 @@ class DataLakeGen2PathArgs:
                  path: pulumi.Input[_builtins.str],
                  resource: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None):
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataLakeGen2Path resource.
 
@@ -100,51 +100,51 @@ class DataLakeGen2PathArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]:
+    def aces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]):
+    def aces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]):
         pulumi.set(self, "aces", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
 
 @pulumi.input_type
 class _DataLakeGen2PathState:
     def __init__(__self__, *,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
-                 filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
+                 filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataLakeGen2Path resources.
 
@@ -173,86 +173,86 @@ class _DataLakeGen2PathState:
 
     @_builtins.property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]:
+    def aces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]):
+    def aces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]):
         pulumi.set(self, "aces", value)
 
     @_builtins.property
     @pulumi.getter(name="filesystemName")
-    def filesystem_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filesystem_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "filesystem_name")
 
     @filesystem_name.setter
-    def filesystem_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filesystem_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filesystem_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -262,13 +262,13 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
-                 filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
+                 filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.
@@ -383,13 +383,13 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
-                 filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
+                 filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -424,13 +424,13 @@ class DataLakeGen2Path(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
-            filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-            group: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            resource: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataLakeGen2Path':
+            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]]] = None,
+            filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            resource: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataLakeGen2Path':
         """
         Get an existing DataLakeGen2Path resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

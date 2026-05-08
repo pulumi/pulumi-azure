@@ -203,39 +203,39 @@ export interface AlertProcessingRuleActionGroupState {
     /**
      * Specifies a list of Action Group IDs.
      */
-    addActionGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    addActionGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `condition` block as defined below.
      */
-    condition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupCondition>;
+    condition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupCondition | undefined>;
     /**
      * Specifies a description for the Alert Processing Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should the Alert Processing Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `schedule` block as defined below.
      */
-    schedule?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupSchedule>;
+    schedule?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupSchedule | undefined>;
     /**
      * A list of resource IDs which will be the target of alert processing rule.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Alert Processing Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -249,19 +249,19 @@ export interface AlertProcessingRuleActionGroupArgs {
     /**
      * A `condition` block as defined below.
      */
-    condition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupCondition>;
+    condition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupCondition | undefined>;
     /**
      * Specifies a description for the Alert Processing Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should the Alert Processing Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
      */
@@ -269,7 +269,7 @@ export interface AlertProcessingRuleActionGroupArgs {
     /**
      * A `schedule` block as defined below.
      */
-    schedule?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupSchedule>;
+    schedule?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupSchedule | undefined>;
     /**
      * A list of resource IDs which will be the target of alert processing rule.
      */
@@ -277,5 +277,5 @@ export interface AlertProcessingRuleActionGroupArgs {
     /**
      * A mapping of tags which should be assigned to the Alert Processing Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -147,31 +147,31 @@ export interface CustomProviderState {
     /**
      * Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderAction>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[]>;
+    resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Any number of `validation` block as defined below.
      */
-    validations?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderValidation>[]>;
+    validations?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderValidation>[] | undefined>;
 }
 
 /**
@@ -181,15 +181,15 @@ export interface CustomProviderArgs {
     /**
      * Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderAction>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
@@ -197,13 +197,13 @@ export interface CustomProviderArgs {
     /**
      * Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[]>;
+    resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Any number of `validation` block as defined below.
      */
-    validations?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderValidation>[]>;
+    validations?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderValidation>[] | undefined>;
 }

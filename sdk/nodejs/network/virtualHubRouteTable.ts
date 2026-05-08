@@ -170,19 +170,19 @@ export interface VirtualHubRouteTableState {
     /**
      * List of labels associated with this route table.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `route` blocks as defined below.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[] | undefined>;
     /**
      * The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,15 +192,15 @@ export interface VirtualHubRouteTableArgs {
     /**
      * List of labels associated with this route table.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `route` blocks as defined below.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[] | undefined>;
     /**
      * The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
      */

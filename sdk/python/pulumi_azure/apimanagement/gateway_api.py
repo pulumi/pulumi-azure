@@ -58,8 +58,8 @@ class GatewayApiArgs:
 @pulumi.input_type
 class _GatewayApiState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayApi resources.
 
@@ -73,26 +73,26 @@ class _GatewayApiState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
-    def gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_id", value)
 
 
@@ -102,8 +102,8 @@ class GatewayApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management Gateway API.
@@ -207,8 +207,8 @@ class GatewayApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,8 +234,8 @@ class GatewayApi(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GatewayApi':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GatewayApi':
         """
         Get an existing GatewayApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

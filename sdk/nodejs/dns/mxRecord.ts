@@ -172,31 +172,31 @@ export interface MxRecordState {
     /**
      * The FQDN of the DNS MX Record.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of values that make up the MX record. Each `record` block supports fields documented below.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[] | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface MxRecordArgs {
     /**
      * The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of values that make up the MX record. Each `record` block supports fields documented below.
      */
@@ -218,7 +218,7 @@ export interface MxRecordArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

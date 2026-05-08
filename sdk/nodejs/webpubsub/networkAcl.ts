@@ -171,19 +171,19 @@ export interface NetworkAclState {
     /**
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * A `privateEndpoint` block as defined below.
      */
-    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.webpubsub.NetworkAclPrivateEndpoint>[]>;
+    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.webpubsub.NetworkAclPrivateEndpoint>[] | undefined>;
     /**
      * A `publicNetwork` block as defined below.
      */
-    publicNetwork?: pulumi.Input<inputs.webpubsub.NetworkAclPublicNetwork>;
+    publicNetwork?: pulumi.Input<inputs.webpubsub.NetworkAclPublicNetwork | undefined>;
     /**
      * The ID of the Web Pubsub service. Changing this forces a new resource to be created.
      */
-    webPubsubId?: pulumi.Input<string>;
+    webPubsubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface NetworkAclArgs {
     /**
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * A `privateEndpoint` block as defined below.
      */
-    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.webpubsub.NetworkAclPrivateEndpoint>[]>;
+    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.webpubsub.NetworkAclPrivateEndpoint>[] | undefined>;
     /**
      * A `publicNetwork` block as defined below.
      */

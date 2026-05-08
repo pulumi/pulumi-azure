@@ -214,8 +214,8 @@ def get_managed_hardware_security_module_key(managed_hsm_id: Optional[_builtins.
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
         versioned_id=pulumi.get(__ret__, 'versioned_id'))
-def get_managed_hardware_security_module_key_output(managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_hardware_security_module_key_output(managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleKeyResult]:
     """
     Use this data source to access information about an existing Managed Hardware Security Module Key.

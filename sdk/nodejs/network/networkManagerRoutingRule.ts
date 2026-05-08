@@ -170,23 +170,23 @@ export interface NetworkManagerRoutingRuleState {
     /**
      * A description for the routing rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `destination` block as defined below.
      */
-    destination?: pulumi.Input<inputs.network.NetworkManagerRoutingRuleDestination>;
+    destination?: pulumi.Input<inputs.network.NetworkManagerRoutingRuleDestination | undefined>;
     /**
      * The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `nextHop` block as defined below.
      */
-    nextHop?: pulumi.Input<inputs.network.NetworkManagerRoutingRuleNextHop>;
+    nextHop?: pulumi.Input<inputs.network.NetworkManagerRoutingRuleNextHop | undefined>;
     /**
      * The ID of the Network Manager Routing Rule Collection to which this rule belongs. Changing this forces a new resource to be created.
      */
-    ruleCollectionId?: pulumi.Input<string>;
+    ruleCollectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface NetworkManagerRoutingRuleArgs {
     /**
      * A description for the routing rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `destination` block as defined below.
      */
@@ -204,7 +204,7 @@ export interface NetworkManagerRoutingRuleArgs {
     /**
      * The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `nextHop` block as defined below.
      */

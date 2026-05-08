@@ -21,7 +21,7 @@ class NamespaceCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[_builtins.str],
                  namespace_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
 
@@ -60,23 +60,23 @@ class NamespaceCustomerManagedKeyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
 
 @pulumi.input_type
 class _NamespaceCustomerManagedKeyState:
     def __init__(__self__, *,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
 
@@ -93,38 +93,38 @@ class _NamespaceCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Service Bus namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
 
@@ -134,9 +134,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Bus Namespace Customer Managed Key.
@@ -381,9 +381,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,9 +410,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceCustomerManagedKey':
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceCustomerManagedKey':
         """
         Get an existing NamespaceCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

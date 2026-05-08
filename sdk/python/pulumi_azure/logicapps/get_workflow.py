@@ -262,8 +262,8 @@ def get_workflow(name: Optional[_builtins.str] = None,
         workflow_outbound_ip_addresses=pulumi.get(__ret__, 'workflow_outbound_ip_addresses'),
         workflow_schema=pulumi.get(__ret__, 'workflow_schema'),
         workflow_version=pulumi.get(__ret__, 'workflow_version'))
-def get_workflow_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Use this data source to access information about an existing Logic App Workflow.

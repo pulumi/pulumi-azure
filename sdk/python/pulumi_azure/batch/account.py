@@ -22,19 +22,19 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
-                 pool_allocation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_node_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional['AccountEncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 key_vault_reference: pulumi.Input[Optional['AccountKeyVaultReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['AccountNetworkProfileArgs']] = None,
+                 pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -107,103 +107,103 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAuthenticationModes")
-    def allowed_authentication_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_authentication_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         """
         return pulumi.get(self, "allowed_authentication_modes")
 
     @allowed_authentication_modes.setter
-    def allowed_authentication_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_authentication_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_authentication_modes", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['AccountEncryptionArgs']]:
         """
         Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['AccountEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]:
+    def key_vault_reference(self) -> pulumi.Input[Optional['AccountKeyVaultReferenceArgs']]:
         """
         A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         """
         return pulumi.get(self, "key_vault_reference")
 
     @key_vault_reference.setter
-    def key_vault_reference(self, value: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]):
+    def key_vault_reference(self, value: pulumi.Input[Optional['AccountKeyVaultReferenceArgs']]):
         pulumi.set(self, "key_vault_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['AccountNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['AccountNetworkProfileArgs']]:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['AccountNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['AccountNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="poolAllocationMode")
-    def pool_allocation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_allocation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         """
         return pulumi.get(self, "pool_allocation_mode")
 
     @pool_allocation_mode.setter
-    def pool_allocation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_allocation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_allocation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`.
 
@@ -214,12 +214,12 @@ class AccountArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAuthenticationMode")
-    def storage_account_authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 
@@ -228,12 +228,12 @@ class AccountArgs:
         return pulumi.get(self, "storage_account_authentication_mode")
 
     @storage_account_authentication_mode.setter
-    def storage_account_authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 
@@ -242,54 +242,54 @@ class AccountArgs:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountNodeIdentity")
-    def storage_account_node_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_node_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user assigned identity for the storage account.
         """
         return pulumi.get(self, "storage_account_node_identity")
 
     @storage_account_node_identity.setter
-    def storage_account_node_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_node_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_node_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 account_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
-                 pool_allocation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_node_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional['AccountEncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 key_vault_reference: pulumi.Input[Optional['AccountKeyVaultReferenceArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['AccountNetworkProfileArgs']] = None,
+                 pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -358,127 +358,127 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="accountEndpoint")
-    def account_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account endpoint used to interact with the Batch service.
         """
         return pulumi.get(self, "account_endpoint")
 
     @account_endpoint.setter
-    def account_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAuthenticationModes")
-    def allowed_authentication_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_authentication_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         """
         return pulumi.get(self, "allowed_authentication_modes")
 
     @allowed_authentication_modes.setter
-    def allowed_authentication_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_authentication_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_authentication_modes", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['AccountEncryptionArgs']]:
         """
         Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['AccountEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]:
+    def key_vault_reference(self) -> pulumi.Input[Optional['AccountKeyVaultReferenceArgs']]:
         """
         A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         """
         return pulumi.get(self, "key_vault_reference")
 
     @key_vault_reference.setter
-    def key_vault_reference(self, value: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]):
+    def key_vault_reference(self, value: pulumi.Input[Optional['AccountKeyVaultReferenceArgs']]):
         pulumi.set(self, "key_vault_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['AccountNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['AccountNetworkProfileArgs']]:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['AccountNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['AccountNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="poolAllocationMode")
-    def pool_allocation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_allocation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         """
         return pulumi.get(self, "pool_allocation_mode")
 
     @pool_allocation_mode.setter
-    def pool_allocation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_allocation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_allocation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Batch account primary access key.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`.
 
@@ -489,12 +489,12 @@ class _AccountState:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 
@@ -503,24 +503,24 @@ class _AccountState:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Batch account secondary access key.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAuthenticationMode")
-    def storage_account_authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 
@@ -529,12 +529,12 @@ class _AccountState:
         return pulumi.get(self, "storage_account_authentication_mode")
 
     @storage_account_authentication_mode.setter
-    def storage_account_authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 
@@ -543,31 +543,31 @@ class _AccountState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountNodeIdentity")
-    def storage_account_node_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_node_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user assigned identity for the storage account.
         """
         return pulumi.get(self, "storage_account_node_identity")
 
     @storage_account_node_identity.setter
-    def storage_account_node_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_node_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_node_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -577,20 +577,20 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
-                 pool_allocation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_node_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+                 pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Batch account.
@@ -732,20 +732,20 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
-                 pool_allocation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_node_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+                 pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -786,23 +786,23 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            key_vault_reference: Optional[pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_profile: Optional[pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
-            pool_allocation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_node_identity: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            account_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+            pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

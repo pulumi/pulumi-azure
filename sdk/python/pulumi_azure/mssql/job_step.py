@@ -25,14 +25,14 @@ class JobStepArgs:
                  job_step_index: pulumi.Input[_builtins.int],
                  job_target_group_id: pulumi.Input[_builtins.str],
                  sql_script: pulumi.Input[_builtins.str],
-                 initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_target: Optional[pulumi.Input['JobStepOutputTargetArgs']] = None,
-                 retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_target: pulumi.Input[Optional['JobStepOutputTargetArgs']] = None,
+                 retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a JobStep resource.
 
@@ -132,19 +132,19 @@ class JobStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialRetryIntervalSeconds")
-    def initial_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def initial_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The initial retry interval in seconds. Defaults to `1`.
         """
         return pulumi.get(self, "initial_retry_interval_seconds")
 
     @initial_retry_interval_seconds.setter
-    def initial_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def initial_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "initial_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 
@@ -153,12 +153,12 @@ class JobStepArgs:
         return pulumi.get(self, "job_credential_id")
 
     @job_credential_id.setter
-    def job_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryIntervalSeconds")
-    def maximum_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum retry interval in seconds. Defaults to `120`.
 
@@ -167,85 +167,85 @@ class JobStepArgs:
         return pulumi.get(self, "maximum_retry_interval_seconds")
 
     @maximum_retry_interval_seconds.setter
-    def maximum_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputTarget")
-    def output_target(self) -> Optional[pulumi.Input['JobStepOutputTargetArgs']]:
+    def output_target(self) -> pulumi.Input[Optional['JobStepOutputTargetArgs']]:
         """
         An `output_target` block as defined below.
         """
         return pulumi.get(self, "output_target")
 
     @output_target.setter
-    def output_target(self, value: Optional[pulumi.Input['JobStepOutputTargetArgs']]):
+    def output_target(self, value: pulumi.Input[Optional['JobStepOutputTargetArgs']]):
         pulumi.set(self, "output_target", value)
 
     @_builtins.property
     @pulumi.getter(name="retryAttempts")
-    def retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of retry attempts. Defaults to `10`.
         """
         return pulumi.get(self, "retry_attempts")
 
     @retry_attempts.setter
-    def retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
-    def retry_interval_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_interval_backoff_multiplier(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The multiplier for time between retries. Defaults to `2.0`.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 
     @retry_interval_backoff_multiplier.setter
-    def retry_interval_backoff_multiplier(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_interval_backoff_multiplier(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_interval_backoff_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
 @pulumi.input_type
 class _JobStepState:
     def __init__(__self__, *,
-                 initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_step_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_target: Optional[pulumi.Input['JobStepOutputTargetArgs']] = None,
-                 retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-                 sql_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_step_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_target: pulumi.Input[Optional['JobStepOutputTargetArgs']] = None,
+                 retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+                 sql_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering JobStep resources.
 
@@ -297,19 +297,19 @@ class _JobStepState:
 
     @_builtins.property
     @pulumi.getter(name="initialRetryIntervalSeconds")
-    def initial_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def initial_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The initial retry interval in seconds. Defaults to `1`.
         """
         return pulumi.get(self, "initial_retry_interval_seconds")
 
     @initial_retry_interval_seconds.setter
-    def initial_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def initial_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "initial_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 
@@ -318,24 +318,24 @@ class _JobStepState:
         return pulumi.get(self, "job_credential_id")
 
     @job_credential_id.setter
-    def job_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
         """
         return pulumi.get(self, "job_id")
 
     @job_id.setter
-    def job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_id", value)
 
     @_builtins.property
     @pulumi.getter(name="jobStepIndex")
-    def job_step_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def job_step_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The index at which to insert this Elastic Job Step into the Elastic Job.
 
@@ -344,24 +344,24 @@ class _JobStepState:
         return pulumi.get(self, "job_step_index")
 
     @job_step_index.setter
-    def job_step_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def job_step_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "job_step_index", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTargetGroupId")
-    def job_target_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_target_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic Job Target Group.
         """
         return pulumi.get(self, "job_target_group_id")
 
     @job_target_group_id.setter
-    def job_target_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_target_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_target_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryIntervalSeconds")
-    def maximum_retry_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_retry_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum retry interval in seconds. Defaults to `120`.
 
@@ -370,60 +370,60 @@ class _JobStepState:
         return pulumi.get(self, "maximum_retry_interval_seconds")
 
     @maximum_retry_interval_seconds.setter
-    def maximum_retry_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_retry_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_retry_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputTarget")
-    def output_target(self) -> Optional[pulumi.Input['JobStepOutputTargetArgs']]:
+    def output_target(self) -> pulumi.Input[Optional['JobStepOutputTargetArgs']]:
         """
         An `output_target` block as defined below.
         """
         return pulumi.get(self, "output_target")
 
     @output_target.setter
-    def output_target(self, value: Optional[pulumi.Input['JobStepOutputTargetArgs']]):
+    def output_target(self, value: pulumi.Input[Optional['JobStepOutputTargetArgs']]):
         pulumi.set(self, "output_target", value)
 
     @_builtins.property
     @pulumi.getter(name="retryAttempts")
-    def retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of retry attempts. Defaults to `10`.
         """
         return pulumi.get(self, "retry_attempts")
 
     @retry_attempts.setter
-    def retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
-    def retry_interval_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def retry_interval_backoff_multiplier(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The multiplier for time between retries. Defaults to `2.0`.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 
     @retry_interval_backoff_multiplier.setter
-    def retry_interval_backoff_multiplier(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def retry_interval_backoff_multiplier(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "retry_interval_backoff_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlScript")
-    def sql_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The T-SQL script to be executed by this Elastic Job Step.
 
@@ -432,19 +432,19 @@ class _JobStepState:
         return pulumi.get(self, "sql_script")
 
     @sql_script.setter
-    def sql_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_script", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -454,18 +454,18 @@ class JobStep(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_step_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_target: Optional[pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
-                 retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-                 sql_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_step_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+                 retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+                 sql_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages an Elastic Job Step.
@@ -661,18 +661,18 @@ class JobStep(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_step_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_target: Optional[pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
-                 retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-                 sql_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_step_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+                 retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+                 sql_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -712,18 +712,18 @@ class JobStep(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            initial_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-            job_id: Optional[pulumi.Input[_builtins.str]] = None,
-            job_step_index: Optional[pulumi.Input[_builtins.int]] = None,
-            job_target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_retry_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            output_target: Optional[pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
-            retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-            retry_interval_backoff_multiplier: Optional[pulumi.Input[_builtins.float]] = None,
-            sql_script: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'JobStep':
+            initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_step_index: pulumi.Input[Optional[_builtins.int]] = None,
+            job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+            retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+            sql_script: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'JobStep':
         """
         Get an existing JobStep resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

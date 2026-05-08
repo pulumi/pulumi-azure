@@ -243,79 +243,79 @@ export interface NetworkSecurityRuleState {
     /**
      * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
      */
-    access?: pulumi.Input<string>;
+    access?: pulumi.Input<string | undefined>;
     /**
      * A description for this rule. Restricted to 140 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
      */
-    destinationAddressPrefix?: pulumi.Input<string>;
+    destinationAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * List of destination address prefixes. Tags may not be used.
      */
-    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A List of destination Application Security Group IDs
      *
      * > **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      */
-    destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
+    destinationApplicationSecurityGroupIds?: pulumi.Input<string | undefined>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
-    destinationPortRange?: pulumi.Input<string>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
     /**
      * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
      */
-    direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string | undefined>;
     /**
      * The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
      */
-    networkSecurityGroupName?: pulumi.Input<string>;
+    networkSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
      */
-    sourceAddressPrefix?: pulumi.Input<string>;
+    sourceAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * List of source address prefixes. Tags may not be used.
      */
-    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A List of source Application Security Group IDs
      *
      * > **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      */
-    sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
+    sourceApplicationSecurityGroupIds?: pulumi.Input<string | undefined>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
-    sourcePortRange?: pulumi.Input<string>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
     /**
      * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -329,29 +329,29 @@ export interface NetworkSecurityRuleArgs {
     /**
      * A description for this rule. Restricted to 140 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
      */
-    destinationAddressPrefix?: pulumi.Input<string>;
+    destinationAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * List of destination address prefixes. Tags may not be used.
      */
-    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A List of destination Application Security Group IDs
      *
      * > **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      */
-    destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
+    destinationApplicationSecurityGroupIds?: pulumi.Input<string | undefined>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
-    destinationPortRange?: pulumi.Input<string>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
     /**
      * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
      */
@@ -359,7 +359,7 @@ export interface NetworkSecurityRuleArgs {
     /**
      * The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
      */
@@ -379,23 +379,23 @@ export interface NetworkSecurityRuleArgs {
     /**
      * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
      */
-    sourceAddressPrefix?: pulumi.Input<string>;
+    sourceAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * List of source address prefixes. Tags may not be used.
      */
-    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A List of source Application Security Group IDs
      *
      * > **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      */
-    sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
+    sourceApplicationSecurityGroupIds?: pulumi.Input<string | undefined>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
-    sourcePortRange?: pulumi.Input<string>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
     /**
      * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

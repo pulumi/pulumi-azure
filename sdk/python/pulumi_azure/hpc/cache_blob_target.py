@@ -23,8 +23,8 @@ class CacheBlobTargetArgs:
                  namespace_path: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheBlobTarget resource.
 
@@ -98,38 +98,38 @@ class CacheBlobTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CacheBlobTargetState:
     def __init__(__self__, *,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheBlobTarget resources.
 
@@ -157,67 +157,67 @@ class _CacheBlobTargetState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheName")
-    def cache_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_name")
 
     @cache_name.setter
-    def cache_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client-facing file path of the HPC Cache Blob Target.
         """
         return pulumi.get(self, "namespace_path")
 
     @namespace_path.setter
-    def namespace_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_path", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
 
@@ -226,7 +226,7 @@ class _CacheBlobTargetState:
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
 
@@ -236,12 +236,12 @@ class CacheBlobTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Blob Target within a HPC Cache.
@@ -307,12 +307,12 @@ class CacheBlobTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,12 +346,12 @@ class CacheBlobTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CacheBlobTarget':
+            access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CacheBlobTarget':
         """
         Get an existing CacheBlobTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

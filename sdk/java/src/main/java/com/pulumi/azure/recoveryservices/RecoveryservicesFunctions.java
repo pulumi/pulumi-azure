@@ -29,8 +29,8 @@ public final class RecoveryservicesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -77,8 +77,8 @@ public final class RecoveryservicesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -125,8 +125,8 @@ public final class RecoveryservicesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class RecoveryservicesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -221,8 +221,8 @@ public final class RecoveryservicesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

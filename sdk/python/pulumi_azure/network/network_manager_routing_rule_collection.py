@@ -21,9 +21,9 @@ class NetworkManagerRoutingRuleCollectionArgs:
     def __init__(__self__, *,
                  network_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  routing_configuration_id: pulumi.Input[_builtins.str],
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingRuleCollection resource.
 
@@ -68,49 +68,49 @@ class NetworkManagerRoutingRuleCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
-    def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_propagation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the BGP route propagation. Defaults to `false`.
         """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
-    def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_propagation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Manager Routing Rule Collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager Routing Rule Collection. Changing this forces a new Network Manager Routing Rule Collection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerRoutingRuleCollectionState:
     def __init__(__self__, *,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 routing_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingRuleCollection resources.
 
@@ -133,62 +133,62 @@ class _NetworkManagerRoutingRuleCollectionState:
 
     @_builtins.property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
-    def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_route_propagation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the BGP route propagation. Defaults to `false`.
         """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
-    def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_route_propagation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Manager Routing Rule Collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager Routing Rule Collection. Changing this forces a new Network Manager Routing Rule Collection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkGroupIds")
-    def network_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Network Group IDs which this Network Manager Routing Rule Collection applies to.
         """
         return pulumi.get(self, "network_group_ids")
 
     @network_group_ids.setter
-    def network_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfigurationId")
-    def routing_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Rule Collection to be created.
         """
         return pulumi.get(self, "routing_configuration_id")
 
     @routing_configuration_id.setter
-    def routing_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_configuration_id", value)
 
 
@@ -198,11 +198,11 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 routing_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Routing Rule Collection.
@@ -337,11 +337,11 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 routing_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -370,11 +370,11 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bgp_route_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            routing_configuration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerRoutingRuleCollection':
+            bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            routing_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerRoutingRuleCollection':
         """
         Get an existing NetworkManagerRoutingRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

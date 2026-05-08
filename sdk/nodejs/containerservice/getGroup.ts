@@ -146,5 +146,5 @@ export interface GetGroupOutputArgs {
     /**
      * A list of Availability Zones in which this Container Group is located.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

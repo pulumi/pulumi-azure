@@ -24,8 +24,8 @@ class NetworkManagerRoutingRuleArgs:
                  destination: pulumi.Input['NetworkManagerRoutingRuleDestinationArgs'],
                  next_hop: pulumi.Input['NetworkManagerRoutingRuleNextHopArgs'],
                  rule_collection_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingRule resource.
 
@@ -81,37 +81,37 @@ class NetworkManagerRoutingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the routing rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerRoutingRuleState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input['NetworkManagerRoutingRuleDestinationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop: Optional[pulumi.Input['NetworkManagerRoutingRuleNextHopArgs']] = None,
-                 rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional['NetworkManagerRoutingRuleDestinationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop: pulumi.Input[Optional['NetworkManagerRoutingRuleNextHopArgs']] = None,
+                 rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingRule resources.
 
@@ -134,62 +134,62 @@ class _NetworkManagerRoutingRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the routing rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['NetworkManagerRoutingRuleDestinationArgs']]:
+    def destination(self) -> pulumi.Input[Optional['NetworkManagerRoutingRuleDestinationArgs']]:
         """
         A `destination` block as defined below.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['NetworkManagerRoutingRuleDestinationArgs']]):
+    def destination(self, value: pulumi.Input[Optional['NetworkManagerRoutingRuleDestinationArgs']]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nextHop")
-    def next_hop(self) -> Optional[pulumi.Input['NetworkManagerRoutingRuleNextHopArgs']]:
+    def next_hop(self) -> pulumi.Input[Optional['NetworkManagerRoutingRuleNextHopArgs']]:
         """
         A `next_hop` block as defined below.
         """
         return pulumi.get(self, "next_hop")
 
     @next_hop.setter
-    def next_hop(self, value: Optional[pulumi.Input['NetworkManagerRoutingRuleNextHopArgs']]):
+    def next_hop(self, value: pulumi.Input[Optional['NetworkManagerRoutingRuleNextHopArgs']]):
         pulumi.set(self, "next_hop", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionId")
-    def rule_collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Manager Routing Rule Collection to which this rule belongs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rule_collection_id")
 
     @rule_collection_id.setter
-    def rule_collection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_collection_id", value)
 
 
@@ -199,11 +199,11 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
-                 rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+                 rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Routing Rule.
@@ -360,11 +360,11 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
-                 rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+                 rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,11 +395,11 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            next_hop: Optional[pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
-            rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerRoutingRule':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+            rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerRoutingRule':
         """
         Get an existing NetworkManagerRoutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

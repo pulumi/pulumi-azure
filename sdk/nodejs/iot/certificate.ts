@@ -144,23 +144,23 @@ export interface CertificateState {
     /**
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      */
-    certificateContent?: pulumi.Input<string>;
+    certificateContent?: pulumi.Input<string | undefined>;
     /**
      * The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
      */
-    iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string | undefined>;
     /**
      * Is the certificate verified? Defaults to `false`.
      */
-    isVerified?: pulumi.Input<boolean>;
+    isVerified?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,11 +178,11 @@ export interface CertificateArgs {
     /**
      * Is the certificate verified? Defaults to `false`.
      */
-    isVerified?: pulumi.Input<boolean>;
+    isVerified?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
      */

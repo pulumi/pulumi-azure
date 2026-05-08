@@ -163,27 +163,27 @@ export interface SecurityPartnerProviderState {
     /**
      * The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Security Partner Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The security provider name. Possible values are `ZScaler`, `IBoss` and `Checkpoint` is allowed. Changing this forces a new resource to be created.
      */
-    securityProviderName?: pulumi.Input<string>;
+    securityProviderName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Security Partner Provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface SecurityPartnerProviderArgs {
     /**
      * The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Security Partner Provider. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      */
@@ -209,9 +209,9 @@ export interface SecurityPartnerProviderArgs {
     /**
      * A mapping of tags which should be assigned to the Security Partner Provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }

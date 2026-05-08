@@ -127,13 +127,13 @@ export interface AutomanageConfigurationAssignmentState {
     /**
      * The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
      */
-    arcMachineId?: pulumi.Input<string>;
+    arcMachineId?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
      */
-    configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string | undefined>;
 }
 
 /**

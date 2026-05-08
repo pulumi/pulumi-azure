@@ -25,7 +25,7 @@ class DataSourceWindowsPerformanceCounterArgs:
                  object_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSourceWindowsPerformanceCounter resource.
 
@@ -120,27 +120,27 @@ class DataSourceWindowsPerformanceCounterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DataSourceWindowsPerformanceCounterState:
     def __init__(__self__, *,
-                 counter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSourceWindowsPerformanceCounter resources.
 
@@ -169,86 +169,86 @@ class _DataSourceWindowsPerformanceCounterState:
 
     @_builtins.property
     @pulumi.getter(name="counterName")
-    def counter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def counter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the performance counter.
         """
         return pulumi.get(self, "counter_name")
 
     @counter_name.setter
-    def counter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def counter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "counter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
-    def instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time of sample interval in seconds. Supports values between 10 and 2147483647.
         """
         return pulumi.get(self, "interval_seconds")
 
     @interval_seconds.setter
-    def interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object name of the Log Analytics Windows Performance Counter DataSource.
         """
         return pulumi.get(self, "object_name")
 
     @object_name.setter
-    def object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
-    def workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_name", value)
 
 
@@ -258,13 +258,13 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 counter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
@@ -383,13 +383,13 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 counter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,13 +428,13 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            counter_name: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-            interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            object_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataSourceWindowsPerformanceCounter':
+            counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+            interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            object_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataSourceWindowsPerformanceCounter':
         """
         Get an existing DataSourceWindowsPerformanceCounter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

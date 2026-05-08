@@ -157,27 +157,27 @@ export interface AccountRaiPolicyState {
     /**
      * The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
      */
-    basePolicyName?: pulumi.Input<string>;
+    basePolicyName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * A `contentFilter` block as defined below.
      */
-    contentFilters?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountRaiPolicyContentFilter>[]>;
+    contentFilters?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountRaiPolicyContentFilter>[] | undefined>;
     /**
      * The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -199,13 +199,13 @@ export interface AccountRaiPolicyArgs {
     /**
      * The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

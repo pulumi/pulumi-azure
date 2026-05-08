@@ -145,19 +145,19 @@ export interface SpringCloudCustomDomainState {
     /**
      * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,11 +167,11 @@ export interface SpringCloudCustomDomainArgs {
     /**
      * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
@@ -179,5 +179,5 @@ export interface SpringCloudCustomDomainArgs {
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }

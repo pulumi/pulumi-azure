@@ -138,19 +138,19 @@ export interface VMWareReplicationPolicyState {
     /**
      * Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
      */
-    applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
+    applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
      */
-    recoveryPointRetentionInMinutes?: pulumi.Input<number>;
+    recoveryPointRetentionInMinutes?: pulumi.Input<number | undefined>;
     /**
      * ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface VMWareReplicationPolicyArgs {
     /**
      * The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
      */

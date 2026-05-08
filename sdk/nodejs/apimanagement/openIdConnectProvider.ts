@@ -176,35 +176,35 @@ export interface OpenIdConnectProviderState {
     /**
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The Client ID used for the Client Application.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret used for the Client Application.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * A description of this OpenID Connect Provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A user-friendly name for this OpenID Connect Provider.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Metadata endpoint.
      */
-    metadataEndpoint?: pulumi.Input<string>;
+    metadataEndpoint?: pulumi.Input<string | undefined>;
     /**
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface OpenIdConnectProviderArgs {
     /**
      * A description of this OpenID Connect Provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A user-friendly name for this OpenID Connect Provider.
      */
@@ -238,7 +238,7 @@ export interface OpenIdConnectProviderArgs {
     /**
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */

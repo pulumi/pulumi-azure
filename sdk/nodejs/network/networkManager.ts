@@ -164,35 +164,35 @@ export interface NetworkManagerState {
     /**
      * One or more `crossTenantScopes` blocks as defined below.
      */
-    crossTenantScopes?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerCrossTenantScope>[]>;
+    crossTenantScopes?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerCrossTenantScope>[] | undefined>;
     /**
      * A description of the Network Manager.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `scope` block as defined below.
      */
-    scope?: pulumi.Input<inputs.network.NetworkManagerScope>;
+    scope?: pulumi.Input<inputs.network.NetworkManagerScope | undefined>;
     /**
      * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
-    scopeAccesses?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -202,15 +202,15 @@ export interface NetworkManagerArgs {
     /**
      * A description of the Network Manager.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
@@ -222,9 +222,9 @@ export interface NetworkManagerArgs {
     /**
      * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
-    scopeAccesses?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

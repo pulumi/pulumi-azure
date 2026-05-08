@@ -58,15 +58,15 @@ class GrafanaIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -75,9 +75,9 @@ class GrafanaIdentityArgsDict(TypedDict):
 class GrafanaIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
@@ -106,38 +106,38 @@ class GrafanaIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -162,15 +162,15 @@ class GrafanaSmtpArgsDict(TypedDict):
     """
     User of SMTP authentication.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
     """
-    from_name: NotRequired[pulumi.Input[_builtins.str]]
+    from_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
     """
-    verification_skip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    verification_skip_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether verify SSL for SMTP server. Defaults to `false`.
     """
@@ -183,9 +183,9 @@ class GrafanaSmtpArgs:
                  password: pulumi.Input[_builtins.str],
                  start_tls_policy: pulumi.Input[_builtins.str],
                  user: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_skip_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_skip_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] from_address: Address used when sending emails.
         :param pulumi.Input[_builtins.str] host: SMTP server hostname with port, e.g. test.email.net:587
@@ -270,38 +270,38 @@ class GrafanaSmtpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fromName")
-    def from_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
         """
         return pulumi.get(self, "from_name")
 
     @from_name.setter
-    def from_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_name", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationSkipEnabled")
-    def verification_skip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verification_skip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether verify SSL for SMTP server. Defaults to `false`.
         """
         return pulumi.get(self, "verification_skip_enabled")
 
     @verification_skip_enabled.setter
-    def verification_skip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verification_skip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verification_skip_enabled", value)
 
 

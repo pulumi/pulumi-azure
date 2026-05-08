@@ -221,83 +221,83 @@ export interface FirewallPolicyState {
     /**
      * Whether enable auto learn private ip range.
      */
-    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
+    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the base Firewall Policy.
      */
-    basePolicyId?: pulumi.Input<string>;
+    basePolicyId?: pulumi.Input<string | undefined>;
     /**
      * A list of reference to child Firewall Policies of this Firewall Policy.
      */
-    childPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    childPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `dns` block as defined below.
      */
-    dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    dns?: pulumi.Input<inputs.network.FirewallPolicyDns | undefined>;
     /**
      * A `explicitProxy` block as defined below.
      */
-    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy>;
+    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy | undefined>;
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    firewalls?: pulumi.Input<pulumi.Input<string>[]>;
+    firewalls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity | undefined>;
     /**
      * An `insights` block as defined below.
      */
-    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights>;
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights | undefined>;
     /**
      * A `intrusionDetection` block as defined below.
      */
-    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection>;
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection | undefined>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of private IP ranges to which traffic will not be SNAT.
      */
-    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
      */
-    ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
      */
-    sqlRedirectAllowed?: pulumi.Input<boolean>;
+    sqlRedirectAllowed?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `threatIntelligenceAllowlist` block as defined below.
      */
-    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
+    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist | undefined>;
     /**
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
-    threatIntelligenceMode?: pulumi.Input<string>;
+    threatIntelligenceMode?: pulumi.Input<string | undefined>;
     /**
      * A `tlsCertificate` block as defined below.
      */
-    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate>;
+    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate | undefined>;
 }
 
 /**
@@ -307,43 +307,43 @@ export interface FirewallPolicyArgs {
     /**
      * Whether enable auto learn private ip range.
      */
-    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
+    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the base Firewall Policy.
      */
-    basePolicyId?: pulumi.Input<string>;
+    basePolicyId?: pulumi.Input<string | undefined>;
     /**
      * A `dns` block as defined below.
      */
-    dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    dns?: pulumi.Input<inputs.network.FirewallPolicyDns | undefined>;
     /**
      * A `explicitProxy` block as defined below.
      */
-    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy>;
+    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity | undefined>;
     /**
      * An `insights` block as defined below.
      */
-    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights>;
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights | undefined>;
     /**
      * A `intrusionDetection` block as defined below.
      */
-    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection>;
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection | undefined>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of private IP ranges to which traffic will not be SNAT.
      */
-    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
@@ -351,25 +351,25 @@ export interface FirewallPolicyArgs {
     /**
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
      */
-    sqlRedirectAllowed?: pulumi.Input<boolean>;
+    sqlRedirectAllowed?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `threatIntelligenceAllowlist` block as defined below.
      */
-    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
+    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist | undefined>;
     /**
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
-    threatIntelligenceMode?: pulumi.Input<string>;
+    threatIntelligenceMode?: pulumi.Input<string | undefined>;
     /**
      * A `tlsCertificate` block as defined below.
      */
-    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate>;
+    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate | undefined>;
 }

@@ -22,7 +22,7 @@ class OrganizationArgs:
                  display_name: pulumi.Input[_builtins.str],
                  iotcentral_application_id: pulumi.Input[_builtins.str],
                  organization_id: pulumi.Input[_builtins.str],
-                 parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Organization resource.
 
@@ -75,24 +75,24 @@ class OrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="parentOrganizationId")
-    def parent_organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `organization_id` of the parent organization. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parent_organization_id")
 
     @parent_organization_id.setter
-    def parent_organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_organization_id", value)
 
 
 @pulumi.input_type
 class _OrganizationState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iotcentral_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Organization resources.
 
@@ -112,50 +112,50 @@ class _OrganizationState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom `display_name` for the organization.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iotcentralApplicationId")
-    def iotcentral_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iotcentral_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application `id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iotcentral_application_id")
 
     @iotcentral_application_id.setter
-    def iotcentral_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iotcentral_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iotcentral_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the organization. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentOrganizationId")
-    def parent_organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `organization_id` of the parent organization. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parent_organization_id")
 
     @parent_organization_id.setter
-    def parent_organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_organization_id", value)
 
 
@@ -165,10 +165,10 @@ class Organization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iotcentral_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IoT Central Organization
@@ -284,10 +284,10 @@ class Organization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iotcentral_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,10 +317,10 @@ class Organization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            iotcentral_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Organization':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Organization':
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

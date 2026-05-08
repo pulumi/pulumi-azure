@@ -37,8 +37,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -96,8 +96,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -155,8 +155,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -214,8 +214,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -273,8 +273,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -387,8 +387,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -443,8 +443,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -555,8 +555,8 @@ public final class BlueprintFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

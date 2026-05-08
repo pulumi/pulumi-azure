@@ -158,31 +158,31 @@ export interface ZoneVirtualNetworkLinkState {
     /**
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      */
-    privateDnsZoneName?: pulumi.Input<string>;
+    privateDnsZoneName?: pulumi.Input<string | undefined>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
-    registrationEnabled?: pulumi.Input<boolean>;
+    registrationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
-    resolutionPolicy?: pulumi.Input<string>;
+    resolutionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface ZoneVirtualNetworkLinkArgs {
     /**
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      */
@@ -200,11 +200,11 @@ export interface ZoneVirtualNetworkLinkArgs {
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
-    registrationEnabled?: pulumi.Input<boolean>;
+    registrationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
-    resolutionPolicy?: pulumi.Input<string>;
+    resolutionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
@@ -212,7 +212,7 @@ export interface ZoneVirtualNetworkLinkArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */

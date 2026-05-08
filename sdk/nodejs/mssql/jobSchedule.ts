@@ -174,27 +174,27 @@ export interface JobScheduleState {
      *
      * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The end time of the schedule. Must be in RFC3339 format.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The interval between job executions. Must be in ISO8601 duration format.
      */
-    interval?: pulumi.Input<string>;
+    interval?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
      */
-    jobId?: pulumi.Input<string>;
+    jobId?: pulumi.Input<string | undefined>;
     /**
      * The start time of the schedule. Must be in RFC3339 format.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The type of schedule. Possible values are `Once` and `Recurring`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,15 +206,15 @@ export interface JobScheduleArgs {
      *
      * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The end time of the schedule. Must be in RFC3339 format.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The interval between job executions. Must be in ISO8601 duration format.
      */
-    interval?: pulumi.Input<string>;
+    interval?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
      */
@@ -222,7 +222,7 @@ export interface JobScheduleArgs {
     /**
      * The start time of the schedule. Must be in RFC3339 format.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The type of schedule. Possible values are `Once` and `Recurring`.
      */

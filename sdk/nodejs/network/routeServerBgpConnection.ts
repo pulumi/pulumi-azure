@@ -161,19 +161,19 @@ export interface RouteServerBgpConnectionState {
     /**
      * The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number | undefined>;
     /**
      * The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    peerIp?: pulumi.Input<string>;
+    peerIp?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
-    routeServerId?: pulumi.Input<string>;
+    routeServerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface RouteServerBgpConnectionArgs {
     /**
      * The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      */

@@ -237,79 +237,79 @@ export interface JobState {
      *
      * > **Note:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
-    contentStoragePolicy?: pulumi.Input<string>;
+    contentStoragePolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
-    dataLocale?: pulumi.Input<string>;
+    dataLocale?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
-    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
-    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
-    eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    eventsOutOfOrderPolicy?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
+    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity | undefined>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
-    jobId?: pulumi.Input<string>;
+    jobId?: pulumi.Input<string | undefined>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
+    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[] | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
-    outputErrorPolicy?: pulumi.Input<string>;
+    outputErrorPolicy?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
-    streamAnalyticsClusterId?: pulumi.Input<string>;
+    streamAnalyticsClusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **Note:** `streamingUnits` must be set when `type` is `Cloud`.
      */
-    streamingUnits?: pulumi.Input<number>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    transformationQuery?: pulumi.Input<string>;
+    streamingUnits?: pulumi.Input<number | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    transformationQuery?: pulumi.Input<string | undefined>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      *
      * > **Note:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -321,49 +321,49 @@ export interface JobArgs {
      *
      * > **Note:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
-    contentStoragePolicy?: pulumi.Input<string>;
+    contentStoragePolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
-    dataLocale?: pulumi.Input<string>;
+    dataLocale?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
-    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
-    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
-    eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    eventsOutOfOrderPolicy?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
+    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity | undefined>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
+    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[] | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
-    outputErrorPolicy?: pulumi.Input<string>;
+    outputErrorPolicy?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
@@ -371,23 +371,23 @@ export interface JobArgs {
     /**
      * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
-    streamAnalyticsClusterId?: pulumi.Input<string>;
+    streamAnalyticsClusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **Note:** `streamingUnits` must be set when `type` is `Cloud`.
      */
-    streamingUnits?: pulumi.Input<number>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    streamingUnits?: pulumi.Input<number | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     transformationQuery: pulumi.Input<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      *
      * > **Note:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

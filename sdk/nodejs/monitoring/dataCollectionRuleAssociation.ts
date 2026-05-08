@@ -202,27 +202,27 @@ export interface DataCollectionRuleAssociationState {
     /**
      * The ID of the Data Collection Endpoint which will be associated to the target resource.
      */
-    dataCollectionEndpointId?: pulumi.Input<string>;
+    dataCollectionEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
      * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
-    dataCollectionRuleId?: pulumi.Input<string>;
+    dataCollectionRuleId?: pulumi.Input<string | undefined>;
     /**
      * The description of the Data Collection Rule Association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
      * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,23 +232,23 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The ID of the Data Collection Endpoint which will be associated to the target resource.
      */
-    dataCollectionEndpointId?: pulumi.Input<string>;
+    dataCollectionEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
      * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
-    dataCollectionRuleId?: pulumi.Input<string>;
+    dataCollectionRuleId?: pulumi.Input<string | undefined>;
     /**
      * The description of the Data Collection Rule Association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
      * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
      */

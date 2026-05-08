@@ -24,8 +24,8 @@ class IdentityProviderAadArgs:
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProviderAad resource.
 
@@ -109,39 +109,39 @@ class IdentityProviderAadArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientLibrary")
-    def client_library(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_library(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client library to be used in the AAD Identity Provider.
         """
         return pulumi.get(self, "client_library")
 
     @client_library.setter
-    def client_library(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_library(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_library", value)
 
     @_builtins.property
     @pulumi.getter(name="signinTenant")
-    def signin_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signin_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         return pulumi.get(self, "signin_tenant")
 
     @signin_tenant.setter
-    def signin_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signin_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signin_tenant", value)
 
 
 @pulumi.input_type
 class _IdentityProviderAadState:
     def __init__(__self__, *,
-                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderAad resources.
 
@@ -170,86 +170,86 @@ class _IdentityProviderAadState:
 
     @_builtins.property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_tenants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of allowed AAD Tenants.
         """
         return pulumi.get(self, "allowed_tenants")
 
     @allowed_tenants.setter
-    def allowed_tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_tenants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_tenants", value)
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Id of the Application in the AAD Identity Provider.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientLibrary")
-    def client_library(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_library(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client library to be used in the AAD Identity Provider.
         """
         return pulumi.get(self, "client_library")
 
     @client_library.setter
-    def client_library(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_library(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_library", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client secret of the Application in the AAD Identity Provider.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="signinTenant")
-    def signin_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signin_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         return pulumi.get(self, "signin_tenant")
 
     @signin_tenant.setter
-    def signin_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signin_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signin_tenant", value)
 
 
@@ -259,13 +259,13 @@ class IdentityProviderAad(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management AAD Identity Provider.
@@ -384,13 +384,13 @@ class IdentityProviderAad(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_library: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signin_tenant: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_library: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,13 +429,13 @@ class IdentityProviderAad(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_library: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            signin_tenant: Optional[pulumi.Input[_builtins.str]] = None) -> 'IdentityProviderAad':
+            allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_library: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_tenant: pulumi.Input[Optional[_builtins.str]] = None) -> 'IdentityProviderAad':
         """
         Get an existing IdentityProviderAad resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -25,25 +25,25 @@ class AlertRuleScheduledArgs:
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[_builtins.str],
-                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
-                 event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
-                 incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
+                 event_grouping: pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']] = None,
+                 incident: pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertRuleScheduled resource.
 
@@ -170,139 +170,139 @@ class AlertRuleScheduledArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertDetailsOverrides")
-    def alert_details_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
+    def alert_details_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
         """
         An `alert_details_override` block as defined below.
         """
         return pulumi.get(self, "alert_details_overrides")
 
     @alert_details_overrides.setter
-    def alert_details_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
+    def alert_details_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
         pulumi.set(self, "alert_details_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
-    def alert_rule_template_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "alert_rule_template_guid")
 
     @alert_rule_template_guid.setter
-    def alert_rule_template_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateVersion")
-    def alert_rule_template_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "alert_rule_template_version")
 
     @alert_rule_template_version.setter
-    def alert_rule_template_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_version", value)
 
     @_builtins.property
     @pulumi.getter(name="customDetails")
-    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_details(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         """
         return pulumi.get(self, "custom_details")
 
     @custom_details.setter
-    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_details(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityMappings")
-    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
+    def entity_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
         """
         A list of `entity_mapping` blocks as defined below.
         """
         return pulumi.get(self, "entity_mappings")
 
     @entity_mappings.setter
-    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
+    def entity_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
         pulumi.set(self, "entity_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="eventGrouping")
-    def event_grouping(self) -> Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']]:
+    def event_grouping(self) -> pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']]:
         """
         A `event_grouping` block as defined below.
         """
         return pulumi.get(self, "event_grouping")
 
     @event_grouping.setter
-    def event_grouping(self, value: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']]):
+    def event_grouping(self, value: pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']]):
         pulumi.set(self, "event_grouping", value)
 
     @_builtins.property
     @pulumi.getter
-    def incident(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]:
+    def incident(self) -> pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']]:
         """
         A `incident` block as defined below.
         """
         return pulumi.get(self, "incident")
 
     @incident.setter
-    def incident(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]):
+    def incident(self, value: pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']]):
         pulumi.set(self, "incident", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryFrequency")
-    def query_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
         """
         return pulumi.get(self, "query_frequency")
 
     @query_frequency.setter
-    def query_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="queryPeriod")
-    def query_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
 
@@ -311,12 +311,12 @@ class AlertRuleScheduledArgs:
         return pulumi.get(self, "query_period")
 
     @query_period.setter
-    def query_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_period", value)
 
     @_builtins.property
     @pulumi.getter(name="sentinelEntityMappings")
-    def sentinel_entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]:
+    def sentinel_entity_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
@@ -325,12 +325,12 @@ class AlertRuleScheduledArgs:
         return pulumi.get(self, "sentinel_entity_mappings")
 
     @sentinel_entity_mappings.setter
-    def sentinel_entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]):
+    def sentinel_entity_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]):
         pulumi.set(self, "sentinel_entity_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionDuration")
-    def suppression_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suppression_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
 
@@ -339,96 +339,96 @@ class AlertRuleScheduledArgs:
         return pulumi.get(self, "suppression_duration")
 
     @suppression_duration.setter
-    def suppression_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suppression_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suppression_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionEnabled")
-    def suppression_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppression_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
         """
         return pulumi.get(self, "suppression_enabled")
 
     @suppression_enabled.setter
-    def suppression_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppression_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppression_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
-    def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tactics", value)
 
     @_builtins.property
     @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of techniques of attacks by which to classify the rule.
         """
         return pulumi.get(self, "techniques")
 
     @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "techniques", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerOperator")
-    def trigger_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         """
         return pulumi.get(self, "trigger_operator")
 
     @trigger_operator.setter
-    def trigger_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerThreshold")
-    def trigger_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def trigger_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         """
         return pulumi.get(self, "trigger_threshold")
 
     @trigger_threshold.setter
-    def trigger_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def trigger_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "trigger_threshold", value)
 
 
 @pulumi.input_type
 class _AlertRuleScheduledState:
     def __init__(__self__, *,
-                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
-                 event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
-                 incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
+                 event_grouping: pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']] = None,
+                 incident: pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AlertRuleScheduled resources.
 
@@ -511,175 +511,175 @@ class _AlertRuleScheduledState:
 
     @_builtins.property
     @pulumi.getter(name="alertDetailsOverrides")
-    def alert_details_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
+    def alert_details_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
         """
         An `alert_details_override` block as defined below.
         """
         return pulumi.get(self, "alert_details_overrides")
 
     @alert_details_overrides.setter
-    def alert_details_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
+    def alert_details_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
         pulumi.set(self, "alert_details_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
-    def alert_rule_template_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "alert_rule_template_guid")
 
     @alert_rule_template_guid.setter
-    def alert_rule_template_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateVersion")
-    def alert_rule_template_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "alert_rule_template_version")
 
     @alert_rule_template_version.setter
-    def alert_rule_template_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_version", value)
 
     @_builtins.property
     @pulumi.getter(name="customDetails")
-    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_details(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         """
         return pulumi.get(self, "custom_details")
 
     @custom_details.setter
-    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_details(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityMappings")
-    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
+    def entity_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
         """
         A list of `entity_mapping` blocks as defined below.
         """
         return pulumi.get(self, "entity_mappings")
 
     @entity_mappings.setter
-    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
+    def entity_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
         pulumi.set(self, "entity_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="eventGrouping")
-    def event_grouping(self) -> Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']]:
+    def event_grouping(self) -> pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']]:
         """
         A `event_grouping` block as defined below.
         """
         return pulumi.get(self, "event_grouping")
 
     @event_grouping.setter
-    def event_grouping(self, value: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']]):
+    def event_grouping(self, value: pulumi.Input[Optional['AlertRuleScheduledEventGroupingArgs']]):
         pulumi.set(self, "event_grouping", value)
 
     @_builtins.property
     @pulumi.getter
-    def incident(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]:
+    def incident(self) -> pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']]:
         """
         A `incident` block as defined below.
         """
         return pulumi.get(self, "incident")
 
     @incident.setter
-    def incident(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]):
+    def incident(self, value: pulumi.Input[Optional['AlertRuleScheduledIncidentArgs']]):
         pulumi.set(self, "incident", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query of this Sentinel Scheduled Alert Rule.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="queryFrequency")
-    def query_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
         """
         return pulumi.get(self, "query_frequency")
 
     @query_frequency.setter
-    def query_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="queryPeriod")
-    def query_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
 
@@ -688,12 +688,12 @@ class _AlertRuleScheduledState:
         return pulumi.get(self, "query_period")
 
     @query_period.setter
-    def query_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_period", value)
 
     @_builtins.property
     @pulumi.getter(name="sentinelEntityMappings")
-    def sentinel_entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]:
+    def sentinel_entity_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
@@ -702,24 +702,24 @@ class _AlertRuleScheduledState:
         return pulumi.get(self, "sentinel_entity_mappings")
 
     @sentinel_entity_mappings.setter
-    def sentinel_entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]):
+    def sentinel_entity_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]]):
         pulumi.set(self, "sentinel_entity_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionDuration")
-    def suppression_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suppression_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
 
@@ -728,67 +728,67 @@ class _AlertRuleScheduledState:
         return pulumi.get(self, "suppression_duration")
 
     @suppression_duration.setter
-    def suppression_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suppression_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suppression_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionEnabled")
-    def suppression_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppression_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
         """
         return pulumi.get(self, "suppression_enabled")
 
     @suppression_enabled.setter
-    def suppression_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppression_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppression_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
-    def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tactics", value)
 
     @_builtins.property
     @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of techniques of attacks by which to classify the rule.
         """
         return pulumi.get(self, "techniques")
 
     @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "techniques", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerOperator")
-    def trigger_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         """
         return pulumi.get(self, "trigger_operator")
 
     @trigger_operator.setter
-    def trigger_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerThreshold")
-    def trigger_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def trigger_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         """
         return pulumi.get(self, "trigger_threshold")
 
     @trigger_threshold.setter
-    def trigger_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def trigger_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "trigger_threshold", value)
 
 
@@ -798,29 +798,29 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
-                 event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
-                 incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None,
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
+                 event_grouping: pulumi.Input[Optional[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
+                 incident: pulumi.Input[Optional[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Sentinel Scheduled Alert Rule.
@@ -967,29 +967,29 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
-                 alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_rule_template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
-                 event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
-                 incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None,
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
+                 alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
+                 event_grouping: pulumi.Input[Optional[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
+                 incident: pulumi.Input[Optional[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1040,29 +1040,29 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
-            alert_rule_template_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_rule_template_version: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
-            event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
-            incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            query_period: Optional[pulumi.Input[_builtins.str]] = None,
-            sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
-            severity: Optional[pulumi.Input[_builtins.str]] = None,
-            suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tactics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            trigger_operator: Optional[pulumi.Input[_builtins.str]] = None,
-            trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None) -> 'AlertRuleScheduled':
+            alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]]] = None,
+            alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
+            event_grouping: pulumi.Input[Optional[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
+            incident: pulumi.Input[Optional[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            query_period: pulumi.Input[Optional[_builtins.str]] = None,
+            sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            trigger_operator: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None) -> 'AlertRuleScheduled':
         """
         Get an existing AlertRuleScheduled resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

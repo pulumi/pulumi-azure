@@ -178,25 +178,25 @@ export interface EventHubState {
     /**
      * A `captureDescription` block as defined below.
      */
-    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
+    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription | undefined>;
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      */
-    messageRetention?: pulumi.Input<number>;
+    messageRetention?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the EventHub Namespace.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -204,23 +204,23 @@ export interface EventHubState {
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */
-    partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number | undefined>;
     /**
      * The identifiers for partitions created for Event Hubs.
      */
-    partitionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `retentionDescription` block as defined below.
      */
-    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription>;
+    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription | undefined>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -230,25 +230,25 @@ export interface EventHubArgs {
     /**
      * A `captureDescription` block as defined below.
      */
-    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
+    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription | undefined>;
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      */
-    messageRetention?: pulumi.Input<number>;
+    messageRetention?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the EventHub Namespace.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -260,13 +260,13 @@ export interface EventHubArgs {
     /**
      * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `retentionDescription` block as defined below.
      */
-    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription>;
+    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription | undefined>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

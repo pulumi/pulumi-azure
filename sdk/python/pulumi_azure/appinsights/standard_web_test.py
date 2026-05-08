@@ -25,15 +25,15 @@ class StandardWebTestArgs:
                  geo_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  request: pulumi.Input['StandardWebTestRequestArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 validation_rules: pulumi.Input[Optional['StandardWebTestValidationRulesArgs']] = None):
         """
         The set of arguments for constructing a StandardWebTest resource.
 
@@ -128,130 +128,130 @@ class StandardWebTestArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Purpose/user defined descriptive test for this WebTest.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the WebTest be enabled?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retryEnabled")
-    def retry_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retry_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the retry on WebTest failure be enabled?
         """
         return pulumi.get(self, "retry_enabled")
 
     @retry_enabled.setter
-    def retry_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retry_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retry_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Insights Standard WebTest.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="validationRules")
-    def validation_rules(self) -> Optional[pulumi.Input['StandardWebTestValidationRulesArgs']]:
+    def validation_rules(self) -> pulumi.Input[Optional['StandardWebTestValidationRulesArgs']]:
         """
         A `validation_rules` block as defined below.
         """
         return pulumi.get(self, "validation_rules")
 
     @validation_rules.setter
-    def validation_rules(self, value: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']]):
+    def validation_rules(self, value: pulumi.Input[Optional['StandardWebTestValidationRulesArgs']]):
         pulumi.set(self, "validation_rules", value)
 
 
 @pulumi.input_type
 class _StandardWebTestState:
     def __init__(__self__, *,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input['StandardWebTestRequestArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synthetic_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None):
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional['StandardWebTestRequestArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synthetic_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 validation_rules: pulumi.Input[Optional['StandardWebTestValidationRulesArgs']] = None):
         """
         Input properties used for looking up and filtering StandardWebTest resources.
 
@@ -303,55 +303,55 @@ class _StandardWebTestState:
 
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_insights_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
         """
         return pulumi.get(self, "application_insights_id")
 
     @application_insights_id.setter
-    def application_insights_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_insights_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_insights_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Purpose/user defined descriptive test for this WebTest.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the WebTest be enabled?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
 
@@ -360,115 +360,115 @@ class _StandardWebTestState:
         return pulumi.get(self, "geo_locations")
 
     @geo_locations.setter
-    def geo_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input['StandardWebTestRequestArgs']]:
+    def request(self) -> pulumi.Input[Optional['StandardWebTestRequestArgs']]:
         """
         A `request` block as defined below.
         """
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input['StandardWebTestRequestArgs']]):
+    def request(self, value: pulumi.Input[Optional['StandardWebTestRequestArgs']]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retryEnabled")
-    def retry_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retry_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the retry on WebTest failure be enabled?
         """
         return pulumi.get(self, "retry_enabled")
 
     @retry_enabled.setter
-    def retry_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retry_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retry_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="syntheticMonitorId")
-    def synthetic_monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synthetic_monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID of this WebTest. This is typically the same value as the Name field.
         """
         return pulumi.get(self, "synthetic_monitor_id")
 
     @synthetic_monitor_id.setter
-    def synthetic_monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synthetic_monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synthetic_monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Insights Standard WebTest.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="validationRules")
-    def validation_rules(self) -> Optional[pulumi.Input['StandardWebTestValidationRulesArgs']]:
+    def validation_rules(self) -> pulumi.Input[Optional['StandardWebTestValidationRulesArgs']]:
         """
         A `validation_rules` block as defined below.
         """
         return pulumi.get(self, "validation_rules")
 
     @validation_rules.setter
-    def validation_rules(self, value: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']]):
+    def validation_rules(self, value: pulumi.Input[Optional['StandardWebTestValidationRulesArgs']]):
         pulumi.set(self, "validation_rules", value)
 
 
@@ -478,19 +478,19 @@ class StandardWebTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 validation_rules: pulumi.Input[Optional[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Application Insights Standard WebTest.
@@ -619,19 +619,19 @@ class StandardWebTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request: pulumi.Input[Optional[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 validation_rules: pulumi.Input[Optional[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -673,20 +673,20 @@ class StandardWebTest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            frequency: Optional[pulumi.Input[_builtins.int]] = None,
-            geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retry_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            synthetic_monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None) -> 'StandardWebTest':
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.int]] = None,
+            geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            request: pulumi.Input[Optional[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            synthetic_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            validation_rules: pulumi.Input[Optional[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None) -> 'StandardWebTest':
         """
         Get an existing StandardWebTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -125,5 +125,5 @@ export interface GetDpsOutputArgs {
      * The name of the resource group under which the Iot Device Provisioning Service is located in.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

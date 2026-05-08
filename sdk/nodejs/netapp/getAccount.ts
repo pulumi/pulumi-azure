@@ -106,7 +106,7 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountOutputArgs {
-    identity?: pulumi.Input<inputs.netapp.GetAccountIdentityArgs>;
+    identity?: pulumi.Input<inputs.netapp.GetAccountIdentityArgs | undefined>;
     /**
      * The name of the NetApp Account.
      */

@@ -213,15 +213,15 @@ class IntegrationAccountAgreementHostIdentityArgs:
 
 
 class IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict(TypedDict):
-    batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The batch size in bytes for the Logic App Integration Batch Configuration.
     """
-    message_count: NotRequired[pulumi.Input[_builtins.int]]
+    message_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The message count for the Logic App Integration Batch Configuration.
     """
-    recurrence: NotRequired[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict']]
+    recurrence: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]]
     """
     A `recurrence` block as documented below.
     """
@@ -229,9 +229,9 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
     def __init__(__self__, *,
-                 batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None):
+                 batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 recurrence: pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] batch_size: The batch size in bytes for the Logic App Integration Batch Configuration.
         :param pulumi.Input[_builtins.int] message_count: The message count for the Logic App Integration Batch Configuration.
@@ -246,38 +246,38 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The batch size in bytes for the Logic App Integration Batch Configuration.
         """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
-    def batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_size", value)
 
     @_builtins.property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The message count for the Logic App Integration Batch Configuration.
         """
         return pulumi.get(self, "message_count")
 
     @message_count.setter
-    def message_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]:
+    def recurrence(self) -> pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]:
         """
         A `recurrence` block as documented below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]):
+    def recurrence(self, value: pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
 
@@ -290,19 +290,19 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict(Type
     """
     The number of `frequency`s between runs.
     """
-    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end time of the schedule, formatted as an RFC3339 string.
     """
-    schedule: NotRequired[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict']]
+    schedule: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]]
     """
     A `schedule` block as documented below.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The start time of the schedule, formatted as an RFC3339 string.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timezone of the start/end time.
     """
@@ -312,10 +312,10 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[_builtins.str],
                  interval: pulumi.Input[_builtins.int],
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         :param pulumi.Input[_builtins.int] interval: The number of `frequency`s between runs.
@@ -361,71 +361,71 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end time of the schedule, formatted as an RFC3339 string.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]:
         """
         A `schedule` block as documented below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time of the schedule, formatted as an RFC3339 string.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone of the start/end time.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
 class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict(TypedDict):
-    hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
     """
-    minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    minutes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
     """
-    month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    month_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list of days of the month that the job should execute on.
     """
-    monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict']]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]]
     """
     A `monthly` block as documented below.
     """
-    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    week_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
     """
@@ -433,11 +433,11 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsD
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
     def __init__(__self__, *,
-                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
-                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 hours: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 minutes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 month_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 monthlies: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
+                 week_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
@@ -458,62 +458,62 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def minutes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def minutes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def month_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of days of the month that the job should execute on.
         """
         return pulumi.get(self, "month_days")
 
     @month_days.setter
-    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def month_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "month_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]:
+    def monthlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]:
         """
         A `monthly` block as documented below.
         """
         return pulumi.get(self, "monthlies")
 
     @monthlies.setter
-    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]):
+    def monthlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]):
         pulumi.set(self, "monthlies", value)
 
     @_builtins.property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def week_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def week_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -573,7 +573,7 @@ class IntegrationAccountCertificateKeyVaultKeyArgsDict(TypedDict):
     """
     The ID of the Key Vault.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of Key Vault Key.
     """
@@ -583,7 +583,7 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[_builtins.str],
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault.
@@ -620,14 +620,14 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -749,7 +749,7 @@ class StandardIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 
@@ -757,11 +757,11 @@ class StandardIdentityArgsDict(TypedDict):
 
     > **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
     """
@@ -770,9 +770,9 @@ class StandardIdentityArgsDict(TypedDict):
 class StandardIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
@@ -805,7 +805,7 @@ class StandardIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 
@@ -816,139 +816,139 @@ class StandardIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class StandardSiteConfigArgsDict(TypedDict):
-    always_on: NotRequired[pulumi.Input[_builtins.bool]]
+    always_on: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Logic App be loaded at all times? Defaults to `false`.
     """
-    app_scale_limit: NotRequired[pulumi.Input[_builtins.int]]
+    app_scale_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
     """
-    auto_swap_slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    auto_swap_slot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Auto-swap slot name.
     """
-    cors: NotRequired[pulumi.Input['StandardSiteConfigCorsArgsDict']]
+    cors: NotRequired[pulumi.Input[Optional['StandardSiteConfigCorsArgs']]]
     """
     A `cors` block as defined below.
     """
-    dotnet_framework_version: NotRequired[pulumi.Input[_builtins.str]]
+    dotnet_framework_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
     """
-    elastic_instance_minimum: NotRequired[pulumi.Input[_builtins.int]]
+    elastic_instance_minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of minimum instances for this Logic App Only affects apps on the Premium plan.
     """
-    ftps_state: NotRequired[pulumi.Input[_builtins.str]]
+    ftps_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
     """
-    health_check_path: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path which will be checked for this Logic App health.
     """
-    http2_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    http2_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
     """
-    ip_restriction_default_action: NotRequired[pulumi.Input[_builtins.str]]
+    ip_restriction_default_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when no `ip_restriction` rules match. Possible values are `Allow` and `Deny`.
 
     > **Note:** If `ip_restriction_default_action` is not configured, it is implicitly set to `Allow` when no `ip_restriction` rules are defined and `Deny` when at least one `ip_restriction` rule is defined.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgsDict']]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]]
     """
     A list of `ip_restriction` objects representing IP restrictions as defined below.
 
     > **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
     """
-    linux_fx_version: NotRequired[pulumi.Input[_builtins.str]]
+    linux_fx_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
 
     > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
     """
-    min_tls_version: NotRequired[pulumi.Input[_builtins.str]]
+    min_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
 
     > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
     """
-    pre_warmed_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    pre_warmed_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
     """
-    public_network_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_network_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
     """
-    scm_ip_restriction_default_action: NotRequired[pulumi.Input[_builtins.str]]
+    scm_ip_restriction_default_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgsDict']]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]]
     """
     A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
     > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
     """
-    scm_min_tls_version: NotRequired[pulumi.Input[_builtins.str]]
+    scm_min_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
 
     > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
     """
-    scm_type: NotRequired[pulumi.Input[_builtins.str]]
+    scm_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
     """
-    scm_use_main_ip_restriction: NotRequired[pulumi.Input[_builtins.bool]]
+    scm_use_main_ip_restriction: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
     """
-    use32_bit_worker_process: NotRequired[pulumi.Input[_builtins.bool]]
+    use32_bit_worker_process: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 
     > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
     """
-    vnet_route_all_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    vnet_route_all_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
     """
-    websockets_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    websockets_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should WebSockets be enabled?
     """
@@ -956,30 +956,30 @@ class StandardSiteConfigArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigArgs:
     def __init__(__self__, *,
-                 always_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_scale_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_swap_slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input['StandardSiteConfigCorsArgs']] = None,
-                 dotnet_framework_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_instance_minimum: Optional[pulumi.Input[_builtins.int]] = None,
-                 ftps_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_restriction_default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
-                 linux_fx_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_warmed_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scm_ip_restriction_default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
-                 scm_min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_use_main_ip_restriction: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use32_bit_worker_process: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vnet_route_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 websockets_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 always_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_scale_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_swap_slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional['StandardSiteConfigCorsArgs']] = None,
+                 dotnet_framework_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_instance_minimum: pulumi.Input[Optional[_builtins.int]] = None,
+                 ftps_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_restriction_default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runtime_scale_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scm_ip_restriction_default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_ip_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_use_main_ip_restriction: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use32_bit_worker_process: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vnet_route_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 websockets_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[_builtins.int] app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
@@ -1073,115 +1073,115 @@ class StandardSiteConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysOn")
-    def always_on(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_on(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Logic App be loaded at all times? Defaults to `false`.
         """
         return pulumi.get(self, "always_on")
 
     @always_on.setter
-    def always_on(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_on(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_on", value)
 
     @_builtins.property
     @pulumi.getter(name="appScaleLimit")
-    def app_scale_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def app_scale_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         """
         return pulumi.get(self, "app_scale_limit")
 
     @app_scale_limit.setter
-    def app_scale_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def app_scale_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "app_scale_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSwapSlotName")
-    def auto_swap_slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_swap_slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Auto-swap slot name.
         """
         return pulumi.get(self, "auto_swap_slot_name")
 
     @auto_swap_slot_name.setter
-    def auto_swap_slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_swap_slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_swap_slot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['StandardSiteConfigCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['StandardSiteConfigCorsArgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['StandardSiteConfigCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['StandardSiteConfigCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="dotnetFrameworkVersion")
-    def dotnet_framework_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dotnet_framework_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
     @dotnet_framework_version.setter
-    def dotnet_framework_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dotnet_framework_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dotnet_framework_version", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticInstanceMinimum")
-    def elastic_instance_minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def elastic_instance_minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "elastic_instance_minimum")
 
     @elastic_instance_minimum.setter
-    def elastic_instance_minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def elastic_instance_minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "elastic_instance_minimum", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpsState")
-    def ftps_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ftps_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         """
         return pulumi.get(self, "ftps_state")
 
     @ftps_state.setter
-    def ftps_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ftps_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ftps_state", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path which will be checked for this Logic App health.
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http2_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
     @http2_enabled.setter
-    def http2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http2_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http2_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRestrictionDefaultAction")
-    def ip_restriction_default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_restriction_default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when no `ip_restriction` rules match. Possible values are `Allow` and `Deny`.
 
@@ -1190,12 +1190,12 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "ip_restriction_default_action")
 
     @ip_restriction_default_action.setter
-    def ip_restriction_default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_restriction_default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_restriction_default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
         """
         A list of `ip_restriction` objects representing IP restrictions as defined below.
 
@@ -1204,12 +1204,12 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxFxVersion")
-    def linux_fx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linux_fx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
 
@@ -1218,12 +1218,12 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "linux_fx_version")
 
     @linux_fx_version.setter
-    def linux_fx_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linux_fx_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linux_fx_version", value)
 
     @_builtins.property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
 
@@ -1232,58 +1232,58 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
-    def min_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="preWarmedInstanceCount")
-    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pre_warmed_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
 
     @pre_warmed_instance_count.setter
-    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pre_warmed_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     @_utilities.deprecated("""the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")
-    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def runtime_scale_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
     @runtime_scale_monitoring_enabled.setter
-    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def runtime_scale_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpRestrictionDefaultAction")
-    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scm_ip_restriction_default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "scm_ip_restriction_default_action")
 
     @scm_ip_restriction_default_action.setter
-    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scm_ip_restriction_default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]:
         """
         A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
@@ -1292,12 +1292,12 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="scmMinTlsVersion")
-    def scm_min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scm_min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
 
@@ -1306,36 +1306,36 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "scm_min_tls_version")
 
     @scm_min_tls_version.setter
-    def scm_min_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scm_min_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scm_min_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="scmType")
-    def scm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scm_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
-    def scm_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scm_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scm_type", value)
 
     @_builtins.property
     @pulumi.getter(name="scmUseMainIpRestriction")
-    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scm_use_main_ip_restriction(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         """
         return pulumi.get(self, "scm_use_main_ip_restriction")
 
     @scm_use_main_ip_restriction.setter
-    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scm_use_main_ip_restriction(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scm_use_main_ip_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="use32BitWorkerProcess")
-    def use32_bit_worker_process(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use32_bit_worker_process(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 
@@ -1344,40 +1344,40 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "use32_bit_worker_process")
 
     @use32_bit_worker_process.setter
-    def use32_bit_worker_process(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use32_bit_worker_process(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use32_bit_worker_process", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
-    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_route_all_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @vnet_route_all_enabled.setter
-    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_route_all_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_route_all_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="websocketsEnabled")
-    def websockets_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def websockets_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should WebSockets be enabled?
         """
         return pulumi.get(self, "websockets_enabled")
 
     @websockets_enabled.setter
-    def websockets_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def websockets_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "websockets_enabled", value)
 
 
 class StandardSiteConfigCorsArgsDict(TypedDict):
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
     """
-    support_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    support_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Are credentials supported?
     """
@@ -1385,8 +1385,8 @@ class StandardSiteConfigCorsArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 support_credentials: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 support_credentials: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[_builtins.bool] support_credentials: Are credentials supported?
@@ -1398,59 +1398,59 @@ class StandardSiteConfigCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="supportCredentials")
-    def support_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def support_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are credentials supported?
         """
         return pulumi.get(self, "support_credentials")
 
     @support_credentials.setter
-    def support_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def support_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "support_credentials", value)
 
 
 class StandardSiteConfigIpRestrictionArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgsDict']]
+    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgs']]]
     """
     The `headers` block for this specific as a `ip_restriction` block as defined below.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Address used for this IP Restriction in CIDR notation.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name for this IP Restriction.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
     """
-    service_tag: NotRequired[pulumi.Input[_builtins.str]]
+    service_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Service Tag used for this IP Restriction.
     """
-    virtual_network_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Virtual Network Subnet ID used for this IP Restriction.
 
@@ -1460,14 +1460,14 @@ class StandardSiteConfigIpRestrictionArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[_builtins.str] description: The Description of this IP Restriction.
@@ -1499,91 +1499,91 @@ class StandardSiteConfigIpRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Description of this IP Restriction.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgs']]:
         """
         The `headers` block for this specific as a `ip_restriction` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgs']]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Address used for this IP Restriction in CIDR notation.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTag")
-    def service_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
 
     @service_tag.setter
-    def service_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
@@ -1592,24 +1592,24 @@ class StandardSiteConfigIpRestrictionArgs:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
 class StandardSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
-    x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_azure_fdids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
     """
-    x_fd_health_probe: NotRequired[pulumi.Input[_builtins.str]]
+    x_fd_health_probe: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
     """
-    x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_forwarded_fors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
     """
-    x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_forwarded_hosts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
     """
@@ -1617,10 +1617,10 @@ class StandardSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
-                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x_fd_health_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 x_azure_fdids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x_fd_health_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_forwarded_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x_forwarded_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
         :param pulumi.Input[_builtins.str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
@@ -1638,83 +1638,83 @@ class StandardSiteConfigIpRestrictionHeadersArgs:
 
     @_builtins.property
     @pulumi.getter(name="xAzureFdids")
-    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_azure_fdids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
         """
         return pulumi.get(self, "x_azure_fdids")
 
     @x_azure_fdids.setter
-    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_azure_fdids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_azure_fdids", value)
 
     @_builtins.property
     @pulumi.getter(name="xFdHealthProbe")
-    def x_fd_health_probe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x_fd_health_probe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
     @x_fd_health_probe.setter
-    def x_fd_health_probe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x_fd_health_probe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x_fd_health_probe", value)
 
     @_builtins.property
     @pulumi.getter(name="xForwardedFors")
-    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_forwarded_fors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
         """
         return pulumi.get(self, "x_forwarded_fors")
 
     @x_forwarded_fors.setter
-    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_forwarded_fors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_forwarded_fors", value)
 
     @_builtins.property
     @pulumi.getter(name="xForwardedHosts")
-    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_forwarded_hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
         """
         return pulumi.get(self, "x_forwarded_hosts")
 
     @x_forwarded_hosts.setter
-    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_forwarded_hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
 class StandardSiteConfigScmIpRestrictionArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgsDict']]
+    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgs']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Address used for this IP Restriction in CIDR notation.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name for this IP Restriction.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
     """
-    service_tag: NotRequired[pulumi.Input[_builtins.str]]
+    service_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Service Tag used for this IP Restriction.
     """
-    virtual_network_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Virtual Network Subnet ID used for this IP Restriction.
 
@@ -1724,14 +1724,14 @@ class StandardSiteConfigScmIpRestrictionArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[_builtins.str] description: The Description of this IP Restriction.
@@ -1763,91 +1763,91 @@ class StandardSiteConfigScmIpRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Description of this IP Restriction.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgs']]:
         """
         The `headers` block for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgs']]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Address used for this IP Restriction in CIDR notation.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTag")
-    def service_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
 
     @service_tag.setter
-    def service_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
@@ -1856,24 +1856,24 @@ class StandardSiteConfigScmIpRestrictionArgs:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
 class StandardSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
-    x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_azure_fdids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
     """
-    x_fd_health_probe: NotRequired[pulumi.Input[_builtins.str]]
+    x_fd_health_probe: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
     """
-    x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_forwarded_fors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
     """
-    x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x_forwarded_hosts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
     """
@@ -1881,10 +1881,10 @@ class StandardSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
-                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x_fd_health_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 x_azure_fdids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x_fd_health_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_forwarded_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x_forwarded_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
         :param pulumi.Input[_builtins.str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
@@ -1902,59 +1902,59 @@ class StandardSiteConfigScmIpRestrictionHeadersArgs:
 
     @_builtins.property
     @pulumi.getter(name="xAzureFdids")
-    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_azure_fdids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
         """
         return pulumi.get(self, "x_azure_fdids")
 
     @x_azure_fdids.setter
-    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_azure_fdids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_azure_fdids", value)
 
     @_builtins.property
     @pulumi.getter(name="xFdHealthProbe")
-    def x_fd_health_probe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x_fd_health_probe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
     @x_fd_health_probe.setter
-    def x_fd_health_probe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x_fd_health_probe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x_fd_health_probe", value)
 
     @_builtins.property
     @pulumi.getter(name="xForwardedFors")
-    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_forwarded_fors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
         """
         return pulumi.get(self, "x_forwarded_fors")
 
     @x_forwarded_fors.setter
-    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_forwarded_fors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_forwarded_fors", value)
 
     @_builtins.property
     @pulumi.getter(name="xForwardedHosts")
-    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x_forwarded_hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
         """
         return pulumi.get(self, "x_forwarded_hosts")
 
     @x_forwarded_hosts.setter
-    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x_forwarded_hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
 class StandardSiteCredentialArgsDict(TypedDict):
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password associated with the username, which can be used to publish to this App Service.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username which can be used to publish to this App Service.
     """
@@ -1962,8 +1962,8 @@ class StandardSiteCredentialArgsDict(TypedDict):
 @pulumi.input_type
 class StandardSiteCredentialArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] password: The password associated with the username, which can be used to publish to this App Service.
         :param pulumi.Input[_builtins.str] username: The username which can be used to publish to this App Service.
@@ -1975,39 +1975,39 @@ class StandardSiteCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the username, which can be used to publish to this App Service.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username which can be used to publish to this App Service.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 class TriggerRecurrenceScheduleArgsDict(TypedDict):
-    at_these_hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    at_these_hours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
     """
-    at_these_minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    at_these_minutes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
     """
-    on_these_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    on_these_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
     """
@@ -2015,9 +2015,9 @@ class TriggerRecurrenceScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerRecurrenceScheduleArgs:
     def __init__(__self__, *,
-                 at_these_hours: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 at_these_minutes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 on_these_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 at_these_hours: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 at_these_minutes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 on_these_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] at_these_hours: Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] at_these_minutes: Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
@@ -2032,55 +2032,55 @@ class TriggerRecurrenceScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="atTheseHours")
-    def at_these_hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def at_these_hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
         """
         return pulumi.get(self, "at_these_hours")
 
     @at_these_hours.setter
-    def at_these_hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def at_these_hours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "at_these_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="atTheseMinutes")
-    def at_these_minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def at_these_minutes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
         """
         return pulumi.get(self, "at_these_minutes")
 
     @at_these_minutes.setter
-    def at_these_minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def at_these_minutes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "at_these_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="onTheseDays")
-    def on_these_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def on_these_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         """
         return pulumi.get(self, "on_these_days")
 
     @on_these_days.setter
-    def on_these_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def on_these_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "on_these_days", value)
 
 
 class WorkflowAccessControlArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input['WorkflowAccessControlActionArgsDict']]
+    action: NotRequired[pulumi.Input[Optional['WorkflowAccessControlActionArgs']]]
     """
     A `action` block as defined below.
     """
-    content: NotRequired[pulumi.Input['WorkflowAccessControlContentArgsDict']]
+    content: NotRequired[pulumi.Input[Optional['WorkflowAccessControlContentArgs']]]
     """
     A `content` block as defined below.
     """
-    trigger: NotRequired[pulumi.Input['WorkflowAccessControlTriggerArgsDict']]
+    trigger: NotRequired[pulumi.Input[Optional['WorkflowAccessControlTriggerArgs']]]
     """
     A `trigger` block as defined below.
     """
-    workflow_management: NotRequired[pulumi.Input['WorkflowAccessControlWorkflowManagementArgsDict']]
+    workflow_management: NotRequired[pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgs']]]
     """
     A `workflow_management` block as defined below.
     """
@@ -2088,10 +2088,10 @@ class WorkflowAccessControlArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowAccessControlArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['WorkflowAccessControlActionArgs']] = None,
-                 content: Optional[pulumi.Input['WorkflowAccessControlContentArgs']] = None,
-                 trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']] = None,
-                 workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']] = None):
+                 action: pulumi.Input[Optional['WorkflowAccessControlActionArgs']] = None,
+                 content: pulumi.Input[Optional['WorkflowAccessControlContentArgs']] = None,
+                 trigger: pulumi.Input[Optional['WorkflowAccessControlTriggerArgs']] = None,
+                 workflow_management: pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgs']] = None):
         """
         :param pulumi.Input['WorkflowAccessControlActionArgs'] action: A `action` block as defined below.
         :param pulumi.Input['WorkflowAccessControlContentArgs'] content: A `content` block as defined below.
@@ -2109,50 +2109,50 @@ class WorkflowAccessControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WorkflowAccessControlActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['WorkflowAccessControlActionArgs']]:
         """
         A `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WorkflowAccessControlActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['WorkflowAccessControlActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input['WorkflowAccessControlContentArgs']]:
+    def content(self) -> pulumi.Input[Optional['WorkflowAccessControlContentArgs']]:
         """
         A `content` block as defined below.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input['WorkflowAccessControlContentArgs']]):
+    def content(self, value: pulumi.Input[Optional['WorkflowAccessControlContentArgs']]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]:
+    def trigger(self) -> pulumi.Input[Optional['WorkflowAccessControlTriggerArgs']]:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]):
+    def trigger(self, value: pulumi.Input[Optional['WorkflowAccessControlTriggerArgs']]):
         pulumi.set(self, "trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowManagement")
-    def workflow_management(self) -> Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]:
+    def workflow_management(self) -> pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgs']]:
         """
         A `workflow_management` block as defined below.
         """
         return pulumi.get(self, "workflow_management")
 
     @workflow_management.setter
-    def workflow_management(self, value: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]):
+    def workflow_management(self, value: pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgs']]):
         pulumi.set(self, "workflow_management", value)
 
 
@@ -2213,11 +2213,11 @@ class WorkflowAccessControlContentArgs:
 
 
 class WorkflowAccessControlTriggerArgsDict(TypedDict):
-    allowed_caller_ip_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_caller_ip_address_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the allowed caller IP address ranges.
     """
-    open_authentication_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict']]]]
+    open_authentication_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]]
     """
     A `open_authentication_policy` block as defined below.
     """
@@ -2225,8 +2225,8 @@ class WorkflowAccessControlTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowAccessControlTriggerArgs:
     def __init__(__self__, *,
-                 allowed_caller_ip_address_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None):
+                 allowed_caller_ip_address_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 open_authentication_policies: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]] open_authentication_policies: A `open_authentication_policy` block as defined below.
@@ -2238,26 +2238,26 @@ class WorkflowAccessControlTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
-    def allowed_caller_ip_address_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the allowed caller IP address ranges.
         """
         return pulumi.get(self, "allowed_caller_ip_address_ranges")
 
     @allowed_caller_ip_address_ranges.setter
-    def allowed_caller_ip_address_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="openAuthenticationPolicies")
-    def open_authentication_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]:
+    def open_authentication_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]:
         """
         A `open_authentication_policy` block as defined below.
         """
         return pulumi.get(self, "open_authentication_policies")
 
     @open_authentication_policies.setter
-    def open_authentication_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]):
+    def open_authentication_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]):
         pulumi.set(self, "open_authentication_policies", value)
 
 
@@ -2388,17 +2388,17 @@ class WorkflowIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 
     > **Note:** This is required when `type` is set to `UserAssigned`
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
     """
@@ -2407,9 +2407,9 @@ class WorkflowIdentityArgsDict(TypedDict):
 class WorkflowIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
@@ -2440,7 +2440,7 @@ class WorkflowIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 
@@ -2449,31 +2449,31 @@ class WorkflowIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

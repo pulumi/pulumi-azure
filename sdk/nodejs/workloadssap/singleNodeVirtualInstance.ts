@@ -306,51 +306,51 @@ export interface SingleNodeVirtualInstanceState {
     /**
      * The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
      */
-    appLocation?: pulumi.Input<string>;
+    appLocation?: pulumi.Input<string | undefined>;
     /**
      * The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name for the SAP system. Changing this forces a new resource to be created.
      */
-    sapFqdn?: pulumi.Input<string>;
+    sapFqdn?: pulumi.Input<string | undefined>;
     /**
      * The SAP Product type for the SAP Single Node Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
      */
-    sapProduct?: pulumi.Input<string>;
+    sapProduct?: pulumi.Input<string | undefined>;
     /**
      * A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    singleServerConfiguration?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfiguration>;
+    singleServerConfiguration?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfiguration | undefined>;
     /**
      * A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -368,23 +368,23 @@ export interface SingleNodeVirtualInstanceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
@@ -404,5 +404,5 @@ export interface SingleNodeVirtualInstanceArgs {
     /**
      * A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

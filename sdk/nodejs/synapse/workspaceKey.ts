@@ -205,19 +205,19 @@ export interface WorkspaceKeyState {
      *
      * > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      */
-    customerManagedKeyName?: pulumi.Input<string>;
+    customerManagedKeyName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
      */
-    customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKeyVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the encryption key should be configured.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -237,7 +237,7 @@ export interface WorkspaceKeyArgs {
     /**
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
      */
-    customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKeyVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the encryption key should be configured.
      */

@@ -157,8 +157,8 @@ def get_resolver_forwarding_rule(dns_forwarding_ruleset_id: Optional[_builtins.s
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'))
-def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverForwardingRuleResult]:
     """
     Gets information about an existing Private DNS Resolver Forwarding Rule.

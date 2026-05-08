@@ -188,11 +188,11 @@ export interface BackupVaultCustomerManagedKeyState {
     /**
      * The ID of the Backup Vault. Changing this forces a new resource to be created.
      */
-    dataProtectionBackupVaultId?: pulumi.Input<string>;
+    dataProtectionBackupVaultId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Backup Vault.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
 }
 
 /**

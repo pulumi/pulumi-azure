@@ -166,37 +166,37 @@ export interface HubState {
      *
      * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
+    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential | undefined>;
     /**
      * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      */
-    browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential>;
+    browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential | undefined>;
     /**
      * A `gcmCredential` block as defined below.
      *
      * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
+    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -208,25 +208,25 @@ export interface HubArgs {
      *
      * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
+    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential | undefined>;
     /**
      * A `browserCredential` block as defined below. Changing this forces a new resource to be created.
      */
-    browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential>;
+    browserCredential?: pulumi.Input<inputs.notificationhub.HubBrowserCredential | undefined>;
     /**
      * A `gcmCredential` block as defined below.
      *
      * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
+    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
@@ -238,5 +238,5 @@ export interface HubArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

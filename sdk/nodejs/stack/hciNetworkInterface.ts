@@ -190,37 +190,37 @@ export interface HciNetworkInterfaceState {
     /**
      * The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    ipConfiguration?: pulumi.Input<inputs.stack.HciNetworkInterfaceIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.stack.HciNetworkInterfaceIpConfiguration | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The MAC address of the Network Interface. Changing this forces a new resource to be created.
      *
      * > **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -234,7 +234,7 @@ export interface HciNetworkInterfaceArgs {
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
@@ -242,17 +242,17 @@ export interface HciNetworkInterfaceArgs {
     /**
      * The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The MAC address of the Network Interface. Changing this forces a new resource to be created.
      *
      * > **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
@@ -260,5 +260,5 @@ export interface HciNetworkInterfaceArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

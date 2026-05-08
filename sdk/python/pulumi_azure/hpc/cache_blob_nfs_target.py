@@ -24,10 +24,10 @@ class CacheBlobNfsTargetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_container_id: pulumi.Input[_builtins.str],
                  usage_model: pulumi.Input[_builtins.str],
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CacheBlobNfsTarget resource.
 
@@ -121,65 +121,65 @@ class CacheBlobNfsTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationTimerInSeconds")
-    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def verification_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "verification_timer_in_seconds")
 
     @verification_timer_in_seconds.setter
-    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def verification_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "verification_timer_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="writeBackTimerInSeconds")
-    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_back_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "write_back_timer_in_seconds")
 
     @write_back_timer_in_seconds.setter
-    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_back_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_back_timer_in_seconds", value)
 
 
 @pulumi.input_type
 class _CacheBlobNfsTargetState:
     def __init__(__self__, *,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CacheBlobNfsTarget resources.
 
@@ -216,67 +216,67 @@ class _CacheBlobNfsTargetState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheName")
-    def cache_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
         """
         return pulumi.get(self, "cache_name")
 
     @cache_name.setter
-    def cache_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client-facing file path of the HPC Cache Blob NFS Target.
         """
         return pulumi.get(self, "namespace_path")
 
     @namespace_path.setter
-    def namespace_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_path", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
 
@@ -285,43 +285,43 @@ class _CacheBlobNfsTargetState:
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
     @_builtins.property
     @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         return pulumi.get(self, "usage_model")
 
     @usage_model.setter
-    def usage_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_model", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationTimerInSeconds")
-    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def verification_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "verification_timer_in_seconds")
 
     @verification_timer_in_seconds.setter
-    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def verification_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "verification_timer_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="writeBackTimerInSeconds")
-    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_back_timer_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         return pulumi.get(self, "write_back_timer_in_seconds")
 
     @write_back_timer_in_seconds.setter
-    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_back_timer_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_back_timer_in_seconds", value)
 
 
@@ -331,15 +331,15 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Blob NFSv3 Target within a HPC Cache.
@@ -412,15 +412,15 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,15 +459,15 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_path: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-            usage_model: Optional[pulumi.Input[_builtins.str]] = None,
-            verification_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'CacheBlobNfsTarget':
+            access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_path: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_model: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            write_back_timer_in_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'CacheBlobNfsTarget':
         """
         Get an existing CacheBlobNfsTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

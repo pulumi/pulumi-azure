@@ -233,7 +233,7 @@ export interface ServerTransparentDataEncryptionState {
     /**
      * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
      */
-    autoRotationEnabled?: pulumi.Input<boolean>;
+    autoRotationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      *
@@ -241,15 +241,15 @@ export interface ServerTransparentDataEncryptionState {
      *
      * > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -259,7 +259,7 @@ export interface ServerTransparentDataEncryptionArgs {
     /**
      * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
      */
-    autoRotationEnabled?: pulumi.Input<boolean>;
+    autoRotationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      *
@@ -267,11 +267,11 @@ export interface ServerTransparentDataEncryptionArgs {
      *
      * > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */

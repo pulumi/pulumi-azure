@@ -23,14 +23,14 @@ class ManagedRedisArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 customer_managed_key: Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']] = None,
-                 default_database: Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']] = None,
-                 high_availability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ManagedRedisIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 customer_managed_key: pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']] = None,
+                 default_database: pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']] = None,
+                 high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ManagedRedisIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedRedis resource.
 
@@ -102,19 +102,19 @@ class ManagedRedisArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDatabase")
-    def default_database(self) -> Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']]:
+    def default_database(self) -> pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']]:
         """
         A `default_database` block as defined below.
 
@@ -125,96 +125,96 @@ class ManagedRedisArgs:
         return pulumi.get(self, "default_database")
 
     @default_database.setter
-    def default_database(self, value: Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']]):
+    def default_database(self, value: pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']]):
         pulumi.set(self, "default_database", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityEnabled")
-    def high_availability_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def high_availability_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "high_availability_enabled")
 
     @high_availability_enabled.setter
-    def high_availability_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def high_availability_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "high_availability_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedRedisIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedRedisIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedRedisIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedRedisIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Managed Redis instance should exist. Refer to "Redis Cache" on the [product availability documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) for supported locations. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Managed Redis instance. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public network access setting for the Managed Redis instance. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Managed Redis instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedRedisState:
     def __init__(__self__, *,
-                 customer_managed_key: Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']] = None,
-                 default_database: Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']] = None,
-                 high_availability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedRedisIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 customer_managed_key: pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']] = None,
+                 default_database: pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']] = None,
+                 high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedRedisIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ManagedRedis resources.
 
@@ -263,19 +263,19 @@ class _ManagedRedisState:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['ManagedRedisCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['ManagedRedisCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDatabase")
-    def default_database(self) -> Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']]:
+    def default_database(self) -> pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']]:
         """
         A `default_database` block as defined below.
 
@@ -286,96 +286,96 @@ class _ManagedRedisState:
         return pulumi.get(self, "default_database")
 
     @default_database.setter
-    def default_database(self, value: Optional[pulumi.Input['ManagedRedisDefaultDatabaseArgs']]):
+    def default_database(self, value: pulumi.Input[Optional['ManagedRedisDefaultDatabaseArgs']]):
         pulumi.set(self, "default_database", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityEnabled")
-    def high_availability_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def high_availability_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "high_availability_enabled")
 
     @high_availability_enabled.setter
-    def high_availability_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def high_availability_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "high_availability_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS name of the cluster endpoint.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedRedisIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedRedisIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedRedisIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedRedisIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Managed Redis instance should exist. Refer to "Redis Cache" on the [product availability documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) for supported locations. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Managed Redis instance. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public network access setting for the Managed Redis instance. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 
@@ -386,19 +386,19 @@ class _ManagedRedisState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Managed Redis instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -408,16 +408,16 @@ class ManagedRedis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-                 default_database: Optional[pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
-                 high_availability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
+                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+                 high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes redis.EnterpriseCluster and redis.EnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
@@ -685,16 +685,16 @@ class ManagedRedis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-                 default_database: Optional[pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
-                 high_availability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
+                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+                 high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,17 +729,17 @@ class ManagedRedis(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-            default_database: Optional[pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
-            high_availability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ManagedRedis':
+            customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
+            default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+            high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ManagedRedis':
         """
         Get an existing ManagedRedis resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

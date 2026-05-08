@@ -103,12 +103,12 @@ class PublicCertificateArgs:
 @pulumi.input_type
 class _PublicCertificateState:
     def __init__(__self__, *,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PublicCertificate resources.
 
@@ -134,74 +134,74 @@ class _PublicCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "app_service_name")
 
     @app_service_name.setter
-    def app_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "blob")
 
     @blob.setter
-    def blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateLocation")
-    def certificate_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "certificate_location")
 
     @certificate_location.setter
-    def certificate_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_location", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the public certificate.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -211,11 +211,11 @@ class PublicCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Service Public Certificate.
@@ -346,11 +346,11 @@ class PublicCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,12 +386,12 @@ class PublicCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            blob: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_location: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None) -> 'PublicCertificate':
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            blob: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_location: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> 'PublicCertificate':
         """
         Get an existing PublicCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

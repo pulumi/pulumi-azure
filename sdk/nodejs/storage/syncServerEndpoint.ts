@@ -198,41 +198,41 @@ export interface SyncServerEndpointState {
     /**
      * Is Cloud Tiering Enabled? Defaults to `false`.
      */
-    cloudTieringEnabled?: pulumi.Input<boolean>;
+    cloudTieringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      */
-    initialDownloadPolicy?: pulumi.Input<string>;
+    initialDownloadPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
      */
-    localCacheMode?: pulumi.Input<string>;
+    localCacheMode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
      *
      * > **Note:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
      */
-    registeredServerId?: pulumi.Input<string>;
+    registeredServerId?: pulumi.Input<string | undefined>;
     /**
      * The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    serverLocalPath?: pulumi.Input<string>;
+    serverLocalPath?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    storageSyncGroupId?: pulumi.Input<string>;
+    storageSyncGroupId?: pulumi.Input<string | undefined>;
     /**
      * Files older than the specified age will be tiered to the cloud.
      */
-    tierFilesOlderThanDays?: pulumi.Input<number>;
+    tierFilesOlderThanDays?: pulumi.Input<number | undefined>;
     /**
      * What percentage of free space on the volume should be preserved? Defaults to `20`.
      */
-    volumeFreeSpacePercent?: pulumi.Input<number>;
+    volumeFreeSpacePercent?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -242,19 +242,19 @@ export interface SyncServerEndpointArgs {
     /**
      * Is Cloud Tiering Enabled? Defaults to `false`.
      */
-    cloudTieringEnabled?: pulumi.Input<boolean>;
+    cloudTieringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
      */
-    initialDownloadPolicy?: pulumi.Input<string>;
+    initialDownloadPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
      */
-    localCacheMode?: pulumi.Input<string>;
+    localCacheMode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
      *
@@ -272,9 +272,9 @@ export interface SyncServerEndpointArgs {
     /**
      * Files older than the specified age will be tiered to the cloud.
      */
-    tierFilesOlderThanDays?: pulumi.Input<number>;
+    tierFilesOlderThanDays?: pulumi.Input<number | undefined>;
     /**
      * What percentage of free space on the volume should be preserved? Defaults to `20`.
      */
-    volumeFreeSpacePercent?: pulumi.Input<number>;
+    volumeFreeSpacePercent?: pulumi.Input<number | undefined>;
 }

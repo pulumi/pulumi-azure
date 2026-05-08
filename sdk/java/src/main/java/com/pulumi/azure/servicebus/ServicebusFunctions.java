@@ -50,8 +50,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -99,8 +99,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -148,8 +148,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -197,8 +197,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -344,8 +344,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -393,8 +393,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -442,8 +442,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -540,8 +540,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -589,8 +589,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -638,8 +638,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -736,8 +736,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -785,8 +785,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -834,8 +834,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -883,8 +883,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -932,8 +932,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -981,8 +981,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1030,8 +1030,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1081,8 +1081,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1132,8 +1132,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1183,8 +1183,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1234,8 +1234,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1285,8 +1285,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1334,8 +1334,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1383,8 +1383,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1432,8 +1432,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1481,8 +1481,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1530,8 +1530,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1579,8 +1579,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1628,8 +1628,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1677,8 +1677,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1726,8 +1726,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1775,8 +1775,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1826,8 +1826,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1877,8 +1877,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1928,8 +1928,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1979,8 +1979,8 @@ public final class ServicebusFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

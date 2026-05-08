@@ -24,12 +24,12 @@ class EnvironmentDaprComponentArgs:
                  component_type: pulumi.Input[_builtins.str],
                  container_app_environment_id: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None):
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentDaprComponent resource.
 
@@ -99,55 +99,55 @@ class EnvironmentDaprComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
-    def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
-    def ignore_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="initTimeout")
-    def init_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def init_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         """
         return pulumi.get(self, "init_timeout")
 
     @init_timeout.setter
-    def init_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def init_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "init_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
+    def metadatas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
         """
         One or more `metadata` blocks as detailed below.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
+    def metadatas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this Dapr component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of scopes to which this component applies.
 
@@ -156,34 +156,34 @@ class EnvironmentDaprComponentArgs:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
         """
         A `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
 
 @pulumi.input_type
 class _EnvironmentDaprComponentState:
     def __init__(__self__, *,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentDaprComponent resources.
 
@@ -220,79 +220,79 @@ class _EnvironmentDaprComponentState:
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
-    def container_app_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_app_environment_id")
 
     @container_app_environment_id.setter
-    def container_app_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
-    def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
-    def ignore_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="initTimeout")
-    def init_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def init_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         """
         return pulumi.get(self, "init_timeout")
 
     @init_timeout.setter
-    def init_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def init_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "init_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
+    def metadatas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
         """
         One or more `metadata` blocks as detailed below.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
+    def metadatas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for this Dapr component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of scopes to which this component applies.
 
@@ -301,31 +301,31 @@ class _EnvironmentDaprComponentState:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
         """
         A `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the component.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -335,15 +335,15 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Dapr Component for a Container App Environment.
@@ -472,15 +472,15 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -517,15 +517,15 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            component_type: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-            init_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnvironmentDaprComponent':
+            component_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnvironmentDaprComponent':
         """
         Get an existing EnvironmentDaprComponent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

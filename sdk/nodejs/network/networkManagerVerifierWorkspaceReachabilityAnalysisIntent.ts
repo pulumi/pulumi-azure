@@ -212,27 +212,27 @@ export interface NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState 
     /**
      * The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    destinationResourceId?: pulumi.Input<string>;
+    destinationResourceId?: pulumi.Input<string | undefined>;
     /**
      * An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    ipTraffic?: pulumi.Input<inputs.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic>;
+    ipTraffic?: pulumi.Input<inputs.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic | undefined>;
     /**
      * The name which should be used for this Network Manager Verifier Workspace Reachability Analysis Intent. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source resource. The value can be the ID of either Public internet, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    verifierWorkspaceId?: pulumi.Input<string>;
+    verifierWorkspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -242,7 +242,7 @@ export interface NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs {
     /**
      * The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
@@ -254,7 +254,7 @@ export interface NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs {
     /**
      * The name which should be used for this Network Manager Verifier Workspace Reachability Analysis Intent. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source resource. The value can be the ID of either Public internet, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */

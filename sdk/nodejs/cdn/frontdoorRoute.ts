@@ -306,65 +306,65 @@ export interface FrontdoorRouteState {
      *
      * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
-    cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
+    cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache | undefined>;
     /**
      * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      */
-    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      */
-    cdnFrontdoorEndpointId?: pulumi.Input<string>;
+    cdnFrontdoorEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      */
-    cdnFrontdoorOriginGroupId?: pulumi.Input<string>;
+    cdnFrontdoorOriginGroupId?: pulumi.Input<string | undefined>;
     /**
      * One or more Front Door Origin resource IDs for this Front Door Route.
      *
      * > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      */
-    cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      */
-    cdnFrontdoorOriginPath?: pulumi.Input<string>;
+    cdnFrontdoorOriginPath?: pulumi.Input<string | undefined>;
     /**
      * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      */
-    cdnFrontdoorRuleSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorRuleSetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
-    forwardingProtocol?: pulumi.Input<string>;
+    forwardingProtocol?: pulumi.Input<string | undefined>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
      * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
-    httpsRedirectEnabled?: pulumi.Input<boolean>;
+    httpsRedirectEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      */
-    linkToDefaultDomain?: pulumi.Input<boolean>;
+    linkToDefaultDomain?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The route patterns of the rule.
      */
-    patternsToMatches?: pulumi.Input<pulumi.Input<string>[]>;
+    patternsToMatches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      *
      * > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
-    supportedProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedProtocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -376,11 +376,11 @@ export interface FrontdoorRouteArgs {
      *
      * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
-    cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
+    cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache | undefined>;
     /**
      * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      */
-    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      */
@@ -394,37 +394,37 @@ export interface FrontdoorRouteArgs {
      *
      * > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      */
-    cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      */
-    cdnFrontdoorOriginPath?: pulumi.Input<string>;
+    cdnFrontdoorOriginPath?: pulumi.Input<string | undefined>;
     /**
      * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      */
-    cdnFrontdoorRuleSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorRuleSetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
-    forwardingProtocol?: pulumi.Input<string>;
+    forwardingProtocol?: pulumi.Input<string | undefined>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
      * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
-    httpsRedirectEnabled?: pulumi.Input<boolean>;
+    httpsRedirectEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      */
-    linkToDefaultDomain?: pulumi.Input<boolean>;
+    linkToDefaultDomain?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The route patterns of the rule.
      */

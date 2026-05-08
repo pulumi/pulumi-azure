@@ -24,9 +24,9 @@ class OutputFunctionArgs:
                  function_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
-                 batch_max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 batch_max_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputFunction resource.
 
@@ -113,52 +113,52 @@ class OutputFunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMaxCount")
-    def batch_max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of events in each batch that's sent to the function. Defaults to `100`.
         """
         return pulumi.get(self, "batch_max_count")
 
     @batch_max_count.setter
-    def batch_max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_max_count", value)
 
     @_builtins.property
     @pulumi.getter(name="batchMaxInBytes")
-    def batch_max_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_max_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
         """
         return pulumi.get(self, "batch_max_in_bytes")
 
     @batch_max_in_bytes.setter
-    def batch_max_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_max_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_max_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OutputFunctionState:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 batch_max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 batch_max_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 function_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 function_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputFunction resources.
 
@@ -190,98 +190,98 @@ class _OutputFunctionState:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key for the Function.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="batchMaxCount")
-    def batch_max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of events in each batch that's sent to the function. Defaults to `100`.
         """
         return pulumi.get(self, "batch_max_count")
 
     @batch_max_count.setter
-    def batch_max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_max_count", value)
 
     @_builtins.property
     @pulumi.getter(name="batchMaxInBytes")
-    def batch_max_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def batch_max_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
         """
         return pulumi.get(self, "batch_max_in_bytes")
 
     @batch_max_in_bytes.setter
-    def batch_max_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def batch_max_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "batch_max_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="functionApp")
-    def function_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Function App.
         """
         return pulumi.get(self, "function_app")
 
     @function_app.setter
-    def function_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app", value)
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function in the Function App.
         """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
@@ -291,14 +291,14 @@ class OutputFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 batch_max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 batch_max_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 function_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 function_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output Function.
@@ -474,14 +474,14 @@ class OutputFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 batch_max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 batch_max_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 function_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 function_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,14 +521,14 @@ class OutputFunction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            batch_max_count: Optional[pulumi.Input[_builtins.int]] = None,
-            batch_max_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            function_app: Optional[pulumi.Input[_builtins.str]] = None,
-            function_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'OutputFunction':
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+            batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            function_app: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'OutputFunction':
         """
         Get an existing OutputFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

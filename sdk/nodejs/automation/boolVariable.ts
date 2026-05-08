@@ -138,27 +138,27 @@ export interface BoolVariableState {
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The description of the Automation Variable.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The value of the Automation Variable as a `boolean`.
      */
-    value?: pulumi.Input<boolean>;
+    value?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -172,15 +172,15 @@ export interface BoolVariableArgs {
     /**
      * The description of the Automation Variable.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      */
@@ -188,5 +188,5 @@ export interface BoolVariableArgs {
     /**
      * The value of the Automation Variable as a `boolean`.
      */
-    value?: pulumi.Input<boolean>;
+    value?: pulumi.Input<boolean | undefined>;
 }

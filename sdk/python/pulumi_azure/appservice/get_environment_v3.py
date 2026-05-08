@@ -324,8 +324,8 @@ def get_environment_v3(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         windows_outbound_ip_addresses=pulumi.get(__ret__, 'windows_outbound_ip_addresses'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_environment_v3_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_v3_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentV3Result]:
     """
     Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.

@@ -29,8 +29,8 @@ public final class HdinsightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
      * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class HdinsightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
      * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -129,8 +129,8 @@ public final class HdinsightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
      * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class HdinsightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
      * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -229,8 +229,8 @@ public final class HdinsightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
      * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

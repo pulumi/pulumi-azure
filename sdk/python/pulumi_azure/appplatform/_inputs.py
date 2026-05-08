@@ -96,19 +96,19 @@ __all__ = [
 ]
 
 class SpringCloudApiPortalSsoArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public identifier for the application.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret known only to the application and the authorization server.
     """
-    issuer_uri: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of Issuer Identifier.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     It defines the specific actions applications can be allowed to do on a user's behalf.
     """
@@ -116,10 +116,10 @@ class SpringCloudApiPortalSsoArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudApiPortalSsoArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The public identifier for the application.
         :param pulumi.Input[_builtins.str] client_secret: The secret known only to the application and the authorization server.
@@ -137,50 +137,50 @@ class SpringCloudApiPortalSsoArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public identifier for the application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret known only to the application and the authorization server.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerUri")
-    def issuer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of Issuer Identifier.
         """
         return pulumi.get(self, "issuer_uri")
 
     @issuer_uri.setter
-    def issuer_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         It defines the specific actions applications can be allowed to do on a user's behalf.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -197,11 +197,11 @@ class SpringCloudAppCustomPersistentDiskArgsDict(TypedDict):
     """
     The name of the Spring Cloud Storage.
     """
-    mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    mount_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     These are the mount options for a persistent disk.
     """
-    read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the persistent disk is a readOnly one.
     """
@@ -212,8 +212,8 @@ class SpringCloudAppCustomPersistentDiskArgs:
                  mount_path: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  storage_name: pulumi.Input[_builtins.str],
-                 mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 read_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 mount_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 read_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] mount_path: The mount path of the persistent disk.
         :param pulumi.Input[_builtins.str] share_name: The share name of the Azure File share.
@@ -267,26 +267,26 @@ class SpringCloudAppCustomPersistentDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mount_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         These are the mount options for a persistent disk.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mount_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mount_options", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyEnabled")
-    def read_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the persistent disk is a readOnly one.
         """
         return pulumi.get(self, "read_only_enabled")
 
     @read_only_enabled.setter
-    def read_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only_enabled", value)
 
 
@@ -295,17 +295,17 @@ class SpringCloudAppIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
     """
@@ -314,9 +314,9 @@ class SpringCloudAppIdentityArgsDict(TypedDict):
 class SpringCloudAppIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
@@ -347,7 +347,7 @@ class SpringCloudAppIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 
@@ -356,52 +356,52 @@ class SpringCloudAppIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class SpringCloudAppIngressSettingsArgsDict(TypedDict):
-    backend_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    backend_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
     """
-    read_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    read_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the ingress read time out in seconds. Defaults to `300`.
     """
-    send_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    send_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the ingress send time out in seconds. Defaults to `60`.
     """
-    session_affinity: NotRequired[pulumi.Input[_builtins.str]]
+    session_affinity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
     """
-    session_cookie_max_age: NotRequired[pulumi.Input[_builtins.int]]
+    session_cookie_max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time in seconds until the cookie expires.
     """
@@ -409,11 +409,11 @@ class SpringCloudAppIngressSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudAppIngressSettingsArgs:
     def __init__(__self__, *,
-                 backend_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_affinity: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_cookie_max_age: Optional[pulumi.Input[_builtins.int]] = None):
+                 backend_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_affinity: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_cookie_max_age: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] backend_protocol: Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
         :param pulumi.Input[_builtins.int] read_timeout_in_seconds: Specifies the ingress read time out in seconds. Defaults to `300`.
@@ -434,62 +434,62 @@ class SpringCloudAppIngressSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendProtocol")
-    def backend_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
         """
         return pulumi.get(self, "backend_protocol")
 
     @backend_protocol.setter
-    def backend_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="readTimeoutInSeconds")
-    def read_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the ingress read time out in seconds. Defaults to `300`.
         """
         return pulumi.get(self, "read_timeout_in_seconds")
 
     @read_timeout_in_seconds.setter
-    def read_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="sendTimeoutInSeconds")
-    def send_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def send_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the ingress send time out in seconds. Defaults to `60`.
         """
         return pulumi.get(self, "send_timeout_in_seconds")
 
     @send_timeout_in_seconds.setter
-    def send_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def send_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "send_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionAffinity")
-    def session_affinity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_affinity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
         """
         return pulumi.get(self, "session_affinity")
 
     @session_affinity.setter
-    def session_affinity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_affinity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_affinity", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionCookieMaxAge")
-    def session_cookie_max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_cookie_max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time in seconds until the cookie expires.
         """
         return pulumi.get(self, "session_cookie_max_age")
 
     @session_cookie_max_age.setter
-    def session_cookie_max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_cookie_max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_cookie_max_age", value)
 
 
@@ -498,7 +498,7 @@ class SpringCloudAppPersistentDiskArgsDict(TypedDict):
     """
     Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
     """
-    mount_path: NotRequired[pulumi.Input[_builtins.str]]
+    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the mount path of the persistent disk. Defaults to `/persistent`.
     """
@@ -507,7 +507,7 @@ class SpringCloudAppPersistentDiskArgsDict(TypedDict):
 class SpringCloudAppPersistentDiskArgs:
     def __init__(__self__, *,
                  size_in_gb: pulumi.Input[_builtins.int],
-                 mount_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 mount_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] size_in_gb: Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
         :param pulumi.Input[_builtins.str] mount_path: Specifies the mount path of the persistent disk. Defaults to `/persistent`.
@@ -530,25 +530,25 @@ class SpringCloudAppPersistentDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="mountPath")
-    def mount_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mount path of the persistent disk. Defaults to `/persistent`.
         """
         return pulumi.get(self, "mount_path")
 
     @mount_path.setter
-    def mount_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mount_path", value)
 
 
 class SpringCloudBuildDeploymentQuotaArgsDict(TypedDict):
-    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
     > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -558,8 +558,8 @@ class SpringCloudBuildDeploymentQuotaArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudBuildDeploymentQuotaArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
                
@@ -575,7 +575,7 @@ class SpringCloudBuildDeploymentQuotaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
@@ -584,12 +584,12 @@ class SpringCloudBuildDeploymentQuotaArgs:
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -598,16 +598,16 @@ class SpringCloudBuildDeploymentQuotaArgs:
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
 class SpringCloudBuildPackBindingLaunchArgsDict(TypedDict):
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a map of non-sensitive properties for launchProperties.
     """
-    secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    secrets: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a map of sensitive properties for launchProperties.
     """
@@ -615,8 +615,8 @@ class SpringCloudBuildPackBindingLaunchArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudBuildPackBindingLaunchArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 secrets: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Specifies a map of non-sensitive properties for launchProperties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secrets: Specifies a map of sensitive properties for launchProperties.
@@ -628,26 +628,26 @@ class SpringCloudBuildPackBindingLaunchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of non-sensitive properties for launchProperties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def secrets(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of sensitive properties for launchProperties.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def secrets(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secrets", value)
 
 
@@ -656,7 +656,7 @@ class SpringCloudBuilderBuildPackGroupArgsDict(TypedDict):
     """
     The name which should be used for this build pack group.
     """
-    build_pack_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    build_pack_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of the build pack's ID.
     """
@@ -665,7 +665,7 @@ class SpringCloudBuilderBuildPackGroupArgsDict(TypedDict):
 class SpringCloudBuilderBuildPackGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 build_pack_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 build_pack_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this build pack group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] build_pack_ids: Specifies a list of the build pack's ID.
@@ -688,14 +688,14 @@ class SpringCloudBuilderBuildPackGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildPackIds")
-    def build_pack_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def build_pack_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of the build pack's ID.
         """
         return pulumi.get(self, "build_pack_ids")
 
     @build_pack_ids.setter
-    def build_pack_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def build_pack_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "build_pack_ids", value)
 
 
@@ -763,35 +763,35 @@ class SpringCloudConfigurationServiceRepositoryArgsDict(TypedDict):
     """
     Specifies the URI of the repository.
     """
-    ca_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    ca_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
     """
-    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    host_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the SSH public key of git repository.
     """
-    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    host_key_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the SSH key algorithm of git repository.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the password of git repository basic auth.
     """
-    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    private_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the SSH private key of git repository.
     """
-    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of searching path of the repository
     """
-    strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
+    strict_host_key_checking: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether enable the strict host key checking.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the username of git repository basic auth.
     """
@@ -803,14 +803,14 @@ class SpringCloudConfigurationServiceRepositoryArgs:
                  name: pulumi.Input[_builtins.str],
                  patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  uri: pulumi.Input[_builtins.str],
-                 ca_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict_host_key_checking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 ca_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict_host_key_checking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] label: Specifies the label of the repository.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this repository.
@@ -896,98 +896,98 @@ class SpringCloudConfigurationServiceRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificateId")
-    def ca_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
         """
         return pulumi.get(self, "ca_certificate_id")
 
     @ca_certificate_id.setter
-    def ca_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKey")
-    def host_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SSH public key of git repository.
         """
         return pulumi.get(self, "host_key")
 
     @host_key.setter
-    def host_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyAlgorithm")
-    def host_key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SSH key algorithm of git repository.
         """
         return pulumi.get(self, "host_key_algorithm")
 
     @host_key_algorithm.setter
-    def host_key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password of git repository basic auth.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SSH private key of git repository.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def search_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of searching path of the repository
         """
         return pulumi.get(self, "search_paths")
 
     @search_paths.setter
-    def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def search_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "search_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="strictHostKeyChecking")
-    def strict_host_key_checking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_host_key_checking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the strict host key checking.
         """
         return pulumi.get(self, "strict_host_key_checking")
 
     @strict_host_key_checking.setter
-    def strict_host_key_checking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_host_key_checking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_host_key_checking", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the username of git repository basic auth.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -996,27 +996,27 @@ class SpringCloudConnectionAuthenticationArgsDict(TypedDict):
     """
     The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
     """
-    certificate: NotRequired[pulumi.Input[_builtins.str]]
+    certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
     """
-    secret: NotRequired[pulumi.Input[_builtins.str]]
+    secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
     """
@@ -1025,12 +1025,12 @@ class SpringCloudConnectionAuthenticationArgsDict(TypedDict):
 class SpringCloudConnectionAuthenticationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate: Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
@@ -1068,74 +1068,74 @@ class SpringCloudConnectionAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -1168,13 +1168,13 @@ class SpringCloudConnectionSecretStoreArgs:
 
 
 class SpringCloudContainerDeploymentQuotaArgsDict(TypedDict):
-    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
     > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -1184,8 +1184,8 @@ class SpringCloudContainerDeploymentQuotaArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudContainerDeploymentQuotaArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
                
@@ -1201,7 +1201,7 @@ class SpringCloudContainerDeploymentQuotaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
@@ -1210,12 +1210,12 @@ class SpringCloudContainerDeploymentQuotaArgs:
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -1224,7 +1224,7 @@ class SpringCloudContainerDeploymentQuotaArgs:
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
@@ -1233,35 +1233,35 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgsDict(TypedDict):
     """
     Specifies Git repository URL for the accelerator.
     """
-    basic_auth: NotRequired[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict']]
+    basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]]
     """
     A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
     """
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Git repository branch to be used.
     """
-    ca_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    ca_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
     """
-    commit: NotRequired[pulumi.Input[_builtins.str]]
+    commit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Git repository commit to be used.
     """
-    git_tag: NotRequired[pulumi.Input[_builtins.str]]
+    git_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Git repository tag to be used.
     """
-    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
     """
-    ssh_auth: NotRequired[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict']]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]]
     """
     A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
     """
@@ -1270,14 +1270,14 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgsDict(TypedDict):
 class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 basic_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']] = None):
+                 basic_auth: pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_auth: pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] url: Specifies Git repository URL for the accelerator.
         :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs'] basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
@@ -1321,98 +1321,98 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="basicAuth")
-    def basic_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]:
+    def basic_auth(self) -> pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]:
         """
         A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "basic_auth")
 
     @basic_auth.setter
-    def basic_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]):
+    def basic_auth(self, value: pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]):
         pulumi.set(self, "basic_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Git repository branch to be used.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateId")
-    def ca_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
         """
         return pulumi.get(self, "ca_certificate_id")
 
     @ca_certificate_id.setter
-    def ca_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def commit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Git repository commit to be used.
         """
         return pulumi.get(self, "commit")
 
     @commit.setter
-    def commit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit", value)
 
     @_builtins.property
     @pulumi.getter(name="gitTag")
-    def git_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Git repository tag to be used.
         """
         return pulumi.get(self, "git_tag")
 
     @git_tag.setter
-    def git_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]:
+    def ssh_auth(self) -> pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]:
         """
         A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]):
+    def ssh_auth(self, value: pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
@@ -1468,11 +1468,11 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict(TypedDict):
     """
     Specifies the Private SSH Key of git repository basic auth.
     """
-    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    host_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Public SSH Key of git repository basic auth.
     """
-    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    host_key_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the SSH Key algorithm of git repository basic auth.
     """
@@ -1481,8 +1481,8 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict(TypedDict):
 class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[_builtins.str],
-                 host_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_algorithm: Optional[pulumi.Input[_builtins.str]] = None):
+                 host_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_algorithm: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_key: Specifies the Private SSH Key of git repository basic auth.
         :param pulumi.Input[_builtins.str] host_key: Specifies the Public SSH Key of git repository basic auth.
@@ -1508,43 +1508,43 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostKey")
-    def host_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Public SSH Key of git repository basic auth.
         """
         return pulumi.get(self, "host_key")
 
     @host_key.setter
-    def host_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyAlgorithm")
-    def host_key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SSH Key algorithm of git repository basic auth.
         """
         return pulumi.get(self, "host_key_algorithm")
 
     @host_key_algorithm.setter
-    def host_key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_algorithm", value)
 
 
 class SpringCloudDevToolPortalSsoArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the public identifier for the application.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the secret known only to the application and the authorization server.
     """
-    metadata_url: NotRequired[pulumi.Input[_builtins.str]]
+    metadata_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the URI of a JSON file with generic OIDC provider configuration.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of specific actions applications can be allowed to do on a user's behalf.
     """
@@ -1552,10 +1552,10 @@ class SpringCloudDevToolPortalSsoArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudDevToolPortalSsoArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: Specifies the public identifier for the application.
         :param pulumi.Input[_builtins.str] client_secret: Specifies the secret known only to the application and the authorization server.
@@ -1573,71 +1573,71 @@ class SpringCloudDevToolPortalSsoArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the public identifier for the application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secret known only to the application and the authorization server.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataUrl")
-    def metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI of a JSON file with generic OIDC provider configuration.
         """
         return pulumi.get(self, "metadata_url")
 
     @metadata_url.setter
-    def metadata_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of specific actions applications can be allowed to do on a user's behalf.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
 class SpringCloudGatewayApiMetadataArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Detailed description of the APIs available on the Gateway instance.
     """
-    documentation_url: NotRequired[pulumi.Input[_builtins.str]]
+    documentation_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of additional documentation for the APIs available on the Gateway instance.
     """
-    server_url: NotRequired[pulumi.Input[_builtins.str]]
+    server_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base URL that API consumers will use to access APIs on the Gateway instance.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the title describing the context of the APIs available on the Gateway instance.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version of APIs available on this Gateway instance.
     """
@@ -1645,11 +1645,11 @@ class SpringCloudGatewayApiMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayApiMetadataArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: Detailed description of the APIs available on the Gateway instance.
         :param pulumi.Input[_builtins.str] documentation_url: Location of additional documentation for the APIs available on the Gateway instance.
@@ -1670,71 +1670,71 @@ class SpringCloudGatewayApiMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Detailed description of the APIs available on the Gateway instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationUrl")
-    def documentation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of additional documentation for the APIs available on the Gateway instance.
         """
         return pulumi.get(self, "documentation_url")
 
     @documentation_url.setter
-    def documentation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base URL that API consumers will use to access APIs on the Gateway instance.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the title describing the context of the APIs available on the Gateway instance.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of APIs available on this Gateway instance.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 class SpringCloudGatewayClientAuthorizationArgsDict(TypedDict):
-    certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    certificate_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
     """
-    verification_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    verification_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the client certificate verification is enabled.
     """
@@ -1742,8 +1742,8 @@ class SpringCloudGatewayClientAuthorizationArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayClientAuthorizationArgs:
     def __init__(__self__, *,
-                 certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verification_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verification_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
         :param pulumi.Input[_builtins.bool] verification_enabled: Specifies whether the client certificate verification is enabled.
@@ -1755,55 +1755,55 @@ class SpringCloudGatewayClientAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateIds")
-    def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
         """
         return pulumi.get(self, "certificate_ids")
 
     @certificate_ids.setter
-    def certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationEnabled")
-    def verification_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verification_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the client certificate verification is enabled.
         """
         return pulumi.get(self, "verification_enabled")
 
     @verification_enabled.setter
-    def verification_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verification_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verification_enabled", value)
 
 
 class SpringCloudGatewayCorsArgsDict(TypedDict):
-    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
     """
-    allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
     """
-    allowed_origin_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origin_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed origin patterns to make cross-site requests.
     """
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed origins to make cross-site requests. The special value `*` allows all domains.
     """
-    credentials_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    credentials_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     is user credentials are supported on cross-site requests?
     """
-    exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exposed_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     HTTP response headers to expose for cross-site requests.
     """
-    max_age_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How long, in seconds, the response from a pre-flight request can be cached by clients.
     """
@@ -1811,13 +1811,13 @@ class SpringCloudGatewayCorsArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayCorsArgs:
     def __init__(__self__, *,
-                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_origin_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 credentials_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 allowed_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_origin_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 credentials_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exposed_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
@@ -1844,95 +1844,95 @@ class SpringCloudGatewayCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedHeaders")
-    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         """
         return pulumi.get(self, "allowed_headers")
 
     @allowed_headers.setter
-    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 
     @allowed_methods.setter
-    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOriginPatterns")
-    def allowed_origin_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origin_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed origin patterns to make cross-site requests.
         """
         return pulumi.get(self, "allowed_origin_patterns")
 
     @allowed_origin_patterns.setter
-    def allowed_origin_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origin_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origin_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed origins to make cross-site requests. The special value `*` allows all domains.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsAllowed")
-    def credentials_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def credentials_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         is user credentials are supported on cross-site requests?
         """
         return pulumi.get(self, "credentials_allowed")
 
     @credentials_allowed.setter
-    def credentials_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def credentials_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "credentials_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="exposedHeaders")
-    def exposed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exposed_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         HTTP response headers to expose for cross-site requests.
         """
         return pulumi.get(self, "exposed_headers")
 
     @exposed_headers.setter
-    def exposed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exposed_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exposed_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeSeconds")
-    def max_age_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long, in seconds, the response from a pre-flight request can be cached by clients.
         """
         return pulumi.get(self, "max_age_seconds")
 
     @max_age_seconds.setter
-    def max_age_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_seconds", value)
 
 
 class SpringCloudGatewayLocalResponseCachePerInstanceArgsDict(TypedDict):
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
     """
-    time_to_live: NotRequired[pulumi.Input[_builtins.str]]
+    time_to_live: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time before a cached entry is expired (300s, 5m, 1h...).
     """
@@ -1940,8 +1940,8 @@ class SpringCloudGatewayLocalResponseCachePerInstanceArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayLocalResponseCachePerInstanceArgs:
     def __init__(__self__, *,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.str]] = None):
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
         :param pulumi.Input[_builtins.str] time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
@@ -1953,35 +1953,35 @@ class SpringCloudGatewayLocalResponseCachePerInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time before a cached entry is expired (300s, 5m, 1h...).
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_to_live", value)
 
 
 class SpringCloudGatewayLocalResponseCachePerRouteArgsDict(TypedDict):
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
     """
-    time_to_live: NotRequired[pulumi.Input[_builtins.str]]
+    time_to_live: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time before a cached entry is expired (300s, 5m, 1h...).
     """
@@ -1989,8 +1989,8 @@ class SpringCloudGatewayLocalResponseCachePerRouteArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayLocalResponseCachePerRouteArgs:
     def __init__(__self__, *,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.str]] = None):
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
         :param pulumi.Input[_builtins.str] time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
@@ -2002,37 +2002,37 @@ class SpringCloudGatewayLocalResponseCachePerRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time before a cached entry is expired (300s, 5m, 1h...).
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_to_live", value)
 
 
 class SpringCloudGatewayQuotaArgsDict(TypedDict):
-    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
     > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `2Gi` if not specified.
 
@@ -2042,8 +2042,8 @@ class SpringCloudGatewayQuotaArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayQuotaArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
                
@@ -2059,7 +2059,7 @@ class SpringCloudGatewayQuotaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
@@ -2068,12 +2068,12 @@ class SpringCloudGatewayQuotaArgs:
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `2Gi` if not specified.
 
@@ -2082,12 +2082,12 @@ class SpringCloudGatewayQuotaArgs:
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
 class SpringCloudGatewayRouteConfigOpenApiArgsDict(TypedDict):
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of OpenAPI specification.
     """
@@ -2095,7 +2095,7 @@ class SpringCloudGatewayRouteConfigOpenApiArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewayRouteConfigOpenApiArgs:
     def __init__(__self__, *,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of OpenAPI specification.
         """
@@ -2104,14 +2104,14 @@ class SpringCloudGatewayRouteConfigOpenApiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of OpenAPI specification.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -2120,35 +2120,35 @@ class SpringCloudGatewayRouteConfigRouteArgsDict(TypedDict):
     """
     Specifies the route processing order.
     """
-    classification_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    classification_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the description which will be applied to methods in the generated OpenAPI documentation.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
     """
-    predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
     """
-    sso_validation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    sso_validation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the sso validation be enabled?
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the title which will be applied to methods in the generated OpenAPI documentation.
     """
-    token_relay: NotRequired[pulumi.Input[_builtins.bool]]
+    token_relay: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should pass currently-authenticated user's identity token to application service?
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the full uri which will override `appName`.
     """
@@ -2157,14 +2157,14 @@ class SpringCloudGatewayRouteConfigRouteArgsDict(TypedDict):
 class SpringCloudGatewayRouteConfigRouteArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[_builtins.int],
-                 classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sso_validation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_relay: Optional[pulumi.Input[_builtins.bool]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 classification_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sso_validation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_relay: pulumi.Input[Optional[_builtins.bool]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Specifies the route processing order.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classification_tags: Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
@@ -2208,115 +2208,115 @@ class SpringCloudGatewayRouteConfigRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="classificationTags")
-    def classification_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classification_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
         """
         return pulumi.get(self, "classification_tags")
 
     @classification_tags.setter
-    def classification_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classification_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classification_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description which will be applied to methods in the generated OpenAPI documentation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def predicates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def predicates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "predicates", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoValidationEnabled")
-    def sso_validation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sso_validation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the sso validation be enabled?
         """
         return pulumi.get(self, "sso_validation_enabled")
 
     @sso_validation_enabled.setter
-    def sso_validation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sso_validation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sso_validation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the title which will be applied to methods in the generated OpenAPI documentation.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenRelay")
-    def token_relay(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def token_relay(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should pass currently-authenticated user's identity token to application service?
         """
         return pulumi.get(self, "token_relay")
 
     @token_relay.setter
-    def token_relay(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def token_relay(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "token_relay", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full uri which will override `appName`.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
 class SpringCloudGatewaySsoArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public identifier for the application.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret known only to the application and the authorization server.
     """
-    issuer_uri: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of Issuer Identifier.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     It defines the specific actions applications can be allowed to do on a user's behalf.
     """
@@ -2324,10 +2324,10 @@ class SpringCloudGatewaySsoArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudGatewaySsoArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The public identifier for the application.
         :param pulumi.Input[_builtins.str] client_secret: The secret known only to the application and the authorization server.
@@ -2345,61 +2345,61 @@ class SpringCloudGatewaySsoArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public identifier for the application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret known only to the application and the authorization server.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerUri")
-    def issuer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of Issuer Identifier.
         """
         return pulumi.get(self, "issuer_uri")
 
     @issuer_uri.setter
-    def issuer_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         It defines the specific actions applications can be allowed to do on a user's behalf.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
 class SpringCloudJavaDeploymentQuotaArgsDict(TypedDict):
-    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
     > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -2409,8 +2409,8 @@ class SpringCloudJavaDeploymentQuotaArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudJavaDeploymentQuotaArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
                
@@ -2426,7 +2426,7 @@ class SpringCloudJavaDeploymentQuotaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 
@@ -2435,12 +2435,12 @@ class SpringCloudJavaDeploymentQuotaArgs:
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
 
@@ -2449,7 +2449,7 @@ class SpringCloudJavaDeploymentQuotaArgs:
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
@@ -2458,23 +2458,23 @@ class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
     """
     The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
     """
-    http_basic_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict']]
+    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]]
     """
     A `http_basic_auth` block as defined below.
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
     """
-    repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgsDict']]]]
+    repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]]
     """
     One or more `repository` blocks as defined below.
     """
-    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings used to search subdirectories of the Git repository.
     """
-    ssh_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgsDict']]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]]
     """
     A `ssh_auth` block as defined below.
     """
@@ -2483,11 +2483,11 @@ class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
 class SpringCloudServiceConfigServerGitSettingArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]] = None,
-                 search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']] = None):
+                 http_basic_auth: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]] = None,
+                 search_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ssh_auth: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs'] http_basic_auth: A `http_basic_auth` block as defined below.
@@ -2522,62 +2522,62 @@ class SpringCloudServiceConfigServerGitSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]:
+    def http_basic_auth(self) -> pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]:
         """
         A `http_basic_auth` block as defined below.
         """
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]):
+    def http_basic_auth(self, value: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]):
         pulumi.set(self, "http_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def search_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
         return pulumi.get(self, "search_paths")
 
     @search_paths.setter
-    def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def search_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "search_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]:
+    def ssh_auth(self) -> pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]:
         """
         A `ssh_auth` block as defined below.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]):
+    def ssh_auth(self, value: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
@@ -2637,23 +2637,23 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgsDict(TypedDict):
     """
     The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
     """
-    http_basic_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict']]
+    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]]
     """
     A `http_basic_auth` block as defined below.
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
     """
-    patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
     """
-    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of strings used to search subdirectories of the Git repository.
     """
-    ssh_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict']]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]]
     """
     A `ssh_auth` block as defined below.
     """
@@ -2663,11 +2663,11 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']] = None):
+                 http_basic_auth: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 search_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ssh_auth: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: A name to identify on the Git repository, required only if repos exists.
         :param pulumi.Input[_builtins.str] uri: The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
@@ -2716,62 +2716,62 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]:
+    def http_basic_auth(self) -> pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]:
         """
         A `http_basic_auth` block as defined below.
         """
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]):
+    def http_basic_auth(self, value: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]):
         pulumi.set(self, "http_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
         """
         return pulumi.get(self, "patterns")
 
     @patterns.setter
-    def patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def search_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
         return pulumi.get(self, "search_paths")
 
     @search_paths.setter
-    def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def search_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "search_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]:
+    def ssh_auth(self) -> pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]:
         """
         A `ssh_auth` block as defined below.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]):
+    def ssh_auth(self, value: pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
@@ -2827,15 +2827,15 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict(TypedDic
     """
     The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
     """
-    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    host_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
     """
-    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    host_key_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
     """
-    strict_host_key_checking_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    strict_host_key_checking_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
     """
@@ -2844,9 +2844,9 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict(TypedDic
 class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[_builtins.str],
-                 host_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_host_key_checking_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 host_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_host_key_checking_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] private_key: The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
         :param pulumi.Input[_builtins.str] host_key: The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
@@ -2875,38 +2875,38 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostKey")
-    def host_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
         """
         return pulumi.get(self, "host_key")
 
     @host_key.setter
-    def host_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyAlgorithm")
-    def host_key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
         """
         return pulumi.get(self, "host_key_algorithm")
 
     @host_key_algorithm.setter
-    def host_key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="strictHostKeyCheckingEnabled")
-    def strict_host_key_checking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_host_key_checking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
 
     @strict_host_key_checking_enabled.setter
-    def strict_host_key_checking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_host_key_checking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_host_key_checking_enabled", value)
 
 
@@ -2915,15 +2915,15 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgsDict(TypedDict):
     """
     The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
     """
-    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    host_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
     """
-    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    host_key_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
     """
-    strict_host_key_checking_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    strict_host_key_checking_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
     """
@@ -2932,9 +2932,9 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgsDict(TypedDict):
 class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[_builtins.str],
-                 host_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_host_key_checking_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 host_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_host_key_checking_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] private_key: The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
         :param pulumi.Input[_builtins.str] host_key: The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
@@ -2963,38 +2963,38 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostKey")
-    def host_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
         """
         return pulumi.get(self, "host_key")
 
     @host_key.setter
-    def host_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyAlgorithm")
-    def host_key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
         """
         return pulumi.get(self, "host_key_algorithm")
 
     @host_key_algorithm.setter
-    def host_key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="strictHostKeyCheckingEnabled")
-    def strict_host_key_checking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_host_key_checking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
 
     @strict_host_key_checking_enabled.setter
-    def strict_host_key_checking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_host_key_checking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_host_key_checking_enabled", value)
 
 
@@ -3084,7 +3084,7 @@ class SpringCloudServiceContainerRegistryArgs:
 
 
 class SpringCloudServiceDefaultBuildServiceArgsDict(TypedDict):
-    container_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_registry_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the container registry used in the default build service.
     """
@@ -3092,7 +3092,7 @@ class SpringCloudServiceDefaultBuildServiceArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudServiceDefaultBuildServiceArgs:
     def __init__(__self__, *,
-                 container_registry_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_registry_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_registry_name: Specifies the name of the container registry used in the default build service.
         """
@@ -3101,14 +3101,14 @@ class SpringCloudServiceDefaultBuildServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryName")
-    def container_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the container registry used in the default build service.
         """
         return pulumi.get(self, "container_registry_name")
 
     @container_registry_name.setter
-    def container_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_name", value)
 
 
@@ -3191,19 +3191,19 @@ class SpringCloudServiceNetworkArgsDict(TypedDict):
     """
     Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
     """
-    app_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    app_network_resource_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
     """
-    outbound_type: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
     """
-    read_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    read_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Ingress read time out in seconds.
     """
-    service_runtime_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    service_runtime_network_resource_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
     """
@@ -3214,10 +3214,10 @@ class SpringCloudServiceNetworkArgs:
                  app_subnet_id: pulumi.Input[_builtins.str],
                  cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  service_runtime_subnet_id: pulumi.Input[_builtins.str],
-                 app_network_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_runtime_network_resource_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_network_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_runtime_network_resource_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] app_subnet_id: Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
@@ -3277,71 +3277,71 @@ class SpringCloudServiceNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="appNetworkResourceGroup")
-    def app_network_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_network_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_network_resource_group")
 
     @app_network_resource_group.setter
-    def app_network_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_network_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_network_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_type", value)
 
     @_builtins.property
     @pulumi.getter(name="readTimeoutSeconds")
-    def read_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Ingress read time out in seconds.
         """
         return pulumi.get(self, "read_timeout_seconds")
 
     @read_timeout_seconds.setter
-    def read_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRuntimeNetworkResourceGroup")
-    def service_runtime_network_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_runtime_network_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_runtime_network_resource_group")
 
     @service_runtime_network_resource_group.setter
-    def service_runtime_network_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_runtime_network_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_runtime_network_resource_group", value)
 
 
 class SpringCloudServiceRequiredNetworkTrafficRuleArgsDict(TypedDict):
-    direction: NotRequired[pulumi.Input[_builtins.str]]
+    direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The direction of required traffic. Possible values are `Inbound`, `Outbound`.
     """
-    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The FQDN list of required traffic.
     """
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IP list of required traffic.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port of required traffic.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol of required traffic.
     """
@@ -3349,11 +3349,11 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
     def __init__(__self__, *,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: The FQDN list of required traffic.
@@ -3374,71 +3374,71 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of required traffic. Possible values are `Inbound`, `Outbound`.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The FQDN list of required traffic.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP list of required traffic.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port of required traffic.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol of required traffic.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
 
 class SpringCloudServiceTraceArgsDict(TypedDict):
-    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The connection string used for Application Insights.
     """
-    sample_rate: NotRequired[pulumi.Input[_builtins.float]]
+    sample_rate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
     """
@@ -3446,8 +3446,8 @@ class SpringCloudServiceTraceArgsDict(TypedDict):
 @pulumi.input_type
 class SpringCloudServiceTraceArgs:
     def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_rate: Optional[pulumi.Input[_builtins.float]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_rate: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_string: The connection string used for Application Insights.
         :param pulumi.Input[_builtins.float] sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
@@ -3459,26 +3459,26 @@ class SpringCloudServiceTraceArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string used for Application Insights.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleRate")
-    def sample_rate(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sample_rate(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
-    def sample_rate(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sample_rate(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sample_rate", value)
 
 

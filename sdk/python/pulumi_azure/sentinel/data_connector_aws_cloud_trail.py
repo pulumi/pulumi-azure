@@ -21,7 +21,7 @@ class DataConnectorAwsCloudTrailArgs:
     def __init__(__self__, *,
                  aws_role_arn: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorAwsCloudTrail resource.
 
@@ -60,23 +60,23 @@ class DataConnectorAwsCloudTrailArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DataConnectorAwsCloudTrailState:
     def __init__(__self__, *,
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorAwsCloudTrail resources.
 
@@ -93,38 +93,38 @@ class _DataConnectorAwsCloudTrailState:
 
     @_builtins.property
     @pulumi.getter(name="awsRoleArn")
-    def aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
         """
         return pulumi.get(self, "aws_role_arn")
 
     @aws_role_arn.setter
-    def aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -134,9 +134,9 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a AWS CloudTrail Data Connector.
@@ -231,9 +231,9 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,9 +260,9 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataConnectorAwsCloudTrail':
+            aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataConnectorAwsCloudTrail':
         """
         Get an existing DataConnectorAwsCloudTrail resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

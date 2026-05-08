@@ -23,8 +23,8 @@ class SpringCloudElasticApplicationPerformanceMonitoringArgs:
                  server_url: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudElasticApplicationPerformanceMonitoring resource.
 
@@ -94,38 +94,38 @@ class SpringCloudElasticApplicationPerformanceMonitoringArgs:
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Elastic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudElasticApplicationPerformanceMonitoringState:
     def __init__(__self__, *,
-                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudElasticApplicationPerformanceMonitoring resources.
 
@@ -151,74 +151,74 @@ class _SpringCloudElasticApplicationPerformanceMonitoringState:
 
     @_builtins.property
     @pulumi.getter(name="applicationPackages")
-    def application_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
         """
         return pulumi.get(self, "application_packages")
 
     @application_packages.setter
-    def application_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_packages", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Elastic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the server URL. The URL must be fully qualified, including protocol (http or https) and port.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the service name which is used to keep all the errors and transactions of your service together and is the primary filter in the Elastic APM user interface.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
@@ -228,12 +228,12 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -363,12 +363,12 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,12 +402,12 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_url: Optional[pulumi.Input[_builtins.str]] = None,
-            service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudElasticApplicationPerformanceMonitoring':
+            application_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudElasticApplicationPerformanceMonitoring':
         """
         Get an existing SpringCloudElasticApplicationPerformanceMonitoring resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

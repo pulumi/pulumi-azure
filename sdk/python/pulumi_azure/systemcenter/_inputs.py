@@ -28,23 +28,23 @@ __all__ = [
 ]
 
 class VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict(TypedDict):
-    cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
     """
-    dynamic_memory_max_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    dynamic_memory_max_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
     """
-    dynamic_memory_min_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    dynamic_memory_min_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
     """
-    limit_cpu_for_migration_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    limit_cpu_for_migration_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether processor compatibility mode for live migration of Virtual Machines is enabled.
     """
-    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
     """
@@ -52,11 +52,11 @@ class VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceHardwareArgs:
     def __init__(__self__, *,
-                 cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dynamic_memory_max_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 dynamic_memory_min_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_cpu_for_migration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_memory_max_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_memory_min_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_cpu_for_migration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cpu_count: The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
         :param pulumi.Input[_builtins.int] dynamic_memory_max_in_mb: The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
@@ -77,83 +77,83 @@ class VirtualMachineManagerVirtualMachineInstanceHardwareArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
         """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
-    def cpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicMemoryMaxInMb")
-    def dynamic_memory_max_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_memory_max_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
         """
         return pulumi.get(self, "dynamic_memory_max_in_mb")
 
     @dynamic_memory_max_in_mb.setter
-    def dynamic_memory_max_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_memory_max_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_memory_max_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicMemoryMinInMb")
-    def dynamic_memory_min_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_memory_min_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
         """
         return pulumi.get(self, "dynamic_memory_min_in_mb")
 
     @dynamic_memory_min_in_mb.setter
-    def dynamic_memory_min_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_memory_min_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_memory_min_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="limitCpuForMigrationEnabled")
-    def limit_cpu_for_migration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def limit_cpu_for_migration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether processor compatibility mode for live migration of Virtual Machines is enabled.
         """
         return pulumi.get(self, "limit_cpu_for_migration_enabled")
 
     @limit_cpu_for_migration_enabled.setter
-    def limit_cpu_for_migration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def limit_cpu_for_migration_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "limit_cpu_for_migration_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInMb")
-    def memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
         """
         return pulumi.get(self, "memory_in_mb")
 
     @memory_in_mb.setter
-    def memory_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_in_mb", value)
 
 
 class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict(TypedDict):
-    checkpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    checkpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
     """
-    system_center_virtual_machine_manager_cloud_id: NotRequired[pulumi.Input[_builtins.str]]
+    system_center_virtual_machine_manager_cloud_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
     """
-    system_center_virtual_machine_manager_inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
+    system_center_virtual_machine_manager_inventory_item_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
     """
-    system_center_virtual_machine_manager_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    system_center_virtual_machine_manager_template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
     """
-    system_center_virtual_machine_manager_virtual_machine_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    system_center_virtual_machine_manager_virtual_machine_server_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
     """
@@ -161,11 +161,11 @@ class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict(TypedDic
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs:
     def __init__(__self__, *,
-                 checkpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_center_virtual_machine_manager_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_center_virtual_machine_manager_inventory_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_center_virtual_machine_manager_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_center_virtual_machine_manager_virtual_machine_server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 checkpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_center_virtual_machine_manager_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_center_virtual_machine_manager_inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_center_virtual_machine_manager_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_center_virtual_machine_manager_virtual_machine_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] checkpoint_type: The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
         :param pulumi.Input[_builtins.str] system_center_virtual_machine_manager_cloud_id: The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
@@ -186,62 +186,62 @@ class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkpointType")
-    def checkpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checkpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
         """
         return pulumi.get(self, "checkpoint_type")
 
     @checkpoint_type.setter
-    def checkpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checkpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checkpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerCloudId")
-    def system_center_virtual_machine_manager_cloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_center_virtual_machine_manager_cloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_cloud_id")
 
     @system_center_virtual_machine_manager_cloud_id.setter
-    def system_center_virtual_machine_manager_cloud_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_center_virtual_machine_manager_cloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_center_virtual_machine_manager_cloud_id", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerInventoryItemId")
-    def system_center_virtual_machine_manager_inventory_item_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_center_virtual_machine_manager_inventory_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_inventory_item_id")
 
     @system_center_virtual_machine_manager_inventory_item_id.setter
-    def system_center_virtual_machine_manager_inventory_item_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_center_virtual_machine_manager_inventory_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_center_virtual_machine_manager_inventory_item_id", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerTemplateId")
-    def system_center_virtual_machine_manager_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_center_virtual_machine_manager_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_template_id")
 
     @system_center_virtual_machine_manager_template_id.setter
-    def system_center_virtual_machine_manager_template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_center_virtual_machine_manager_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_center_virtual_machine_manager_template_id", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerVirtualMachineServerId")
-    def system_center_virtual_machine_manager_virtual_machine_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_center_virtual_machine_manager_virtual_machine_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_virtual_machine_server_id")
 
     @system_center_virtual_machine_manager_virtual_machine_server_id.setter
-    def system_center_virtual_machine_manager_virtual_machine_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_center_virtual_machine_manager_virtual_machine_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_center_virtual_machine_manager_virtual_machine_server_id", value)
 
 
@@ -250,19 +250,19 @@ class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict(TypedD
     """
     The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
     """
-    ipv4_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ipv4_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 address type. Possible values are `Dynamic` and `Static`.
     """
-    ipv6_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv6 address type. Possible values are `Dynamic` and `Static`.
     """
-    mac_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    mac_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MAC address type. Possible values are `Dynamic` and `Static`.
     """
-    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
     """
@@ -271,10 +271,10 @@ class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict(TypedD
 class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 ipv4_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv4_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
         :param pulumi.Input[_builtins.str] ipv4_address_type: The IPv4 address type. Possible values are `Dynamic` and `Static`.
@@ -306,59 +306,59 @@ class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv4AddressType")
-    def ipv4_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address type. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "ipv4_address_type")
 
     @ipv4_address_type.setter
-    def ipv4_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressType")
-    def ipv6_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address type. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "ipv6_address_type")
 
     @ipv6_address_type.setter
-    def ipv6_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddressType")
-    def mac_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MAC address type. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "mac_address_type")
 
     @mac_address_type.setter
-    def mac_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict(TypedDict):
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The admin password of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    computer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The computer name of the Virtual Machine. Changing this forces a new resource to be created.
     """
@@ -366,8 +366,8 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict(TypedDi
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
     def __init__(__self__, *,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] admin_password: The admin password of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] computer_name: The computer name of the Virtual Machine. Changing this forces a new resource to be created.
@@ -379,59 +379,59 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The admin password of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name", value)
 
 
 class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict(TypedDict):
-    bus: NotRequired[pulumi.Input[_builtins.int]]
+    bus: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The disk bus. Possible values are between `0` and `3`.
     """
-    bus_type: NotRequired[pulumi.Input[_builtins.str]]
+    bus_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The disk bus type. Possible values are `IDE` and `SCSI`.
     """
-    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The disk total size.
     """
-    lun: NotRequired[pulumi.Input[_builtins.int]]
+    lun: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The disk lun. Possible values are between `0` and `63`.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the disk.
     """
-    storage_qos_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_qos_policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Storage QoS policy.
     """
-    template_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    template_disk_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
     """
-    vhd_type: NotRequired[pulumi.Input[_builtins.str]]
+    vhd_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The disk vhd type. Possible values are `Dynamic` and `Fixed`.
     """
@@ -439,14 +439,14 @@ class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs:
     def __init__(__self__, *,
-                 bus: Optional[pulumi.Input[_builtins.int]] = None,
-                 bus_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 lun: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_qos_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vhd_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 bus: pulumi.Input[Optional[_builtins.int]] = None,
+                 bus_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 lun: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_qos_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vhd_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] bus: The disk bus. Possible values are between `0` and `3`.
         :param pulumi.Input[_builtins.str] bus_type: The disk bus type. Possible values are `IDE` and `SCSI`.
@@ -476,98 +476,98 @@ class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bus(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bus(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The disk bus. Possible values are between `0` and `3`.
         """
         return pulumi.get(self, "bus")
 
     @bus.setter
-    def bus(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bus(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bus", value)
 
     @_builtins.property
     @pulumi.getter(name="busType")
-    def bus_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bus_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk bus type. Possible values are `IDE` and `SCSI`.
         """
         return pulumi.get(self, "bus_type")
 
     @bus_type.setter
-    def bus_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bus_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bus_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The disk total size.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def lun(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lun(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The disk lun. Possible values are between `0` and `63`.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lun(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lun", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the disk.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageQosPolicyName")
-    def storage_qos_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_qos_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage QoS policy.
         """
         return pulumi.get(self, "storage_qos_policy_name")
 
     @storage_qos_policy_name.setter
-    def storage_qos_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_qos_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_qos_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="templateDiskId")
-    def template_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "template_disk_id")
 
     @template_disk_id.setter
-    def template_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vhdType")
-    def vhd_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vhd_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk vhd type. Possible values are `Dynamic` and `Fixed`.
         """
         return pulumi.get(self, "vhd_type")
 
     @vhd_type.setter
-    def vhd_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vhd_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vhd_type", value)
 
 

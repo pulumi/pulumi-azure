@@ -169,25 +169,25 @@ export interface EndpointCustomDomainState {
     /**
      * The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    cdnEndpointId?: pulumi.Input<string>;
+    cdnEndpointId?: pulumi.Input<string | undefined>;
     /**
      * A `cdnManagedHttps` block as defined below.
      */
-    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps>;
+    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps | undefined>;
     /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `userManagedHttps` block as defined below.
      *
      * > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
-    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
+    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface EndpointCustomDomainArgs {
     /**
      * A `cdnManagedHttps` block as defined below.
      */
-    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps>;
+    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps | undefined>;
     /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
@@ -209,11 +209,11 @@ export interface EndpointCustomDomainArgs {
     /**
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `userManagedHttps` block as defined below.
      *
      * > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
-    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
+    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
 }

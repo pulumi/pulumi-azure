@@ -220,57 +220,57 @@ export interface PolicyVMState {
     /**
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
-    backup?: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    backup?: pulumi.Input<inputs.backup.PolicyVMBackup | undefined>;
     /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */
-    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
+    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      *
      * > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
-    instantRestoreRetentionDays?: pulumi.Input<number>;
+    instantRestoreRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    retentionDaily?: pulumi.Input<inputs.backup.PolicyVMRetentionDaily>;
+    retentionDaily?: pulumi.Input<inputs.backup.PolicyVMRetentionDaily | undefined>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    retentionMonthly?: pulumi.Input<inputs.backup.PolicyVMRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyVMRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    retentionWeekly?: pulumi.Input<inputs.backup.PolicyVMRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyVMRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly | undefined>;
     /**
      * A `tieringPolicy` block as defined below.
      */
-    tieringPolicy?: pulumi.Input<inputs.backup.PolicyVMTieringPolicy>;
+    tieringPolicy?: pulumi.Input<inputs.backup.PolicyVMTieringPolicy | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,21 +284,21 @@ export interface PolicyVMArgs {
     /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */
-    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
+    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      *
      * > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
-    instantRestoreRetentionDays?: pulumi.Input<number>;
+    instantRestoreRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -310,25 +310,25 @@ export interface PolicyVMArgs {
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    retentionDaily?: pulumi.Input<inputs.backup.PolicyVMRetentionDaily>;
+    retentionDaily?: pulumi.Input<inputs.backup.PolicyVMRetentionDaily | undefined>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    retentionMonthly?: pulumi.Input<inputs.backup.PolicyVMRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyVMRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    retentionWeekly?: pulumi.Input<inputs.backup.PolicyVMRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyVMRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly | undefined>;
     /**
      * A `tieringPolicy` block as defined below.
      */
-    tieringPolicy?: pulumi.Input<inputs.backup.PolicyVMTieringPolicy>;
+    tieringPolicy?: pulumi.Input<inputs.backup.PolicyVMTieringPolicy | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

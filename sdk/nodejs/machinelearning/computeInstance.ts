@@ -239,55 +239,55 @@ export interface ComputeInstanceState {
     /**
      * A `assignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    assignToUser?: pulumi.Input<inputs.machinelearning.ComputeInstanceAssignToUser>;
+    assignToUser?: pulumi.Input<inputs.machinelearning.ComputeInstanceAssignToUser | undefined>;
     /**
      * The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    machineLearningWorkspaceId?: pulumi.Input<string>;
+    machineLearningWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      *
      * > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
      */
-    nodePublicIpEnabled?: pulumi.Input<boolean>;
+    nodePublicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    ssh?: pulumi.Input<inputs.machinelearning.ComputeInstanceSsh>;
+    ssh?: pulumi.Input<inputs.machinelearning.ComputeInstanceSsh | undefined>;
     /**
      * Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
      *
      * > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
      */
-    subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    virtualMachineSize?: pulumi.Input<string>;
+    virtualMachineSize?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -297,23 +297,23 @@ export interface ComputeInstanceArgs {
     /**
      * A `assignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    assignToUser?: pulumi.Input<inputs.machinelearning.ComputeInstanceAssignToUser>;
+    assignToUser?: pulumi.Input<inputs.machinelearning.ComputeInstanceAssignToUser | undefined>;
     /**
      * The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */
@@ -321,27 +321,27 @@ export interface ComputeInstanceArgs {
     /**
      * The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      *
      * > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
      */
-    nodePublicIpEnabled?: pulumi.Input<boolean>;
+    nodePublicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    ssh?: pulumi.Input<inputs.machinelearning.ComputeInstanceSsh>;
+    ssh?: pulumi.Input<inputs.machinelearning.ComputeInstanceSsh | undefined>;
     /**
      * Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
      *
      * > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
      */
-    subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
      */

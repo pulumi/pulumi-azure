@@ -22,14 +22,14 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  ai_services_hub_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_business_impact_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ProjectIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -75,114 +75,114 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this AI Foundry Project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this AI Foundry Project.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="highBusinessImpactEnabled")
-    def high_business_impact_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def high_business_impact_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
         """
         return pulumi.get(self, "high_business_impact_enabled")
 
     @high_business_impact_enabled.setter
-    def high_business_impact_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def high_business_impact_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "high_business_impact_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ProjectIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ProjectIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentity")
-    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         """
         return pulumi.get(self, "primary_user_assigned_identity")
 
     @primary_user_assigned_identity.setter
-    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the AI Foundry Project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 ai_services_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_business_impact_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 ai_services_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ProjectIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -220,122 +220,122 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter(name="aiServicesHubId")
-    def ai_services_hub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ai_services_hub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "ai_services_hub_id")
 
     @ai_services_hub_id.setter
-    def ai_services_hub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ai_services_hub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ai_services_hub_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this AI Foundry Project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this AI Foundry Project.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="highBusinessImpactEnabled")
-    def high_business_impact_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def high_business_impact_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
         """
         return pulumi.get(self, "high_business_impact_enabled")
 
     @high_business_impact_enabled.setter
-    def high_business_impact_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def high_business_impact_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "high_business_impact_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ProjectIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ProjectIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentity")
-    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         """
         return pulumi.get(self, "primary_user_assigned_identity")
 
     @primary_user_assigned_identity.setter
-    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The immutable project ID associated with this AI Foundry Project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the AI Foundry Project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -345,15 +345,15 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_services_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_business_impact_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ai_services_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Microsoft Foundry Hub (classic) Project resource.
@@ -540,15 +540,15 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_services_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_business_impact_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ai_services_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -580,16 +580,16 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ai_services_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            high_business_impact_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
+            ai_services_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

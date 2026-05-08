@@ -22,7 +22,7 @@ class RouteServerBgpConnectionArgs:
                  peer_asn: pulumi.Input[_builtins.int],
                  peer_ip: pulumi.Input[_builtins.str],
                  route_server_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteServerBgpConnection resource.
 
@@ -75,24 +75,24 @@ class RouteServerBgpConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RouteServerBgpConnectionState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerBgpConnection resources.
 
@@ -112,50 +112,50 @@ class _RouteServerBgpConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerIp")
-    def peer_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_ip")
 
     @peer_ip.setter
-    def peer_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="routeServerId")
-    def route_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
-    def route_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_server_id", value)
 
 
@@ -165,10 +165,10 @@ class RouteServerBgpConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Bgp Connection for a Route Server
@@ -322,10 +322,10 @@ class RouteServerBgpConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,10 +355,10 @@ class RouteServerBgpConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-            peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            route_server_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RouteServerBgpConnection':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            route_server_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteServerBgpConnection':
         """
         Get an existing RouteServerBgpConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

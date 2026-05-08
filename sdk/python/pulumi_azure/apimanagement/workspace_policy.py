@@ -20,8 +20,8 @@ __all__ = ['WorkspacePolicyArgs', 'WorkspacePolicy']
 class WorkspacePolicyArgs:
     def __init__(__self__, *,
                  api_management_workspace_id: pulumi.Input[_builtins.str],
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspacePolicy resource.
 
@@ -51,19 +51,19 @@ class WorkspacePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API Management Workspace Policy as an XML string.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a publicly accessible URL to a policy XML document.
 
@@ -72,16 +72,16 @@ class WorkspacePolicyArgs:
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
 @pulumi.input_type
 class _WorkspacePolicyState:
     def __init__(__self__, *,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspacePolicy resources.
 
@@ -100,31 +100,31 @@ class _WorkspacePolicyState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
-    def api_management_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_workspace_id")
 
     @api_management_workspace_id.setter
-    def api_management_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API Management Workspace Policy as an XML string.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a publicly accessible URL to a policy XML document.
 
@@ -133,7 +133,7 @@ class _WorkspacePolicyState:
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
@@ -143,9 +143,9 @@ class WorkspacePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Workspace Policy.
@@ -274,9 +274,9 @@ class WorkspacePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,9 +301,9 @@ class WorkspacePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_link: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspacePolicy':
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_link: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspacePolicy':
         """
         Get an existing WorkspacePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

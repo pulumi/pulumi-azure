@@ -22,7 +22,7 @@ class NetworkSecurityPerimeterAssociationArgs:
                  access_mode: pulumi.Input[_builtins.str],
                  network_security_perimeter_profile_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAssociation resource.
 
@@ -81,24 +81,24 @@ class NetworkSecurityPerimeterAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkSecurityPerimeterAssociationState:
     def __init__(__self__, *,
-                 access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeterAssociation resources.
 
@@ -121,43 +121,43 @@ class _NetworkSecurityPerimeterAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="accessMode")
-    def access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         """
         return pulumi.get(self, "access_mode")
 
     @access_mode.setter
-    def access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityPerimeterProfileId")
-    def network_security_perimeter_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_security_perimeter_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
         """
         return pulumi.get(self, "network_security_perimeter_profile_id")
 
     @network_security_perimeter_profile_id.setter
-    def network_security_perimeter_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_security_perimeter_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_security_perimeter_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
 
@@ -167,7 +167,7 @@ class _NetworkSecurityPerimeterAssociationState:
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -177,10 +177,10 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Security Perimeter Association.
@@ -305,10 +305,10 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,10 +338,10 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_security_perimeter_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkSecurityPerimeterAssociation':
+            access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_perimeter_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkSecurityPerimeterAssociation':
         """
         Get an existing NetworkSecurityPerimeterAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

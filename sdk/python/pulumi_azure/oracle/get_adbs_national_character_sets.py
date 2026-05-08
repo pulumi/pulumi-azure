@@ -105,7 +105,7 @@ def get_adbs_national_character_sets(location: Optional[_builtins.str] = None,
         character_sets=pulumi.get(__ret__, 'character_sets'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'))
-def get_adbs_national_character_sets_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+def get_adbs_national_character_sets_output(location: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdbsNationalCharacterSetsResult]:
     """
     Gets a list of supported national character sets.

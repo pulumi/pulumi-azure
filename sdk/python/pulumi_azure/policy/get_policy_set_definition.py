@@ -210,9 +210,9 @@ def get_policy_set_definition(display_name: Optional[_builtins.str] = None,
         policy_definition_references=pulumi.get(__ret__, 'policy_definition_references'),
         policy_definitions=pulumi.get(__ret__, 'policy_definitions'),
         policy_type=pulumi.get(__ret__, 'policy_type'))
-def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     management_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_policy_set_definition_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     management_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     Use this data source to access information about an existing Policy Set Definition.

@@ -220,51 +220,51 @@ export interface ReferenceInputMssqlState {
     /**
      * The MS SQL database name where the reference data exists.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      */
-    deltaSnapshotQuery?: pulumi.Input<string>;
+    deltaSnapshotQuery?: pulumi.Input<string | undefined>;
     /**
      * The query used to retrieve the reference data from the MS SQL database.
      */
-    fullSnapshotQuery?: pulumi.Input<string>;
+    fullSnapshotQuery?: pulumi.Input<string | undefined>;
     /**
      * The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to connect to the MS SQL database.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      */
-    refreshIntervalDuration?: pulumi.Input<string>;
+    refreshIntervalDuration?: pulumi.Input<string | undefined>;
     /**
      * Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
      */
-    refreshType?: pulumi.Input<string>;
+    refreshType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the MS SQL server.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the table in the Azure SQL database.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
     /**
      * The username to connect to the MS SQL database.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -278,7 +278,7 @@ export interface ReferenceInputMssqlArgs {
     /**
      * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      */
-    deltaSnapshotQuery?: pulumi.Input<string>;
+    deltaSnapshotQuery?: pulumi.Input<string | undefined>;
     /**
      * The query used to retrieve the reference data from the MS SQL database.
      */
@@ -286,7 +286,7 @@ export interface ReferenceInputMssqlArgs {
     /**
      * The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to connect to the MS SQL database.
      */
@@ -294,7 +294,7 @@ export interface ReferenceInputMssqlArgs {
     /**
      * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      */
-    refreshIntervalDuration?: pulumi.Input<string>;
+    refreshIntervalDuration?: pulumi.Input<string | undefined>;
     /**
      * Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
      */
@@ -314,7 +314,7 @@ export interface ReferenceInputMssqlArgs {
     /**
      * The name of the table in the Azure SQL database.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
     /**
      * The username to connect to the MS SQL database.
      */

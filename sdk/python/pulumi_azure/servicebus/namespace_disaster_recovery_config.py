@@ -21,8 +21,8 @@ class NamespaceDisasterRecoveryConfigArgs:
     def __init__(__self__, *,
                  partner_namespace_id: pulumi.Input[_builtins.str],
                  primary_namespace_id: pulumi.Input[_builtins.str],
-                 alias_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceDisasterRecoveryConfig resource.
 
@@ -64,40 +64,40 @@ class NamespaceDisasterRecoveryConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasAuthorizationRuleId")
-    def alias_authorization_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_authorization_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Shared access policies used to access the connection string for the alias.
         """
         return pulumi.get(self, "alias_authorization_rule_id")
 
     @alias_authorization_rule_id.setter
-    def alias_authorization_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_authorization_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_authorization_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NamespaceDisasterRecoveryConfigState:
     def __init__(__self__, *,
-                 alias_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
 
@@ -129,98 +129,98 @@ class _NamespaceDisasterRecoveryConfigState:
 
     @_builtins.property
     @pulumi.getter(name="aliasAuthorizationRuleId")
-    def alias_authorization_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_authorization_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Shared access policies used to access the connection string for the alias.
         """
         return pulumi.get(self, "alias_authorization_rule_id")
 
     @alias_authorization_rule_id.setter
-    def alias_authorization_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_authorization_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_authorization_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryKey")
-    def default_primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_key")
 
     @default_primary_key.setter
-    def default_primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryKey")
-    def default_secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_key")
 
     @default_secondary_key.setter
-    def default_secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerNamespaceId")
-    def partner_namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Service Bus Namespace to replicate to.
         """
         return pulumi.get(self, "partner_namespace_id")
 
     @partner_namespace_id.setter
-    def partner_namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionStringAlias")
-    def primary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias Primary Connection String for the ServiceBus Namespace.
         """
         return pulumi.get(self, "primary_connection_string_alias")
 
     @primary_connection_string_alias.setter
-    def primary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNamespaceId")
-    def primary_namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "primary_namespace_id")
 
     @primary_namespace_id.setter
-    def primary_namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionStringAlias")
-    def secondary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias Secondary Connection String for the ServiceBus Namespace
         """
         return pulumi.get(self, "secondary_connection_string_alias")
 
     @secondary_connection_string_alias.setter
-    def secondary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string_alias", value)
 
 
@@ -230,10 +230,10 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Disaster Recovery Config for a Service Bus Namespace.
@@ -373,10 +373,10 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,14 +410,14 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partner_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceDisasterRecoveryConfig':
+            alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceDisasterRecoveryConfig':
         """
         Get an existing NamespaceDisasterRecoveryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

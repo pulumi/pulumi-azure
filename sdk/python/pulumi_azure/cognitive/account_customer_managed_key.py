@@ -21,7 +21,7 @@ class AccountCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  cognitive_account_id: pulumi.Input[_builtins.str],
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountCustomerManagedKey resource.
 
@@ -60,23 +60,23 @@ class AccountCustomerManagedKeyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
 
 @pulumi.input_type
 class _AccountCustomerManagedKeyState:
     def __init__(__self__, *,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountCustomerManagedKey resources.
 
@@ -93,38 +93,38 @@ class _AccountCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="cognitiveAccountId")
-    def cognitive_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cognitive_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Cognitive Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 
     @cognitive_account_id.setter
-    def cognitive_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cognitive_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cognitive_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         """
         return pulumi.get(self, "identity_client_id")
 
     @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
 
@@ -134,9 +134,9 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a Cognitive Services Account.
@@ -433,9 +433,9 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -462,9 +462,9 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountCustomerManagedKey':
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountCustomerManagedKey':
         """
         Get an existing AccountCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

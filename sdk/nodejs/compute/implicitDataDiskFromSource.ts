@@ -242,11 +242,11 @@ export interface ImplicitDataDiskFromSourceState {
     /**
      * Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
      */
-    caching?: pulumi.Input<string>;
+    caching?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
-    createOption?: pulumi.Input<string>;
+    createOption?: pulumi.Input<string | undefined>;
     /**
      * Specifies the size of the Data Disk in gigabytes.
      *
@@ -258,27 +258,27 @@ export interface ImplicitDataDiskFromSourceState {
      *
      * > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
      */
-    diskSizeGb?: pulumi.Input<number>;
+    diskSizeGb?: pulumi.Input<number | undefined>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
      */
-    lun?: pulumi.Input<number>;
+    lun?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of this Data Disk. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
-    writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    writeAcceleratorEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -288,7 +288,7 @@ export interface ImplicitDataDiskFromSourceArgs {
     /**
      * Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
      */
-    caching?: pulumi.Input<string>;
+    caching?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
@@ -312,7 +312,7 @@ export interface ImplicitDataDiskFromSourceArgs {
     /**
      * Specifies the name of this Data Disk. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
      */
@@ -324,5 +324,5 @@ export interface ImplicitDataDiskFromSourceArgs {
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
-    writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    writeAcceleratorEnabled?: pulumi.Input<boolean | undefined>;
 }

@@ -73,9 +73,9 @@ class ScalingPlanHostPoolAssociationArgs:
 @pulumi.input_type
 class _ScalingPlanHostPoolAssociationState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScalingPlanHostPoolAssociation resources.
 
@@ -92,38 +92,38 @@ class _ScalingPlanHostPoolAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Scaling Plan be enabled on this Host Pool.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolId")
-    def host_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_pool_id")
 
     @host_pool_id.setter
-    def host_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanId")
-    def scaling_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scaling_plan_id")
 
     @scaling_plan_id.setter
-    def scaling_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_plan_id", value)
 
 
@@ -133,9 +133,9 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Scaling Plan Host Pool Association.
@@ -192,9 +192,9 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,9 +223,9 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            host_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scaling_plan_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScalingPlanHostPoolAssociation':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_plan_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScalingPlanHostPoolAssociation':
         """
         Get an existing ScalingPlanHostPoolAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

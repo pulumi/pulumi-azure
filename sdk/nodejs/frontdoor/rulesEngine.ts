@@ -210,27 +210,27 @@ export interface RulesEngineState {
     /**
      * Whether this Rules engine configuration is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      */
-    frontdoorName?: pulumi.Input<string>;
+    frontdoorName?: pulumi.Input<string | undefined>;
     /**
      * The location in which the Front Door Rules Engine exists.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `rule` block as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRule>[] | undefined>;
 }
 
 /**
@@ -240,7 +240,7 @@ export interface RulesEngineArgs {
     /**
      * Whether this Rules engine configuration is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      */
@@ -248,7 +248,7 @@ export interface RulesEngineArgs {
     /**
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -256,5 +256,5 @@ export interface RulesEngineArgs {
     /**
      * A `rule` block as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRule>[] | undefined>;
 }

@@ -32,17 +32,17 @@ class ExperimentIdentityArgsDict(TypedDict):
     """
     The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
     > **Note:** This is required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -51,9 +51,9 @@ class ExperimentIdentityArgsDict(TypedDict):
 class ExperimentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -84,7 +84,7 @@ class ExperimentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
@@ -93,31 +93,31 @@ class ExperimentIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -267,19 +267,19 @@ class ExperimentStepBranchActionArgsDict(TypedDict):
     """
     The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
     """
-    duration: NotRequired[pulumi.Input[_builtins.str]]
+    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
     """
-    selector_name: NotRequired[pulumi.Input[_builtins.str]]
+    selector_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
     """
-    urn: NotRequired[pulumi.Input[_builtins.str]]
+    urn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Unique Resource Name of the action, this value is provided by the `chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
     """
@@ -288,10 +288,10 @@ class ExperimentStepBranchActionArgsDict(TypedDict):
 class ExperimentStepBranchActionArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[_builtins.str],
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 selector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 urn: Optional[pulumi.Input[_builtins.str]] = None):
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 selector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 urn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] action_type: The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
         :param pulumi.Input[_builtins.str] duration: An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
@@ -323,50 +323,50 @@ class ExperimentStepBranchActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="selectorName")
-    def selector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
         """
         return pulumi.get(self, "selector_name")
 
     @selector_name.setter
-    def selector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def urn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def urn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unique Resource Name of the action, this value is provided by the `chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
         """
         return pulumi.get(self, "urn")
 
     @urn.setter
-    def urn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def urn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "urn", value)
 
 

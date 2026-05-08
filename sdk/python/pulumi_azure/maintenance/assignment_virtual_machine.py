@@ -21,7 +21,7 @@ class AssignmentVirtualMachineArgs:
     def __init__(__self__, *,
                  maintenance_configuration_id: pulumi.Input[_builtins.str],
                  virtual_machine_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentVirtualMachine resource.
 
@@ -60,23 +60,23 @@ class AssignmentVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _AssignmentVirtualMachineState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentVirtualMachine resources.
 
@@ -93,38 +93,38 @@ class _AssignmentVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
 
@@ -134,9 +134,9 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a maintenance assignment to virtual machine.
@@ -325,9 +325,9 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,9 +354,9 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssignmentVirtualMachine':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssignmentVirtualMachine':
         """
         Get an existing AssignmentVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

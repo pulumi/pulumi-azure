@@ -22,10 +22,10 @@ __all__ = ['ManagedHardwareSecurityModuleRoleDefinitionArgs', 'ManagedHardwareSe
 class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     def __init__(__self__, *,
                  managed_hsm_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
 
@@ -59,63 +59,63 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]:
         """
         One or more `permission` blocks as defined below.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleRoleDefinitionState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleDefinition resources.
 
@@ -144,86 +144,86 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmId")
-    def managed_hsm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "managed_hsm_id")
 
     @managed_hsm_id.setter
-    def managed_hsm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]:
         """
         One or more `permission` blocks as defined below.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the role definition resource without Key Vault base URL.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_type", value)
 
 
@@ -233,11 +233,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
@@ -354,11 +354,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -387,13 +387,13 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            role_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleRoleDefinition':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleRoleDefinition':
         """
         Get an existing ManagedHardwareSecurityModuleRoleDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

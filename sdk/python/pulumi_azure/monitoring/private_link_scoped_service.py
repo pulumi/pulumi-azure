@@ -22,7 +22,7 @@ class PrivateLinkScopedServiceArgs:
                  linked_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedService resource.
 
@@ -75,24 +75,24 @@ class PrivateLinkScopedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PrivateLinkScopedServiceState:
     def __init__(__self__, *,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScopedService resources.
 
@@ -112,50 +112,50 @@ class _PrivateLinkScopedServiceState:
 
     @_builtins.property
     @pulumi.getter(name="linkedResourceId")
-    def linked_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linked_resource_id")
 
     @linked_resource_id.setter
-    def linked_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeName")
-    def scope_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope_name")
 
     @scope_name.setter
-    def scope_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_name", value)
 
 
@@ -165,10 +165,10 @@ class PrivateLinkScopedService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Monitor Private Link Scoped Service.
@@ -284,10 +284,10 @@ class PrivateLinkScopedService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,10 +317,10 @@ class PrivateLinkScopedService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrivateLinkScopedService':
+            linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrivateLinkScopedService':
         """
         Get an existing PrivateLinkScopedService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

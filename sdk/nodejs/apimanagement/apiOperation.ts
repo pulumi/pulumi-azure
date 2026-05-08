@@ -200,47 +200,47 @@ export interface ApiOperationState {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      */
-    apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name for this API Management Operation.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      */
-    operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string | undefined>;
     /**
      * A `request` block as defined below.
      */
-    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
+    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `response` blocks as defined below.
      */
-    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[] | undefined>;
     /**
      * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
-    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[] | undefined>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
-    urlTemplate?: pulumi.Input<string>;
+    urlTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface ApiOperationArgs {
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name for this API Management Operation.
      */
@@ -274,7 +274,7 @@ export interface ApiOperationArgs {
     /**
      * A `request` block as defined below.
      */
-    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
+    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -282,11 +282,11 @@ export interface ApiOperationArgs {
     /**
      * One or more `response` blocks as defined below.
      */
-    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[] | undefined>;
     /**
      * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
-    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[] | undefined>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */

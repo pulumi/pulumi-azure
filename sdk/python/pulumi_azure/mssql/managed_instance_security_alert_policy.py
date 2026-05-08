@@ -21,13 +21,13 @@ class ManagedInstanceSecurityAlertPolicyArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceSecurityAlertPolicy resource.
 
@@ -86,67 +86,67 @@ class ManagedInstanceSecurityAlertPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdminsEnabled")
-    def email_account_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         """
         return pulumi.get(self, "email_account_admins_enabled")
 
     @email_account_admins_enabled.setter
-    def email_account_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the alert is sent.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
 
@@ -155,34 +155,34 @@ class ManagedInstanceSecurityAlertPolicyArgs:
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
 @pulumi.input_type
 class _ManagedInstanceSecurityAlertPolicyState:
     def __init__(__self__, *,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceSecurityAlertPolicy resources.
 
@@ -219,91 +219,91 @@ class _ManagedInstanceSecurityAlertPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdminsEnabled")
-    def email_account_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         """
         return pulumi.get(self, "email_account_admins_enabled")
 
     @email_account_admins_enabled.setter
-    def email_account_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the alert is sent.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
-    def managed_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_instance_name")
 
     @managed_instance_name.setter
-    def managed_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
 
@@ -312,19 +312,19 @@ class _ManagedInstanceSecurityAlertPolicyState:
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
@@ -334,15 +334,15 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Security Alert Policy for an MS SQL Managed Instance.
@@ -777,15 +777,15 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -820,15 +820,15 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_account_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedInstanceSecurityAlertPolicy':
+            disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceSecurityAlertPolicy':
         """
         Get an existing ManagedInstanceSecurityAlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

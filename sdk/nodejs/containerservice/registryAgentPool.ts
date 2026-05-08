@@ -157,35 +157,35 @@ export interface RegistryAgentPoolState {
     /**
      * Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    containerRegistryName?: pulumi.Input<string>;
+    containerRegistryName?: pulumi.Input<string | undefined>;
     /**
      * VMSS instance count. Defaults to `1`.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,15 +199,15 @@ export interface RegistryAgentPoolArgs {
     /**
      * VMSS instance count. Defaults to `1`.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
@@ -215,13 +215,13 @@ export interface RegistryAgentPoolArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
 }

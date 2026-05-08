@@ -229,8 +229,8 @@ def get_trigger_schedule(data_factory_id: Optional[_builtins.str] = None,
         schedules=pulumi.get(__ret__, 'schedules'),
         start_time=pulumi.get(__ret__, 'start_time'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-def get_trigger_schedule_output(data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trigger_schedule_output(data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerScheduleResult]:
     """
     Use this data source to access information about a trigger schedule in Azure Data Factory.

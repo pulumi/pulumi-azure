@@ -139,19 +139,19 @@ export interface IntegrationAccountSessionState {
     /**
      * The content of the Logic App Integration Account Session.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
      */

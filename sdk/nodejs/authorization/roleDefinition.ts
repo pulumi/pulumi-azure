@@ -175,31 +175,31 @@ export interface RoleDefinitionState {
      *
      * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A description of the Role Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Role Definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `permissions` block as defined below.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Resource Manager ID for the resource.
      */
-    roleDefinitionResourceId?: pulumi.Input<string>;
+    roleDefinitionResourceId?: pulumi.Input<string | undefined>;
     /**
      * The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,23 +211,23 @@ export interface RoleDefinitionArgs {
      *
      * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A description of the Role Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Role Definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `permissions` block as defined below.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */

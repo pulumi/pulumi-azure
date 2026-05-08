@@ -155,25 +155,25 @@ export interface LinkedServiceState {
     /**
      * The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      */
-    readAccessId?: pulumi.Input<string>;
+    readAccessId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      *
      * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
-    writeAccessId?: pulumi.Input<string>;
+    writeAccessId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface LinkedServiceArgs {
     /**
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      */
-    readAccessId?: pulumi.Input<string>;
+    readAccessId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
@@ -197,5 +197,5 @@ export interface LinkedServiceArgs {
      *
      * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
-    writeAccessId?: pulumi.Input<string>;
+    writeAccessId?: pulumi.Input<string | undefined>;
 }

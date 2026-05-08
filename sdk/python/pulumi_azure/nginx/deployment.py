@@ -23,21 +23,21 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
-                 automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnose_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
-                 frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
-                 identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-                 managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
+                 automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
+                 frontend_public: pulumi.Input[Optional['DeploymentFrontendPublicArgs']] = None,
+                 identity: pulumi.Input[Optional['DeploymentIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
+                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_application_firewall: pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -134,31 +134,31 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScaleProfiles")
-    def auto_scale_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
+    def auto_scale_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
         """
         An `auto_scale_profile` block as defined below.
         """
         return pulumi.get(self, "auto_scale_profiles")
 
     @auto_scale_profiles.setter
-    def auto_scale_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
+    def auto_scale_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
         pulumi.set(self, "auto_scale_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeChannel")
-    def automatic_upgrade_channel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automatic_upgrade_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         """
         return pulumi.get(self, "automatic_upgrade_channel")
 
     @automatic_upgrade_channel.setter
-    def automatic_upgrade_channel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automatic_upgrade_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automatic_upgrade_channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the number of NGINX capacity units for this NGINX deployment.
 
@@ -167,171 +167,171 @@ class DeploymentArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
     @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def diagnose_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "diagnose_support_enabled")
 
     @diagnose_support_enabled.setter
-    def diagnose_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def diagnose_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "diagnose_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the preferred support contact email address for receiving alerts and notifications.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPrivates")
-    def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
+    def frontend_privates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
         One or more `frontend_private` blocks as defined below.
         """
         return pulumi.get(self, "frontend_privates")
 
     @frontend_privates.setter
-    def frontend_privates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]):
+    def frontend_privates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]):
         pulumi.set(self, "frontend_privates", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPublic")
-    def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
+    def frontend_public(self) -> pulumi.Input[Optional['DeploymentFrontendPublicArgs']]:
         """
         A `frontend_public` block as defined below.
         """
         return pulumi.get(self, "frontend_public")
 
     @frontend_public.setter
-    def frontend_public(self, value: Optional[pulumi.Input['DeploymentFrontendPublicArgs']]):
+    def frontend_public(self, value: pulumi.Input[Optional['DeploymentFrontendPublicArgs']]):
         pulumi.set(self, "frontend_public", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DeploymentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DeploymentIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DeploymentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DeploymentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingStorageAccounts")
     @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-    def logging_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
+    def logging_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
         return pulumi.get(self, "logging_storage_accounts")
 
     @logging_storage_accounts.setter
-    def logging_storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
+    def logging_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
         pulumi.set(self, "logging_storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroup")
     @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_resource_group")
 
     @managed_resource_group.setter
-    def managed_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webApplicationFirewall")
-    def web_application_firewall(self) -> Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]:
+    def web_application_firewall(self) -> pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']]:
         """
         A `web_application_firewall` blocks as defined below.
         """
         return pulumi.get(self, "web_application_firewall")
 
     @web_application_firewall.setter
-    def web_application_firewall(self, value: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]):
+    def web_application_firewall(self, value: pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']]):
         pulumi.set(self, "web_application_firewall", value)
 
 
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
-                 automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 dataplane_api_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnose_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
-                 frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
-                 identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-                 managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
-                 nginx_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
+                 automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
+                 frontend_public: pulumi.Input[Optional['DeploymentFrontendPublicArgs']] = None,
+                 identity: pulumi.Input[Optional['DeploymentIdentityArgs']] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
+                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
+                 nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_application_firewall: pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
 
@@ -411,31 +411,31 @@ class _DeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="autoScaleProfiles")
-    def auto_scale_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
+    def auto_scale_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
         """
         An `auto_scale_profile` block as defined below.
         """
         return pulumi.get(self, "auto_scale_profiles")
 
     @auto_scale_profiles.setter
-    def auto_scale_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
+    def auto_scale_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
         pulumi.set(self, "auto_scale_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpgradeChannel")
-    def automatic_upgrade_channel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automatic_upgrade_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         """
         return pulumi.get(self, "automatic_upgrade_channel")
 
     @automatic_upgrade_channel.setter
-    def automatic_upgrade_channel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automatic_upgrade_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automatic_upgrade_channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the number of NGINX capacity units for this NGINX deployment.
 
@@ -444,174 +444,174 @@ class _DeploymentState:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="dataplaneApiEndpoint")
-    def dataplane_api_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataplane_api_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dataplane API endpoint of the NGINX Deployment.
         """
         return pulumi.get(self, "dataplane_api_endpoint")
 
     @dataplane_api_endpoint.setter
-    def dataplane_api_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataplane_api_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataplane_api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
     @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def diagnose_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "diagnose_support_enabled")
 
     @diagnose_support_enabled.setter
-    def diagnose_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def diagnose_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "diagnose_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the preferred support contact email address for receiving alerts and notifications.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPrivates")
-    def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
+    def frontend_privates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
         One or more `frontend_private` blocks as defined below.
         """
         return pulumi.get(self, "frontend_privates")
 
     @frontend_privates.setter
-    def frontend_privates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]):
+    def frontend_privates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]):
         pulumi.set(self, "frontend_privates", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPublic")
-    def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
+    def frontend_public(self) -> pulumi.Input[Optional['DeploymentFrontendPublicArgs']]:
         """
         A `frontend_public` block as defined below.
         """
         return pulumi.get(self, "frontend_public")
 
     @frontend_public.setter
-    def frontend_public(self, value: Optional[pulumi.Input['DeploymentFrontendPublicArgs']]):
+    def frontend_public(self, value: pulumi.Input[Optional['DeploymentFrontendPublicArgs']]):
         pulumi.set(self, "frontend_public", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DeploymentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DeploymentIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DeploymentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DeploymentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the NGINX Deployment.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingStorageAccounts")
     @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-    def logging_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
+    def logging_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
         return pulumi.get(self, "logging_storage_accounts")
 
     @logging_storage_accounts.setter
-    def logging_storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
+    def logging_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
         pulumi.set(self, "logging_storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroup")
     @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_resource_group")
 
     @managed_resource_group.setter
-    def managed_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="nginxVersion")
-    def nginx_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nginx_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the NGINX Deployment.
         """
         return pulumi.get(self, "nginx_version")
 
     @nginx_version.setter
-    def nginx_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nginx_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nginx_version", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the NGINX Deployment SKU.
 
@@ -622,31 +622,31 @@ class _DeploymentState:
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webApplicationFirewall")
-    def web_application_firewall(self) -> Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]:
+    def web_application_firewall(self) -> pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']]:
         """
         A `web_application_firewall` blocks as defined below.
         """
         return pulumi.get(self, "web_application_firewall")
 
     @web_application_firewall.setter
-    def web_application_firewall(self, value: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]):
+    def web_application_firewall(self, value: pulumi.Input[Optional['DeploymentWebApplicationFirewallArgs']]):
         pulumi.set(self, "web_application_firewall", value)
 
 
@@ -656,23 +656,23 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
-                 automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnose_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-                 frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-                 managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+                 automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
                  __props__=None):
         """
         Manages an NGINX Deployment.
@@ -858,23 +858,23 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
-                 automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnose_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-                 frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-                 managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+                 automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -918,26 +918,26 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
-            automatic_upgrade_channel: Optional[pulumi.Input[_builtins.str]] = None,
-            capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            dataplane_api_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            diagnose_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-            frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-            managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
-            nginx_version: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None) -> 'Deployment':
+            auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+            automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+            frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+            managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+            nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

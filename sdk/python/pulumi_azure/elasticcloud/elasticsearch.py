@@ -24,11 +24,11 @@ class ElasticsearchArgs:
                  elastic_cloud_email_address: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['ElasticsearchLogsArgs']] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Elasticsearch resource.
 
@@ -101,82 +101,82 @@ class ElasticsearchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['ElasticsearchLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['ElasticsearchLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['ElasticsearchLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['ElasticsearchLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Elasticsearch resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ElasticsearchState:
     def __init__(__self__, *,
-                 elastic_cloud_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_cloud_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_cloud_sso_default_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_cloud_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 kibana_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 kibana_sso_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 elastic_cloud_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_cloud_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_cloud_sso_default_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_cloud_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 kibana_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 kibana_sso_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['ElasticsearchLogsArgs']] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Elasticsearch resources.
 
@@ -230,151 +230,151 @@ class _ElasticsearchState:
 
     @_builtins.property
     @pulumi.getter(name="elasticCloudDeploymentId")
-    def elastic_cloud_deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_cloud_deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Deployment within Elastic Cloud.
         """
         return pulumi.get(self, "elastic_cloud_deployment_id")
 
     @elastic_cloud_deployment_id.setter
-    def elastic_cloud_deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_cloud_deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_cloud_deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticCloudEmailAddress")
-    def elastic_cloud_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_cloud_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "elastic_cloud_email_address")
 
     @elastic_cloud_email_address.setter
-    def elastic_cloud_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_cloud_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_cloud_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticCloudSsoDefaultUrl")
-    def elastic_cloud_sso_default_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_cloud_sso_default_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Default URL used for Single Sign On (SSO) to Elastic Cloud.
         """
         return pulumi.get(self, "elastic_cloud_sso_default_url")
 
     @elastic_cloud_sso_default_url.setter
-    def elastic_cloud_sso_default_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_cloud_sso_default_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_cloud_sso_default_url", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticCloudUserId")
-    def elastic_cloud_user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_cloud_user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Account within Elastic Cloud.
         """
         return pulumi.get(self, "elastic_cloud_user_id")
 
     @elastic_cloud_user_id.setter
-    def elastic_cloud_user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_cloud_user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_cloud_user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchServiceUrl")
-    def elasticsearch_service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elasticsearch_service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to the Elasticsearch Service associated with this Elasticsearch.
         """
         return pulumi.get(self, "elasticsearch_service_url")
 
     @elasticsearch_service_url.setter
-    def elasticsearch_service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elasticsearch_service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elasticsearch_service_url", value)
 
     @_builtins.property
     @pulumi.getter(name="kibanaServiceUrl")
-    def kibana_service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kibana_service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to the Kibana Dashboard associated with this Elasticsearch.
         """
         return pulumi.get(self, "kibana_service_url")
 
     @kibana_service_url.setter
-    def kibana_service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kibana_service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kibana_service_url", value)
 
     @_builtins.property
     @pulumi.getter(name="kibanaSsoUri")
-    def kibana_sso_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kibana_sso_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
         """
         return pulumi.get(self, "kibana_sso_uri")
 
     @kibana_sso_uri.setter
-    def kibana_sso_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kibana_sso_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kibana_sso_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['ElasticsearchLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['ElasticsearchLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['ElasticsearchLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['ElasticsearchLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 
@@ -385,19 +385,19 @@ class _ElasticsearchState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Elasticsearch resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -407,14 +407,14 @@ class Elasticsearch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elastic_cloud_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 elastic_cloud_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Elasticsearch in Elastic Cloud.
@@ -524,14 +524,14 @@ class Elasticsearch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elastic_cloud_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 elastic_cloud_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,20 +571,20 @@ class Elasticsearch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            elastic_cloud_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            elastic_cloud_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-            elastic_cloud_sso_default_url: Optional[pulumi.Input[_builtins.str]] = None,
-            elastic_cloud_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-            elasticsearch_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-            kibana_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-            kibana_sso_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
-            monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Elasticsearch':
+            elastic_cloud_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_sso_default_url: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            kibana_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            kibana_sso_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Elasticsearch':
         """
         Get an existing Elasticsearch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,7 +21,7 @@ class CustomerManagedKeyArgs:
     def __init__(__self__, *,
                  customer_managed_key_id: pulumi.Input[_builtins.str],
                  data_factory_id: pulumi.Input[_builtins.str],
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
 
@@ -60,23 +60,23 @@ class CustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
 class _CustomerManagedKeyState:
     def __init__(__self__, *,
-                 customer_managed_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
 
@@ -93,38 +93,38 @@ class _CustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyId")
-    def customer_managed_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID the of the Customer Managed Key to associate with the Data Factory.
         """
         return pulumi.get(self, "customer_managed_key_id")
 
     @customer_managed_key_id.setter
-    def customer_managed_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Factory Resource the Customer Managed Key will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -134,9 +134,9 @@ class CustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a Data Factory.
@@ -365,9 +365,9 @@ class CustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,9 +394,9 @@ class CustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomerManagedKey':
+            customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomerManagedKey':
         """
         Get an existing CustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

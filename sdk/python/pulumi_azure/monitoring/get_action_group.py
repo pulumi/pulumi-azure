@@ -278,8 +278,8 @@ def get_action_group(name: Optional[_builtins.str] = None,
         sms_receivers=pulumi.get(__ret__, 'sms_receivers'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-def get_action_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_action_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Use this data source to access the properties of an Action Group.

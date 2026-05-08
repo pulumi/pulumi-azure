@@ -204,25 +204,25 @@ export interface ShareState {
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * One or more `acl` blocks as defined below.
      */
-    acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[] | undefined>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
-    enabledProtocol?: pulumi.Input<string>;
+    enabledProtocol?: pulumi.Input<string | undefined>;
     /**
      * A mapping of MetaData for this File Share.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The maximum size of the share, in gigabytes.
      *
@@ -230,23 +230,23 @@ export interface ShareState {
      *
      * > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      */
-    quota?: pulumi.Input<number>;
+    quota?: pulumi.Input<number | undefined>;
     /**
      * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
      */
-    rbacScopeId?: pulumi.Input<string>;
+    rbacScopeId?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of this File Share.
      *
      * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      */
-    resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the share.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
      *
@@ -254,11 +254,11 @@ export interface ShareState {
      *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The URL of the File Share
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -270,25 +270,25 @@ export interface ShareArgs {
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * One or more `acl` blocks as defined below.
      */
-    acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[] | undefined>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
-    enabledProtocol?: pulumi.Input<string>;
+    enabledProtocol?: pulumi.Input<string | undefined>;
     /**
      * A mapping of MetaData for this File Share.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The maximum size of the share, in gigabytes.
      *
@@ -302,7 +302,7 @@ export interface ShareArgs {
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
      *
@@ -310,5 +310,5 @@ export interface ShareArgs {
      *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }

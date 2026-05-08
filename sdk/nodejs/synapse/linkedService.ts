@@ -206,31 +206,31 @@ export interface LinkedServiceState {
     /**
      * A map of additional properties to associate with the Synapse Linked Service.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Synapse Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description for the Synapse Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `integrationRuntime` block as defined below.
      */
-    integrationRuntime?: pulumi.Input<inputs.synapse.LinkedServiceIntegrationRuntime>;
+    integrationRuntime?: pulumi.Input<inputs.synapse.LinkedServiceIntegrationRuntime | undefined>;
     /**
      * The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Synapse Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The type of data stores that will be connected to Synapse. Valid Values include `AmazonMWS`, `AmazonRdsForOracle`, `AmazonRdsForSqlServer`, `AmazonRedshift`, `AmazonS3`, `AzureBatch`. Changing this forces a new resource to be created.
      * `AzureBlobFS`, `AzureBlobStorage`, `AzureDataExplorer`, `AzureDataLakeAnalytics`, `AzureDataLakeStore`, `AzureDatabricks`, `AzureDatabricksDeltaLake`, `AzureFileStorage`, `AzureFunction`,
@@ -242,11 +242,11 @@ export interface LinkedServiceState {
      * `Responsys`, `RestService`, `SqlServer`, `Salesforce`, `SalesforceMarketingCloud`, `SalesforceServiceCloud`, `SapBW`, `SapCloudForCustomer`, `SapEcc`, `SapHana`, `SapOpenHub`,
      * `SapTable`, `ServiceNow`, `Sftp`, `SharePointOnlineList`, `Shopify`, `Snowflake`, `Spark`, `Square`, `Sybase`, `Teradata`, `Vertica`, `Web`, `Xero`, `Zoho`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * A JSON object that contains the properties of the Synapse Linked Service.
      */
-    typePropertiesJson?: pulumi.Input<string>;
+    typePropertiesJson?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,27 +256,27 @@ export interface LinkedServiceArgs {
     /**
      * A map of additional properties to associate with the Synapse Linked Service.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Synapse Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description for the Synapse Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `integrationRuntime` block as defined below.
      */
-    integrationRuntime?: pulumi.Input<inputs.synapse.LinkedServiceIntegrationRuntime>;
+    integrationRuntime?: pulumi.Input<inputs.synapse.LinkedServiceIntegrationRuntime | undefined>;
     /**
      * The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Synapse Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
      */

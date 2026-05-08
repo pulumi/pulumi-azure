@@ -304,9 +304,9 @@ def get_function_app(name: Optional[_builtins.str] = None,
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
         source_controls=pulumi.get(__ret__, 'source_controls'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_function_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_function_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionAppResult]:
     """
     Use this data source to access information about a Function App.

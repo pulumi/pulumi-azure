@@ -190,52 +190,52 @@ export interface ConfigurationFeatureState {
     /**
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
-    configurationStoreId?: pulumi.Input<string>;
+    configurationStoreId?: pulumi.Input<string | undefined>;
     /**
      * A `customFilter` block as defined below.
      */
-    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[]>;
+    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[] | undefined>;
     /**
      * The description of the App Configuration Feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The status of the App Configuration Feature. By default, this is set to false.
      */
-    enabled?: pulumi.Input<boolean>;
-    etag?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Should this App Configuration Feature be Locked to prevent changes?
      */
-    locked?: pulumi.Input<boolean>;
+    locked?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A number representing the value of the percentage required to enable this feature.
      */
-    percentageFilterValue?: pulumi.Input<number>;
+    percentageFilterValue?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `targetingFilter` block as defined below.
      */
-    targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[]>;
+    targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[] | undefined>;
     /**
      * A `timewindowFilter` block as defined below.
      */
-    timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[]>;
+    timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[] | undefined>;
 }
 
 /**
@@ -249,46 +249,46 @@ export interface ConfigurationFeatureArgs {
     /**
      * A `customFilter` block as defined below.
      */
-    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[]>;
+    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[] | undefined>;
     /**
      * The description of the App Configuration Feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The status of the App Configuration Feature. By default, this is set to false.
      */
-    enabled?: pulumi.Input<boolean>;
-    etag?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Should this App Configuration Feature be Locked to prevent changes?
      */
-    locked?: pulumi.Input<boolean>;
+    locked?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A number representing the value of the percentage required to enable this feature.
      */
-    percentageFilterValue?: pulumi.Input<number>;
+    percentageFilterValue?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `targetingFilter` block as defined below.
      */
-    targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[]>;
+    targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[] | undefined>;
     /**
      * A `timewindowFilter` block as defined below.
      */
-    timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[]>;
+    timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[] | undefined>;
 }

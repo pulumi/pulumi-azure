@@ -430,169 +430,169 @@ export interface ApplicationGatewayState {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[]>;
+    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[] | undefined>;
     /**
      * An `autoscaleConfiguration` block as defined below.
      */
-    autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration>;
+    autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
-    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[]>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[] | undefined>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      *
      * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
+    backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[] | undefined>;
     /**
      * One or more `backend` blocks as defined below.
      *
      * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[]>;
+    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[] | undefined>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
+    customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[] | undefined>;
     /**
      * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableHttp2?: pulumi.Input<boolean>;
+    enableHttp2?: pulumi.Input<boolean | undefined>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
-    fipsEnabled?: pulumi.Input<boolean>;
+    fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Web Application Firewall Policy.
      */
-    firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
      * Is the Firewall Policy associated with the Application Gateway?
      */
-    forceFirewallPolicyAssociation?: pulumi.Input<boolean>;
+    forceFirewallPolicyAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendIpConfiguration>[]>;
+    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendIpConfiguration>[] | undefined>;
     /**
      * One or more `frontendPort` blocks as defined below.
      */
-    frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendPort>[]>;
+    frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendPort>[] | undefined>;
     /**
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
-    gatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[]>;
+    gatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[] | undefined>;
     /**
      * A `global` block as defined below.
      */
-    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
+    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal | undefined>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
-    http2Enabled?: pulumi.Input<boolean>;
+    http2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `httpListener` blocks as defined below.
      *
      * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
+    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
+    identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity | undefined>;
     /**
      * One or more `listener` blocks as defined below.
      *
      * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[]>;
+    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[] | undefined>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of `privateEndpointConnection` blocks as defined below.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateEndpointConnection>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateEndpointConnection>[] | undefined>;
     /**
      * One or more `privateLinkConfiguration` blocks as defined below.
      */
-    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[]>;
+    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[] | undefined>;
     /**
      * One or more `probe` blocks as defined below.
      */
-    probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[] | undefined>;
     /**
      * One or more `redirectConfiguration` blocks as defined below.
      */
-    redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
+    redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[] | undefined>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      *
      * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
+    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[] | undefined>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
-    rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
+    rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[] | undefined>;
     /**
      * One or more `routingRule` blocks as defined below.
      *
      * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.network.ApplicationGatewaySku>;
+    sku?: pulumi.Input<inputs.network.ApplicationGatewaySku | undefined>;
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
+    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[] | undefined>;
     /**
      * a `sslPolicy` block as defined below.
      */
-    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
+    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy | undefined>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
-    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
+    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `trustedClientCertificate` blocks as defined below.
      */
-    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[]>;
+    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[] | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
-    trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[]>;
+    trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[] | undefined>;
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[]>;
+    urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[] | undefined>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
+    wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      *
      * > **Note:** Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -602,11 +602,11 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[]>;
+    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[] | undefined>;
     /**
      * An `autoscaleConfiguration` block as defined below.
      */
-    autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration>;
+    autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
@@ -616,33 +616,33 @@ export interface ApplicationGatewayArgs {
      *
      * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
+    backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[] | undefined>;
     /**
      * One or more `backend` blocks as defined below.
      *
      * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[]>;
+    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[] | undefined>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
+    customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[] | undefined>;
     /**
      * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableHttp2?: pulumi.Input<boolean>;
+    enableHttp2?: pulumi.Input<boolean | undefined>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
-    fipsEnabled?: pulumi.Input<boolean>;
+    fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Web Application Firewall Policy.
      */
-    firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
      * Is the Firewall Policy associated with the Application Gateway?
      */
-    forceFirewallPolicyAssociation?: pulumi.Input<boolean>;
+    forceFirewallPolicyAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -658,53 +658,53 @@ export interface ApplicationGatewayArgs {
     /**
      * A `global` block as defined below.
      */
-    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
+    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal | undefined>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
-    http2Enabled?: pulumi.Input<boolean>;
+    http2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `httpListener` blocks as defined below.
      *
      * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
+    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
+    identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity | undefined>;
     /**
      * One or more `listener` blocks as defined below.
      *
      * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[]>;
+    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[] | undefined>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `privateLinkConfiguration` blocks as defined below.
      */
-    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[]>;
+    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[] | undefined>;
     /**
      * One or more `probe` blocks as defined below.
      */
-    probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[] | undefined>;
     /**
      * One or more `redirectConfiguration` blocks as defined below.
      */
-    redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
+    redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[] | undefined>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      *
      * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
+    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[] | undefined>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -712,13 +712,13 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
-    rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
+    rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[] | undefined>;
     /**
      * One or more `routingRule` blocks as defined below.
      *
      * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
@@ -726,39 +726,39 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
+    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[] | undefined>;
     /**
      * a `sslPolicy` block as defined below.
      */
-    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
+    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy | undefined>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
-    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
+    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `trustedClientCertificate` blocks as defined below.
      */
-    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[]>;
+    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[] | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
-    trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[]>;
+    trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[] | undefined>;
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[]>;
+    urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[] | undefined>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
+    wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      *
      * > **Note:** Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

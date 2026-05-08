@@ -151,11 +151,11 @@ export interface StaticWebAppFunctionAppRegistrationState {
      *
      * > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
      */
-    functionAppId?: pulumi.Input<string>;
+    functionAppId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
      */
-    staticWebAppId?: pulumi.Input<string>;
+    staticWebAppId?: pulumi.Input<string | undefined>;
 }
 
 /**

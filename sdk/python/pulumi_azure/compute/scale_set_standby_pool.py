@@ -25,9 +25,9 @@ class ScaleSetStandbyPoolArgs:
                  elasticity_profile: pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_state: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScaleSetStandbyPool resource.
 
@@ -100,51 +100,51 @@ class ScaleSetStandbyPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Standby Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ScaleSetStandbyPoolState:
     def __init__(__self__, *,
-                 attached_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticity_profile: Optional[pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_state: Optional[pulumi.Input[_builtins.str]] = None):
+                 attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticity_profile: pulumi.Input[Optional['ScaleSetStandbyPoolElasticityProfileArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScaleSetStandbyPool resources.
 
@@ -173,86 +173,86 @@ class _ScaleSetStandbyPoolState:
 
     @_builtins.property
     @pulumi.getter(name="attachedVirtualMachineScaleSetId")
-    def attached_virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attached_virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         """
         return pulumi.get(self, "attached_virtual_machine_scale_set_id")
 
     @attached_virtual_machine_scale_set_id.setter
-    def attached_virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attached_virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attached_virtual_machine_scale_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticityProfile")
-    def elasticity_profile(self) -> Optional[pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs']]:
+    def elasticity_profile(self) -> pulumi.Input[Optional['ScaleSetStandbyPoolElasticityProfileArgs']]:
         """
         An `elasticity_profile` block as defined below.
         """
         return pulumi.get(self, "elasticity_profile")
 
     @elasticity_profile.setter
-    def elasticity_profile(self, value: Optional[pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs']]):
+    def elasticity_profile(self, value: pulumi.Input[Optional['ScaleSetStandbyPoolElasticityProfileArgs']]):
         pulumi.set(self, "elasticity_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Standby Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineState")
-    def virtual_machine_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
         """
         return pulumi.get(self, "virtual_machine_state")
 
     @virtual_machine_state.setter
-    def virtual_machine_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_state", value)
 
 
@@ -262,13 +262,13 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticity_profile: Optional[pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Standby Pool for Virtual Machine Scale Sets.
@@ -401,13 +401,13 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticity_profile: Optional[pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,13 +442,13 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attached_virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            elasticity_profile: Optional[pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_machine_state: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScaleSetStandbyPool':
+            attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_state: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScaleSetStandbyPool':
         """
         Get an existing ScaleSetStandbyPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -142,27 +142,27 @@ export interface IntegrationAccountState {
     /**
      * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
      */
-    integrationServiceEnvironmentId?: pulumi.Input<string>;
+    integrationServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Logic App Integration Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -172,15 +172,15 @@ export interface IntegrationAccountArgs {
     /**
      * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
      */
-    integrationServiceEnvironmentId?: pulumi.Input<string>;
+    integrationServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
@@ -192,5 +192,5 @@ export interface IntegrationAccountArgs {
     /**
      * A mapping of tags which should be assigned to the Logic App Integration Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

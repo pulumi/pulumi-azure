@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()
     ///     {
-    ///         Hostname = Std.Index.Join.Invoke(new()
+    ///         Hostname = Std.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]

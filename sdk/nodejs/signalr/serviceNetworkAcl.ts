@@ -171,19 +171,19 @@ export interface ServiceNetworkAclState {
     /**
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * A `privateEndpoint` block as defined below.
      */
-    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceNetworkAclPrivateEndpoint>[]>;
+    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceNetworkAclPrivateEndpoint>[] | undefined>;
     /**
      * A `publicNetwork` block as defined below.
      */
-    publicNetwork?: pulumi.Input<inputs.signalr.ServiceNetworkAclPublicNetwork>;
+    publicNetwork?: pulumi.Input<inputs.signalr.ServiceNetworkAclPublicNetwork | undefined>;
     /**
      * The ID of the SignalR service. Changing this forces a new resource to be created.
      */
-    signalrServiceId?: pulumi.Input<string>;
+    signalrServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,7 +197,7 @@ export interface ServiceNetworkAclArgs {
     /**
      * A `privateEndpoint` block as defined below.
      */
-    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceNetworkAclPrivateEndpoint>[]>;
+    privateEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceNetworkAclPrivateEndpoint>[] | undefined>;
     /**
      * A `publicNetwork` block as defined below.
      */

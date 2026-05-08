@@ -130,12 +130,12 @@ export interface IPGroupCIDRState {
      *
      * > **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * The ID of the destination IP Group.
      * Changing this forces a new IP Group CIDR to be created.
      */
-    ipGroupId?: pulumi.Input<string>;
+    ipGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**

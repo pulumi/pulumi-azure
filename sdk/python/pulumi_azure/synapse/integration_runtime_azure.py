@@ -20,12 +20,12 @@ __all__ = ['IntegrationRuntimeAzureArgs', 'IntegrationRuntimeAzure']
 class IntegrationRuntimeAzureArgs:
     def __init__(__self__, *,
                  synapse_workspace_id: pulumi.Input[_builtins.str],
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None):
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeAzure resource.
 
@@ -65,87 +65,87 @@ class IntegrationRuntimeAzureArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMin")
-    def time_to_live_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
 
     @time_to_live_min.setter
-    def time_to_live_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_min", value)
 
 
 @pulumi.input_type
 class _IntegrationRuntimeAzureState:
     def __init__(__self__, *,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None):
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeAzure resources.
 
@@ -174,86 +174,86 @@ class _IntegrationRuntimeAzureState:
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMin")
-    def time_to_live_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
 
     @time_to_live_min.setter
-    def time_to_live_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_min", value)
 
 
@@ -263,13 +263,13 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Synapse Azure Integration Runtime.
@@ -414,13 +414,13 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -449,13 +449,13 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-            core_count: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None) -> 'IntegrationRuntimeAzure':
+            compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None) -> 'IntegrationRuntimeAzure':
         """
         Get an existing IntegrationRuntimeAzure resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

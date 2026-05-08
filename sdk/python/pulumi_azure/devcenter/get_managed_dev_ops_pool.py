@@ -236,8 +236,8 @@ def get_managed_dev_ops_pool(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         virtual_machine_scale_set_fabrics=pulumi.get(__ret__, 'virtual_machine_scale_set_fabrics'),
         work_folder=pulumi.get(__ret__, 'work_folder'))
-def get_managed_dev_ops_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_dev_ops_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDevOpsPoolResult]:
     """
     Use this data source to access information about an existing Managed DevOps Pool.

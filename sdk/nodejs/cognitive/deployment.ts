@@ -163,31 +163,31 @@ export interface DeploymentState {
     /**
      * The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * Whether dynamic throttling is enabled.
      */
-    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
+    dynamicThrottlingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */
-    model?: pulumi.Input<inputs.cognitive.DeploymentModel>;
+    model?: pulumi.Input<inputs.cognitive.DeploymentModel | undefined>;
     /**
      * The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of RAI policy.
      */
-    raiPolicyName?: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.cognitive.DeploymentSku>;
+    sku?: pulumi.Input<inputs.cognitive.DeploymentSku | undefined>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
-    versionUpgradeOption?: pulumi.Input<string>;
+    versionUpgradeOption?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface DeploymentArgs {
     /**
      * Whether dynamic throttling is enabled.
      */
-    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
+    dynamicThrottlingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */
@@ -209,11 +209,11 @@ export interface DeploymentArgs {
     /**
      * The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of RAI policy.
      */
-    raiPolicyName?: pulumi.Input<string>;
+    raiPolicyName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
@@ -221,5 +221,5 @@ export interface DeploymentArgs {
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
-    versionUpgradeOption?: pulumi.Input<string>;
+    versionUpgradeOption?: pulumi.Input<string | undefined>;
 }

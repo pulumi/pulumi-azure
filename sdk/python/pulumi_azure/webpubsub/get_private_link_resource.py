@@ -113,7 +113,7 @@ def get_private_link_resource(web_pubsub_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         shared_private_link_resource_types=pulumi.get(__ret__, 'shared_private_link_resource_types'),
         web_pubsub_id=pulumi.get(__ret__, 'web_pubsub_id'))
-def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_link_resource_output(web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkResourceResult]:
     """
     Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.

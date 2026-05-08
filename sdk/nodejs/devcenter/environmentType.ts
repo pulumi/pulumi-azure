@@ -127,15 +127,15 @@ export interface EnvironmentTypeState {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Environment Type.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -149,9 +149,9 @@ export interface EnvironmentTypeArgs {
     /**
      * Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Environment Type.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -22,7 +22,7 @@ class WorkspaceKeyArgs:
                  active: pulumi.Input[_builtins.bool],
                  customer_managed_key_name: pulumi.Input[_builtins.str],
                  synapse_workspace_id: pulumi.Input[_builtins.str],
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceKey resource.
 
@@ -79,24 +79,24 @@ class WorkspaceKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
-    def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         """
         return pulumi.get(self, "customer_managed_key_versionless_id")
 
     @customer_managed_key_versionless_id.setter
-    def customer_managed_key_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_versionless_id", value)
 
 
 @pulumi.input_type
 class _WorkspaceKeyState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_managed_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_managed_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceKey resources.
 
@@ -118,7 +118,7 @@ class _WorkspaceKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the workspace should be encrypted with this key.
 
@@ -127,43 +127,43 @@ class _WorkspaceKeyState:
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyName")
-    def customer_managed_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         """
         return pulumi.get(self, "customer_managed_key_name")
 
     @customer_managed_key_name.setter
-    def customer_managed_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
-    def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         """
         return pulumi.get(self, "customer_managed_key_versionless_id")
 
     @customer_managed_key_versionless_id.setter
-    def customer_managed_key_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synapse_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse Workspace where the encryption key should be configured.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
-    def synapse_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synapse_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synapse_workspace_id", value)
 
 
@@ -173,10 +173,10 @@ class WorkspaceKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_managed_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_managed_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Synapse Workspace keys
@@ -402,10 +402,10 @@ class WorkspaceKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_managed_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_managed_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,10 +435,10 @@ class WorkspaceKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            customer_managed_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceKey':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            customer_managed_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceKey':
         """
         Get an existing WorkspaceKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

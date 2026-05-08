@@ -148,8 +148,8 @@ def get_volume_snapshot(name: Optional[_builtins.str] = None,
         source_volume_size_in_gib=pulumi.get(__ret__, 'source_volume_size_in_gib'),
         volume_group_id=pulumi.get(__ret__, 'volume_group_id'),
         volume_name=pulumi.get(__ret__, 'volume_name'))
-def get_volume_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               volume_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_volume_snapshot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """
     Use this data source to access information about an existing Elastic SAN Volume Snapshot.

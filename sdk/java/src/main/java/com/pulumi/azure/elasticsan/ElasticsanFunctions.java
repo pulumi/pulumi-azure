@@ -35,8 +35,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -231,8 +231,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -336,8 +336,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -391,8 +391,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -446,8 +446,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -501,8 +501,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.ElasticsanFunctions;
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -557,8 +557,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -618,8 +618,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -679,8 +679,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -740,8 +740,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -801,8 +801,8 @@ public final class ElasticsanFunctions {
      * import com.pulumi.azure.elasticsan.inputs.GetArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeGroupArgs;
      * import com.pulumi.azure.elasticsan.inputs.GetVolumeSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

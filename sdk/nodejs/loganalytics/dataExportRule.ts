@@ -167,31 +167,31 @@ export interface DataExportRuleState {
     /**
      * The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
      */
-    destinationResourceId?: pulumi.Input<string>;
+    destinationResourceId?: pulumi.Input<string | undefined>;
     /**
      * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the created Data Export Rule.
      */
-    exportRuleId?: pulumi.Input<string>;
+    exportRuleId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
      */
-    tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    workspaceResourceId?: pulumi.Input<string>;
+    workspaceResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,11 +205,11 @@ export interface DataExportRuleArgs {
     /**
      * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
      */

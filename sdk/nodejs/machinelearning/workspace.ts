@@ -375,111 +375,111 @@ export interface WorkspaceState {
     /**
      * The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
      * > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The description of this Machine Learning Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
-    discoveryUrl?: pulumi.Input<string>;
+    discoveryUrl?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
-    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
+    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
      * A `featureStore` block as defined below.
      */
-    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore>;
+    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore | undefined>;
     /**
      * Display name for this Machine Learning Workspace.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
-    highBusinessImpact?: pulumi.Input<boolean>;
+    highBusinessImpact?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity | undefined>;
     /**
      * The compute name for image build of the Machine Learning Workspace.
      */
-    imageBuildComputeName?: pulumi.Input<string>;
+    imageBuildComputeName?: pulumi.Input<string | undefined>;
     /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork>;
+    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork | undefined>;
     /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity id that represents the workspace identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      *
      * > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `serverlessCompute` block as defined below.
      */
-    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
+    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute | undefined>;
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      *
      * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      */
-    serviceSideEncryptionEnabled?: pulumi.Input<boolean>;
+    serviceSideEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
      * > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      */
-    v1LegacyModeEnabled?: pulumi.Input<boolean>;
+    v1LegacyModeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The immutable id associated with this workspace.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -495,27 +495,27 @@ export interface WorkspaceArgs {
      *
      * > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The description of this Machine Learning Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
-    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
+    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
      * A `featureStore` block as defined below.
      */
-    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore>;
+    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore | undefined>;
     /**
      * Display name for this Machine Learning Workspace.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
-    highBusinessImpact?: pulumi.Input<boolean>;
+    highBusinessImpact?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -523,7 +523,7 @@ export interface WorkspaceArgs {
     /**
      * The compute name for image build of the Machine Learning Workspace.
      */
-    imageBuildComputeName?: pulumi.Input<string>;
+    imageBuildComputeName?: pulumi.Input<string | undefined>;
     /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
@@ -531,29 +531,29 @@ export interface WorkspaceArgs {
     /**
      * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork>;
+    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork | undefined>;
     /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity id that represents the workspace identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      *
      * > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -561,17 +561,17 @@ export interface WorkspaceArgs {
     /**
      * A `serverlessCompute` block as defined below.
      */
-    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
+    serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute | undefined>;
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      *
      * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      */
-    serviceSideEncryptionEnabled?: pulumi.Input<boolean>;
+    serviceSideEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
@@ -581,9 +581,9 @@ export interface WorkspaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      */
-    v1LegacyModeEnabled?: pulumi.Input<boolean>;
+    v1LegacyModeEnabled?: pulumi.Input<boolean | undefined>;
 }

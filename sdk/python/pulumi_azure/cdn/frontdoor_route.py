@@ -25,16 +25,16 @@ class FrontdoorRouteArgs:
                  cdn_frontdoor_origin_group_id: pulumi.Input[_builtins.str],
                  patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  supported_protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
-                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirect_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache: pulumi.Input[Optional['FrontdoorRouteCacheArgs']] = None,
+                 cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRoute resource.
 
@@ -138,7 +138,7 @@ class FrontdoorRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArgs']]:
+    def cache(self) -> pulumi.Input[Optional['FrontdoorRouteCacheArgs']]:
         """
         A `cache` block as defined below.
 
@@ -147,24 +147,24 @@ class FrontdoorRouteArgs:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArgs']]):
+    def cache(self, value: pulumi.Input[Optional['FrontdoorRouteCacheArgs']]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
-    def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @cdn_frontdoor_custom_domain_ids.setter
-    def cdn_frontdoor_custom_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_custom_domain_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_custom_domain_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginIds")
-    def cdn_frontdoor_origin_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_origin_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Front Door Origin resource IDs for this Front Door Route.
 
@@ -173,60 +173,60 @@ class FrontdoorRouteArgs:
         return pulumi.get(self, "cdn_frontdoor_origin_ids")
 
     @cdn_frontdoor_origin_ids.setter
-    def cdn_frontdoor_origin_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_origin_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_origin_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginPath")
-    def cdn_frontdoor_origin_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_origin_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         """
         return pulumi.get(self, "cdn_frontdoor_origin_path")
 
     @cdn_frontdoor_origin_path.setter
-    def cdn_frontdoor_origin_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_origin_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_origin_path", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetIds")
-    def cdn_frontdoor_rule_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_rule_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_ids")
 
     @cdn_frontdoor_rule_set_ids.setter
-    def cdn_frontdoor_rule_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_rule_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_rule_set_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingProtocol")
-    def forwarding_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "forwarding_protocol")
 
     @forwarding_protocol.setter
-    def forwarding_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsRedirectEnabled")
-    def https_redirect_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_redirect_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 
@@ -235,51 +235,51 @@ class FrontdoorRouteArgs:
         return pulumi.get(self, "https_redirect_enabled")
 
     @https_redirect_enabled.setter
-    def https_redirect_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_redirect_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_redirect_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="linkToDefaultDomain")
-    def link_to_default_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def link_to_default_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "link_to_default_domain")
 
     @link_to_default_domain.setter
-    def link_to_default_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def link_to_default_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "link_to_default_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FrontdoorRouteState:
     def __init__(__self__, *,
-                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
-                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirect_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cache: pulumi.Input[Optional['FrontdoorRouteCacheArgs']] = None,
+                 cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRoute resources.
 
@@ -337,7 +337,7 @@ class _FrontdoorRouteState:
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArgs']]:
+    def cache(self) -> pulumi.Input[Optional['FrontdoorRouteCacheArgs']]:
         """
         A `cache` block as defined below.
 
@@ -346,48 +346,48 @@ class _FrontdoorRouteState:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArgs']]):
+    def cache(self, value: pulumi.Input[Optional['FrontdoorRouteCacheArgs']]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
-    def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @cdn_frontdoor_custom_domain_ids.setter
-    def cdn_frontdoor_custom_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_custom_domain_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_custom_domain_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorEndpointId")
-    def cdn_frontdoor_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_endpoint_id")
 
     @cdn_frontdoor_endpoint_id.setter
-    def cdn_frontdoor_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
-    def cdn_frontdoor_origin_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_origin_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
 
     @cdn_frontdoor_origin_group_id.setter
-    def cdn_frontdoor_origin_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_origin_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_origin_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginIds")
-    def cdn_frontdoor_origin_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_origin_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Front Door Origin resource IDs for this Front Door Route.
 
@@ -396,60 +396,60 @@ class _FrontdoorRouteState:
         return pulumi.get(self, "cdn_frontdoor_origin_ids")
 
     @cdn_frontdoor_origin_ids.setter
-    def cdn_frontdoor_origin_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_origin_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_origin_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginPath")
-    def cdn_frontdoor_origin_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_origin_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         """
         return pulumi.get(self, "cdn_frontdoor_origin_path")
 
     @cdn_frontdoor_origin_path.setter
-    def cdn_frontdoor_origin_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_origin_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_origin_path", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetIds")
-    def cdn_frontdoor_rule_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cdn_frontdoor_rule_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_ids")
 
     @cdn_frontdoor_rule_set_ids.setter
-    def cdn_frontdoor_rule_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cdn_frontdoor_rule_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_rule_set_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingProtocol")
-    def forwarding_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "forwarding_protocol")
 
     @forwarding_protocol.setter
-    def forwarding_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsRedirectEnabled")
-    def https_redirect_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_redirect_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 
@@ -458,48 +458,48 @@ class _FrontdoorRouteState:
         return pulumi.get(self, "https_redirect_enabled")
 
     @https_redirect_enabled.setter
-    def https_redirect_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_redirect_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_redirect_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="linkToDefaultDomain")
-    def link_to_default_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def link_to_default_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "link_to_default_domain")
 
     @link_to_default_domain.setter
-    def link_to_default_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def link_to_default_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "link_to_default_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="patternsToMatches")
-    def patterns_to_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns_to_matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The route patterns of the rule.
         """
         return pulumi.get(self, "patterns_to_matches")
 
     @patterns_to_matches.setter
-    def patterns_to_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns_to_matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_to_matches", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedProtocols")
-    def supported_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 
@@ -508,7 +508,7 @@ class _FrontdoorRouteState:
         return pulumi.get(self, "supported_protocols")
 
     @supported_protocols.setter
-    def supported_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_protocols", value)
 
 
@@ -518,20 +518,20 @@ class FrontdoorRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
-                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirect_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+                 cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Route.
@@ -823,20 +823,20 @@ class FrontdoorRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
-                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirect_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+                 cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -878,20 +878,20 @@ class FrontdoorRoute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache: Optional[pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
-            cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cdn_frontdoor_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            forwarding_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            https_redirect_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            link_to_default_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorRoute':
+            cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+            cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            patterns_to_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorRoute':
         """
         Get an existing FrontdoorRoute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

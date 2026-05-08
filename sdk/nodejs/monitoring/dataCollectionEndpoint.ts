@@ -171,47 +171,47 @@ export interface DataCollectionEndpointState {
     /**
      * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
      */
-    configurationAccessEndpoint?: pulumi.Input<string>;
+    configurationAccessEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies a description for the Data Collection Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The immutable ID of the Data Collection Endpoint.
      */
-    immutableId?: pulumi.Input<string>;
+    immutableId?: pulumi.Input<string | undefined>;
     /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
      */
-    logsIngestionEndpoint?: pulumi.Input<string>;
+    logsIngestionEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
      */
-    metricsIngestionEndpoint?: pulumi.Input<string>;
+    metricsIngestionEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -221,23 +221,23 @@ export interface DataCollectionEndpointArgs {
     /**
      * Specifies a description for the Data Collection Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
@@ -245,5 +245,5 @@ export interface DataCollectionEndpointArgs {
     /**
      * A mapping of tags which should be assigned to the Data Collection Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

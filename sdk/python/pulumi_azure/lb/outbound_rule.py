@@ -24,12 +24,12 @@ class OutboundRuleArgs:
                  backend_address_pool_id: pulumi.Input[_builtins.str],
                  loadbalancer_id: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
 
@@ -99,87 +99,87 @@ class OutboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_outbound_ports(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of outbound ports to be used for NAT. Defaults to `1024`.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
     @allocated_outbound_ports.setter
-    def allocated_outbound_ports(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_outbound_ports(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_outbound_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
     @_utilities.deprecated("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tcp_reset(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
-    def enable_tcp_reset(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tcp_reset(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tcp_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]:
+    def frontend_ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]:
         """
         One or more `frontend_ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
     @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]):
+    def frontend_ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]):
         pulumi.set(self, "frontend_ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout for the TCP idle connection Defaults to `4`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
-    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         return pulumi.get(self, "tcp_reset_enabled")
 
     @tcp_reset_enabled.setter
-    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
 @pulumi.input_type
 class _OutboundRuleState:
     def __init__(__self__, *,
-                 allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OutboundRule resources.
 
@@ -216,108 +216,108 @@ class _OutboundRuleState:
 
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_outbound_ports(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of outbound ports to be used for NAT. Defaults to `1024`.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
     @allocated_outbound_ports.setter
-    def allocated_outbound_ports(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_outbound_ports(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_outbound_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
     @_utilities.deprecated("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tcp_reset(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
-    def enable_tcp_reset(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tcp_reset(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tcp_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]:
+    def frontend_ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]:
         """
         One or more `frontend_ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
     @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]):
+    def frontend_ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]]):
         pulumi.set(self, "frontend_ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout for the TCP idle connection Defaults to `4`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loadbalancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
     @loadbalancer_id.setter
-    def loadbalancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loadbalancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loadbalancer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
-    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         return pulumi.get(self, "tcp_reset_enabled")
 
     @tcp_reset_enabled.setter
-    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
@@ -327,15 +327,15 @@ class OutboundRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Outbound Rule.
@@ -481,15 +481,15 @@ class OutboundRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,15 +524,15 @@ class OutboundRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-            backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
-            frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
-            idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'OutboundRule':
+            allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'OutboundRule':
         """
         Get an existing OutboundRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

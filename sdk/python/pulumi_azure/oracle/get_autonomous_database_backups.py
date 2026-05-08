@@ -104,7 +104,7 @@ def get_autonomous_database_backups(autonomous_database_id: Optional[_builtins.s
         autonomous_database_backups=pulumi.get(__ret__, 'autonomous_database_backups'),
         autonomous_database_id=pulumi.get(__ret__, 'autonomous_database_id'),
         id=pulumi.get(__ret__, 'id'))
-def get_autonomous_database_backups_output(autonomous_database_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_autonomous_database_backups_output(autonomous_database_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutonomousDatabaseBackupsResult]:
     """
     Use this data source to access information about existing Autonomous Database Backups.

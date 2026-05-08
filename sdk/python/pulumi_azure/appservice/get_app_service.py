@@ -335,8 +335,8 @@ def get_app_service(name: Optional[_builtins.str] = None,
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
         source_controls=pulumi.get(__ret__, 'source_controls'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceResult]:
     """
     Use this data source to access information about an existing App Service.

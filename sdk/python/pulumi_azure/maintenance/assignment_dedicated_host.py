@@ -21,7 +21,7 @@ class AssignmentDedicatedHostArgs:
     def __init__(__self__, *,
                  dedicated_host_id: pulumi.Input[_builtins.str],
                  maintenance_configuration_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentDedicatedHost resource.
 
@@ -60,23 +60,23 @@ class AssignmentDedicatedHostArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _AssignmentDedicatedHostState:
     def __init__(__self__, *,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentDedicatedHost resources.
 
@@ -93,38 +93,38 @@ class _AssignmentDedicatedHostState:
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostId")
-    def dedicated_host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dedicated_host_id")
 
     @dedicated_host_id.setter
-    def dedicated_host_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
 
@@ -134,9 +134,9 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a maintenance assignment to Dedicated Host.
@@ -265,9 +265,9 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,9 +294,9 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssignmentDedicatedHost':
+            dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssignmentDedicatedHost':
         """
         Get an existing AssignmentDedicatedHost resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

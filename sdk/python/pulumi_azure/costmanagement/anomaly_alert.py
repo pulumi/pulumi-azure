@@ -22,10 +22,10 @@ class AnomalyAlertArgs:
                  display_name: pulumi.Input[_builtins.str],
                  email_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  email_subject: pulumi.Input[_builtins.str],
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AnomalyAlert resource.
 
@@ -87,63 +87,63 @@ class AnomalyAlertArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
-    def notification_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the point of contact that should get the unsubscribe requests and notification emails.
         """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
-    def notification_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_email", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
 @pulumi.input_type
 class _AnomalyAlertState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnomalyAlert resources.
 
@@ -172,86 +172,86 @@ class _AnomalyAlertState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name which should be used for this Cost Anomaly Alert.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of email addresses which the Anomaly Alerts are send to.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="emailSubject")
-    def email_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
         """
         return pulumi.get(self, "email_subject")
 
     @email_subject.setter
-    def email_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_subject", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
-    def notification_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the point of contact that should get the unsubscribe requests and notification emails.
         """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
-    def notification_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_email", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -261,13 +261,13 @@ class AnomalyAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cost Anomaly Alert.
@@ -370,13 +370,13 @@ class AnomalyAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -409,13 +409,13 @@ class AnomalyAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_subject: Optional[pulumi.Input[_builtins.str]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AnomalyAlert':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AnomalyAlert':
         """
         Get an existing AnomalyAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

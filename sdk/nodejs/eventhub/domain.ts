@@ -208,67 +208,67 @@ export interface DomainState {
     /**
      * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
      */
-    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
      */
-    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean | undefined>;
     /**
      * The Endpoint associated with the EventGrid Domain.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventhub.DomainIdentity>;
+    identity?: pulumi.Input<inputs.eventhub.DomainIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[] | undefined>;
     /**
      * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string | undefined>;
     /**
      * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Primary Shared Access Key associated with the EventGrid Domain.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Shared Access Key associated with the EventGrid Domain.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -278,47 +278,47 @@ export interface DomainArgs {
     /**
      * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
      */
-    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
      */
-    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventhub.DomainIdentity>;
+    identity?: pulumi.Input<inputs.eventhub.DomainIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[] | undefined>;
     /**
      * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string | undefined>;
     /**
      * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
@@ -326,5 +326,5 @@ export interface DomainArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -189,51 +189,51 @@ export interface SubscriptionState {
     /**
      * Determines whether tracing can be enabled. Defaults to `true`.
      */
-    allowTracing?: pulumi.Input<boolean>;
+    allowTracing?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Subscription.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The primary subscription key to use for the subscription.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary subscription key to use for the subscription.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -243,13 +243,13 @@ export interface SubscriptionArgs {
     /**
      * Determines whether tracing can be enabled. Defaults to `true`.
      */
-    allowTracing?: pulumi.Input<boolean>;
+    allowTracing?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -261,13 +261,13 @@ export interface SubscriptionArgs {
     /**
      * The primary subscription key to use for the subscription.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -275,17 +275,17 @@ export interface SubscriptionArgs {
     /**
      * The secondary subscription key to use for the subscription.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }

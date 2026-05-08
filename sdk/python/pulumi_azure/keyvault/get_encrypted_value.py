@@ -128,10 +128,10 @@ def get_encrypted_value(algorithm: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
         plain_text_value=pulumi.get(__ret__, 'plain_text_value'))
-def get_encrypted_value_output(algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                               encrypted_data: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               plain_text_value: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_encrypted_value_output(algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                               encrypted_data: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               plain_text_value: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptedValueResult]:
     """
     Encrypts or Decrypts a value using a Key Vault Key.

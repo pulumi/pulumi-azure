@@ -126,15 +126,15 @@ export interface SqlFunctionState {
     /**
      * Body of the User Defined Function.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
      */
-    containerId?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface SqlFunctionArgs {
     /**
      * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

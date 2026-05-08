@@ -303,35 +303,35 @@ export interface BackupInstanceKubernetesClusterState {
     /**
      * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      */
-    backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters>;
+    backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters | undefined>;
     /**
      * The ID of the Backup Policy. Changing this forces a new resource to be created.
      */
-    backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string | undefined>;
     /**
      * The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protection state of the Backup Instance Kubernetes Cluster.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      */
-    snapshotResourceGroupName?: pulumi.Input<string>;
+    snapshotResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -341,7 +341,7 @@ export interface BackupInstanceKubernetesClusterArgs {
     /**
      * A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
      */
-    backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters>;
+    backupDatasourceParameters?: pulumi.Input<inputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters | undefined>;
     /**
      * The ID of the Backup Policy. Changing this forces a new resource to be created.
      */
@@ -353,11 +353,11 @@ export interface BackupInstanceKubernetesClusterArgs {
     /**
      * The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      */

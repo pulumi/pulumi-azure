@@ -181,7 +181,7 @@ export interface GetAlertRuleAnomalyOutputArgs {
      *
      * > **Note:** One of `name` or `displayName` must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace.
      */
@@ -189,5 +189,5 @@ export interface GetAlertRuleAnomalyOutputArgs {
     /**
      * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

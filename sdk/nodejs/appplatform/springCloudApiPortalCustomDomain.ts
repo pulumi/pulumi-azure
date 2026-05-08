@@ -128,15 +128,15 @@ export interface SpringCloudApiPortalCustomDomainState {
     /**
      * The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
-    springCloudApiPortalId?: pulumi.Input<string>;
+    springCloudApiPortalId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface SpringCloudApiPortalCustomDomainArgs {
     /**
      * The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
@@ -154,5 +154,5 @@ export interface SpringCloudApiPortalCustomDomainArgs {
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }

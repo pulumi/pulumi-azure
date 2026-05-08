@@ -342,37 +342,37 @@ export interface RegistryState {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    adminEnabled?: pulumi.Input<boolean>;
+    adminEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Password associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
      */
-    anonymousPullEnabled?: pulumi.Input<boolean>;
+    anonymousPullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
-    dataEndpointEnabled?: pulumi.Input<boolean>;
+    dataEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
      */
-    dataEndpointHostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    dataEndpointHostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `encryption` block as documented below.
      */
-    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption | undefined>;
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
      * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
-    exportPolicyEnabled?: pulumi.Input<boolean>;
+    exportPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
@@ -382,63 +382,63 @@ export interface RegistryState {
      *
      * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
-    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The URL that can be used to log into the container registry.
      */
-    loginServer?: pulumi.Input<string>;
+    loginServer?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      */
-    networkRuleBypassOption?: pulumi.Input<string>;
+    networkRuleBypassOption?: pulumi.Input<string | undefined>;
     /**
      * A `networkRuleSet` block as documented below.
      */
-    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet | undefined>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean value that indicates whether quarantine policy is enabled.
      */
-    quarantinePolicyEnabled?: pulumi.Input<boolean>;
+    quarantinePolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The number of days to retain and untagged manifest after which it gets purged.
      */
-    retentionPolicyInDays?: pulumi.Input<number>;
+    retentionPolicyInDays?: pulumi.Input<number | undefined>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    trustPolicyEnabled?: pulumi.Input<boolean>;
+    trustPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    zoneRedundancyEnabled?: pulumi.Input<boolean>;
+    zoneRedundancyEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -448,25 +448,25 @@ export interface RegistryArgs {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    adminEnabled?: pulumi.Input<boolean>;
+    adminEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
      */
-    anonymousPullEnabled?: pulumi.Input<boolean>;
+    anonymousPullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
-    dataEndpointEnabled?: pulumi.Input<boolean>;
+    dataEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `encryption` block as documented below.
      */
-    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption | undefined>;
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
      * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
-    exportPolicyEnabled?: pulumi.Input<boolean>;
+    exportPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
@@ -476,35 +476,35 @@ export interface RegistryArgs {
      *
      * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
-    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      */
-    networkRuleBypassOption?: pulumi.Input<string>;
+    networkRuleBypassOption?: pulumi.Input<string | undefined>;
     /**
      * A `networkRuleSet` block as documented below.
      */
-    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet | undefined>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean value that indicates whether quarantine policy is enabled.
      */
-    quarantinePolicyEnabled?: pulumi.Input<boolean>;
+    quarantinePolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
@@ -512,7 +512,7 @@ export interface RegistryArgs {
     /**
      * The number of days to retain and untagged manifest after which it gets purged.
      */
-    retentionPolicyInDays?: pulumi.Input<number>;
+    retentionPolicyInDays?: pulumi.Input<number | undefined>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
@@ -520,13 +520,13 @@ export interface RegistryArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    trustPolicyEnabled?: pulumi.Input<boolean>;
+    trustPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    zoneRedundancyEnabled?: pulumi.Input<boolean>;
+    zoneRedundancyEnabled?: pulumi.Input<boolean | undefined>;
 }

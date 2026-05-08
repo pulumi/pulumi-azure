@@ -20,15 +20,15 @@ __all__ = ['ServerExtendedAuditingPolicyArgs', 'ServerExtendedAuditingPolicy']
 class ServerExtendedAuditingPolicyArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.str],
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 predicate_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 
@@ -79,19 +79,19 @@ class ServerExtendedAuditingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditActionsAndGroups")
-    def audit_actions_and_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audit_actions_and_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Actions-Groups and Actions to audit.
         """
         return pulumi.get(self, "audit_actions_and_groups")
 
     @audit_actions_and_groups.setter
-    def audit_actions_and_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audit_actions_and_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audit_actions_and_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -100,107 +100,107 @@ class ServerExtendedAuditingPolicyArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="predicateExpression")
-    def predicate_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def predicate_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies condition of where clause when creating an audit.
         """
         return pulumi.get(self, "predicate_expression")
 
     @predicate_expression.setter
-    def predicate_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def predicate_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "predicate_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain logs for in the storage account. Defaults to `0`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key to use for the auditing storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_account_access_key_is_secondary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is `storage_account_access_key` value the storage's secondary key?
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
 
     @storage_account_access_key_is_secondary.setter
-    def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_account_access_key_is_secondary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
 @pulumi.input_type
 class _ServerExtendedAuditingPolicyState:
     def __init__(__self__, *,
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 predicate_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
 
@@ -240,19 +240,19 @@ class _ServerExtendedAuditingPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="auditActionsAndGroups")
-    def audit_actions_and_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audit_actions_and_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Actions-Groups and Actions to audit.
         """
         return pulumi.get(self, "audit_actions_and_groups")
 
     @audit_actions_and_groups.setter
-    def audit_actions_and_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audit_actions_and_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audit_actions_and_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -261,103 +261,103 @@ class _ServerExtendedAuditingPolicyState:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="predicateExpression")
-    def predicate_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def predicate_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies condition of where clause when creating an audit.
         """
         return pulumi.get(self, "predicate_expression")
 
     @predicate_expression.setter
-    def predicate_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def predicate_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "predicate_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain logs for in the storage account. Defaults to `0`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key to use for the auditing storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_account_access_key_is_secondary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is `storage_account_access_key` value the storage's secondary key?
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
 
     @storage_account_access_key_is_secondary.setter
-    def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_account_access_key_is_secondary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 
@@ -367,16 +367,16 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 predicate_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MS SQL Server Extended Auditing Policy.
@@ -662,16 +662,16 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 predicate_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -705,16 +705,16 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            predicate_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_access_key_is_secondary: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerExtendedAuditingPolicy':
+            audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerExtendedAuditingPolicy':
         """
         Get an existing ServerExtendedAuditingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

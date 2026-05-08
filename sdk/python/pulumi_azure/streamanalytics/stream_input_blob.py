@@ -30,8 +30,8 @@ class StreamInputBlobArgs:
                  storage_container_name: pulumi.Input[_builtins.str],
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
                  time_format: pulumi.Input[_builtins.str],
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamInputBlob resource.
 
@@ -171,43 +171,43 @@ class StreamInputBlobArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the Stream Analytics Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Input Blob. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _StreamInputBlobState:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input['StreamInputBlobSerializationArgs']] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional['StreamInputBlobSerializationArgs']] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamInputBlob resources.
 
@@ -248,134 +248,134 @@ class _StreamInputBlobState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the Stream Analytics Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         """
         return pulumi.get(self, "date_format")
 
     @date_format.setter
-    def date_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Input Blob. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pathPattern")
-    def path_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         """
         return pulumi.get(self, "path_pattern")
 
     @path_pattern.setter
-    def path_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['StreamInputBlobSerializationArgs']]:
+    def serialization(self) -> pulumi.Input[Optional['StreamInputBlobSerializationArgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['StreamInputBlobSerializationArgs']]):
+    def serialization(self, value: pulumi.Input[Optional['StreamInputBlobSerializationArgs']]):
         pulumi.set(self, "serialization", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Access Key which should be used to connect to this Storage Account.
         """
         return pulumi.get(self, "storage_account_key")
 
     @storage_account_key.setter
-    def storage_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container within the Storage Account.
         """
         return pulumi.get(self, "storage_container_name")
 
     @storage_container_name.setter
-    def storage_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """
         return pulumi.get(self, "time_format")
 
     @time_format.setter
-    def time_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_format", value)
 
 
@@ -385,17 +385,17 @@ class StreamInputBlob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Stream Input Blob.
@@ -544,17 +544,17 @@ class StreamInputBlob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
-                 storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
+                 storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -605,17 +605,17 @@ class StreamInputBlob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            date_format: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
-            storage_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            time_format: Optional[pulumi.Input[_builtins.str]] = None) -> 'StreamInputBlob':
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamInputBlob':
         """
         Get an existing StreamInputBlob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

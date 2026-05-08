@@ -27,10 +27,10 @@ class ReferenceInputMssqlArgs:
                  server: pulumi.Input[_builtins.str],
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 delta_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None):
+                 delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReferenceInputMssql resource.
 
@@ -162,68 +162,68 @@ class ReferenceInputMssqlArgs:
 
     @_builtins.property
     @pulumi.getter(name="deltaSnapshotQuery")
-    def delta_snapshot_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delta_snapshot_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         """
         return pulumi.get(self, "delta_snapshot_query")
 
     @delta_snapshot_query.setter
-    def delta_snapshot_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delta_snapshot_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delta_snapshot_query", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshIntervalDuration")
-    def refresh_interval_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_interval_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         """
         return pulumi.get(self, "refresh_interval_duration")
 
     @refresh_interval_duration.setter
-    def refresh_interval_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_interval_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_interval_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the table in the Azure SQL database.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table", value)
 
 
 @pulumi.input_type
 class _ReferenceInputMssqlState:
     def __init__(__self__, *,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 delta_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReferenceInputMssql resources.
 
@@ -267,146 +267,146 @@ class _ReferenceInputMssqlState:
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MS SQL database name where the reference data exists.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="deltaSnapshotQuery")
-    def delta_snapshot_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delta_snapshot_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         """
         return pulumi.get(self, "delta_snapshot_query")
 
     @delta_snapshot_query.setter
-    def delta_snapshot_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delta_snapshot_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delta_snapshot_query", value)
 
     @_builtins.property
     @pulumi.getter(name="fullSnapshotQuery")
-    def full_snapshot_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_snapshot_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query used to retrieve the reference data from the MS SQL database.
         """
         return pulumi.get(self, "full_snapshot_query")
 
     @full_snapshot_query.setter
-    def full_snapshot_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_snapshot_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_snapshot_query", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password to connect to the MS SQL database.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshIntervalDuration")
-    def refresh_interval_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_interval_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         """
         return pulumi.get(self, "refresh_interval_duration")
 
     @refresh_interval_duration.setter
-    def refresh_interval_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_interval_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_interval_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshType")
-    def refresh_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         """
         return pulumi.get(self, "refresh_type")
 
     @refresh_type.setter
-    def refresh_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the MS SQL server.
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the table in the Azure SQL database.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username to connect to the MS SQL database.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -416,18 +416,18 @@ class ReferenceInputMssql(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 delta_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
@@ -577,18 +577,18 @@ class ReferenceInputMssql(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 delta_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -638,18 +638,18 @@ class ReferenceInputMssql(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            delta_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-            full_snapshot_query: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_interval_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            table: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReferenceInputMssql':
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+            full_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReferenceInputMssql':
         """
         Get an existing ReferenceInputMssql resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

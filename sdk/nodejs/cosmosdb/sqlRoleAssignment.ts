@@ -168,27 +168,27 @@ export interface SqlRoleAssignmentState {
     /**
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Cosmos DB SQL Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface SqlRoleAssignmentArgs {
     /**
      * The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
      */

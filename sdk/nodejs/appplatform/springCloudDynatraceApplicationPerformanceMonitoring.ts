@@ -180,39 +180,39 @@ export interface SpringCloudDynatraceApplicationPerformanceMonitoringState {
     /**
      * Specifies the API token of the Dynatrace environment.
      */
-    apiToken?: pulumi.Input<string>;
+    apiToken?: pulumi.Input<string | undefined>;
     /**
      * Specifies the API Url of the Dynatrace environment.
      */
-    apiUrl?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the endpoint to connect to the Dynatrace environment.
      */
-    connectionPoint?: pulumi.Input<string>;
+    connectionPoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Dynatrace environment ID.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Dynatrace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Dynatrace tenant.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * Specifies the internal token that is used for authentication when OneAgent connects to the Dynatrace cluster to send data.
      */
-    tenantToken?: pulumi.Input<string>;
+    tenantToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,11 +222,11 @@ export interface SpringCloudDynatraceApplicationPerformanceMonitoringArgs {
     /**
      * Specifies the API token of the Dynatrace environment.
      */
-    apiToken?: pulumi.Input<string>;
+    apiToken?: pulumi.Input<string | undefined>;
     /**
      * Specifies the API Url of the Dynatrace environment.
      */
-    apiUrl?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the endpoint to connect to the Dynatrace environment.
      */
@@ -234,15 +234,15 @@ export interface SpringCloudDynatraceApplicationPerformanceMonitoringArgs {
     /**
      * Specifies the Dynatrace environment ID.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Dynatrace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */

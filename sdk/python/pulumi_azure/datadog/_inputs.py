@@ -40,27 +40,27 @@ class MonitorDatadogOrganizationArgsDict(TypedDict):
     """
     Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
     """
-    enterprise_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    enterprise_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the enterprise_app. Changing this forces a new resource to be created.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Datadog Monitor.
     """
-    linking_auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    linking_auth_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
     """
-    linking_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    linking_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
     """
-    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
     """
@@ -70,12 +70,12 @@ class MonitorDatadogOrganizationArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[_builtins.str],
                  application_key: pulumi.Input[_builtins.str],
-                 enterprise_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linking_auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 linking_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 enterprise_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linking_auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 linking_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] application_key: Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
@@ -127,74 +127,74 @@ class MonitorDatadogOrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enterpriseAppId")
-    def enterprise_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the enterprise_app. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enterprise_app_id")
 
     @enterprise_app_id.setter
-    def enterprise_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Datadog Monitor.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkingAuthCode")
-    def linking_auth_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linking_auth_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "linking_auth_code")
 
     @linking_auth_code.setter
-    def linking_auth_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linking_auth_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linking_auth_code", value)
 
     @_builtins.property
     @pulumi.getter(name="linkingClientId")
-    def linking_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linking_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "linking_client_id")
 
     @linking_client_id.setter
-    def linking_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linking_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linking_client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
-    def redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_uri", value)
 
 
@@ -205,11 +205,11 @@ class MonitorIdentityArgsDict(TypedDict):
 
     > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
     """
@@ -218,8 +218,8 @@ class MonitorIdentityArgsDict(TypedDict):
 class MonitorIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
                
@@ -249,45 +249,45 @@ class MonitorIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class MonitorTagRuleLogArgsDict(TypedDict):
-    aad_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    aad_log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether AAD logs should be sent for the Monitor resource?
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]]
     """
     A `filter` block as defined below.
 
     > **Note:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
     """
-    resource_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    resource_log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Azure resource logs should be sent for the Monitor resource?
     """
-    subscription_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    subscription_log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Azure subscription logs should be sent for the Monitor resource?
     """
@@ -295,10 +295,10 @@ class MonitorTagRuleLogArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorTagRuleLogArgs:
     def __init__(__self__, *,
-                 aad_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]] = None,
-                 resource_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aad_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]] = None,
+                 resource_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]] filters: A `filter` block as defined below.
@@ -318,19 +318,19 @@ class MonitorTagRuleLogArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadLogEnabled")
-    def aad_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aad_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether AAD logs should be sent for the Monitor resource?
         """
         return pulumi.get(self, "aad_log_enabled")
 
     @aad_log_enabled.setter
-    def aad_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aad_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aad_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]:
         """
         A `filter` block as defined below.
 
@@ -339,31 +339,31 @@ class MonitorTagRuleLogArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceLogEnabled")
-    def resource_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure resource logs should be sent for the Monitor resource?
         """
         return pulumi.get(self, "resource_log_enabled")
 
     @resource_log_enabled.setter
-    def resource_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_log_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLogEnabled")
-    def subscription_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subscription_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure subscription logs should be sent for the Monitor resource?
         """
         return pulumi.get(self, "subscription_log_enabled")
 
     @subscription_log_enabled.setter
-    def subscription_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subscription_log_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscription_log_enabled", value)
 
 
@@ -434,7 +434,7 @@ class MonitorTagRuleLogFilterArgs:
 
 
 class MonitorTagRuleMetricArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]]
     """
     A `filter` block as defined below.
 
@@ -444,7 +444,7 @@ class MonitorTagRuleMetricArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorTagRuleMetricArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]] filters: A `filter` block as defined below.
                
@@ -455,7 +455,7 @@ class MonitorTagRuleMetricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]:
         """
         A `filter` block as defined below.
 
@@ -464,7 +464,7 @@ class MonitorTagRuleMetricArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
 
@@ -543,7 +543,7 @@ class MonitorUserArgsDict(TypedDict):
     """
     The name which should be used for this user_info. Changing this forces a new resource to be created.
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
     """
@@ -553,7 +553,7 @@ class MonitorUserArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email: Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this user_info. Changing this forces a new resource to be created.
@@ -590,14 +590,14 @@ class MonitorUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
 

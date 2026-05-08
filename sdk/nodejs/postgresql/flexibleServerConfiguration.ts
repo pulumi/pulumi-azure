@@ -163,15 +163,15 @@ export interface FlexibleServerConfigurationState {
      *
      * > **Note:** PostgreSQL provides the ability to extend the functionality using azure extensions, with PostgreSQL azure extensions you should specify the `name` value as `azure.extensions` and the `value` you wish to allow in the [extensions list](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions?WT.mc_id=Portal-Microsoft_Azure_OSSDatabases#extension-versions).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the PostgreSQL Flexible Server where we want to change configuration. Changing this forces a new PostgreSQL Flexible Server Configuration resource.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface FlexibleServerConfigurationArgs {
      *
      * > **Note:** PostgreSQL provides the ability to extend the functionality using azure extensions, with PostgreSQL azure extensions you should specify the `name` value as `azure.extensions` and the `value` you wish to allow in the [extensions list](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions?WT.mc_id=Portal-Microsoft_Azure_OSSDatabases#extension-versions).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the PostgreSQL Flexible Server where we want to change configuration. Changing this forces a new PostgreSQL Flexible Server Configuration resource.
      */

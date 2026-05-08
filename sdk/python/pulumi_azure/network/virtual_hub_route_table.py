@@ -22,9 +22,9 @@ __all__ = ['VirtualHubRouteTableArgs', 'VirtualHubRouteTable']
 class VirtualHubRouteTableArgs:
     def __init__(__self__, *,
                  virtual_hub_id: pulumi.Input[_builtins.str],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualHubRouteTable resource.
 
@@ -55,48 +55,48 @@ class VirtualHubRouteTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels associated with this route table.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
 
 @pulumi.input_type
 class _VirtualHubRouteTableState:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubRouteTable resources.
 
@@ -116,50 +116,50 @@ class _VirtualHubRouteTableState:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels associated with this route table.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubId")
-    def virtual_hub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_hub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
-    def virtual_hub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_hub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_hub_id", value)
 
 
@@ -169,10 +169,10 @@ class VirtualHubRouteTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Hub Route Table.
@@ -346,10 +346,10 @@ class VirtualHubRouteTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
+                 virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,10 +375,10 @@ class VirtualHubRouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
-            virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualHubRouteTable':
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualHubRouteTable':
         """
         Get an existing VirtualHubRouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

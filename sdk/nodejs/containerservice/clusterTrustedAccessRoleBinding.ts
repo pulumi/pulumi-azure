@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: exampleAzurermClientConfig.tenantId,
  *     skuName: "example-value",
- *     softDeleteRetentionDays: "example-value",
+ *     softDeleteRetentionDays: Number("example-value"),
  * });
  * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
  *         name: "example-value",
- *         nodeCount: "example-value",
+ *         nodeCount: Number("example-value"),
  *         vmSize: "example-value",
  *         upgradeSettings: {
  *             maxSurge: "example-value",
@@ -189,19 +189,19 @@ export interface ClusterTrustedAccessRoleBindingState {
     /**
      * Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of roles to bind, each item is a resource type qualified role name.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface ClusterTrustedAccessRoleBindingArgs {
     /**
      * Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of roles to bind, each item is a resource type qualified role name.
      */

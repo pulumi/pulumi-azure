@@ -70,8 +70,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -114,8 +114,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -202,8 +202,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -290,8 +290,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -334,8 +334,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -378,8 +378,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -422,8 +422,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -466,8 +466,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -508,8 +508,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -550,8 +550,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -592,8 +592,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -634,8 +634,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -676,8 +676,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -718,8 +718,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -760,8 +760,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -802,8 +802,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -844,8 +844,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -886,8 +886,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -928,8 +928,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -977,8 +977,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1026,8 +1026,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1075,8 +1075,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1175,8 +1175,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1218,8 +1218,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1261,8 +1261,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1304,8 +1304,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1388,8 +1388,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1429,8 +1429,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1470,8 +1470,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1511,8 +1511,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1552,8 +1552,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1593,8 +1593,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1642,8 +1642,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1691,8 +1691,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1740,8 +1740,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1789,8 +1789,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1838,8 +1838,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1887,8 +1887,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1936,8 +1936,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1985,8 +1985,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2034,8 +2034,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2083,8 +2083,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2132,8 +2132,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2181,8 +2181,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2230,8 +2230,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2279,8 +2279,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2330,8 +2330,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2380,8 +2380,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2430,8 +2430,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2480,8 +2480,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2530,8 +2530,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2578,8 +2578,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2626,8 +2626,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2674,8 +2674,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2722,8 +2722,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2770,8 +2770,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2818,8 +2818,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2867,8 +2867,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2916,8 +2916,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2965,8 +2965,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3014,8 +3014,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3063,8 +3063,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3112,8 +3112,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3161,8 +3161,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3210,8 +3210,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3259,8 +3259,8 @@ public final class AppserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.appservice.AppserviceFunctions;
      * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

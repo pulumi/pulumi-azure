@@ -53,7 +53,7 @@ namespace Pulumi.Azure.ApiManagement
     ///     var examplePolicy = new Azure.ApiManagement.Policy("example", new()
     ///     {
     ///         ApiManagementId = exampleService.Id,
-    ///         XmlContent = Std.Index.File.Invoke(new()
+    ///         XmlContent = Std.File.Invoke(new()
     ///         {
     ///             Input = "example.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -21,10 +21,10 @@ class RuntimeEnvironmentPackageArgs:
     def __init__(__self__, *,
                  automation_runtime_environment_id: pulumi.Input[_builtins.str],
                  content_uri: pulumi.Input[_builtins.str],
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuntimeEnvironmentPackage resource.
 
@@ -78,7 +78,7 @@ class RuntimeEnvironmentPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the package content. Changing this forces a new resource to be created.
 
@@ -87,12 +87,12 @@ class RuntimeEnvironmentPackageArgs:
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash algorithm used to hash the content. Changing this forces a new resource to be created.
 
@@ -101,12 +101,12 @@ class RuntimeEnvironmentPackageArgs:
         return pulumi.get(self, "hash_algorithm")
 
     @hash_algorithm.setter
-    def hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="hashValue")
-    def hash_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash value of the content. Changing this forces a new resource to be created.
 
@@ -115,34 +115,34 @@ class RuntimeEnvironmentPackageArgs:
         return pulumi.get(self, "hash_value")
 
     @hash_value.setter
-    def hash_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the package. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RuntimeEnvironmentPackageState:
     def __init__(__self__, *,
-                 automation_runtime_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_runtime_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuntimeEnvironmentPackage resources.
 
@@ -183,31 +183,31 @@ class _RuntimeEnvironmentPackageState:
 
     @_builtins.property
     @pulumi.getter(name="automationRuntimeEnvironmentId")
-    def automation_runtime_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_runtime_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Automation Runtime Environment in which to create this package. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_runtime_environment_id")
 
     @automation_runtime_environment_id.setter
-    def automation_runtime_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_runtime_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_runtime_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentUri")
-    def content_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS URI of the package content. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "content_uri")
 
     @content_uri.setter
-    def content_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the package content. Changing this forces a new resource to be created.
 
@@ -216,24 +216,24 @@ class _RuntimeEnvironmentPackageState:
         return pulumi.get(self, "content_version")
 
     @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this is a default package.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash algorithm used to hash the content. Changing this forces a new resource to be created.
 
@@ -242,12 +242,12 @@ class _RuntimeEnvironmentPackageState:
         return pulumi.get(self, "hash_algorithm")
 
     @hash_algorithm.setter
-    def hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="hashValue")
-    def hash_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash value of the content. Changing this forces a new resource to be created.
 
@@ -256,43 +256,43 @@ class _RuntimeEnvironmentPackageState:
         return pulumi.get(self, "hash_value")
 
     @hash_value.setter
-    def hash_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the package. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the package in bytes.
         """
         return pulumi.get(self, "size_in_bytes")
 
     @size_in_bytes.setter
-    def size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the package as reported by the platform.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -302,12 +302,12 @@ class RuntimeEnvironmentPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_runtime_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_runtime_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Package within an Automation Runtime Environment.
@@ -435,12 +435,12 @@ class RuntimeEnvironmentPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_runtime_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_runtime_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -473,15 +473,15 @@ class RuntimeEnvironmentPackage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_runtime_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            content_version: Optional[pulumi.Input[_builtins.str]] = None,
-            default: Optional[pulumi.Input[_builtins.bool]] = None,
-            hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            hash_value: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'RuntimeEnvironmentPackage':
+            automation_runtime_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            content_version: pulumi.Input[Optional[_builtins.str]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'RuntimeEnvironmentPackage':
         """
         Get an existing RuntimeEnvironmentPackage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

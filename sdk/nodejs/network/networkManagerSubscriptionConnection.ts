@@ -143,23 +143,23 @@ export interface NetworkManagerSubscriptionConnectionState {
     /**
      * The Connection state of the Network Manager Subscription Connection.
      */
-    connectionState?: pulumi.Input<string>;
+    connectionState?: pulumi.Input<string | undefined>;
     /**
      * A description of the Network Manager Subscription Connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager which the Subscription is connected to.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface NetworkManagerSubscriptionConnectionArgs {
     /**
      * A description of the Network Manager Subscription Connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager which the Subscription is connected to.
      */

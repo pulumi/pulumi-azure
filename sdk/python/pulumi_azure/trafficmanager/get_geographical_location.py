@@ -96,7 +96,7 @@ def get_geographical_location(name: Optional[_builtins.str] = None,
     return AwaitableGetGeographicalLocationResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_geographical_location_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_geographical_location_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeographicalLocationResult]:
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.

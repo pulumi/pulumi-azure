@@ -22,10 +22,10 @@ __all__ = ['HubArgs', 'Hub']
 class HubArgs:
     def __init__(__self__, *,
                  web_pubsub_id: pulumi.Input[_builtins.str],
-                 anonymous_connections_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Hub resource.
 
@@ -64,7 +64,7 @@ class HubArgs:
 
     @_builtins.property
     @pulumi.getter(name="anonymousConnectionsEnabled")
-    def anonymous_connections_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def anonymous_connections_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is anonymous connections are allowed for this hub? Defaults to `false`.
         Possible values are `true`, `false`.
@@ -72,12 +72,12 @@ class HubArgs:
         return pulumi.get(self, "anonymous_connections_enabled")
 
     @anonymous_connections_enabled.setter
-    def anonymous_connections_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def anonymous_connections_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "anonymous_connections_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
+    def event_handlers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
         """
         An `event_handler` block as defined below.
 
@@ -86,12 +86,12 @@ class HubArgs:
         return pulumi.get(self, "event_handlers")
 
     @event_handlers.setter
-    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
+    def event_handlers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
         pulumi.set(self, "event_handlers", value)
 
     @_builtins.property
     @pulumi.getter(name="eventListeners")
-    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+    def event_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
         """
         An `event_listener` block as defined below.
 
@@ -100,30 +100,30 @@ class HubArgs:
         return pulumi.get(self, "event_listeners")
 
     @event_listeners.setter
-    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+    def event_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
         pulumi.set(self, "event_listeners", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _HubState:
     def __init__(__self__, *,
-                 anonymous_connections_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
 
@@ -151,7 +151,7 @@ class _HubState:
 
     @_builtins.property
     @pulumi.getter(name="anonymousConnectionsEnabled")
-    def anonymous_connections_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def anonymous_connections_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is anonymous connections are allowed for this hub? Defaults to `false`.
         Possible values are `true`, `false`.
@@ -159,12 +159,12 @@ class _HubState:
         return pulumi.get(self, "anonymous_connections_enabled")
 
     @anonymous_connections_enabled.setter
-    def anonymous_connections_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def anonymous_connections_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "anonymous_connections_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
+    def event_handlers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
         """
         An `event_handler` block as defined below.
 
@@ -173,12 +173,12 @@ class _HubState:
         return pulumi.get(self, "event_handlers")
 
     @event_handlers.setter
-    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
+    def event_handlers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
         pulumi.set(self, "event_handlers", value)
 
     @_builtins.property
     @pulumi.getter(name="eventListeners")
-    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+    def event_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
         """
         An `event_listener` block as defined below.
 
@@ -187,31 +187,31 @@ class _HubState:
         return pulumi.get(self, "event_listeners")
 
     @event_listeners.setter
-    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+    def event_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
         pulumi.set(self, "event_listeners", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="webPubsubId")
-    def web_pubsub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_pubsub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 
     @web_pubsub_id.setter
-    def web_pubsub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_pubsub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_pubsub_id", value)
 
 
@@ -221,11 +221,11 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anonymous_connections_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the hub settings for a Web Pubsub.
@@ -433,11 +433,11 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anonymous_connections_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,11 +464,11 @@ class Hub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            anonymous_connections_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-            event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Hub':
+            anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
+            event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Hub':
         """
         Get an existing Hub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

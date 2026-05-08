@@ -252,89 +252,89 @@ export interface DatasetDelimitedTextState {
      *
      * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `azureBlobFsLocation` block as defined below.
      */
-    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation>;
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation | undefined>;
     /**
      * An `azureBlobStorageLocation` block as defined below.
      */
-    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
     /**
      * The column delimiter. Defaults to `,`.
      */
-    columnDelimiter?: pulumi.Input<string>;
+    columnDelimiter?: pulumi.Input<string | undefined>;
     /**
      * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
-    compressionCodec?: pulumi.Input<string>;
+    compressionCodec?: pulumi.Input<string | undefined>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
-    compressionLevel?: pulumi.Input<string>;
+    compressionLevel?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * The escape character. Defaults to `\`.
      */
-    escapeCharacter?: pulumi.Input<string>;
+    escapeCharacter?: pulumi.Input<string | undefined>;
     /**
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
-    firstRowAsHeader?: pulumi.Input<boolean>;
+    firstRowAsHeader?: pulumi.Input<boolean | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The null value string. Defaults to `""`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The quote character. Defaults to `"`.
      */
-    quoteCharacter?: pulumi.Input<string>;
+    quoteCharacter?: pulumi.Input<string | undefined>;
     /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
-    rowDelimiter?: pulumi.Input<string>;
+    rowDelimiter?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[] | undefined>;
 }
 
 /**
@@ -346,31 +346,31 @@ export interface DatasetDelimitedTextArgs {
      *
      * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `azureBlobFsLocation` block as defined below.
      */
-    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation>;
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation | undefined>;
     /**
      * An `azureBlobStorageLocation` block as defined below.
      */
-    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
     /**
      * The column delimiter. Defaults to `,`.
      */
-    columnDelimiter?: pulumi.Input<string>;
+    columnDelimiter?: pulumi.Input<string | undefined>;
     /**
      * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
-    compressionCodec?: pulumi.Input<string>;
+    compressionCodec?: pulumi.Input<string | undefined>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
-    compressionLevel?: pulumi.Input<string>;
+    compressionLevel?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -378,29 +378,29 @@ export interface DatasetDelimitedTextArgs {
     /**
      * The description for the Data Factory Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * The escape character. Defaults to `\`.
      */
-    escapeCharacter?: pulumi.Input<string>;
+    escapeCharacter?: pulumi.Input<string | undefined>;
     /**
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
-    firstRowAsHeader?: pulumi.Input<boolean>;
+    firstRowAsHeader?: pulumi.Input<boolean | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
@@ -408,25 +408,25 @@ export interface DatasetDelimitedTextArgs {
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The null value string. Defaults to `""`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The quote character. Defaults to `"`.
      */
-    quoteCharacter?: pulumi.Input<string>;
+    quoteCharacter?: pulumi.Input<string | undefined>;
     /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
-    rowDelimiter?: pulumi.Input<string>;
+    rowDelimiter?: pulumi.Input<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[] | undefined>;
 }

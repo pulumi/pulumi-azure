@@ -158,19 +158,19 @@ export interface GatewayCertificateAuthorityState {
     /**
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Whether the API Management Gateway Certificate Authority is trusted.
      */
-    isTrusted?: pulumi.Input<boolean>;
+    isTrusted?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -192,5 +192,5 @@ export interface GatewayCertificateAuthorityArgs {
     /**
      * Whether the API Management Gateway Certificate Authority is trusted.
      */
-    isTrusted?: pulumi.Input<boolean>;
+    isTrusted?: pulumi.Input<boolean | undefined>;
 }

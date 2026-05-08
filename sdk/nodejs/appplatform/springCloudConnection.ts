@@ -191,22 +191,22 @@ export interface SpringCloudConnectionState {
     /**
      * The authentication info. An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
-    clientType?: pulumi.Input<string>;
+    authentication?: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication | undefined>;
+    clientType?: pulumi.Input<string | undefined>;
     /**
      * The name of the service connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    secretStore?: pulumi.Input<inputs.appplatform.SpringCloudConnectionSecretStore>;
+    name?: pulumi.Input<string | undefined>;
+    secretStore?: pulumi.Input<inputs.appplatform.SpringCloudConnectionSecretStore | undefined>;
     /**
      * The ID of the data source spring cloud. Changing this forces a new resource to be created.
      */
-    springCloudId?: pulumi.Input<string>;
+    springCloudId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
-    targetResourceId?: pulumi.Input<string>;
-    vnetSolution?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
+    vnetSolution?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -217,12 +217,12 @@ export interface SpringCloudConnectionArgs {
      * The authentication info. An `authentication` block as defined below.
      */
     authentication: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
-    clientType?: pulumi.Input<string>;
+    clientType?: pulumi.Input<string | undefined>;
     /**
      * The name of the service connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    secretStore?: pulumi.Input<inputs.appplatform.SpringCloudConnectionSecretStore>;
+    name?: pulumi.Input<string | undefined>;
+    secretStore?: pulumi.Input<inputs.appplatform.SpringCloudConnectionSecretStore | undefined>;
     /**
      * The ID of the data source spring cloud. Changing this forces a new resource to be created.
      */
@@ -231,5 +231,5 @@ export interface SpringCloudConnectionArgs {
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
     targetResourceId: pulumi.Input<string>;
-    vnetSolution?: pulumi.Input<string>;
+    vnetSolution?: pulumi.Input<string | undefined>;
 }

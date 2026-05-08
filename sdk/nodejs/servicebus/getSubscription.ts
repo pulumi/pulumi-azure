@@ -173,17 +173,17 @@ export interface GetSubscriptionOutputArgs {
     /**
      * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
      */
-    topicId?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

@@ -22,14 +22,14 @@ __all__ = ['EnterpriseDatabaseArgs', 'EnterpriseDatabase']
 class EnterpriseDatabaseArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
-                 client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a EnterpriseDatabase resource.
 
@@ -79,55 +79,55 @@ class EnterpriseDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientProtocol")
-    def client_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "client_protocol")
 
     @client_protocol.setter
-    def client_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="clusteringPolicy")
-    def clustering_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clustering_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "clustering_policy")
 
     @clustering_policy.setter
-    def clustering_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clustering_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clustering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedDatabaseGroupNickname")
-    def linked_database_group_nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_database_group_nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         """
         return pulumi.get(self, "linked_database_group_nickname")
 
     @linked_database_group_nickname.setter
-    def linked_database_group_nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_database_group_nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_database_group_nickname", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedDatabaseIds")
-    def linked_database_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def linked_database_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of database resources to link with this database with a maximum of 5.
 
@@ -136,12 +136,12 @@ class EnterpriseDatabaseArgs:
         return pulumi.get(self, "linked_database_ids")
 
     @linked_database_ids.setter
-    def linked_database_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def linked_database_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "linked_database_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
+    def modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
         """
         A `module` block as defined below. Changing this forces a new resource to be created.
 
@@ -150,48 +150,48 @@ class EnterpriseDatabaseArgs:
         return pulumi.get(self, "modules")
 
     @modules.setter
-    def modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]):
+    def modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]):
         pulumi.set(self, "modules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
 class _EnterpriseDatabaseState:
     def __init__(__self__, *,
-                 client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseDatabase resources.
 
@@ -236,67 +236,67 @@ class _EnterpriseDatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="clientProtocol")
-    def client_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "client_protocol")
 
     @client_protocol.setter
-    def client_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clusteringPolicy")
-    def clustering_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clustering_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "clustering_policy")
 
     @clustering_policy.setter
-    def clustering_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clustering_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clustering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedDatabaseGroupNickname")
-    def linked_database_group_nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_database_group_nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         """
         return pulumi.get(self, "linked_database_group_nickname")
 
     @linked_database_group_nickname.setter
-    def linked_database_group_nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_database_group_nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_database_group_nickname", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedDatabaseIds")
-    def linked_database_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def linked_database_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of database resources to link with this database with a maximum of 5.
 
@@ -305,12 +305,12 @@ class _EnterpriseDatabaseState:
         return pulumi.get(self, "linked_database_ids")
 
     @linked_database_ids.setter
-    def linked_database_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def linked_database_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "linked_database_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
+    def modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
         """
         A `module` block as defined below. Changing this forces a new resource to be created.
 
@@ -319,55 +319,55 @@ class _EnterpriseDatabaseState:
         return pulumi.get(self, "modules")
 
     @modules.setter
-    def modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]):
+    def modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]):
         pulumi.set(self, "modules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Access Key for the Redis Enterprise Database Instance.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Access Key for the Redis Enterprise Database Instance.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
 
@@ -377,15 +377,15 @@ class EnterpriseDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
+                 client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Redis Enterprise Database.
@@ -532,15 +532,15 @@ class EnterpriseDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
+                 client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -575,17 +575,17 @@ class EnterpriseDatabase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            linked_database_group_nickname: Optional[pulumi.Input[_builtins.str]] = None,
-            linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnterpriseDatabase':
+            client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnterpriseDatabase':
         """
         Get an existing EnterpriseDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

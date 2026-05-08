@@ -141,7 +141,7 @@ def get_account_encryption(netapp_account_id: Optional[_builtins.str] = None,
         netapp_account_id=pulumi.get(__ret__, 'netapp_account_id'),
         system_assigned_identity_principal_id=pulumi.get(__ret__, 'system_assigned_identity_principal_id'),
         user_assigned_identity_id=pulumi.get(__ret__, 'user_assigned_identity_id'))
-def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_encryption_output(netapp_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountEncryptionResult]:
     """
     Use this data source to access information about an existing NetApp Account Encryption Resource.

@@ -131,23 +131,23 @@ export interface SuppressionState {
     /**
      * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
      */
-    recommendationId?: pulumi.Input<string>;
+    recommendationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The GUID of the suppression.
      */
-    suppressionId?: pulumi.Input<string>;
+    suppressionId?: pulumi.Input<string | undefined>;
     /**
      * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface SuppressionArgs {
     /**
      * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
      */
@@ -169,5 +169,5 @@ export interface SuppressionArgs {
     /**
      * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }

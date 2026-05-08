@@ -36,8 +36,8 @@ public final class KubernetesClusterAciConnectorLinux {
      * import com.pulumi.azure.network.SubnetArgs;
      * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
      * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -93,8 +93,8 @@ public final class KubernetesClusterAciConnectorLinux {
      * import com.pulumi.azure.network.SubnetArgs;
      * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
      * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

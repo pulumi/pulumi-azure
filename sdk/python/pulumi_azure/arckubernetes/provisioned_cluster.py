@@ -23,12 +23,12 @@ class ProvisionedClusterArgs:
     def __init__(__self__, *,
                  identity: pulumi.Input['ProvisionedClusterIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 arc_agent_auto_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arc_agent_desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory: Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory: pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedCluster resource.
 
@@ -82,95 +82,95 @@ class ProvisionedClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="arcAgentAutoUpgradeEnabled")
-    def arc_agent_auto_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def arc_agent_auto_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
         """
         return pulumi.get(self, "arc_agent_auto_upgrade_enabled")
 
     @arc_agent_auto_upgrade_enabled.setter
-    def arc_agent_auto_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def arc_agent_auto_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "arc_agent_auto_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="arcAgentDesiredVersion")
-    def arc_agent_desired_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_agent_desired_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Arc agents to be installed on the cluster.
         """
         return pulumi.get(self, "arc_agent_desired_version")
 
     @arc_agent_desired_version.setter
-    def arc_agent_desired_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_agent_desired_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_agent_desired_version", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']]:
+    def azure_active_directory(self) -> pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']]:
         """
         An `azure_active_directory` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
-    def azure_active_directory(self, value: Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']]):
+    def azure_active_directory(self, value: pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']]):
         pulumi.set(self, "azure_active_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Arc Kubernetes Provisioned Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProvisionedClusterState:
     def __init__(__self__, *,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 arc_agent_auto_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arc_agent_desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory: Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']] = None,
-                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
-                 infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 offering: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 total_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_node_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory: pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']] = None,
+                 distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ProvisionedClusterIdentityArgs']] = None,
+                 infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 offering: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_node_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ProvisionedCluster resources.
 
@@ -223,182 +223,182 @@ class _ProvisionedClusterState:
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the agent running on the cluster resource.
         """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter(name="arcAgentAutoUpgradeEnabled")
-    def arc_agent_auto_upgrade_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def arc_agent_auto_upgrade_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
         """
         return pulumi.get(self, "arc_agent_auto_upgrade_enabled")
 
     @arc_agent_auto_upgrade_enabled.setter
-    def arc_agent_auto_upgrade_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def arc_agent_auto_upgrade_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "arc_agent_auto_upgrade_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="arcAgentDesiredVersion")
-    def arc_agent_desired_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_agent_desired_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Arc agents to be installed on the cluster.
         """
         return pulumi.get(self, "arc_agent_desired_version")
 
     @arc_agent_desired_version.setter
-    def arc_agent_desired_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_agent_desired_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_agent_desired_version", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']]:
+    def azure_active_directory(self) -> pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']]:
         """
         An `azure_active_directory` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
-    def azure_active_directory(self, value: Optional[pulumi.Input['ProvisionedClusterAzureActiveDirectoryArgs']]):
+    def azure_active_directory(self, value: pulumi.Input[Optional['ProvisionedClusterAzureActiveDirectoryArgs']]):
         pulumi.set(self, "azure_active_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distribution running on this Arc Kubernetes Provisioned Cluster.
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ProvisionedClusterIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ProvisionedClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def infrastructure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The infrastructure on which the Arc Kubernetes Provisioned Cluster is running on.
         """
         return pulumi.get(self, "infrastructure")
 
     @infrastructure.setter
-    def infrastructure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes version of the cluster resource.
         """
         return pulumi.get(self, "kubernetes_version")
 
     @kubernetes_version.setter
-    def kubernetes_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def offering(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster offering.
         """
         return pulumi.get(self, "offering")
 
     @offering.setter
-    def offering(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Arc Kubernetes Provisioned Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="totalCoreCount")
-    def total_core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of CPU cores present in the cluster resource.
         """
         return pulumi.get(self, "total_core_count")
 
     @total_core_count.setter
-    def total_core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="totalNodeCount")
-    def total_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of nodes present in the cluster resource.
         """
         return pulumi.get(self, "total_node_count")
 
     @total_node_count.setter
-    def total_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_node_count", value)
 
 
@@ -408,14 +408,14 @@ class ProvisionedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_agent_auto_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arc_agent_desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory: Optional[pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Arc Kubernetes Provisioned Cluster.
@@ -545,14 +545,14 @@ class ProvisionedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_agent_auto_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arc_agent_desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory: Optional[pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -591,21 +591,21 @@ class ProvisionedCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-            arc_agent_auto_upgrade_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            arc_agent_desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_active_directory: Optional[pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
-            distribution: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
-            infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            offering: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            total_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-            total_node_count: Optional[pulumi.Input[_builtins.int]] = None) -> 'ProvisionedCluster':
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
+            distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+            infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            offering: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            total_node_count: pulumi.Input[Optional[_builtins.int]] = None) -> 'ProvisionedCluster':
         """
         Get an existing ProvisionedCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

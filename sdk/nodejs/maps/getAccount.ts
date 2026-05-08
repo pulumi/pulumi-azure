@@ -123,5 +123,5 @@ export interface GetAccountOutputArgs {
      * Specifies the name of the Resource Group in which the Maps Account is located.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

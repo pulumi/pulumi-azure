@@ -224,53 +224,53 @@ export interface AttachedDatabaseConfigurationState {
     /**
      * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
      */
-    attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[]>;
+    attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    clusterResourceId?: pulumi.Input<string>;
+    clusterResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
      */
-    databaseNameOverride?: pulumi.Input<string>;
+    databaseNameOverride?: pulumi.Input<string | undefined>;
     /**
      * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
      *
      * > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
      */
-    databaseNamePrefix?: pulumi.Input<string>;
+    databaseNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
-    defaultPrincipalModificationKind?: pulumi.Input<string>;
+    defaultPrincipalModificationKind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `sharing` block as defined below.
      */
-    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing>;
+    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing | undefined>;
 }
 
 /**
@@ -280,7 +280,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
@@ -288,7 +288,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    clusterResourceId?: pulumi.Input<string>;
+    clusterResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      */
@@ -296,25 +296,25 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
      */
-    databaseNameOverride?: pulumi.Input<string>;
+    databaseNameOverride?: pulumi.Input<string | undefined>;
     /**
      * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
      *
      * > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
      */
-    databaseNamePrefix?: pulumi.Input<string>;
+    databaseNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
-    defaultPrincipalModificationKind?: pulumi.Input<string>;
+    defaultPrincipalModificationKind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
@@ -322,5 +322,5 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * A `sharing` block as defined below.
      */
-    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing>;
+    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing | undefined>;
 }

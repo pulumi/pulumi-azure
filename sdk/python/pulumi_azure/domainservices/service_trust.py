@@ -23,7 +23,7 @@ class ServiceTrustArgs:
                  password: pulumi.Input[_builtins.str],
                  trusted_domain_dns_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  trusted_domain_fqdn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceTrust resource.
 
@@ -90,25 +90,25 @@ class ServiceTrustArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ServiceTrustState:
     def __init__(__self__, *,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_domain_dns_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trusted_domain_fqdn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceTrust resources.
 
@@ -131,62 +131,62 @@ class _ServiceTrustState:
 
     @_builtins.property
     @pulumi.getter(name="domainServiceId")
-    def domain_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
         """
         return pulumi.get(self, "domain_service_id")
 
     @domain_service_id.setter
-    def domain_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the inbound trust set in the on-premise Active Directory Domain Service.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedDomainDnsIps")
-    def trusted_domain_dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_domain_dns_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service.
         """
         return pulumi.get(self, "trusted_domain_dns_ips")
 
     @trusted_domain_dns_ips.setter
-    def trusted_domain_dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_domain_dns_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_domain_dns_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedDomainFqdn")
-    def trusted_domain_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_domain_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the on-premise Active Directory Domain Service.
         """
         return pulumi.get(self, "trusted_domain_fqdn")
 
     @trusted_domain_fqdn.setter
-    def trusted_domain_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_domain_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_domain_fqdn", value)
 
 
@@ -196,11 +196,11 @@ class ServiceTrust(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_domain_dns_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trusted_domain_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Active Directory Domain Service Trust.
@@ -307,11 +307,11 @@ class ServiceTrust(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_domain_dns_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trusted_domain_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,11 +346,11 @@ class ServiceTrust(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceTrust':
+            domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_domain_dns_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            trusted_domain_fqdn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceTrust':
         """
         Get an existing ServiceTrust resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

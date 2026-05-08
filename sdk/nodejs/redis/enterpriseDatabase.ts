@@ -195,51 +195,51 @@ export interface EnterpriseDatabaseState {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    clientProtocol?: pulumi.Input<string>;
+    clientProtocol?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    clusteringPolicy?: pulumi.Input<string>;
+    clusteringPolicy?: pulumi.Input<string | undefined>;
     /**
      * Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
      */
-    linkedDatabaseGroupNickname?: pulumi.Input<string>;
+    linkedDatabaseGroupNickname?: pulumi.Input<string | undefined>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
      *
      * > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
      */
-    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
-    modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
+    modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[] | undefined>;
     /**
      * The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The Primary Access Key for the Redis Enterprise Database Instance.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface EnterpriseDatabaseArgs {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    clientProtocol?: pulumi.Input<string>;
+    clientProtocol?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
      */
@@ -257,33 +257,33 @@ export interface EnterpriseDatabaseArgs {
     /**
      * Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    clusteringPolicy?: pulumi.Input<string>;
+    clusteringPolicy?: pulumi.Input<string | undefined>;
     /**
      * Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
      */
-    linkedDatabaseGroupNickname?: pulumi.Input<string>;
+    linkedDatabaseGroupNickname?: pulumi.Input<string | undefined>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
      *
      * > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
      */
-    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
-    modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
+    modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[] | undefined>;
     /**
      * The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
 }

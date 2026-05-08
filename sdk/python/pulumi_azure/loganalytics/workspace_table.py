@@ -20,10 +20,10 @@ __all__ = ['WorkspaceTableArgs', 'WorkspaceTable']
 class WorkspaceTableArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkspaceTable resource.
 
@@ -65,19 +65,19 @@ class WorkspaceTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a table in a Log Analytics Workspace.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
@@ -86,12 +86,12 @@ class WorkspaceTableArgs:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's retention in days. Possible values are between `4` and `730`.
 
@@ -100,12 +100,12 @@ class WorkspaceTableArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
-    def total_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 
@@ -116,18 +116,18 @@ class WorkspaceTableArgs:
         return pulumi.get(self, "total_retention_in_days")
 
     @total_retention_in_days.setter
-    def total_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_retention_in_days", value)
 
 
 @pulumi.input_type
 class _WorkspaceTableState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceTable resources.
 
@@ -158,19 +158,19 @@ class _WorkspaceTableState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a table in a Log Analytics Workspace.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
@@ -179,12 +179,12 @@ class _WorkspaceTableState:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's retention in days. Possible values are between `4` and `730`.
 
@@ -193,12 +193,12 @@ class _WorkspaceTableState:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
-    def total_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 
@@ -209,19 +209,19 @@ class _WorkspaceTableState:
         return pulumi.get(self, "total_retention_in_days")
 
     @total_retention_in_days.setter
-    def total_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the Log Analytics Workspace that contains the table.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -231,11 +231,11 @@ class WorkspaceTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Table in a Log Analytics (formally Operational Insights) Workspace.
@@ -344,11 +344,11 @@ class WorkspaceTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,11 +375,11 @@ class WorkspaceTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceTable':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceTable':
         """
         Get an existing WorkspaceTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

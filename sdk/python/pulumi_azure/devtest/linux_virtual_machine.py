@@ -29,15 +29,15 @@ class LinuxVirtualMachineArgs:
                  size: pulumi.Input[_builtins.str],
                  storage_type: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinuxVirtualMachine resource.
 
@@ -190,31 +190,31 @@ class LinuxVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowClaim")
-    def allow_claim(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_claim(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can this Virtual Machine be claimed by users? Defaults to `true`.
         """
         return pulumi.get(self, "allow_claim")
 
     @allow_claim.setter
-    def allow_claim(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_claim(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowPublicIpAddress")
-    def disallow_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disallow_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disallow_public_ip_address")
 
     @disallow_public_ip_address.setter
-    def disallow_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disallow_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disallow_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -223,24 +223,24 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 
@@ -249,36 +249,36 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any notes about the Virtual Machine.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -287,44 +287,44 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
-    def ssh_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LinuxVirtualMachineState:
     def __init__(__self__, *,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_image_reference: pulumi.Input[Optional['LinuxVirtualMachineGalleryImageReferenceArgs']] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxVirtualMachine resources.
 
@@ -395,55 +395,55 @@ class _LinuxVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter(name="allowClaim")
-    def allow_claim(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_claim(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can this Virtual Machine be claimed by users? Defaults to `true`.
         """
         return pulumi.get(self, "allow_claim")
 
     @allow_claim.setter
-    def allow_claim(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_claim(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowPublicIpAddress")
-    def disallow_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disallow_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disallow_public_ip_address")
 
     @disallow_public_ip_address.setter
-    def disallow_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disallow_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disallow_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the Virtual Machine.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']]:
+    def gallery_image_reference(self) -> pulumi.Input[Optional['LinuxVirtualMachineGalleryImageReferenceArgs']]:
         """
         A `gallery_image_reference` block as defined below.
         """
         return pulumi.get(self, "gallery_image_reference")
 
     @gallery_image_reference.setter
-    def gallery_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']]):
+    def gallery_image_reference(self, value: pulumi.Input[Optional['LinuxVirtualMachineGalleryImageReferenceArgs']]):
         pulumi.set(self, "gallery_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -452,60 +452,60 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lab_name")
 
     @lab_name.setter
-    def lab_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lab_subnet_name")
 
     @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labVirtualNetworkId")
-    def lab_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lab_virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lab_virtual_network_id")
 
     @lab_virtual_network_id.setter
-    def lab_virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lab_virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lab_virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 
@@ -514,60 +514,60 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any notes about the Virtual Machine.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -576,55 +576,55 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
-    def ssh_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique immutable identifier of the Virtual Machine.
         """
         return pulumi.get(self, "unique_identifier")
 
     @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -634,23 +634,23 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
@@ -827,23 +827,23 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -900,25 +900,25 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_claim: Optional[pulumi.Input[_builtins.bool]] = None,
-            disallow_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
-            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
-            lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-            lab_subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-            lab_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            size: Optional[pulumi.Input[_builtins.str]] = None,
-            ssh_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinuxVirtualMachine':
+            allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+            disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict']]] = None,
+            inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict']]]]] = None,
+            lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinuxVirtualMachine':
         """
         Get an existing LinuxVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

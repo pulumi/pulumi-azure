@@ -194,35 +194,35 @@ export interface OutputCosmosdbState {
     /**
      * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the CosmosDB container.
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * The account key for the CosmosDB database.
      */
-    cosmosdbAccountKey?: pulumi.Input<string>;
+    cosmosdbAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the CosmosDB database.
      */
-    cosmosdbSqlDatabaseId?: pulumi.Input<string>;
+    cosmosdbSqlDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The name of the field in output events used to specify the primary key which insert or update operations are based on.
      */
-    documentId?: pulumi.Input<string>;
+    documentId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      */
-    partitionKey?: pulumi.Input<string>;
+    partitionKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobId?: pulumi.Input<string>;
+    streamAnalyticsJobId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface OutputCosmosdbArgs {
     /**
      * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the CosmosDB container.
      */
@@ -248,15 +248,15 @@ export interface OutputCosmosdbArgs {
     /**
      * The name of the field in output events used to specify the primary key which insert or update operations are based on.
      */
-    documentId?: pulumi.Input<string>;
+    documentId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      */
-    partitionKey?: pulumi.Input<string>;
+    partitionKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */

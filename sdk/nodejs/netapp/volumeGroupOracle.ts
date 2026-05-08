@@ -414,31 +414,31 @@ export interface VolumeGroupOracleState {
     /**
      * Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    applicationIdentifier?: pulumi.Input<string>;
+    applicationIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    groupDescription?: pulumi.Input<string>;
+    groupDescription?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `volume` blocks as defined below.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupOracleVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupOracleVolume>[] | undefined>;
 }
 
 /**
@@ -460,11 +460,11 @@ export interface VolumeGroupOracleArgs {
     /**
      * The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */

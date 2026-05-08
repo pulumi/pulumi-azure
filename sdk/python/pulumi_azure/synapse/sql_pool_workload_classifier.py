@@ -21,12 +21,12 @@ class SqlPoolWorkloadClassifierArgs:
     def __init__(__self__, *,
                  member_name: pulumi.Input[_builtins.str],
                  workload_group_id: pulumi.Input[_builtins.str],
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadClassifier resource.
 
@@ -80,88 +80,88 @@ class SqlPoolWorkloadClassifierArgs:
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the session context value that a request can be classified against.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
         """
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the label value that a request can be classified against.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type
 class _SqlPoolWorkloadClassifierState:
     def __init__(__self__, *,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolWorkloadClassifier resources.
 
@@ -193,98 +193,98 @@ class _SqlPoolWorkloadClassifierState:
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the session context value that a request can be classified against.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
         """
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the label value that a request can be classified against.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="memberName")
-    def member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier member name used to classified against.
         """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
-    def member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadGroupId")
-    def workload_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "workload_group_id")
 
     @workload_group_id.setter
-    def workload_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_group_id", value)
 
 
@@ -294,14 +294,14 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Synapse SQL Pool Workload Classifier.
@@ -346,8 +346,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
             name="example",
@@ -429,8 +429,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
             name="example",
@@ -467,14 +467,14 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 importance: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 importance: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -506,14 +506,14 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            context: Optional[pulumi.Input[_builtins.str]] = None,
-            end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            importance: Optional[pulumi.Input[_builtins.str]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            member_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            workload_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SqlPoolWorkloadClassifier':
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            importance: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            member_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SqlPoolWorkloadClassifier':
         """
         Get an existing SqlPoolWorkloadClassifier resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

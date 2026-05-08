@@ -23,10 +23,10 @@ class SavedSearchArgs:
                  display_name: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SavedSearch resource.
 
@@ -102,64 +102,64 @@ class SavedSearchArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function alias if the query serves as a function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "function_alias")
 
     @function_alias.setter
-    def function_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def function_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         """
         return pulumi.get(self, "function_parameters")
 
     @function_parameters.setter
-    def function_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def function_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "function_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SavedSearchState:
     def __init__(__self__, *,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SavedSearch resources.
 
@@ -191,98 +191,98 @@ class _SavedSearchState:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function alias if the query serves as a function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "function_alias")
 
     @function_alias.setter
-    def function_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def function_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         """
         return pulumi.get(self, "function_parameters")
 
     @function_parameters.setter
-    def function_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def function_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "function_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query expression for the saved search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -292,14 +292,14 @@ class SavedSearch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Log Analytics (formally Operational Insights) Saved Search.
@@ -417,14 +417,14 @@ class SavedSearch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,14 +460,14 @@ class SavedSearch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            category: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SavedSearch':
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SavedSearch':
         """
         Get an existing SavedSearch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,13 +21,13 @@ class ResourcePolicyRemediationArgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 failure_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicyRemediation resource.
 
@@ -84,101 +84,101 @@ class ResourcePolicyRemediationArgs:
 
     @_builtins.property
     @pulumi.getter(name="failurePercentage")
-    def failure_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def failure_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "failure_percentage")
 
     @failure_percentage.setter
-    def failure_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def failure_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "failure_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="locationFilters")
-    def location_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def location_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the resource locations that will be remediated.
         """
         return pulumi.get(self, "location_filters")
 
     @location_filters.setter
-    def location_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def location_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "location_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Policy Remediation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelDeployments")
-    def parallel_deployments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallel_deployments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         """
         return pulumi.get(self, "parallel_deployments")
 
     @parallel_deployments.setter
-    def parallel_deployments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallel_deployments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallel_deployments", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCount")
-    def resource_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def resource_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         """
         return pulumi.get(self, "resource_count")
 
     @resource_count.setter
-    def resource_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def resource_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "resource_count", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDiscoveryMode")
-    def resource_discovery_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_discovery_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         """
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
-    def resource_discovery_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_discovery_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_discovery_mode", value)
 
 
 @pulumi.input_type
 class _ResourcePolicyRemediationState:
     def __init__(__self__, *,
-                 failure_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicyRemediation resources.
 
@@ -213,110 +213,110 @@ class _ResourcePolicyRemediationState:
 
     @_builtins.property
     @pulumi.getter(name="failurePercentage")
-    def failure_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def failure_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "failure_percentage")
 
     @failure_percentage.setter
-    def failure_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def failure_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "failure_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="locationFilters")
-    def location_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def location_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the resource locations that will be remediated.
         """
         return pulumi.get(self, "location_filters")
 
     @location_filters.setter
-    def location_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def location_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "location_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Policy Remediation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelDeployments")
-    def parallel_deployments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallel_deployments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         """
         return pulumi.get(self, "parallel_deployments")
 
     @parallel_deployments.setter
-    def parallel_deployments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallel_deployments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallel_deployments", value)
 
     @_builtins.property
     @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Policy Assignment that should be remediated.
         """
         return pulumi.get(self, "policy_assignment_id")
 
     @policy_assignment_id.setter
-    def policy_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCount")
-    def resource_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def resource_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         """
         return pulumi.get(self, "resource_count")
 
     @resource_count.setter
-    def resource_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def resource_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "resource_count", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDiscoveryMode")
-    def resource_discovery_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_discovery_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         """
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
-    def resource_discovery_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_discovery_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_discovery_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -326,15 +326,15 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Resource Policy Remediation.
@@ -491,15 +491,15 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -532,15 +532,15 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            failure_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-            location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-            policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResourcePolicyRemediation':
+            failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+            policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_discovery_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourcePolicyRemediation':
         """
         Get an existing ResourcePolicyRemediation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,12 +22,12 @@ __all__ = ['VolumeGroupArgs', 'VolumeGroup']
 class VolumeGroupArgs:
     def __init__(__self__, *,
                  elastic_san_id: pulumi.Input[_builtins.str],
-                 encryption: Optional[pulumi.Input['VolumeGroupEncryptionArgs']] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['VolumeGroupIdentityArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption: pulumi.Input[Optional['VolumeGroupEncryptionArgs']] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['VolumeGroupIdentityArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
 
@@ -69,7 +69,7 @@ class VolumeGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VolumeGroupEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['VolumeGroupEncryptionArgs']]:
         """
         An `encryption` block as defined below.
 
@@ -78,80 +78,80 @@ class VolumeGroupArgs:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VolumeGroupEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['VolumeGroupEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VolumeGroupIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['VolumeGroupIdentityArgs']]:
         """
         An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VolumeGroupIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['VolumeGroupIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]:
+    def network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]:
         """
         One or more `network_rule` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]):
+    def network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
 
 @pulumi.input_type
 class _VolumeGroupState:
     def __init__(__self__, *,
-                 elastic_san_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input['VolumeGroupEncryptionArgs']] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['VolumeGroupIdentityArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 elastic_san_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional['VolumeGroupEncryptionArgs']] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['VolumeGroupIdentityArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeGroup resources.
 
@@ -182,19 +182,19 @@ class _VolumeGroupState:
 
     @_builtins.property
     @pulumi.getter(name="elasticSanId")
-    def elastic_san_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_san_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "elastic_san_id")
 
     @elastic_san_id.setter
-    def elastic_san_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_san_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_san_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VolumeGroupEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['VolumeGroupEncryptionArgs']]:
         """
         An `encryption` block as defined below.
 
@@ -203,67 +203,67 @@ class _VolumeGroupState:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VolumeGroupEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['VolumeGroupEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VolumeGroupIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['VolumeGroupIdentityArgs']]:
         """
         An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VolumeGroupIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['VolumeGroupIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]:
+    def network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]:
         """
         One or more `network_rule` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]):
+    def network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupNetworkRuleArgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
 
@@ -273,13 +273,13 @@ class VolumeGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elastic_san_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 elastic_san_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Elastic SAN Volume Group resource.
@@ -568,13 +568,13 @@ class VolumeGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elastic_san_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 elastic_san_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -603,13 +603,13 @@ class VolumeGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            elastic_san_id: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
-            encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
-            protocol_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'VolumeGroup':
+            elastic_san_id: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
+            encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'VolumeGroup':
         """
         Get an existing VolumeGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

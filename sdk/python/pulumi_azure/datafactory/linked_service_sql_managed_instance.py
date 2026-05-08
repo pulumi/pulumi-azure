@@ -22,17 +22,17 @@ __all__ = ['LinkedServiceSqlManagedInstanceArgs', 'LinkedServiceSqlManagedInstan
 class LinkedServiceSqlManagedInstanceArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']] = None,
+                 key_vault_password: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedServiceSqlManagedInstance resource.
 
@@ -89,19 +89,19 @@ class LinkedServiceSqlManagedInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string in which to authenticate with the SQL Managed Instance. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
 
@@ -110,133 +110,133 @@ class LinkedServiceSqlManagedInstanceArgs:
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration runtime reference to associate with the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultConnectionString")
-    def key_vault_connection_string(self) -> Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]:
+    def key_vault_connection_string(self) -> pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]:
         """
         A `key_vault_connection_string` block as defined below. Use this argument to store SQL Managed Instance connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         """
         return pulumi.get(self, "key_vault_connection_string")
 
     @key_vault_connection_string.setter
-    def key_vault_connection_string(self, value: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]):
+    def key_vault_connection_string(self, value: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]):
         pulumi.set(self, "key_vault_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]:
         """
         A `key_vault_password` block as defined below. Use this argument to store SQL Managed Instance password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service SQL Managed Instance. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal id in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal key in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "service_principal_key")
 
     @service_principal_key.setter
-    def service_principal_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id or name in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
 
 @pulumi.input_type
 class _LinkedServiceSqlManagedInstanceState:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']] = None,
+                 key_vault_password: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSqlManagedInstance resources.
 
@@ -282,19 +282,19 @@ class _LinkedServiceSqlManagedInstanceState:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string in which to authenticate with the SQL Managed Instance. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
 
@@ -303,127 +303,127 @@ class _LinkedServiceSqlManagedInstanceState:
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration runtime reference to associate with the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultConnectionString")
-    def key_vault_connection_string(self) -> Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]:
+    def key_vault_connection_string(self) -> pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]:
         """
         A `key_vault_connection_string` block as defined below. Use this argument to store SQL Managed Instance connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         """
         return pulumi.get(self, "key_vault_connection_string")
 
     @key_vault_connection_string.setter
-    def key_vault_connection_string(self, value: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]):
+    def key_vault_connection_string(self, value: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs']]):
         pulumi.set(self, "key_vault_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]:
         """
         A `key_vault_password` block as defined below. Use this argument to store SQL Managed Instance password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: pulumi.Input[Optional['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service SQL Managed Instance. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service SQL Managed Instance.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal id in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal key in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "service_principal_key")
 
     @service_principal_key.setter
-    def service_principal_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id or name in which to authenticate against the Azure SQL Managed Instance.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
 
@@ -433,18 +433,18 @@ class LinkedServiceSqlManagedInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_connection_string: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
-                 key_vault_password: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between Azure SQL Managed Instance and Azure Data Factory.
@@ -564,18 +564,18 @@ class LinkedServiceSqlManagedInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_connection_string: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
-                 key_vault_password: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -611,18 +611,18 @@ class LinkedServiceSqlManagedInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_connection_string: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
-            key_vault_password: Optional[pulumi.Input[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkedServiceSqlManagedInstance':
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs', 'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict']]] = None,
+            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs', 'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedServiceSqlManagedInstance':
         """
         Get an existing LinkedServiceSqlManagedInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

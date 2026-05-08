@@ -170,36 +170,36 @@ export interface ProbeState {
     /**
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      */
-    intervalInSeconds?: pulumi.Input<number>;
-    loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
+    intervalInSeconds?: pulumi.Input<number | undefined>;
+    loadBalancerRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
-    loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
-    numberOfProbes?: pulumi.Input<number>;
+    numberOfProbes?: pulumi.Input<number | undefined>;
     /**
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
      */
-    probeThreshold?: pulumi.Input<number>;
+    probeThreshold?: pulumi.Input<number | undefined>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
-    requestPath?: pulumi.Input<string>;
+    requestPath?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface ProbeArgs {
     /**
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      */
-    intervalInSeconds?: pulumi.Input<number>;
+    intervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
@@ -217,11 +217,11 @@ export interface ProbeArgs {
     /**
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
-    numberOfProbes?: pulumi.Input<number>;
+    numberOfProbes?: pulumi.Input<number | undefined>;
     /**
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
@@ -229,13 +229,13 @@ export interface ProbeArgs {
     /**
      * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
      */
-    probeThreshold?: pulumi.Input<number>;
+    probeThreshold?: pulumi.Input<number | undefined>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
-    requestPath?: pulumi.Input<string>;
+    requestPath?: pulumi.Input<string | undefined>;
 }

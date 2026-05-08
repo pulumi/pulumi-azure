@@ -126,19 +126,19 @@ export interface ShareDirectoryState {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
-    storageShareId?: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string>;
+    storageShareUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,17 +148,17 @@ export interface ShareDirectoryArgs {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
-    storageShareId?: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string>;
+    storageShareUrl?: pulumi.Input<string | undefined>;
 }

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     tenantId: current.then(current => current.tenantId),
- *     principalId: current.then(current => current.principalId),
+ *     principalId: output(current.then(current => current.principalId)).apply(x =>String(x)),
  *     principalType: "App",
  *     role: "AllDatabasesAdmin",
  * });
@@ -182,39 +182,39 @@ export interface ClusterPrincipalAssignmentState {
     /**
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The name of the principal.
      */
-    principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string | undefined>;
     /**
      * The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The tenant id in which the principal resides. Changing this forces a new resource to be created.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The name of the tenant.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
      */

@@ -137,15 +137,15 @@ export interface HyperVReplicationPolicyAssociationState {
     /**
      * The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
      */
-    hypervSiteId?: pulumi.Input<string>;
+    hypervSiteId?: pulumi.Input<string | undefined>;
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface HyperVReplicationPolicyAssociationArgs {
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
      */

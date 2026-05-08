@@ -127,15 +127,15 @@ export interface Azurerm_portal_dashboardOutputArgs {
     /**
      * JSON data representing dashboard body.
      */
-    dashboardProperties?: pulumi.Input<string>;
+    dashboardProperties?: pulumi.Input<string | undefined>;
     /**
      * Specifies the display name of the shared Azure Portal Dashboard.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the shared Azure Portal Dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
      */

@@ -30,23 +30,23 @@ class ServiceInitialReplicaSetArgsDict(TypedDict):
     """
     The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
     """
-    domain_controller_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    domain_controller_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
     """
-    external_access_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    external_access_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The publicly routable IP address for the domain controllers in the initial replica set.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique ID for the replica set.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
     """
-    service_status: NotRequired[pulumi.Input[_builtins.str]]
+    service_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current service status for the initial replica set.
     """
@@ -55,11 +55,11 @@ class ServiceInitialReplicaSetArgsDict(TypedDict):
 class ServiceInitialReplicaSetArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_access_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_controller_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_access_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_controller_ip_addresses: A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
@@ -94,75 +94,75 @@ class ServiceInitialReplicaSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainControllerIpAddresses")
-    def domain_controller_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain_controller_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
         """
         return pulumi.get(self, "domain_controller_ip_addresses")
 
     @domain_controller_ip_addresses.setter
-    def domain_controller_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain_controller_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_controller_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIpAddress")
-    def external_access_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_access_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publicly routable IP address for the domain controllers in the initial replica set.
         """
         return pulumi.get(self, "external_access_ip_address")
 
     @external_access_ip_address.setter
-    def external_access_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_access_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_access_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID for the replica set.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceStatus")
-    def service_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current service status for the initial replica set.
         """
         return pulumi.get(self, "service_status")
 
     @service_status.setter
-    def service_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_status", value)
 
 
 class ServiceNotificationsArgsDict(TypedDict):
-    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    additional_recipients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of additional email addresses to notify when there are alerts in the managed domain.
     """
-    notify_dc_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    notify_dc_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
     """
-    notify_global_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    notify_global_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to notify all Global Administrators when there are alerts in the managed domain.
     """
@@ -170,9 +170,9 @@ class ServiceNotificationsArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceNotificationsArgs:
     def __init__(__self__, *,
-                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_dc_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_global_admins: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_dc_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_global_admins: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_recipients: A list of additional email addresses to notify when there are alerts in the managed domain.
         :param pulumi.Input[_builtins.bool] notify_dc_admins: Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
@@ -187,38 +187,38 @@ class ServiceNotificationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalRecipients")
-    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of additional email addresses to notify when there are alerts in the managed domain.
         """
         return pulumi.get(self, "additional_recipients")
 
     @additional_recipients.setter
-    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyDcAdmins")
-    def notify_dc_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_dc_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
         """
         return pulumi.get(self, "notify_dc_admins")
 
     @notify_dc_admins.setter
-    def notify_dc_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_dc_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_dc_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyGlobalAdmins")
-    def notify_global_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_global_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify all Global Administrators when there are alerts in the managed domain.
         """
         return pulumi.get(self, "notify_global_admins")
 
     @notify_global_admins.setter
-    def notify_global_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_global_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_global_admins", value)
 
 
@@ -235,19 +235,19 @@ class ServiceSecureLdapArgsDict(TypedDict):
     """
     The password to use for decrypting the PKCS#12 bundle (PFX file).
     """
-    certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The expiry time of the certificate.
     """
-    certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The thumbprint of the certificate.
     """
-    external_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    external_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
     """
-    public_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    public_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public certificate.
     """
@@ -258,10 +258,10 @@ class ServiceSecureLdapArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  pfx_certificate: pulumi.Input[_builtins.str],
                  pfx_certificate_password: pulumi.Input[_builtins.str],
-                 certificate_expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
         :param pulumi.Input[_builtins.str] pfx_certificate: The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
@@ -321,79 +321,79 @@ class ServiceSecureLdapArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateExpiry")
-    def certificate_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiry time of the certificate.
         """
         return pulumi.get(self, "certificate_expiry")
 
     @certificate_expiry.setter
-    def certificate_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateThumbprint")
-    def certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the certificate.
         """
         return pulumi.get(self, "certificate_thumbprint")
 
     @certificate_thumbprint.setter
-    def certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessEnabled")
-    def external_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def external_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
         """
         return pulumi.get(self, "external_access_enabled")
 
     @external_access_enabled.setter
-    def external_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def external_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "external_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public certificate.
         """
         return pulumi.get(self, "public_certificate")
 
     @public_certificate.setter
-    def public_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_certificate", value)
 
 
 class ServiceSecurityArgsDict(TypedDict):
-    kerberos_armoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos_armoring_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Kerberos Armoring. Defaults to `false`.
     """
-    kerberos_rc4_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos_rc4_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
     """
-    ntlm_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ntlm_v1_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable legacy NTLM v1 support. Defaults to `false`.
     """
-    sync_kerberos_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    sync_kerberos_passwords: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
     """
-    sync_ntlm_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    sync_ntlm_passwords: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
     """
-    sync_on_prem_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    sync_on_prem_passwords: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
     """
-    tls_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    tls_v1_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable legacy TLS v1 support. Defaults to `false`.
     """
@@ -401,13 +401,13 @@ class ServiceSecurityArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceSecurityArgs:
     def __init__(__self__, *,
-                 kerberos_armoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_rc4_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ntlm_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_kerberos_passwords: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_ntlm_passwords: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_on_prem_passwords: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 kerberos_armoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_rc4_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ntlm_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_kerberos_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_ntlm_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_on_prem_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] kerberos_armoring_enabled: Whether to enable Kerberos Armoring. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] kerberos_rc4_encryption_enabled: Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
@@ -434,86 +434,86 @@ class ServiceSecurityArgs:
 
     @_builtins.property
     @pulumi.getter(name="kerberosArmoringEnabled")
-    def kerberos_armoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos_armoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Kerberos Armoring. Defaults to `false`.
         """
         return pulumi.get(self, "kerberos_armoring_enabled")
 
     @kerberos_armoring_enabled.setter
-    def kerberos_armoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos_armoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos_armoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosRc4EncryptionEnabled")
-    def kerberos_rc4_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos_rc4_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
         """
         return pulumi.get(self, "kerberos_rc4_encryption_enabled")
 
     @kerberos_rc4_encryption_enabled.setter
-    def kerberos_rc4_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos_rc4_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos_rc4_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ntlmV1Enabled")
-    def ntlm_v1_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ntlm_v1_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable legacy NTLM v1 support. Defaults to `false`.
         """
         return pulumi.get(self, "ntlm_v1_enabled")
 
     @ntlm_v1_enabled.setter
-    def ntlm_v1_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ntlm_v1_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ntlm_v1_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="syncKerberosPasswords")
-    def sync_kerberos_passwords(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_kerberos_passwords(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
         """
         return pulumi.get(self, "sync_kerberos_passwords")
 
     @sync_kerberos_passwords.setter
-    def sync_kerberos_passwords(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_kerberos_passwords(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_kerberos_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="syncNtlmPasswords")
-    def sync_ntlm_passwords(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_ntlm_passwords(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
         """
         return pulumi.get(self, "sync_ntlm_passwords")
 
     @sync_ntlm_passwords.setter
-    def sync_ntlm_passwords(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_ntlm_passwords(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_ntlm_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="syncOnPremPasswords")
-    def sync_on_prem_passwords(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_on_prem_passwords(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
         """
         return pulumi.get(self, "sync_on_prem_passwords")
 
     @sync_on_prem_passwords.setter
-    def sync_on_prem_passwords(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_on_prem_passwords(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_on_prem_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsV1Enabled")
-    def tls_v1_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_v1_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable legacy TLS v1 support. Defaults to `false`.
         """
         return pulumi.get(self, "tls_v1_enabled")
 
     @tls_v1_enabled.setter
-    def tls_v1_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_v1_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_v1_enabled", value)
 
 

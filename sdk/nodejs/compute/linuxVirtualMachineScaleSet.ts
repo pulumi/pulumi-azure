@@ -534,7 +534,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
@@ -542,31 +542,31 @@ export interface LinuxVirtualMachineScaleSetState {
      *
      * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below.
      *
      * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[]>;
+    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[] | undefined>;
     /**
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      *
      * > **Note:** For more information about Automatic Instance Repair, please refer to the [product documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
-    automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
+    automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair | undefined>;
     /**
      * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
-    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
+    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
@@ -574,21 +574,21 @@ export interface LinuxVirtualMachineScaleSetState {
      *
      * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
-    capacityReservationGroupId?: pulumi.Input<string>;
+    capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
-    computerNamePrefix?: pulumi.Input<string>;
+    computerNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
      * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
-    customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string | undefined>;
     /**
      * One or more `dataDisk` blocks as defined below.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetDataDisk>[] | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
@@ -596,205 +596,205 @@ export interface LinuxVirtualMachineScaleSetState {
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    disablePasswordAuthentication?: pulumi.Input<boolean>;
+    disablePasswordAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
-    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      *
      * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
-    extensionOperationsEnabled?: pulumi.Input<boolean>;
+    extensionOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `extension` blocks as defined below
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[] | undefined>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[] | undefined>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    healthProbeId?: pulumi.Input<string>;
+    healthProbeId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
      */
-    hostGroupId?: pulumi.Input<string>;
+    hostGroupId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
+    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity | undefined>;
     /**
      * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      *
      * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      */
-    instances?: pulumi.Input<number>;
+    instances?: pulumi.Input<number | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number | undefined>;
     /**
      * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetNetworkInterface>[] | undefined>;
     /**
      * An `osDisk` block as defined below.
      */
-    osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetOsDisk | undefined>;
     /**
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
-    overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
-    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
+    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan | undefined>;
     /**
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
      * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      */
-    provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
      *
      * > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
      */
-    resilientVmCreationEnabled?: pulumi.Input<boolean>;
+    resilientVmCreationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
      *
      * > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
      */
-    resilientVmDeletionEnabled?: pulumi.Input<boolean>;
+    resilientVmDeletionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
-    rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
      * A `scaleIn` block as defined below.
      */
-    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn>;
+    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[] | undefined>;
     /**
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    secureBootEnabled?: pulumi.Input<boolean>;
+    secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
-    singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below.
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference | undefined>;
     /**
      * A `spotRestore` block as defined below.
      */
-    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore>;
+    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore | undefined>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification>;
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification | undefined>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */
-    uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string | undefined>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      *
      * > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
      */
-    upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    vtpmEnabled?: pulumi.Input<boolean>;
+    vtpmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
-    zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
      *
      * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -804,7 +804,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
@@ -812,13 +812,13 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below.
      *
      * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[]>;
+    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[] | undefined>;
     /**
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
@@ -828,15 +828,15 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > **Note:** For more information about Automatic Instance Repair, please refer to the [product documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
-    automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
+    automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair | undefined>;
     /**
      * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
-    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
+    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
@@ -844,21 +844,21 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
-    capacityReservationGroupId?: pulumi.Input<string>;
+    capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
-    computerNamePrefix?: pulumi.Input<string>;
+    computerNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
      * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
-    customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string | undefined>;
     /**
      * One or more `dataDisk` blocks as defined below.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetDataDisk>[] | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
@@ -866,75 +866,75 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    disablePasswordAuthentication?: pulumi.Input<boolean>;
+    disablePasswordAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
-    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      *
      * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
-    extensionOperationsEnabled?: pulumi.Input<boolean>;
+    extensionOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `extension` blocks as defined below
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[] | undefined>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[] | undefined>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    healthProbeId?: pulumi.Input<string>;
+    healthProbeId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
      */
-    hostGroupId?: pulumi.Input<string>;
+    hostGroupId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
+    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity | undefined>;
     /**
      * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      *
      * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      */
-    instances?: pulumi.Input<number>;
+    instances?: pulumi.Input<number | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number | undefined>;
     /**
      * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
@@ -946,43 +946,43 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
-    overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
-    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
+    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan | undefined>;
     /**
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
      * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      */
-    provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
      *
      * > **Note:** `resilientVmCreationEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
      */
-    resilientVmCreationEnabled?: pulumi.Input<boolean>;
+    resilientVmCreationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
      *
      * > **Note:** `resilientVmDeletionEnabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
      */
-    resilientVmDeletionEnabled?: pulumi.Input<boolean>;
+    resilientVmDeletionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
@@ -990,23 +990,23 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
-    rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
      * A `scaleIn` block as defined below.
      */
-    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn>;
+    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[] | undefined>;
     /**
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    secureBootEnabled?: pulumi.Input<boolean>;
+    secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
-    singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      */
@@ -1016,49 +1016,49 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below.
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference | undefined>;
     /**
      * A `spotRestore` block as defined below.
      */
-    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore>;
+    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore | undefined>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification>;
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification | undefined>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      *
      * > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
      */
-    upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    vtpmEnabled?: pulumi.Input<boolean>;
+    vtpmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
-    zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
      *
      * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

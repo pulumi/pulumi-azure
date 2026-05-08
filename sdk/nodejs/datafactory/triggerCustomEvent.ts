@@ -205,47 +205,47 @@ export interface TriggerCustomEventState {
     /**
      * Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Custom Event Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Custom Event Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Custom Event Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
      */
-    eventgridTopicId?: pulumi.Input<string>;
+    eventgridTopicId?: pulumi.Input<string | undefined>;
     /**
      * List of events that will fire this trigger. At least one event must be specified.
      */
-    events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pipeline` blocks as defined below.
      */
-    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerCustomEventPipeline>[]>;
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerCustomEventPipeline>[] | undefined>;
     /**
      * The pattern that event subject starts with for trigger to fire.
      */
-    subjectBeginsWith?: pulumi.Input<string>;
+    subjectBeginsWith?: pulumi.Input<string | undefined>;
     /**
      * The pattern that event subject ends with for trigger to fire.
      */
-    subjectEndsWith?: pulumi.Input<string>;
+    subjectEndsWith?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,15 +255,15 @@ export interface TriggerCustomEventArgs {
     /**
      * Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Custom Event Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Custom Event Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
@@ -271,7 +271,7 @@ export interface TriggerCustomEventArgs {
     /**
      * The description for the Data Factory Custom Event Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
      */
@@ -283,7 +283,7 @@ export interface TriggerCustomEventArgs {
     /**
      * Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `pipeline` blocks as defined below.
      */
@@ -291,9 +291,9 @@ export interface TriggerCustomEventArgs {
     /**
      * The pattern that event subject starts with for trigger to fire.
      */
-    subjectBeginsWith?: pulumi.Input<string>;
+    subjectBeginsWith?: pulumi.Input<string | undefined>;
     /**
      * The pattern that event subject ends with for trigger to fire.
      */
-    subjectEndsWith?: pulumi.Input<string>;
+    subjectEndsWith?: pulumi.Input<string | undefined>;
 }

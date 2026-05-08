@@ -128,11 +128,11 @@ export interface ServiceEmailDomainAssociationState {
     /**
      * The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
      */
-    communicationServiceId?: pulumi.Input<string>;
+    communicationServiceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
      */
-    emailServiceDomainId?: pulumi.Input<string>;
+    emailServiceDomainId?: pulumi.Input<string | undefined>;
 }
 
 /**

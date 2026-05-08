@@ -193,27 +193,27 @@ export interface BackupInstancePostgresqlFlexibleServerState {
     /**
      * The ID of the Backup Policy.
      */
-    backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string | undefined>;
     /**
      * The location of the source database. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protection state of the Backup Instance PostgreSQL Flexible Server.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source server. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface BackupInstancePostgresqlFlexibleServerArgs {
     /**
      * The location of the source database. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source server. Changing this forces a new resource to be created.
      */

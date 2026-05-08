@@ -181,27 +181,27 @@ export interface CertificateBindingState {
     /**
      * The name of the App Service to which the certificate was bound.
      */
-    appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The hostname of the bound certificate.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
      */
-    hostnameBindingId?: pulumi.Input<string>;
+    hostnameBindingId?: pulumi.Input<string | undefined>;
     /**
      * The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
      */
-    sslState?: pulumi.Input<string>;
+    sslState?: pulumi.Input<string | undefined>;
     /**
      * The certificate thumbprint.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**

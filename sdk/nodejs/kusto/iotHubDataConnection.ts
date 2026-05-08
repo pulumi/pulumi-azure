@@ -250,59 +250,59 @@ export interface IotHubDataConnectionState {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    consumerGroup?: pulumi.Input<string>;
+    consumerGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    iothubId?: pulumi.Input<string>;
+    iothubId?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
-    sharedAccessPolicyName?: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface IotHubDataConnectionArgs {
     /**
      * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -328,11 +328,11 @@ export interface IotHubDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -340,15 +340,15 @@ export interface IotHubDataConnectionArgs {
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
@@ -356,7 +356,7 @@ export interface IotHubDataConnectionArgs {
     /**
      * Specifies the date after which data should be retrieved from IoT Hub. When defined, the data connection retrieves existing events created since the specified retrieval start date. It can only retrieve events retained by the IoT Hub, based on its retention period. The value should be in RFC3339 format (e.g., `2023-06-26T12:00:00Z`).
      */
-    retrievalStartDate?: pulumi.Input<string>;
+    retrievalStartDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
@@ -364,5 +364,5 @@ export interface IotHubDataConnectionArgs {
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

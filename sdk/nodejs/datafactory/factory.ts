@@ -179,55 +179,55 @@ export interface FactoryState {
     /**
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
-    customerManagedKeyId?: pulumi.Input<string>;
+    customerManagedKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      */
-    customerManagedKeyIdentityId?: pulumi.Input<string>;
+    customerManagedKeyIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A `githubConfiguration` block as defined below.
      */
-    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration | undefined>;
     /**
      * A list of `globalParameter` blocks as defined above.
      */
-    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[]>;
+    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Is Managed Virtual Network enabled?
      */
-    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
-    publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the purview account resource associated with the Data Factory.
      */
-    purviewId?: pulumi.Input<string>;
+    purviewId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
+    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration | undefined>;
 }
 
 /**
@@ -237,43 +237,43 @@ export interface FactoryArgs {
     /**
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
-    customerManagedKeyId?: pulumi.Input<string>;
+    customerManagedKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customerManagedKeyId` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
      */
-    customerManagedKeyIdentityId?: pulumi.Input<string>;
+    customerManagedKeyIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A `githubConfiguration` block as defined below.
      */
-    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration | undefined>;
     /**
      * A list of `globalParameter` blocks as defined above.
      */
-    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[]>;
+    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Is Managed Virtual Network enabled?
      */
-    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
-    publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the purview account resource associated with the Data Factory.
      */
-    purviewId?: pulumi.Input<string>;
+    purviewId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      */
@@ -281,9 +281,9 @@ export interface FactoryArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
+    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration | undefined>;
 }

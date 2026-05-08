@@ -34,11 +34,11 @@ class AssessmentStatusArgsDict(TypedDict):
     """
     Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
     """
-    cause: NotRequired[pulumi.Input[_builtins.str]]
+    cause: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the cause of the assessment status.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the human readable description of the assessment status.
     """
@@ -47,8 +47,8 @@ class AssessmentStatusArgsDict(TypedDict):
 class AssessmentStatusArgs:
     def __init__(__self__, *,
                  code: pulumi.Input[_builtins.str],
-                 cause: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 cause: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] code: Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
         :param pulumi.Input[_builtins.str] cause: Specifies the cause of the assessment status.
@@ -74,26 +74,26 @@ class AssessmentStatusArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cause(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cause(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cause of the assessment status.
         """
         return pulumi.get(self, "cause")
 
     @cause.setter
-    def cause(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cause(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cause", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the human readable description of the assessment status.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -102,19 +102,19 @@ class AutomationActionArgsDict(TypedDict):
     """
     The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
     """
-    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
 
     > **Note:** `connection_string` is required when `type` is `EventHub`.
     """
-    trigger_url: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
 
     > **Note:** `trigger_url` is required when `type` is `LogicApp`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
     """
@@ -123,9 +123,9 @@ class AutomationActionArgsDict(TypedDict):
 class AutomationActionArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_id: The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
         :param pulumi.Input[_builtins.str] connection_string: A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
@@ -158,7 +158,7 @@ class AutomationActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
 
@@ -167,12 +167,12 @@ class AutomationActionArgs:
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerUrl")
-    def trigger_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
 
@@ -181,19 +181,19 @@ class AutomationActionArgs:
         return pulumi.get(self, "trigger_url")
 
     @trigger_url.setter
-    def trigger_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -202,7 +202,7 @@ class AutomationSourceArgsDict(TypedDict):
     """
     Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
     """
-    rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgsDict']]]]
+    rule_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]]
     """
     A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
 
@@ -213,7 +213,7 @@ class AutomationSourceArgsDict(TypedDict):
 class AutomationSourceArgs:
     def __init__(__self__, *,
                  event_source: pulumi.Input[_builtins.str],
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]] = None):
+                 rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
@@ -238,7 +238,7 @@ class AutomationSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]:
+    def rule_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]:
         """
         A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
 
@@ -247,7 +247,7 @@ class AutomationSourceArgs:
         return pulumi.get(self, "rule_sets")
 
     @rule_sets.setter
-    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]):
+    def rule_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
 
@@ -381,7 +381,7 @@ class SubscriptionPricingExtensionArgsDict(TypedDict):
     """
     The name of extension.
     """
-    additional_extension_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    additional_extension_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key/Value pairs that are required for some extensions.
 
@@ -394,7 +394,7 @@ class SubscriptionPricingExtensionArgsDict(TypedDict):
 class SubscriptionPricingExtensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 additional_extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 additional_extension_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_extension_properties: Key/Value pairs that are required for some extensions.
@@ -421,7 +421,7 @@ class SubscriptionPricingExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalExtensionProperties")
-    def additional_extension_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_extension_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key/Value pairs that are required for some extensions.
 
@@ -432,7 +432,7 @@ class SubscriptionPricingExtensionArgs:
         return pulumi.get(self, "additional_extension_properties")
 
     @additional_extension_properties.setter
-    def additional_extension_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_extension_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_extension_properties", value)
 
 

@@ -24,9 +24,9 @@ class ApiSchemaArgs:
                  content_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_id: pulumi.Input[_builtins.str],
-                 components: Optional[pulumi.Input[_builtins.str]] = None,
-                 definitions: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 components: pulumi.Input[Optional[_builtins.str]] = None,
+                 definitions: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiSchema resource.
 
@@ -113,52 +113,52 @@ class ApiSchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def components(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def components(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def definitions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definitions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         """
         return pulumi.get(self, "definitions")
 
     @definitions.setter
-    def definitions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definitions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definitions", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON escaped string defining the document representing the Schema.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class _ApiSchemaState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 definitions: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 definitions: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiSchema resources.
 
@@ -190,98 +190,98 @@ class _ApiSchemaState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_name")
 
     @api_name.setter
-    def api_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def components(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def components(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type of the API Schema.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def definitions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definitions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         """
         return pulumi.get(self, "definitions")
 
     @definitions.setter
-    def definitions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definitions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for this API Schema. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON escaped string defining the document representing the Schema.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -291,14 +291,14 @@ class ApiSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 definitions: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 definitions: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Schema within an API Management Service.
@@ -410,14 +410,14 @@ class ApiSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 definitions: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 definitions: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,14 +455,14 @@ class ApiSchema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            api_name: Optional[pulumi.Input[_builtins.str]] = None,
-            components: Optional[pulumi.Input[_builtins.str]] = None,
-            content_type: Optional[pulumi.Input[_builtins.str]] = None,
-            definitions: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiSchema':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_name: pulumi.Input[Optional[_builtins.str]] = None,
+            components: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            definitions: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiSchema':
         """
         Get an existing ApiSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

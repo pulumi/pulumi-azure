@@ -147,23 +147,23 @@ export interface IntegrationAccountPartnerState {
     /**
      * A `businessIdentity` block as documented below.
      */
-    businessIdentities?: pulumi.Input<pulumi.Input<inputs.logicapps.IntegrationAccountPartnerBusinessIdentity>[]>;
+    businessIdentities?: pulumi.Input<pulumi.Input<inputs.logicapps.IntegrationAccountPartnerBusinessIdentity>[] | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Partner.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,11 +181,11 @@ export interface IntegrationAccountPartnerArgs {
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Partner.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
      */

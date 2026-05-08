@@ -153,23 +153,23 @@ export interface SpringCloudConfigurationServiceState {
     /**
      * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies how often to check repository updates. Minimum value is 0.
      */
-    refreshIntervalInSeconds?: pulumi.Input<number>;
+    refreshIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `repository` blocks as defined below.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudConfigurationServiceRepository>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudConfigurationServiceRepository>[] | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,19 +179,19 @@ export interface SpringCloudConfigurationServiceArgs {
     /**
      * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies how often to check repository updates. Minimum value is 0.
      */
-    refreshIntervalInSeconds?: pulumi.Input<number>;
+    refreshIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `repository` blocks as defined below.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudConfigurationServiceRepository>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudConfigurationServiceRepository>[] | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
      */

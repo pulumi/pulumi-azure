@@ -358,27 +358,27 @@ export interface ReplicaSetState {
     /**
      * A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
      */
-    domainControllerIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    domainControllerIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
      */
-    domainServiceId?: pulumi.Input<string>;
+    domainServiceId?: pulumi.Input<string | undefined>;
     /**
      * The publicly routable IP address for the domain controllers in this Replica Set.
      */
-    externalAccessIpAddress?: pulumi.Input<string>;
+    externalAccessIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The current service status for the replica set.
      */
-    serviceStatus?: pulumi.Input<string>;
+    serviceStatus?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -392,7 +392,7 @@ export interface ReplicaSetArgs {
     /**
      * The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */

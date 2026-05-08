@@ -32,8 +32,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -130,8 +130,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -228,8 +228,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -277,8 +277,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -326,8 +326,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -375,8 +375,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -424,8 +424,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -473,8 +473,8 @@ public final class ConsumptionFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.consumption.ConsumptionFunctions;
      * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

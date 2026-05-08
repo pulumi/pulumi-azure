@@ -22,7 +22,7 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs:
                  password: pulumi.Input[_builtins.str],
                  scoped_resource_id: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None):
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerVirtualMachineInstanceGuestAgent resource.
 
@@ -75,24 +75,24 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
 
 @pulumi.input_type
 class _VirtualMachineManagerVirtualMachineInstanceGuestAgentState:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerVirtualMachineInstanceGuestAgent resources.
 
@@ -112,50 +112,50 @@ class _VirtualMachineManagerVirtualMachineInstanceGuestAgentState:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
     @_builtins.property
     @pulumi.getter(name="scopedResourceId")
-    def scoped_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scoped_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scoped_resource_id")
 
     @scoped_resource_id.setter
-    def scoped_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scoped_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scoped_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -165,10 +165,10 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a System Center Virtual Machine Manager Virtual Machine Instance Guest Agent.
@@ -360,10 +360,10 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,10 +395,10 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-            scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualMachineManagerVirtualMachineInstanceGuestAgent':
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualMachineManagerVirtualMachineInstanceGuestAgent':
         """
         Get an existing VirtualMachineManagerVirtualMachineInstanceGuestAgent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

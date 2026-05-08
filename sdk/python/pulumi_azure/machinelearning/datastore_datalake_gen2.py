@@ -21,14 +21,14 @@ class DatastoreDatalakeGen2Args:
     def __init__(__self__, *,
                  storage_container_id: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_data_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_data_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatastoreDatalakeGen2 resource.
 
@@ -88,115 +88,115 @@ class DatastoreDatalakeGen2Args:
 
     @_builtins.property
     @pulumi.getter(name="authorityUrl")
-    def authority_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An URL used for authentication.
         """
         return pulumi.get(self, "authority_url")
 
     @authority_url.setter
-    def authority_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the Service Principal.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret of the Service Principal.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDataIdentity")
-    def service_data_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_data_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         """
         return pulumi.get(self, "service_data_identity")
 
     @service_data_identity.setter
-    def service_data_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_data_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_data_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Tenant which the Service Principal belongs to.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
 class _DatastoreDatalakeGen2State:
     def __init__(__self__, *,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_data_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_data_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatastoreDatalakeGen2 resources.
 
@@ -237,134 +237,134 @@ class _DatastoreDatalakeGen2State:
 
     @_builtins.property
     @pulumi.getter(name="authorityUrl")
-    def authority_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An URL used for authentication.
         """
         return pulumi.get(self, "authority_url")
 
     @authority_url.setter
-    def authority_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the Service Principal.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret of the Service Principal.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this Machines Learning DataStore is the default for the Workspace.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDataIdentity")
-    def service_data_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_data_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         """
         return pulumi.get(self, "service_data_identity")
 
     @service_data_identity.setter
-    def service_data_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_data_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_data_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Tenant which the Service Principal belongs to.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -374,16 +374,16 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_data_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_data_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
@@ -551,16 +551,16 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_data_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_data_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -597,17 +597,17 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_data_identity: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DatastoreDatalakeGen2':
+            authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_data_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DatastoreDatalakeGen2':
         """
         Get an existing DatastoreDatalakeGen2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

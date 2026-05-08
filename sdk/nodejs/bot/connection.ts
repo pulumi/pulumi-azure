@@ -172,39 +172,39 @@ export interface ConnectionState {
     /**
      * The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The Client ID that will be used to authenticate with the service provider.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret that will be used to authenticate with the service provider.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of additional parameters to apply to the connection.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Scopes at which the connection should be applied.
      */
-    scopes?: pulumi.Input<string>;
+    scopes?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
-    serviceProviderName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,15 +226,15 @@ export interface ConnectionArgs {
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of additional parameters to apply to the connection.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      */
@@ -242,7 +242,7 @@ export interface ConnectionArgs {
     /**
      * The Scopes at which the connection should be applied.
      */
-    scopes?: pulumi.Input<string>;
+    scopes?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */

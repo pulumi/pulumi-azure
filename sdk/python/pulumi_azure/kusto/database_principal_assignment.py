@@ -26,7 +26,7 @@ class DatabasePrincipalAssignmentArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabasePrincipalAssignment resource.
 
@@ -135,30 +135,30 @@ class DatabasePrincipalAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the kusto principal assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DatabasePrincipalAssignmentState:
     def __init__(__self__, *,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatabasePrincipalAssignment resources.
 
@@ -196,122 +196,122 @@ class _DatabasePrincipalAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the kusto principal assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object id of the principal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the principal.
         """
         return pulumi.get(self, "principal_name")
 
     @principal_name.setter
-    def principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id in which the principal resides. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tenant.
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
 
@@ -321,14 +321,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
@@ -472,14 +472,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -523,16 +523,16 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            role: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DatabasePrincipalAssignment':
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DatabasePrincipalAssignment':
         """
         Get an existing DatabasePrincipalAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

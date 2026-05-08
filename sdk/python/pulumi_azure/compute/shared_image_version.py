@@ -25,17 +25,17 @@ class SharedImageVersionArgs:
                  image_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]],
-                 blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SharedImageVersion resource.
 
@@ -144,7 +144,7 @@ class SharedImageVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobUri")
-    def blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 
@@ -155,60 +155,60 @@ class SharedImageVersionArgs:
         return pulumi.get(self, "blob_uri")
 
     @blob_uri.setter
-    def blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionOfReplicatedLocationsEnabled")
-    def deletion_of_replicated_locations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_of_replicated_locations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "deletion_of_replicated_locations_enabled")
 
     @deletion_of_replicated_locations_enabled.setter
-    def deletion_of_replicated_locations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_of_replicated_locations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_of_replicated_locations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Image Version.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_from_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_from_latest")
 
     @exclude_from_latest.setter
-    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 
@@ -219,24 +219,24 @@ class SharedImageVersionArgs:
         return pulumi.get(self, "managed_image_id")
 
     @managed_image_id.setter
-    def managed_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_image_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskSnapshotId")
-    def os_disk_snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 
@@ -245,24 +245,24 @@ class SharedImageVersionArgs:
         return pulumi.get(self, "os_disk_snapshot_id")
 
     @os_disk_snapshot_id.setter
-    def os_disk_snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationMode")
-    def replication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "replication_mode")
 
     @replication_mode.setter
-    def replication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 
@@ -271,40 +271,40 @@ class SharedImageVersionArgs:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A collection of tags which should be applied to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SharedImageVersionState:
     def __init__(__self__, *,
-                 blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None):
+                 blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering SharedImageVersion resources.
 
@@ -369,7 +369,7 @@ class _SharedImageVersionState:
 
     @_builtins.property
     @pulumi.getter(name="blobUri")
-    def blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 
@@ -380,84 +380,84 @@ class _SharedImageVersionState:
         return pulumi.get(self, "blob_uri")
 
     @blob_uri.setter
-    def blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionOfReplicatedLocationsEnabled")
-    def deletion_of_replicated_locations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_of_replicated_locations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "deletion_of_replicated_locations_enabled")
 
     @deletion_of_replicated_locations_enabled.setter
-    def deletion_of_replicated_locations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_of_replicated_locations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_of_replicated_locations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Image Version.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_from_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_from_latest")
 
     @exclude_from_latest.setter
-    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_name")
 
     @gallery_name.setter
-    def gallery_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 
@@ -468,24 +468,24 @@ class _SharedImageVersionState:
         return pulumi.get(self, "managed_image_id")
 
     @managed_image_id.setter
-    def managed_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_image_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskSnapshotId")
-    def os_disk_snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 
@@ -494,36 +494,36 @@ class _SharedImageVersionState:
         return pulumi.get(self, "os_disk_snapshot_id")
 
     @os_disk_snapshot_id.setter
-    def os_disk_snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationMode")
-    def replication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "replication_mode")
 
     @replication_mode.setter
-    def replication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
 
@@ -532,31 +532,31 @@ class _SharedImageVersionState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A collection of tags which should be applied to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]:
+    def target_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]:
         """
         One or more `target_region` blocks as documented below.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]):
+    def target_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]):
         pulumi.set(self, "target_regions", value)
 
 
@@ -566,21 +566,21 @@ class SharedImageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None,
+                 blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
@@ -721,21 +721,21 @@ class SharedImageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None,
+                 blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -778,21 +778,21 @@ class SharedImageVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_of_replicated_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-            gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-            image_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_disk_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None) -> 'SharedImageVersion':
+            blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+            image_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict']]]]] = None) -> 'SharedImageVersion':
         """
         Get an existing SharedImageVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

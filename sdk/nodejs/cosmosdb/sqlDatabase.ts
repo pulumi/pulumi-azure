@@ -132,27 +132,27 @@ export interface SqlDatabaseState {
     /**
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
      *
      * > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -168,11 +168,11 @@ export interface SqlDatabaseArgs {
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
@@ -182,5 +182,5 @@ export interface SqlDatabaseArgs {
      *
      * > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }

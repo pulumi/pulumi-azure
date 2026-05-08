@@ -24,9 +24,9 @@ class ClusterArgs:
                  agent_public_key_certificate: pulumi.Input[_builtins.str],
                  identity: pulumi.Input['ClusterIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -85,57 +85,57 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
-                 agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
-                 infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 offering: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 total_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_node_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
+                 infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 offering: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_node_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -182,158 +182,158 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter(name="agentPublicKeyCertificate")
-    def agent_public_key_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_public_key_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "agent_public_key_certificate")
 
     @agent_public_key_certificate.setter
-    def agent_public_key_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_public_key_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_public_key_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the agent running on the cluster resource.
         """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distribution running on this Arc Kubernetes Cluster.
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ClusterIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def infrastructure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The infrastructure on which the Arc Kubernetes Cluster is running on.
         """
         return pulumi.get(self, "infrastructure")
 
     @infrastructure.setter
-    def infrastructure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes version of the cluster resource.
         """
         return pulumi.get(self, "kubernetes_version")
 
     @kubernetes_version.setter
-    def kubernetes_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def offering(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster offering.
         """
         return pulumi.get(self, "offering")
 
     @offering.setter
-    def offering(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="totalCoreCount")
-    def total_core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of CPU cores present in the cluster resource.
         """
         return pulumi.get(self, "total_core_count")
 
     @total_core_count.setter
-    def total_core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="totalNodeCount")
-    def total_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes present in the cluster resource.
         """
         return pulumi.get(self, "total_node_count")
 
     @total_node_count.setter
-    def total_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_node_count", value)
 
 
@@ -343,12 +343,12 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Arc Kubernetes Cluster.
@@ -472,12 +472,12 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -516,19 +516,19 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_public_key_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-            distribution: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-            infrastructure: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            offering: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            total_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-            total_node_count: Optional[pulumi.Input[_builtins.int]] = None) -> 'Cluster':
+            agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+            infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            offering: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            total_node_count: pulumi.Input[Optional[_builtins.int]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

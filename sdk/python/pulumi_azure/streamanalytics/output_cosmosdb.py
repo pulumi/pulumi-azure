@@ -23,10 +23,10 @@ class OutputCosmosdbArgs:
                  cosmosdb_account_key: pulumi.Input[_builtins.str],
                  cosmosdb_sql_database_id: pulumi.Input[_builtins.str],
                  stream_analytics_job_id: pulumi.Input[_builtins.str],
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputCosmosdb resource.
 
@@ -102,64 +102,64 @@ class OutputCosmosdbArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="documentId")
-    def document_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field in output events used to specify the primary key which insert or update operations are based on.
         """
         return pulumi.get(self, "document_id")
 
     @document_id.setter
-    def document_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
 
 @pulumi.input_type
 class _OutputCosmosdbState:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputCosmosdb resources.
 
@@ -191,98 +191,98 @@ class _OutputCosmosdbState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CosmosDB container.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbAccountKey")
-    def cosmosdb_account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account key for the CosmosDB database.
         """
         return pulumi.get(self, "cosmosdb_account_key")
 
     @cosmosdb_account_key.setter
-    def cosmosdb_account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbSqlDatabaseId")
-    def cosmosdb_sql_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_sql_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the CosmosDB database.
         """
         return pulumi.get(self, "cosmosdb_sql_database_id")
 
     @cosmosdb_sql_database_id.setter
-    def cosmosdb_sql_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_sql_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_sql_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="documentId")
-    def document_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field in output events used to specify the primary key which insert or update operations are based on.
         """
         return pulumi.get(self, "document_id")
 
     @document_id.setter
-    def document_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobId")
-    def stream_analytics_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_id")
 
     @stream_analytics_job_id.setter
-    def stream_analytics_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
@@ -292,14 +292,14 @@ class OutputCosmosdb(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output to CosmosDB.
@@ -463,14 +463,14 @@ class OutputCosmosdb(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -508,14 +508,14 @@ class OutputCosmosdb(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_sql_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            document_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'OutputCosmosdb':
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_sql_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            document_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OutputCosmosdb':
         """
         Get an existing OutputCosmosdb resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

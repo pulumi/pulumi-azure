@@ -25,23 +25,23 @@ class FunctionAppArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_access_key: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
-                 client_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
-                 daily_memory_time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_builtin_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArgs']] = None,
-                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['FunctionAppAuthSettingsArgs']] = None,
+                 client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
+                 daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['FunctionAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['FunctionAppSiteConfigArgs']] = None,
+                 source_control: pulumi.Input[Optional['FunctionAppSourceControlArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionApp resource.
 
@@ -168,7 +168,7 @@ class FunctionAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -177,144 +177,144 @@ class FunctionAppArgs:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['FunctionAppAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['FunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertMode")
-    def client_cert_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_cert_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         """
         return pulumi.get(self, "client_cert_mode")
 
     @client_cert_mode.setter
-    def client_cert_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_cert_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_cert_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_memory_time_quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
     @daily_memory_time_quota.setter
-    def daily_memory_time_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_memory_time_quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_memory_time_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBuiltinLogging")
-    def enable_builtin_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_builtin_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the built-in logging of this Function App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enable_builtin_logging")
 
     @enable_builtin_logging.setter
-    def enable_builtin_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_builtin_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_builtin_logging", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the Function App only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FunctionAppIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FunctionAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 
@@ -323,88 +323,88 @@ class FunctionAppArgs:
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['FunctionAppSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['FunctionAppSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArgs']]:
+    def source_control(self) -> pulumi.Input[Optional['FunctionAppSourceControlArgs']]:
         """
         A `source_control` block, as defined below.
         """
         return pulumi.get(self, "source_control")
 
     @source_control.setter
-    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArgs']]):
+    def source_control(self, value: pulumi.Input[Optional['FunctionAppSourceControlArgs']]):
         pulumi.set(self, "source_control", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime version associated with the Function App. Defaults to `~1`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _FunctionAppState:
     def __init__(__self__, *,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
-                 client_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_memory_time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_builtin_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]] = None,
-                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['FunctionAppAuthSettingsArgs']] = None,
+                 client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['FunctionAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['FunctionAppSiteConfigArgs']] = None,
+                 site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]] = None,
+                 source_control: pulumi.Input[Optional['FunctionAppSourceControlArgs']] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionApp resources.
 
@@ -501,19 +501,19 @@ class _FunctionAppState:
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Plan within which to create this Function App.
         """
         return pulumi.get(self, "app_service_plan_id")
 
     @app_service_plan_id.setter
-    def app_service_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -522,180 +522,180 @@ class _FunctionAppState:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['FunctionAppAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['FunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertMode")
-    def client_cert_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_cert_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         """
         return pulumi.get(self, "client_cert_mode")
 
     @client_cert_mode.setter
-    def client_cert_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_cert_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_cert_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_memory_time_quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
     @daily_memory_time_quota.setter
-    def daily_memory_time_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_memory_time_quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_memory_time_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         """
         return pulumi.get(self, "default_hostname")
 
     @default_hostname.setter
-    def default_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBuiltinLogging")
-    def enable_builtin_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_builtin_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the built-in logging of this Function App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enable_builtin_logging")
 
     @enable_builtin_logging.setter
-    def enable_builtin_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_builtin_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_builtin_logging", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the Function App only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FunctionAppIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FunctionAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Function App kind - such as `functionapp,linux,container`
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 
@@ -704,84 +704,84 @@ class _FunctionAppState:
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @outbound_ip_addresses.setter
-    def outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def possible_outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @possible_outbound_ip_addresses.setter
-    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def possible_outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['FunctionAppSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['FunctionAppSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]:
+    def site_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]):
+    def site_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArgs']]:
+    def source_control(self) -> pulumi.Input[Optional['FunctionAppSourceControlArgs']]:
         """
         A `source_control` block, as defined below.
         """
         return pulumi.get(self, "source_control")
 
     @source_control.setter
-    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArgs']]):
+    def source_control(self, value: pulumi.Input[Optional['FunctionAppSourceControlArgs']]):
         pulumi.set(self, "source_control", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key which will be used to access the backend storage account for the Function App.
 
@@ -792,43 +792,43 @@ class _FunctionAppState:
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime version associated with the Function App. Defaults to `~1`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -838,27 +838,27 @@ class FunctionApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
-                 client_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
-                 daily_memory_time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_builtin_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
-                 source_control: Optional[pulumi.Input[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
+                 client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
+                 daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
+                 source_control: pulumi.Input[Optional[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Function App.
@@ -1165,27 +1165,27 @@ class FunctionApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
-                 client_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
-                 daily_memory_time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_builtin_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
-                 source_control: Optional[pulumi.Input[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
+                 client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
+                 daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
+                 source_control: pulumi.Input[Optional[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1242,33 +1242,33 @@ class FunctionApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: Optional[pulumi.Input[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
-            client_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            daily_memory_time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-            default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_builtin_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
-            key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_type: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            site_config: Optional[pulumi.Input[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSiteCredentialArgs', 'FunctionAppSiteCredentialArgsDict']]]]] = None,
-            source_control: Optional[pulumi.Input[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionApp':
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict']]] = None,
+            client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSiteCredentialArgs', 'FunctionAppSiteCredentialArgsDict']]]]] = None,
+            source_control: pulumi.Input[Optional[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict']]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionApp':
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

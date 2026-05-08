@@ -197,59 +197,59 @@ export interface ExpressRoutePortState {
     /**
      * Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
      */
-    bandwidthInGbps?: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number | undefined>;
     /**
      * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
-    billingType?: pulumi.Input<string>;
+    billingType?: pulumi.Input<string | undefined>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
-    encapsulation?: pulumi.Input<string>;
+    encapsulation?: pulumi.Input<string | undefined>;
     /**
      * The EtherType of the Express Route Port.
      */
-    ethertype?: pulumi.Input<string>;
+    ethertype?: pulumi.Input<string | undefined>;
     /**
      * The resource GUID of the Express Route Port.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity>;
+    identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity | undefined>;
     /**
      * A list of `link` blocks as defined below.
      */
-    link1?: pulumi.Input<inputs.network.ExpressRoutePortLink1>;
+    link1?: pulumi.Input<inputs.network.ExpressRoutePortLink1 | undefined>;
     /**
      * A list of `link` blocks as defined below.
      */
-    link2?: pulumi.Input<inputs.network.ExpressRoutePortLink2>;
+    link2?: pulumi.Input<inputs.network.ExpressRoutePortLink2 | undefined>;
     /**
      * The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum transmission unit of the Express Route Port.
      */
-    mtu?: pulumi.Input<string>;
+    mtu?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
      */
-    peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Express Route Port.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -263,7 +263,7 @@ export interface ExpressRoutePortArgs {
     /**
      * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
-    billingType?: pulumi.Input<string>;
+    billingType?: pulumi.Input<string | undefined>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
@@ -271,23 +271,23 @@ export interface ExpressRoutePortArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity>;
+    identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity | undefined>;
     /**
      * A list of `link` blocks as defined below.
      */
-    link1?: pulumi.Input<inputs.network.ExpressRoutePortLink1>;
+    link1?: pulumi.Input<inputs.network.ExpressRoutePortLink1 | undefined>;
     /**
      * A list of `link` blocks as defined below.
      */
-    link2?: pulumi.Input<inputs.network.ExpressRoutePortLink2>;
+    link2?: pulumi.Input<inputs.network.ExpressRoutePortLink2 | undefined>;
     /**
      * The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
      */
@@ -299,5 +299,5 @@ export interface ExpressRoutePortArgs {
     /**
      * A mapping of tags which should be assigned to the Express Route Port.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

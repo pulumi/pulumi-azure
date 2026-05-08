@@ -182,11 +182,11 @@ export interface ApplicationSecurityGroupAssociationState {
     /**
      * The id of application security group to associate. Changing this forces a new resource to be created.
      */
-    applicationSecurityGroupId?: pulumi.Input<string>;
+    applicationSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The id of private endpoint to associate. Changing this forces a new resource to be created.
      */
-    privateEndpointId?: pulumi.Input<string>;
+    privateEndpointId?: pulumi.Input<string | undefined>;
 }
 
 /**

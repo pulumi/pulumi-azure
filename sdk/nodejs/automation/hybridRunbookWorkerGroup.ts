@@ -132,19 +132,19 @@ export interface HybridRunbookWorkerGroupState {
     /**
      * The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of resource type `azure.automation.Credential` to use for hybrid worker.
      */
-    credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,11 +158,11 @@ export interface HybridRunbookWorkerGroupArgs {
     /**
      * The name of resource type `azure.automation.Credential` to use for hybrid worker.
      */
-    credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */

@@ -168,31 +168,31 @@ export interface IntegrationRuntimeAzureState {
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -202,23 +202,23 @@ export interface IntegrationRuntimeAzureArgs {
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number | undefined>;
     /**
      * Integration runtime description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
@@ -226,5 +226,5 @@ export interface IntegrationRuntimeAzureArgs {
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number | undefined>;
 }

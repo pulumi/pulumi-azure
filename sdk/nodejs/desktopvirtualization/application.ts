@@ -196,43 +196,43 @@ export interface ApplicationState {
     /**
      * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      */
-    applicationGroupId?: pulumi.Input<string>;
+    applicationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
      */
-    commandLineArgumentPolicy?: pulumi.Input<string>;
+    commandLineArgumentPolicy?: pulumi.Input<string | undefined>;
     /**
      * Command Line Arguments for Virtual Desktop Application.
      */
-    commandLineArguments?: pulumi.Input<string>;
+    commandLineArguments?: pulumi.Input<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * The index of the icon you wish to use.
      */
-    iconIndex?: pulumi.Input<number>;
+    iconIndex?: pulumi.Input<number | undefined>;
     /**
      * Specifies the path for an icon which will be used for this Virtual Desktop Application.
      */
-    iconPath?: pulumi.Input<string>;
+    iconPath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The file path location of the app on the Virtual Desktop OS.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    showInPortal?: pulumi.Input<boolean>;
+    showInPortal?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -250,27 +250,27 @@ export interface ApplicationArgs {
     /**
      * Command Line Arguments for Virtual Desktop Application.
      */
-    commandLineArguments?: pulumi.Input<string>;
+    commandLineArguments?: pulumi.Input<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * The index of the icon you wish to use.
      */
-    iconIndex?: pulumi.Input<number>;
+    iconIndex?: pulumi.Input<number | undefined>;
     /**
      * Specifies the path for an icon which will be used for this Virtual Desktop Application.
      */
-    iconPath?: pulumi.Input<string>;
+    iconPath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The file path location of the app on the Virtual Desktop OS.
      */
@@ -278,5 +278,5 @@ export interface ApplicationArgs {
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    showInPortal?: pulumi.Input<boolean>;
+    showInPortal?: pulumi.Input<boolean | undefined>;
 }

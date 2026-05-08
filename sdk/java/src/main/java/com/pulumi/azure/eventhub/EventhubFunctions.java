@@ -53,8 +53,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -103,8 +103,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -153,8 +153,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -203,8 +203,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -303,8 +303,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -352,8 +352,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -450,8 +450,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -548,8 +548,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -648,8 +648,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -698,8 +698,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -748,8 +748,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -798,8 +798,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -848,8 +848,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -898,8 +898,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -948,8 +948,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -998,8 +998,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1048,8 +1048,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1101,8 +1101,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1154,8 +1154,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1207,8 +1207,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1260,8 +1260,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1313,8 +1313,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1362,8 +1362,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1411,8 +1411,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1460,8 +1460,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1509,8 +1509,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1558,8 +1558,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1608,8 +1608,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1658,8 +1658,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1708,8 +1708,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1758,8 +1758,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1817,8 +1817,8 @@ public final class EventhubFunctions {
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
      * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1904,8 +1904,8 @@ public final class EventhubFunctions {
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
      * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1991,8 +1991,8 @@ public final class EventhubFunctions {
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
      * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2078,8 +2078,8 @@ public final class EventhubFunctions {
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
      * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2165,8 +2165,8 @@ public final class EventhubFunctions {
      * import com.pulumi.azure.eventhub.EventhubFunctions;
      * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
      * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2243,8 +2243,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2296,8 +2296,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2349,8 +2349,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2402,8 +2402,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2455,8 +2455,8 @@ public final class EventhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
      * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

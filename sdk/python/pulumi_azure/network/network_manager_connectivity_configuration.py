@@ -24,11 +24,11 @@ class NetworkManagerConnectivityConfigurationArgs:
                  applies_to_groups: pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]],
                  connectivity_topology: pulumi.Input[_builtins.str],
                  network_manager_id: pulumi.Input[_builtins.str],
-                 delete_existing_peering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub: pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerConnectivityConfiguration resource.
 
@@ -93,76 +93,76 @@ class NetworkManagerConnectivityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteExistingPeeringEnabled")
-    def delete_existing_peering_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_existing_peering_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "delete_existing_peering_enabled")
 
     @delete_existing_peering_enabled.setter
-    def delete_existing_peering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_existing_peering_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_existing_peering_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Connectivity Configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalMeshEnabled")
-    def global_mesh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_mesh_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to global mesh is supported. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "global_mesh_enabled")
 
     @global_mesh_enabled.setter
-    def global_mesh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_mesh_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_mesh_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def hub(self) -> Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']]:
+    def hub(self) -> pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']]:
         """
         A `hub` block as defined below.
         """
         return pulumi.get(self, "hub")
 
     @hub.setter
-    def hub(self, value: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']]):
+    def hub(self, value: pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']]):
         pulumi.set(self, "hub", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerConnectivityConfigurationState:
     def __init__(__self__, *,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] = None,
-                 connectivity_topology: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_existing_peering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] = None,
+                 connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub: pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerConnectivityConfiguration resources.
 
@@ -194,98 +194,98 @@ class _NetworkManagerConnectivityConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]:
+    def applies_to_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]:
         """
         One or more `applies_to_group` blocks as defined below.
         """
         return pulumi.get(self, "applies_to_groups")
 
     @applies_to_groups.setter
-    def applies_to_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]):
+    def applies_to_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]):
         pulumi.set(self, "applies_to_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="connectivityTopology")
-    def connectivity_topology(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connectivity_topology(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         """
         return pulumi.get(self, "connectivity_topology")
 
     @connectivity_topology.setter
-    def connectivity_topology(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connectivity_topology(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connectivity_topology", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteExistingPeeringEnabled")
-    def delete_existing_peering_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_existing_peering_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "delete_existing_peering_enabled")
 
     @delete_existing_peering_enabled.setter
-    def delete_existing_peering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_existing_peering_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_existing_peering_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Connectivity Configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalMeshEnabled")
-    def global_mesh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_mesh_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to global mesh is supported. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "global_mesh_enabled")
 
     @global_mesh_enabled.setter
-    def global_mesh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_mesh_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_mesh_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def hub(self) -> Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']]:
+    def hub(self) -> pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']]:
         """
         A `hub` block as defined below.
         """
         return pulumi.get(self, "hub")
 
     @hub.setter
-    def hub(self, value: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']]):
+    def hub(self, value: pulumi.Input[Optional['NetworkManagerConnectivityConfigurationHubArgs']]):
         pulumi.set(self, "hub", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
-    def network_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
     @network_manager_id.setter
-    def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
 
@@ -295,14 +295,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
-                 connectivity_topology: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_existing_peering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+                 connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Connectivity Configuration.
@@ -486,14 +486,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
-                 connectivity_topology: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_existing_peering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+                 connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,14 +527,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
-            connectivity_topology: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_existing_peering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerConnectivityConfiguration':
+            applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+            connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerConnectivityConfiguration':
         """
         Get an existing NetworkManagerConnectivityConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
